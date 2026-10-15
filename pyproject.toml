@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "me3-full-duplex-agent"
+version = "0.1.0"
+description = "Preliminary Pi-local OnIt conversation and background-job prototype"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+speech = ["httpx>=0.28,<1", "sounddevice>=0.5,<0.6", "mcp>=1.28,<2"]
+mcp = ["mcp>=1.28,<2", "httpx>=0.28,<1"]
+test = ["httpx>=0.28,<1"]
+
+[project.scripts]
+me3 = "me3.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["me3*"]

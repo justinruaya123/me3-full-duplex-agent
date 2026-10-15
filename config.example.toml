@@ -1,0 +1,29 @@
+# Explicit simulator by default. Change to "onit" only after its setup.
+backend = "mock"
+workers = 1
+
+[onit]
+# Both the Python interpreter and OnIt harness execute on the Raspberry Pi.
+python = "/opt/onit/.venv/bin/python"
+checkout = "/opt/onit"
+revision = "0a9c391560a7767f36fd56ddbe81749b44b54fec"
+# Example inference endpoint only; this example address is not a real service.
+host = "http://127.0.0.1:8001/v1"
+model = "REPLACE_WITH_SERVED_TOOL_CAPABLE_MODEL"
+# Credentials: ME3_MODEL_API_KEY environment variable. Never commit secrets.
+
+[speech]
+# Replace with your Mac/LAN inference host and exact model identifiers.
+asr_url = "http://127.0.0.1:8002/v1/audio/transcriptions"
+tts_url = "http://127.0.0.1:8002/v1/audio/speech"
+asr_model = "REPLACE_WITH_SERVED_ASR_MODEL"
+tts_model = "REPLACE_WITH_SERVED_TTS_MODEL"
+voice = "REPLACE_WITH_SUPPORTED_VOICE"
+# Credentials: ME3_SPEECH_API_KEY environment variable.
+# Required TTS output: little-endian PCM16, mono, exactly 24000 Hz.
+
+[audio]
+energy_threshold = 600
+# Optional sounddevice device names/indices. Use headphones or an AEC source.
+# input_device = "your echo-cancelled capture device"
+# output_device = "your playback device"

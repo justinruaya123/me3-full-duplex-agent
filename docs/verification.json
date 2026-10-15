@@ -1,0 +1,45 @@
+{
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+  },
+  "tests_discovered": 29,
+  "passed": 28,
+  "failures": 0,
+  "errors": 0,
+  "skips": [
+    {
+      "test": "test_stdio_discovery_submit_and_result (test_mcp.MCPSmokeTests.test_stdio_discovery_submit_and_result)",
+      "reason": "Optional MCP SDK is not installed"
+    }
+  ],
+  "checks_passed": [
+    "unit tests excluding explicit SDK skip",
+    "simulator demo",
+    "compileall",
+    "79-column/no-tabs/no-trailing-whitespace checks",
+    "20-trial-per-track simulator benchmark"
+  ],
+  "not_run": [
+    "real OnIt",
+    "real MCP SDK integration",
+    "real ASR/TTS inference",
+    "microphone/speaker",
+    "Pi ARM64",
+    "acoustic benchmark"
+  ],
+  "source_blob_sha1": {
+    "me3/__init__.py": "a87490cde014bd69c0243d561e1870a8e2bb9088",
+    "me3/__main__.py": "4e28416e104515e90fca4b69cc60d0c61fd15d61",
+    "me3/backends.py": "21f6319ef524162424a3f2d4fcdde399f0544043",
+    "me3/benchmark.py": "4adfc76470e34912e65706db023ea252ea880d7a",
+    "me3/cli.py": "68b7e8d390bf75e0953e0637f3adf39846541524",
+    "me3/core.py": "e7ca728c5156f22f8dcc54ed4c6a4a6e66e217ed",
+    "me3/mcp_server.py": "655966963f98de632a6e273a53005eeb1e31ef44",
+    "me3/onit_runner.py": "23bce99949e1239ca0620c0e1f1118580076648d",
+    "me3/speech.py": "ac771991cf4266caafdc742d0003d3f15f53a1a7",
+    "me3/voice.py": "2fff0773a0bfd5088695e24ad8e6b7926de8094d"
+  },
+  "remote_commit_created": false,
+  "remote_write_status": "GitHub create_tree blocked: safety status could not be determined."
+}
