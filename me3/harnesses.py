@@ -14,7 +14,7 @@ PI_SOURCE_REVISION = "3e0eec29f50e7861e9db91f2d12723267411b4f3"
 
 
 async def _drain(reader: asyncio.StreamReader) -> None:
-    # Drain diagnostics without retaining provider logs or secrets.
+    # Discard unread output without retaining provider logs or secrets.
     while await reader.read(8192):
         pass
 
@@ -93,9 +93,19 @@ class JsonProcessBackend:
             async with asyncio.timeout(self.timeout):
                 return await self._exchange(process, prompt, foreground)
         finally:
-            await _reap(process)
-            diagnostics.cancel()
-            await asyncio.gather(diagnostics, return_exceptions=True)
+            process.stdin.close()
+            # An output-limit error can leave stdout flow-control paused.
+            # Drain before waiting so process exit also closes its pipes.
+            remaining_output = asyncio.create_task(_drain(process.stdout))
+            try:
+                await _reap(process)
+                await asyncio.gather(remaining_output, diagnostics)
+            finally:
+                remaining_output.cancel()
+                diagnostics.cancel()
+                await asyncio.gather(
+                    remaining_output, diagnostics, return_exceptions=True,
+                )
 
 
 class PiBackend(JsonProcessBackend):

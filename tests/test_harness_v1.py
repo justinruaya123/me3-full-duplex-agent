@@ -51,6 +51,26 @@ class ProcessTests(unittest.IsolatedAsyncioTestCase):
                 "draft", self.root,
             )
 
+    async def test_output_limit_drains_pipes_before_return(self):
+        class ObservedBackend(JsonProcessBackend):
+            async def _exchange(inner, process, prompt, foreground):
+                inner.process = process
+                return await super()._exchange(process, prompt, foreground)
+
+        command = self.fixture('print("x" * 20000)')
+        backend = ObservedBackend(command, max_bytes=4096)
+        with self.assertRaises(ValueError):
+            await backend.run("draft", self.root)
+        process = backend.process
+        try:
+            self.assertIsNotNone(process.returncode)
+            self.assertTrue(process.stdout.at_eof())
+            self.assertTrue(process.stderr.at_eof())
+            self.assertTrue(process.stdin.is_closing())
+        finally:
+            # The failing implementation must not leak into the next test.
+            await process.stdout.read()
+
     async def test_timeout_reaps_child(self):
         command = self.fixture('import time\ntime.sleep(10)\n')
         with self.assertRaises(TimeoutError):

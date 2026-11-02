@@ -47,3 +47,23 @@ full repository tests; run the optional Pipecat smoke; test microphone with
 headphones; test interruption flushing and transport receipts; then run one
 course-benchmark round with recordings and failure denominators. Replace per-call
 process startup and buffered ASR/LLM only after preserving this regression suite.
+
+## Post-publication CI and pipe-cleanup correction
+
+GitHub Actions run `41455864296`, job `125312236109`, tested the complete
+repository on Ubuntu/Python 3.12.15: **60 tests, 59 passed, 1 skipped**. The
+existing SQLite/persistence suite and actual MCP SDK smoke passed, as did the
+legacy demo, simulator benchmark and compile checks. Pipecat remained absent.
+
+Although CI concluded success, its logs exposed an unclosed stdout transport
+after the output-limit test. A new regression reproduced the issue locally:
+the child had exited but stdout had not reached EOF. Teardown now closes stdin
+and drains unread stdout concurrently with process termination, then waits for
+both output pipes instead of cancelling the stderr reader prematurely.
+
+After this correction, the local new suite reports **32 tests, 31 passed,
+1 skipped**, with ResourceWarning reporting enabled and no cleanup warning in
+the captured log. The deterministic demo and compilation also passed. This
+supersedes the local counts above. The initial CI receipt applies to commit
+`2629613`; the correction requires its own subsequent CI receipt. Neither run
+provides live audio, real Hermes/Pi inference or acoustic benchmark evidence.
