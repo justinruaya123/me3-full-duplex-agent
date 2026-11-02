@@ -1,193 +1,159 @@
-# ME3: preliminary full-duplex OnIt agent
+# ME3: harness-neutral duplex voice prototype
 
-**Target branch: `preliminary`. Experimental, single-user, Linux/macOS prototype.**
+**Current branch: `prototype/hermes-duplex-v1`. Hermes first; Pi RPC alternative.**
 
-This implements the smallest useful slice of the proposed architecture: a
-foreground conversation can continue while an independent background job runs.
-Stopping a reply does not stop the job; completed jobs do not seize conversation
-focus. The Pi owns execution and state. Only model inference may be remote.
+This is a control-plane prototype, not a measured replacement for a native
+speech-to-speech model. It extends the previous implementation on **`perliminary`**
+(commit `6a044dba1edb0d0edba998954def39dbc0158d51`). The misspelled branch contains
+the prior code; `main` and `preliminary` did not contain it when work began.
 
-## Start here: no credentials or dependencies
-
-Use Python 3.11 or newer from this repository's root:
-
-```sh
-python -m me3 demo
-python -m me3 chat
-```
-
-Both commands default to an explicitly labelled **simulator**, not OnIt or a
-speech model. `demo` runs its assertions and removes its temporary state on exit.
-To retain the demo's artifact and traces, supply a new `--state DIRECTORY`.
-
-In `chat`, try:
+## Architecture
 
 ```text
-/task Write a short explanation of recurrent neural networks.
-Explain what a hidden state represents.
-/stop
-/jobs
+microphone / benchmark transport
+        | continuously captured audio
+        v
+  VAD + ASR  ----> conversational controller <---- transport playback events
+                        |             |
+             quick conversational    +---- durable local task supervisor
+                  response                        |
+                        |                 isolated Hermes / Pi workers
+                 speech arbiter                   |
+                        |                 revision-fenced result artifacts
+                    TTS/audio <---- idle-boundary completion notice
 ```
 
-The task survives `/stop`. Use the printed full job ID with `/focus ID`,
-`/result ID`, `/update ID NEW REQUEST`, or `/cancel ID`. `/focus` clears focus.
-`/quit` shuts down cleanly. Completion notices are **text-only** and do not change
-focus. Job routing is explicit; the prototype does not infer arbitrary delegation
-or context-switching language from a conversation.
+The controller owns speaking rights. Neither a worker nor its result may directly
+speak or switch conversation focus. Stopping speech does not cancel a job.
+Hermes/Pi processes, persistence and tool ownership stay on the orchestration
+machine; only inference endpoints may be elsewhere. No ME2 smart-speaker code
+or constrained-command grammar is changed.
 
-Persistent state defaults to `~/.local/state/me3`. It contains SQLite job state,
-per-job/revision artifacts, foreground workspaces and monotonic event traces.
-Only one supervisor may own a state directory. Unfinished jobs become
-`interrupted` after restart; they are not silently replayed.
+See [the architecture and qualification plan](docs/DUPLEX_ARCHITECTURE.md) and
+[the measured implementation status](docs/DUPLEX_STATUS.md).
 
-## What is implemented
+## Run the dependency-free simulation
 
-- Independent asynchronous foreground and bounded background queue.
-- SQLite job records, isolated revision directories, atomic artifact publication,
-  stale-result rejection, explicit cancellation and single-owner state locking.
-- A local subprocess adapter invoking the real `OnIt.process_task` API from a
-  pinned source checkout. Each foreground request/job gets its own process.
-- Pi-hosted **control MCP** and **speech MCP** servers using the official SDK over
-  stdio. No public listener, shared credentials in code, or hand-written MCP.
-- Optional continuous local microphone capture, elementary energy VAD and
-  interruptible PCM playback. The live path invokes the speech MCP server for
-  ASR and TTS; the server owns the inference API calls.
-- A simulator control-path benchmark, tests and repository agent instructions.
-
-## Real OnIt: opt-in, separate environment
-
-Install the core application in one environment. Install OnIt from its pinned
-source in a **separate Python 3.12 environment on the Pi**. OnIt's dependencies
-and import layout should not be mixed with the core runtime accidentally.
+Python 3.11+ on Linux/macOS:
 
 ```sh
-# In this repository
-python3 -m venv .venv
-. .venv/bin/activate
-python -m pip install -e '.[test,mcp]'
-
-# In another directory; use an available Python 3.12 interpreter
-# Installing model weights on the Pi is not required.
-git clone https://github.com/sibyl-oracles/onit.git "$HOME/onit"
-git -C "$HOME/onit" checkout 0a9c391560a7767f36fd56ddbe81749b44b54fec
-python3.12 -m venv "$HOME/onit/.venv"
-"$HOME/onit/.venv/bin/python" -m pip install -e "$HOME/onit[all]"
+python -m me3.duplex_demo
+python -m unittest discover -s tests -p '*v1.py' -v
+python -m compileall -q me3 tests integrations
 ```
 
-Copy `config.example.toml` **outside the repository**, for example to
-`~/.config/me3.toml`. Set `backend = "onit"`, the absolute OnIt checkout/interpreter
-paths, and a real model host and model identifier. All placeholder identifiers
-must be replaced. Supply a provider key through `ME3_MODEL_API_KEY` if needed.
-Then run:
+The demo uses **in-memory fixture jobs and fixture text**, not real inference,
+durable-job validation or audio. The original `python -m me3 demo` and the OnIt
+modules remain available as a separate legacy baseline.
+
+## Real providers: explicit configuration, no fallback
+
+Install the project and the inspected Pipecat source in the voice environment.
+Local audio needs the operating system's PortAudio development/runtime packages.
 
 ```sh
-python -m me3 chat --config ~/.config/me3.toml
+python -m pip install -e '.[test]'
+python -m pip install -r requirements-duplex.txt
 ```
 
-The adapter checks the configured source commit and fails rather than falling
-back to a simulator. It disables OnIt's default shell/network MCP tools and
-harness code execution. This first slice supports conversation and drafting;
-**it does not execute real-world side effects or research the web**. A configured
-working directory is not an OS sandbox. Adding tools requires a separate,
-tested authorization boundary.
-
-Process-per-request startup is intentional for initial isolation, not a low-
-latency final design. Persistent OnIt workers and measured model-server priority
-are subsequent steps. Merely having two local processes does not reserve model
-inference capacity on a shared Mac/GPU.
-
-## Speech experiment: optional, not yet hardware-validated
-
-On the Pi, install the audio dependency and OS PortAudio library:
+Install Hermes from source in its own environment, following its installation
+instructions (`uv sync` from the checkout), then check out the adapter revision
+**before** syncing. Do not substitute an unrelated package named `hermes-agent`.
 
 ```sh
-sudo apt-get install libportaudio2
-python -m pip install -e '.[speech]'
-python -m sounddevice
-python -m me3 voice --config ~/.config/me3.toml
+git clone https://github.com/NousResearch/hermes-agent.git "$HOME/hermes-agent"
+git -C "$HOME/hermes-agent" checkout 2b31d7b283191b8069311fd3514ee89419f76516
+(cd "$HOME/hermes-agent" && uv sync)
+
+export ME3_HARNESS=hermes
+export ME3_HERMES_ROOT="$HOME/hermes-agent"
+export ME3_HERMES_PYTHON="$HOME/hermes-agent/.venv/bin/python"
+export ME3_MODEL='YOUR_CONFIGURED_MODEL_ID'
+# Optional operator/provider configuration:
+# ME3_MODEL_BASE_URL, ME3_MODEL_PROVIDER, ME3_MODEL_API_KEY
 ```
 
-Configure the actual input/output device names or indices in `[audio]`.
-**Start with headphones or an explicitly AEC-processed microphone source.**
-This repository does not install or configure acoustic echo cancellation.
-The energy detector will otherwise mistake the agent's own speech or bystanders
-for interruptions. It is not semantic endpointing or speaker identification.
-
-Required inference endpoint contracts (operator-configured, never chosen by
-spoken input):
-
-| Operation | Request | Response |
-| --- | --- | --- |
-| ASR | Multipart POST with `file` (mono PCM16, 16 kHz WAV) and `model` | JSON with nonempty `text` |
-| TTS | JSON POST with `model`, `input`, `voice`, `response_format="pcm"` | Streaming mono, little-endian PCM16 at exactly 24 kHz |
-
-These can run on a Mac/LAN inference server or a commercial endpoint supporting
-those exact contracts. No model-server installation is included. Keep HTTP on a
-trusted private network; use authenticated TLS on untrusted links. Credentials
-use `ME3_SPEECH_API_KEY` and are not sent to unrelated endpoints.
-
-ASR is **utterance-based**, not incremental streaming: 20 ms input frames,
-60 ms speech-start qualification, 200 ms pre-roll and 600 ms end silence. Capture
-continues during generation/playback. Capture gaps and overlong speech are
-discarded until silence rather than executed as partial commands. TTS is pulled
-through MCP in up-to-100 ms chunks and played in 20 ms writes. This pull transport
-is deliberately simple and adds overhead; it is not the final audio transport.
-The entire OnIt text answer is currently obtained before synthesis begins.
-
-Say `background task ...` to submit explicit work, or `stop talking` to stop a
-reply. Those are prototype control phrases, not an intelligent language router.
-Completion notices remain on the terminal. Interrupted response delivery is
-recorded as unknown; word-accurate playback-prefix tracking is not implemented.
-Ctrl+C ends the voice session and interrupts unfinished local jobs.
-
-## MCP entry points
+Provide actual OpenAI-compatible inference endpoints. These are explicit base
+URLs, not automatic server installers. The following are examples, not endpoints
+proven available on your machine:
 
 ```sh
-# Owns a distinct job store; do not reuse an active chat/voice store.
-python -m me3 mcp --state /tmp/me3-mcp --config ~/.config/me3.toml
-
-# Used automatically by the voice client; configuration must name real endpoints.
-python -m me3 mcp-speech --config ~/.config/me3.toml
+export ME3_ASR_BASE_URL='http://127.0.0.1:8000/v1'
+export ME3_ASR_MODEL='YOUR_ASR_MODEL_ID'
+export ME3_TTS_BASE_URL='http://127.0.0.1:8880/v1'
+export ME3_TTS_MODEL='YOUR_TTS_MODEL_ID'
+export ME3_TTS_VOICE='YOUR_VOICE_ID'
+# Optional: ME3_ASR_API_KEY, ME3_TTS_API_KEY
+python -m me3.duplex_voice
 ```
 
-Control tools: `submit_job`, `get_job`, `list_jobs`, `revise_job`, `cancel_job`,
-`get_result`, `set_focus`, `ask`, `stop_speaking`.
-Speech tools: `transcribe`, `tts_open`, `tts_next`, `tts_cancel`.
-The control server is a standalone interface, not a second supervisor attached
-to the chat process. Connecting an OnIt foreground tool facade to it is deferred.
-Speech tools are called by the runtime, not selected by an LLM.
+ASR must support audio transcription; TTS must support streaming mono PCM16 at
+24 kHz. Whisper/MLX and Kokoro are intended inference-server choices, **not
+installed or integration-qualified by this commit**. Start with headphones or an
+AEC-processed microphone source. No acoustic echo cancellation is implemented.
 
-## Tests and benchmark
+The initial voice commands are explicit: `background task ...` delegates a draft;
+`stop talking` stops foreground speech, not the job. Completed result files live
+under `ME3_LOG_DIR/session-*/jobs/*/revision-*/result.md` (default log root:
+`~/.local/state/me3-duplex`). Completion notices do not read the result or seize
+focus. An automatic tool-routing model and spoken result retrieval are later work.
+
+Worker tools are deliberately disabled. This baseline delegates reasoning and
+drafting, not web research, shell execution, email or device control. A working
+directory is not an OS sandbox. Processes start per request; persistent warmed
+workers are a required latency improvement, not an existing capability.
+
+### Pi alternative
+
+The adapter targets the inspected current `earendil-works/pi` RPC protocol,
+including `agent_settled`. An older Pi without this event/flags is not compatible.
+Use an operator-installed Pi version matching the referenced source and retain
+its exact version in evaluation results; no package version is silently installed.
 
 ```sh
-python -m pip install -e '.[test,mcp]'
-python -m unittest discover -s tests -v
-python -m me3 benchmark --trials 20 --output /tmp/me3-benchmark-new
-python -m compileall -q me3 tests
+export ME3_HARNESS=pi
+export ME3_PI_BIN="$(command -v pi)"
+export ME3_MODEL='YOUR_CONFIGURED_MODEL_ID'
+python -m me3.duplex_voice
 ```
 
-The optional SDK test exercises a real stdio server when installed. The simulator
-benchmark compares request-to-text timing with zero versus one artificially
-blocked worker. It writes immutable `metrics.json`, `trials.jsonl` and event
-traces, includes failure denominators and source hashes, and labels itself
-**not hardware qualified**. It is not ASR/LLM/TTS speed, acoustic latency or
-Full-Duplex-Bench performance. See [benchmark protocol](docs/BENCHMARK.md) and
-[observed status](docs/STATUS.md).
+Tools, extensions, MCP, skills, templates and context-file discovery are disabled
+for this baseline. Provider credentials remain in the operator's environment.
+The Pi adapter is protocol-tested against fixtures, not a live provider.
 
-## Architecture boundaries and next work
+## Connect the existing course benchmark
 
-`core.py` owns state and interaction; `backends.py`/`onit_runner.py` isolate OnIt;
-`speech.py`, `mcp_server.py` and `voice.py` form the experimental audio path.
-`AGENTS.md` and `.agents/skills/duplex-invariants/SKILL.md` preserve those boundaries.
+Use its unchanged launcher and scorer. Run the launcher with this project's
+voice environment; run fdbench itself with its own environment.
 
-Next: validate real OnIt and speech on hardware, add persistent workers and
-inference priority, AEC and semantic turn-taking, bounded LLM job routing,
-spoken notification arbitration, then safe action tools and acoustic evaluation.
-Do not claim natural full-duplex or human-testing readiness from this baseline.
+```sh
+git clone https://github.com/trueshotjames/ai231-me3-full-duplex-benchmarking.git fd-benchmark
+export FDBENCH_PROJECT="$PWD"
+export FDBENCH_ENTRY="$PWD/integrations/fdbench_entry.py"
+python fd-benchmark/launch_assistant.py --check
+python fd-benchmark/launch_assistant.py --url ws://LAPTOP-IP:8791 --once
+```
 
-## Primary references
+The launcher supplies audio transport; it must not open a physical microphone in
+benchmark mode. Input is 16 kHz; TTS/output is 24 kHz and the benchmark resamples.
+`--check` validates imports/rates, **not provider connectivity or model quality**.
+The same `build()` creates both local and benchmark pipelines. No labels, expected
+responses, trial categories or judge outputs are supplied to the controller.
 
-- Pinned OnIt API example: https://github.com/sibyl-oracles/onit/blob/0a9c391560a7767f36fd56ddbe81749b44b54fec/benchmarks/onit_provider.py
-- MCP Python SDK v1 maintenance line: https://py.sdk.modelcontextprotocol.io/v1/
-- Full-Duplex-Bench original paper: https://arxiv.org/abs/2503.04721
-- Benchmark code: https://github.com/DanielLin94144/Full-Duplex-Bench
+## Known limits
+
+ASR is utterance-based; full foreground text is buffered before synthesis.
+Backchannel recognition is a small exact-phrase policy, not an acoustic classifier.
+Optional `ME3_LEXICAL_TURN_HOLD=1` enables a crude conjunction-ending hold experiment;
+it is off by default. Proactive `Mm-hm.` responses are demonstrated through the
+controller's explicit incomplete-turn input, not a learned prosodic policy.
+
+Addressee detection, TV/bystander rejection, AEC, incremental ASR, word-accurate
+heard-prefix tracking, real Pi4/M2 measurements, live Hermes/Pi provider tests and
+Full-Duplex-Bench scores are **not established**. Transport start/stop receipts
+are approximate whole-utterance signals, not proof of acoustic delivery. Test
+chunk gaps, cancellation and delayed output events before relying on them.
+
+The full existing test suite can be run after installing `.[test,mcp]`:
+`python -m unittest discover -s tests -v`. The local implementation receipt covers
+only the new overlay tests; it does not relabel old tests as rerun.

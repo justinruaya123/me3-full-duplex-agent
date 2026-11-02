@@ -1,0 +1,2 @@
+# Inspected source pin; not a transitive dependency lock or ARM64 qualification.
+pipecat-ai[openai,local] @ git+https://github.com/pipecat-ai/pipecat.git@6f777a0ef3bb98163d10d708525a0db21cda5fbf
