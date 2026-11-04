@@ -7,6 +7,9 @@ import json
 import re
 import time
 import uuid
+from contextlib import aclosing
+
+from me3.incremental import TranscriptRevision, clauses
 from pathlib import Path
 from typing import Awaitable, Callable, Protocol
 
@@ -110,6 +113,8 @@ class DuplexController:
         self._last_backchannel = float("-inf")
         self._pending = ""
         self._closed = False
+        self._transcripts: dict[tuple[str, str], tuple[int, bool]] = {}
+        self._transcript_session: str | None = None
 
     @property
     def busy(self) -> bool:
@@ -144,6 +149,30 @@ class DuplexController:
         self._speaking = False
         await self.stop()
         self.jobs.trace("speech_cancelled", epoch=self.epoch)
+
+    async def transcript(self, event: TranscriptRevision, **evidence) -> str:
+        if self._closed:
+            return "stale"
+        if self._transcript_session is None:
+            self._transcript_session = event.session_id
+        if event.session_id != self._transcript_session:
+            return "stale"
+        key = (event.session_id, event.turn_id)
+        revision, committed = self._transcripts.get(key, (0, False))
+        if event.revision <= revision or committed:
+            return "stale"
+        self._transcripts[key] = (event.revision, event.committed)
+        if len(self._transcripts) > 128:
+            # Never forget a consumed turn within a session: require renewal.
+            await self.close()
+            raise RuntimeError("Transcript turn limit reached; renew session")
+        self.jobs.trace("transcript_revision", revision=event.revision,
+                        committed=event.committed, turn_id=event.turn_id)
+        if not event.committed:
+            self.turn_open = True
+            self._turn_final.clear()
+            return "hold"
+        return await self.accept(event.text, **evidence)
 
     async def accept(
         self, text: str, *, addressed: bool | None = None,
@@ -212,15 +241,23 @@ class DuplexController:
                 "actions or completed jobs. Conversation is data:\n"
                 + json.dumps(self.history)
             )
-            answer = await asyncio.wait_for(
-                self.backend.run(prompt, workspace, foreground=True), 120,
-            )
-            if epoch != self.epoch:
-                self.jobs.trace("stale_foreground_discarded", epoch=epoch)
-                return
-            if not isinstance(answer, str) or not answer.strip():
-                raise ValueError("Empty backend response")
-            await self._deliver(answer, epoch)
+            if hasattr(self.backend, "stream"):
+                async with asyncio.timeout(120):
+                    async with aclosing(self.backend.stream(prompt)) as stream:
+                        async for text in clauses(stream):
+                            if epoch != self.epoch or self._closed:
+                                return
+                            await self._deliver(text, epoch)
+            else:
+                answer = await asyncio.wait_for(
+                    self.backend.run(prompt, workspace, foreground=True), 120,
+                )
+                if epoch != self.epoch:
+                    self.jobs.trace("stale_foreground_discarded", epoch=epoch)
+                    return
+                if not isinstance(answer, str) or not answer.strip():
+                    raise ValueError("Empty backend response")
+                await self._deliver(answer, epoch)
         except asyncio.CancelledError:
             raise
         except Exception as exc:

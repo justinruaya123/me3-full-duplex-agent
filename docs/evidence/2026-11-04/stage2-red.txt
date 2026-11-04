@@ -1,0 +1,172 @@
+test_buffer_overflow_fails_instead_of_dropping_audio_silently (test_incremental_v1.PlaybackTests.test_buffer_overflow_fails_instead_of_dropping_audio_silently) ... ERROR
+test_late_receipt_cannot_confirm_new_audio (test_incremental_v1.PlaybackTests.test_late_receipt_cannot_confirm_new_audio) ... ERROR
+test_provisional_pause_preserves_unplayed_pcm (test_incremental_v1.PlaybackTests.test_provisional_pause_preserves_unplayed_pcm) ... ERROR
+test_commit_is_once_and_older_revisions_are_ignored (test_incremental_v1.TranscriptTests.test_commit_is_once_and_older_revisions_are_ignored) ... ERROR
+test_provisional_delegate_and_stop_never_authorize (test_incremental_v1.TranscriptTests.test_provisional_delegate_and_stop_never_authorize) ... ERROR
+test_rolling_revisions_keep_stability_separate_from_commit (test_incremental_v1.TranscriptTests.test_rolling_revisions_keep_stability_separate_from_commit) ... ERROR
+
+======================================================================
+ERROR: test_buffer_overflow_fails_instead_of_dropping_audio_silently (test_incremental_v1.PlaybackTests.test_buffer_overflow_fails_instead_of_dropping_audio_silently)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_incremental_v1.py", line 103, in test_buffer_overflow_fails_instead_of_dropping_audio_silently
+    from me3.incremental import PCMBuffer
+ModuleNotFoundError: No module named 'me3.incremental'
+
+======================================================================
+ERROR: test_late_receipt_cannot_confirm_new_audio (test_incremental_v1.PlaybackTests.test_late_receipt_cannot_confirm_new_audio)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_incremental_v1.py", line 77, in test_late_receipt_cannot_confirm_new_audio
+    from me3.incremental import PlaybackLedger
+ModuleNotFoundError: No module named 'me3.incremental'
+
+======================================================================
+ERROR: test_provisional_pause_preserves_unplayed_pcm (test_incremental_v1.PlaybackTests.test_provisional_pause_preserves_unplayed_pcm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_incremental_v1.py", line 90, in test_provisional_pause_preserves_unplayed_pcm
+    from me3.incremental import PCMBuffer
+ModuleNotFoundError: No module named 'me3.incremental'
+
+======================================================================
+ERROR: test_commit_is_once_and_older_revisions_are_ignored (test_incremental_v1.TranscriptTests.test_commit_is_once_and_older_revisions_are_ignored)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_incremental_v1.py", line 40, in test_commit_is_once_and_older_revisions_are_ignored
+    from me3.incremental import TranscriptRevision
+ModuleNotFoundError: No module named 'me3.incremental'
+
+======================================================================
+ERROR: test_provisional_delegate_and_stop_never_authorize (test_incremental_v1.TranscriptTests.test_provisional_delegate_and_stop_never_authorize)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_incremental_v1.py", line 13, in test_provisional_delegate_and_stop_never_authorize
+    from me3.incremental import TranscriptRevision
+ModuleNotFoundError: No module named 'me3.incremental'
+
+======================================================================
+ERROR: test_rolling_revisions_keep_stability_separate_from_commit (test_incremental_v1.TranscriptTests.test_rolling_revisions_keep_stability_separate_from_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_incremental_v1.py", line 64, in test_rolling_revisions_keep_stability_separate_from_commit
+    from me3.incremental import RollingTranscript
+ModuleNotFoundError: No module named 'me3.incremental'
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.011s
+
+FAILED (errors=6)
+test_first_clause_plays_before_generation_finishes (test_incremental_v1.ClauseTests.test_first_clause_plays_before_generation_finishes) ... ERROR
+test_buffer_overflow_fails_instead_of_dropping_audio_silently (test_incremental_v1.PlaybackTests.test_buffer_overflow_fails_instead_of_dropping_audio_silently) ... ERROR
+test_late_receipt_cannot_confirm_new_audio (test_incremental_v1.PlaybackTests.test_late_receipt_cannot_confirm_new_audio) ... ERROR
+test_provisional_pause_preserves_unplayed_pcm (test_incremental_v1.PlaybackTests.test_provisional_pause_preserves_unplayed_pcm) ... ERROR
+test_commit_is_once_and_older_revisions_are_ignored (test_incremental_v1.TranscriptTests.test_commit_is_once_and_older_revisions_are_ignored) ... ERROR
+test_provisional_delegate_and_stop_never_authorize (test_incremental_v1.TranscriptTests.test_provisional_delegate_and_stop_never_authorize) ... ERROR
+test_rolling_revisions_keep_stability_separate_from_commit (test_incremental_v1.TranscriptTests.test_rolling_revisions_keep_stability_separate_from_commit) ... ERROR
+
+======================================================================
+ERROR: test_first_clause_plays_before_generation_finishes (test_incremental_v1.ClauseTests.test_first_clause_plays_before_generation_finishes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/locks.py", line 213, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_incremental_v1.py", line 134, in test_first_clause_plays_before_generation_finishes
+    await asyncio.wait_for(first.wait(), 0.5)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/tasks.py", line 506, in wait_for
+    async with timeouts.timeout(timeout):
+               ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/timeouts.py", line 116, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+======================================================================
+ERROR: test_buffer_overflow_fails_instead_of_dropping_audio_silently (test_incremental_v1.PlaybackTests.test_buffer_overflow_fails_instead_of_dropping_audio_silently)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_incremental_v1.py", line 103, in test_buffer_overflow_fails_instead_of_dropping_audio_silently
+    from me3.incremental import PCMBuffer
+ModuleNotFoundError: No module named 'me3.incremental'
+
+======================================================================
+ERROR: test_late_receipt_cannot_confirm_new_audio (test_incremental_v1.PlaybackTests.test_late_receipt_cannot_confirm_new_audio)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_incremental_v1.py", line 77, in test_late_receipt_cannot_confirm_new_audio
+    from me3.incremental import PlaybackLedger
+ModuleNotFoundError: No module named 'me3.incremental'
+
+======================================================================
+ERROR: test_provisional_pause_preserves_unplayed_pcm (test_incremental_v1.PlaybackTests.test_provisional_pause_preserves_unplayed_pcm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_incremental_v1.py", line 90, in test_provisional_pause_preserves_unplayed_pcm
+    from me3.incremental import PCMBuffer
+ModuleNotFoundError: No module named 'me3.incremental'
+
+======================================================================
+ERROR: test_commit_is_once_and_older_revisions_are_ignored (test_incremental_v1.TranscriptTests.test_commit_is_once_and_older_revisions_are_ignored)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_incremental_v1.py", line 40, in test_commit_is_once_and_older_revisions_are_ignored
+    from me3.incremental import TranscriptRevision
+ModuleNotFoundError: No module named 'me3.incremental'
+
+======================================================================
+ERROR: test_provisional_delegate_and_stop_never_authorize (test_incremental_v1.TranscriptTests.test_provisional_delegate_and_stop_never_authorize)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_incremental_v1.py", line 13, in test_provisional_delegate_and_stop_never_authorize
+    from me3.incremental import TranscriptRevision
+ModuleNotFoundError: No module named 'me3.incremental'
+
+======================================================================
+ERROR: test_rolling_revisions_keep_stability_separate_from_commit (test_incremental_v1.TranscriptTests.test_rolling_revisions_keep_stability_separate_from_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_incremental_v1.py", line 64, in test_rolling_revisions_keep_stability_separate_from_commit
+    from me3.incremental import RollingTranscript
+ModuleNotFoundError: No module named 'me3.incremental'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.518s
+
+FAILED (errors=7)
