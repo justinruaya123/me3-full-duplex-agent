@@ -1,0 +1,127 @@
+test_cancellation_reaps_child (test_adapters.ProcessTests.test_cancellation_reaps_child) ... ok
+test_child_failure_is_not_mock_fallback (test_adapters.ProcessTests.test_child_failure_is_not_mock_fallback) ... ok
+test_local_child_protocol_and_no_shell (test_adapters.ProcessTests.test_local_child_protocol_and_no_shell) ... ok
+test_timeout_reaps_child (test_adapters.ProcessTests.test_timeout_reaps_child) ... ok
+test_bad_audio_and_provider_errors_fail_closed (test_adapters.SpeechTests.test_bad_audio_and_provider_errors_fail_closed) ... Executing <Task finished name='Task-31' coro=<SpeechTests.test_bad_audio_and_provider_errors_fail_closed() done, defined at /Users/jus/Documents/Grad/AI231/ME3/tests/test_adapters.py:136> result=None created at /Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:110> took 0.323 seconds
+ok
+test_http_contracts_and_pcm_stream (test_adapters.SpeechTests.test_http_contracts_and_pcm_stream) ... ok
+test_overlong_speech_is_dropped_not_executed (test_adapters.VADTests.test_overlong_speech_is_dropped_not_executed) ... ok
+test_preroll_start_end_and_duration_limit (test_adapters.VADTests.test_preroll_start_end_and_duration_limit) ... ok
+test_wrong_frame_size_rejected (test_adapters.VADTests.test_wrong_frame_size_rejected) ... ok
+test_invalid_trials_are_rejected (test_benchmark.BenchmarkTests.test_invalid_trials_are_rejected) ... ok
+test_nearest_rank_percentile (test_benchmark.BenchmarkTests.test_nearest_rank_percentile) ... ok
+test_report_is_explicitly_non_acoustic_and_immutable (test_benchmark.BenchmarkTests.test_report_is_explicitly_non_acoustic_and_immutable) ... ok
+test_missing_real_backend_configuration_is_not_mocked (test_cli.CLITests.test_missing_real_backend_configuration_is_not_mocked) ... ok
+test_onit_config_is_tool_disabled_and_uses_local_workspace (test_cli.CLITests.test_onit_config_is_tool_disabled_and_uses_local_workspace) ... ok
+test_quit_does_not_start_or_finish_queued_foreground (test_cli.CLITests.test_quit_does_not_start_or_finish_queued_foreground) ... ok
+test_backend_failure_is_not_completion (test_core.CoreTests.test_backend_failure_is_not_completion) ... ok
+test_cancel_before_worker_starts (test_core.CoreTests.test_cancel_before_worker_starts) ... ok
+test_cancel_status_waits_for_worker_cleanup (test_core.CoreTests.test_cancel_status_waits_for_worker_cleanup) ... ok
+test_focus_is_explicit_and_result_is_bounded_context (test_core.CoreTests.test_focus_is_explicit_and_result_is_bounded_context) ... ok
+test_foreground_works_while_worker_is_blocked (test_core.CoreTests.test_foreground_works_while_worker_is_blocked) ... ok
+test_late_old_revision_cannot_replace_new_result (test_core.CoreTests.test_late_old_revision_cannot_replace_new_result) ... ok
+test_no_notice_while_user_speaks_or_focus_change (test_core.CoreTests.test_no_notice_while_user_speaks_or_focus_change) ... ok
+test_queue_is_bounded (test_core.CoreTests.test_queue_is_bounded) ... ok
+test_recovery_preserves_result_and_does_not_auto_resume (test_core.CoreTests.test_recovery_preserves_result_and_does_not_auto_resume) ... ok
+test_second_supervisor_is_rejected (test_core.CoreTests.test_second_supervisor_is_rejected) ... ok
+test_stop_speech_does_not_cancel_job (test_core.CoreTests.test_stop_speech_does_not_cancel_job) ... ok
+test_unknown_id_and_empty_prompt_are_rejected (test_core.CoreTests.test_unknown_id_and_empty_prompt_are_rejected) ... ok
+test_update_uses_new_revision_and_artifact (test_core.CoreTests.test_update_uses_new_revision_and_artifact) ... ok
+test_backchannel_does_not_stop_playback (test_duplex_v1.ControllerTests.test_backchannel_does_not_stop_playback) ... ok
+test_completion_waits_for_user_and_quiet_boundary (test_duplex_v1.ControllerTests.test_completion_waits_for_user_and_quiet_boundary) ... ok
+test_delegate_returns_before_completion (test_duplex_v1.ControllerTests.test_delegate_returns_before_completion) ... ok
+test_incomplete_turn_backchannel_is_rate_limited (test_duplex_v1.ControllerTests.test_incomplete_turn_backchannel_is_rate_limited) ... ok
+test_interrupted_notice_can_be_retried (test_duplex_v1.ControllerTests.test_interrupted_notice_can_be_retried) ... ok
+test_notice_scheduled_just_before_user_onset_is_deferred (test_duplex_v1.ControllerTests.test_notice_scheduled_just_before_user_onset_is_deferred) ... ok
+test_old_reply_waits_for_transcript_not_vad_silence (test_duplex_v1.ControllerTests.test_old_reply_waits_for_transcript_not_vad_silence) ... ok
+test_provider_failure_does_not_fake_success (test_duplex_v1.ControllerTests.test_provider_failure_does_not_fake_success) ... ok
+test_reject_empty_or_oversize_input (test_duplex_v1.ControllerTests.test_reject_empty_or_oversize_input) ... ok
+test_reply_is_recorded_only_after_delivery (test_duplex_v1.ControllerTests.test_reply_is_recorded_only_after_delivery) ... ok
+test_stale_foreground_result_is_fenced (test_duplex_v1.ControllerTests.test_stale_foreground_result_is_fenced) ... ok
+test_stop_does_not_cancel_job (test_duplex_v1.ControllerTests.test_stop_does_not_cancel_job) ... ok
+test_unknown_background_speech_is_not_claimed_rejected (test_duplex_v1.ControllerTests.test_unknown_background_speech_is_not_claimed_rejected) ... ok
+test_acknowledgment_during_speech_keeps_floor (test_duplex_v1.PolicyTests.test_acknowledgment_during_speech_keeps_floor) ... ok
+test_acknowledgment_prefix_does_not_hide_command (test_duplex_v1.PolicyTests.test_acknowledgment_prefix_does_not_hide_command) ... ok
+test_background_classification_requires_external_evidence (test_duplex_v1.PolicyTests.test_background_classification_requires_external_evidence) ... ok
+test_idle_acknowledgment_is_a_turn (test_duplex_v1.PolicyTests.test_idle_acknowledgment_is_a_turn) ... ok
+test_stop_must_be_entire_control_phrase (test_duplex_v1.PolicyTests.test_stop_must_be_entire_control_phrase) ... ok
+test_cancellation_reaps_local_child (test_harness_v1.ProcessTests.test_cancellation_reaps_local_child) ... ok
+test_hermes_requires_explicit_source_and_configuration (test_harness_v1.ProcessTests.test_hermes_requires_explicit_source_and_configuration) ... ok
+test_json_process_returns_valid_result (test_harness_v1.ProcessTests.test_json_process_returns_valid_result) ... ok
+test_malformed_or_empty_result_fails (test_harness_v1.ProcessTests.test_malformed_or_empty_result_fails) ... ok
+test_output_is_bounded (test_harness_v1.ProcessTests.test_output_is_bounded) ... ok
+test_output_limit_drains_pipes_before_return (test_harness_v1.ProcessTests.test_output_limit_drains_pipes_before_return) ... ok
+test_pi_aborted_message_does_not_publish_partial_text (test_harness_v1.ProcessTests.test_pi_aborted_message_does_not_publish_partial_text) ... ok
+test_pi_command_failure_surfaces (test_harness_v1.ProcessTests.test_pi_command_failure_surfaces) ... ok
+test_pi_waits_for_settled_not_agent_end (test_harness_v1.ProcessTests.test_pi_waits_for_settled_not_agent_end) ... ok
+test_provider_error_is_not_a_mock_result (test_harness_v1.ProcessTests.test_provider_error_is_not_a_mock_result) ... ok
+test_timeout_reaps_child (test_harness_v1.ProcessTests.test_timeout_reaps_child) ... ok
+test_stdio_discovery_submit_and_result (test_mcp.MCPSmokeTests.test_stdio_discovery_submit_and_result) ... Executing <Task pending name='Task-319' coro=<MCPSmokeTests.test_stdio_discovery_submit_and_result() running at /Users/jus/Documents/Grad/AI231/ME3/tests/test_mcp.py:27> cb=[_run_until_complete_cb() at /Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py:181] created at /Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py:110> took 3.857 seconds
+ModuleNotFoundError: No module named 'mcp.server.fastmcp'. This is mcp 2.x, where FastMCP was renamed to MCPServer (from mcp.server.mcpserver import MCPServer) and other APIs changed; see the migration guide at https://py.sdk.modelcontextprotocol.io/v2/migration/#fastmcp-renamed-to-mcpserver or pin 'mcp<2' to keep running v1 code.
+ERROR
+test_missing_worker_model_never_uses_foreground_model (test_setup_v1.SetupTests.test_missing_worker_model_never_uses_foreground_model) ... ok
+test_pi_is_default_and_worker_model_is_explicit (test_setup_v1.SetupTests.test_pi_is_default_and_worker_model_is_explicit) ... ok
+test_explicit_local_providers (test_voice_v1.SettingsTests.test_explicit_local_providers) ... ok
+test_installed_pipecat_api (test_voice_v1.SettingsTests.test_installed_pipecat_api) ... skipped 'Pipecat is not installed; API smoke not run'
+test_missing_endpoints_fail_before_loading_audio (test_voice_v1.SettingsTests.test_missing_endpoints_fail_before_loading_audio) ... ok
+
+======================================================================
+ERROR: test_stdio_discovery_submit_and_result (test_mcp.MCPSmokeTests.test_stdio_discovery_submit_and_result)
+----------------------------------------------------------------------
+  + Exception Group Traceback (most recent call last):
+  |   File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 128, in run
+  |     return self._loop.run_until_complete(task)
+  |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 720, in run_until_complete
+  |     return future.result()
+  |            ~~~~~~~~~~~~~^^
+  |   File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_mcp.py", line 27, in test_stdio_discovery_submit_and_result
+  |     async with stdio_client(params) as (read, write):
+  |                ~~~~~~~~~~~~^^^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 235, in __aexit__
+  |     await self.gen.athrow(value)
+  |   File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/mcp/client/stdio.py", line 200, in stdio_client
+  |     async with anyio.create_task_group() as tg:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/anyio/_backends/_asyncio.py", line 815, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     ) from None
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Exception Group Traceback (most recent call last):
+    |   File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/mcp/client/stdio.py", line 204, in stdio_client
+    |     yield read_stream, write_stream
+    |   File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_mcp.py", line 28, in test_stdio_discovery_submit_and_result
+    |     async with ClientSession(read, write) as session:
+    |                ~~~~~~~~~~~~~^^^^^^^^^^^^^
+    |   File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/mcp/client/session.py", line 514, in __aexit__
+    |     result = await self._task_group.__aexit__(exc_type, exc_val, exc_tb)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/anyio/_backends/_asyncio.py", line 815, in __aexit__
+    |     raise BaseExceptionGroup(
+    |         "unhandled errors in a TaskGroup", self._exceptions
+    |     ) from None
+    | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+    +-+---------------- 1 ----------------
+      | Traceback (most recent call last):
+      |   File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_mcp.py", line 29, in test_stdio_discovery_submit_and_result
+      |     await session.initialize()
+      |   File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/mcp/client/session.py", line 654, in initialize
+      |     result = await self.send_request(
+      |              ^^^^^^^^^^^^^^^^^^^^^^^^
+      |     ...<9 lines>...
+      |     )
+      |     ^
+      |   File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/mcp/client/session.py", line 586, in send_request
+      |     raw = await self._dispatcher.send_raw_request(method, data.get("params"), opts)
+      |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      |   File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/mcp/shared/jsonrpc_dispatcher.py", line 444, in send_raw_request
+      |     raise MCPError(code=outcome.code, message=outcome.message, data=outcome.data)
+      | mcp.shared.exceptions.MCPError: Connection closed
+      +------------------------------------
+
+----------------------------------------------------------------------
+Ran 63 tests in 11.553s
+
+FAILED (errors=1, skipped=1)

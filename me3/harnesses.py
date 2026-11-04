@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+import shutil
 import signal
 from pathlib import Path
 from typing import Mapping
@@ -167,17 +168,18 @@ def hermes_backend(env: Mapping[str, str] | None = None) -> JsonProcessBackend:
 
 
 def configured_backend():
-    name = os.environ.get("ME3_HARNESS", "hermes")
+    name = os.environ.get("ME3_HARNESS", "pi")
     if name == "hermes":
         return hermes_backend()
     if name == "pi":
-        binary = Path(os.environ.get("ME3_PI_BIN", "")).expanduser().resolve()
-        model = os.environ.get("ME3_MODEL")
+        executable = os.environ.get("ME3_PI_BIN") or shutil.which("pi")
+        binary = Path(executable or "").expanduser().resolve()
+        model = os.environ.get("ME3_WORKER_MODEL")
         if not binary.is_file() or not model:
-            raise ValueError("Set ME3_PI_BIN to pi's path and ME3_MODEL")
+            raise ValueError("Set ME3_PI_BIN to pi's path and ME3_WORKER_MODEL")
         command = (
             str(binary), "--mode", "rpc", "--no-session", "--no-tools",
-            "--no-extensions", "--no-mcp", "--no-skills",
+            "--no-extensions", "--no-skills",
             "--no-prompt-templates", "--no-context-files", "--model", model,
         )
         return PiBackend(command)
