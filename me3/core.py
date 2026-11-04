@@ -234,10 +234,10 @@ class Supervisor:
     def update(self, job_id: str, prompt: str) -> dict:
         prompt = checked_prompt(prompt)
         job = self.get(job_id)
-        if job["status"] not in {"queued", "running"}:
+        if job["status"] not in {"queued", "running", "completed"}:
             raise ValueError(
                 (
-                    "Only queued/running jobs can be revised; "
+                    "Only queued/running/completed jobs can be revised; "
                     "submit a new job otherwise."
                 ),
             )

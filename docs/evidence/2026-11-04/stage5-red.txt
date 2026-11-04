@@ -1,0 +1,215 @@
+test_ambiguous_cancel_and_show_never_choose_a_job (test_results_v1.ResultTests.test_ambiguous_cancel_and_show_never_choose_a_job) ... ERROR
+test_completed_website_can_be_revised_and_old_result_is_fenced (test_results_v1.ResultTests.test_completed_website_can_be_revised_and_old_result_is_fenced) ... ERROR
+test_dedup_and_owner_filter_survive_session_end (test_results_v1.ResultTests.test_dedup_and_owner_filter_survive_session_end) ... ERROR
+test_preview_requires_current_verified_files_and_is_loopback (test_results_v1.ResultTests.test_preview_requires_current_verified_files_and_is_loopback) ... ERROR
+test_result_retrieval_does_not_replace_focus_or_earlier_thread (test_results_v1.ResultTests.test_result_retrieval_does_not_replace_focus_or_earlier_thread) ... ERROR
+test_tampered_artifact_cannot_start_preview (test_results_v1.ResultTests.test_tampered_artifact_cannot_start_preview) ... ERROR
+
+======================================================================
+ERROR: test_ambiguous_cancel_and_show_never_choose_a_job (test_results_v1.ResultTests.test_ambiguous_cancel_and_show_never_choose_a_job)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_results_v1.py", line 30, in asyncSetUp
+    self.session = self.runtime.open_session(speak, stop, owner='alice',
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                              quiet_seconds=0)
+                                              ^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/runtime.py", line 24, in open_session
+    session = DuplexController(
+        SupervisorJobs(self.supervisor), self.foreground,
+        speak, stop, **options,
+    )
+TypeError: DuplexController.__init__() got an unexpected keyword argument 'owner'
+
+======================================================================
+ERROR: test_completed_website_can_be_revised_and_old_result_is_fenced (test_results_v1.ResultTests.test_completed_website_can_be_revised_and_old_result_is_fenced)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_results_v1.py", line 30, in asyncSetUp
+    self.session = self.runtime.open_session(speak, stop, owner='alice',
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                              quiet_seconds=0)
+                                              ^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/runtime.py", line 24, in open_session
+    session = DuplexController(
+        SupervisorJobs(self.supervisor), self.foreground,
+        speak, stop, **options,
+    )
+TypeError: DuplexController.__init__() got an unexpected keyword argument 'owner'
+
+======================================================================
+ERROR: test_dedup_and_owner_filter_survive_session_end (test_results_v1.ResultTests.test_dedup_and_owner_filter_survive_session_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_results_v1.py", line 30, in asyncSetUp
+    self.session = self.runtime.open_session(speak, stop, owner='alice',
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                              quiet_seconds=0)
+                                              ^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/runtime.py", line 24, in open_session
+    session = DuplexController(
+        SupervisorJobs(self.supervisor), self.foreground,
+        speak, stop, **options,
+    )
+TypeError: DuplexController.__init__() got an unexpected keyword argument 'owner'
+
+======================================================================
+ERROR: test_preview_requires_current_verified_files_and_is_loopback (test_results_v1.ResultTests.test_preview_requires_current_verified_files_and_is_loopback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_results_v1.py", line 30, in asyncSetUp
+    self.session = self.runtime.open_session(speak, stop, owner='alice',
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                              quiet_seconds=0)
+                                              ^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/runtime.py", line 24, in open_session
+    session = DuplexController(
+        SupervisorJobs(self.supervisor), self.foreground,
+        speak, stop, **options,
+    )
+TypeError: DuplexController.__init__() got an unexpected keyword argument 'owner'
+
+======================================================================
+ERROR: test_result_retrieval_does_not_replace_focus_or_earlier_thread (test_results_v1.ResultTests.test_result_retrieval_does_not_replace_focus_or_earlier_thread)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_results_v1.py", line 30, in asyncSetUp
+    self.session = self.runtime.open_session(speak, stop, owner='alice',
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                              quiet_seconds=0)
+                                              ^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/runtime.py", line 24, in open_session
+    session = DuplexController(
+        SupervisorJobs(self.supervisor), self.foreground,
+        speak, stop, **options,
+    )
+TypeError: DuplexController.__init__() got an unexpected keyword argument 'owner'
+
+======================================================================
+ERROR: test_tampered_artifact_cannot_start_preview (test_results_v1.ResultTests.test_tampered_artifact_cannot_start_preview)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_results_v1.py", line 30, in asyncSetUp
+    self.session = self.runtime.open_session(speak, stop, owner='alice',
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                              quiet_seconds=0)
+                                              ^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/runtime.py", line 24, in open_session
+    session = DuplexController(
+        SupervisorJobs(self.supervisor), self.foreground,
+        speak, stop, **options,
+    )
+TypeError: DuplexController.__init__() got an unexpected keyword argument 'owner'
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.029s
+
+FAILED (errors=6)
+test_ambiguous_cancel_and_show_never_choose_a_job (test_results_v1.ResultTests.test_ambiguous_cancel_and_show_never_choose_a_job) ... ok
+test_closed_session_cannot_authorize_more_actions (test_results_v1.ResultTests.test_closed_session_cannot_authorize_more_actions) ... FAIL
+test_completed_website_can_be_revised_and_old_result_is_fenced (test_results_v1.ResultTests.test_completed_website_can_be_revised_and_old_result_is_fenced) ... ok
+test_dedup_and_owner_filter_survive_session_end (test_results_v1.ResultTests.test_dedup_and_owner_filter_survive_session_end) ... ok
+test_preview_requires_current_verified_files_and_is_loopback (test_results_v1.ResultTests.test_preview_requires_current_verified_files_and_is_loopback) ... ERROR
+test_result_retrieval_does_not_replace_focus_or_earlier_thread (test_results_v1.ResultTests.test_result_retrieval_does_not_replace_focus_or_earlier_thread) ... ok
+test_several_completions_are_grouped_without_focus_change (test_results_v1.ResultTests.test_several_completions_are_grouped_without_focus_change) ... FAIL
+test_tampered_artifact_cannot_start_preview (test_results_v1.ResultTests.test_tampered_artifact_cannot_start_preview) ... ok
+
+======================================================================
+ERROR: test_preview_requires_current_verified_files_and_is_loopback (test_results_v1.ResultTests.test_preview_requires_current_verified_files_and_is_loopback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_results_v1.py", line 94, in test_preview_requires_current_verified_files_and_is_loopback
+    url = await jobs.preview(job['id'], expected_revision=1)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/jobs.py", line 96, in preview
+    return await self.previews.start(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/preview.py", line 84, in start
+    server = await asyncio.start_server(handle, '127.0.0.1', 0)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/streams.py", line 84, in start_server
+    return await loop.create_server(factory, host, port, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 1630, in create_server
+    raise OSError(err.errno, msg) from None
+PermissionError: [Errno 1] error while attempting to bind on address ('127.0.0.1', 0): [errno 1] operation not permitted
+
+======================================================================
+FAIL: test_closed_session_cannot_authorize_more_actions (test_results_v1.ResultTests.test_closed_session_cannot_authorize_more_actions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_results_v1.py", line 125, in test_closed_session_cannot_authorize_more_actions
+    with self.assertRaises(PermissionError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: PermissionError not raised
+
+======================================================================
+FAIL: test_several_completions_are_grouped_without_focus_change (test_results_v1.ResultTests.test_several_completions_are_grouped_without_focus_change)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_results_v1.py", line 136, in test_several_completions_are_grouped_without_focus_change
+    self.assertIn('2 background tasks', self.spoken[0])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '2 background tasks' not found in 'By the way, a background task is ready. Its result has been saved.'
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.294s
+
+FAILED (failures=2, errors=1)
