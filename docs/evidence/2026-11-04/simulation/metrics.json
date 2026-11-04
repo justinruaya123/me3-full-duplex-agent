@@ -1,0 +1,55 @@
+{
+  "backend": "mock",
+  "hardware_qualified": false,
+  "measurement": "monotonic request-to-text, artificial model delays",
+  "audio_devices_used": false,
+  "python": "3.13.6",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "trials_per_track": 20,
+  "percentile_method": "nearest rank",
+  "tracks": {
+    "workers_0": {
+      "successes": 20,
+      "failures": 0,
+      "request_to_text_p50_ms": 11.636958,
+      "request_to_text_p95_ms": 12.1515
+    },
+    "workers_1": {
+      "successes": 20,
+      "failures": 0,
+      "request_to_text_p50_ms": 12.82975,
+      "request_to_text_p95_ms": 13.541292
+    }
+  },
+  "source_sha256": {
+    "__init__.py": "9d7e49aaac1bdedc318b59a910b01d139bf298ece01e2c8a931b9f255bfb3d81",
+    "__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+    "audio_pipeline.py": "da2568817c0241af2b48aaee3879426027a5cc5dab12340ec5b21150d9739c83",
+    "backends.py": "a7d421c6ae2b1118c96a6582282f1bc43b67e9d95d9745c5b412634243ed8c6a",
+    "benchmark.py": "21fa592322002b796a069a70b06eae4e721eb81bfe728484fd8d4e4e2cf58d6f",
+    "capture.py": "758d74de60c563f10e946cd72ceecf9d21471ff47b622068af48a3a542617c45",
+    "cli.py": "cea2c86c4be76619d7eb140b529e3e5e1e62790ec2f0fa1f8c30f7e3e30f5c61",
+    "configuration.py": "cccb8046256565f862d2de40812234893179a425a73e27e9b32120a3b2ad1226",
+    "core.py": "ec55dcaad64c565d367e9b0ff95b6faad672b35d9686e02b0d5dbe6a7293196c",
+    "doctor.py": "ce756d37209909a991737e6fdc4451c0f6763545490241bcb4bb73e6909b22f1",
+    "duplex.py": "f6953a95af0d04c6417b10c63bc4cb50b1b73dad4eb5c4a06c18393ac53c49e3",
+    "duplex_demo.py": "ce58f8d7166fdadd4a54a10bd8e408e9c551a80338ff380cb9cdee36fc06c8bc",
+    "duplex_voice.py": "45fc0ad1a397719973fdfffce8b2fc36c49c128660605368403880a18b25e1fc",
+    "foreground.py": "c94016d29cb542f97f61b04e243cb3e901979407d336406118754226cedf25a5",
+    "harnesses.py": "bacbd2ca80d6a5f66e84e4c799a41bb94cd8ce1ee7f58822f166710ef710f1e4",
+    "hermes_runner.py": "f58e86016dcbb6f0aacee4ea6b459cf8485442be1859e6b0491b3d0d86d4b564",
+    "incremental.py": "cda3dc49260fa48154f5b972f5d441aadedba29b1eceb3cabb07360f5db9c250",
+    "jobs.py": "6db26b23bc7a2404829f70a8d07b2a3755261b0560bf7244eb355385d232c053",
+    "mcp_server.py": "e051c00ac7ed478739f58ca13ec4cd6759a4fdc6631de0b4dbe5a00b5f7ac140",
+    "onit_runner.py": "b4a33f1e6941f3eb86d382f0fc8aec040010c4194b37c309192e4f4abc38e5e1",
+    "ownership.py": "9c0dd94d6b5908088fdee609e7506b5acda614bf0df770a10dc6175ece7ab97a",
+    "pi_worker.py": "36842f019d61d504116ab2aaf597f4167026efcd33382291f1043f7ff1e1401c",
+    "preview.py": "2f609b6b56510126a37e064387f310a729045e9c2c3422284df5bd41652f4a56",
+    "runtime.py": "4cbc95e7c67abbe82605a6d72b505a56ff47cfbbfadb99ba9f368454d836c473",
+    "speech.py": "85cad3e637922f54ed25054cc6d62b169f5e0a0456e24c2cfed85b9df6b06fd1",
+    "speech_server.py": "35a4590b65d38dee895c02b5fd4b5af4e28ddf6a5ecb31462a27db02104e023b",
+    "voice.py": "8f6a976e0527ddcdd465cb9e799fad0a526664f53d6fadee2e27e26188ecd655",
+    "website.py": "599d1fe94c2bec34f58f560c89f288e772ca9ef3435d517bf8d18a1705c1eee2"
+  },
+  "foreground_p95_degradation_ms": 1.389792
+}

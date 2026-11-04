@@ -1,0 +1,1 @@
+{"passed": false, "reason": "Exact Whisper live inference exceeded 45 seconds and was terminated", "model": "mlx-community/whisper-large-v3-turbo"}

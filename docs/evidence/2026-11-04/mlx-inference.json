@@ -1,0 +1,13 @@
+{
+  "kind": "actual MLX inference, no microphone recording",
+  "kokoro": {
+    "passed": false,
+    "error_type": "ImportError",
+    "reason": "Kokoro requires the optional 'misaki' package for text processing. Install it with: pip install misaki"
+  },
+  "whisper": {
+    "passed": false,
+    "error_type": "LocalEntryNotFoundError",
+    "reason": "Cannot find an appropriate cached snapshot folder for the specified revision on the local disk and outgoing traffic has been disabled. To enable repo look-ups and downloads online, set 'HF_HUB_OFFLINE=0' as environment variable."
+  }
+}

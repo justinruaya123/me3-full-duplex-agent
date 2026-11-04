@@ -1,0 +1,39 @@
+
+Fetching 56 files:   0%|          | 0/56 [00:00<?, ?it/s]
+Fetching 56 files: 100%|██████████| 56/56 [00:00<00:00, 5097.91it/s]
+Collecting en-core-web-sm==3.8.0
+  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 5.4 MB/s eta 0:00:00
+Installing collected packages: en-core-web-sm
+Successfully installed en-core-web-sm-3.8.0
+
+[notice] A new release of pip is available: 25.0.1 -> 26.3
+[notice] To update, run: /Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/bin/python -m pip install --upgrade pip
+/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Creating new KokoroPipeline for language: a
+[38;5;2m✔ Download and installation successful[0m
+You can now load the package via spacy.load('en_core_web_sm')
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.local/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.local/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "<stdin>", line 13, in main
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 69, in synthesize
+    pcm = await loop.run_in_executor(self.tts_executor, next_pcm, iterator)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 29, in <module>
+  File "/Users/jus/Documents/Grad/AI231/ME3/.local/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.local/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt

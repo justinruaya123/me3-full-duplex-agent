@@ -1,0 +1,102 @@
+test_gap_and_bot_stopped_event_do_not_confirm_entire_utterance (test_pipeline_v1.PipelineTests.test_gap_and_bot_stopped_event_do_not_confirm_entire_utterance) ... 2026-11-04 18:35:59.576 | INFO     | pipecat:<module>:54 - ᓚᘏᗢ Pipecat 1.15.1.dev12 (Python 3.13.6 (v3.13.6:4e665351082, Aug  6 2025, 11:22:35) [Clang 16.0.0 (clang-1600.0.26.6)]) ᓚᘏᗢ
+Executing <Task finished name='Task-2' coro=<PipelineTests.test_gap_and_bot_stopped_event_do_not_confirm_entire_utterance() done, defined at /Users/jus/Documents/Grad/AI231/ME3/tests/test_pipeline_v1.py:9> exception=TypeError("build() got an unexpected keyword argument 'runtime'") created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.410 seconds
+ERROR
+
+======================================================================
+ERROR: test_gap_and_bot_stopped_event_do_not_confirm_entire_utterance (test_pipeline_v1.PipelineTests.test_gap_and_bot_stopped_event_do_not_confirm_entire_utterance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_pipeline_v1.py", line 56, in test_gap_and_bot_stopped_event_do_not_confirm_entire_utterance
+    run, control = await build(Transport(), Path(directory),
+                         ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        runtime=runtime, profile='course', speech=Speech(),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        turn_analyzer=Turn(), config=config)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: build() got an unexpected keyword argument 'runtime'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.417s
+
+FAILED (errors=1)
+test_foreground_never_inherits_worker_credentials_or_model (test_setup_v1.ConfigurationTests.test_foreground_never_inherits_worker_credentials_or_model) ... ok
+test_foreground_rejects_credentials_in_url_and_unknown_profile (test_setup_v1.ConfigurationTests.test_foreground_rejects_credentials_in_url_and_unknown_profile) ... ok
+test_report_identifies_missing_roles_without_exposing_credentials (test_setup_v1.DoctorTests.test_report_identifies_missing_roles_without_exposing_credentials) ... ERROR
+test_voice_lan_endpoints_require_authentication (test_setup_v1.DoctorTests.test_voice_lan_endpoints_require_authentication) ... FAIL
+test_silent_model_substitution_is_rejected (test_setup_v1.ForegroundTests.test_silent_model_substitution_is_rejected) ... ok
+test_stream_enforces_model_and_disables_reasoning (test_setup_v1.ForegroundTests.test_stream_enforces_model_and_disables_reasoning) ... ok
+test_ending_voice_session_keeps_real_supervisor_job_alive (test_setup_v1.RuntimeTests.test_ending_voice_session_keeps_real_supervisor_job_alive) ... ok
+test_missing_worker_model_never_uses_foreground_model (test_setup_v1.SetupTests.test_missing_worker_model_never_uses_foreground_model) ... ok
+test_pi_is_default_and_worker_model_is_explicit (test_setup_v1.SetupTests.test_pi_is_default_and_worker_model_is_explicit) ... ok
+
+======================================================================
+ERROR: test_report_identifies_missing_roles_without_exposing_credentials (test_setup_v1.DoctorTests.test_report_identifies_missing_roles_without_exposing_credentials)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_setup_v1.py", line 128, in test_report_identifies_missing_roles_without_exposing_credentials
+    from me3.doctor import configuration_report
+ModuleNotFoundError: No module named 'me3.doctor'
+
+======================================================================
+FAIL: test_voice_lan_endpoints_require_authentication (test_setup_v1.DoctorTests.test_voice_lan_endpoints_require_authentication)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_setup_v1.py", line 146, in test_voice_lan_endpoints_require_authentication
+    with self.assertRaisesRegex(ValueError, 'authentication'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.108s
+
+FAILED (failures=1, errors=1)
+test_auth_exact_models_and_raw_pcm_contract (test_speech_server_v1.SpeechServerTests.test_auth_exact_models_and_raw_pcm_contract) ... Executing <Task finished name='Task-2' coro=<SpeechServerTests.test_auth_exact_models_and_raw_pcm_contract() done, defined at /Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py:8> exception=ModuleNotFoundError("No module named 'me3.speech_server'") created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.196 seconds
+ERROR
+
+======================================================================
+ERROR: test_auth_exact_models_and_raw_pcm_contract (test_speech_server_v1.SpeechServerTests.test_auth_exact_models_and_raw_pcm_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 10, in test_auth_exact_models_and_raw_pcm_contract
+    from me3.speech_server import create_app, SpeechServerConfig
+ModuleNotFoundError: No module named 'me3.speech_server'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.204s
+
+FAILED (errors=1)
+test_played_reference_is_resampled_and_paired_with_capture (test_echo_v1.EchoTests.test_played_reference_is_resampled_and_paired_with_capture) ... ERROR
+test_wrong_rates_and_reference_overflow_fail_explicitly (test_echo_v1.EchoTests.test_wrong_rates_and_reference_overflow_fail_explicitly) ... ERROR
+
+======================================================================
+ERROR: test_played_reference_is_resampled_and_paired_with_capture (test_echo_v1.EchoTests.test_played_reference_is_resampled_and_paired_with_capture)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_echo_v1.py", line 8, in test_played_reference_is_resampled_and_paired_with_capture
+    from me3.echo import EchoFrontEnd
+ModuleNotFoundError: No module named 'me3.echo'
+
+======================================================================
+ERROR: test_wrong_rates_and_reference_overflow_fail_explicitly (test_echo_v1.EchoTests.test_wrong_rates_and_reference_overflow_fail_explicitly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_echo_v1.py", line 31, in test_wrong_rates_and_reference_overflow_fail_explicitly
+    from me3.echo import EchoFrontEnd
+ModuleNotFoundError: No module named 'me3.echo'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.006s
+
+FAILED (errors=2)

@@ -1,0 +1,12 @@
+{
+  "commit": "106ac8e543a5fd996e254a87e69fa101bfd27a42",
+  "dirty": "",
+  "scorer_sha256": {
+    "fdbench/score/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fdbench/score/asr.py": "d234d662eb5fc5d68904f09a6debd93e843325abdd76d8b7d23013e48cbce37e",
+    "fdbench/score/judge.py": "ffe1e11714f72b9995725b8d79d72727f13f3997816c9b5d1db5ab86eb45d803",
+    "fdbench/score/metrics.py": "ff934b6b9d850a0694d5ad3f3c8076ae8596e5a608666b4999699f84c6939193",
+    "fdbench/score/scorer.py": "e0fe3ceb0d05ddad550df8ab696e5f760c95efba88b7b7aaf43248a7018b0748",
+    "fdbench/score/voice.py": "d230a671d1d15129b3d19230bf5f08b419a6f182f103fc87427a64b3555f176f"
+  }
+}

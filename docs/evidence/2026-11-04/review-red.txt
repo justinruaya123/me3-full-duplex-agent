@@ -1,0 +1,373 @@
+test_distinct_turn_ids_reuse_identical_active_job (test_review_v1.ReviewTests.test_distinct_turn_ids_reuse_identical_active_job) ... FAIL
+test_focusing_running_job_preserves_unrelated_conversation (test_review_v1.ReviewTests.test_focusing_running_job_preserves_unrelated_conversation) ... FAIL
+test_foreground_and_worker_failures_are_reported_without_success (test_review_v1.ReviewTests.test_foreground_and_worker_failures_are_reported_without_success) ... FAIL
+test_idle_expiry_revokes_result_delivery_without_new_speech (test_review_v1.ReviewTests.test_idle_expiry_revokes_result_delivery_without_new_speech) ... ERROR
+test_mute_during_enrollment_erases_late_reference (test_review_v1.ReviewTests.test_mute_during_enrollment_erases_late_reference) ... ERROR
+test_preview_reopens_after_same_owner_reconnects (test_review_v1.ReviewTests.test_preview_reopens_after_same_owner_reconnects) ... FAIL
+test_stale_provider_failure_does_not_replace_newer_turn (test_review_v1.ReviewTests.test_stale_provider_failure_does_not_replace_newer_turn) ... ok
+
+======================================================================
+ERROR: test_idle_expiry_revokes_result_delivery_without_new_speech (test_review_v1.ReviewTests.test_idle_expiry_revokes_result_delivery_without_new_speech)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py", line 137, in test_idle_expiry_revokes_result_delivery_without_new_speech
+    self.session.delivery_authorized = gate.is_active
+                                       ^^^^^^^^^^^^^^
+AttributeError: 'OwnershipGate' object has no attribute 'is_active'
+
+======================================================================
+ERROR: test_mute_during_enrollment_erases_late_reference (test_review_v1.ReviewTests.test_mute_during_enrollment_erases_late_reference)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py", line 147, in test_mute_during_enrollment_erases_late_reference
+    from me3.ownership import enroll_reference
+ImportError: cannot import name 'enroll_reference' from 'me3.ownership' (/Users/jus/Documents/Grad/AI231/ME3/me3/ownership.py)
+
+======================================================================
+FAIL: test_distinct_turn_ids_reuse_identical_active_job (test_review_v1.ReviewTests.test_distinct_turn_ids_reuse_identical_active_job)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py", line 126, in test_distinct_turn_ids_reuse_identical_active_job
+    self.assertEqual(a['id'], b['id'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: '3399f1f5d795482e9d9ac1f078b8812b' != 'da4c5d18434c4951911403da2f7163c2'
+- 3399f1f5d795482e9d9ac1f078b8812b
++ da4c5d18434c4951911403da2f7163c2
+
+
+======================================================================
+FAIL: test_focusing_running_job_preserves_unrelated_conversation (test_review_v1.ReviewTests.test_focusing_running_job_preserves_unrelated_conversation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py", line 52, in test_focusing_running_job_preserves_unrelated_conversation
+    self.assertIn('A short answer.', self.spoken)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'A short answer.' not found in []
+
+======================================================================
+FAIL: test_foreground_and_worker_failures_are_reported_without_success (test_review_v1.ReviewTests.test_foreground_and_worker_failures_are_reported_without_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py", line 83, in test_foreground_and_worker_failures_are_reported_without_success
+    self.assertIn('unavailable', ' '.join(self.spoken).lower())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'unavailable' not found in ''
+
+======================================================================
+FAIL: test_preview_reopens_after_same_owner_reconnects (test_review_v1.ReviewTests.test_preview_reopens_after_same_owner_reconnects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py", line 70, in test_preview_reopens_after_same_owner_reconnects
+    self.assertIn(b'200 OK', await reader.read())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'200 OK' not found in b'HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\nConnection: close\r\n\r\n'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.273s
+
+FAILED (failures=4, errors=2)
+test_auth_exact_models_and_raw_pcm_contract (test_speech_server_v1.SpeechServerTests.test_auth_exact_models_and_raw_pcm_contract) ... Executing <Task pending name='Task-2' coro=<SpeechServerTests.test_auth_exact_models_and_raw_pcm_contract() running at /Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py:20> cb=[_run_until_complete_cb() at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:181] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.345 seconds
+ok
+test_partial_upload_reserves_single_role_capacity (test_speech_server_v1.SpeechServerTests.test_partial_upload_reserves_single_role_capacity) ... FAIL
+
+======================================================================
+FAIL: test_partial_upload_reserves_single_role_capacity (test_speech_server_v1.SpeechServerTests.test_partial_upload_reserves_single_role_capacity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 64, in test_partial_upload_reserves_single_role_capacity
+    self.assertEqual(second.status, 503)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 200 != 503
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.455s
+
+FAILED (failures=1)
+test_distinct_turn_ids_reuse_identical_active_job (test_review_v1.ReviewTests.test_distinct_turn_ids_reuse_identical_active_job) ... Executing <Task finished name='Task-1' coro=<ReviewTests.asyncSetUp() done, defined at /Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py:15> result=None created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.283 seconds
+Executing <Task finished name='Task-2' coro=<ReviewTests.test_distinct_turn_ids_reuse_identical_active_job() done, defined at /Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py:116> result=None created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.264 seconds
+Executing <Task finished name='Task-4' coro=<ReviewTests.asyncTearDown() done, defined at /Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py:30> result=None created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.136 seconds
+ok
+test_focusing_running_job_preserves_unrelated_conversation (test_review_v1.ReviewTests.test_focusing_running_job_preserves_unrelated_conversation) ... ok
+test_foreground_and_worker_failures_are_reported_without_success (test_review_v1.ReviewTests.test_foreground_and_worker_failures_are_reported_without_success) ... ok
+test_idle_expiry_revokes_result_delivery_without_new_speech (test_review_v1.ReviewTests.test_idle_expiry_revokes_result_delivery_without_new_speech) ... ok
+test_model_output_never_routes_host_tools (test_review_v1.ReviewTests.test_model_output_never_routes_host_tools) ... ok
+test_mute_during_enrollment_erases_late_reference (test_review_v1.ReviewTests.test_mute_during_enrollment_erases_late_reference) ... ok
+test_playback_receipts_are_fenced_across_distinct_sessions (test_review_v1.ReviewTests.test_playback_receipts_are_fenced_across_distinct_sessions) ... FAIL
+test_preview_reopens_after_same_owner_reconnects (test_review_v1.ReviewTests.test_preview_reopens_after_same_owner_reconnects) ... Executing <Task pending name='Task-48' coro=<Supervisor._run() running at /Users/jus/Documents/Grad/AI231/ME3/me3/core.py:185> wait_for=<Future pending cb=[Task.task_wakeup()] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:459> cb=[Supervisor._launch.<locals>.<lambda>() at /Users/jus/Documents/Grad/AI231/ME3/me3/core.py:129, gather.<locals>._done_callback() at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/tasks.py:820] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/tasks.py:410> took 0.107 seconds
+Executing <Task pending name='Task-48' coro=<Supervisor._run() running at /Users/jus/Documents/Grad/AI231/ME3/me3/core.py:185> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/tasks.py:765> cb=[Supervisor._launch.<locals>.<lambda>() at /Users/jus/Documents/Grad/AI231/ME3/me3/core.py:129, gather.<locals>._done_callback() at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/tasks.py:820] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/tasks.py:410> took 0.231 seconds
+ERROR
+Executing <Task finished name='Task-56' coro=<ReviewTests.asyncTearDown() done, defined at /Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py:30> result=None created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.703 seconds
+test_stale_provider_failure_does_not_replace_newer_turn (test_review_v1.ReviewTests.test_stale_provider_failure_does_not_replace_newer_turn) ... Executing <Task finished name='Task-59' coro=<ReviewTests.asyncSetUp() done, defined at /Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py:15> result=None created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.282 seconds
+Executing <Task finished name='Task-63' coro=<ReviewTests.asyncTearDown() done, defined at /Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py:30> result=None created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.277 seconds
+ok
+
+======================================================================
+ERROR: test_preview_reopens_after_same_owner_reconnects (test_review_v1.ReviewTests.test_preview_reopens_after_same_owner_reconnects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py", line 61, in test_preview_reopens_after_same_owner_reconnects
+    await self.session.jobs.preview(job['id'], expected_revision=1)
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/jobs.py", line 115, in preview
+    return await self.previews.start(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/preview.py", line 28, in start
+    raise ValueError('Preview requires a current completed job')
+ValueError: Preview requires a current completed job
+
+======================================================================
+FAIL: test_playback_receipts_are_fenced_across_distinct_sessions (test_review_v1.ReviewTests.test_playback_receipts_are_fenced_across_distinct_sessions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py", line 199, in test_playback_receipts_are_fenced_across_distinct_sessions
+    self.assertFalse(new.started(old_token))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 9 tests in 17.142s
+
+FAILED (failures=1, errors=1)
+test_foreground_never_inherits_worker_credentials_or_model (test_setup_v1.ConfigurationTests.test_foreground_never_inherits_worker_credentials_or_model) ... ok
+test_foreground_rejects_credentials_in_url_and_unknown_profile (test_setup_v1.ConfigurationTests.test_foreground_rejects_credentials_in_url_and_unknown_profile) ... ok
+test_report_identifies_missing_roles_without_exposing_credentials (test_setup_v1.DoctorTests.test_report_identifies_missing_roles_without_exposing_credentials) ... ok
+test_voice_lan_endpoints_require_authentication (test_setup_v1.DoctorTests.test_voice_lan_endpoints_require_authentication) ... ok
+test_silent_model_substitution_is_rejected (test_setup_v1.ForegroundTests.test_silent_model_substitution_is_rejected) ... Executing <Task finished name='Task-2' coro=<ForegroundTests.test_silent_model_substitution_is_rejected() done, defined at /Users/jus/Documents/Grad/AI231/ME3/tests/test_setup_v1.py:109> result=None created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.662 seconds
+ok
+test_stream_enforces_model_and_disables_reasoning (test_setup_v1.ForegroundTests.test_stream_enforces_model_and_disables_reasoning) ... ok
+test_failed_requested_probe_cannot_report_ready (test_setup_v1.ProbeFailureTests.test_failed_requested_probe_cannot_report_ready) ... FAIL
+test_ending_voice_session_keeps_real_supervisor_job_alive (test_setup_v1.RuntimeTests.test_ending_voice_session_keeps_real_supervisor_job_alive) ... ok
+test_missing_worker_model_never_uses_foreground_model (test_setup_v1.SetupTests.test_missing_worker_model_never_uses_foreground_model) ... ok
+test_pi_is_default_and_worker_model_is_explicit (test_setup_v1.SetupTests.test_pi_is_default_and_worker_model_is_explicit) ... ok
+
+======================================================================
+FAIL: test_failed_requested_probe_cannot_report_ready (test_setup_v1.ProbeFailureTests.test_failed_requested_probe_cannot_report_ready)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_setup_v1.py", line 161, in test_failed_requested_probe_cannot_report_ready
+    self.assertFalse(report['ready'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.224s
+
+FAILED (failures=1)
+test_incomplete_acoustic_turn_only_emits_provisional_text (test_capture_v1.CaptureTests.test_incomplete_acoustic_turn_only_emits_provisional_text) ... ok
+test_overflow_and_transcript_gap_cannot_commit_fragment (test_capture_v1.CaptureTests.test_overflow_and_transcript_gap_cannot_commit_fragment) ... ok
+test_pending_snapshot_overflow_invalidates_inflight_authorization (test_capture_v1.CaptureTests.test_pending_snapshot_overflow_invalidates_inflight_authorization) ... ERROR
+test_resumed_audio_fences_late_final_hypothesis (test_capture_v1.CaptureTests.test_resumed_audio_fences_late_final_hypothesis) ... ok
+
+======================================================================
+ERROR: test_pending_snapshot_overflow_invalidates_inflight_authorization (test_capture_v1.CaptureTests.test_pending_snapshot_overflow_invalidates_inflight_authorization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/capture.py", line 105, in finish
+    await self._snapshot(True)
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/capture.py", line 79, in _snapshot
+    async with self._lock:
+               ^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/locks.py", line 14, in __aenter__
+    await self.acquire()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/locks.py", line 110, in acquire
+    await fut
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_capture_v1.py", line 109, in test_pending_snapshot_overflow_invalidates_inflight_authorization
+    await asyncio.wait_for(capture.finish(), 0.2)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/tasks.py", line 506, in wait_for
+    async with timeouts.timeout(timeout):
+               ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/timeouts.py", line 116, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.280s
+
+FAILED (errors=1)
+test_revising_completed_job_cannot_bypass_pending_capacity (test_core.CompletedRevisionCapacityTests.test_revising_completed_job_cannot_bypass_pending_capacity) ... FAIL
+test_backend_failure_is_not_completion (test_core.CoreTests.test_backend_failure_is_not_completion) ... ok
+test_cancel_before_worker_starts (test_core.CoreTests.test_cancel_before_worker_starts) ... ok
+test_cancel_status_waits_for_worker_cleanup (test_core.CoreTests.test_cancel_status_waits_for_worker_cleanup) ... ok
+test_focus_is_explicit_and_result_is_bounded_context (test_core.CoreTests.test_focus_is_explicit_and_result_is_bounded_context) ... ok
+test_foreground_works_while_worker_is_blocked (test_core.CoreTests.test_foreground_works_while_worker_is_blocked) ... ok
+test_late_old_revision_cannot_replace_new_result (test_core.CoreTests.test_late_old_revision_cannot_replace_new_result) ... ok
+test_no_notice_while_user_speaks_or_focus_change (test_core.CoreTests.test_no_notice_while_user_speaks_or_focus_change) ... ok
+test_queue_is_bounded (test_core.CoreTests.test_queue_is_bounded) ... ok
+test_recovery_preserves_result_and_does_not_auto_resume (test_core.CoreTests.test_recovery_preserves_result_and_does_not_auto_resume) ... ok
+test_second_supervisor_is_rejected (test_core.CoreTests.test_second_supervisor_is_rejected) ... ok
+test_stop_speech_does_not_cancel_job (test_core.CoreTests.test_stop_speech_does_not_cancel_job) ... ok
+test_unknown_id_and_empty_prompt_are_rejected (test_core.CoreTests.test_unknown_id_and_empty_prompt_are_rejected) ... ok
+test_update_uses_new_revision_and_artifact (test_core.CoreTests.test_update_uses_new_revision_and_artifact) ... ok
+
+======================================================================
+FAIL: test_revising_completed_job_cannot_bypass_pending_capacity (test_core.CompletedRevisionCapacityTests.test_revising_completed_job_cannot_bypass_pending_capacity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_core.py", line 201, in test_revising_completed_job_cannot_bypass_pending_capacity
+    with self.assertRaisesRegex(RuntimeError, 'queue is full'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: RuntimeError not raised
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.147s
+
+FAILED (failures=1)
+test_distinct_turn_ids_reuse_identical_active_job (test_review_v1.ReviewTests.test_distinct_turn_ids_reuse_identical_active_job) ... ok
+test_focusing_running_job_preserves_unrelated_conversation (test_review_v1.ReviewTests.test_focusing_running_job_preserves_unrelated_conversation) ... ok
+test_foreground_and_worker_failures_are_reported_without_success (test_review_v1.ReviewTests.test_foreground_and_worker_failures_are_reported_without_success) ... ok
+test_full_queue_is_reported_without_ending_conversation (test_review_v1.ReviewTests.test_full_queue_is_reported_without_ending_conversation) ... ERROR
+test_identical_active_revision_is_not_executed_twice (test_review_v1.ReviewTests.test_identical_active_revision_is_not_executed_twice) ... FAIL
+test_idle_expiry_revokes_result_delivery_without_new_speech (test_review_v1.ReviewTests.test_idle_expiry_revokes_result_delivery_without_new_speech) ... ok
+test_model_output_never_routes_host_tools (test_review_v1.ReviewTests.test_model_output_never_routes_host_tools) ... ok
+test_mute_during_enrollment_erases_late_reference (test_review_v1.ReviewTests.test_mute_during_enrollment_erases_late_reference) ... ok
+test_playback_receipts_are_fenced_across_distinct_sessions (test_review_v1.ReviewTests.test_playback_receipts_are_fenced_across_distinct_sessions) ... ok
+test_preview_reopens_after_same_owner_reconnects (test_review_v1.ReviewTests.test_preview_reopens_after_same_owner_reconnects) ... Executing <Task pending name='Task-62' coro=<Supervisor._run() running at /Users/jus/Documents/Grad/AI231/ME3/me3/core.py:185> wait_for=<Future pending cb=[Task.task_wakeup()] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:459> cb=[Supervisor._launch.<locals>.<lambda>() at /Users/jus/Documents/Grad/AI231/ME3/me3/core.py:129, gather.<locals>._done_callback() at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/tasks.py:820] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/tasks.py:410> took 0.107 seconds
+ok
+test_stale_provider_failure_does_not_replace_newer_turn (test_review_v1.ReviewTests.test_stale_provider_failure_does_not_replace_newer_turn) ... ok
+
+======================================================================
+ERROR: test_full_queue_is_reported_without_ending_conversation (test_review_v1.ReviewTests.test_full_queue_is_reported_without_ending_conversation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py", line 242, in test_full_queue_is_reported_without_ending_conversation
+    self.assertEqual(await self.session.accept('/site second'), 'unavailable')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/duplex.py", line 270, in accept
+    command = await self._job_command(text, epoch)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/duplex.py", line 328, in _job_command
+    job = self._submit(REQUEST_PREFIX + site.group(1))
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/duplex.py", line 293, in _submit
+    return self.jobs.submit(prompt, request_id=self._request_id)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/jobs.py", line 57, in submit
+    job = self.supervisor.submit(prompt)
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/core.py", line 108, in submit
+    raise RuntimeError("Background queue is full.")
+RuntimeError: Background queue is full.
+
+======================================================================
+FAIL: test_identical_active_revision_is_not_executed_twice (test_review_v1.ReviewTests.test_identical_active_revision_is_not_executed_twice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py", line 260, in test_identical_active_revision_is_not_executed_twice
+    self.assertEqual(revised['revision'], repeated['revision'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 3
+
+----------------------------------------------------------------------
+Ran 11 tests in 1.701s
+
+FAILED (failures=1, errors=1)
+test_auth_exact_models_and_raw_pcm_contract (test_speech_server_v1.SpeechServerTests.test_auth_exact_models_and_raw_pcm_contract) ... Executing <Task pending name='Task-2' coro=<SpeechServerTests.test_auth_exact_models_and_raw_pcm_contract() running at /Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py:22> cb=[_run_until_complete_cb() at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:181] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.609 seconds
+ok
+test_cancelled_native_inference_remains_busy_until_thread_finishes (test_speech_server_v1.SpeechServerTests.test_cancelled_native_inference_remains_busy_until_thread_finishes) ... ERROR
+test_partial_upload_reserves_single_role_capacity (test_speech_server_v1.SpeechServerTests.test_partial_upload_reserves_single_role_capacity) ... ok
+
+======================================================================
+ERROR: test_cancelled_native_inference_remains_busy_until_thread_finishes (test_speech_server_v1.SpeechServerTests.test_cancelled_native_inference_remains_busy_until_thread_finishes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 130, in test_cancelled_native_inference_remains_busy_until_thread_finishes
+    task = asyncio.create_task(models._native('tts', blocked))
+                               ^^^^^^^^^^^^^^
+AttributeError: 'MLXSpeechModels' object has no attribute '_native'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.777s
+
+FAILED (errors=1)

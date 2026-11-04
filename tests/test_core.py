@@ -183,5 +183,24 @@ class CoreTests(unittest.IsolatedAsyncioTestCase):
             self.supervisor.submit("two")
 
 
+class CompletedRevisionCapacityTests(unittest.IsolatedAsyncioTestCase):
+    async def test_revising_completed_job_cannot_bypass_pending_capacity(self):
+        with tempfile.TemporaryDirectory() as directory:
+            backend = GateBackend()
+            supervisor = Supervisor(Path(directory), backend, max_pending=1)
+            try:
+                completed = supervisor.submit('first')
+                backend.release.set()
+                await supervisor.wait(completed['id'])
+                backend.release.clear()
+                supervisor.submit('second')
+                with self.assertRaisesRegex(RuntimeError, 'queue is full'):
+                    supervisor.update(completed['id'], 'reactivate first')
+                self.assertEqual(supervisor.get(completed['id'])['revision'], 1)
+            finally:
+                backend.release.set()
+                await supervisor.close()
+
+
 if __name__ == "__main__":
     unittest.main()

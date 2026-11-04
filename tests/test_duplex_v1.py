@@ -246,7 +246,8 @@ class ControllerTests(unittest.IsolatedAsyncioTestCase):
         self.controller.backend = Failing()
         await self.controller.accept("question")
         await self.settle()
-        self.assertFalse(self.spoken)
+        self.assertIn("unavailable", " ".join(self.spoken))
+        self.assertNotIn("A short answer.", self.spoken)
         self.assertTrue(any(e[0] == "foreground_failed"
                             for e in self.jobs.events))
 

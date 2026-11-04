@@ -1,3 +1,8 @@
+> Current authority: the [November 4 specification](ME3_SPEC_2026-11-04.md)
+> selects Pi.dev by default and separates foreground inference. The implementation
+> and current limitations are described in [SETUP](SETUP.md) and
+> [DUPLEX_STATUS](DUPLEX_STATUS.md). The November 2 design below is historical.
+
 # ME3 architecture and qualification plan — 2026-11-02
 
 ## Authority and recovered requirements

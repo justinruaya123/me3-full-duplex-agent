@@ -1,3 +1,129 @@
+# November 4 implementation and qualification status
+
+The active branch is `feat/pi-full-duplex-v1`, descended from prototype
+`642cc73`. Pi.dev is the default worker; the controller remains harness-neutral.
+This report supersedes the older verification notes preserved below.
+
+## Implemented
+
+1. Distinct worker/foreground configuration, explicit exact model selection,
+   dependency-isolated runtime and long-lived job ownership independent of voice.
+2. Bounded rolling ASR snapshots, timestamped revisions/stable prefixes/commits,
+   cancellable streamed clauses, cross-session/epoch audio tokens, output fencing,
+   and ordered whole-clause transport receipts. Provisional pause retains PCM.
+3. Wake candidates, deliberate enrollment, session-local reference erasure,
+   strict owner/addressee/overlap evidence, inactivity revocation, SmartTurn
+   readiness and inference-independent local mute/stop controls.
+4. Persistent per-job Pi RPC sessions, exact model/provider verification before
+   prompting, settlement/error checks, tool-disabled generation and host-owned
+   scoped static website builds with real Node syntax checks and hash receipts.
+5. Durable owner-filtered/idempotent jobs; revisions/cancellation/results; grouped
+   deferred notices; explicit focus and return; read-only revision-bound loopback
+   previews; no model-returned command execution or automatic public deployment.
+6. Setup/launch/diagnostic commands, isolated Mac speech service, optional AEC3
+   playback-reference front end, declared benchmark profiles and recorded probes.
+
+All implementation stages have code and regression coverage. **Full specification
+acceptance is not complete.** The HTTP speaker-verifier adapter is an integration
+boundary, not a bundled/qualified identity, overlap or addressee engine. Cached
+outgoing Kokoro backchannels, calibrated uncertain-entity confirmation,
+word-aligned heard-prefix accounting, long-dictation
+stitching, licensed Krisp behavior, live-provider website/browser behavior and
+all acoustic/target-hardware gates remain open.
+
+## Test progression and independent review
+
+| Stage | Full local suite | Evidence |
+| --- | --- | --- |
+| Configuration/runtime | 68 tests; 67 passed, 1 absent-Pipecat skip | stage1-suite.txt |
+| Incremental/playback | 75 passed, 0 skips | stage2-suite.txt |
+| Ownership/turns | 83 passed, 0 skips | stage3-suite.txt |
+| Pi/static websites | 90 passed, 0 skips | stage4-suite.txt |
+| Results/context | 98 passed, 0 skips | stage5-suite.txt |
+| Final integration | **120 passed, 0 failures, 0 skips** | stage6-suite.txt |
+
+Every stage has preceding RED evidence. The final independent reviewer found
+five material issues: idle ownership expiry, speech suppression with running
+focus, preview reconnect lifetime, silent provider failures and repeated-request
+deduplication. Regressions reproduced each; fixes also cover late enrollment
+across mute and bounded speech-service admission, including native calls still running after
+HTTP cancellation. Further regressions fence
+cross-session playback tokens, failed-probe readiness, ASR snapshot overflow,
+completed-job queue capacity and duplicate active revisions.
+Model output containing host-command text is verified inert.
+
+An intermediate 114-test run failed the existing legacy console's unchanged
+three-second process-start timeout during host slowdown. That failure is retained
+in `stage6-contention-failure.txt`; a subsequent quiet run passed 114/114 without
+relaxing its timeout. The final receipt includes later regressions and formatting.
+Global Python initially had MCP 2.x, incompatible with the declared MCP <2;
+that failed run is retained. Current tests use the installed isolated MCP 1.30.0.
+
+## Actual local measurements, separate from simulations
+
+- Installed Pi 0.84.2 accepted RPC and reported exactly
+  `openai-codex/gpt-5.6-sol`. No provider prompt was used for this check. The
+  isolated auth directory has not been signed in; account entitlement/inference
+  remains unverified. Installed provider documentation supports ChatGPT
+  subscription sign-in and explicitly selected API-key providers.
+- Pipecat source `6f777a0...` installed and its API smoke ran. The scheduling
+  regression runs actual Pipecat processors with fixture inference/in-process
+  transport; it proves receipt ordering, not acoustic delivery.
+- macOS enumerated 7 audio devices (5 with input, 5 with output capability).
+  A one-second simultaneous native input/output smoke captured 15,360 input
+  frames and played 24,000 silence frames; zero callback status errors. Input
+  samples were immediately discarded; no microphone recording was saved.
+- Real bundled SmartTurn ONNX synthetic-silence smoke completed in approximately
+  0.365 s in the initial probe. Its COMPLETE output on that artificial clip is
+  not a behavioral score; readiness still requires usable committed ASR.
+- Actual WebRTC AEC3/reference-adapter smoke processed 50 synthetic 20ms frames
+  in approximately 0.399 s including adapter/import overhead. No physical echo
+  reduction, voice preservation, double-talk or acoustic stop latency was measured.
+- MLX speech dependencies installed separately: Python 3.12.13, mlx-whisper
+  0.4.3, mlx-audio 0.6.4 and Misaki 0.9.4. Misaki rejects Python 3.13; that
+  concrete installation blocker and its Python-3.12 resolution are recorded.
+- Exact Whisper large-v3-turbo weights were downloaded, preserving the cached
+  smaller Whisper models. Kokoro uses the cached requested bf16 model. A real
+  synthetic roundtrip stalled before the first Kokoro PCM and was stopped;
+  separate exact-model Whisper inference exceeded a hard 45-second bound and
+  was terminated. **Neither is passed.** There is no valid live speech latency
+  or successful MLX roundtrip result. See mlx-roundtrip.json and whisper-probe.txt.
+- Simulator benchmark: 20 trials per idle/busy-worker track, with artificial
+  model delays and request-to-text clocks. Its metrics/source hashes are in
+  simulation-final/metrics.json (and the earlier simulation/ receipt). These timings are explicitly not acoustic/model
+  latency and cannot establish the <=250ms or <=1s proposed p95 targets.
+
+## Benchmark and deployment
+
+The external benchmark was fetched at
+`106ac8e543a5fd996e254a87e69fa101bfd27a42`. Its launcher/rate check returned READY
+for 16kHz input/24kHz output. The scorer was not edited; all score-module hashes
+and clean external Git state are recorded in benchmark-scorer.json. No dataset,
+judge or scored acoustic run was executed. Course ownership bypass is global;
+end-to-end ownership must be evaluated separately, with wake/verification enabled.
+
+No Raspberry Pi was attached or qualified. No 30-minute soak, controlled
+idle/busy M2 contention qualification, accents/replay ownership dataset or physical
+speakerphone test was run. Mac software/device smoke cannot qualify the Pi4.
+The standalone course rubric and second Markdown attachment were not available;
+the attached November 4 spec and the user's six stage names were used.
+
+## Next unpassed acceptance gate
+
+**Stable real Mac speech inference and pipeline qualification.** Resolve the
+recorded Kokoro/Whisper stalls, choose the speech service token in `.env`, and
+run the actual end-to-end headphone pipeline. Independently, supply the exact
+foreground endpoint/model/API settings and authenticate Pi, then verify real
+foreground/Pi inference and a built/revised website. Live owner mode additionally
+requires a real authenticated speaker/overlap/addressee verifier service.
+Do not turn missing credentials or these unpassed implementations/tests into
+simulation successes. Setup/launch commands and remaining boundaries are in
+[SETUP.md](SETUP.md). Evidence lives under `docs/evidence/2026-11-04/`.
+
+---
+
+# Historical prototype verification
+
 # Duplex prototype verification — 2026-11-02
 
 ## Observed in this implementation session

@@ -1,0 +1,47 @@
+{
+  "ready": false,
+  "blockers": [
+    "foreground",
+    "speech",
+    "wake phrase",
+    "speaker/overlap/addressee verification service"
+  ],
+  "foreground": null,
+  "worker": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol"
+  },
+  "speech": null,
+  "versions": {
+    "me3-full-duplex-agent": "0.1.0",
+    "pipecat-ai": "1.15.1.dev12",
+    "mcp": "1.30.0",
+    "httpx": "0.28.1"
+  },
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "python": "3.13.6",
+  "pi_binary": "/Users/jus/.nvm/versions/node/v24.13.0/bin/pi",
+  "qualification": {
+    "acoustic": "not run",
+    "raspberry_pi": "not run",
+    "speakerphone_aec": "not implemented/qualified"
+  },
+  "pi_rpc": {
+    "passed": true,
+    "kind": "local RPC, no inference",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol"
+  },
+  "audio_runtime": {
+    "device_count": 7,
+    "input_devices": 5,
+    "output_devices": 5,
+    "capture": "not started; no recordings saved",
+    "smart_turn": {
+      "seconds": 0.3652887499774806,
+      "complete": true,
+      "input": "synthetic silence",
+      "kind": "real ONNX runtime smoke, not behavioral scoring"
+    }
+  }
+}

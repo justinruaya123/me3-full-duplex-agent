@@ -241,6 +241,13 @@ class Supervisor:
                     "submit a new job otherwise."
                 ),
             )
+        if job["status"] == "completed":
+            pending = sum(
+                item["status"] in {"queued", "running", "cancelling"}
+                for item in self.list()
+            )
+            if pending >= self.max_pending:
+                raise RuntimeError("Background queue is full.")
         task = self._tasks.get(job_id)
         if task:
             task.cancel()

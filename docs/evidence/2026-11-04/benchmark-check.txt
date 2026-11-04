@@ -1,0 +1,8 @@
+2026-11-04 19:27:01.201 | INFO     | pipecat:<module>:54 - ᓚᘏᗢ Pipecat 1.15.1.dev12 (Python 3.13.6 (v3.13.6:4e665351082, Aug  6 2025, 11:22:35) [Clang 16.0.0 (clang-1600.0.26.6)]) ᓚᘏᗢ
+python:   /Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python (3.13.6)
+pipecat:  1.15.1.dev12 · websockets 17.4
+entry:    /Users/jus/Documents/Grad/AI231/ME3/integrations/fdbench_entry.py
+project:  /Users/jus/Documents/Grad/AI231/ME3
+audio:    in 16000 Hz, out 24000 Hz
+fdbench:  ws://127.0.0.1:8791
+READY

@@ -1,0 +1,9 @@
+{
+  "passed": false,
+  "kind": "actual MLX synthetic roundtrip attempt; no acoustic recording",
+  "asr_model": "mlx-community/whisper-large-v3-turbo",
+  "tts_model": "mlx-community/Kokoro-82M-bf16",
+  "voice": "af_heart",
+  "reason": "Stopped while awaiting first Kokoro PCM after a prolonged stall. Initial spaCy model download completed. No successful roundtrip or valid latency result was obtained.",
+  "trials": []
+}

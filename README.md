@@ -1,159 +1,86 @@
-# ME3: harness-neutral duplex voice prototype
+# ME3: Pi-default full-duplex agent
 
-**Current branch: `prototype/hermes-duplex-v1`. Hermes first; Pi RPC alternative.**
+Continues `prototype/hermes-duplex-v1` at `642cc73`, on
+`feat/pi-full-duplex-v1`. The [November 4 specification](docs/ME3_SPEC_2026-11-04.md)
+supersedes the older Hermes-first default. The controller remains harness-neutral;
+Hermes and the older OnIt/ME2-related baseline remain available.
 
-This is a control-plane prototype, not a measured replacement for a native
-speech-to-speech model. It extends the previous implementation on **`perliminary`**
-(commit `6a044dba1edb0d0edba998954def39dbc0158d51`). The misspelled branch contains
-the prior code; `main` and `preliminary` did not contain it when work began.
+A long-lived local runtime owns durable jobs. Voice sessions own microphone,
+turns and playback. Ending/muting a voice session leaves delegated work running.
+Only committed, owner-verified speech can authorize jobs or previews. Pi workers
+never speak and have arbitrary shell/tools disabled; the host validates static
+website files, runs trusted syntax checks, and starts read-only loopback previews
+only on request. Foreground inference uses a separately configured Qwen or
+Nemotron endpoint, with reasoning disabled and exact response model checks.
 
-## Architecture
+## Set up and configure
 
-```text
-microphone / benchmark transport
-        | continuously captured audio
-        v
-  VAD + ASR  ----> conversational controller <---- transport playback events
-                        |             |
-             quick conversational    +---- durable local task supervisor
-                  response                        |
-                        |                 isolated Hermes / Pi workers
-                 speech arbiter                   |
-                        |                 revision-fenced result artifacts
-                    TTS/audio <---- idle-boundary completion notice
-```
-
-The controller owns speaking rights. Neither a worker nor its result may directly
-speak or switch conversation focus. Stopping speech does not cancel a job.
-Hermes/Pi processes, persistence and tool ownership stay on the orchestration
-machine; only inference endpoints may be elsewhere. No ME2 smart-speaker code
-or constrained-command grammar is changed.
-
-See [the architecture and qualification plan](docs/DUPLEX_ARCHITECTURE.md) and
-[the measured implementation status](docs/DUPLEX_STATUS.md).
-
-## Run the dependency-free simulation
-
-Python 3.11+ on Linux/macOS:
+Python 3.13 and Node are required for the Mac setup. Pi `0.84.2` is already
+installed in the validation environment. Setup uses isolated environments:
 
 ```sh
-python -m me3.duplex_demo
-python -m unittest discover -s tests -p '*v1.py' -v
-python -m compileall -q me3 tests integrations
+./scripts/setup-macos.sh --speech-server
+# Edit .env: foreground API/model, speech token, wake and verifier configuration.
+./scripts/me3.sh doctor
 ```
 
-The demo uses **in-memory fixture jobs and fixture text**, not real inference,
-durable-job validation or audio. The original `python -m me3 demo` and the OnIt
-modules remain available as a separate legacy baseline.
-
-## Real providers: explicit configuration, no fallback
-
-Install the project and the inspected Pipecat source in the voice environment.
-Local audio needs the operating system's PortAudio development/runtime packages.
+The ignored `.env` is created without overwriting an existing file. It contains
+no API credentials. The installed Pi catalog identifies Sol as
+`openai-codex/gpt-5.6-sol`; no different model is selected automatically.
+Configure Pi in the isolated directory selected by `PI_CODING_AGENT_DIR`:
 
 ```sh
-python -m pip install -e '.[test]'
-python -m pip install -r requirements-duplex.txt
+./scripts/me3.sh pi
+# In Pi: /login, then select ChatGPT (OpenAI Codex).
+# Or explicitly configure the provider/API key you intend to use.
+./scripts/me3.sh pi --list-models sol
+./scripts/me3.sh doctor --pi-rpc       # Local protocol/model check, no inference.
+./scripts/me3.sh doctor --inference    # Explicit real-provider calls after setup.
 ```
 
-Install Hermes from source in its own environment, following its installation
-instructions (`uv sync` from the checkout), then check out the adapter revision
-**before** syncing. Do not substitute an unrelated package named `hermes-agent`.
+ChatGPT subscription sign-in and API-key billing are distinct provider choices.
+ME3 does not change provider accounts, billing or model selection. See the
+[setup guide](docs/SETUP.md) for exact fields, the speaker-verifier contract and
+precise remaining acceptance gates.
+
+## Launch
 
 ```sh
-git clone https://github.com/NousResearch/hermes-agent.git "$HOME/hermes-agent"
-git -C "$HOME/hermes-agent" checkout 2b31d7b283191b8069311fd3514ee89419f76516
-(cd "$HOME/hermes-agent" && uv sync)
-
-export ME3_HARNESS=hermes
-export ME3_HERMES_ROOT="$HOME/hermes-agent"
-export ME3_HERMES_PYTHON="$HOME/hermes-agent/.venv/bin/python"
-export ME3_MODEL='YOUR_CONFIGURED_MODEL_ID'
-# Optional operator/provider configuration:
-# ME3_MODEL_BASE_URL, ME3_MODEL_PROVIDER, ME3_MODEL_API_KEY
+# Terminal 1: separate authenticated MLX Whisper/Kokoro service.
+./scripts/me3.sh speech
+# Terminal 2: local runtime and trusted text console.
+./scripts/me3.sh console
+# Or attach actual Pipecat local audio, after ownership service configuration:
+./scripts/me3.sh voice
 ```
 
-Provide actual OpenAI-compatible inference endpoints. These are explicit base
-URLs, not automatic server installers. The following are examples, not endpoints
-proven available on your machine:
+Console commands include `/site build a portfolio`, `/jobs`, `/status ID`,
+`/revise ID make it blue`, `/result ID`, `/preview ID`, `/cancel ID`, `/focus ID`,
+`go back`, `/end`, and `/start OWNER`. `/end` ends the session; `/quit` explicitly
+shuts down the runtime and marks unfinished work interrupted. A restart does
+not replay unknown actions. Voice wake opens a candidate; `/enroll OWNER` must
+be armed locally before a clean reference can establish ownership. `/mute`
+clears capture/reference state independently of inference. Use `/end` and
+`/voice` to open a fresh voice session after muting.
+
+## Verify
 
 ```sh
-export ME3_ASR_BASE_URL='http://127.0.0.1:8000/v1'
-export ME3_ASR_MODEL='YOUR_ASR_MODEL_ID'
-export ME3_TTS_BASE_URL='http://127.0.0.1:8880/v1'
-export ME3_TTS_MODEL='YOUR_TTS_MODEL_ID'
-export ME3_TTS_VOICE='YOUR_VOICE_ID'
-# Optional: ME3_ASR_API_KEY, ME3_TTS_API_KEY
-python -m me3.duplex_voice
+.venv313/bin/python -m unittest discover -s tests -v
+.venv313/bin/python -m me3.duplex_demo
+.venv313/bin/python -m compileall -q me3 tests integrations
+./scripts/me3.sh doctor --audio
 ```
 
-ASR must support audio transcription; TTS must support streaming mono PCM16 at
-24 kHz. Whisper/MLX and Kokoro are intended inference-server choices, **not
-installed or integration-qualified by this commit**. Start with headphones or an
-AEC-processed microphone source. No acoustic echo cancellation is implemented.
+Some tests open loopback sockets. A restricted runner must grant that capability;
+a blocked bind is a failed environmental check, never a passed preview test.
+Pipeline tests explicitly skip when optional Pipecat is absent. Their inference
+and transport fixtures are labelled; they are not acoustic or provider tests.
 
-The initial voice commands are explicit: `background task ...` delegates a draft;
-`stop talking` stops foreground speech, not the job. Completed result files live
-under `ME3_LOG_DIR/session-*/jobs/*/revision-*/result.md` (default log root:
-`~/.local/state/me3-duplex`). Completion notices do not read the result or seize
-focus. An automatic tool-routing model and spoken result retrieval are later work.
+The unchanged course benchmark launcher/scorer is supported through
+`integrations/fdbench_entry.py`. Course runs globally bypass ownership; separate
+ownership runs keep it enabled. See [benchmark boundaries](docs/BENCHMARK.md).
 
-Worker tools are deliberately disabled. This baseline delegates reasoning and
-drafting, not web research, shell execution, email or device control. A working
-directory is not an OS sandbox. Processes start per request; persistent warmed
-workers are a required latency improvement, not an existing capability.
-
-### Pi alternative
-
-The adapter targets the inspected current `earendil-works/pi` RPC protocol,
-including `agent_settled`. An older Pi without this event/flags is not compatible.
-Use an operator-installed Pi version matching the referenced source and retain
-its exact version in evaluation results; no package version is silently installed.
-
-```sh
-export ME3_HARNESS=pi
-export ME3_PI_BIN="$(command -v pi)"
-export ME3_MODEL='YOUR_CONFIGURED_MODEL_ID'
-python -m me3.duplex_voice
-```
-
-Tools, extensions, MCP, skills, templates and context-file discovery are disabled
-for this baseline. Provider credentials remain in the operator's environment.
-The Pi adapter is protocol-tested against fixtures, not a live provider.
-
-## Connect the existing course benchmark
-
-Use its unchanged launcher and scorer. Run the launcher with this project's
-voice environment; run fdbench itself with its own environment.
-
-```sh
-git clone https://github.com/trueshotjames/ai231-me3-full-duplex-benchmarking.git fd-benchmark
-export FDBENCH_PROJECT="$PWD"
-export FDBENCH_ENTRY="$PWD/integrations/fdbench_entry.py"
-python fd-benchmark/launch_assistant.py --check
-python fd-benchmark/launch_assistant.py --url ws://LAPTOP-IP:8791 --once
-```
-
-The launcher supplies audio transport; it must not open a physical microphone in
-benchmark mode. Input is 16 kHz; TTS/output is 24 kHz and the benchmark resamples.
-`--check` validates imports/rates, **not provider connectivity or model quality**.
-The same `build()` creates both local and benchmark pipelines. No labels, expected
-responses, trial categories or judge outputs are supplied to the controller.
-
-## Known limits
-
-ASR is utterance-based; full foreground text is buffered before synthesis.
-Backchannel recognition is a small exact-phrase policy, not an acoustic classifier.
-Optional `ME3_LEXICAL_TURN_HOLD=1` enables a crude conjunction-ending hold experiment;
-it is off by default. Proactive `Mm-hm.` responses are demonstrated through the
-controller's explicit incomplete-turn input, not a learned prosodic policy.
-
-Addressee detection, TV/bystander rejection, AEC, incremental ASR, word-accurate
-heard-prefix tracking, real Pi4/M2 measurements, live Hermes/Pi provider tests and
-Full-Duplex-Bench scores are **not established**. Transport start/stop receipts
-are approximate whole-utterance signals, not proof of acoustic delivery. Test
-chunk gaps, cancellation and delayed output events before relying on them.
-
-The full existing test suite can be run after installing `.[test,mcp]`:
-`python -m unittest discover -s tests -v`. The local implementation receipt covers
-only the new overlay tests; it does not relabel old tests as rerun.
+Current evidence, counts, measured software/device probes and unpassed gates
+are in [DUPLEX_STATUS](docs/DUPLEX_STATUS.md). No GPT Live parity, p95 acoustic
+latency, physical speakerphone/AEC, 30-minute soak or Raspberry Pi qualification is claimed.

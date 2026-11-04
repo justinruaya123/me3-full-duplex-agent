@@ -224,3 +224,7 @@ __marimo__/
 .local/
 .env.*
 !.env.example
+
+.speech-venv/
+
+.speech-venv312/

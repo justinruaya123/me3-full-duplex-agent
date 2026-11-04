@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "kind": "actual WebRTC AEC3 software/reference adapter smoke; not acoustic qualification",
+  "frames_20ms": 50,
+  "seconds": 0.39870600000722334
+}

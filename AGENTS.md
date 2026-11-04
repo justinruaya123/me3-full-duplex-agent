@@ -4,10 +4,12 @@ Read README.md, docs/DUPLEX_ARCHITECTURE.md, docs/DUPLEX_STATUS.md and
 .agents/skills/duplex-invariants/SKILL.md before changing behavior.
 
 ## Current authority
-The 2026-11-02 request supersedes the older OnIt-only requirement: the new duplex
-entrypoint uses Hermes first and permits Pi through the same backend contract.
-Keep the previous OnIt modules as a baseline. Do not change the ME2 smart-speaker
-VCM, its grammar, model constraints or acceptance tests.
+The 2026-11-04 specification supersedes older Hermes-first/OnIt-only defaults.
+Pi.dev is the default worker; foreground inference is separately configured.
+The controller stays harness-neutral. Read docs/ME3_SPEC_2026-11-04.md and
+docs/SETUP.md for the current implementation and unpassed acceptance gates.
+Keep the previous OnIt modules and prototype baseline. Do not change the ME2
+smart-speaker VCM, its grammar, model constraints or acceptance tests.
 
 ## Invariants
 - The local host owns orchestration, jobs, artifacts, MCP and action execution.

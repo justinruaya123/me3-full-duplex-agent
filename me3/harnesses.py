@@ -51,8 +51,12 @@ class JsonProcessBackend:
     """
 
     def __init__(
-        self, command: tuple[str, ...], *, timeout: float = 180,
-        max_bytes: int = 1_048_576, env: Mapping[str, str] | None = None,
+        self,
+        command: tuple[str, ...],
+        *,
+        timeout: float = 180,
+        max_bytes: int = 1_048_576,
+        env: Mapping[str, str] | None = None,
     ) -> None:
         if not command or timeout <= 0 or max_bytes < 1024:
             raise ValueError("Invalid harness process configuration")
@@ -77,7 +81,11 @@ class JsonProcessBackend:
         return _text(json.loads(b"".join(chunks)))
 
     async def run(
-        self, prompt: str, workspace: Path, *, foreground: bool = False,
+        self,
+        prompt: str,
+        workspace: Path,
+        *,
+        foreground: bool = False,
     ) -> str:
         if not isinstance(prompt, str) or not prompt.strip():
             raise ValueError("A prompt is required")
@@ -85,9 +93,14 @@ class JsonProcessBackend:
         env = {**os.environ, **self.env}
         env["HERMES_HOME"] = str(workspace.resolve() / ".hermes")
         process = await asyncio.create_subprocess_exec(
-            *self.command, cwd=workspace, env=env, start_new_session=True,
-            stdin=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.PIPE, limit=self.max_bytes,
+            *self.command,
+            cwd=workspace,
+            env=env,
+            start_new_session=True,
+            stdin=asyncio.subprocess.PIPE,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+            limit=self.max_bytes,
         )
         diagnostics = asyncio.create_task(_drain(process.stderr))
         try:
@@ -105,7 +118,9 @@ class JsonProcessBackend:
                 remaining_output.cancel()
                 diagnostics.cancel()
                 await asyncio.gather(
-                    remaining_output, diagnostics, return_exceptions=True,
+                    remaining_output,
+                    diagnostics,
+                    return_exceptions=True,
                 )
 
 
@@ -134,8 +149,10 @@ class PiBackend(JsonProcessBackend):
                 if not record.get("success"):
                     raise RuntimeError("Pi rejected a protocol command")
                 data = record.get("data", {})
-                if (record.get("id") == "turn"
-                        and data.get("disposition") == "handled"):
+                if (
+                    record.get("id") == "turn"
+                    and data.get("disposition") == "handled"
+                ):
                     raise RuntimeError("Pi handled prompt without a run")
                 if record.get("id") == "result" and requested_result:
                     text = _text(data)
@@ -162,8 +179,11 @@ def hermes_backend(env: Mapping[str, str] | None = None) -> JsonProcessBackend:
     runner = Path(__file__).with_name("hermes_runner.py").resolve()
     return JsonProcessBackend(
         (str(python), str(runner)),
-        env={**values, "ME3_HERMES_ROOT": str(root),
-             "ME3_HERMES_REVISION": HERMES_REVISION},
+        env={
+            **values,
+            "ME3_HERMES_ROOT": str(root),
+            "ME3_HERMES_REVISION": HERMES_REVISION,
+        },
     )
 
 
@@ -186,12 +206,22 @@ def configured_backend():
         if not provider:
             raise ValueError("Set ME3_WORKER_PROVIDER and ME3_WORKER_MODEL")
         if not binary.is_file() or not model:
-            raise ValueError("Set ME3_PI_BIN to pi's path and ME3_WORKER_MODEL")
+            raise ValueError(
+                "Set ME3_PI_BIN to pi's path and ME3_WORKER_MODEL"
+            )
         command = (
-            str(binary), "--mode", "rpc", "--no-tools",
-            "--no-extensions", "--no-skills",
-            "--no-prompt-templates", "--no-context-files", "--model", model,
-            "--provider", provider,
+            str(binary),
+            "--mode",
+            "rpc",
+            "--no-tools",
+            "--no-extensions",
+            "--no-skills",
+            "--no-prompt-templates",
+            "--no-context-files",
+            "--model",
+            model,
+            "--provider",
+            provider,
         )
         from me3.pi_worker import PersistentPiBackend
 
@@ -199,10 +229,16 @@ def configured_backend():
         key_name = os.environ.get("ME3_WORKER_API_KEY_ENV")
         if key_name:
             if not key_name.isidentifier() or not os.environ.get(key_name):
-                raise ValueError("Configured worker API key variable is missing")
+                raise ValueError(
+                    "Configured worker API key variable is missing"
+                )
             extra[key_name] = os.environ[key_name]
         return PersistentPiBackend(
-            command, model=exact_model, provider=provider, env=extra,
-            timeout=600, max_bytes=2_097_152,
+            command,
+            model=exact_model,
+            provider=provider,
+            env=extra,
+            timeout=600,
+            max_bytes=2_097_152,
         )
     raise ValueError("ME3_HARNESS must be hermes or pi; no implicit mocks")

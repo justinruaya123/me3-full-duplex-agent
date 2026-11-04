@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "stdout": "{\"passed\": true, \"kind\": \"native simultaneous input/output smoke; output silence, input discarded\", \"saved_recordings\": false, \"input_frames\": 15360, \"output_frames\": 24000, \"input_statuses\": 0, \"output_statuses\": 0}\n",
+  "stderr": ""
+}
