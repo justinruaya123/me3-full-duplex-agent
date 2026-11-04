@@ -99,6 +99,7 @@ class DuplexController:
         self.quiet_seconds, self.is_playing = quiet_seconds, is_playing
         self.history: list[dict[str, str]] = []
         self.focus: str | None = None
+        self.pending_question = False
         self.user_speaking = False
         self.turn_open = False
         self.epoch = 0
@@ -184,7 +185,9 @@ class DuplexController:
         if not text or len(text) > 16000:
             raise ValueError("Input must contain 1 to 16000 characters")
         speaking = self.is_playing() if self.is_playing else self._speaking
-        decision = classify_overlap(text, speaking, addressed=addressed)
+        decision = classify_overlap(
+            text, speaking and not self.pending_question, addressed=addressed,
+        )
         self._last_activity = self.clock()
         self.jobs.trace("floor_decision", decision=decision,
                         addressee_known=addressed is not None)
@@ -217,6 +220,7 @@ class DuplexController:
         if len(text) > 16000:
             raise ValueError("Accumulated turn is too large")
         await self._interrupt()
+        self.pending_question = False
         epoch = self.epoch
         self.history.append({"role": "user", "content": text})
         self.history = self.history[-12:]
@@ -284,6 +288,7 @@ class DuplexController:
             delivered = await self.speak(text)
             if delivered and epoch == self.epoch:
                 if record:
+                    self.pending_question = text.rstrip().endswith("?")
                     self.history.append({"role": "assistant", "content": text})
                     self.history = self.history[-12:]
                 if notice:

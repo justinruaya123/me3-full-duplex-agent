@@ -1,0 +1,116 @@
+test_answer_to_pending_question_is_not_a_backchannel (test_ownership_v1.IngressTests.test_answer_to_pending_question_is_not_a_backchannel) ... FAIL
+test_wrong_session_or_unverified_commit_cannot_delegate (test_ownership_v1.IngressTests.test_wrong_session_or_unverified_commit_cannot_delegate) ... ERROR
+test_timeout_and_mute_revoke_authority (test_ownership_v1.OwnershipTests.test_timeout_and_mute_revoke_authority) ... ERROR
+test_unknown_mixed_nonowner_and_side_talk_cannot_authorize (test_ownership_v1.OwnershipTests.test_unknown_mixed_nonowner_and_side_talk_cannot_authorize) ... ERROR
+test_wake_is_not_identity_and_enrollment_is_deliberate (test_ownership_v1.OwnershipTests.test_wake_is_not_identity_and_enrollment_is_deliberate) ... ERROR
+
+======================================================================
+ERROR: test_wrong_session_or_unverified_commit_cannot_delegate (test_ownership_v1.IngressTests.test_wrong_session_or_unverified_commit_cannot_delegate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_ownership_v1.py", line 62, in test_wrong_session_or_unverified_commit_cannot_delegate
+    from me3.ownership import OwnershipGate, SessionIngress, VoiceEvidence
+ModuleNotFoundError: No module named 'me3.ownership'
+
+======================================================================
+ERROR: test_timeout_and_mute_revoke_authority (test_ownership_v1.OwnershipTests.test_timeout_and_mute_revoke_authority)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_ownership_v1.py", line 49, in test_timeout_and_mute_revoke_authority
+    from me3.ownership import OwnershipGate, VoiceEvidence
+ModuleNotFoundError: No module named 'me3.ownership'
+
+======================================================================
+ERROR: test_unknown_mixed_nonowner_and_side_talk_cannot_authorize (test_ownership_v1.OwnershipTests.test_unknown_mixed_nonowner_and_side_talk_cannot_authorize)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_ownership_v1.py", line 30, in test_unknown_mixed_nonowner_and_side_talk_cannot_authorize
+    from me3.ownership import OwnershipGate, VoiceEvidence
+ModuleNotFoundError: No module named 'me3.ownership'
+
+======================================================================
+ERROR: test_wake_is_not_identity_and_enrollment_is_deliberate (test_ownership_v1.OwnershipTests.test_wake_is_not_identity_and_enrollment_is_deliberate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_ownership_v1.py", line 14, in test_wake_is_not_identity_and_enrollment_is_deliberate
+    from me3.ownership import OwnershipGate, VoiceEvidence
+ModuleNotFoundError: No module named 'me3.ownership'
+
+======================================================================
+FAIL: test_answer_to_pending_question_is_not_a_backchannel (test_ownership_v1.IngressTests.test_answer_to_pending_question_is_not_a_backchannel)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_ownership_v1.py", line 106, in test_answer_to_pending_question_is_not_a_backchannel
+    self.assertEqual(await controller.accept('yes'), 'turn')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'backchannel' != 'turn'
+- backchannel
++ turn
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.011s
+
+FAILED (failures=1, errors=4)
+test_incomplete_acoustic_turn_only_emits_provisional_text (test_capture_v1.CaptureTests.test_incomplete_acoustic_turn_only_emits_provisional_text) ... ERROR
+test_overflow_and_transcript_gap_cannot_commit_fragment (test_capture_v1.CaptureTests.test_overflow_and_transcript_gap_cannot_commit_fragment) ... ERROR
+test_resumed_audio_fences_late_final_hypothesis (test_capture_v1.CaptureTests.test_resumed_audio_fences_late_final_hypothesis) ... ERROR
+
+======================================================================
+ERROR: test_incomplete_acoustic_turn_only_emits_provisional_text (test_capture_v1.CaptureTests.test_incomplete_acoustic_turn_only_emits_provisional_text)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_capture_v1.py", line 8, in test_incomplete_acoustic_turn_only_emits_provisional_text
+    from me3.capture import RollingCapture
+ModuleNotFoundError: No module named 'me3.capture'
+
+======================================================================
+ERROR: test_overflow_and_transcript_gap_cannot_commit_fragment (test_capture_v1.CaptureTests.test_overflow_and_transcript_gap_cannot_commit_fragment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_capture_v1.py", line 61, in test_overflow_and_transcript_gap_cannot_commit_fragment
+    from me3.capture import RollingCapture
+ModuleNotFoundError: No module named 'me3.capture'
+
+======================================================================
+ERROR: test_resumed_audio_fences_late_final_hypothesis (test_capture_v1.CaptureTests.test_resumed_audio_fences_late_final_hypothesis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_capture_v1.py", line 31, in test_resumed_audio_fences_late_final_hypothesis
+    from me3.capture import RollingCapture
+ModuleNotFoundError: No module named 'me3.capture'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.012s
+
+FAILED (errors=3)
