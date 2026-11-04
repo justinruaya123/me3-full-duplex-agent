@@ -5,11 +5,15 @@ from pathlib import Path
 
 from me3.core import Supervisor
 from me3.duplex import DuplexController, SupervisorJobs
+from me3.website import WebsiteWorker, prepare_website
 
 
 class AgentRuntime:
     def __init__(self, root: Path, worker, foreground) -> None:
-        self.supervisor = Supervisor(root, worker)
+        self.worker = WebsiteWorker(worker)
+        self.supervisor = Supervisor(
+            root, self.worker, timeout=600, prepare_result=prepare_website,
+        )
         self.foreground = foreground
         self.sessions: set[DuplexController] = set()
         self.closed = False
@@ -36,3 +40,4 @@ class AgentRuntime:
         for session in list(self.sessions):
             await self.end_session(session)
         await self.supervisor.close()
+        await self.worker.close()

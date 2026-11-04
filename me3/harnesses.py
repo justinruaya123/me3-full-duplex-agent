@@ -175,12 +175,34 @@ def configured_backend():
         executable = os.environ.get("ME3_PI_BIN") or shutil.which("pi")
         binary = Path(executable or "").expanduser().resolve()
         model = os.environ.get("ME3_WORKER_MODEL")
+        provider = os.environ.get("ME3_WORKER_PROVIDER", "")
+        if model and "/" in model:
+            selected_provider, exact_model = model.split("/", 1)
+            if provider and provider != selected_provider:
+                raise ValueError("Worker provider/model selection disagrees")
+            provider = selected_provider
+        else:
+            exact_model = model
+        if not provider:
+            raise ValueError("Set ME3_WORKER_PROVIDER and ME3_WORKER_MODEL")
         if not binary.is_file() or not model:
             raise ValueError("Set ME3_PI_BIN to pi's path and ME3_WORKER_MODEL")
         command = (
-            str(binary), "--mode", "rpc", "--no-session", "--no-tools",
+            str(binary), "--mode", "rpc", "--no-tools",
             "--no-extensions", "--no-skills",
             "--no-prompt-templates", "--no-context-files", "--model", model,
+            "--provider", provider,
         )
-        return PiBackend(command)
+        from me3.pi_worker import PersistentPiBackend
+
+        extra = {}
+        key_name = os.environ.get("ME3_WORKER_API_KEY_ENV")
+        if key_name:
+            if not key_name.isidentifier() or not os.environ.get(key_name):
+                raise ValueError("Configured worker API key variable is missing")
+            extra[key_name] = os.environ[key_name]
+        return PersistentPiBackend(
+            command, model=exact_model, provider=provider, env=extra,
+            timeout=600, max_bytes=2_097_152,
+        )
     raise ValueError("ME3_HARNESS must be hermes or pi; no implicit mocks")

@@ -33,6 +33,7 @@ class Supervisor:
     def __init__(
         self, root: Path, backend: Backend, *, workers: int = 1,
         max_pending: int = 8, timeout: float = 180.0,
+        prepare_result=None,
     ) -> None:
         if workers < 1 or max_pending < 1 or timeout <= 0:
             raise ValueError(
@@ -64,6 +65,7 @@ class Supervisor:
         )
         self.db.commit()
         self.backend = backend
+        self.prepare_result = prepare_result
         self.max_pending = max_pending
         self.timeout = timeout
         self._semaphore = asyncio.Semaphore(workers)
@@ -179,6 +181,12 @@ class Supervisor:
                     raise ValueError(
                         "Backend returned an empty or invalid result.",
                     )
+                if self.prepare_result is not None:
+                    result = await self.prepare_result(
+                        result, workspace, lambda: self._is_current(job),
+                    )
+                    if not self._is_current(job):
+                        return
                 target = workspace / "result.md"
                 temporary = workspace / "result.tmp"
                 temporary.write_text(result, encoding="utf-8")

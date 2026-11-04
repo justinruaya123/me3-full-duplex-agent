@@ -1,0 +1,110 @@
+test_persistent_rpc_reuses_job_process_and_checks_exact_model (test_website_v1.PiWorkerTests.test_persistent_rpc_reuses_job_process_and_checks_exact_model) ... ERROR
+test_wrong_model_is_rejected_before_prompt (test_website_v1.PiWorkerTests.test_wrong_model_is_rejected_before_prompt) ... ERROR
+test_build_writes_files_and_records_real_syntax_receipt (test_website_v1.WebsiteTests.test_build_writes_files_and_records_real_syntax_receipt) ... ERROR
+test_invalid_javascript_and_missing_viewport_never_pass (test_website_v1.WebsiteTests.test_invalid_javascript_and_missing_viewport_never_pass) ... ERROR
+test_oversized_bundle_and_inline_syntax_errors_are_rejected (test_website_v1.WebsiteTests.test_oversized_bundle_and_inline_syntax_errors_are_rejected) ... ERROR
+test_path_escape_symlinks_and_package_scripts_are_rejected (test_website_v1.WebsiteTests.test_path_escape_symlinks_and_package_scripts_are_rejected) ... ERROR
+test_stale_result_cannot_write_files_or_run_build (test_website_v1.WebsiteTests.test_stale_result_cannot_write_files_or_run_build) ... ERROR
+
+======================================================================
+ERROR: test_persistent_rpc_reuses_job_process_and_checks_exact_model (test_website_v1.PiWorkerTests.test_persistent_rpc_reuses_job_process_and_checks_exact_model)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_website_v1.py", line 76, in test_persistent_rpc_reuses_job_process_and_checks_exact_model
+    from me3.pi_worker import PersistentPiBackend
+ModuleNotFoundError: No module named 'me3.pi_worker'
+
+======================================================================
+ERROR: test_wrong_model_is_rejected_before_prompt (test_website_v1.PiWorkerTests.test_wrong_model_is_rejected_before_prompt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_website_v1.py", line 108, in test_wrong_model_is_rejected_before_prompt
+    from me3.pi_worker import PersistentPiBackend
+ModuleNotFoundError: No module named 'me3.pi_worker'
+
+======================================================================
+ERROR: test_build_writes_files_and_records_real_syntax_receipt (test_website_v1.WebsiteTests.test_build_writes_files_and_records_real_syntax_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_website_v1.py", line 23, in test_build_writes_files_and_records_real_syntax_receipt
+    from me3.website import prepare_website
+ModuleNotFoundError: No module named 'me3.website'
+
+======================================================================
+ERROR: test_invalid_javascript_and_missing_viewport_never_pass (test_website_v1.WebsiteTests.test_invalid_javascript_and_missing_viewport_never_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_website_v1.py", line 56, in test_invalid_javascript_and_missing_viewport_never_pass
+    from me3.website import prepare_website
+ModuleNotFoundError: No module named 'me3.website'
+
+======================================================================
+ERROR: test_oversized_bundle_and_inline_syntax_errors_are_rejected (test_website_v1.WebsiteTests.test_oversized_bundle_and_inline_syntax_errors_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_website_v1.py", line 65, in test_oversized_bundle_and_inline_syntax_errors_are_rejected
+    from me3.website import prepare_website
+ModuleNotFoundError: No module named 'me3.website'
+
+======================================================================
+ERROR: test_path_escape_symlinks_and_package_scripts_are_rejected (test_website_v1.WebsiteTests.test_path_escape_symlinks_and_package_scripts_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_website_v1.py", line 43, in test_path_escape_symlinks_and_package_scripts_are_rejected
+    from me3.website import prepare_website
+ModuleNotFoundError: No module named 'me3.website'
+
+======================================================================
+ERROR: test_stale_result_cannot_write_files_or_run_build (test_website_v1.WebsiteTests.test_stale_result_cannot_write_files_or_run_build)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_website_v1.py", line 35, in test_stale_result_cannot_write_files_or_run_build
+    from me3.website import prepare_website
+ModuleNotFoundError: No module named 'me3.website'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.018s
+
+FAILED (errors=7)
