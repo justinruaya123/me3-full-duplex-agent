@@ -251,6 +251,18 @@ async def build(
         pcm_buffer.resume()
         resumed.set()
 
+    def resolve_empty(generation):
+        if (
+            closed or muted or controller._closed or capture.closed
+            or generation != capture.generation or capture.active
+            or controller.user_speaking
+        ):
+            return
+        dismiss()
+        runtime.supervisor.trace(
+            "empty_turn_resolved", generation=generation
+        )
+
     async def emit(event, pcm):
         nonlocal enrollment_owner
         if closed or muted:
@@ -308,6 +320,7 @@ async def build(
         lambda pcm: speech.transcribe(wav16(pcm)),
         turn_analyzer,
         emit,
+        on_empty=resolve_empty,
     )
 
     class EchoCleaner(FrameProcessor):
@@ -343,7 +356,9 @@ async def build(
                     and not muted
                 ):
                     controller.user_stopped()
-                    task = asyncio.create_task(capture.finish())
+                    task = asyncio.create_task(
+                        capture.finish(generation=capture.generation)
+                    )
                     final_tasks.add(task)
                     task.add_done_callback(fail)
                 elif isinstance(frame, InputAudioRawFrame):

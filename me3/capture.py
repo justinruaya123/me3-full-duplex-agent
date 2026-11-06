@@ -21,6 +21,13 @@ def wav16(pcm: bytes) -> bytes:
 
 
 class RollingCapture:
+    """Publish transcript revisions or resolve an entirely empty final turn.
+
+    ``on_empty(generation)`` is synchronous so its consumer can check the
+    current generation and release a provisional pause without an await race.
+    It is not a transcript commit or authorization to act.
+    """
+
     def __init__(
         self,
         session_id: str,
@@ -30,6 +37,7 @@ class RollingCapture:
         *,
         max_seconds: float = 16,
         interval: float = 0.8,
+        on_empty=None,
     ) -> None:
         if not 0 < interval <= max_seconds <= 16:
             raise ValueError(
@@ -37,6 +45,7 @@ class RollingCapture:
             )
         self.session_id = session_id
         self.recognize, self.analyze, self.emit = recognize, analyze, emit
+        self.on_empty = on_empty
         self.limit, self.interval = (
             int(max_seconds * 32000),
             int(interval * 32000),
@@ -130,7 +139,11 @@ class RollingCapture:
             self.rolling,
             bytes(self.audio),
         )
-        if self.closed or self.invalid or rolling is None or not pcm:
+        if self.closed or self.invalid or rolling is None:
+            return
+        if not pcm:
+            if final:
+                self._resolve_empty(generation)
             return
         async with self._lock:
             self._waiting_snapshots.pop(asyncio.current_task(), None)
@@ -148,7 +161,11 @@ class RollingCapture:
                     )
             if generation != self.generation or self.closed:
                 return
-            if not isinstance(text, str) or not text.strip():
+            if not isinstance(text, str):
+                raise TypeError("ASR must return text")
+            if not text.strip():
+                if final:
+                    self._resolve_empty(generation)
                 return
             self._recognized = (generation, pcm, text)
             gap = re.search(
@@ -170,7 +187,26 @@ class RollingCapture:
             return previous[2]
         return await self.recognize(pcm)
 
-    async def finish(self) -> None:
+    def _resolve_empty(self, generation: int) -> None:
+        # Empty recognition cannot retract nonempty, incomplete speech.
+        if (
+            self.closed or self.invalid or self.active
+            or generation != self.generation
+            or self.rolling is None or self.rolling.previous
+        ):
+            return
+        # Retire the empty turn and fence any queued snapshots. This is not
+        # a transcript commit and cannot authorize foreground work or actions.
+        self.generation += 1
+        self._recognized = None
+        self.rolling = None
+        self.audio.clear()
+        if self.on_empty is not None:
+            self.on_empty(self.generation)
+
+    async def finish(self, *, generation: int | None = None) -> None:
+        if generation is not None and generation != self.generation:
+            return
         self.active = False
         await self._snapshot(True)
 
