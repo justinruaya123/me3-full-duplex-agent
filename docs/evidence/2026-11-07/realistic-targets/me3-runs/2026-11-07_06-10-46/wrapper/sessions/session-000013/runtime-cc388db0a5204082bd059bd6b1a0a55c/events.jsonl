@@ -1,0 +1,13 @@
+{"event": "supervisor_started", "mono_ns": 11639430446041}
+{"event": "voice_profile", "mono_ns": 11639509376375, "profile": "course", "session_id": "b818cf07e1e9468e86123e365a0fc786", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 11646347954416, "session_id": "b818cf07e1e9468e86123e365a0fc786"}
+{"event": "transcript_revision", "mono_ns": 11647961717041, "session_id": "b818cf07e1e9468e86123e365a0fc786", "revision": 1, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 11648136271625, "session_id": "b818cf07e1e9468e86123e365a0fc786"}
+{"event": "transcript_revision", "mono_ns": 11649032996250, "session_id": "b818cf07e1e9468e86123e365a0fc786", "revision": 2, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 11650087749000, "session_id": "b818cf07e1e9468e86123e365a0fc786", "revision": 3, "committed": true, "turn_id": "1", "capture_ended": true}
+{"event": "floor_decision", "mono_ns": 11650088446125, "session_id": "b818cf07e1e9468e86123e365a0fc786", "decision": "turn", "addressee_known": true}
+{"event": "speech_cancelled", "mono_ns": 11650089170541, "session_id": "b818cf07e1e9468e86123e365a0fc786", "epoch": 1}
+{"event": "speech_submitted", "mono_ns": 11650631999833, "epoch": 1, "utterance": "b818cf07e1e9468e86123e365a0fc786:1:1", "profile": "course"}
+{"event": "transport_utterance_completed", "mono_ns": 11657721176458, "utterance": "b818cf07e1e9468e86123e365a0fc786:1:1", "bytes": 297600, "profile": "course"}
+{"event": "playback_completed", "mono_ns": 11657721465208, "session_id": "b818cf07e1e9468e86123e365a0fc786", "epoch": 1, "kind": "reply"}
+{"event": "speech_submitted", "mono_ns": 11657722161083, "epoch": 1, "utterance": "b818cf07e1e9468e86123e365a0fc786:1:2", "profile": "course"}

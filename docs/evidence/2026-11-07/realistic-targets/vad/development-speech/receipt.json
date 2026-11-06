@@ -1,0 +1,56 @@
+{
+  "kind": "synthetic development speech, not acoustic or held-out benchmark",
+  "tts_model": "mlx-community/Kokoro-82M-bf16",
+  "voice": "af_heart",
+  "sample_rate": 24000,
+  "files": [
+    {
+      "path": ".local/verification/targets/vad/development-speech/01.wav",
+      "text": "Please wait a moment.",
+      "seconds": 1.75,
+      "generation_seconds": 6.929195042000174
+    },
+    {
+      "path": ".local/verification/targets/vad/development-speech/02.wav",
+      "text": "Actually, could you explain that?",
+      "seconds": 2.275,
+      "generation_seconds": 0.22915529200054152
+    },
+    {
+      "path": ".local/verification/targets/vad/development-speech/03.wav",
+      "text": "Yes.",
+      "seconds": 1.35,
+      "generation_seconds": 0.1460546250000334
+    },
+    {
+      "path": ".local/verification/targets/vad/development-speech/04.wav",
+      "text": "Mm-hmm.",
+      "seconds": 1.35,
+      "generation_seconds": 0.14382962499985297
+    },
+    {
+      "path": ".local/verification/targets/vad/development-speech/05.wav",
+      "text": "Stop talking.",
+      "seconds": 1.7,
+      "generation_seconds": 0.17297887499989884
+    },
+    {
+      "path": ".local/verification/targets/vad/development-speech/06.wav",
+      "text": "Thanks, I follow.",
+      "seconds": 1.7,
+      "generation_seconds": 0.17678758300007757
+    },
+    {
+      "path": ".local/verification/targets/vad/development-speech/07.wav",
+      "text": "Six small ships passed the shore.",
+      "seconds": 2.4,
+      "generation_seconds": 0.370593665999877
+    },
+    {
+      "path": ".local/verification/targets/vad/development-speech/08.wav",
+      "text": "Can we discuss another example?",
+      "seconds": 2.55,
+      "generation_seconds": 0.24565591700047662
+    }
+  ]
+}

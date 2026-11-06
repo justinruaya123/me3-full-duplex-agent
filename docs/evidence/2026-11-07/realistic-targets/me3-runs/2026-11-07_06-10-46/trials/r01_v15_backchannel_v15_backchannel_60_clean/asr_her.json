@@ -1,0 +1,90 @@
+{
+  "text": "Honestly, in -depth is a massive ask for a quick spoken answer.",
+  "chunks": [
+    {
+      "text": "Honestly,",
+      "timestamp": [
+        3.66,
+        4.5
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        4.82,
+        4.98
+      ]
+    },
+    {
+      "text": "-depth",
+      "timestamp": [
+        4.98,
+        5.22
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        5.22,
+        5.72
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        5.72,
+        5.84
+      ]
+    },
+    {
+      "text": "massive",
+      "timestamp": [
+        5.84,
+        6.16
+      ]
+    },
+    {
+      "text": "ask",
+      "timestamp": [
+        6.16,
+        6.58
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        6.58,
+        6.76
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.76,
+        6.92
+      ]
+    },
+    {
+      "text": "quick",
+      "timestamp": [
+        6.92,
+        7.04
+      ]
+    },
+    {
+      "text": "spoken",
+      "timestamp": [
+        7.04,
+        7.46
+      ]
+    },
+    {
+      "text": "answer.",
+      "timestamp": [
+        7.46,
+        7.86
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

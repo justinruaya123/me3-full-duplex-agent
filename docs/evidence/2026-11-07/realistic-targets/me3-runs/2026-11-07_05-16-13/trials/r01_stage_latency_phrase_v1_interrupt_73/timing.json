@@ -1,0 +1,86 @@
+{
+  "trial": "r01_stage_latency_phrase_v1_interrupt_73",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_73",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 13.504,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.4
+    }
+  ],
+  "live_bot_starts": [
+    5.984,
+    9.152
+  ],
+  "live_bot_ends": [
+    8.768,
+    13.152
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "How should I start saving for retirement?",
+    "source": "v1_interrupt_73"
+  },
+  "mono": [
+    8302.459478791,
+    8315.961132916
+  ],
+  "bot_segments": [
+    [
+      5.954,
+      13.182
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.4
+  ],
+  "tor": 1,
+  "first_start": 5.954,
+  "spoke_s": 4.446000000000001,
+  "user_end": 2.43,
+  "latency": 3.5239999999999996,
+  "actual": "replied 3.52 s after speech end",
+  "verdict": "✓ 3.52 s",
+  "ok": true,
+  "marks": 18,
+  "final": {
+    "stages": {
+      "e2e_heard": 3.524,
+      "e2e": 3.0687,
+      "e2e_source": "marks",
+      "asr_final": 1.8013,
+      "llm_ttft": 0.1404,
+      "tts_ttfb": 0.6646,
+      "endpointing": 0.1359,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "how should I start saving for retirement?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 44,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Start by maxing out any employer match first, then funnel whatever you can afford into a Roth or traditional IRA."
+  },
+  "scored_at": "2026-11-07T05:34:56+08:00"
+}

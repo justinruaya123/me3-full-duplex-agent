@@ -1,0 +1,153 @@
+{
+  "text": "That's a big step, but it sounds like you're ready for a shift. What's pulling you away from your current role?",
+  "chunks": [
+    {
+      "text": "That's",
+      "timestamp": [
+        5.71,
+        6.35
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.35,
+        6.39
+      ]
+    },
+    {
+      "text": "big",
+      "timestamp": [
+        6.39,
+        6.55
+      ]
+    },
+    {
+      "text": "step,",
+      "timestamp": [
+        6.55,
+        6.87
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        7.21,
+        7.35
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        7.35,
+        7.45
+      ]
+    },
+    {
+      "text": "sounds",
+      "timestamp": [
+        7.45,
+        7.67
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        7.67,
+        7.89
+      ]
+    },
+    {
+      "text": "you're",
+      "timestamp": [
+        7.89,
+        8.03
+      ]
+    },
+    {
+      "text": "ready",
+      "timestamp": [
+        8.03,
+        8.23
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        8.23,
+        8.43
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        8.43,
+        8.53
+      ]
+    },
+    {
+      "text": "shift.",
+      "timestamp": [
+        8.53,
+        8.83
+      ]
+    },
+    {
+      "text": "What's",
+      "timestamp": [
+        9.77,
+        10.17
+      ]
+    },
+    {
+      "text": "pulling",
+      "timestamp": [
+        10.17,
+        10.39
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        10.39,
+        10.63
+      ]
+    },
+    {
+      "text": "away",
+      "timestamp": [
+        10.63,
+        10.93
+      ]
+    },
+    {
+      "text": "from",
+      "timestamp": [
+        10.93,
+        11.15
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        11.15,
+        11.27
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        11.27,
+        11.57
+      ]
+    },
+    {
+      "text": "role?",
+      "timestamp": [
+        11.57,
+        11.83
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

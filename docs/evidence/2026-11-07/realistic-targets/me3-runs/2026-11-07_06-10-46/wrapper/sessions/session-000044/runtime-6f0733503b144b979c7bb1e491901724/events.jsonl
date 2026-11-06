@@ -1,0 +1,18 @@
+{"event": "supervisor_started", "mono_ns": 12213225308333}
+{"event": "voice_profile", "mono_ns": 12213308255791, "profile": "course", "session_id": "e9f32062559341c8b16682ad28a00139", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 12219625459125, "session_id": "e9f32062559341c8b16682ad28a00139"}
+{"event": "transcript_revision", "mono_ns": 12221219128083, "session_id": "e9f32062559341c8b16682ad28a00139", "revision": 1, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 12222295814583, "session_id": "e9f32062559341c8b16682ad28a00139", "revision": 2, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 12222378346750, "session_id": "e9f32062559341c8b16682ad28a00139"}
+{"event": "user_started", "mono_ns": 12222665779875, "session_id": "e9f32062559341c8b16682ad28a00139"}
+{"event": "transcript_revision", "mono_ns": 12224537727000, "session_id": "e9f32062559341c8b16682ad28a00139", "revision": 3, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 12225696144500, "session_id": "e9f32062559341c8b16682ad28a00139", "revision": 4, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 12226694860458, "session_id": "e9f32062559341c8b16682ad28a00139"}
+{"event": "transcript_revision", "mono_ns": 12226888467583, "session_id": "e9f32062559341c8b16682ad28a00139", "revision": 5, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_started", "mono_ns": 12228011454500, "session_id": "e9f32062559341c8b16682ad28a00139"}
+{"event": "user_stopped_asr_pending", "mono_ns": 12229163433458, "session_id": "e9f32062559341c8b16682ad28a00139"}
+{"event": "transcript_revision", "mono_ns": 12229275591083, "session_id": "e9f32062559341c8b16682ad28a00139", "revision": 6, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_started", "mono_ns": 12229482559291, "session_id": "e9f32062559341c8b16682ad28a00139"}
+{"event": "user_stopped_asr_pending", "mono_ns": 12230923742000, "session_id": "e9f32062559341c8b16682ad28a00139"}
+{"event": "transcript_revision", "mono_ns": 12231771435375, "session_id": "e9f32062559341c8b16682ad28a00139", "revision": 7, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 12233086602000, "session_id": "e9f32062559341c8b16682ad28a00139", "revision": 8, "committed": false, "turn_id": "1", "capture_ended": true}

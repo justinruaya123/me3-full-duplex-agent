@@ -1,0 +1,202 @@
+{
+  "text": "Honestly, I can't really cover the entire depth of astronomy in a single short answer. But I can tell you it's the study of everything outside our atmosphere.",
+  "chunks": [
+    {
+      "text": "Honestly,",
+      "timestamp": [
+        5.49,
+        6.23
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        6.57,
+        6.67
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        6.67,
+        7.05
+      ]
+    },
+    {
+      "text": "really",
+      "timestamp": [
+        7.05,
+        7.29
+      ]
+    },
+    {
+      "text": "cover",
+      "timestamp": [
+        7.29,
+        7.67
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        7.67,
+        8.17
+      ]
+    },
+    {
+      "text": "entire",
+      "timestamp": [
+        9.93,
+        10.99
+      ]
+    },
+    {
+      "text": "depth",
+      "timestamp": [
+        10.99,
+        11.37
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        11.37,
+        11.53
+      ]
+    },
+    {
+      "text": "astronomy",
+      "timestamp": [
+        11.53,
+        12.07
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        12.07,
+        12.39
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        12.39,
+        12.53
+      ]
+    },
+    {
+      "text": "single",
+      "timestamp": [
+        12.53,
+        12.87
+      ]
+    },
+    {
+      "text": "short",
+      "timestamp": [
+        12.87,
+        13.23
+      ]
+    },
+    {
+      "text": "answer.",
+      "timestamp": [
+        13.23,
+        13.65
+      ]
+    },
+    {
+      "text": "But",
+      "timestamp": [
+        14.23,
+        14.45
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        14.45,
+        14.55
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        14.55,
+        14.69
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        14.69,
+        14.95
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        14.95,
+        15.17
+      ]
+    },
+    {
+      "text": "it's",
+      "timestamp": [
+        15.17,
+        15.37
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        15.37,
+        15.51
+      ]
+    },
+    {
+      "text": "study",
+      "timestamp": [
+        15.51,
+        15.81
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        15.81,
+        16.07
+      ]
+    },
+    {
+      "text": "everything",
+      "timestamp": [
+        16.07,
+        16.47
+      ]
+    },
+    {
+      "text": "outside",
+      "timestamp": [
+        16.47,
+        17.05
+      ]
+    },
+    {
+      "text": "our",
+      "timestamp": [
+        17.05,
+        17.31
+      ]
+    },
+    {
+      "text": "atmosphere.",
+      "timestamp": [
+        17.31,
+        17.85
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

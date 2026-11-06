@@ -1,0 +1,3 @@
+{"event": "guard_installed", "pid": 19160}
+{"event": "subprocess", "executable": "python"}
+{"event": "subprocess", "executable": "python"}

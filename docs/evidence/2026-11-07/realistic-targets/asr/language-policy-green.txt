@@ -1,0 +1,12 @@
+test_exact_input_is_reused_but_changed_input_is_encoded (test_whisper_inference_v1.WhisperInferenceTests.test_exact_input_is_reused_but_changed_input_is_encoded) ... ok
+test_failure_restores_model_and_does_not_publish_failed_features (test_whisper_inference_v1.WhisperInferenceTests.test_failure_restores_model_and_does_not_publish_failed_features) ... ok
+test_requests_do_not_share_audio_or_encoded_features (test_whisper_inference_v1.WhisperInferenceTests.test_requests_do_not_share_audio_or_encoded_features) ... ok
+test_confident_detected_language_does_not_force_english_or_redetect (test_whisper_language_v1.AutomaticLanguageTests.test_confident_detected_language_does_not_force_english_or_redetect) ... ok
+test_detection_failure_is_explicit (test_whisper_language_v1.AutomaticLanguageTests.test_detection_failure_is_explicit) ... ok
+test_malformed_probabilities_cannot_select_an_implicit_language (test_whisper_language_v1.AutomaticLanguageTests.test_malformed_probabilities_cannot_select_an_implicit_language) ... ok
+test_uncertain_decode_input_uses_standard_language_detection (test_whisper_language_v1.AutomaticLanguageTests.test_uncertain_decode_input_uses_standard_language_detection) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.002s
+
+OK

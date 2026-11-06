@@ -1,0 +1,48 @@
+{
+  "text": "I can't track your FedEx package.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.69,
+        5.13
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        5.13,
+        5.43
+      ]
+    },
+    {
+      "text": "track",
+      "timestamp": [
+        5.43,
+        5.63
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        5.63,
+        5.79
+      ]
+    },
+    {
+      "text": "FedEx",
+      "timestamp": [
+        5.79,
+        6.17
+      ]
+    },
+    {
+      "text": "package.",
+      "timestamp": [
+        6.17,
+        6.59
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

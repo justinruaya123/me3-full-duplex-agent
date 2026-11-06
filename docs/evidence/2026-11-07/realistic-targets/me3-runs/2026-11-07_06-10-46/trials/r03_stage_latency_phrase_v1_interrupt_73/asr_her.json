@@ -1,0 +1,160 @@
+{
+  "text": "Start by maxing out any employer match. Then put the difference between your income and expenses into low -cost index funds consistently.",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        6.48,
+        6.96
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        6.96,
+        7.22
+      ]
+    },
+    {
+      "text": "maxing",
+      "timestamp": [
+        7.22,
+        7.7
+      ]
+    },
+    {
+      "text": "out",
+      "timestamp": [
+        7.7,
+        7.86
+      ]
+    },
+    {
+      "text": "any",
+      "timestamp": [
+        7.86,
+        8.2
+      ]
+    },
+    {
+      "text": "employer",
+      "timestamp": [
+        8.2,
+        8.66
+      ]
+    },
+    {
+      "text": "match.",
+      "timestamp": [
+        8.66,
+        9.14
+      ]
+    },
+    {
+      "text": "Then",
+      "timestamp": [
+        9.8,
+        9.88
+      ]
+    },
+    {
+      "text": "put",
+      "timestamp": [
+        9.88,
+        10.06
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        10.06,
+        10.2
+      ]
+    },
+    {
+      "text": "difference",
+      "timestamp": [
+        10.2,
+        10.54
+      ]
+    },
+    {
+      "text": "between",
+      "timestamp": [
+        10.54,
+        10.9
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        10.9,
+        11.16
+      ]
+    },
+    {
+      "text": "income",
+      "timestamp": [
+        11.16,
+        11.66
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        11.66,
+        11.96
+      ]
+    },
+    {
+      "text": "expenses",
+      "timestamp": [
+        11.96,
+        12.58
+      ]
+    },
+    {
+      "text": "into",
+      "timestamp": [
+        12.58,
+        13.26
+      ]
+    },
+    {
+      "text": "low",
+      "timestamp": [
+        13.26,
+        13.58
+      ]
+    },
+    {
+      "text": "-cost",
+      "timestamp": [
+        13.58,
+        13.94
+      ]
+    },
+    {
+      "text": "index",
+      "timestamp": [
+        13.94,
+        14.28
+      ]
+    },
+    {
+      "text": "funds",
+      "timestamp": [
+        14.28,
+        14.82
+      ]
+    },
+    {
+      "text": "consistently.",
+      "timestamp": [
+        14.82,
+        15.48
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

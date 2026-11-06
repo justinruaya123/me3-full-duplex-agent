@@ -1,0 +1,572 @@
+{
+  "kind": "private decoder-only compile; complete development inputs",
+  "model": "mlx-community/Kokoro-82M-bf16",
+  "voice": "af_heart",
+  "speed": 1.0,
+  "snapshot": "a71e4d38b236d968966a2002c4c895dbd12b1c3c",
+  "source_freeze": "c321634",
+  "versions": {
+    "mlx-audio": "0.6.4",
+    "mlx": "0.32.4",
+    "misaki": "0.9.4"
+  },
+  "compile": {
+    "scope": "existing decoder only; original module retained",
+    "shapeless": false,
+    "captures": "original decoder array tree only",
+    "rng_guard": "v2 exact next-draw public canary after inference",
+    "cold_policy": "first compiled invocation of each complete text"
+  },
+  "controls": [
+    {
+      "case": "brief",
+      "text": "The ledger is ready.",
+      "samples": [
+        {
+          "first_pcm_seconds": 0.18078116699871316,
+          "total_seconds": 0.18719304199839826,
+          "pcm_conversion_seconds": 0.0003971250007452909,
+          "audio_seconds": 1.85,
+          "pcm_bytes": 88800,
+          "pcm_sha256": "c4bf264631574fa14444eaab82816288229ccef23bf3e4d76d22b9f530c3375b",
+          "segment_phoneme_counts": [
+            19
+          ],
+          "decoder_calls": [
+            {
+              "input_shapes_and_dtypes": [
+                [
+                  [
+                    1,
+                    512,
+                    74
+                  ],
+                  "mlx.core.float32"
+                ],
+                [
+                  [
+                    1,
+                    148
+                  ],
+                  "mlx.core.float32"
+                ],
+                [
+                  [
+                    1,
+                    148
+                  ],
+                  "mlx.core.float32"
+                ],
+                [
+                  [
+                    1,
+                    128
+                  ],
+                  "mlx.core.float32"
+                ]
+              ]
+            }
+          ],
+          "rng_next_draw": {
+            "shape": [
+              4
+            ],
+            "dtype": "float32",
+            "sha256": "ee23846ba7a29bbc98388c2c5148a33149ec58bc37078d400fe8f1581717e5c6",
+            "values": [
+              0.8194912672042847,
+              0.7315807342529297,
+              0.33406123518943787,
+              0.5262500047683716
+            ]
+          },
+          "segment_audio_dtypes": [
+            "float32"
+          ]
+        },
+        {
+          "first_pcm_seconds": 0.18016104100024677,
+          "total_seconds": 0.18590416599909076,
+          "pcm_conversion_seconds": 0.0003133749996777624,
+          "audio_seconds": 1.85,
+          "pcm_bytes": 88800,
+          "pcm_sha256": "d2243b4d070b15f19d044d1066efe580d1a0eb57f6f8babadf359eaad671f00c",
+          "segment_phoneme_counts": [
+            19
+          ],
+          "decoder_calls": [
+            {
+              "input_shapes_and_dtypes": [
+                [
+                  [
+                    1,
+                    512,
+                    74
+                  ],
+                  "mlx.core.float32"
+                ],
+                [
+                  [
+                    1,
+                    148
+                  ],
+                  "mlx.core.float32"
+                ],
+                [
+                  [
+                    1,
+                    148
+                  ],
+                  "mlx.core.float32"
+                ],
+                [
+                  [
+                    1,
+                    128
+                  ],
+                  "mlx.core.float32"
+                ]
+              ]
+            }
+          ],
+          "rng_next_draw": {
+            "shape": [
+              4
+            ],
+            "dtype": "float32",
+            "sha256": "ee23846ba7a29bbc98388c2c5148a33149ec58bc37078d400fe8f1581717e5c6",
+            "values": [
+              0.8194912672042847,
+              0.7315807342529297,
+              0.33406123518943787,
+              0.5262500047683716
+            ]
+          },
+          "segment_audio_dtypes": [
+            "float32"
+          ]
+        },
+        {
+          "first_pcm_seconds": 0.17673041699890746,
+          "total_seconds": 0.1819047919998411,
+          "pcm_conversion_seconds": 0.00033029199948941823,
+          "audio_seconds": 1.85,
+          "pcm_bytes": 88800,
+          "pcm_sha256": "9a9d5e245873c27e0e9bd3c6521bfd270f7fea2edc3ca24ede67aa9e840dd0fc",
+          "segment_phoneme_counts": [
+            19
+          ],
+          "decoder_calls": [
+            {
+              "input_shapes_and_dtypes": [
+                [
+                  [
+                    1,
+                    512,
+                    74
+                  ],
+                  "mlx.core.float32"
+                ],
+                [
+                  [
+                    1,
+                    148
+                  ],
+                  "mlx.core.float32"
+                ],
+                [
+                  [
+                    1,
+                    148
+                  ],
+                  "mlx.core.float32"
+                ],
+                [
+                  [
+                    1,
+                    128
+                  ],
+                  "mlx.core.float32"
+                ]
+              ]
+            }
+          ],
+          "rng_next_draw": {
+            "shape": [
+              4
+            ],
+            "dtype": "float32",
+            "sha256": "ee23846ba7a29bbc98388c2c5148a33149ec58bc37078d400fe8f1581717e5c6",
+            "values": [
+              0.8194912672042847,
+              0.7315807342529297,
+              0.33406123518943787,
+              0.5262500047683716
+            ]
+          },
+          "segment_audio_dtypes": [
+            "float32"
+          ]
+        }
+      ],
+      "pairwise_errors": [
+        {
+          "same_shapes": true,
+          "same_dtypes": true,
+          "same_phoneme_counts": true,
+          "same_audio_duration": true,
+          "exact_pcm": false,
+          "exact_float_bytes": false,
+          "max_abs_float_error": 8.940696716308594e-08,
+          "mean_abs_float_error": 1.4571558419748818e-09,
+          "float_rmse": 4.919258989190238e-09,
+          "different_float_samples": 16976,
+          "different_pcm_samples": 3,
+          "max_pcm_lsb_error": 1
+        },
+        {
+          "same_shapes": true,
+          "same_dtypes": true,
+          "same_phoneme_counts": true,
+          "same_audio_duration": true,
+          "exact_pcm": false,
+          "exact_float_bytes": false,
+          "max_abs_float_error": 7.82310962677002e-08,
+          "mean_abs_float_error": 1.4535135629822756e-09,
+          "float_rmse": 4.971850104963918e-09,
+          "different_float_samples": 16943,
+          "different_pcm_samples": 2,
+          "max_pcm_lsb_error": 1
+        },
+        {
+          "same_shapes": true,
+          "same_dtypes": true,
+          "same_phoneme_counts": true,
+          "same_audio_duration": true,
+          "exact_pcm": false,
+          "exact_float_bytes": false,
+          "max_abs_float_error": 8.940696716308594e-08,
+          "mean_abs_float_error": 1.5350286104810095e-09,
+          "float_rmse": 5.132631908987571e-09,
+          "different_float_samples": 16985,
+          "different_pcm_samples": 1,
+          "max_pcm_lsb_error": 1
+        }
+      ]
+    }
+  ],
+  "cold": [
+    {
+      "case": "brief",
+      "text": "The ledger is ready.",
+      "record": {
+        "first_pcm_seconds": 8.15120591699997,
+        "total_seconds": 8.158791374999055,
+        "pcm_conversion_seconds": 0.0002692079997359542,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "a1e0e736a77a3b6451124663f1aeae0b04d2c37d3094417af794eebaeed08c05",
+        "segment_phoneme_counts": [
+          19
+        ],
+        "decoder_calls": [
+          {
+            "input_shapes_and_dtypes": [
+              [
+                [
+                  1,
+                  512,
+                  74
+                ],
+                "mlx.core.float32"
+              ],
+              [
+                [
+                  1,
+                  148
+                ],
+                "mlx.core.float32"
+              ],
+              [
+                [
+                  1,
+                  148
+                ],
+                "mlx.core.float32"
+              ],
+              [
+                [
+                  1,
+                  128
+                ],
+                "mlx.core.float32"
+              ]
+            ],
+            "first_compiled_shape_use": true
+          }
+        ],
+        "rng_next_draw": {
+          "shape": [
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "ee23846ba7a29bbc98388c2c5148a33149ec58bc37078d400fe8f1581717e5c6",
+          "values": [
+            0.8194912672042847,
+            0.7315807342529297,
+            0.33406123518943787,
+            0.5262500047683716
+          ]
+        },
+        "segment_audio_dtypes": [
+          "float32"
+        ]
+      },
+      "vs_baseline": {
+        "same_shapes": true,
+        "same_dtypes": true,
+        "same_phoneme_counts": true,
+        "same_audio_duration": true,
+        "exact_pcm": false,
+        "exact_float_bytes": false,
+        "max_abs_float_error": 1.4528632164001465e-06,
+        "mean_abs_float_error": 6.035853260654088e-08,
+        "float_rmse": 1.289496326067358e-07,
+        "different_float_samples": 43533,
+        "different_pcm_samples": 95,
+        "max_pcm_lsb_error": 1
+      },
+      "same_rng_next_draw": true
+    }
+  ],
+  "pairs": [
+    {
+      "case": "brief",
+      "text": "The ledger is ready.",
+      "text_chars": 20,
+      "repeat": 0,
+      "seed": 231000,
+      "order": [
+        "baseline",
+        "compiled"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.19348962500043854,
+        "total_seconds": 0.19938741599980858,
+        "pcm_conversion_seconds": 0.00029591699967568275,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "484c528f663361940dc582bfb58b3626909e67981a7736565a9431dadf4f39d7",
+        "segment_phoneme_counts": [
+          19
+        ],
+        "decoder_calls": [
+          {
+            "input_shapes_and_dtypes": [
+              [
+                [
+                  1,
+                  512,
+                  74
+                ],
+                "mlx.core.float32"
+              ],
+              [
+                [
+                  1,
+                  148
+                ],
+                "mlx.core.float32"
+              ],
+              [
+                [
+                  1,
+                  148
+                ],
+                "mlx.core.float32"
+              ],
+              [
+                [
+                  1,
+                  128
+                ],
+                "mlx.core.float32"
+              ]
+            ]
+          }
+        ],
+        "rng_next_draw": {
+          "shape": [
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "ee23846ba7a29bbc98388c2c5148a33149ec58bc37078d400fe8f1581717e5c6",
+          "values": [
+            0.8194912672042847,
+            0.7315807342529297,
+            0.33406123518943787,
+            0.5262500047683716
+          ]
+        },
+        "segment_audio_dtypes": [
+          "float32"
+        ]
+      },
+      "compiled": {
+        "first_pcm_seconds": 0.13743187499858323,
+        "total_seconds": 0.14271133299916983,
+        "pcm_conversion_seconds": 0.0002927920013462426,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "f6d11efa05e81b2361c77f9695f18f66909333a508644378f4954bb12acc5a84",
+        "segment_phoneme_counts": [
+          19
+        ],
+        "decoder_calls": [
+          {
+            "input_shapes_and_dtypes": [
+              [
+                [
+                  1,
+                  512,
+                  74
+                ],
+                "mlx.core.float32"
+              ],
+              [
+                [
+                  1,
+                  148
+                ],
+                "mlx.core.float32"
+              ],
+              [
+                [
+                  1,
+                  148
+                ],
+                "mlx.core.float32"
+              ],
+              [
+                [
+                  1,
+                  128
+                ],
+                "mlx.core.float32"
+              ]
+            ],
+            "first_compiled_shape_use": false
+          }
+        ],
+        "rng_next_draw": {
+          "shape": [
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "254e46253831871eeb27eaf45ecb250ae9d006c6ce6d80dce3774dc7aae24750",
+          "values": [
+            0.9269157648086548,
+            0.32353919744491577,
+            0.5743973255157471,
+            0.10611219704151154
+          ]
+        },
+        "segment_audio_dtypes": [
+          "float32"
+        ]
+      },
+      "errors": {
+        "same_shapes": true,
+        "same_dtypes": true,
+        "same_phoneme_counts": true,
+        "same_audio_duration": true,
+        "exact_pcm": false,
+        "exact_float_bytes": false,
+        "max_abs_float_error": 1.4528632164001465e-06,
+        "mean_abs_float_error": 6.035552082406224e-08,
+        "float_rmse": 1.2889582096643823e-07,
+        "different_float_samples": 43569,
+        "different_pcm_samples": 99,
+        "max_pcm_lsb_error": 1
+      },
+      "same_rng_next_draw": false,
+      "contract_passed": false
+    }
+  ],
+  "coverage": [],
+  "numerical_distributions": [],
+  "completed": false,
+  "contract_passed": false,
+  "strict_output_passed": false,
+  "candidate_accepted": false,
+  "load_seconds": 0.03524141699926986,
+  "training_modules_before": [],
+  "baseline_warmup": {
+    "first_pcm_seconds": 5.7545460000001185,
+    "total_seconds": 5.7599763329999405,
+    "pcm_conversion_seconds": 0.0003111669993813848,
+    "audio_seconds": 1.85,
+    "pcm_bytes": 88800,
+    "pcm_sha256": "5ab15fbfff65091ce23203f6470f530a7828ab7f13f6f6e9b588d8c2944ffa4c",
+    "segment_phoneme_counts": [
+      19
+    ],
+    "decoder_calls": [
+      {
+        "input_shapes_and_dtypes": [
+          [
+            [
+              1,
+              512,
+              74
+            ],
+            "mlx.core.float32"
+          ],
+          [
+            [
+              1,
+              148
+            ],
+            "mlx.core.float32"
+          ],
+          [
+            [
+              1,
+              148
+            ],
+            "mlx.core.float32"
+          ],
+          [
+            [
+              1,
+              128
+            ],
+            "mlx.core.float32"
+          ]
+        ]
+      }
+    ],
+    "rng_next_draw": {
+      "shape": [
+        4
+      ],
+      "dtype": "float32",
+      "sha256": "9d3de2c11f7023f283369face0b92df16a0fa7c28fd420ab0de6fb9f4b962e73",
+      "values": [
+        0.9113517999649048,
+        0.04530198499560356,
+        0.11333269625902176,
+        0.24655944108963013
+      ]
+    },
+    "segment_audio_dtypes": [
+      "float32"
+    ]
+  },
+  "compile_callable_creation_seconds": 3.834000381175429e-06,
+  "error": {
+    "type": "RuntimeError",
+    "message": "Compiled warm call changed PRNG advancement"
+  },
+  "decoder_restored": true
+}

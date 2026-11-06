@@ -1,0 +1,111 @@
+{
+  "text": "Ephemeral means lasting for a very short time, or something that is transitory and fleeting.",
+  "chunks": [
+    {
+      "text": "Ephemeral",
+      "timestamp": [
+        5.01,
+        5.75
+      ]
+    },
+    {
+      "text": "means",
+      "timestamp": [
+        5.75,
+        5.99
+      ]
+    },
+    {
+      "text": "lasting",
+      "timestamp": [
+        5.99,
+        6.55
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        6.55,
+        6.83
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.83,
+        6.93
+      ]
+    },
+    {
+      "text": "very",
+      "timestamp": [
+        6.93,
+        7.13
+      ]
+    },
+    {
+      "text": "short",
+      "timestamp": [
+        7.13,
+        7.43
+      ]
+    },
+    {
+      "text": "time,",
+      "timestamp": [
+        7.43,
+        7.87
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        8.09,
+        8.43
+      ]
+    },
+    {
+      "text": "something",
+      "timestamp": [
+        8.43,
+        8.73
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        8.73,
+        8.99
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        8.99,
+        9.11
+      ]
+    },
+    {
+      "text": "transitory",
+      "timestamp": [
+        9.11,
+        9.87
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        9.87,
+        10.03
+      ]
+    },
+    {
+      "text": "fleeting.",
+      "timestamp": [
+        10.03,
+        10.45
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

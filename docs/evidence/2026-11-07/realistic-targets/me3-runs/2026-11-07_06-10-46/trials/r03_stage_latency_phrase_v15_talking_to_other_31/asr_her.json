@@ -1,0 +1,90 @@
+{
+  "text": "I don't have access to live sports scores or real -time data.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        3.92,
+        4.34
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        4.34,
+        4.5
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        4.5,
+        4.6
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        4.6,
+        4.98
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        4.98,
+        5.2
+      ]
+    },
+    {
+      "text": "live",
+      "timestamp": [
+        5.2,
+        5.42
+      ]
+    },
+    {
+      "text": "sports",
+      "timestamp": [
+        5.42,
+        5.7
+      ]
+    },
+    {
+      "text": "scores",
+      "timestamp": [
+        5.7,
+        6.14
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        6.14,
+        6.74
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        6.74,
+        7.04
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        7.04,
+        7.32
+      ]
+    },
+    {
+      "text": "data.",
+      "timestamp": [
+        7.32,
+        7.64
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

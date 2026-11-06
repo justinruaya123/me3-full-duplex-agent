@@ -1,0 +1,36 @@
+{"stage": "vad_start", "t": 12430.858881625, "pid": 25770, "src": "ws", "recv": 12430.859635, "lt": 12430.859065667, "tt": 0.3536}
+{"stage": "vad_start", "t": 12430.858896708, "pid": 25770, "src": "ws", "recv": 12430.85966075, "lt": 12430.85908075, "tt": 0.3536}
+{"stage": "vad_end", "t": 12432.042937375, "pid": 25770, "src": "ws", "recv": 12432.043554375, "lt": 12432.043121417, "tt": 1.5377}
+{"stage": "vad_end", "t": 12432.042946458, "pid": 25770, "src": "ws", "recv": 12432.043566875, "lt": 12432.0431305, "tt": 1.5377}
+{"stage": "asr_partial", "t": 12432.466835125, "pid": 25770, "text": "Oh no.", "src": "ws", "recv": 12432.467041833, "lt": 12432.467019167001, "tt": 1.9616}
+{"stage": "vad_start", "t": 12433.063530625, "pid": 25770, "src": "ws", "recv": 12433.064335875, "lt": 12433.063714667001, "tt": 2.5583}
+{"stage": "vad_start", "t": 12433.063546125, "pid": 25770, "src": "ws", "recv": 12433.064350125, "lt": 12433.063730167001, "tt": 2.5583}
+{"stage": "vad_end", "t": 12433.510881833, "pid": 25770, "src": "ws", "recv": 12433.511632833, "lt": 12433.511065875002, "tt": 3.0056}
+{"stage": "vad_end", "t": 12433.510895541, "pid": 25770, "src": "ws", "recv": 12433.511648791, "lt": 12433.511079583, "tt": 3.0056}
+{"stage": "vad_start", "t": 12434.026038083, "pid": 25770, "src": "ws", "recv": 12434.026696083, "lt": 12434.026222125001, "tt": 3.5208}
+{"stage": "vad_start", "t": 12434.026048916, "pid": 25770, "src": "ws", "recv": 12434.026709958, "lt": 12434.026232958, "tt": 3.5208}
+{"stage": "vad_end", "t": 12435.562664875, "pid": 25770, "src": "ws", "recv": 12435.563312041, "lt": 12435.562848917001, "tt": 5.0574}
+{"stage": "vad_end", "t": 12435.562676833, "pid": 25770, "src": "ws", "recv": 12435.563325083, "lt": 12435.562860875001, "tt": 5.0574}
+{"stage": "vad_start", "t": 12435.690723666, "pid": 25770, "src": "ws", "recv": 12435.691413291, "lt": 12435.690907708002, "tt": 5.1855}
+{"stage": "vad_start", "t": 12435.690736541, "pid": 25770, "src": "ws", "recv": 12435.691425708, "lt": 12435.690920583002, "tt": 5.1855}
+{"stage": "asr_partial", "t": 12437.688674083, "pid": 25770, "text": "Oh no, you mean like we sit here like", "src": "ws", "recv": 12437.68888625, "lt": 12437.688858125, "tt": 7.1834}
+{"stage": "asr_partial", "t": 12438.827115875, "pid": 25770, "text": "Oh no, you mean like we stay here like all my husband", "src": "ws", "recv": 12438.827376541, "lt": 12438.827299917, "tt": 8.3218}
+{"stage": "asr_partial", "t": 12439.994302, "pid": 25770, "text": "Oh no, you mean like we stay here like all my husband and kids here.", "src": "ws", "recv": 12439.99466525, "lt": 12439.994486042, "tt": 9.489}
+{"stage": "asr_partial", "t": 12441.15861525, "pid": 25770, "text": "Oh no, you mean like we stay here like all my husband and kids here. We, our", "src": "ws", "recv": 12441.159034583, "lt": 12441.158799292001, "tt": 10.6533}
+{"stage": "asr_partial", "t": 12442.299240125, "pid": 25770, "text": "No, you mean like we stay here like all my husband and kids here we are really like my mother", "src": "ws", "recv": 12442.299619958, "lt": 12442.299424167, "tt": 11.794}
+{"stage": "asr_partial", "t": 12443.479508375, "pid": 25770, "text": "No, you mean like we stay here like all my husband and kids here we are really like my mother sisters everywhere", "src": "ws", "recv": 12443.479735291, "lt": 12443.479692417, "tt": 12.9742}
+{"stage": "asr_partial", "t": 12444.634560583, "pid": 25770, "text": "No, you mean like we stay here like all my husband and kids here we our really like my mother sisters everywhere everyone there", "src": "ws", "recv": 12444.634809708, "lt": 12444.634744625, "tt": 14.1293}
+{"stage": "vad_end", "t": 12445.161594208, "pid": 25770, "src": "ws", "recv": 12445.162896208, "lt": 12445.161778250002, "tt": 14.6563}
+{"stage": "vad_end", "t": 12445.161614125, "pid": 25770, "src": "ws", "recv": 12445.162924416, "lt": 12445.161798167, "tt": 14.6563}
+{"stage": "asr_partial", "t": 12445.841828208, "pid": 25770, "text": "No, you mean like we stay here like all my husband and kids here We are really like my mother sisters everywhere everyone there outside us", "src": "ws", "recv": 12445.842151583, "lt": 12445.842012250001, "tt": 15.3366}
+{"stage": "asr_final", "t": 12447.070807875, "pid": 25770, "text": "No, you mean like we stay here like all my husband and kids here. We are really like my mother, sisters everywhere, everyone there outside US actually.", "src": "ws", "recv": 12447.090270333, "lt": 12447.070991917, "tt": 16.5655}
+{"stage": "interrupted", "t": 12447.072168, "pid": 25770, "src": "ws", "recv": 12447.090551, "lt": 12447.072352042002, "tt": 16.5669}
+{"stage": "interrupted", "t": 12447.072187208, "pid": 25770, "src": "ws", "recv": 12447.09056475, "lt": 12447.07237125, "tt": 16.5669}
+{"stage": "llm_request", "t": 12447.089673375, "pid": 25770, "chars": 284, "messages": 1, "est_tokens": 71, "src": "ws", "recv": 12447.090601166, "lt": 12447.089857417, "tt": 16.5844}
+{"stage": "llm_first_token", "t": 12448.17464675, "pid": 25770, "src": "ws", "recv": 12448.174952166, "lt": 12448.174830792, "tt": 17.6694}
+{"stage": "tts_request", "t": 12448.374658125, "pid": 25770, "src": "ws", "recv": 12448.375679833, "lt": 12448.374842167, "tt": 17.8694}
+{"stage": "tts_first_audio", "t": 12448.801592166, "pid": 25770, "src": "ws", "recv": 12448.801920958, "lt": 12448.801776208002, "tt": 18.2963}
+{"stage": "audio_out", "t": 12448.822414541, "pid": 25770, "src": "ws", "recv": 12448.822980666, "lt": 12448.822598583001, "tt": 18.3171}
+{"stage": "audio_out", "t": 12448.822431125, "pid": 25770, "src": "ws", "recv": 12448.823020916, "lt": 12448.822615167, "tt": 18.3172}
+{"stage": "bot_stopped", "t": 12453.332350833, "pid": 25770, "src": "ws", "recv": 12453.333192333, "lt": 12453.332534875, "tt": 22.8271}
+{"stage": "bot_stopped", "t": 12453.332369291, "pid": 25770, "src": "ws", "recv": 12453.33322675, "lt": 12453.332553333, "tt": 22.8271}

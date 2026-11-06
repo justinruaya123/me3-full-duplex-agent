@@ -1,0 +1,19 @@
+test_confirmed_clauses_yield_without_reading_more_source (test_incremental_v1.ClauseTests.test_confirmed_clauses_yield_without_reading_more_source) ... ok
+test_decimal_waits_for_following_delta (test_incremental_v1.ClauseTests.test_decimal_waits_for_following_delta) ... ok
+test_emergency_split_preserves_numeric_and_word_spans (test_incremental_v1.ClauseTests.test_emergency_split_preserves_numeric_and_word_spans) ... ok
+test_first_clause_plays_before_generation_finishes (test_incremental_v1.ClauseTests.test_first_clause_plays_before_generation_finishes) ... ok
+test_indivisible_over_limit_token_fails_without_truncation (test_incremental_v1.ClauseTests.test_indivisible_over_limit_token_fails_without_truncation) ... ok
+test_length_bound_preserves_words_numbers_and_versions (test_incremental_v1.ClauseTests.test_length_bound_preserves_words_numbers_and_versions) ... ok
+test_punctuation_at_delta_end_does_not_release_speech (test_incremental_v1.ClauseTests.test_punctuation_at_delta_end_does_not_release_speech) ... ok
+test_sentence_chunks_are_independent_of_token_partitions (test_incremental_v1.ClauseTests.test_sentence_chunks_are_independent_of_token_partitions) ... ok
+test_buffer_overflow_fails_instead_of_dropping_audio_silently (test_incremental_v1.PlaybackTests.test_buffer_overflow_fails_instead_of_dropping_audio_silently) ... ok
+test_late_receipt_cannot_confirm_new_audio (test_incremental_v1.PlaybackTests.test_late_receipt_cannot_confirm_new_audio) ... ok
+test_provisional_pause_preserves_unplayed_pcm (test_incremental_v1.PlaybackTests.test_provisional_pause_preserves_unplayed_pcm) ... ok
+test_commit_is_once_and_older_revisions_are_ignored (test_incremental_v1.TranscriptTests.test_commit_is_once_and_older_revisions_are_ignored) ... ok
+test_provisional_delegate_and_stop_never_authorize (test_incremental_v1.TranscriptTests.test_provisional_delegate_and_stop_never_authorize) ... ok
+test_rolling_revisions_keep_stability_separate_from_commit (test_incremental_v1.TranscriptTests.test_rolling_revisions_keep_stability_separate_from_commit) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.025s
+
+OK

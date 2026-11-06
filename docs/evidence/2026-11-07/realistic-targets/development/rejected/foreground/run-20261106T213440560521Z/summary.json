@@ -1,0 +1,168 @@
+{
+  "planned_calls": 24,
+  "attempted_calls": 24,
+  "stopped_reason": null,
+  "by_arm": {
+    "baseline": {
+      "attempted": 8,
+      "protocol_complete": 8,
+      "literal_fact_guard_passes": 7,
+      "useful_first_guard_passes": 6,
+      "filler_prefixes": 0,
+      "completion_claim_flags": 0,
+      "median_first_sentence_words": 6.0,
+      "median_first_clause_chars": 40.5
+    },
+    "baseline_control": {
+      "attempted": 8,
+      "protocol_complete": 8,
+      "literal_fact_guard_passes": 7,
+      "useful_first_guard_passes": 7,
+      "filler_prefixes": 0,
+      "completion_claim_flags": 0,
+      "median_first_sentence_words": 8.0,
+      "median_first_clause_chars": 43.5
+    },
+    "candidate": {
+      "attempted": 8,
+      "protocol_complete": 8,
+      "literal_fact_guard_passes": 7,
+      "useful_first_guard_passes": 6,
+      "filler_prefixes": 0,
+      "completion_claim_flags": 0,
+      "median_first_sentence_words": 5.0,
+      "median_first_clause_chars": 34.0
+    }
+  },
+  "pairs": [
+    {
+      "case": "math_42",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 3,
+      "first_clause_char_delta": 11
+    },
+    {
+      "case": "math_42",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 1,
+      "first_clause_char_delta": 7
+    },
+    {
+      "case": "boiling_100_c",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -2,
+      "first_clause_char_delta": -13
+    },
+    {
+      "case": "boiling_100_c",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -3,
+      "first_clause_char_delta": -16
+    },
+    {
+      "case": "photosynthesis_facts",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -2,
+      "first_clause_char_delta": -10
+    },
+    {
+      "case": "photosynthesis_facts",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 15,
+      "first_clause_char_delta": 85
+    },
+    {
+      "case": "corrected_delivery_day",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 0,
+      "first_clause_char_delta": 0
+    },
+    {
+      "case": "corrected_delivery_day",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 0,
+      "first_clause_char_delta": 0
+    },
+    {
+      "case": "invoice_1234_56",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 1,
+      "first_clause_char_delta": 8
+    },
+    {
+      "case": "invoice_1234_56",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 1,
+      "first_clause_char_delta": 8
+    },
+    {
+      "case": "beginner_bread_step",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -7,
+      "first_clause_char_delta": -22
+    },
+    {
+      "case": "beginner_bread_step",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 18,
+      "first_clause_char_delta": 100
+    },
+    {
+      "case": "ambiguous_referents",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 0,
+      "first_clause_char_delta": 1
+    },
+    {
+      "case": "ambiguous_referents",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 18,
+      "first_clause_char_delta": 75
+    },
+    {
+      "case": "unsupported_email_action",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -2,
+      "first_clause_char_delta": -20
+    },
+    {
+      "case": "unsupported_email_action",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -4,
+      "first_clause_char_delta": -27
+    }
+  ],
+  "quality_decision": "manual review required; no native TTS measured"
+}

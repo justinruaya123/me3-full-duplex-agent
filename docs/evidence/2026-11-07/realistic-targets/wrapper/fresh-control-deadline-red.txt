@@ -1,0 +1,25 @@
+test_slow_trickle_cannot_extend_request_deadline (test_benchmark_control_v1.BenchmarkControlTests.test_slow_trickle_cannot_extend_request_deadline) ... ERROR
+
+======================================================================
+ERROR: test_slow_trickle_cannot_extend_request_deadline (test_benchmark_control_v1.BenchmarkControlTests.test_slow_trickle_cannot_extend_request_deadline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 101, in request
+    result = _read_message(connection)
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 51, in _read_message
+    chunk = connection.recv(min(1024, MAX_MESSAGE + 1 - len(data)))
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 368, in test_slow_trickle_cannot_extend_request_deadline
+    after = request(self.control, INSTANCE, "status", timeout=1)
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 103, in request
+    raise ControlError("benchmark control connection failed") from exc
+integrations.benchmark_control.ControlError: benchmark control connection failed
+
+----------------------------------------------------------------------
+Ran 1 test in 1.163s
+
+FAILED (errors=1)

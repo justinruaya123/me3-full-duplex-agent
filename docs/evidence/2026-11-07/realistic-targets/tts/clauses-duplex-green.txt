@@ -1,0 +1,23 @@
+test_backchannel_does_not_stop_playback (test_duplex_v1.ControllerTests.test_backchannel_does_not_stop_playback) ... ok
+test_completion_waits_for_user_and_quiet_boundary (test_duplex_v1.ControllerTests.test_completion_waits_for_user_and_quiet_boundary) ... ok
+test_delegate_returns_before_completion (test_duplex_v1.ControllerTests.test_delegate_returns_before_completion) ... ok
+test_incomplete_turn_backchannel_is_rate_limited (test_duplex_v1.ControllerTests.test_incomplete_turn_backchannel_is_rate_limited) ... ok
+test_interrupted_notice_can_be_retried (test_duplex_v1.ControllerTests.test_interrupted_notice_can_be_retried) ... ok
+test_notice_scheduled_just_before_user_onset_is_deferred (test_duplex_v1.ControllerTests.test_notice_scheduled_just_before_user_onset_is_deferred) ... ok
+test_old_reply_waits_for_transcript_not_vad_silence (test_duplex_v1.ControllerTests.test_old_reply_waits_for_transcript_not_vad_silence) ... ok
+test_provider_failure_does_not_fake_success (test_duplex_v1.ControllerTests.test_provider_failure_does_not_fake_success) ... ok
+test_reject_empty_or_oversize_input (test_duplex_v1.ControllerTests.test_reject_empty_or_oversize_input) ... ok
+test_reply_is_recorded_only_after_delivery (test_duplex_v1.ControllerTests.test_reply_is_recorded_only_after_delivery) ... ok
+test_stale_foreground_result_is_fenced (test_duplex_v1.ControllerTests.test_stale_foreground_result_is_fenced) ... ok
+test_stop_does_not_cancel_job (test_duplex_v1.ControllerTests.test_stop_does_not_cancel_job) ... ok
+test_unknown_background_speech_is_not_claimed_rejected (test_duplex_v1.ControllerTests.test_unknown_background_speech_is_not_claimed_rejected) ... ok
+test_acknowledgment_during_speech_keeps_floor (test_duplex_v1.PolicyTests.test_acknowledgment_during_speech_keeps_floor) ... ok
+test_acknowledgment_prefix_does_not_hide_command (test_duplex_v1.PolicyTests.test_acknowledgment_prefix_does_not_hide_command) ... ok
+test_background_classification_requires_external_evidence (test_duplex_v1.PolicyTests.test_background_classification_requires_external_evidence) ... ok
+test_idle_acknowledgment_is_a_turn (test_duplex_v1.PolicyTests.test_idle_acknowledgment_is_a_turn) ... ok
+test_stop_must_be_entire_control_phrase (test_duplex_v1.PolicyTests.test_stop_must_be_entire_control_phrase) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.031s
+
+OK

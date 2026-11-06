@@ -1,0 +1,96 @@
+{
+  "trial": "r01_v15_background_v15_background_27",
+  "group": "v15_background",
+  "clip": "v15_background_27",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 14.304,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.784
+    },
+    {
+      "name": "overlap",
+      "t": 5.692,
+      "len": 1.718
+    }
+  ],
+  "live_bot_starts": [
+    4.192,
+    10.496
+  ],
+  "live_bot_ends": [
+    6.176,
+    13.088
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "Define the word 'ephemeral'.",
+    "current_turn_text": "",
+    "overlap_text": "Your coffee's getting cold.",
+    "overlap_duration": 1.72,
+    "overlap_window": [
+      5.625,
+      7.343
+    ],
+    "source_id": "27"
+  },
+  "mono": [
+    11939.493275125,
+    11953.776966833
+  ],
+  "bot_segments": [
+    [
+      4.162,
+      6.206
+    ],
+    [
+      10.338,
+      13.118
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.784
+  ],
+  "overlap_played": true,
+  "t_stop": 0.4120000000000008,
+  "t_resp": 3.0759999999999996,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    5.794,
+    7.262
+  ],
+  "tor": 1,
+  "first_start": 10.338,
+  "spoke_s": 2.780000000000001,
+  "latency": 2.927999999999999,
+  "actual": "stopped after 0.41 s, back 3.08 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ paused, came back · content: judge",
+  "ok": null,
+  "marks": 32,
+  "final": {
+    "t_stop": 0.4120000000000008,
+    "t_resp": 3.0759999999999996,
+    "label": null,
+    "voice_delta": {
+      "wpm": -126.34032634032636,
+      "pitch_mean": -12.027700257819959,
+      "pitch_sd": -3.2687752225988476,
+      "intensity_mean": -1.7359083515034968,
+      "intensity_sd": -0.3999581778285952,
+      "utmosv2": null
+    },
+    "transcript": "Ephemeral means lasting for a very short time."
+  },
+  "scored_at": "2026-11-07T06:36:04+08:00"
+}

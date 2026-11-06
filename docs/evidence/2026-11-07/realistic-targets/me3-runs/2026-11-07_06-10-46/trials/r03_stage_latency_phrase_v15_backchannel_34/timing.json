@@ -1,0 +1,86 @@
+{
+  "trial": "r03_stage_latency_phrase_v15_backchannel_34",
+  "group": "stage_latency",
+  "clip": "phrase_v15_backchannel_34",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 12.16,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.88
+    }
+  ],
+  "live_bot_starts": [
+    5.248,
+    9.216
+  ],
+  "live_bot_ends": [
+    8.704,
+    11.808
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "Outline sleep science clearly.",
+    "source": "v15_backchannel_34"
+  },
+  "mono": [
+    11891.911974291,
+    11904.047980375
+  ],
+  "bot_segments": [
+    [
+      5.218,
+      11.838
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.88
+  ],
+  "tor": 1,
+  "first_start": 5.218,
+  "spoke_s": 4.661999999999999,
+  "user_end": 1.63,
+  "latency": 3.588,
+  "actual": "replied 3.59 s after speech end",
+  "verdict": "✓ 3.59 s",
+  "ok": true,
+  "marks": 18,
+  "final": {
+    "stages": {
+      "e2e_heard": 3.588,
+      "e2e": 3.1023,
+      "e2e_source": "marks",
+      "asr_final": 2.0254,
+      "llm_ttft": 0.2218,
+      "tts_ttfb": 0.6189,
+      "endpointing": 0.1313,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "outline sleep science clearly,",
+      "wer": {
+        "ref_words": 4,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 41,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Sleep science explains that sleep isn't just shutting off. It's an active process with distinct stages."
+  },
+  "scored_at": "2026-11-07T06:36:47+08:00"
+}

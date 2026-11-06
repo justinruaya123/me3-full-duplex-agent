@@ -1,0 +1,45 @@
+{
+  "kind": "real authenticated local ASR/TTS HTTP; synthetic speech, no acoustic recording",
+  "checks": {
+    "unauthenticated_rejected": true,
+    "exact_catalog": true,
+    "model_substitution_rejected": true,
+    "exact_phrase_roundtrip": true,
+    "question_transcribed": true,
+    "concurrent_asr_tts_completed": true
+  },
+  "trials": [
+    {
+      "text": "Hello. The voice system is ready.",
+      "transcript": " Hello, the voice system is ready.",
+      "tts": {
+        "first_pcm_seconds": 0.3632250410000779,
+        "total_seconds": 0.3854014160006045,
+        "audio_seconds": 2.6
+      },
+      "asr_seconds": 1.0126313750006375,
+      "word_timestamps": 6
+    },
+    {
+      "text": "What is seventeen plus twenty five?",
+      "transcript": " What is 17 plus 25?",
+      "tts": {
+        "first_pcm_seconds": 0.2838951250005266,
+        "total_seconds": 0.31550604200037924,
+        "audio_seconds": 2.525
+      },
+      "asr_seconds": 0.9981036250001125,
+      "word_timestamps": 5
+    }
+  ],
+  "concurrent": {
+    "asr_seconds": 1.2021765419995063,
+    "tts": {
+      "first_pcm_seconds": 1.2026417919996675,
+      "total_seconds": 1.2183685419995527,
+      "audio_seconds": 2.6
+    },
+    "transcript": " What is 17 plus 25?"
+  },
+  "passed": true
+}

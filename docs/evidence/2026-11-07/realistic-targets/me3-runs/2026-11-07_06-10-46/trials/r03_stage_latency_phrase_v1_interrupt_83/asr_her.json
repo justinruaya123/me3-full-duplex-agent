@@ -1,0 +1,34 @@
+{
+  "text": "That's a big shift.",
+  "chunks": [
+    {
+      "text": "That's",
+      "timestamp": [
+        8.94,
+        9.6
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        9.6,
+        9.66
+      ]
+    },
+    {
+      "text": "big",
+      "timestamp": [
+        9.66,
+        9.82
+      ]
+    },
+    {
+      "text": "shift.",
+      "timestamp": [
+        9.82,
+        10.12
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

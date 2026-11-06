@@ -1,0 +1,174 @@
+{
+  "text": "Honestly, the big shift right now, I don't have access to your calendar or current time, so I can't tell you the meeting schedule.",
+  "chunks": [
+    {
+      "text": "Honestly,",
+      "timestamp": [
+        5.65,
+        6.39
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        6.75,
+        6.85
+      ]
+    },
+    {
+      "text": "big",
+      "timestamp": [
+        6.85,
+        7.05
+      ]
+    },
+    {
+      "text": "shift",
+      "timestamp": [
+        7.05,
+        7.31
+      ]
+    },
+    {
+      "text": "right",
+      "timestamp": [
+        7.31,
+        7.55
+      ]
+    },
+    {
+      "text": "now,",
+      "timestamp": [
+        7.55,
+        7.81
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        15.73,
+        15.87
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        15.87,
+        16.07
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        16.07,
+        16.19
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        16.19,
+        16.53
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        16.53,
+        16.79
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        16.79,
+        16.89
+      ]
+    },
+    {
+      "text": "calendar",
+      "timestamp": [
+        16.89,
+        17.27
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        17.27,
+        17.59
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        17.59,
+        17.93
+      ]
+    },
+    {
+      "text": "time,",
+      "timestamp": [
+        17.93,
+        18.33
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        18.63,
+        18.89
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        18.89,
+        19.03
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        19.03,
+        19.39
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        19.39,
+        19.53
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        19.53,
+        19.69
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        19.69,
+        19.81
+      ]
+    },
+    {
+      "text": "meeting",
+      "timestamp": [
+        19.81,
+        20.01
+      ]
+    },
+    {
+      "text": "schedule.",
+      "timestamp": [
+        20.01,
+        20.39
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

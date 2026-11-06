@@ -1,0 +1,139 @@
+{
+  "text": "Start with short, consistent sessions. That sounds like a feature specific to your phone, not a dog training method.",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        6.74,
+        7.24
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        7.24,
+        7.46
+      ]
+    },
+    {
+      "text": "short,",
+      "timestamp": [
+        7.46,
+        7.78
+      ]
+    },
+    {
+      "text": "consistent",
+      "timestamp": [
+        8.0,
+        8.44
+      ]
+    },
+    {
+      "text": "sessions.",
+      "timestamp": [
+        8.44,
+        8.92
+      ]
+    },
+    {
+      "text": "That",
+      "timestamp": [
+        15.74,
+        15.96
+      ]
+    },
+    {
+      "text": "sounds",
+      "timestamp": [
+        15.96,
+        16.32
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        16.32,
+        16.5
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        16.5,
+        16.6
+      ]
+    },
+    {
+      "text": "feature",
+      "timestamp": [
+        16.6,
+        16.86
+      ]
+    },
+    {
+      "text": "specific",
+      "timestamp": [
+        16.86,
+        17.3
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        17.3,
+        17.62
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        17.62,
+        17.72
+      ]
+    },
+    {
+      "text": "phone,",
+      "timestamp": [
+        17.72,
+        18.06
+      ]
+    },
+    {
+      "text": "not",
+      "timestamp": [
+        18.5,
+        18.7
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        18.7,
+        18.84
+      ]
+    },
+    {
+      "text": "dog",
+      "timestamp": [
+        18.84,
+        19.12
+      ]
+    },
+    {
+      "text": "training",
+      "timestamp": [
+        19.12,
+        19.5
+      ]
+    },
+    {
+      "text": "method.",
+      "timestamp": [
+        19.5,
+        19.86
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

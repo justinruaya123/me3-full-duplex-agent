@@ -1,0 +1,184 @@
+{
+  "kind": "actual configured Qwen; text/provider development pilot",
+  "version": 2,
+  "v1_gate": "FAILED clarification; no production promotion",
+  "holdouts": [
+    "holdout_unspecified_choices",
+    "holdout_unknown_pass_threshold"
+  ],
+  "model": "Qwen/Qwen3.8-27B",
+  "profile": "qwen",
+  "repeats": 1,
+  "baseline_control": true,
+  "seed": 231,
+  "request_timeout_s": 30,
+  "run_timeout_s": 240,
+  "max_concurrency": 1,
+  "http_trace": true,
+  "trace_fields": [
+    "event",
+    "relative_s"
+  ],
+  "relative_clock": "time.monotonic; trial start before client creation",
+  "httpx_version": "0.28.1",
+  "httpcore_version": "1.0.9",
+  "source_hashes": {
+    "me3/duplex.py": "8d84add5937a3c620eeace394b045ef6eb0bd2b5f3958273e32c61d0e50c5070",
+    "me3/foreground.py": "8e2ad9436c16e9e18f20d02c1a35fbdfedf57410e4f82829b97b17a12dd11e4a",
+    "me3/configuration.py": "e5df18353eb868d4edd991cadf56584a3cbd9c88d5e7b3affd325e107587f927",
+    "me3/incremental.py": "94fad7f60a35bb747354f14d447292af2daf59cd872e2c00b5e9a4389a5503f3"
+  },
+  "prepared_sha256": "e2ec6eb7728501083af8d0079bfa2cee8f907a66b52b742858ea852295289917",
+  "plan": [
+    {
+      "repeat": 1,
+      "case": "math_42",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "math_42",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "math_42",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "boiling_100_c",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "boiling_100_c",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "boiling_100_c",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "photosynthesis_facts",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "photosynthesis_facts",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "photosynthesis_facts",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "corrected_delivery_day",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "corrected_delivery_day",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "corrected_delivery_day",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "invoice_1234_56",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "invoice_1234_56",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "invoice_1234_56",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "beginner_bread_step",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "beginner_bread_step",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "beginner_bread_step",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "ambiguous_referents",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "ambiguous_referents",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "ambiguous_referents",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "unsupported_email_action",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "unsupported_email_action",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "unsupported_email_action",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "holdout_unspecified_choices",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "holdout_unspecified_choices",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "holdout_unspecified_choices",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "holdout_unknown_pass_threshold",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "holdout_unknown_pass_threshold",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "holdout_unknown_pass_threshold",
+      "arm": "baseline"
+    }
+  ]
+}

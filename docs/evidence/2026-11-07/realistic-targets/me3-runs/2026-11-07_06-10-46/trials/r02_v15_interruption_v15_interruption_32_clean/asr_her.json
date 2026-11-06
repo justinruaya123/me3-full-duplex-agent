@@ -1,0 +1,20 @@
+{
+  "text": "Oh, really?",
+  "chunks": [
+    {
+      "text": "Oh,",
+      "timestamp": [
+        5.84,
+        6.34
+      ]
+    },
+    {
+      "text": "really?",
+      "timestamp": [
+        6.48,
+        6.68
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

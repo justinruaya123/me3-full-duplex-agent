@@ -1,0 +1,84 @@
+{
+  "trial": "r03_stage_latency_phrase_v15_interruption_35",
+  "group": "stage_latency",
+  "clip": "phrase_v15_interruption_35",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 6.4,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.808
+    }
+  ],
+  "live_bot_starts": [
+    4.736
+  ],
+  "live_bot_ends": [
+    5.184
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "Could you tell me the rules of tennis?",
+    "source": "v15_interruption_35"
+  },
+  "mono": [
+    8545.737163166,
+    8552.123731166
+  ],
+  "bot_segments": [
+    [
+      4.706,
+      5.214
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.808
+  ],
+  "tor": 0,
+  "first_start": 4.706,
+  "spoke_s": 0.508,
+  "user_end": 2.558,
+  "latency": 2.1480000000000006,
+  "actual": "replied 2.15 s after speech end",
+  "verdict": "✓ 2.15 s",
+  "ok": true,
+  "marks": 20,
+  "final": {
+    "stages": {
+      "e2e_heard": 2.148,
+      "e2e": 1.542,
+      "e2e_source": "marks",
+      "asr_final": 1.0771,
+      "llm_ttft": 0.2966,
+      "tts_ttfb": 0.1454,
+      "endpointing": 0.1327,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "Could you tell me the rules of tennis?",
+      "wer": {
+        "ref_words": 8,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 43,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Sure."
+  },
+  "scored_at": "2026-11-07T05:35:31+08:00"
+}

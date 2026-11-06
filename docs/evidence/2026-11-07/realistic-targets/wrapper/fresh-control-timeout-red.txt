@@ -1,0 +1,132 @@
+test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) ... 
+  test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) (timeout=0) ... ERROR
+  test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) (timeout=-1) ... ERROR
+  test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) (timeout=nan) ... ERROR
+  test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) (timeout=inf) ... ERROR
+  test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) (timeout=-inf) ... ERROR
+  test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) (timeout=56) ... ERROR
+
+======================================================================
+ERROR: test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) (timeout=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 335, in test_invalid_timeout_is_rejected_before_connecting
+    request(self.control, INSTANCE, "status", timeout=timeout)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 75, in request
+    _private_directory(control_dir)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 40, in _private_directory
+    info = path.lstat()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_abc.py", line 437, in lstat
+    return self.stat(follow_symlinks=False)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_local.py", line 515, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmphap1w1yy/control'
+
+======================================================================
+ERROR: test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) (timeout=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 335, in test_invalid_timeout_is_rejected_before_connecting
+    request(self.control, INSTANCE, "status", timeout=timeout)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 75, in request
+    _private_directory(control_dir)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 40, in _private_directory
+    info = path.lstat()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_abc.py", line 437, in lstat
+    return self.stat(follow_symlinks=False)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_local.py", line 515, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmphap1w1yy/control'
+
+======================================================================
+ERROR: test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) (timeout=nan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 335, in test_invalid_timeout_is_rejected_before_connecting
+    request(self.control, INSTANCE, "status", timeout=timeout)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 75, in request
+    _private_directory(control_dir)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 40, in _private_directory
+    info = path.lstat()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_abc.py", line 437, in lstat
+    return self.stat(follow_symlinks=False)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_local.py", line 515, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmphap1w1yy/control'
+
+======================================================================
+ERROR: test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) (timeout=inf)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 335, in test_invalid_timeout_is_rejected_before_connecting
+    request(self.control, INSTANCE, "status", timeout=timeout)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 75, in request
+    _private_directory(control_dir)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 40, in _private_directory
+    info = path.lstat()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_abc.py", line 437, in lstat
+    return self.stat(follow_symlinks=False)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_local.py", line 515, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmphap1w1yy/control'
+
+======================================================================
+ERROR: test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) (timeout=-inf)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 335, in test_invalid_timeout_is_rejected_before_connecting
+    request(self.control, INSTANCE, "status", timeout=timeout)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 75, in request
+    _private_directory(control_dir)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 40, in _private_directory
+    info = path.lstat()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_abc.py", line 437, in lstat
+    return self.stat(follow_symlinks=False)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_local.py", line 515, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmphap1w1yy/control'
+
+======================================================================
+ERROR: test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) (timeout=56)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 335, in test_invalid_timeout_is_rejected_before_connecting
+    request(self.control, INSTANCE, "status", timeout=timeout)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 75, in request
+    _private_directory(control_dir)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py", line 40, in _private_directory
+    info = path.lstat()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_abc.py", line 437, in lstat
+    return self.stat(follow_symlinks=False)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pathlib/_local.py", line 515, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmphap1w1yy/control'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+FAILED (errors=6)

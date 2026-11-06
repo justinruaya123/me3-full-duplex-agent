@@ -1,0 +1,83 @@
+{
+  "text": "That's too big to cover completely in a short spoken answer.",
+  "chunks": [
+    {
+      "text": "That's",
+      "timestamp": [
+        4.85,
+        5.43
+      ]
+    },
+    {
+      "text": "too",
+      "timestamp": [
+        5.43,
+        5.57
+      ]
+    },
+    {
+      "text": "big",
+      "timestamp": [
+        5.57,
+        5.77
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        5.77,
+        5.93
+      ]
+    },
+    {
+      "text": "cover",
+      "timestamp": [
+        5.93,
+        6.23
+      ]
+    },
+    {
+      "text": "completely",
+      "timestamp": [
+        6.23,
+        6.83
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        10.48,
+        11.82
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        11.82,
+        11.92
+      ]
+    },
+    {
+      "text": "short",
+      "timestamp": [
+        11.92,
+        12.18
+      ]
+    },
+    {
+      "text": "spoken",
+      "timestamp": [
+        12.18,
+        12.58
+      ]
+    },
+    {
+      "text": "answer.",
+      "timestamp": [
+        12.58,
+        12.94
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

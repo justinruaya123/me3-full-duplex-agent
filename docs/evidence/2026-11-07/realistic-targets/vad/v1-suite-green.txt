@@ -1,0 +1,826 @@
+test_control_rejects_insecure_or_symlink_directory (test_benchmark_control_v1.BenchmarkControlTests.test_control_rejects_insecure_or_symlink_directory) ... FAIL
+test_disconnect_bounds_hung_cleanup_below_upstream_wait (test_benchmark_control_v1.BenchmarkControlTests.test_disconnect_bounds_hung_cleanup_below_upstream_wait) ... ERROR
+test_existing_control_directory_is_preserved_and_refused (test_benchmark_control_v1.BenchmarkControlTests.test_existing_control_directory_is_preserved_and_refused) ... ok
+test_failed_reset_is_terminal_without_old_session_fallback (test_benchmark_control_v1.BenchmarkControlTests.test_failed_reset_is_terminal_without_old_session_fallback) ... FAIL
+test_invalid_operation_type_cannot_terminate_control_parent (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_operation_type_cannot_terminate_control_parent) ... FAIL
+test_invalid_state_fifo_cannot_block_control_client (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_state_fifo_cannot_block_control_client) ... FAIL
+test_malformed_or_stalled_request_cannot_block_control (test_benchmark_control_v1.BenchmarkControlTests.test_malformed_or_stalled_request_cannot_block_control) ... FAIL
+test_reset_kills_descendant_even_after_launcher_exits_on_term (test_benchmark_control_v1.BenchmarkControlTests.test_reset_kills_descendant_even_after_launcher_exits_on_term) ... FAIL
+test_reset_reconnects_new_child_with_fresh_log_and_runtime_tree (test_benchmark_control_v1.BenchmarkControlTests.test_reset_reconnects_new_child_with_fresh_log_and_runtime_tree) ... ERROR
+test_start_timeout_reaps_child_and_removes_socket (test_benchmark_control_v1.BenchmarkControlTests.test_start_timeout_reaps_child_and_removes_socket) ... FAIL
+test_term_and_explicit_stop_reap_owned_child (test_benchmark_control_v1.BenchmarkControlTests.test_term_and_explicit_stop_reap_owned_child) ... 
+  test_term_and_explicit_stop_reap_owned_child (test_benchmark_control_v1.BenchmarkControlTests.test_term_and_explicit_stop_reap_owned_child) (signal=True) ... FAIL
+  test_term_and_explicit_stop_reap_owned_child (test_benchmark_control_v1.BenchmarkControlTests.test_term_and_explicit_stop_reap_owned_child) (signal=False) ... FAIL
+test_wrong_instance_and_replayed_generation_cannot_reset (test_benchmark_control_v1.BenchmarkControlTests.test_wrong_instance_and_replayed_generation_cannot_reset) ... FAIL
+test_changed_audio_and_new_generation_require_fresh_recognition (test_capture_v1.CaptureTests.test_changed_audio_and_new_generation_require_fresh_recognition) ... ok
+test_identical_final_reuses_text_only_after_turn_approval (test_capture_v1.CaptureTests.test_identical_final_reuses_text_only_after_turn_approval) ... ok
+test_incomplete_acoustic_turn_only_emits_provisional_text (test_capture_v1.CaptureTests.test_incomplete_acoustic_turn_only_emits_provisional_text) ... ok
+test_latest_final_replaces_waiting_partial_after_speech_resumes (test_capture_v1.CaptureTests.test_latest_final_replaces_waiting_partial_after_speech_resumes) ... ok
+test_overflow_and_transcript_gap_cannot_commit_fragment (test_capture_v1.CaptureTests.test_overflow_and_transcript_gap_cannot_commit_fragment) ... ok
+test_pending_snapshot_overflow_invalidates_authorization (test_capture_v1.CaptureTests.test_pending_snapshot_overflow_invalidates_authorization) ... ok
+test_resumed_audio_fences_late_final_hypothesis (test_capture_v1.CaptureTests.test_resumed_audio_fences_late_final_hypothesis) ... ok
+test_resumed_turn_replaces_stale_queued_final_with_fresh_audio (test_capture_v1.CaptureTests.test_resumed_turn_replaces_stale_queued_final_with_fresh_audio) ... ok
+test_backchannel_does_not_stop_playback (test_duplex_v1.ControllerTests.test_backchannel_does_not_stop_playback) ... ok
+test_completion_waits_for_user_and_quiet_boundary (test_duplex_v1.ControllerTests.test_completion_waits_for_user_and_quiet_boundary) ... ok
+test_delegate_returns_before_completion (test_duplex_v1.ControllerTests.test_delegate_returns_before_completion) ... ok
+test_incomplete_turn_backchannel_is_rate_limited (test_duplex_v1.ControllerTests.test_incomplete_turn_backchannel_is_rate_limited) ... ok
+test_interrupted_notice_can_be_retried (test_duplex_v1.ControllerTests.test_interrupted_notice_can_be_retried) ... ok
+test_notice_scheduled_just_before_user_onset_is_deferred (test_duplex_v1.ControllerTests.test_notice_scheduled_just_before_user_onset_is_deferred) ... ok
+test_old_reply_waits_for_transcript_not_vad_silence (test_duplex_v1.ControllerTests.test_old_reply_waits_for_transcript_not_vad_silence) ... ok
+test_provider_failure_does_not_fake_success (test_duplex_v1.ControllerTests.test_provider_failure_does_not_fake_success) ... ok
+test_reject_empty_or_oversize_input (test_duplex_v1.ControllerTests.test_reject_empty_or_oversize_input) ... ok
+test_reply_is_recorded_only_after_delivery (test_duplex_v1.ControllerTests.test_reply_is_recorded_only_after_delivery) ... ok
+test_stale_foreground_result_is_fenced (test_duplex_v1.ControllerTests.test_stale_foreground_result_is_fenced) ... ok
+test_stop_does_not_cancel_job (test_duplex_v1.ControllerTests.test_stop_does_not_cancel_job) ... ok
+test_unknown_background_speech_is_not_claimed_rejected (test_duplex_v1.ControllerTests.test_unknown_background_speech_is_not_claimed_rejected) ... ok
+test_acknowledgment_during_speech_keeps_floor (test_duplex_v1.PolicyTests.test_acknowledgment_during_speech_keeps_floor) ... ok
+test_acknowledgment_prefix_does_not_hide_command (test_duplex_v1.PolicyTests.test_acknowledgment_prefix_does_not_hide_command) ... ok
+test_background_classification_requires_external_evidence (test_duplex_v1.PolicyTests.test_background_classification_requires_external_evidence) ... ok
+test_idle_acknowledgment_is_a_turn (test_duplex_v1.PolicyTests.test_idle_acknowledgment_is_a_turn) ... ok
+test_stop_must_be_entire_control_phrase (test_duplex_v1.PolicyTests.test_stop_must_be_entire_control_phrase) ... ok
+test_played_reference_is_resampled_and_paired_with_capture (test_echo_v1.EchoTests.test_played_reference_is_resampled_and_paired_with_capture) ... ok
+test_wrong_rates_and_reference_overflow_fail_explicitly (test_echo_v1.EchoTests.test_wrong_rates_and_reference_overflow_fail_explicitly) ... ok
+test_cancellation_reaps_local_child (test_harness_v1.ProcessTests.test_cancellation_reaps_local_child) ... ok
+test_hermes_requires_explicit_source_and_configuration (test_harness_v1.ProcessTests.test_hermes_requires_explicit_source_and_configuration) ... ok
+test_json_process_returns_valid_result (test_harness_v1.ProcessTests.test_json_process_returns_valid_result) ... ok
+test_malformed_or_empty_result_fails (test_harness_v1.ProcessTests.test_malformed_or_empty_result_fails) ... ok
+test_output_is_bounded (test_harness_v1.ProcessTests.test_output_is_bounded) ... ok
+test_output_limit_drains_pipes_before_return (test_harness_v1.ProcessTests.test_output_limit_drains_pipes_before_return) ... ok
+test_pi_aborted_message_does_not_publish_partial_text (test_harness_v1.ProcessTests.test_pi_aborted_message_does_not_publish_partial_text) ... ok
+test_pi_command_failure_surfaces (test_harness_v1.ProcessTests.test_pi_command_failure_surfaces) ... ok
+test_pi_waits_for_settled_not_agent_end (test_harness_v1.ProcessTests.test_pi_waits_for_settled_not_agent_end) ... ok
+test_provider_error_is_not_a_mock_result (test_harness_v1.ProcessTests.test_provider_error_is_not_a_mock_result) ... ok
+test_timeout_reaps_child (test_harness_v1.ProcessTests.test_timeout_reaps_child) ... ok
+test_first_clause_plays_before_generation_finishes (test_incremental_v1.ClauseTests.test_first_clause_plays_before_generation_finishes) ... ok
+test_buffer_overflow_fails_instead_of_dropping_audio_silently (test_incremental_v1.PlaybackTests.test_buffer_overflow_fails_instead_of_dropping_audio_silently) ... ok
+test_late_receipt_cannot_confirm_new_audio (test_incremental_v1.PlaybackTests.test_late_receipt_cannot_confirm_new_audio) ... ok
+test_provisional_pause_preserves_unplayed_pcm (test_incremental_v1.PlaybackTests.test_provisional_pause_preserves_unplayed_pcm) ... ok
+test_commit_is_once_and_older_revisions_are_ignored (test_incremental_v1.TranscriptTests.test_commit_is_once_and_older_revisions_are_ignored) ... ok
+test_provisional_delegate_and_stop_never_authorize (test_incremental_v1.TranscriptTests.test_provisional_delegate_and_stop_never_authorize) ... ok
+test_rolling_revisions_keep_stability_separate_from_commit (test_incremental_v1.TranscriptTests.test_rolling_revisions_keep_stability_separate_from_commit) ... ok
+test_answer_to_pending_question_is_not_a_backchannel (test_ownership_v1.IngressTests.test_answer_to_pending_question_is_not_a_backchannel) ... ok
+test_wrong_session_or_unverified_commit_cannot_delegate (test_ownership_v1.IngressTests.test_wrong_session_or_unverified_commit_cannot_delegate) ... ok
+test_timeout_and_mute_revoke_authority (test_ownership_v1.OwnershipTests.test_timeout_and_mute_revoke_authority) ... ok
+test_unknown_mixed_nonowner_and_side_talk_cannot_authorize (test_ownership_v1.OwnershipTests.test_unknown_mixed_nonowner_and_side_talk_cannot_authorize) ... ok
+test_wake_is_not_identity_and_enrollment_is_deliberate (test_ownership_v1.OwnershipTests.test_wake_is_not_identity_and_enrollment_is_deliberate) ... ok
+test_gap_and_bot_stopped_event_do_not_confirm_entire_utterance (test_pipeline_v1.PipelineTests.test_gap_and_bot_stopped_event_do_not_confirm_entire_utterance) ... 2026-11-07 04:51:32.827 Python[16404:184981] 2026-11-07 04:51:32.827790 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Executing <Task pending name='Task-272' coro=<PipelineTests.test_gap_and_bot_stopped_event_do_not_confirm_entire_utterance() running at /Users/jus/Documents/Grad/AI231/ME3/tests/test_pipeline_v1.py:90> wait_for=<Future pending cb=[Task.task_wakeup()] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:459> cb=[_run_until_complete_cb() at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:181] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.333 seconds
+ok
+test_empty_audio_final_resolves_without_requesting_inference (test_provisional_pause_v1.EmptyCaptureTests.test_empty_audio_final_resolves_without_requesting_inference) ... ok
+test_empty_final_resolves_once_without_committed_transcript (test_provisional_pause_v1.EmptyCaptureTests.test_empty_final_resolves_once_without_committed_transcript) ... ok
+test_late_empty_result_after_close_cannot_resolve (test_provisional_pause_v1.EmptyCaptureTests.test_late_empty_result_after_close_cannot_resolve) ... ok
+test_late_empty_result_cannot_resolve_new_speech (test_provisional_pause_v1.EmptyCaptureTests.test_late_empty_result_cannot_resolve_new_speech) ... ok
+test_malformed_recognition_is_not_an_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_malformed_recognition_is_not_an_empty_resolution) ... ok
+test_prior_incomplete_text_prevents_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_prior_incomplete_text_prevents_empty_resolution) ... ok
+test_queued_old_finish_cannot_mark_new_speech_inactive (test_provisional_pause_v1.EmptyCaptureTests.test_queued_old_finish_cannot_mark_new_speech_inactive) ... ok
+test_recognition_failure_propagates_without_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_recognition_failure_propagates_without_empty_resolution) ... ok
+test_backchannel_resumes_retained_pcm_without_cancellation (test_provisional_pause_v1.ProvisionalPauseTests.test_backchannel_resumes_retained_pcm_without_cancellation) ... ok
+test_empty_recognition_does_not_leave_unresolved_pause (test_provisional_pause_v1.ProvisionalPauseTests.test_empty_recognition_does_not_leave_unresolved_pause) ... ok
+test_uncommitted_stop_does_not_cancel_or_execute (test_provisional_pause_v1.ProvisionalPauseTests.test_uncommitted_stop_does_not_cancel_or_execute) ... ok
+test_ambiguous_cancel_and_show_never_choose_a_job (test_results_v1.ResultTests.test_ambiguous_cancel_and_show_never_choose_a_job) ... ok
+test_closed_session_cannot_authorize_more_actions (test_results_v1.ResultTests.test_closed_session_cannot_authorize_more_actions) ... ok
+test_completed_website_can_be_revised_and_old_result_is_fenced (test_results_v1.ResultTests.test_completed_website_can_be_revised_and_old_result_is_fenced) ... ok
+test_dedup_and_owner_filter_survive_session_end (test_results_v1.ResultTests.test_dedup_and_owner_filter_survive_session_end) ... ok
+test_preview_requires_current_verified_files_and_is_loopback (test_results_v1.ResultTests.test_preview_requires_current_verified_files_and_is_loopback) ... ERROR
+test_result_retrieval_does_not_replace_focus_or_earlier_thread (test_results_v1.ResultTests.test_result_retrieval_does_not_replace_focus_or_earlier_thread) ... ok
+test_several_completions_are_grouped_without_focus_change (test_results_v1.ResultTests.test_several_completions_are_grouped_without_focus_change) ... ok
+test_tampered_artifact_cannot_start_preview (test_results_v1.ResultTests.test_tampered_artifact_cannot_start_preview) ... ok
+test_distinct_turn_ids_reuse_identical_active_job (test_review_v1.ReviewTests.test_distinct_turn_ids_reuse_identical_active_job) ... ok
+test_focusing_running_job_preserves_unrelated_conversation (test_review_v1.ReviewTests.test_focusing_running_job_preserves_unrelated_conversation) ... ok
+test_foreground_and_worker_failures_are_reported_without_success (test_review_v1.ReviewTests.test_foreground_and_worker_failures_are_reported_without_success) ... ok
+test_full_queue_is_reported_without_ending_conversation (test_review_v1.ReviewTests.test_full_queue_is_reported_without_ending_conversation) ... ok
+test_identical_active_revision_is_not_executed_twice (test_review_v1.ReviewTests.test_identical_active_revision_is_not_executed_twice) ... ok
+test_idle_expiry_revokes_result_delivery_without_new_speech (test_review_v1.ReviewTests.test_idle_expiry_revokes_result_delivery_without_new_speech) ... ok
+test_model_output_never_routes_host_tools (test_review_v1.ReviewTests.test_model_output_never_routes_host_tools) ... ok
+test_mute_during_enrollment_erases_late_reference (test_review_v1.ReviewTests.test_mute_during_enrollment_erases_late_reference) ... ok
+test_playback_receipts_are_fenced_across_distinct_sessions (test_review_v1.ReviewTests.test_playback_receipts_are_fenced_across_distinct_sessions) ... ok
+test_preview_reopens_after_same_owner_reconnects (test_review_v1.ReviewTests.test_preview_reopens_after_same_owner_reconnects) ... ERROR
+test_stale_provider_failure_does_not_replace_newer_turn (test_review_v1.ReviewTests.test_stale_provider_failure_does_not_replace_newer_turn) ... ok
+test_foreground_never_inherits_worker_credentials_or_model (test_setup_v1.ConfigurationTests.test_foreground_never_inherits_worker_credentials_or_model) ... ok
+test_foreground_rejects_credentials_in_url_and_unknown_profile (test_setup_v1.ConfigurationTests.test_foreground_rejects_credentials_in_url_and_unknown_profile) ... ok
+test_report_identifies_missing_roles_without_exposing_credentials (test_setup_v1.DoctorTests.test_report_identifies_missing_roles_without_exposing_credentials) ... ok
+test_voice_lan_endpoints_require_authentication (test_setup_v1.DoctorTests.test_voice_lan_endpoints_require_authentication) ... ok
+test_silent_model_substitution_is_rejected (test_setup_v1.ForegroundTests.test_silent_model_substitution_is_rejected) ... ok
+test_stream_enforces_model_and_disables_reasoning (test_setup_v1.ForegroundTests.test_stream_enforces_model_and_disables_reasoning) ... ok
+test_failed_requested_probe_cannot_report_ready (test_setup_v1.ProbeFailureTests.test_failed_requested_probe_cannot_report_ready) ... ok
+test_ending_voice_session_keeps_real_supervisor_job_alive (test_setup_v1.RuntimeTests.test_ending_voice_session_keeps_real_supervisor_job_alive) ... ok
+test_missing_worker_model_never_uses_foreground_model (test_setup_v1.SetupTests.test_missing_worker_model_never_uses_foreground_model) ... ok
+test_pi_is_default_and_worker_model_is_explicit (test_setup_v1.SetupTests.test_pi_is_default_and_worker_model_is_explicit) ... ok
+test_nonzero_exit_or_malformed_report_cannot_claim_success (test_speech_check_v1.BoundedCheckTests.test_nonzero_exit_or_malformed_report_cannot_claim_success) ... ok
+test_oversized_output_is_stopped_before_the_time_deadline (test_speech_check_v1.BoundedCheckTests.test_oversized_output_is_stopped_before_the_time_deadline) ... ok
+test_success_requires_the_exact_selected_models (test_speech_check_v1.BoundedCheckTests.test_success_requires_the_exact_selected_models) ... ok
+test_timeout_cleans_descendants_that_keep_stdout_open (test_speech_check_v1.BoundedCheckTests.test_timeout_cleans_descendants_that_keep_stdout_open) ... ok
+test_timeout_reaps_worker_even_after_it_printed_success (test_speech_check_v1.BoundedCheckTests.test_timeout_reaps_worker_even_after_it_printed_success) ... ok
+test_service_shutdown_terminates_inflight_native_work (test_speech_check_v1.ServiceProcessTests.test_service_shutdown_terminates_inflight_native_work) ... ok
+test_startup_timeout_terminates_a_blocked_native_thread (test_speech_check_v1.ServiceProcessTests.test_startup_timeout_terminates_a_blocked_native_thread) ... ok
+test_readiness_accepts_recognized_phrase_with_asr_punctuation (test_speech_server_v1.SpeechCheckTests.test_readiness_accepts_recognized_phrase_with_asr_punctuation) ... ok
+test_readiness_rejects_silence_truncation_and_wrong_transcript (test_speech_server_v1.SpeechCheckTests.test_readiness_rejects_silence_truncation_and_wrong_transcript) ... ok
+test_auth_exact_models_and_raw_pcm_contract (test_speech_server_v1.SpeechServerTests.test_auth_exact_models_and_raw_pcm_contract) ... ERROR
+test_cancelled_native_call_stays_busy_until_thread_finishes (test_speech_server_v1.SpeechServerTests.test_cancelled_native_call_stays_busy_until_thread_finishes) ... ERROR
+test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) ... 
+  test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) (chunks=[]) ... ERROR
+  test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) (chunks=[b'']) ... ERROR
+  test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) (chunks=[b'\x01']) ... ERROR
+test_failed_warmup_prevents_listening_and_closes_models (test_speech_server_v1.SpeechServerTests.test_failed_warmup_prevents_listening_and_closes_models) ... ok
+test_partial_upload_reserves_single_role_capacity (test_speech_server_v1.SpeechServerTests.test_partial_upload_reserves_single_role_capacity) ... ERROR
+test_llm_first_token_is_marked_once_for_valid_text (test_stage_marks_v1.StageMarksTests.test_llm_first_token_is_marked_once_for_valid_text) ... ok
+test_partial_and_stale_text_cannot_be_marked_as_new_final (test_stage_marks_v1.StageMarksTests.test_partial_and_stale_text_cannot_be_marked_as_new_final) ... ok
+test_wrong_model_cannot_publish_a_first_token_mark (test_stage_marks_v1.StageMarksTests.test_wrong_model_cannot_publish_a_first_token_mark) ... ok
+test_explicit_local_providers (test_voice_v1.SettingsTests.test_explicit_local_providers) ... ok
+test_installed_pipecat_api (test_voice_v1.SettingsTests.test_installed_pipecat_api) ... ok
+test_missing_endpoints_fail_before_loading_audio (test_voice_v1.SettingsTests.test_missing_endpoints_fail_before_loading_audio) ... ok
+test_persistent_rpc_reuses_job_process_and_checks_exact_model (test_website_v1.PiWorkerTests.test_persistent_rpc_reuses_job_process_and_checks_exact_model) ... /Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/client.py:527: ResourceWarning: Unclosed client session <aiohttp.client.ClientSession object at 0x114475590>
+  _warnings.warn(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x114475590>
+source_traceback: Object created at (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/__main__.py", line 18, in <module>
+    main(module=None)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/main.py", line 104, in __init__
+    self.runTests()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/main.py", line 270, in runTests
+    self.result = testRunner.run(self.test)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/runner.py", line 240, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/case.py", line 707, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 135, in run
+    return super().run(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/case.py", line 651, in run
+    self._callTestMethod(testMethod)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 94, in _callTestMethod
+    if self._callMaybeAsync(method) is not None:
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 116, in _callMaybeAsync
+    return self._asyncioRunner.run(
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 2042, in _run_once
+    handle._run()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 200, in test_cancelled_native_call_stays_busy_until_thread_finishes
+    async with TestClient(
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 305, in __init__
+    self._session = ClientSession(loop=loop, cookie_jar=cookie_jar, **kwargs)
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py:479: ResourceWarning: unclosed <socket.socket fd=7, family=2, type=1, proto=0, laddr=('0.0.0.0', 0)>
+  @staticmethod
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/client.py:527: ResourceWarning: Unclosed client session <aiohttp.client.ClientSession object at 0x114474b90>
+  _warnings.warn(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x114474b90>
+source_traceback: Object created at (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/__main__.py", line 18, in <module>
+    main(module=None)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/main.py", line 104, in __init__
+    self.runTests()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/main.py", line 270, in runTests
+    self.result = testRunner.run(self.test)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/runner.py", line 240, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/case.py", line 707, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 135, in run
+    return super().run(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/case.py", line 651, in run
+    self._callTestMethod(testMethod)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 94, in _callTestMethod
+    if self._callMaybeAsync(method) is not None:
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 116, in _callMaybeAsync
+    return self._asyncioRunner.run(
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 2042, in _run_once
+    handle._run()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 44, in test_empty_or_invalid_first_pcm_cannot_return_success
+    async with TestClient(TestServer(create_app(
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 305, in __init__
+    self._session = ClientSession(loop=loop, cookie_jar=cookie_jar, **kwargs)
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py:479: ResourceWarning: unclosed <socket.socket fd=8, family=2, type=1, proto=0, laddr=('0.0.0.0', 0)>
+  @staticmethod
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/client.py:527: ResourceWarning: Unclosed client session <aiohttp.client.ClientSession object at 0x1142eb4d0>
+  _warnings.warn(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1142eb4d0>
+source_traceback: Object created at (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/__main__.py", line 18, in <module>
+    main(module=None)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/main.py", line 104, in __init__
+    self.runTests()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/main.py", line 270, in runTests
+    self.result = testRunner.run(self.test)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/runner.py", line 240, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/case.py", line 707, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 135, in run
+    return super().run(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/case.py", line 651, in run
+    self._callTestMethod(testMethod)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 94, in _callTestMethod
+    if self._callMaybeAsync(method) is not None:
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 116, in _callMaybeAsync
+    return self._asyncioRunner.run(
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 2042, in _run_once
+    handle._run()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 44, in test_empty_or_invalid_first_pcm_cannot_return_success
+    async with TestClient(TestServer(create_app(
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 305, in __init__
+    self._session = ClientSession(loop=loop, cookie_jar=cookie_jar, **kwargs)
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py:479: ResourceWarning: unclosed <socket.socket fd=9, family=2, type=1, proto=0, laddr=('0.0.0.0', 0)>
+  @staticmethod
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/client.py:527: ResourceWarning: Unclosed client session <aiohttp.client.ClientSession object at 0x1142ebed0>
+  _warnings.warn(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1142ebed0>
+source_traceback: Object created at (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/__main__.py", line 18, in <module>
+    main(module=None)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/main.py", line 104, in __init__
+    self.runTests()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/main.py", line 270, in runTests
+    self.result = testRunner.run(self.test)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/runner.py", line 240, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/case.py", line 707, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 135, in run
+    return super().run(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/case.py", line 651, in run
+    self._callTestMethod(testMethod)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 94, in _callTestMethod
+    if self._callMaybeAsync(method) is not None:
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 116, in _callMaybeAsync
+    return self._asyncioRunner.run(
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 2042, in _run_once
+    handle._run()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 44, in test_empty_or_invalid_first_pcm_cannot_return_success
+    async with TestClient(TestServer(create_app(
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 305, in __init__
+    self._session = ClientSession(loop=loop, cookie_jar=cookie_jar, **kwargs)
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py:479: ResourceWarning: unclosed <socket.socket fd=11, family=2, type=1, proto=0, laddr=('0.0.0.0', 0)>
+  @staticmethod
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/client.py:527: ResourceWarning: Unclosed client session <aiohttp.client.ClientSession object at 0x1142ebd90>
+  _warnings.warn(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1142ebd90>
+source_traceback: Object created at (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/__main__.py", line 18, in <module>
+    main(module=None)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/main.py", line 104, in __init__
+    self.runTests()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/main.py", line 270, in runTests
+    self.result = testRunner.run(self.test)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/runner.py", line 240, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/case.py", line 707, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 135, in run
+    return super().run(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/case.py", line 651, in run
+    self._callTestMethod(testMethod)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 94, in _callTestMethod
+    if self._callMaybeAsync(method) is not None:
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 116, in _callMaybeAsync
+    return self._asyncioRunner.run(
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 2042, in _run_once
+    handle._run()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 137, in test_partial_upload_reserves_single_role_capacity
+    async with TestClient(
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 305, in __init__
+    self._session = ClientSession(loop=loop, cookie_jar=cookie_jar, **kwargs)
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py:479: ResourceWarning: unclosed <socket.socket fd=12, family=2, type=1, proto=0, laddr=('0.0.0.0', 0)>
+  @staticmethod
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_wrong_model_is_rejected_before_prompt (test_website_v1.PiWorkerTests.test_wrong_model_is_rejected_before_prompt) ... ok
+test_build_writes_files_and_records_real_syntax_receipt (test_website_v1.WebsiteTests.test_build_writes_files_and_records_real_syntax_receipt) ... ok
+test_invalid_javascript_and_missing_viewport_never_pass (test_website_v1.WebsiteTests.test_invalid_javascript_and_missing_viewport_never_pass) ... ok
+test_oversized_bundle_and_inline_syntax_errors_are_rejected (test_website_v1.WebsiteTests.test_oversized_bundle_and_inline_syntax_errors_are_rejected) ... ok
+test_path_escape_symlinks_and_package_scripts_are_rejected (test_website_v1.WebsiteTests.test_path_escape_symlinks_and_package_scripts_are_rejected) ... ok
+test_stale_result_cannot_write_files_or_run_build (test_website_v1.WebsiteTests.test_stale_result_cannot_write_files_or_run_build) ... ok
+test_exact_input_is_reused_but_changed_input_is_encoded (test_whisper_inference_v1.WhisperInferenceTests.test_exact_input_is_reused_but_changed_input_is_encoded) ... ok
+test_failure_restores_model_and_does_not_publish_failed_features (test_whisper_inference_v1.WhisperInferenceTests.test_failure_restores_model_and_does_not_publish_failed_features) ... ok
+test_requests_do_not_share_audio_or_encoded_features (test_whisper_inference_v1.WhisperInferenceTests.test_requests_do_not_share_audio_or_encoded_features) ... ok
+
+======================================================================
+ERROR: test_disconnect_bounds_hung_cleanup_below_upstream_wait (test_benchmark_control_v1.BenchmarkControlTests.test_disconnect_bounds_hung_cleanup_below_upstream_wait)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 250, in test_disconnect_bounds_hung_cleanup_below_upstream_wait
+    listener.bind(("127.0.0.1", 0))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_reset_reconnects_new_child_with_fresh_log_and_runtime_tree (test_benchmark_control_v1.BenchmarkControlTests.test_reset_reconnects_new_child_with_fresh_log_and_runtime_tree)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 149, in test_reset_reconnects_new_child_with_fresh_log_and_runtime_tree
+    listener.bind(("127.0.0.1", 0))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_preview_requires_current_verified_files_and_is_loopback (test_results_v1.ResultTests.test_preview_requires_current_verified_files_and_is_loopback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_results_v1.py", line 110, in test_preview_requires_current_verified_files_and_is_loopback
+    url = await jobs.preview(job["id"], expected_revision=1)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/jobs.py", line 141, in preview
+    return await self.previews.start(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/preview.py", line 116, in start
+    server = await asyncio.start_server(handle, "127.0.0.1", 0)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/streams.py", line 84, in start_server
+    return await loop.create_server(factory, host, port, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 1630, in create_server
+    raise OSError(err.errno, msg) from None
+PermissionError: [Errno 1] error while attempting to bind on address ('127.0.0.1', 0): [errno 1] operation not permitted
+
+======================================================================
+ERROR: test_preview_reopens_after_same_owner_reconnects (test_review_v1.ReviewTests.test_preview_reopens_after_same_owner_reconnects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_review_v1.py", line 68, in test_preview_reopens_after_same_owner_reconnects
+    await self.session.jobs.preview(job["id"], expected_revision=1)
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/jobs.py", line 141, in preview
+    return await self.previews.start(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/preview.py", line 116, in start
+    server = await asyncio.start_server(handle, "127.0.0.1", 0)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/streams.py", line 84, in start_server
+    return await loop.create_server(factory, host, port, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 1630, in create_server
+    raise OSError(err.errno, msg) from None
+PermissionError: [Errno 1] error while attempting to bind on address ('127.0.0.1', 0): [errno 1] operation not permitted
+
+======================================================================
+ERROR: test_auth_exact_models_and_raw_pcm_contract (test_speech_server_v1.SpeechServerTests.test_auth_exact_models_and_raw_pcm_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 74, in test_auth_exact_models_and_raw_pcm_contract
+    async with TestClient(
+               ~~~~~~~~~~^
+        TestServer(create_app(config, Models()))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as client:
+    ^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 533, in __aenter__
+    await self.start_server()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 312, in start_server
+    await self._server.start_server(loop=self._loop)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 141, in start_server
+    _sock = self.socket_factory(self.host, self.port, family)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 85, in get_port_socket
+    s.bind((host, port))
+    ~~~~~~^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_cancelled_native_call_stays_busy_until_thread_finishes (test_speech_server_v1.SpeechServerTests.test_cancelled_native_call_stays_busy_until_thread_finishes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 200, in test_cancelled_native_call_stays_busy_until_thread_finishes
+    async with TestClient(
+               ~~~~~~~~~~^
+        TestServer(create_app(config, models))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as client:
+    ^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 533, in __aenter__
+    await self.start_server()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 312, in start_server
+    await self._server.start_server(loop=self._loop)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 141, in start_server
+    _sock = self.socket_factory(self.host, self.port, family)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 85, in get_port_socket
+    s.bind((host, port))
+    ~~~~~~^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) (chunks=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 44, in test_empty_or_invalid_first_pcm_cannot_return_success
+    async with TestClient(TestServer(create_app(
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+        SpeechServerConfig("asr", "tts", "voice", "token"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        Models(),
+        ^^^^^^^^^
+    ))) as client:
+    ^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 533, in __aenter__
+    await self.start_server()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 312, in start_server
+    await self._server.start_server(loop=self._loop)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 141, in start_server
+    _sock = self.socket_factory(self.host, self.port, family)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 85, in get_port_socket
+    s.bind((host, port))
+    ~~~~~~^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) (chunks=[b''])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 44, in test_empty_or_invalid_first_pcm_cannot_return_success
+    async with TestClient(TestServer(create_app(
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+        SpeechServerConfig("asr", "tts", "voice", "token"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        Models(),
+        ^^^^^^^^^
+    ))) as client:
+    ^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 533, in __aenter__
+    await self.start_server()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 312, in start_server
+    await self._server.start_server(loop=self._loop)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 141, in start_server
+    _sock = self.socket_factory(self.host, self.port, family)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 85, in get_port_socket
+    s.bind((host, port))
+    ~~~~~~^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) (chunks=[b'\x01'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 44, in test_empty_or_invalid_first_pcm_cannot_return_success
+    async with TestClient(TestServer(create_app(
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+        SpeechServerConfig("asr", "tts", "voice", "token"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        Models(),
+        ^^^^^^^^^
+    ))) as client:
+    ^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 533, in __aenter__
+    await self.start_server()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 312, in start_server
+    await self._server.start_server(loop=self._loop)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 141, in start_server
+    _sock = self.socket_factory(self.host, self.port, family)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 85, in get_port_socket
+    s.bind((host, port))
+    ~~~~~~^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_partial_upload_reserves_single_role_capacity (test_speech_server_v1.SpeechServerTests.test_partial_upload_reserves_single_role_capacity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 137, in test_partial_upload_reserves_single_role_capacity
+    async with TestClient(
+               ~~~~~~~~~~^
+        TestServer(create_app(config, Models()))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as client:
+    ^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 533, in __aenter__
+    await self.start_server()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 312, in start_server
+    await self._server.start_server(loop=self._loop)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 141, in start_server
+    _sock = self.socket_factory(self.host, self.port, family)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 85, in get_port_socket
+    s.bind((host, port))
+    ~~~~~~^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+FAIL: test_control_rejects_insecure_or_symlink_directory (test_benchmark_control_v1.BenchmarkControlTests.test_control_rejects_insecure_or_symlink_directory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 195, in test_control_rejects_insecure_or_symlink_directory
+    self.ready()
+    ~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 138, in ready
+    return wait_until(read)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 78, in wait_until
+    raise AssertionError("fixture condition did not become true")
+AssertionError: fixture condition did not become true
+
+======================================================================
+FAIL: test_failed_reset_is_terminal_without_old_session_fallback (test_benchmark_control_v1.BenchmarkControlTests.test_failed_reset_is_terminal_without_old_session_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 241, in test_failed_reset_is_terminal_without_old_session_fallback
+    before = self.ready()
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 138, in ready
+    return wait_until(read)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 78, in wait_until
+    raise AssertionError("fixture condition did not become true")
+AssertionError: fixture condition did not become true
+
+======================================================================
+FAIL: test_invalid_operation_type_cannot_terminate_control_parent (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_operation_type_cannot_terminate_control_parent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 296, in test_invalid_operation_type_cannot_terminate_control_parent
+    before = self.ready()
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 138, in ready
+    return wait_until(read)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 78, in wait_until
+    raise AssertionError("fixture condition did not become true")
+AssertionError: fixture condition did not become true
+
+======================================================================
+FAIL: test_invalid_state_fifo_cannot_block_control_client (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_state_fifo_cannot_block_control_client)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 308, in test_invalid_state_fifo_cannot_block_control_client
+    before = self.ready()
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 138, in ready
+    return wait_until(read)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 78, in wait_until
+    raise AssertionError("fixture condition did not become true")
+AssertionError: fixture condition did not become true
+
+======================================================================
+FAIL: test_malformed_or_stalled_request_cannot_block_control (test_benchmark_control_v1.BenchmarkControlTests.test_malformed_or_stalled_request_cannot_block_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 284, in test_malformed_or_stalled_request_cannot_block_control
+    before = self.ready()
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 138, in ready
+    return wait_until(read)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 78, in wait_until
+    raise AssertionError("fixture condition did not become true")
+AssertionError: fixture condition did not become true
+
+======================================================================
+FAIL: test_reset_kills_descendant_even_after_launcher_exits_on_term (test_benchmark_control_v1.BenchmarkControlTests.test_reset_kills_descendant_even_after_launcher_exits_on_term)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 221, in test_reset_kills_descendant_even_after_launcher_exits_on_term
+    before = self.ready()
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 138, in ready
+    return wait_until(read)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 78, in wait_until
+    raise AssertionError("fixture condition did not become true")
+AssertionError: fixture condition did not become true
+
+======================================================================
+FAIL: test_start_timeout_reaps_child_and_removes_socket (test_benchmark_control_v1.BenchmarkControlTests.test_start_timeout_reaps_child_and_removes_socket)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 233, in test_start_timeout_reaps_child_and_removes_socket
+    def test_start_timeout_reaps_child_and_removes_socket(self):
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 78, in wait_until
+    time.sleep(0.01)
+    ~~~~~~~~~~^^^^^^
+AssertionError: fixture condition did not become true
+
+======================================================================
+FAIL: test_term_and_explicit_stop_reap_owned_child (test_benchmark_control_v1.BenchmarkControlTests.test_term_and_explicit_stop_reap_owned_child) (signal=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 273, in test_term_and_explicit_stop_reap_owned_child
+    self.logs = self.root / ("signal-logs" if use_signal
+            ^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 138, in ready
+    return None
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 78, in wait_until
+    time.sleep(0.01)
+    ~~~~~~~~~~^^^^^^
+AssertionError: fixture condition did not become true
+
+======================================================================
+FAIL: test_term_and_explicit_stop_reap_owned_child (test_benchmark_control_v1.BenchmarkControlTests.test_term_and_explicit_stop_reap_owned_child) (signal=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 273, in test_term_and_explicit_stop_reap_owned_child
+    self.logs = self.root / ("signal-logs" if use_signal
+            ^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 138, in ready
+    return None
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 78, in wait_until
+    time.sleep(0.01)
+    ~~~~~~~~~~^^^^^^
+AssertionError: fixture condition did not become true
+
+======================================================================
+FAIL: test_wrong_instance_and_replayed_generation_cannot_reset (test_benchmark_control_v1.BenchmarkControlTests.test_wrong_instance_and_replayed_generation_cannot_reset)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 182, in test_wrong_instance_and_replayed_generation_cannot_reset
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 138, in ready
+    return None
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_benchmark_control_v1.py", line 78, in wait_until
+    time.sleep(0.01)
+    ~~~~~~~~~~^^^^^^
+AssertionError: fixture condition did not become true
+
+----------------------------------------------------------------------
+Ran 134 tests in 43.448s
+
+FAILED (failures=10, errors=10)
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1142ee120>
+source_traceback: Object created at (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/__main__.py", line 18, in <module>
+    main(module=None)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/main.py", line 104, in __init__
+    self.runTests()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/main.py", line 270, in runTests
+    self.result = testRunner.run(self.test)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/runner.py", line 240, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/suite.py", line 122, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/case.py", line 707, in __call__
+    return self.run(*args, **kwds)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 135, in run
+    return super().run(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/case.py", line 651, in run
+    self._callTestMethod(testMethod)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 94, in _callTestMethod
+    if self._callMaybeAsync(method) is not None:
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/unittest/async_case.py", line 116, in _callMaybeAsync
+    return self._asyncioRunner.run(
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 2042, in _run_once
+    handle._run()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 74, in test_auth_exact_models_and_raw_pcm_contract
+    async with TestClient(
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 305, in __init__
+    self._session = ClientSession(loop=loop, cookie_jar=cookie_jar, **kwargs)

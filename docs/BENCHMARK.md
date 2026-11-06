@@ -1,5 +1,70 @@
 # Benchmark methods and results
 
+## Final canonical ME3 run: November 7
+
+Run `2026-11-07_06-10-46` measured the published source `6bbbfd5`, using only
+canonical ME3 `57eaddbc188ce9a19b8fd002b575f703426956f4`, its complete official
+dataset and unchanged scorer. Seed 231, ten phrases repeated three times, three
+complete duplex rounds, explicit global course bypass and a fresh runtime for
+every recording completed **60/60 queue items / 72 recordings** in **1357.089s**.
+Transport/scoring errors were zero. The target applies to both mean and p95.
+
+| Metric | Mean | p95 | ME3 target | n | Observation |
+| --- | --- | --- | --- | --- | --- |
+| E2E, VAD end to output mark | 2.552s | 3.711s | 4s | 29 | Below on observed samples |
+| ASR final | 1.470s | 2.036s | 0.8s | 30 | Over |
+| LLM first text | 0.402s | 0.745s | 1.5s | 29 | Below on observed samples |
+| TTS first PCM | 0.424s | 0.696s | 0.6s | 29 | Over |
+| Interruption stop | 0.337s | 0.406s | 0.8s | 3 | Below on observed samples; n=3 is insufficient |
+| Corpus WER | 3/207 = 1.449% | Not applicable | 15% | 30 | Below |
+
+The headline clock is VAD-end to software output mark. Digital recorded speech
+onset was **3.066s mean / 4.158s p95**, n=29. **29/30** phrase trials had recorded
+replies. Missing timings are excluded by the unchanged scorer and are not passes.
+Maximum software E2E was 6.304s, maximum LLM first text 4.609s. Three of six
+scheduled interruption cases had a valid stop measurement; already-silent
+cases are retained and excluded rather than credited as zero-latency stops.
+Small samples do not establish a robust p95 or the spec's physical 250ms gate.
+
+Turn-taking TOR was 1/3; interruption TOR 2/3; false-turn rate 2/6 under the
+original word-count threshold. All three synthetic and three Candor pause
+windows had no counted speech. Four of six false-turn recordings contain detected bot speech; short
+replies can fall below that threshold. Independent addressee rejection remains
+unqualified.
+Two of three backchannel cases returned; one did not. The previously stuck
+first-round acknowledgement returned after 1.832s without a new semantic ASR
+commit; its control regression separately verifies retained bytes/context/epoch.
+No content judge or UTMOS was used. Keep unjudged Respond/Resume labels unknown.
+
+The preceding first fresh-session run, `2026-11-07_05-16-13` at `c321634`,
+completed 40/40 items / 44 recordings. Its mean/p95 were E2E 3.287/6.140s,
+ASR 1.462/1.958s, LLM 1.017/3.307s, TTS 0.465/1.128s and stop 0.316/0.345s
+(n=2); WER 3/207=1.449%, with 29/30 recorded phrase replies. Setup/transport and
+archive I/O may overlap its early trials; those observations are retained.
+The final recording ran without those extra workloads. Provider and answer
+variation still prevent attributing the whole-run LLM/TTS differences to code;
+their model/prompt/inference paths were unchanged between these fresh runs.
+
+Native Turbo feature reuse has separate paired development evidence: 20/20
+text/language/word-field comparisons matched; 17 warm ordinary pairs averaged
+1.824s -> 0.978s. The high-confidence language-input padding changed and broader
+language equivalence remains unqualified. Neither native profiles, prompt
+pilots nor control simulations are substitute benchmark results. Rejected
+compiler/prompt candidates remain failures in the archive.
+
+See [raw official reports, source pins and failures](evidence/2026-11-07/realistic-targets/README.md)
+and [reproducible setup](SETUP.md#course-benchmark). The
+[planned Pi procedure](RASPBERRY_PI_TESTING.md) uses the same canonical benchmark
+and separates target runtime evidence from optional Mac evaluation compute.
+No Pi hardware, physical acoustic p95, idle/busy audio comparison, speakerphone
+qualification or 30-minute target soak was performed here. The fixed upstream
+report title is a template; the measured device card is Darwin/16GB.
+
+The immediate unpassed timing gates are **ASR <=0.8s** and **TTS p95 <=0.6s**.
+Semantic turn/addressee/acknowledgement gates remain open even where timing is
+below its threshold. Earlier continuous-session diagnostics are preserved below;
+their context/reset protocol differs from the final independent recordings.
+
 ## Inference improvement: November 7
 
 The optimized build `03e1ff7` reran the identical pinned protocol as
@@ -170,8 +235,10 @@ explicit focus restoration, job revision, worker timeout, stale output, network
 failure and cancellation races. Separate intentional notification waiting from
 technical delay after an eligible conversational boundary.
 
-Run Full-Duplex-Bench pause/overlap/turn-taking tracks and tool/disfluency tracks
-as separate evidence. Pin the benchmark revision, corpus and configuration.
+Use only the canonical ME3 benchmark's complete pause, overlap and turn-taking
+groups with its original scorer for benchmark evidence. Keep development
+regressions and provider probes separately labelled. Pin the benchmark revision,
+official corpus and configuration.
 Add unfamiliar live speakers and real-device trials; do not mix mocked actions
 with physical-device success. No benchmark assets are copied into this repository.
 

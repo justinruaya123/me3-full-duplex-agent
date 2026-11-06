@@ -1,0 +1,96 @@
+{
+  "trial": "r01_v15_background_v15_background_27",
+  "group": "v15_background",
+  "clip": "v15_background_27",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 12.416,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.784
+    },
+    {
+      "name": "overlap",
+      "t": 5.276,
+      "len": 1.718
+    }
+  ],
+  "live_bot_starts": [
+    3.776,
+    9.12
+  ],
+  "live_bot_ends": [
+    5.568,
+    11.2
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "Define the word 'ephemeral'.",
+    "current_turn_text": "",
+    "overlap_text": "Your coffee's getting cold.",
+    "overlap_duration": 1.72,
+    "overlap_window": [
+      5.625,
+      7.343
+    ],
+    "source_id": "27"
+  },
+  "mono": [
+    8687.675542166,
+    8700.088951833
+  ],
+  "bot_segments": [
+    [
+      3.746,
+      5.598
+    ],
+    [
+      9.09,
+      11.23
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.784
+  ],
+  "overlap_played": true,
+  "t_stop": 0.21999999999999975,
+  "t_resp": 2.2439999999999998,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    5.378,
+    6.846
+  ],
+  "tor": 1,
+  "first_start": 9.09,
+  "spoke_s": 2.1400000000000006,
+  "latency": 2.096,
+  "actual": "stopped after 0.22 s, back 2.24 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ paused, came back · content: judge",
+  "ok": null,
+  "marks": 36,
+  "final": {
+    "t_stop": 0.21999999999999975,
+    "t_resp": 2.2439999999999998,
+    "label": null,
+    "voice_delta": {
+      "wpm": 55.555555555555515,
+      "pitch_mean": -7.070804265959765,
+      "pitch_sd": -4.291549498704342,
+      "intensity_mean": -0.9296329406435255,
+      "intensity_sd": 0.2061529291597166,
+      "utmosv2": null
+    },
+    "transcript": "ephemeral just means short -lived. It means lasting for a very short time."
+  },
+  "scored_at": "2026-11-07T05:35:02+08:00"
+}

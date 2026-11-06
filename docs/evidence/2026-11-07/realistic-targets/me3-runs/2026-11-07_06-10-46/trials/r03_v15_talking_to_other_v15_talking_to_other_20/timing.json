@@ -1,0 +1,90 @@
+{
+  "trial": "r03_v15_talking_to_other_v15_talking_to_other_20",
+  "group": "v15_talking_to_other",
+  "clip": "v15_talking_to_other_20",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 16.512,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.328
+    },
+    {
+      "name": "overlap",
+      "t": 6.46,
+      "len": 2.0429375
+    }
+  ],
+  "live_bot_starts": [
+    4.96
+  ],
+  "live_bot_ends": [
+    6.752
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Send a message to Alex saying I'll be late.",
+    "current_turn_text": "Mateo, pick up the kids at three, yeah?",
+    "overlap_text": "Mateo, pick up the kids at three, yeah?",
+    "overlap_duration": 2.04,
+    "overlap_window": [
+      6.09,
+      8.133
+    ],
+    "source_id": "20"
+  },
+  "mono": [
+    12537.123990375,
+    12553.609611541
+  ],
+  "bot_segments": [
+    [
+      4.93,
+      6.782
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.328
+  ],
+  "overlap_played": true,
+  "t_stop": 0.2839999999999998,
+  "t_resp": null,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    6.498,
+    8.478
+  ],
+  "tor": 0,
+  "first_start": null,
+  "spoke_s": 0.0,
+  "latency": null,
+  "actual": "stopped after 0.28 s, did not come back",
+  "overlap_class": "stopped",
+  "label_provisional": "Unknown",
+  "verdict": "✗ stopped, silent",
+  "ok": false,
+  "marks": 23,
+  "final": {
+    "t_stop": 0.2839999999999998,
+    "t_resp": null,
+    "label": "Unknown",
+    "voice_delta": {
+      "wpm": null,
+      "pitch_mean": null,
+      "pitch_sd": null,
+      "intensity_mean": null,
+      "intensity_sd": null,
+      "utmosv2": null
+    },
+    "transcript": "I can't send messages to external..."
+  },
+  "scored_at": "2026-11-07T06:37:08+08:00"
+}

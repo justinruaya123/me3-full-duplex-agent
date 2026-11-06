@@ -1,0 +1,20 @@
+{
+  "original_case_objects_unchanged": true,
+  "original_artifact_hashes_unchanged": true,
+  "original_baseline_prompts_unchanged": true,
+  "arm_histories_identical": true,
+  "cases": 10,
+  "new_holdouts": [
+    "holdout_unspecified_choices",
+    "holdout_unknown_pass_threshold"
+  ],
+  "provider_calls": 0,
+  "http_trace": "optional; prepared, not exercised on any request",
+  "httpx_stream_supports_extensions": true,
+  "httpx_version": "0.28.1",
+  "httpcore_version": "1.0.9",
+  "runner_sha256": "c1e8f15fedbced3e507fdfdae2c36df5a92ebcbd589e3866ae54bbe86e9beb8c",
+  "prepared_sha256": "65b66c58b013180ca14b9db2bf84709a4c9ddef52f412ae581e4fa4caa1b6b7b",
+  "holdouts_sha256": "6440c4d4e22e124c85aeed3bb38faa2a7b67d1359f1791b22a779ac4a208b0f8",
+  "syntax_check": "passed; no inference"
+}

@@ -1,0 +1,9 @@
+test_noise_and_clicks_do_not_create_provisional_turns (test_vad_onset_v1.VADOnsetTests.test_noise_and_clicks_do_not_create_provisional_turns) ... 2026-11-07 04:56:26.923 Python[17466:195369] 2026-11-07 04:56:26.923569 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Executing <Task pending name='Task-2' coro=<VADOnsetTests.test_noise_and_clicks_do_not_create_provisional_turns() running at /Users/jus/Documents/Grad/AI231/ME3/tests/test_vad_onset_v1.py:168> wait_for=<Future pending cb=[Task.task_wakeup()] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:459> cb=[_run_until_complete_cb() at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:181] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.304 seconds
+ok
+test_quiet_development_speech_pauses_within_450ms (test_vad_onset_v1.VADOnsetTests.test_quiet_development_speech_pauses_within_450ms) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.997s
+
+OK

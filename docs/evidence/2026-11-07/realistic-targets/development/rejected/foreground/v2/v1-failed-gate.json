@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "decision": "DO NOT PROMOTE: clarification gate failed",
+  "provider_run": "run-20261106T213440560521Z",
+  "protocol_calls_complete": 24,
+  "candidate_ambiguous_referents_output": "I cannot perform physical actions. I am an AI.",
+  "baseline_control_ambiguous_referents_output": "I can\u2019t physically move anything, but I\u2019d be happy to help you figure out how to move it or where to put it.",
+  "failure": "Candidate gave a generic capability/AI disclaimer instead of asking a specific clarification. Baseline control also omitted the question.",
+  "parent_review": "Root reviewed all full outputs: candidate preserved numeric/fact cases but failed ambiguity clarification. No production promotion.",
+  "original_sha256": {
+    ".local/verification/targets/foreground/cases.json": "e782a6a29345daea28d7d550d5e3e1db87d22d4df32c69342ae9807f43235a75",
+    ".local/verification/targets/foreground/prepared.json": "f7cc7848ecf125a929449a4a93481ca62dd80bf023402fe509ca8ccee7250fbf",
+    ".local/verification/targets/foreground/pilot.py": "ac7c41c0f693fb8fc7978e24b2d6346f713ea12fe92bd6d48b3689ae1158a3ce",
+    ".local/verification/targets/foreground/run-20261106T213440560521Z/records.json": "2e48cad91f2c0aae24d81fa2db7a99904b370c63b2b5becd2dc1e0af427656fa",
+    ".local/verification/targets/foreground/run-20261106T213440560521Z/summary.json": "263db437fb9404b533130ac455616e74172f85f6e99d34a97c9f2c3ea291e780"
+  }
+}

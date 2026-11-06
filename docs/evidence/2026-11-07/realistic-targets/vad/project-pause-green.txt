@@ -1,0 +1,18 @@
+test_empty_audio_final_resolves_without_requesting_inference (test_provisional_pause_v1.EmptyCaptureTests.test_empty_audio_final_resolves_without_requesting_inference) ... ok
+test_empty_final_resolves_once_without_committed_transcript (test_provisional_pause_v1.EmptyCaptureTests.test_empty_final_resolves_once_without_committed_transcript) ... ok
+test_late_empty_result_after_close_cannot_resolve (test_provisional_pause_v1.EmptyCaptureTests.test_late_empty_result_after_close_cannot_resolve) ... ok
+test_late_empty_result_cannot_resolve_new_speech (test_provisional_pause_v1.EmptyCaptureTests.test_late_empty_result_cannot_resolve_new_speech) ... ok
+test_malformed_recognition_is_not_an_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_malformed_recognition_is_not_an_empty_resolution) ... ok
+test_prior_incomplete_text_prevents_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_prior_incomplete_text_prevents_empty_resolution) ... ok
+test_queued_old_finish_cannot_mark_new_speech_inactive (test_provisional_pause_v1.EmptyCaptureTests.test_queued_old_finish_cannot_mark_new_speech_inactive) ... ok
+test_recognition_failure_propagates_without_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_recognition_failure_propagates_without_empty_resolution) ... ok
+test_backchannel_resumes_retained_pcm_without_cancellation (test_provisional_pause_v1.ProvisionalPauseTests.test_backchannel_resumes_retained_pcm_without_cancellation) ... 2026-11-07 04:54:08.538 Python[17027:191393] 2026-11-07 04:54:08.538941 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Executing <Task pending name='Task-57' coro=<ProvisionalPauseTests.test_backchannel_resumes_retained_pcm_without_cancellation() running at /Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py:339> wait_for=<Future pending cb=[Task.task_wakeup()] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:459> cb=[_run_until_complete_cb() at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:181] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.299 seconds
+ok
+test_empty_recognition_does_not_leave_unresolved_pause (test_provisional_pause_v1.ProvisionalPauseTests.test_empty_recognition_does_not_leave_unresolved_pause) ... ok
+test_uncommitted_stop_does_not_cancel_or_execute (test_provisional_pause_v1.ProvisionalPauseTests.test_uncommitted_stop_does_not_cancel_or_execute) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.799s
+
+OK

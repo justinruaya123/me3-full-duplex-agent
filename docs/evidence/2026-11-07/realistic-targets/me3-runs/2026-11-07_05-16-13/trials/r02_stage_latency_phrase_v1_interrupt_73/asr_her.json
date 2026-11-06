@@ -1,0 +1,146 @@
+{
+  "text": "Start by opening a 400 one. K, if your employer offers one, especially if there's a match, that's free money.",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        6.74,
+        7.22
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        7.22,
+        7.48
+      ]
+    },
+    {
+      "text": "opening",
+      "timestamp": [
+        7.48,
+        7.88
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        7.88,
+        8.06
+      ]
+    },
+    {
+      "text": "400",
+      "timestamp": [
+        8.06,
+        8.62
+      ]
+    },
+    {
+      "text": "one.",
+      "timestamp": [
+        8.62,
+        8.94
+      ]
+    },
+    {
+      "text": "K,",
+      "timestamp": [
+        9.48,
+        9.62
+      ]
+    },
+    {
+      "text": "if",
+      "timestamp": [
+        9.98,
+        10.14
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        10.14,
+        10.26
+      ]
+    },
+    {
+      "text": "employer",
+      "timestamp": [
+        10.26,
+        10.64
+      ]
+    },
+    {
+      "text": "offers",
+      "timestamp": [
+        10.64,
+        11.1
+      ]
+    },
+    {
+      "text": "one,",
+      "timestamp": [
+        11.1,
+        11.44
+      ]
+    },
+    {
+      "text": "especially",
+      "timestamp": [
+        11.78,
+        12.12
+      ]
+    },
+    {
+      "text": "if",
+      "timestamp": [
+        12.12,
+        12.56
+      ]
+    },
+    {
+      "text": "there's",
+      "timestamp": [
+        12.56,
+        12.8
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        12.8,
+        12.86
+      ]
+    },
+    {
+      "text": "match,",
+      "timestamp": [
+        12.86,
+        13.2
+      ]
+    },
+    {
+      "text": "that's",
+      "timestamp": [
+        13.54,
+        13.8
+      ]
+    },
+    {
+      "text": "free",
+      "timestamp": [
+        13.8,
+        14.0
+      ]
+    },
+    {
+      "text": "money.",
+      "timestamp": [
+        14.0,
+        14.24
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

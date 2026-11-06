@@ -1,0 +1,96 @@
+{
+  "trial": "r03_v15_interruption_v15_interruption_3",
+  "group": "v15_interruption",
+  "clip": "v15_interruption_3",
+  "variant": "main",
+  "expected": "stop, answer the new request (Respond)",
+  "duration": 21.056,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.584
+    },
+    {
+      "name": "overlap",
+      "t": 7.548,
+      "len": 2.8690625
+    }
+  ],
+  "live_bot_starts": [
+    6.048,
+    15.872
+  ],
+  "live_bot_ends": [
+    7.872,
+    20.704
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "What's the latest in smart home devices?",
+    "current_turn_text": "Hold on, what time is the meeting scheduled today?",
+    "overlap_text": "Hold on, what time is the meeting scheduled today?",
+    "overlap_duration": 2.87,
+    "overlap_window": [
+      6.2509999999999994,
+      9.12
+    ],
+    "source_id": "3"
+  },
+  "mono": [
+    12636.552849666,
+    12657.611034583
+  ],
+  "bot_segments": [
+    [
+      6.018,
+      7.902
+    ],
+    [
+      15.842,
+      20.734
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.584
+  ],
+  "overlap_played": true,
+  "t_stop": 0.2519999999999998,
+  "t_resp": 5.892000000000001,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    7.65,
+    9.95
+  ],
+  "tor": 1,
+  "first_start": 15.842,
+  "spoke_s": 2.5750624999999996,
+  "latency": 5.4249375,
+  "actual": "stopped after 0.25 s, back 5.89 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ replied · content: judge",
+  "ok": null,
+  "marks": 35,
+  "final": {
+    "t_stop": 0.2519999999999998,
+    "t_resp": 5.892000000000001,
+    "label": null,
+    "voice_delta": {
+      "wpm": 65.0929899856938,
+      "pitch_mean": -22.24922616605585,
+      "pitch_sd": 5.836125947924401,
+      "intensity_mean": -0.6488344816100877,
+      "intensity_sd": -1.381999529652127,
+      "utmosv2": null
+    },
+    "transcript": "Honestly, the big shift right now, I don't have access to your calendar or current time, so I can't tell you the meeting schedule."
+  },
+  "scored_at": "2026-11-07T06:37:05+08:00"
+}

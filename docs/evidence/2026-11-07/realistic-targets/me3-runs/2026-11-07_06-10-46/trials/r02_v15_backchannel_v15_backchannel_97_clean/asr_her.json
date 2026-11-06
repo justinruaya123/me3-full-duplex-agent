@@ -1,0 +1,146 @@
+{
+  "text": "Think of entrepreneurship as the art of spotting a gap in the world and building a bridge to cross it.",
+  "chunks": [
+    {
+      "text": "Think",
+      "timestamp": [
+        5.49,
+        5.95
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        5.95,
+        6.09
+      ]
+    },
+    {
+      "text": "entrepreneurship",
+      "timestamp": [
+        6.09,
+        6.79
+      ]
+    },
+    {
+      "text": "as",
+      "timestamp": [
+        6.79,
+        7.39
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        7.39,
+        7.55
+      ]
+    },
+    {
+      "text": "art",
+      "timestamp": [
+        7.55,
+        7.79
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        7.79,
+        7.93
+      ]
+    },
+    {
+      "text": "spotting",
+      "timestamp": [
+        7.93,
+        8.37
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        8.37,
+        8.47
+      ]
+    },
+    {
+      "text": "gap",
+      "timestamp": [
+        8.47,
+        8.67
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        8.67,
+        8.85
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.85,
+        8.93
+      ]
+    },
+    {
+      "text": "world",
+      "timestamp": [
+        8.93,
+        9.27
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        9.27,
+        9.81
+      ]
+    },
+    {
+      "text": "building",
+      "timestamp": [
+        9.81,
+        10.11
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        10.11,
+        10.31
+      ]
+    },
+    {
+      "text": "bridge",
+      "timestamp": [
+        10.31,
+        10.51
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        10.51,
+        10.69
+      ]
+    },
+    {
+      "text": "cross",
+      "timestamp": [
+        10.69,
+        10.97
+      ]
+    },
+    {
+      "text": "it.",
+      "timestamp": [
+        10.97,
+        11.17
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "kind": "actual guarded speech startup and authenticated catalog",
+  "parent_pid": 18871,
+  "seconds": 9.86452137499964,
+  "model_ids": [
+    "mlx-community/Kokoro-82M-bf16",
+    "mlx-community/whisper-large-v3-turbo"
+  ],
+  "voice": "af_heart"
+}

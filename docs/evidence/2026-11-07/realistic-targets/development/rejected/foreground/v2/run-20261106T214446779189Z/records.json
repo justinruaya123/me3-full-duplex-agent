@@ -1,0 +1,3910 @@
+[
+  {
+    "case": "math_42",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer or needed clarification first. Ask one specific clarifying question when context is missing. Do not guess missing facts. Avoid boilerplate and 'as an AI' statements. State a concrete capability limit only when relevant. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"What is 17 plus 25? Give the exact answer.\"}]",
+    "full_output": "17 plus 25 equals 42.",
+    "project_clauses": [
+      {
+        "text": "17 plus 25 equals 42.",
+        "ready_s": 0.8132045000002108
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.02985741699922073,
+      "llm_first_token": 0.7309830829999555
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.040173707999201724
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.1236809580004774
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.12379599999985658
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.12398224999924423
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.12398650000068301
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.12409337499957473
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.12409649999972316
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.7192732500006969
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.7201970419991994
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 0.8126662079994276
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 0.8131067499998608
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 0.8403231669999514
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.8132045000002108,
+    "total_s": 0.8132712499991612,
+    "metrics": {
+      "first_sentence": "17 plus 25 equals 42.",
+      "first_sentence_words": 5,
+      "first_sentence_chars": 21,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        5
+      ],
+      "sentence_chars": [
+        21
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 5,
+      "full_chars": 21,
+      "first_project_clause": "17 plus 25 equals 42.",
+      "first_project_clause_words": 5,
+      "first_project_clause_chars": 21,
+      "required_literal_guards": {
+        "answer_42": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "math_42",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"What is 17 plus 25? Give the exact answer.\"}]",
+    "full_output": "It's 42.",
+    "project_clauses": [
+      {
+        "text": "It's 42.",
+        "ready_s": 0.4302432919994317
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.02394583299974329,
+      "llm_first_token": 0.3438617920000979
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.024351666999791632
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.05260350000025937
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.05270337500041933
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.052867166999931214
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.052870707999318256
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.0529672920001758
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.0529701670002396
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.1226388750001206
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.12306779199934681
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 0.42960220799977833
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 0.4301169579994166
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 0.45656099999905564
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.4302432919994317,
+    "total_s": 0.43033258299874433,
+    "metrics": {
+      "first_sentence": "It's 42.",
+      "first_sentence_words": 2,
+      "first_sentence_chars": 8,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        2
+      ],
+      "sentence_chars": [
+        8
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 2,
+      "full_chars": 8,
+      "first_project_clause": "It's 42.",
+      "first_project_clause_words": 2,
+      "first_project_clause_chars": 8,
+      "required_literal_guards": {
+        "answer_42": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "math_42",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"What is 17 plus 25? Give the exact answer.\"}]",
+    "full_output": "That's 42.",
+    "project_clauses": [
+      {
+        "text": "That's 42.",
+        "ready_s": 0.5054671249999956
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.021992291998685687,
+      "llm_first_token": 0.303286541999114
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.02238391699938802
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.1045406670000375
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.10474258399881364
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.10514420899926336
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.1051543749999837
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.10537770900009491
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.10538549999910174
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.19754654200005461
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.19836770899928524
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 0.5048709169986978
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 0.5053719589996035
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 0.5325309589989047
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.5054671249999956,
+    "total_s": 0.5055252089987334,
+    "metrics": {
+      "first_sentence": "That's 42.",
+      "first_sentence_words": 2,
+      "first_sentence_chars": 10,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        2
+      ],
+      "sentence_chars": [
+        10
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 2,
+      "full_chars": 10,
+      "first_project_clause": "That's 42.",
+      "first_project_clause_words": 2,
+      "first_project_clause_chars": 10,
+      "required_literal_guards": {
+        "answer_42": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "boiling_100_c",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"What temperature does pure water boil at near sea level, in Celsius? Why can it boil at a lower temperature high in the mountains?\"}]",
+    "full_output": "Pure water boils at 100 degrees Celsius at sea level. At higher elevations, the atmospheric pressure drops, which lowers the amount of energy needed for water molecules to escape as vapor, causing it to boil at a lower temperature.",
+    "project_clauses": [
+      {
+        "text": "Pure water boils at 100 degrees Celsius at sea level.",
+        "ready_s": 2.0793579170003795
+      },
+      {
+        "text": "At higher elevations, the atmospheric pressure drops, which lowers the amount of energy needed for water molecules to escape as vapor, causing it to boil at a lower temperature.",
+        "ready_s": 2.0831413750001957
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.022649874999842723,
+      "llm_first_token": 1.5491990840000653
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.022919959001228563
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.29853908400036744
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.2988294170008885
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.2994401249998191
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.2994507090006664
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.299751209000533
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.29975712499981455
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 1.3270422500008863
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 1.3277367499995307
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 2.082661583999652
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 2.0830389590009872
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 2.1085192919999827
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 2.0793579170003795,
+    "total_s": 2.08320491700033,
+    "metrics": {
+      "first_sentence": "Pure water boils at 100 degrees Celsius at sea level.",
+      "first_sentence_words": 10,
+      "first_sentence_chars": 53,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        10,
+        29
+      ],
+      "sentence_chars": [
+        53,
+        177
+      ],
+      "sentences_over_12_words": 1,
+      "full_words": 39,
+      "full_chars": 231,
+      "first_project_clause": "Pure water boils at 100 degrees Celsius at sea level.",
+      "first_project_clause_words": 10,
+      "first_project_clause_chars": 53,
+      "required_literal_guards": {
+        "temperature_100": true,
+        "celsius": true,
+        "pressure": true,
+        "lower_at_altitude": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "boiling_100_c",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"What temperature does pure water boil at near sea level, in Celsius? Why can it boil at a lower temperature high in the mountains?\"}]",
+    "full_output": "Pure water boils at 100 degrees Celsius at sea level. At higher altitudes, the air pressure is lower, which means water molecules need less energy to escape into a gas, causing the boiling point to drop.",
+    "project_clauses": [
+      {
+        "text": "Pure water boils at 100 degrees Celsius at sea level.",
+        "ready_s": 1.5795339579999563
+      },
+      {
+        "text": "At higher altitudes, the air pressure is lower, which means water molecules need less energy to escape into a gas, causing the boiling point to drop.",
+        "ready_s": 2.8140939160002745
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.019251875000918517,
+      "llm_first_token": 0.5956531660012843
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.01953854100065655
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.20907783300026495
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.20946620799986704
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.2099749580011121
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.20998450000115554
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.21022816600088845
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.21023508300095273
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.5095847080010572
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.510154916000829
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 2.8136572080002225
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 2.8139730830007466
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 2.8389430830011406
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 1.5795339579999563,
+    "total_s": 2.814141541000936,
+    "metrics": {
+      "first_sentence": "Pure water boils at 100 degrees Celsius at sea level.",
+      "first_sentence_words": 10,
+      "first_sentence_chars": 53,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        10,
+        26
+      ],
+      "sentence_chars": [
+        53,
+        149
+      ],
+      "sentences_over_12_words": 1,
+      "full_words": 36,
+      "full_chars": 203,
+      "first_project_clause": "Pure water boils at 100 degrees Celsius at sea level.",
+      "first_project_clause_words": 10,
+      "first_project_clause_chars": 53,
+      "required_literal_guards": {
+        "temperature_100": true,
+        "celsius": true,
+        "pressure": true,
+        "lower_at_altitude": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "boiling_100_c",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer or needed clarification first. Ask one specific clarifying question when context is missing. Do not guess missing facts. Avoid boilerplate and 'as an AI' statements. State a concrete capability limit only when relevant. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"What temperature does pure water boil at near sea level, in Celsius? Why can it boil at a lower temperature high in the mountains?\"}]",
+    "full_output": "Pure water boils at 100 degrees Celsius near sea level.\n\nPressure drops at high altitudes. Lower pressure weakens molecular cohesion. Water molecules escape vaporization faster. Boiling occurs at lower temperatures.",
+    "project_clauses": [
+      {
+        "text": "Pure water boils at 100 degrees Celsius near sea level.",
+        "ready_s": 1.7033291249990725
+      },
+      {
+        "text": "Pressure drops at high altitudes.",
+        "ready_s": 2.5015687079994677
+      },
+      {
+        "text": "Lower pressure weakens molecular cohesion.",
+        "ready_s": 2.5409031250001135
+      },
+      {
+        "text": "Water molecules escape vaporization faster.",
+        "ready_s": 2.5649999159995787
+      },
+      {
+        "text": "Boiling occurs at lower temperatures.",
+        "ready_s": 2.5860584580004797
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.021284582999214763,
+      "llm_first_token": 1.4408651249996183
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.02161191599952872
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.9403978749996895
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.9406639160006307
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.9411938329994882
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.9412058329999127
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.9415311249995284
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.9415399160006928
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 1.4302819580007053
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 1.4310763329995098
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 2.585624540999561
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 2.5859062079998694
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 2.6127696660005313
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 1.7033291249990725,
+    "total_s": 2.5861286660001497,
+    "metrics": {
+      "first_sentence": "Pure water boils at 100 degrees Celsius near sea level.",
+      "first_sentence_words": 10,
+      "first_sentence_chars": 55,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        10,
+        5,
+        5,
+        5,
+        5
+      ],
+      "sentence_chars": [
+        55,
+        33,
+        42,
+        43,
+        37
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 30,
+      "full_chars": 215,
+      "first_project_clause": "Pure water boils at 100 degrees Celsius near sea level.",
+      "first_project_clause_words": 10,
+      "first_project_clause_chars": 55,
+      "required_literal_guards": {
+        "temperature_100": true,
+        "celsius": true,
+        "pressure": true,
+        "lower_at_altitude": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "photosynthesis_facts",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Briefly explain what photosynthesis uses and what it produces. Include the energy source, both main inputs, and the sugar and gas it makes.\"}]",
+    "full_output": "It runs on sunlight, takes in carbon dioxide and water, and produces glucose and oxygen.",
+    "project_clauses": [
+      {
+        "text": "It runs on sunlight, takes in carbon dioxide and water, and produces glucose and oxygen.",
+        "ready_s": 0.9451666250006383
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.023667040999498568,
+      "llm_first_token": 0.1863472080003703
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.02400554099949659
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.0779874159998144
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.07805441600066843
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.07816783300040697
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.07816987499973038
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.07823654099956912
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.07824237500062736
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.11550079100015864
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.11660070799916866
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 0.944848582999839
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 0.9451113329996588
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 0.9715867499999149
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.9451666250006383,
+    "total_s": 0.9452220000002853,
+    "metrics": {
+      "first_sentence": "It runs on sunlight, takes in carbon dioxide and water, and produces glucose and oxygen.",
+      "first_sentence_words": 15,
+      "first_sentence_chars": 88,
+      "first_sentence_at_most_12_words": false,
+      "sentence_words": [
+        15
+      ],
+      "sentence_chars": [
+        88
+      ],
+      "sentences_over_12_words": 1,
+      "full_words": 15,
+      "full_chars": 88,
+      "first_project_clause": "It runs on sunlight, takes in carbon dioxide and water, and produces glucose and oxygen.",
+      "first_project_clause_words": 15,
+      "first_project_clause_chars": 88,
+      "required_literal_guards": {
+        "light": true,
+        "carbon_dioxide": true,
+        "water": true,
+        "sugar": true,
+        "oxygen": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "photosynthesis_facts",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer or needed clarification first. Ask one specific clarifying question when context is missing. Do not guess missing facts. Avoid boilerplate and 'as an AI' statements. State a concrete capability limit only when relevant. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"Briefly explain what photosynthesis uses and what it produces. Include the energy source, both main inputs, and the sugar and gas it makes.\"}]",
+    "full_output": "Photosynthesis uses sunlight as its energy source.\nIts main inputs are carbon dioxide and water.\nIt produces glucose and oxygen gas.",
+    "project_clauses": [
+      {
+        "text": "Photosynthesis uses sunlight as its energy source.",
+        "ready_s": 1.0608971250003378
+      },
+      {
+        "text": "Its main inputs are carbon dioxide and water.",
+        "ready_s": 1.2597908329989878
+      },
+      {
+        "text": "It produces glucose and oxygen gas.",
+        "ready_s": 1.3619808330004162
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.022718082998835598,
+      "llm_first_token": 0.5062947919996077
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.02298545799931162
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.13749362499947893
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.1377220419999503
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.1383261669998319
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.13833625000006577
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.13858629199967254
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.1385950829990179
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.45394320800005517
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.45470804199976556
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 1.3614990419991955
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 1.3618229169987899
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 1.3912954579991492
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 1.0608971250003378,
+    "total_s": 1.3621347079988482,
+    "metrics": {
+      "first_sentence": "Photosynthesis uses sunlight as its energy source.",
+      "first_sentence_words": 7,
+      "first_sentence_chars": 50,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        7,
+        8,
+        6
+      ],
+      "sentence_chars": [
+        50,
+        45,
+        35
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 21,
+      "full_chars": 132,
+      "first_project_clause": "Photosynthesis uses sunlight as its energy source.",
+      "first_project_clause_words": 7,
+      "first_project_clause_chars": 50,
+      "required_literal_guards": {
+        "light": true,
+        "carbon_dioxide": true,
+        "water": true,
+        "sugar": true,
+        "oxygen": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "photosynthesis_facts",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Briefly explain what photosynthesis uses and what it produces. Include the energy source, both main inputs, and the sugar and gas it makes.\"}]",
+    "full_output": "Sure! Photosynthesis uses sunlight as its energy source. It takes in carbon dioxide and water as its main inputs, and produces glucose sugar and oxygen gas.",
+    "project_clauses": [
+      {
+        "text": "Sure!",
+        "ready_s": 1.541039499999897
+      },
+      {
+        "text": "Photosynthesis uses sunlight as its energy source.",
+        "ready_s": 1.5963314170003287
+      },
+      {
+        "text": "It takes in carbon dioxide and water as its main inputs, and produces glucose sugar and oxygen gas.",
+        "ready_s": 1.903434042000299
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.024542499999370193,
+      "llm_first_token": 1.5406337499989604
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.024955832999694394
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.5709617499996966
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.5713452919990232
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.5720586249990447
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.5720688330002304
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.5723160420002387
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.5723229579998588
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 1.370169416999488
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 1.3705834579996008
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 1.903192042000228
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 1.9033878329992149
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 1.9286205419994076
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 1.541039499999897,
+    "total_s": 1.9034632919992873,
+    "metrics": {
+      "first_sentence": "Sure!",
+      "first_sentence_words": 1,
+      "first_sentence_chars": 5,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        1,
+        7,
+        18
+      ],
+      "sentence_chars": [
+        5,
+        50,
+        99
+      ],
+      "sentences_over_12_words": 1,
+      "full_words": 26,
+      "full_chars": 156,
+      "first_project_clause": "Sure!",
+      "first_project_clause_words": 1,
+      "first_project_clause_chars": 5,
+      "required_literal_guards": {
+        "light": true,
+        "carbon_dioxide": true,
+        "water": true,
+        "sugar": true,
+        "oxygen": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": true,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "corrected_delivery_day",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer or needed clarification first. Ask one specific clarifying question when context is missing. Do not guess missing facts. Avoid boilerplate and 'as an AI' statements. State a concrete capability limit only when relevant. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"Remember that the delivery is on Tuesday.\"}, {\"role\": \"assistant\", \"content\": \"The delivery is on Tuesday.\"}, {\"role\": \"user\", \"content\": \"Correction: the delivery is Thursday, not Tuesday. Which day is the delivery?\"}]",
+    "full_output": "The delivery is Thursday.",
+    "project_clauses": [
+      {
+        "text": "The delivery is Thursday.",
+        "ready_s": 0.36934800000017276
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.022345459001371637,
+      "llm_first_token": 0.2688112089999777
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.022606042000916204
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.09495725000124366
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.09503833400049189
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.09515679200012528
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.0951589590004005
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.09522495900091599
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.0952268750006624
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.1992629169999418
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.2004339169998275
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 0.36895120900044276
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 0.36928912500115985
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 0.3943647090000013
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.36934800000017276,
+    "total_s": 0.3693972090004536,
+    "metrics": {
+      "first_sentence": "The delivery is Thursday.",
+      "first_sentence_words": 4,
+      "first_sentence_chars": 25,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        4
+      ],
+      "sentence_chars": [
+        25
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 4,
+      "full_chars": 25,
+      "first_project_clause": "The delivery is Thursday.",
+      "first_project_clause_words": 4,
+      "first_project_clause_chars": 25,
+      "required_literal_guards": {
+        "thursday": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {
+        "stale_day_mentioned": false
+      },
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "corrected_delivery_day",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Remember that the delivery is on Tuesday.\"}, {\"role\": \"assistant\", \"content\": \"The delivery is on Tuesday.\"}, {\"role\": \"user\", \"content\": \"Correction: the delivery is Thursday, not Tuesday. Which day is the delivery?\"}]",
+    "full_output": "Thursday.",
+    "project_clauses": [
+      {
+        "text": "Thursday.",
+        "ready_s": 0.6316447080007492
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.02120275000015681,
+      "llm_first_token": 0.6301160420007363
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.021485999999640626
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.20331420799993793
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.20358112500071002
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.20401062500059197
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.20401816699995834
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.2042221249994327
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.20422962500015274
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.5297037919990544
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.5299104170007922
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 0.6313410000002477
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 0.6315663749992382
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 0.6533949170006963
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.6316447080007492,
+    "total_s": 0.6316811249998864,
+    "metrics": {
+      "first_sentence": "Thursday.",
+      "first_sentence_words": 1,
+      "first_sentence_chars": 9,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        1
+      ],
+      "sentence_chars": [
+        9
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 1,
+      "full_chars": 9,
+      "first_project_clause": "Thursday.",
+      "first_project_clause_words": 1,
+      "first_project_clause_chars": 9,
+      "required_literal_guards": {
+        "thursday": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {
+        "stale_day_mentioned": false
+      },
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "corrected_delivery_day",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Remember that the delivery is on Tuesday.\"}, {\"role\": \"assistant\", \"content\": \"The delivery is on Tuesday.\"}, {\"role\": \"user\", \"content\": \"Correction: the delivery is Thursday, not Tuesday. Which day is the delivery?\"}]",
+    "full_output": "The delivery is on Thursday.",
+    "project_clauses": [
+      {
+        "text": "The delivery is on Thursday.",
+        "ready_s": 1.0905870839997078
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.01895150000018475,
+      "llm_first_token": 0.9929538750002393
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.019218667001041467
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.5808691670008557
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.5813491250009974
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.5828113750012562
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.5828248340003483
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.5831809170013003
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.5831890839999687
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.9330575840012898
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.9339457500009303
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 1.0897289590011496
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 1.0903160420002678
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 1.1169277500011958
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 1.0905870839997078,
+    "total_s": 1.0907092920006107,
+    "metrics": {
+      "first_sentence": "The delivery is on Thursday.",
+      "first_sentence_words": 5,
+      "first_sentence_chars": 28,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        5
+      ],
+      "sentence_chars": [
+        28
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 5,
+      "full_chars": 28,
+      "first_project_clause": "The delivery is on Thursday.",
+      "first_project_clause_words": 5,
+      "first_project_clause_chars": 28,
+      "required_literal_guards": {
+        "thursday": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {
+        "stale_day_mentioned": false
+      },
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "invoice_1234_56",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"An invoice total is USD 1,234.56. State the total using digits, preserving the currency and every digit.\"}]",
+    "full_output": "The total is 1,234.56 USD.",
+    "project_clauses": [
+      {
+        "text": "The total is 1,234.56 USD.",
+        "ready_s": 0.8765326669999922
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.02136883300045156,
+      "llm_first_token": 0.552844042000288
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.021620792000248912
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.11745545800113177
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.11771404200044344
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.11808429200027604
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.11809425000137708
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.11835529200106976
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.11836195800060523
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.5164639580016228
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.5171838330006722
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 0.8759675420005806
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 0.8764442920000874
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 0.9023541250007838
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.8765326669999922,
+    "total_s": 0.8765882920015429,
+    "metrics": {
+      "first_sentence": "The total is 1,234.56 USD.",
+      "first_sentence_words": 5,
+      "first_sentence_chars": 26,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        5
+      ],
+      "sentence_chars": [
+        26
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 5,
+      "full_chars": 26,
+      "first_project_clause": "The total is 1,234.56 USD.",
+      "first_project_clause_words": 5,
+      "first_project_clause_chars": 26,
+      "required_literal_guards": {
+        "exact_digits": true,
+        "usd": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "invoice_1234_56",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"An invoice total is USD 1,234.56. State the total using digits, preserving the currency and every digit.\"}]",
+    "full_output": "The invoice total is USD 1,234.56.",
+    "project_clauses": [
+      {
+        "text": "The invoice total is USD 1,234.56.",
+        "ready_s": 4.064871374999711
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.02123429200037208,
+      "llm_first_token": 2.984011124999597
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.02149966700017103
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 2.35131412499868
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 2.351533584000208
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 2.3520050839997566
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 2.3520144169997366
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 2.352245459000187
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 2.3522527089990035
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 2.983458291999341
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 2.9838049999998475
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 4.0642242089998035
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 4.064753874999951
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 4.092183667000427
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 4.064871374999711,
+    "total_s": 4.0649426669988316,
+    "metrics": {
+      "first_sentence": "The invoice total is USD 1,234.56.",
+      "first_sentence_words": 6,
+      "first_sentence_chars": 34,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        6
+      ],
+      "sentence_chars": [
+        34
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 6,
+      "full_chars": 34,
+      "first_project_clause": "The invoice total is USD 1,234.56.",
+      "first_project_clause_words": 6,
+      "first_project_clause_chars": 34,
+      "required_literal_guards": {
+        "exact_digits": true,
+        "usd": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "invoice_1234_56",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer or needed clarification first. Ask one specific clarifying question when context is missing. Do not guess missing facts. Avoid boilerplate and 'as an AI' statements. State a concrete capability limit only when relevant. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"An invoice total is USD 1,234.56. State the total using digits, preserving the currency and every digit.\"}]",
+    "full_output": "The invoice total is USD 1,234.56.",
+    "project_clauses": [
+      {
+        "text": "The invoice total is USD 1,234.56.",
+        "ready_s": 2.067859332999433
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.02263404199948127,
+      "llm_first_token": 1.754503999998633
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.022910042000148678
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 1.1092849999986356
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 1.1096886249997624
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 1.110233707999214
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 1.110252041999047
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 1.1106304169989016
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 1.1106388749994949
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 1.5108191250001255
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 1.511698582999088
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 2.067391749998933
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 2.067786374998832
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 2.0952095829998143
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 2.067859332999433,
+    "total_s": 2.0679053749991,
+    "metrics": {
+      "first_sentence": "The invoice total is USD 1,234.56.",
+      "first_sentence_words": 6,
+      "first_sentence_chars": 34,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        6
+      ],
+      "sentence_chars": [
+        34
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 6,
+      "full_chars": 34,
+      "first_project_clause": "The invoice total is USD 1,234.56.",
+      "first_project_clause_words": 6,
+      "first_project_clause_chars": 34,
+      "required_literal_guards": {
+        "exact_digits": true,
+        "usd": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "beginner_bread_step",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"For beginner bread, explain how to combine 500 g flour and 7 g instant yeast as a first step. Preserve both quantities and keep the instruction practical.\"}]",
+    "full_output": "Just dump that 500 grams of flour into a big bowl, sprinkle the 7 grams of instant yeast right on top, and give it a quick stir with a fork to mix them evenly.",
+    "project_clauses": [
+      {
+        "text": "Just dump that 500 grams of flour into a big bowl, sprinkle the 7 grams of instant yeast right on top, and give it a quick stir with a fork to mix them evenly.",
+        "ready_s": 1.4195217079995928
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.023220958000820247,
+      "llm_first_token": 0.5003125410003122
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.02354941600060556
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.3962572079999518
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.396554124999966
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.39700129099946935
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.3970115829997667
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.3972680000006221
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.39728062500034866
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.4391789580004115
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.4397351660009008
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 1.419157708000057
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 1.4194440829996893
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 1.4436271249996935
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 1.4195217079995928,
+    "total_s": 1.4196991660010099,
+    "metrics": {
+      "first_sentence": "Just dump that 500 grams of flour into a big bowl, sprinkle the 7 grams of instant yeast right on top, and give it a quick stir with a fork to mix them evenly.",
+      "first_sentence_words": 34,
+      "first_sentence_chars": 159,
+      "first_sentence_at_most_12_words": false,
+      "sentence_words": [
+        34
+      ],
+      "sentence_chars": [
+        159
+      ],
+      "sentences_over_12_words": 1,
+      "full_words": 34,
+      "full_chars": 159,
+      "first_project_clause": "Just dump that 500 grams of flour into a big bowl, sprinkle the 7 grams of instant yeast right on top, and give it a quick stir with a fork to mix them evenly.",
+      "first_project_clause_words": 34,
+      "first_project_clause_chars": 159,
+      "required_literal_guards": {
+        "flour_500": true,
+        "yeast_7": true,
+        "flour": true,
+        "yeast": true,
+        "combine": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "beginner_bread_step",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer or needed clarification first. Ask one specific clarifying question when context is missing. Do not guess missing facts. Avoid boilerplate and 'as an AI' statements. State a concrete capability limit only when relevant. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"For beginner bread, explain how to combine 500 g flour and 7 g instant yeast as a first step. Preserve both quantities and keep the instruction practical.\"}]",
+    "full_output": "Use a large bowl. Add 500 g of flour first. Sprinkle 7 g instant yeast on top. Stir gently until mixed. No water needed yet. This prevents yeast clumping. Stir for 30 seconds.",
+    "project_clauses": [
+      {
+        "text": "Use a large bowl.",
+        "ready_s": 1.3684617910002999
+      },
+      {
+        "text": "Add 500 g of flour first.",
+        "ready_s": 1.5055639580004936
+      },
+      {
+        "text": "Sprinkle 7 g instant yeast on top.",
+        "ready_s": 1.6665735830010817
+      },
+      {
+        "text": "Stir gently until mixed.",
+        "ready_s": 1.6671652080003696
+      },
+      {
+        "text": "No water needed yet.",
+        "ready_s": 1.6679997499995807
+      },
+      {
+        "text": "This prevents yeast clumping.",
+        "ready_s": 1.7354592909996427
+      },
+      {
+        "text": "Stir for 30 seconds.",
+        "ready_s": 1.7385054580008727
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.01918929100065725,
+      "llm_first_token": 1.368135415999859
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.01956554100070207
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.2396586249997199
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.23999162499967497
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.2405785000009928
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.2405916250008886
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.24098675000095682
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.2410063330007688
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 1.1980786250005622
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 1.1985842499998398
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 1.7383783330005826
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 1.7384840409995377
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 1.7557653750009194
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 1.3684617910002999,
+    "total_s": 1.7385196249997534,
+    "metrics": {
+      "first_sentence": "Use a large bowl.",
+      "first_sentence_words": 4,
+      "first_sentence_chars": 17,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        4,
+        6,
+        7,
+        4,
+        4,
+        4,
+        4
+      ],
+      "sentence_chars": [
+        17,
+        25,
+        34,
+        24,
+        20,
+        29,
+        20
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 33,
+      "full_chars": 175,
+      "first_project_clause": "Use a large bowl.",
+      "first_project_clause_words": 4,
+      "first_project_clause_chars": 17,
+      "required_literal_guards": {
+        "flour_500": true,
+        "yeast_7": true,
+        "flour": true,
+        "yeast": true,
+        "combine": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "beginner_bread_step",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"For beginner bread, explain how to combine 500 g flour and 7 g instant yeast as a first step. Preserve both quantities and keep the instruction practical.\"}]",
+    "full_output": "Start by pouring your 500 grams of flour into a large bowl. Then, add your 7 grams of instant yeast directly into the flour. Use a whisk or a fork to stir them together until the yeast is evenly distributed, which ensures it activates consistently throughout the dough.",
+    "project_clauses": [
+      {
+        "text": "Start by pouring your 500 grams of flour into a large bowl.",
+        "ready_s": 0.855501333000575
+      },
+      {
+        "text": "Then, add your 7 grams of instant yeast directly into the flour.",
+        "ready_s": 0.8595355420002306
+      },
+      {
+        "text": "Use a whisk or a fork to stir them together until the yeast is evenly distributed, which ensures it activates consistently throughout the dough.",
+        "ready_s": 1.821890582999913
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.014783208000153536,
+      "llm_first_token": 0.5505364170003304
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.015056250000270666
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.20966145800048253
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.2101211669996701
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.21080883300055575
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.2108219170004304
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.2110346669996943
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.21104233299956832
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.42739929200070037
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.42822787499972037
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 1.8215564170004654
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 1.8218282920006459
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 1.8532663330006471
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.855501333000575,
+    "total_s": 1.8219519579997723,
+    "metrics": {
+      "first_sentence": "Start by pouring your 500 grams of flour into a large bowl.",
+      "first_sentence_words": 12,
+      "first_sentence_chars": 59,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        12,
+        12,
+        24
+      ],
+      "sentence_chars": [
+        59,
+        64,
+        144
+      ],
+      "sentences_over_12_words": 1,
+      "full_words": 48,
+      "full_chars": 269,
+      "first_project_clause": "Start by pouring your 500 grams of flour into a large bowl.",
+      "first_project_clause_words": 12,
+      "first_project_clause_chars": 59,
+      "required_literal_guards": {
+        "flour_500": true,
+        "yeast_7": true,
+        "flour": true,
+        "yeast": true,
+        "combine": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "ambiguous_referents",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer or needed clarification first. Ask one specific clarifying question when context is missing. Do not guess missing facts. Avoid boilerplate and 'as an AI' statements. State a concrete capability limit only when relevant. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"Could you move it there?\"}]",
+    "full_output": "No, I cannot move physical items.\n\nWhich item do you want to move?",
+    "project_clauses": [
+      {
+        "text": "No, I cannot move physical items.",
+        "ready_s": 1.214933834000476
+      },
+      {
+        "text": "Which item do you want to move?",
+        "ready_s": 1.3175286250007048
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.021708874999603722,
+      "llm_first_token": 0.9095431250007096
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.027348334000635077
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.2904875839994929
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.29060308400039503
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.2907523339999898
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.29075474999990547
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.2908389170006558
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.290841084000931
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.9073972919995867
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.9078551670008892
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 1.317208374999609
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 1.3174561670002731
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 1.3428217500004394
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 1.214933834000476,
+    "total_s": 1.317563667000286,
+    "metrics": {
+      "first_sentence": "No, I cannot move physical items.",
+      "first_sentence_words": 6,
+      "first_sentence_chars": 33,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        6,
+        7
+      ],
+      "sentence_chars": [
+        33,
+        31
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 13,
+      "full_chars": 66,
+      "first_project_clause": "No, I cannot move physical items.",
+      "first_project_clause_words": 6,
+      "first_project_clause_chars": 33,
+      "required_literal_guards": {
+        "question": true,
+        "object_clarification": true,
+        "destination_clarification": false
+      },
+      "all_required_literal_guards": false,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 1,
+      "clarification_expected": true,
+      "one_question_for_missing_context": true,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "ambiguous_referents",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Could you move it there?\"}]",
+    "full_output": "I\u2019m just an AI, so I can\u2019t physically move anything for you.",
+    "project_clauses": [
+      {
+        "text": "I\u2019m just an AI, so I can\u2019t physically move anything for you.",
+        "ready_s": 1.4194470830007049
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.020768582999153296,
+      "llm_first_token": 1.151764500000354
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.02104058300028555
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.33340354100073455
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.3337368329994206
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.33455941600004735
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.3346017500007292
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.33492062500044995
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.33492829100032395
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 1.0871152500003518
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 1.0878041659998416
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 1.4191641659999732
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 1.4194005829995149
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 1.4351223329995264
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 1.4194470830007049,
+    "total_s": 1.4194695410005806,
+    "metrics": {
+      "first_sentence": "I\u2019m just an AI, so I can\u2019t physically move anything for you.",
+      "first_sentence_words": 12,
+      "first_sentence_chars": 60,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        12
+      ],
+      "sentence_chars": [
+        60
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 12,
+      "full_chars": 60,
+      "first_project_clause": "I\u2019m just an AI, so I can\u2019t physically move anything for you.",
+      "first_project_clause_words": 12,
+      "first_project_clause_chars": 60,
+      "required_literal_guards": {
+        "question": false,
+        "object_clarification": false,
+        "destination_clarification": false
+      },
+      "all_required_literal_guards": false,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": true,
+      "question_count": 0,
+      "clarification_expected": true,
+      "one_question_for_missing_context": false,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "ambiguous_referents",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Could you move it there?\"}]",
+    "full_output": "Sure, just let me know exactly where you'd like it moved.",
+    "project_clauses": [
+      {
+        "text": "Sure, just let me know exactly where you'd like it moved.",
+        "ready_s": 0.7301786670013826
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.013836625001204084,
+      "llm_first_token": 0.43878329200015287
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.01406137500089244
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.10871170800055552
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.10878000000047905
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.10889904200121236
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.10890116700102226
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.108969042001263
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.1089706250004383
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.38509158300075796
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.3856813330003206
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 0.7297599170015019
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 0.7300920830002724
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 0.7518097500014846
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.7301786670013826,
+    "total_s": 0.7302248750002036,
+    "metrics": {
+      "first_sentence": "Sure, just let me know exactly where you'd like it moved.",
+      "first_sentence_words": 11,
+      "first_sentence_chars": 57,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        11
+      ],
+      "sentence_chars": [
+        57
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 11,
+      "full_chars": 57,
+      "first_project_clause": "Sure, just let me know exactly where you'd like it moved.",
+      "first_project_clause_words": 11,
+      "first_project_clause_chars": 57,
+      "required_literal_guards": {
+        "question": false,
+        "object_clarification": false,
+        "destination_clarification": true
+      },
+      "all_required_literal_guards": false,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": true,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": true,
+      "one_question_for_missing_context": false,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "unsupported_email_action",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Send an email to Alex confirming the meeting, then tell me it is sent.\"}]",
+    "full_output": "I can\u2019t send emails or perform external actions. Please let me know if you\u2019d like help drafting the email.",
+    "project_clauses": [
+      {
+        "text": "I can\u2019t send emails or perform external actions.",
+        "ready_s": 0.984645291000561
+      },
+      {
+        "text": "Please let me know if you\u2019d like help drafting the email.",
+        "ready_s": 1.214478500000041
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.01871495799969125,
+      "llm_first_token": 0.7470838330009428
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.019071624999924097
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.6009782500004803
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.6023409580011503
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.6033946660008951
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.6034067910004524
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.6037839580003492
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.6037922499999695
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.7023294160007936
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.702740000000631
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 1.2131649160000961
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 1.2142213330007507
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 1.2435861249996378
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.984645291000561,
+    "total_s": 1.214933708000899,
+    "metrics": {
+      "first_sentence": "I can\u2019t send emails or perform external actions.",
+      "first_sentence_words": 8,
+      "first_sentence_chars": 48,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        8,
+        11
+      ],
+      "sentence_chars": [
+        48,
+        57
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 19,
+      "full_chars": 106,
+      "first_project_clause": "I can\u2019t send emails or perform external actions.",
+      "first_project_clause_words": 8,
+      "first_project_clause_chars": 48,
+      "required_literal_guards": {
+        "capability_boundary": true,
+        "email_or_send": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "unsupported_email_action",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Send an email to Alex confirming the meeting, then tell me it is sent.\"}]",
+    "full_output": "I\u2019m sorry, I can\u2019t send emails or perform external actions.",
+    "project_clauses": [
+      {
+        "text": "I\u2019m sorry, I can\u2019t send emails or perform external actions.",
+        "ready_s": 0.534751541001242
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.02252500000031432,
+      "llm_first_token": 0.3517510410001705
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.022766458001569845
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.12280291600109194
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.12311212500026159
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.12357241600147972
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.12357970800076146
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.12378212500152586
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.1237882500008709
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.2672400830015249
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.2693868750011461
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 0.5344403330000205
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 0.5346972080005798
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 0.5606276660000731
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.534751541001242,
+    "total_s": 0.5348024160011846,
+    "metrics": {
+      "first_sentence": "I\u2019m sorry, I can\u2019t send emails or perform external actions.",
+      "first_sentence_words": 10,
+      "first_sentence_chars": 59,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        10
+      ],
+      "sentence_chars": [
+        59
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 10,
+      "full_chars": 59,
+      "first_project_clause": "I\u2019m sorry, I can\u2019t send emails or perform external actions.",
+      "first_project_clause_words": 10,
+      "first_project_clause_chars": 59,
+      "required_literal_guards": {
+        "capability_boundary": true,
+        "email_or_send": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "unsupported_email_action",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer or needed clarification first. Ask one specific clarifying question when context is missing. Do not guess missing facts. Avoid boilerplate and 'as an AI' statements. State a concrete capability limit only when relevant. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"Send an email to Alex confirming the meeting, then tell me it is sent.\"}]",
+    "full_output": "I cannot send emails. Please clarify what you need to write.",
+    "project_clauses": [
+      {
+        "text": "I cannot send emails.",
+        "ready_s": 1.0919502910001029
+      },
+      {
+        "text": "Please clarify what you need to write.",
+        "ready_s": 1.2621180410005763
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.021845082999789156,
+      "llm_first_token": 1.0914802910010621
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.022077749999880325
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.1726235000005545
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.173007208000854
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.1738317500003177
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.1738415410000016
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.17411429100138776
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.1741368330003752
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 1.0680578749997949
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 1.0684869160013477
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 1.2616487909999705
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 1.26202162500158
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 1.286728500001118
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 1.0919502910001029,
+    "total_s": 1.26217700000052,
+    "metrics": {
+      "first_sentence": "I cannot send emails.",
+      "first_sentence_words": 4,
+      "first_sentence_chars": 21,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        4,
+        7
+      ],
+      "sentence_chars": [
+        21,
+        38
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 11,
+      "full_chars": 60,
+      "first_project_clause": "I cannot send emails.",
+      "first_project_clause_words": 4,
+      "first_project_clause_chars": 21,
+      "required_literal_guards": {
+        "capability_boundary": true,
+        "email_or_send": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": false,
+      "one_question_for_missing_context": null,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "holdout_unspecified_choices",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Should I use the first one or the second one?\"}]",
+    "full_output": "It depends entirely on what they are! Could you clarify which two options you're referring to?",
+    "project_clauses": [
+      {
+        "text": "It depends entirely on what they are!",
+        "ready_s": 1.5939836249999644
+      },
+      {
+        "text": "Could you clarify which two options you're referring to?",
+        "ready_s": 1.8173744579999038
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.017833166999480454,
+      "llm_first_token": 1.372551750000639
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.01811391699993692
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.3147458750008809
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.31506966699998884
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.3157917919997999
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.31580050000047777
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.31602804199974344
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.316035166999427
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 1.3051589580009022
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 1.3055650830010563
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 1.8170281250004336
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 1.817320957999982
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 1.8408615000007558
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 1.5939836249999644,
+    "total_s": 1.8174152499996126,
+    "metrics": {
+      "first_sentence": "It depends entirely on what they are!",
+      "first_sentence_words": 7,
+      "first_sentence_chars": 37,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        7,
+        9
+      ],
+      "sentence_chars": [
+        37,
+        56
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 16,
+      "full_chars": 94,
+      "first_project_clause": "It depends entirely on what they are!",
+      "first_project_clause_words": 7,
+      "first_project_clause_chars": 37,
+      "required_literal_guards": {
+        "question": true,
+        "specific_missing_comparison": true,
+        "clarifying_form": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {
+        "unjustified_option_selection": false
+      },
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 1,
+      "clarification_expected": true,
+      "one_question_for_missing_context": true,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "holdout_unspecified_choices",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer or needed clarification first. Ask one specific clarifying question when context is missing. Do not guess missing facts. Avoid boilerplate and 'as an AI' statements. State a concrete capability limit only when relevant. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"Should I use the first one or the second one?\"}]",
+    "full_output": "Which two items are you referring to?",
+    "project_clauses": [
+      {
+        "text": "Which two items are you referring to?",
+        "ready_s": 1.660718041999644
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.018500374999348423,
+      "llm_first_token": 1.3942482919992472
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.018928499999674386
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.8885114170007
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.8888608340002975
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.8894000000000233
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.8894117090003419
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.8898292920002859
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.8898382919996948
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 1.34768774999975
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 1.348475333999886
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 1.6585780420009542
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 1.6605065000003378
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 1.6868158750003204
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 1.660718041999644,
+    "total_s": 1.6608137090006494,
+    "metrics": {
+      "first_sentence": "Which two items are you referring to?",
+      "first_sentence_words": 7,
+      "first_sentence_chars": 37,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        7
+      ],
+      "sentence_chars": [
+        37
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 7,
+      "full_chars": 37,
+      "first_project_clause": "Which two items are you referring to?",
+      "first_project_clause_words": 7,
+      "first_project_clause_chars": 37,
+      "required_literal_guards": {
+        "question": true,
+        "specific_missing_comparison": true,
+        "clarifying_form": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {
+        "unjustified_option_selection": false
+      },
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 1,
+      "clarification_expected": true,
+      "one_question_for_missing_context": true,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "holdout_unspecified_choices",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Should I use the first one or the second one?\"}]",
+    "full_output": "It depends entirely on what those two options are. Could you share the details or context?",
+    "project_clauses": [
+      {
+        "text": "It depends entirely on what those two options are.",
+        "ready_s": 0.41608400000041
+      },
+      {
+        "text": "Could you share the details or context?",
+        "ready_s": 0.6431229589998111
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.02078237500063551,
+      "llm_first_token": 0.339556791999712
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.021162958999411785
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.09675858399896242
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.09700474999954167
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.09753604199977417
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.09754558399981761
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.09778866699889477
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.09779529200022807
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.3019200839989935
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.30223437499989814
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 0.6426331250004296
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 0.6430367499997374
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 0.6725740000001679
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.41608400000041,
+    "total_s": 0.6431825839990779,
+    "metrics": {
+      "first_sentence": "It depends entirely on what those two options are.",
+      "first_sentence_words": 9,
+      "first_sentence_chars": 50,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        9,
+        7
+      ],
+      "sentence_chars": [
+        50,
+        39
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 16,
+      "full_chars": 90,
+      "first_project_clause": "It depends entirely on what those two options are.",
+      "first_project_clause_words": 9,
+      "first_project_clause_chars": 50,
+      "required_literal_guards": {
+        "question": true,
+        "specific_missing_comparison": true,
+        "clarifying_form": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {
+        "unjustified_option_selection": false
+      },
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 1,
+      "clarification_expected": true,
+      "one_question_for_missing_context": true,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "holdout_unknown_pass_threshold",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer or needed clarification first. Ask one specific clarifying question when context is missing. Do not guess missing facts. Avoid boilerplate and 'as an AI' statements. State a concrete capability limit only when relevant. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"I scored 80%. Can I tell the class I passed?\"}]",
+    "full_output": "I don\u2019t know the passing threshold. Did you clear the required percentage?",
+    "project_clauses": [
+      {
+        "text": "I don\u2019t know the passing threshold.",
+        "ready_s": 0.8185004579991073
+      },
+      {
+        "text": "Did you clear the required percentage?",
+        "ready_s": 0.8871876670000347
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.023532417000751593,
+      "llm_first_token": 0.5089020830000663
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.023795749999408145
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.20980983300069056
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.2108291669992468
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.21207175000017742
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.21208337499956542
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.21305579199906788
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.21306899999945017
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.3765224170001602
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.3774437499996566
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 0.8868634999998903
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 0.8870991250005318
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 0.9127536670002883
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.8185004579991073,
+    "total_s": 0.8872854999990523,
+    "metrics": {
+      "first_sentence": "I don\u2019t know the passing threshold.",
+      "first_sentence_words": 6,
+      "first_sentence_chars": 35,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        6,
+        6
+      ],
+      "sentence_chars": [
+        35,
+        38
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 12,
+      "full_chars": 74,
+      "first_project_clause": "I don\u2019t know the passing threshold.",
+      "first_project_clause_words": 6,
+      "first_project_clause_chars": 35,
+      "required_literal_guards": {
+        "question": true,
+        "missing_pass_criterion": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {
+        "unqualified_pass_claim": false
+      },
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 1,
+      "clarification_expected": true,
+      "one_question_for_missing_context": true,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "holdout_unknown_pass_threshold",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"I scored 80%. Can I tell the class I passed?\"}]",
+    "full_output": "Sure, that\u2019s accurate.",
+    "project_clauses": [
+      {
+        "text": "Sure, that\u2019s accurate.",
+        "ready_s": 0.35281204099919705
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.020278333000533166,
+      "llm_first_token": 0.34220491599990055
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.0205622499997844
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.09244645800026774
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.09270599999945262
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.09314054099922942
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.09314954100045725
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.09336495800016564
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.09337133299959532
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.22613320799973735
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.22708770799908962
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 0.35246045799976855
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 0.35272962499948335
+      },
+      {
+        "event": "http11.receive_response_body.failed",
+        "relative_s": 0.37808770800074853
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 0.35281204099919705,
+    "total_s": 0.3528546659999847,
+    "metrics": {
+      "first_sentence": "Sure, that\u2019s accurate.",
+      "first_sentence_words": 3,
+      "first_sentence_chars": 22,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        3
+      ],
+      "sentence_chars": [
+        22
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 3,
+      "full_chars": 22,
+      "first_project_clause": "Sure, that\u2019s accurate.",
+      "first_project_clause_words": 3,
+      "first_project_clause_chars": 22,
+      "required_literal_guards": {
+        "question": false,
+        "missing_pass_criterion": false
+      },
+      "all_required_literal_guards": false,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": true,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {
+        "unqualified_pass_claim": false
+      },
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": true,
+      "one_question_for_missing_context": false,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "holdout_unknown_pass_threshold",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"I scored 80%. Can I tell the class I passed?\"}]",
+    "full_output": "Yeah, that\u2019s definitely a pass. Go ahead and share the good news!",
+    "project_clauses": [
+      {
+        "text": "Yeah, that\u2019s definitely a pass.",
+        "ready_s": 1.231320875000165
+      },
+      {
+        "text": "Go ahead and share the good news!",
+        "ready_s": 1.456798584000353
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.02034270900003321,
+      "llm_first_token": 0.8269122500005324
+    },
+    "http_trace_enabled": true,
+    "http_trace": [
+      {
+        "event": "connection.connect_tcp.started",
+        "relative_s": 0.02059516699955566
+      },
+      {
+        "event": "connection.connect_tcp.complete",
+        "relative_s": 0.727088375000676
+      },
+      {
+        "event": "http11.send_request_headers.started",
+        "relative_s": 0.7275070840005355
+      },
+      {
+        "event": "http11.send_request_headers.complete",
+        "relative_s": 0.7280705419998412
+      },
+      {
+        "event": "http11.send_request_body.started",
+        "relative_s": 0.7280937089999497
+      },
+      {
+        "event": "http11.send_request_body.complete",
+        "relative_s": 0.7291022919998795
+      },
+      {
+        "event": "http11.receive_response_headers.started",
+        "relative_s": 0.7291124999992462
+      },
+      {
+        "event": "http11.receive_response_headers.complete",
+        "relative_s": 0.7912408339998365
+      },
+      {
+        "event": "http11.receive_response_body.started",
+        "relative_s": 0.7923793339996337
+      },
+      {
+        "event": "http11.response_closed.started",
+        "relative_s": 1.4564246669997374
+      },
+      {
+        "event": "http11.response_closed.complete",
+        "relative_s": 1.4567308749992662
+      }
+    ],
+    "relative_clock": "time.monotonic; trial start before client creation",
+    "first_project_clause_ready_s": 1.231320875000165,
+    "total_s": 1.4568373340007383,
+    "metrics": {
+      "first_sentence": "Yeah, that\u2019s definitely a pass.",
+      "first_sentence_words": 5,
+      "first_sentence_chars": 31,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        5,
+        7
+      ],
+      "sentence_chars": [
+        31,
+        33
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 12,
+      "full_chars": 65,
+      "first_project_clause": "Yeah, that\u2019s definitely a pass.",
+      "first_project_clause_words": 5,
+      "first_project_clause_chars": 31,
+      "required_literal_guards": {
+        "question": false,
+        "missing_pass_criterion": false
+      },
+      "all_required_literal_guards": false,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {
+        "unqualified_pass_claim": false
+      },
+      "ai_boilerplate_flag": false,
+      "generic_physical_disclaimer_flag": false,
+      "question_count": 0,
+      "clarification_expected": true,
+      "one_question_for_missing_context": false,
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  }
+]

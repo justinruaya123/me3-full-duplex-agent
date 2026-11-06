@@ -1,0 +1,125 @@
+{
+  "text": "Honestly, I don't have access to real -time news, so I can't give you today's specific headlines.",
+  "chunks": [
+    {
+      "text": "Honestly,",
+      "timestamp": [
+        6.03,
+        6.77
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        7.13,
+        7.21
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        7.21,
+        7.45
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        7.45,
+        7.57
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        7.57,
+        7.97
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        7.97,
+        8.21
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        8.21,
+        8.43
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        8.43,
+        8.73
+      ]
+    },
+    {
+      "text": "news,",
+      "timestamp": [
+        8.73,
+        9.15
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        9.51,
+        9.79
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        9.79,
+        9.97
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        9.97,
+        10.33
+      ]
+    },
+    {
+      "text": "give",
+      "timestamp": [
+        10.33,
+        10.45
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        10.45,
+        10.61
+      ]
+    },
+    {
+      "text": "today's",
+      "timestamp": [
+        10.61,
+        11.09
+      ]
+    },
+    {
+      "text": "specific",
+      "timestamp": [
+        11.09,
+        11.43
+      ]
+    },
+    {
+      "text": "headlines.",
+      "timestamp": [
+        11.43,
+        11.99
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

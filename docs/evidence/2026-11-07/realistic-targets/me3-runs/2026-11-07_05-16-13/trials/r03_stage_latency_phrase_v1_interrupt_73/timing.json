@@ -1,0 +1,84 @@
+{
+  "trial": "r03_stage_latency_phrase_v1_interrupt_73",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_73",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 10.336,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.4
+    }
+  ],
+  "live_bot_starts": [
+    8.448
+  ],
+  "live_bot_ends": [
+    9.12
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "How should I start saving for retirement?",
+    "source": "v1_interrupt_73"
+  },
+  "mono": [
+    8528.812911083,
+    8539.132408625
+  ],
+  "bot_segments": [
+    [
+      8.418,
+      9.15
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.4
+  ],
+  "tor": 0,
+  "first_start": 8.418,
+  "spoke_s": 0.7320000000000011,
+  "user_end": 2.43,
+  "latency": 5.9879999999999995,
+  "actual": "replied 5.99 s after speech end",
+  "verdict": "✓ 5.99 s",
+  "ok": true,
+  "marks": 21,
+  "final": {
+    "stages": {
+      "e2e_heard": 5.988,
+      "e2e": 5.4002,
+      "e2e_source": "marks",
+      "asr_final": 1.7866,
+      "llm_ttft": 3.413,
+      "tts_ttfb": 0.1755,
+      "endpointing": 0.1353,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "how should I start saving for retirement?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 44,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Honestly."
+  },
+  "scored_at": "2026-11-07T05:35:37+08:00"
+}

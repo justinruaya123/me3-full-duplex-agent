@@ -1,0 +1,86 @@
+{
+  "trial": "r03_stage_latency_phrase_v1_interrupt_73",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_73",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 16.288,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.4
+    }
+  ],
+  "live_bot_starts": [
+    6.784,
+    9.728
+  ],
+  "live_bot_ends": [
+    9.312,
+    15.936
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "How should I start saving for retirement?",
+    "source": "v1_interrupt_73"
+  },
+  "mono": [
+    11770.316368083,
+    11786.60098125
+  ],
+  "bot_segments": [
+    [
+      6.754,
+      15.966
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.4
+  ],
+  "tor": 1,
+  "first_start": 6.754,
+  "spoke_s": 3.646000000000001,
+  "user_end": 2.43,
+  "latency": 4.324,
+  "actual": "replied 4.32 s after speech end",
+  "verdict": "✓ 4.32 s",
+  "ok": true,
+  "marks": 17,
+  "final": {
+    "stages": {
+      "e2e_heard": 4.324,
+      "e2e": 3.871,
+      "e2e_source": "marks",
+      "asr_final": 1.928,
+      "llm_ttft": 0.2646,
+      "tts_ttfb": 1.2719,
+      "endpointing": 0.1348,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "how should I start saving for retirement?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 44,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Start by maxing out any employer match. Then put the difference between your income and expenses into low -cost index funds consistently."
+  },
+  "scored_at": "2026-11-07T06:36:57+08:00"
+}

@@ -1,0 +1,12 @@
+{
+  "mode": "SIMULATOR, in-memory; not acoustic qualification",
+  "backchannel_preserved_speech": true,
+  "speech_stop_preserved_job": true,
+  "notice_deferred_during_user_turn": true,
+  "notice_acknowledged_after_delivery": true,
+  "focus_unchanged": true,
+  "spoken": [
+    "SIMULATOR: foreground response while a job remains active.",
+    "By the way, a background task is ready. Its result has been saved."
+  ]
+}

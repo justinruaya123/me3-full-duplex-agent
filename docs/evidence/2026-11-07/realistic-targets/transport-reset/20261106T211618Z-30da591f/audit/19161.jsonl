@@ -1,0 +1,3 @@
+{"event": "guard_installed", "pid": 19161}
+{"event": "tcp_connect", "allowed": true, "loopback": true, "port": 64683}
+{"event": "tcp_connect", "allowed": true, "loopback": true, "port": 64683}

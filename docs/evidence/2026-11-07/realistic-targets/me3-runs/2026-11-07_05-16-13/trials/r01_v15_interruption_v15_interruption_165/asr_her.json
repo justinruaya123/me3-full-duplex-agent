@@ -1,0 +1,167 @@
+{
+  "text": "Start with high -value treats and short sessions. You asked about dog training first, but then mentioned switching your phone to silent mode.",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        5.68,
+        6.16
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        6.16,
+        6.38
+      ]
+    },
+    {
+      "text": "high",
+      "timestamp": [
+        6.38,
+        6.54
+      ]
+    },
+    {
+      "text": "-value",
+      "timestamp": [
+        6.54,
+        6.8
+      ]
+    },
+    {
+      "text": "treats",
+      "timestamp": [
+        6.8,
+        7.14
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        7.14,
+        7.46
+      ]
+    },
+    {
+      "text": "short",
+      "timestamp": [
+        7.46,
+        7.72
+      ]
+    },
+    {
+      "text": "sessions.",
+      "timestamp": [
+        7.72,
+        8.1
+      ]
+    },
+    {
+      "text": "You",
+      "timestamp": [
+        15.66,
+        15.9
+      ]
+    },
+    {
+      "text": "asked",
+      "timestamp": [
+        15.9,
+        16.24
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        16.24,
+        16.46
+      ]
+    },
+    {
+      "text": "dog",
+      "timestamp": [
+        16.46,
+        16.78
+      ]
+    },
+    {
+      "text": "training",
+      "timestamp": [
+        16.78,
+        17.14
+      ]
+    },
+    {
+      "text": "first,",
+      "timestamp": [
+        17.14,
+        17.54
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        18.04,
+        18.22
+      ]
+    },
+    {
+      "text": "then",
+      "timestamp": [
+        18.22,
+        18.42
+      ]
+    },
+    {
+      "text": "mentioned",
+      "timestamp": [
+        18.42,
+        18.86
+      ]
+    },
+    {
+      "text": "switching",
+      "timestamp": [
+        18.86,
+        19.24
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        19.24,
+        19.5
+      ]
+    },
+    {
+      "text": "phone",
+      "timestamp": [
+        19.5,
+        19.82
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        19.82,
+        20.02
+      ]
+    },
+    {
+      "text": "silent",
+      "timestamp": [
+        20.02,
+        20.38
+      ]
+    },
+    {
+      "text": "mode.",
+      "timestamp": [
+        20.38,
+        20.72
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

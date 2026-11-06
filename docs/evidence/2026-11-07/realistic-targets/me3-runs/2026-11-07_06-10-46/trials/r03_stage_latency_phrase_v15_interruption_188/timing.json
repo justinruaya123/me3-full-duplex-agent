@@ -1,0 +1,84 @@
+{
+  "trial": "r03_stage_latency_phrase_v15_interruption_188",
+  "group": "stage_latency",
+  "clip": "phrase_v15_interruption_188",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 7.2,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.424
+    }
+  ],
+  "live_bot_starts": [
+    4.864
+  ],
+  "live_bot_ends": [
+    5.984
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "I want to learn to play the guitar",
+    "source": "v15_interruption_188"
+  },
+  "mono": [
+    11844.829629916,
+    11852.012276125
+  ],
+  "bot_segments": [
+    [
+      4.834,
+      6.014
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.424
+  ],
+  "tor": 1,
+  "first_start": 4.834,
+  "spoke_s": 1.1800000000000006,
+  "user_end": 2.174,
+  "latency": 2.6599999999999997,
+  "actual": "replied 2.66 s after speech end",
+  "verdict": "✓ 2.66 s",
+  "ok": true,
+  "marks": 21,
+  "final": {
+    "stages": {
+      "e2e_heard": 2.66,
+      "e2e": 2.1906,
+      "e2e_source": "marks",
+      "asr_final": 1.7572,
+      "llm_ttft": 0.114,
+      "tts_ttfb": 0.1972,
+      "endpointing": 0.1,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "I want to learn to play the guitar.",
+      "wer": {
+        "ref_words": 8,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 42,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "That's a great goal."
+  },
+  "scored_at": "2026-11-07T06:36:50+08:00"
+}

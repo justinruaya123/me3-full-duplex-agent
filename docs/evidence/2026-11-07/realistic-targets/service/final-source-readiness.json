@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "kind": "actual guarded speech warmup and authenticated readiness",
+  "parent_pid": 23886,
+  "seconds": 9.71868908399847,
+  "model_ids": [
+    "mlx-community/Kokoro-82M-bf16",
+    "mlx-community/whisper-large-v3-turbo"
+  ],
+  "voice": "af_heart",
+  "agent_commit": "6bbbfd57d5e5c062ec3846762158118a7318b0db"
+}

@@ -1,0 +1,62 @@
+{
+  "trial": "r03_v15_talking_to_other_v15_talking_to_other_20_clean",
+  "group": "v15_talking_to_other",
+  "clip": "v15_talking_to_other_20",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 8.32,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.328
+    }
+  ],
+  "live_bot_starts": [
+    5.056
+  ],
+  "live_bot_ends": [
+    7.104
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Send a message to Alex saying I'll be late.",
+    "current_turn_text": "Mateo, pick up the kids at three, yeah?",
+    "overlap_text": "Mateo, pick up the kids at three, yeah?",
+    "overlap_duration": 2.04,
+    "overlap_window": [
+      6.09,
+      8.133
+    ],
+    "source_id": "20"
+  },
+  "mono": [
+    12560.274791916,
+    12568.585964041
+  ],
+  "bot_segments": [
+    [
+      5.026,
+      7.134
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.328
+  ],
+  "tor": 1,
+  "first_start": 5.026,
+  "spoke_s": 2.1080000000000005,
+  "actual": "replied after 2.70 s, spoke 2.1 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 21,
+  "final": {
+    "transcript": "I can't send messages to other people."
+  },
+  "scored_at": "2026-11-07T06:37:10+08:00"
+}

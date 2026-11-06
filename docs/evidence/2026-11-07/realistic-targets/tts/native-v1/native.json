@@ -1,0 +1,1816 @@
+{
+  "kind": "real native Kokoro synthetic development speech; no acoustic device",
+  "model": "mlx-community/Kokoro-82M-bf16",
+  "voice": "af_heart",
+  "speed": 1.0,
+  "sample_rate": 24000,
+  "versions": {
+    "mlx-audio": "0.6.4",
+    "mlx": "0.32.4",
+    "misaki": "0.9.4"
+  },
+  "load_seconds": 0.05506666699966445,
+  "warmup": {
+    "first_pcm_seconds": 4.094913916999758,
+    "total_seconds": 4.1022217500003535,
+    "pcm_conversion_seconds": 0.0003697910005939775,
+    "audio_seconds": 2.075,
+    "pcm_bytes": 99600,
+    "pcm_sha256": "ef7e1120a07858267f6c3ad174aedc252dd91ca492d57d052304b19aade93470",
+    "segment_phoneme_counts": [
+      25
+    ]
+  },
+  "timing_instrumentation": "none in paired timing; separate stage/line passes",
+  "trials": [
+    {
+      "case": "brief",
+      "text": "The ledger is ready.",
+      "text_chars": 20,
+      "repeat": 0,
+      "variant": "bulk-durations",
+      "order": [
+        "baseline",
+        "bulk-durations"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.1810103749994596,
+        "total_seconds": 0.18585008299942274,
+        "pcm_conversion_seconds": 0.000320833000841958,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "9f8b1e0583f31684af62d0b21f56094a0dc574a66b1bf8f8445f33401aabe788",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.1744375830003264,
+        "total_seconds": 0.180005500000334,
+        "pcm_conversion_seconds": 0.000337000000399712,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "86ad02b034867bebe8429f1731ba735645309e743865c85938869ceb1b48b73f",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "brief",
+      "text": "The ledger is ready.",
+      "text_chars": 20,
+      "repeat": 0,
+      "variant": "cached-voice",
+      "order": [
+        "baseline",
+        "cached-voice"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.1781810829997994,
+        "total_seconds": 0.18414545799987536,
+        "pcm_conversion_seconds": 0.0003334579996590037,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "9f8b1e0583f31684af62d0b21f56094a0dc574a66b1bf8f8445f33401aabe788",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.17986875000042346,
+        "total_seconds": 0.1862392089997229,
+        "pcm_conversion_seconds": 0.0003886659997078823,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "6374af2ee8683328b9b50897a1ef7248852aeb480130db952f2880a7a8f87c3a",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "brief",
+      "text": "The ledger is ready.",
+      "text_chars": 20,
+      "repeat": 0,
+      "variant": "bulk-timestamps",
+      "order": [
+        "baseline",
+        "bulk-timestamps"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.1799278750004305,
+        "total_seconds": 0.18636783399961132,
+        "pcm_conversion_seconds": 0.0003946670003642794,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "a7cd7c51451428904aa30e6502b1da7b6f541d3f692912b297a0df39a18b8000",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.18051404200014076,
+        "total_seconds": 0.18699329199989734,
+        "pcm_conversion_seconds": 0.00039033299981383607,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "dba6a62c383113e3bd6e36bd5a0d1ab485f6d5666a4c1cb5217a2280d255336e",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "brief",
+      "text": "The ledger is ready.",
+      "text_chars": 20,
+      "repeat": 1,
+      "variant": "bulk-durations",
+      "order": [
+        "bulk-durations",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.17942670899992663,
+        "total_seconds": 0.18552195899974322,
+        "pcm_conversion_seconds": 0.0003777920001084567,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "a7cd7c51451428904aa30e6502b1da7b6f541d3f692912b297a0df39a18b8000",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.17828841699974873,
+        "total_seconds": 0.18410112499987008,
+        "pcm_conversion_seconds": 0.00034874999983003363,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "24fc44d10de65fce8b171201933ccab60951391dc6eee39bcc3d43ba6286cac2",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "brief",
+      "text": "The ledger is ready.",
+      "text_chars": 20,
+      "repeat": 1,
+      "variant": "cached-voice",
+      "order": [
+        "cached-voice",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.17705825000030018,
+        "total_seconds": 0.18301125000016327,
+        "pcm_conversion_seconds": 0.00033224999970116187,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "9a9d5e245873c27e0e9bd3c6521bfd270f7fea2edc3ca24ede67aa9e840dd0fc",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.18130604099951597,
+        "total_seconds": 0.18701358299949788,
+        "pcm_conversion_seconds": 0.00031041599959280575,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "d2243b4d070b15f19d044d1066efe580d1a0eb57f6f8babadf359eaad671f00c",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "brief",
+      "text": "The ledger is ready.",
+      "text_chars": 20,
+      "repeat": 1,
+      "variant": "bulk-timestamps",
+      "order": [
+        "bulk-timestamps",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.18141241600005742,
+        "total_seconds": 0.1872874580003554,
+        "pcm_conversion_seconds": 0.0003133330001219292,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "dba6a62c383113e3bd6e36bd5a0d1ab485f6d5666a4c1cb5217a2280d255336e",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.1818245829999796,
+        "total_seconds": 0.1874152079999476,
+        "pcm_conversion_seconds": 0.000383624999813037,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "a7cd7c51451428904aa30e6502b1da7b6f541d3f692912b297a0df39a18b8000",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "medium",
+      "text": "The schedule is ready, and the final session begins tomorrow morning.",
+      "text_chars": 69,
+      "repeat": 0,
+      "variant": "bulk-durations",
+      "order": [
+        "baseline",
+        "bulk-durations"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.4827586669998709,
+        "total_seconds": 0.49614487500002724,
+        "pcm_conversion_seconds": 0.0006488750004791655,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "03fa580bc05f1fa677743a7e9497ed75ae6e31f5ecaa452d699db6ae98d3bd60",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.3870268330001636,
+        "total_seconds": 0.40210750000005646,
+        "pcm_conversion_seconds": 0.0007699999996475526,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "856b73ebb95a8e64a7a856b96cbbcfcf45a0e172e92acbf34ae295059c1d77d0",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "medium",
+      "text": "The schedule is ready, and the final session begins tomorrow morning.",
+      "text_chars": 69,
+      "repeat": 0,
+      "variant": "cached-voice",
+      "order": [
+        "baseline",
+        "cached-voice"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.39183816600052523,
+        "total_seconds": 0.40595912499975384,
+        "pcm_conversion_seconds": 0.00064504100009799,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "8d2fe387ec35c5a4337b0665fda39d54b6c6262e3c554a219c8f38cafcc104d4",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.39137679199939157,
+        "total_seconds": 0.4024066669999229,
+        "pcm_conversion_seconds": 0.0005165409993423964,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "4ea35b6d88af5846e5bd5d04328c8a1ae2707e9afae1541c402c2fe4a03e3d15",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "medium",
+      "text": "The schedule is ready, and the final session begins tomorrow morning.",
+      "text_chars": 69,
+      "repeat": 0,
+      "variant": "bulk-timestamps",
+      "order": [
+        "baseline",
+        "bulk-timestamps"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.3891208340000958,
+        "total_seconds": 0.40321604200016736,
+        "pcm_conversion_seconds": 0.0006952499998078565,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "758b783f3285b794f3264521e848d61e12c72b8b3a57d5dba734caafbd2efcff",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.38862712500031193,
+        "total_seconds": 0.4063946659998692,
+        "pcm_conversion_seconds": 0.0013182079992475337,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "b24ffdb2de3812022f42abc5223be5f83906407a78a384e8b3c0683735f946ce",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "medium",
+      "text": "The schedule is ready, and the final session begins tomorrow morning.",
+      "text_chars": 69,
+      "repeat": 1,
+      "variant": "bulk-durations",
+      "order": [
+        "bulk-durations",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.39517320899994957,
+        "total_seconds": 0.41086237499985145,
+        "pcm_conversion_seconds": 0.0006953329993848456,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "584964babec853d7aa8b33130d0bd173bc646e532c9d31c89012241b3d7c3bba",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.40537024999957794,
+        "total_seconds": 0.41879449999942153,
+        "pcm_conversion_seconds": 0.0005915840001762263,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "ff24f5e4162278ab546cb3dbdfcc807c20f17096efebbe9615f5042e10f38ba1",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "medium",
+      "text": "The schedule is ready, and the final session begins tomorrow morning.",
+      "text_chars": 69,
+      "repeat": 1,
+      "variant": "cached-voice",
+      "order": [
+        "cached-voice",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.404869332999624,
+        "total_seconds": 0.42134854100004304,
+        "pcm_conversion_seconds": 0.0006759999996575061,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "8c8aef3c48020ae476a8ff5c88f1f8316d54f2a5b228eafc4f7bc5fa2e56fa98",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.3985205830003906,
+        "total_seconds": 0.4130057080001279,
+        "pcm_conversion_seconds": 0.0007104590004018974,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "25175bbe1014fd28e8dc97c2b365a5265d5488d66bac7ecfc7f5951903626662",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "medium",
+      "text": "The schedule is ready, and the final session begins tomorrow morning.",
+      "text_chars": 69,
+      "repeat": 1,
+      "variant": "bulk-timestamps",
+      "order": [
+        "bulk-timestamps",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.3899108340001476,
+        "total_seconds": 0.40515400000003865,
+        "pcm_conversion_seconds": 0.00075062500036438,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "0b7f626d8ce89401216b84954b7a70251c2c54bf141e3d4e87137222a17e2d9d",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.3937467920004565,
+        "total_seconds": 0.40327700000034383,
+        "pcm_conversion_seconds": 0.0005274579998513218,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "864f8346230815e2d35c1f2c325a5b420982adf23ad4dfaddd8fa008450d38ae",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "numbers",
+      "text": "The balance is 1,234.56 dollars, and the next payment arrives on November 12.",
+      "text_chars": 77,
+      "repeat": 0,
+      "variant": "bulk-durations",
+      "order": [
+        "baseline",
+        "bulk-durations"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.6512732080000205,
+        "total_seconds": 0.6721645830002672,
+        "pcm_conversion_seconds": 0.0012283329997444525,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "9c5a784fd286a6e5228ed721d18edc758ac93b6478b6d243a086af2b5e7ec782",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.6458742080003503,
+        "total_seconds": 0.6598877080004968,
+        "pcm_conversion_seconds": 0.001013166000120691,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "a78d5a8e3bd0a540eb20dc908e7b00d8ef3d61ec14c56b82f545da49a789b015",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "numbers",
+      "text": "The balance is 1,234.56 dollars, and the next payment arrives on November 12.",
+      "text_chars": 77,
+      "repeat": 0,
+      "variant": "cached-voice",
+      "order": [
+        "baseline",
+        "cached-voice"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.6631728339998517,
+        "total_seconds": 0.6733976670002448,
+        "pcm_conversion_seconds": 0.0005764169991380186,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "9fee9fc14c142c9d020a76a28e789e20822dc7f85654b2d796e5d25058457ecb",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.6637938750000103,
+        "total_seconds": 0.6774580000001151,
+        "pcm_conversion_seconds": 0.0008133339997584699,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "aea78c2fceb19a356f119c5af3eea75e209e6db177629d05533fa06abecbab82",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "numbers",
+      "text": "The balance is 1,234.56 dollars, and the next payment arrives on November 12.",
+      "text_chars": 77,
+      "repeat": 0,
+      "variant": "bulk-timestamps",
+      "order": [
+        "baseline",
+        "bulk-timestamps"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.6534188750001704,
+        "total_seconds": 0.6685907920000318,
+        "pcm_conversion_seconds": 0.000802833000307146,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "a031b5db04652a3e92fda378e2b7f9a15cfe667b724f09af76249a8ecf77ac8e",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.6346286250000048,
+        "total_seconds": 0.6603475830006573,
+        "pcm_conversion_seconds": 0.0015405410003950237,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "3bf00ad0df0706ec16c7cd83d190886e9bcd504ffbda0b57b71f02c865048b5b",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "numbers",
+      "text": "The balance is 1,234.56 dollars, and the next payment arrives on November 12.",
+      "text_chars": 77,
+      "repeat": 1,
+      "variant": "bulk-durations",
+      "order": [
+        "bulk-durations",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.6480462089994035,
+        "total_seconds": 0.6696228339997106,
+        "pcm_conversion_seconds": 0.0011432920000515878,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "0d725b6d038797c500aafdfe2073faa68100b0f24bb49bfe057685dfeda4f347",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.6463961669996934,
+        "total_seconds": 0.6694932919999701,
+        "pcm_conversion_seconds": 0.0011672090004140045,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "538ba7308bce6b7751df99192400a0fa79b8f297ef4ad2bfc242a5b24d04b240",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "numbers",
+      "text": "The balance is 1,234.56 dollars, and the next payment arrives on November 12.",
+      "text_chars": 77,
+      "repeat": 1,
+      "variant": "cached-voice",
+      "order": [
+        "cached-voice",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.665237832999992,
+        "total_seconds": 0.6753077080002186,
+        "pcm_conversion_seconds": 0.0005985419993521646,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "8dfb6f4f80b3886f6cf66a47d6e395ed1d0458fa5f6d16d19250a1ab2faf1b85",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.6473659169996608,
+        "total_seconds": 0.6686751249999361,
+        "pcm_conversion_seconds": 0.001142582999818842,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "449068e8cc30d71804bdf54429256824808c79289b832bc11359418cc9b9df82",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "numbers",
+      "text": "The balance is 1,234.56 dollars, and the next payment arrives on November 12.",
+      "text_chars": 77,
+      "repeat": 1,
+      "variant": "bulk-timestamps",
+      "order": [
+        "bulk-timestamps",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.6406254169996828,
+        "total_seconds": 0.6618189170003461,
+        "pcm_conversion_seconds": 0.000974416000644851,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "7ae0625b1a7896e140992e3329ce0f01cf5b112c000d6908cb60c436eb50022c",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.6511301250002361,
+        "total_seconds": 0.6616743340000539,
+        "pcm_conversion_seconds": 0.0006506670006274362,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "ec27ee0edc793e07fdfd5fd47d4616507d79e875b209bd101f36722dfae49b0a",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "long",
+      "text": "The monitor reports steady progress, and the current measurements remain within the expected range; the final chart will include the morning sample and the evening sample.",
+      "text_chars": 171,
+      "repeat": 0,
+      "variant": "bulk-durations",
+      "order": [
+        "baseline",
+        "bulk-durations"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.848900083999979,
+        "total_seconds": 0.8663646670001981,
+        "pcm_conversion_seconds": 0.001172999999653257,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "585ce584dcbc74f95dab19562bcf4158ff6acdb9b7a067230ad1d557179a6a7f",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.8471977079998396,
+        "total_seconds": 0.8684812499996042,
+        "pcm_conversion_seconds": 0.001343750000160071,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "9fc17a440ecae958d71dbbb49e079928c67a9de4c6870760a808384bbf4f7f6d",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "long",
+      "text": "The monitor reports steady progress, and the current measurements remain within the expected range; the final chart will include the morning sample and the evening sample.",
+      "text_chars": 171,
+      "repeat": 0,
+      "variant": "cached-voice",
+      "order": [
+        "baseline",
+        "cached-voice"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.8706334589996914,
+        "total_seconds": 0.8878064999998969,
+        "pcm_conversion_seconds": 0.001179292000415444,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "2a25d6913cc4ce14dee70bea63aa2f921491d3b230f187e533c10681879009e3",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.8391660420002154,
+        "total_seconds": 0.8587394590003896,
+        "pcm_conversion_seconds": 0.0013091250002617016,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "a9ac4c655a58a1b186cbf96921cddcc86f7d7a5954a8113e26a1d82bf4e5a314",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "long",
+      "text": "The monitor reports steady progress, and the current measurements remain within the expected range; the final chart will include the morning sample and the evening sample.",
+      "text_chars": 171,
+      "repeat": 0,
+      "variant": "bulk-timestamps",
+      "order": [
+        "baseline",
+        "bulk-timestamps"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.847131083000022,
+        "total_seconds": 0.869701458000236,
+        "pcm_conversion_seconds": 0.0011959579996982939,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "3808d456f20cef5739540d79d71a9fe7725c7a9aca95153794071ac77c47a7de",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.8410967090003396,
+        "total_seconds": 0.8688909590000549,
+        "pcm_conversion_seconds": 0.002073582999400969,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "37d13b9d39a52bdb3453d38d7c25491f9c6e35cb7de0f9d440fcd1227e8f7072",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "long",
+      "text": "The monitor reports steady progress, and the current measurements remain within the expected range; the final chart will include the morning sample and the evening sample.",
+      "text_chars": 171,
+      "repeat": 1,
+      "variant": "bulk-durations",
+      "order": [
+        "bulk-durations",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.8576534170006198,
+        "total_seconds": 0.8760761250005089,
+        "pcm_conversion_seconds": 0.00124787499953527,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "642bf05cb0c0a64c5254321c2529f23532e237f552e69ed8ed37b91fe3fc8fcd",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.8651038340003652,
+        "total_seconds": 0.8879611669999576,
+        "pcm_conversion_seconds": 0.0011347500003466848,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "c3d2de8b73cfbd41c3749e6705c2c8dca4eae2837a428d58ebd66d749e5e7777",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "long",
+      "text": "The monitor reports steady progress, and the current measurements remain within the expected range; the final chart will include the morning sample and the evening sample.",
+      "text_chars": 171,
+      "repeat": 1,
+      "variant": "cached-voice",
+      "order": [
+        "cached-voice",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.8390448750005817,
+        "total_seconds": 0.8584681669999554,
+        "pcm_conversion_seconds": 0.0010616669997034478,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "fb01e51911241e352a337e496814e0b1d698cee2186465c685f7d36dc9f6cf67",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.8417679160002081,
+        "total_seconds": 0.8624724580004113,
+        "pcm_conversion_seconds": 0.001252667000699148,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "a1e4062bdba459f14ba331b067b64fb545c91e0f5492ce3ac292f0b80e36076d",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "long",
+      "text": "The monitor reports steady progress, and the current measurements remain within the expected range; the final chart will include the morning sample and the evening sample.",
+      "text_chars": 171,
+      "repeat": 1,
+      "variant": "bulk-timestamps",
+      "order": [
+        "bulk-timestamps",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 0.8635405000004539,
+        "total_seconds": 0.8731904169999325,
+        "pcm_conversion_seconds": 0.0005650420007441426,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "3f0a29232c3765a69bc8fa8c2355dd2b4f196864b219216ebed7c6cf778d0415",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 0.8370219580001503,
+        "total_seconds": 0.8577438330003133,
+        "pcm_conversion_seconds": 0.0013092919998598518,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "43a418ceeb0d44d73a0526bd0eee2959ad7fd641d42110e118f7c79e9ab2c0a7",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "extended",
+      "text": "The archive contains the field notes from the northern station, and each folder includes the original measurements together with a short explanation; the next review will compare rainfall, wind direction, and the condition of the soil before the team chooses another location.",
+      "text_chars": 276,
+      "repeat": 0,
+      "variant": "bulk-durations",
+      "order": [
+        "baseline",
+        "bulk-durations"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 1.4452689580002698,
+        "total_seconds": 1.4631945410001208,
+        "pcm_conversion_seconds": 0.0008505420000801678,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "071966491594fdf6ed711cfaca265bbd2a66faa10307dd8ca45c6e96097fa740",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 1.3603127910000694,
+        "total_seconds": 1.376097999999729,
+        "pcm_conversion_seconds": 0.0012648749998334097,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "169ae111d313752388e3007fa409736042aa15c38f5ad44381f966674b5bc33f",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "extended",
+      "text": "The archive contains the field notes from the northern station, and each folder includes the original measurements together with a short explanation; the next review will compare rainfall, wind direction, and the condition of the soil before the team chooses another location.",
+      "text_chars": 276,
+      "repeat": 0,
+      "variant": "cached-voice",
+      "order": [
+        "baseline",
+        "cached-voice"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 1.3651644999999917,
+        "total_seconds": 1.3899931250007285,
+        "pcm_conversion_seconds": 0.0016732919993955875,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "d777c93ecb15dc040258b516dbc07c7bb644f60f056c49391a43a12309aa084f",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 1.3813840829998298,
+        "total_seconds": 1.412259875000018,
+        "pcm_conversion_seconds": 0.0015456659994015354,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "513a13cbdc67c70555501695069caa83bdc6c67bf305aef45759a861509d4abb",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "extended",
+      "text": "The archive contains the field notes from the northern station, and each folder includes the original measurements together with a short explanation; the next review will compare rainfall, wind direction, and the condition of the soil before the team chooses another location.",
+      "text_chars": 276,
+      "repeat": 0,
+      "variant": "bulk-timestamps",
+      "order": [
+        "baseline",
+        "bulk-timestamps"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 1.376075457999832,
+        "total_seconds": 1.4116005000005316,
+        "pcm_conversion_seconds": 0.0022265839997999137,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "00fdb28d58e3dc8a2468b5b66b95fcd13ca9bfc0813d98a7caa369b6b4d283db",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 1.3681839999999283,
+        "total_seconds": 1.3950483340004212,
+        "pcm_conversion_seconds": 0.001734583000143175,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "3581a104e95069569174ba62ade646efb7f5aac82aa890cc082e5a0cfb3681ba",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "extended",
+      "text": "The archive contains the field notes from the northern station, and each folder includes the original measurements together with a short explanation; the next review will compare rainfall, wind direction, and the condition of the soil before the team chooses another location.",
+      "text_chars": 276,
+      "repeat": 1,
+      "variant": "bulk-durations",
+      "order": [
+        "bulk-durations",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 1.384334666999166,
+        "total_seconds": 1.4068505420000292,
+        "pcm_conversion_seconds": 0.0016943330001595314,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "dbcd371145d6fffcf01c54d16194d75b00ee136733e63883c590a173a77231fc",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 1.3438545830003932,
+        "total_seconds": 1.3789642080000704,
+        "pcm_conversion_seconds": 0.0017015000003084424,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "6f648cb7fd4efc5be61a73b7f0227db0e6ec719f6db61989f439bbe4e46a1097",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "extended",
+      "text": "The archive contains the field notes from the northern station, and each folder includes the original measurements together with a short explanation; the next review will compare rainfall, wind direction, and the condition of the soil before the team chooses another location.",
+      "text_chars": 276,
+      "repeat": 1,
+      "variant": "cached-voice",
+      "order": [
+        "cached-voice",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 1.3561728329996185,
+        "total_seconds": 1.3725169999997888,
+        "pcm_conversion_seconds": 0.0008300829995278036,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "9edcfe9014e72de6049d1f3c1c24f3b987899e5bd8eb41c258ce14a60dce5e68",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 1.352486540999962,
+        "total_seconds": 1.3810600000006161,
+        "pcm_conversion_seconds": 0.0015729999995528487,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "76a280c1b616b01ce82ccd9cedfb97ff54b9556855fcab6bfddf95926b90f833",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    },
+    {
+      "case": "extended",
+      "text": "The archive contains the field notes from the northern station, and each folder includes the original measurements together with a short explanation; the next review will compare rainfall, wind direction, and the condition of the soil before the team chooses another location.",
+      "text_chars": 276,
+      "repeat": 1,
+      "variant": "bulk-timestamps",
+      "order": [
+        "bulk-timestamps",
+        "baseline"
+      ],
+      "baseline": {
+        "first_pcm_seconds": 1.3553460000002815,
+        "total_seconds": 1.3826786250001533,
+        "pcm_conversion_seconds": 0.0016321670000252197,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "872190fc64d484c1ea0c812ed6ddca9bc36689ff81e5023cfa4035d99eef6d08",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "candidate": {
+        "first_pcm_seconds": 1.3541719170007127,
+        "total_seconds": 1.3742742920003366,
+        "pcm_conversion_seconds": 0.0013872500003344612,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "f4c4d59ac225f393e283534cc394f3ad64af0aa28c587da665097493b68520c6",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "exact_float_audio": false,
+      "exact_pcm": false,
+      "exact_phoneme_counts": true
+    }
+  ],
+  "profiles": [
+    {
+      "case": "brief",
+      "text_chars": 20,
+      "phoneme_count": 19,
+      "record": {
+        "first_pcm_seconds": 0.18911666700023488,
+        "total_seconds": 0.19550920799974847,
+        "pcm_conversion_seconds": 0.00036912500036123674,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "a7cd7c51451428904aa30e6502b1da7b6f541d3f692912b297a0df39a18b8000",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "inclusive_stage_events": [
+        {
+          "stage": "voice_load",
+          "seconds": 0.00020466700061660958
+        },
+        {
+          "stage": "g2p",
+          "seconds": 0.0016693329998815898
+        },
+        {
+          "stage": "model_forward_including_eval",
+          "seconds": 0.18511183400005393
+        },
+        {
+          "stage": "token_timestamps",
+          "seconds": 0.0016317079998771078
+        },
+        {
+          "stage": "clear_cache",
+          "seconds": 0.006281541000134894
+        }
+      ],
+      "generated_segments": [
+        {
+          "graphemes": "The ledger is ready.",
+          "phonemes": "\u00f0\u0259 l\u02c8\u025b\u02a4\u0259\u0279 \u026az \u0279\u02c8\u025bdi.",
+          "phoneme_count": 19,
+          "tokens": [
+            {
+              "text": "The",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "ledger",
+              "phonemes": "l\u02c8\u025b\u02a4\u0259\u0279"
+            },
+            {
+              "text": "is",
+              "phonemes": "\u026az"
+            },
+            {
+              "text": "ready",
+              "phonemes": "\u0279\u02c8\u025bdi"
+            },
+            {
+              "text": ".",
+              "phonemes": "."
+            }
+          ]
+        }
+      ],
+      "complete_input_graphemes": true
+    },
+    {
+      "case": "medium",
+      "text_chars": 69,
+      "phoneme_count": 67,
+      "record": {
+        "first_pcm_seconds": 0.38952270800018596,
+        "total_seconds": 0.40483120800035977,
+        "pcm_conversion_seconds": 0.0007362080004895688,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "9489912045b6d259afdb61f9c55eb118c183df9ab5435caa972c79a6a52227c1",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "inclusive_stage_events": [
+        {
+          "stage": "voice_load",
+          "seconds": 0.0002958750001198496
+        },
+        {
+          "stage": "g2p",
+          "seconds": 0.0025758339997992152
+        },
+        {
+          "stage": "model_forward_including_eval",
+          "seconds": 0.37976637500014476
+        },
+        {
+          "stage": "token_timestamps",
+          "seconds": 0.005952791000709112
+        },
+        {
+          "stage": "clear_cache",
+          "seconds": 0.015152959000261035
+        }
+      ],
+      "generated_segments": [
+        {
+          "graphemes": "The schedule is ready, and the final session begins tomorrow morning.",
+          "phonemes": "\u00f0\u0259 sk\u02c8\u025b\u02a4\u02ccul \u026az \u0279\u02c8\u025bdi, \u00e6nd \u00f0\u0259 f\u02c8In\u1d4al s\u02c8\u025b\u0283\u0259n b\u0259\u0261\u02c8\u026anz t\u0259m\u02c8\u0251\u0279O m\u02c8\u0254\u0279n\u026a\u014b.",
+          "phoneme_count": 67,
+          "tokens": [
+            {
+              "text": "The",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "schedule",
+              "phonemes": "sk\u02c8\u025b\u02a4\u02ccul"
+            },
+            {
+              "text": "is",
+              "phonemes": "\u026az"
+            },
+            {
+              "text": "ready",
+              "phonemes": "\u0279\u02c8\u025bdi"
+            },
+            {
+              "text": ",",
+              "phonemes": ","
+            },
+            {
+              "text": "and",
+              "phonemes": "\u00e6nd"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "final",
+              "phonemes": "f\u02c8In\u1d4al"
+            },
+            {
+              "text": "session",
+              "phonemes": "s\u02c8\u025b\u0283\u0259n"
+            },
+            {
+              "text": "begins",
+              "phonemes": "b\u0259\u0261\u02c8\u026anz"
+            },
+            {
+              "text": "tomorrow",
+              "phonemes": "t\u0259m\u02c8\u0251\u0279O"
+            },
+            {
+              "text": "morning",
+              "phonemes": "m\u02c8\u0254\u0279n\u026a\u014b"
+            },
+            {
+              "text": ".",
+              "phonemes": "."
+            }
+          ]
+        }
+      ],
+      "complete_input_graphemes": true
+    },
+    {
+      "case": "numbers",
+      "text_chars": 77,
+      "phoneme_count": 127,
+      "record": {
+        "first_pcm_seconds": 0.6490117499997723,
+        "total_seconds": 0.6651828340000066,
+        "pcm_conversion_seconds": 0.0008448750004390604,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "d01d0007edd713a4808bebf76933257e80c453f88beb4aa95a4a457652a256d4",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "inclusive_stage_events": [
+        {
+          "stage": "voice_load",
+          "seconds": 0.00035666600069816923
+        },
+        {
+          "stage": "g2p",
+          "seconds": 0.0030447919998550788
+        },
+        {
+          "stage": "model_forward_including_eval",
+          "seconds": 0.6379835830002776
+        },
+        {
+          "stage": "token_timestamps",
+          "seconds": 0.0065994169999612495
+        },
+        {
+          "stage": "clear_cache",
+          "seconds": 0.016004250000150932
+        }
+      ],
+      "generated_segments": [
+        {
+          "graphemes": "The balance is 1,234.56 dollars, and the next payment arrives on November 12.",
+          "phonemes": "\u00f0\u0259 b\u02c8\u00e6l\u0259ns \u026az w\u02c8\u028cn \u03b8\u02c8Wz\u1d4and t\u02c8u h\u02c8\u028cnd\u0279\u0259d \u03b8\u02c8\u025c\u0279Ti f\u02c8\u0254\u0279 pYnt f\u02c8Iv s\u02c8\u026aks d\u02c8\u0251l\u0259\u0279z, \u00e6nd \u00f0\u0259 n\u02c8\u025bkst p\u02c8Am\u1d4ant \u0259\u0279\u02c8Ivz \u02cc\u0254n nOv\u02c8\u025bmb\u0259\u0279 tw\u02c8\u025blv.",
+          "phoneme_count": 127,
+          "tokens": [
+            {
+              "text": "The",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "balance",
+              "phonemes": "b\u02c8\u00e6l\u0259ns"
+            },
+            {
+              "text": "is",
+              "phonemes": "\u026az"
+            },
+            {
+              "text": "1,234.56",
+              "phonemes": "w\u02c8\u028cn \u03b8\u02c8Wz\u1d4and t\u02c8u h\u02c8\u028cnd\u0279\u0259d \u03b8\u02c8\u025c\u0279Ti f\u02c8\u0254\u0279 pYnt f\u02c8Iv s\u02c8\u026aks"
+            },
+            {
+              "text": "dollars",
+              "phonemes": "d\u02c8\u0251l\u0259\u0279z"
+            },
+            {
+              "text": ",",
+              "phonemes": ","
+            },
+            {
+              "text": "and",
+              "phonemes": "\u00e6nd"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "next",
+              "phonemes": "n\u02c8\u025bkst"
+            },
+            {
+              "text": "payment",
+              "phonemes": "p\u02c8Am\u1d4ant"
+            },
+            {
+              "text": "arrives",
+              "phonemes": "\u0259\u0279\u02c8Ivz"
+            },
+            {
+              "text": "on",
+              "phonemes": "\u02cc\u0254n"
+            },
+            {
+              "text": "November",
+              "phonemes": "nOv\u02c8\u025bmb\u0259\u0279"
+            },
+            {
+              "text": "12",
+              "phonemes": "tw\u02c8\u025blv"
+            },
+            {
+              "text": ".",
+              "phonemes": "."
+            }
+          ]
+        }
+      ],
+      "complete_input_graphemes": true
+    },
+    {
+      "case": "long",
+      "text_chars": 171,
+      "phoneme_count": 169,
+      "record": {
+        "first_pcm_seconds": 0.8433815839998715,
+        "total_seconds": 0.8630771669995738,
+        "pcm_conversion_seconds": 0.0014307919991551898,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "c4f119ce0b90eebc332847a6ea36b006ef224aec12895d72e10408e6277064c5",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "inclusive_stage_events": [
+        {
+          "stage": "voice_load",
+          "seconds": 0.00011512500077515142
+        },
+        {
+          "stage": "g2p",
+          "seconds": 0.002013915999668825
+        },
+        {
+          "stage": "model_forward_including_eval",
+          "seconds": 0.824817499999881
+        },
+        {
+          "stage": "token_timestamps",
+          "seconds": 0.014819667000665504
+        },
+        {
+          "stage": "clear_cache",
+          "seconds": 0.019464333000541956
+        }
+      ],
+      "generated_segments": [
+        {
+          "graphemes": "The monitor reports steady progress, and the current measurements remain within the expected range; the final chart will include the morning sample and the evening sample.",
+          "phonemes": "\u00f0\u0259 m\u02c8\u0251n\u0259T\u0259\u0279 \u0279\u0259p\u02c8\u0254\u0279ts st\u02c8\u025bdi p\u0279\u02c8\u0251\u0261\u0279\u0259s, \u00e6nd \u00f0\u0259 k\u02c8\u025c\u0279\u0259nt m\u02c8\u025b\u0292\u0259\u0279m\u1d4ants \u0279\u0259m\u02c8An w\u026a\u00f0\u02c8\u026an \u00f0i \u026aksp\u02c8\u025bkt\u1d7bd \u0279\u02c8An\u02a4; \u00f0\u0259 f\u02c8In\u1d4al \u02a7\u02c8\u0251\u0279t w\u026al \u026ankl\u02c8ud \u00f0\u0259 m\u02c8\u0254\u0279n\u026a\u014b s\u02c8\u00e6mp\u1d4al \u00e6nd \u00f0i \u02c8ivn\u026a\u014b s\u02c8\u00e6mp\u1d4al.",
+          "phoneme_count": 169,
+          "tokens": [
+            {
+              "text": "The",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "monitor",
+              "phonemes": "m\u02c8\u0251n\u0259T\u0259\u0279"
+            },
+            {
+              "text": "reports",
+              "phonemes": "\u0279\u0259p\u02c8\u0254\u0279ts"
+            },
+            {
+              "text": "steady",
+              "phonemes": "st\u02c8\u025bdi"
+            },
+            {
+              "text": "progress",
+              "phonemes": "p\u0279\u02c8\u0251\u0261\u0279\u0259s"
+            },
+            {
+              "text": ",",
+              "phonemes": ","
+            },
+            {
+              "text": "and",
+              "phonemes": "\u00e6nd"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "current",
+              "phonemes": "k\u02c8\u025c\u0279\u0259nt"
+            },
+            {
+              "text": "measurements",
+              "phonemes": "m\u02c8\u025b\u0292\u0259\u0279m\u1d4ants"
+            },
+            {
+              "text": "remain",
+              "phonemes": "\u0279\u0259m\u02c8An"
+            },
+            {
+              "text": "within",
+              "phonemes": "w\u026a\u00f0\u02c8\u026an"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0i"
+            },
+            {
+              "text": "expected",
+              "phonemes": "\u026aksp\u02c8\u025bkt\u1d7bd"
+            },
+            {
+              "text": "range",
+              "phonemes": "\u0279\u02c8An\u02a4"
+            },
+            {
+              "text": ";",
+              "phonemes": ";"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "final",
+              "phonemes": "f\u02c8In\u1d4al"
+            },
+            {
+              "text": "chart",
+              "phonemes": "\u02a7\u02c8\u0251\u0279t"
+            },
+            {
+              "text": "will",
+              "phonemes": "w\u026al"
+            },
+            {
+              "text": "include",
+              "phonemes": "\u026ankl\u02c8ud"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "morning",
+              "phonemes": "m\u02c8\u0254\u0279n\u026a\u014b"
+            },
+            {
+              "text": "sample",
+              "phonemes": "s\u02c8\u00e6mp\u1d4al"
+            },
+            {
+              "text": "and",
+              "phonemes": "\u00e6nd"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0i"
+            },
+            {
+              "text": "evening",
+              "phonemes": "\u02c8ivn\u026a\u014b"
+            },
+            {
+              "text": "sample",
+              "phonemes": "s\u02c8\u00e6mp\u1d4al"
+            },
+            {
+              "text": ".",
+              "phonemes": "."
+            }
+          ]
+        }
+      ],
+      "complete_input_graphemes": true
+    },
+    {
+      "case": "extended",
+      "text_chars": 276,
+      "phoneme_count": 270,
+      "record": {
+        "first_pcm_seconds": 1.3589350000002014,
+        "total_seconds": 1.392287125000621,
+        "pcm_conversion_seconds": 0.00205962499967427,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "587dcba953a8851708c7899ab6cba9d221495773f8c88b99f2a8f7c6271b579e",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "inclusive_stage_events": [
+        {
+          "stage": "voice_load",
+          "seconds": 0.0002475830006005708
+        },
+        {
+          "stage": "g2p",
+          "seconds": 0.0039848750002420275
+        },
+        {
+          "stage": "model_forward_including_eval",
+          "seconds": 1.3231944580002164
+        },
+        {
+          "stage": "token_timestamps",
+          "seconds": 0.029221916000096826
+        },
+        {
+          "stage": "clear_cache",
+          "seconds": 0.03305487500074378
+        }
+      ],
+      "generated_segments": [
+        {
+          "graphemes": "The archive contains the field notes from the northern station, and each folder includes the original measurements together with a short explanation; the next review will compare rainfall, wind direction, and the condition of the soil before the team chooses another location.",
+          "phonemes": "\u00f0i \u02c8\u0251\u0279k\u02ccIv k\u0259nt\u02c8Anz \u00f0\u0259 f\u02c8ild n\u02c8Ots f\u0279\u028cm \u00f0\u0259 n\u02c8\u0254\u0279\u00f0\u0259\u0279n st\u02c8A\u0283\u0259n, \u00e6nd \u02c8i\u02a7 f\u02c8Old\u0259\u0279 \u026ankl\u02c8udz \u00f0i \u0259\u0279\u02c8\u026a\u02a4\u0259n\u1d4al m\u02c8\u025b\u0292\u0259\u0279m\u1d4ants t\u0259\u0261\u02c8\u025b\u00f0\u0259\u0279 w\u026a\u00f0 \u0250 \u0283\u02c8\u0254\u0279t \u02cc\u025bkspl\u0259n\u02c8A\u0283\u0259n; \u00f0\u0259 n\u02c8\u025bkst \u0279\u0259vj\u02c8u w\u026al k\u0259mp\u02c8\u025b\u0279 \u0279\u02c8Anf\u02cc\u0254l, w\u02c8\u026and d\u0259\u0279\u02c8\u025bk\u0283\u0259n, \u00e6nd \u00f0\u0259 k\u0259nd\u02c8\u026a\u0283\u0259n \u028cv \u00f0\u0259 s\u02c8Yl b\u0259f\u02c8\u0254\u0279 \u00f0\u0259 t\u02c8im \u02a7\u02c8uz\u1d7bz \u0259n\u02c8\u028c\u00f0\u0259\u0279 lOk\u02c8A\u0283\u0259n.",
+          "phoneme_count": 270,
+          "tokens": [
+            {
+              "text": "The",
+              "phonemes": "\u00f0i"
+            },
+            {
+              "text": "archive",
+              "phonemes": "\u02c8\u0251\u0279k\u02ccIv"
+            },
+            {
+              "text": "contains",
+              "phonemes": "k\u0259nt\u02c8Anz"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "field",
+              "phonemes": "f\u02c8ild"
+            },
+            {
+              "text": "notes",
+              "phonemes": "n\u02c8Ots"
+            },
+            {
+              "text": "from",
+              "phonemes": "f\u0279\u028cm"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "northern",
+              "phonemes": "n\u02c8\u0254\u0279\u00f0\u0259\u0279n"
+            },
+            {
+              "text": "station",
+              "phonemes": "st\u02c8A\u0283\u0259n"
+            },
+            {
+              "text": ",",
+              "phonemes": ","
+            },
+            {
+              "text": "and",
+              "phonemes": "\u00e6nd"
+            },
+            {
+              "text": "each",
+              "phonemes": "\u02c8i\u02a7"
+            },
+            {
+              "text": "folder",
+              "phonemes": "f\u02c8Old\u0259\u0279"
+            },
+            {
+              "text": "includes",
+              "phonemes": "\u026ankl\u02c8udz"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0i"
+            },
+            {
+              "text": "original",
+              "phonemes": "\u0259\u0279\u02c8\u026a\u02a4\u0259n\u1d4al"
+            },
+            {
+              "text": "measurements",
+              "phonemes": "m\u02c8\u025b\u0292\u0259\u0279m\u1d4ants"
+            },
+            {
+              "text": "together",
+              "phonemes": "t\u0259\u0261\u02c8\u025b\u00f0\u0259\u0279"
+            },
+            {
+              "text": "with",
+              "phonemes": "w\u026a\u00f0"
+            },
+            {
+              "text": "a",
+              "phonemes": "\u0250"
+            },
+            {
+              "text": "short",
+              "phonemes": "\u0283\u02c8\u0254\u0279t"
+            },
+            {
+              "text": "explanation",
+              "phonemes": "\u02cc\u025bkspl\u0259n\u02c8A\u0283\u0259n"
+            },
+            {
+              "text": ";",
+              "phonemes": ";"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "next",
+              "phonemes": "n\u02c8\u025bkst"
+            },
+            {
+              "text": "review",
+              "phonemes": "\u0279\u0259vj\u02c8u"
+            },
+            {
+              "text": "will",
+              "phonemes": "w\u026al"
+            },
+            {
+              "text": "compare",
+              "phonemes": "k\u0259mp\u02c8\u025b\u0279"
+            },
+            {
+              "text": "rainfall",
+              "phonemes": "\u0279\u02c8Anf\u02cc\u0254l"
+            },
+            {
+              "text": ",",
+              "phonemes": ","
+            },
+            {
+              "text": "wind",
+              "phonemes": "w\u02c8\u026and"
+            },
+            {
+              "text": "direction",
+              "phonemes": "d\u0259\u0279\u02c8\u025bk\u0283\u0259n"
+            },
+            {
+              "text": ",",
+              "phonemes": ","
+            },
+            {
+              "text": "and",
+              "phonemes": "\u00e6nd"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "condition",
+              "phonemes": "k\u0259nd\u02c8\u026a\u0283\u0259n"
+            },
+            {
+              "text": "of",
+              "phonemes": "\u028cv"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "soil",
+              "phonemes": "s\u02c8Yl"
+            },
+            {
+              "text": "before",
+              "phonemes": "b\u0259f\u02c8\u0254\u0279"
+            },
+            {
+              "text": "the",
+              "phonemes": "\u00f0\u0259"
+            },
+            {
+              "text": "team",
+              "phonemes": "t\u02c8im"
+            },
+            {
+              "text": "chooses",
+              "phonemes": "\u02a7\u02c8uz\u1d7bz"
+            },
+            {
+              "text": "another",
+              "phonemes": "\u0259n\u02c8\u028c\u00f0\u0259\u0279"
+            },
+            {
+              "text": "location",
+              "phonemes": "lOk\u02c8A\u0283\u0259n"
+            },
+            {
+              "text": ".",
+              "phonemes": "."
+            }
+          ]
+        }
+      ],
+      "complete_input_graphemes": true
+    }
+  ],
+  "passed": false,
+  "loaded_snapshot": "/Users/jus/.cache/huggingface/hub/models--mlx-community--Kokoro-82M-bf16/snapshots/a71e4d38b236d968966a2002c4c895dbd12b1c3c",
+  "voice_sha256": "2c1c733b0e6576c810e268d3e440c21dea4e0f0131a3ba4cfc98d7fe6136d094",
+  "source_sha256": {
+    "forward": "02bad18ed1a1cef63943c5cc5897c562c35d0b5c0f208711be1ec3705f255133",
+    "generation": "0977aa941545646109e20a5009efb0dee0e469aa13f3535fe9f3e059d1324ad1",
+    "timestamps": "26cf02beaadebc81dd7be39208d9ace3c373fdfaa647beacdac8abb7cbcb2828"
+  },
+  "line_profile": {
+    "case": "extended",
+    "perturbs_latency": true,
+    "record": {
+      "first_pcm_seconds": 1.3870280420005656,
+      "total_seconds": 1.4101030420006282,
+      "pcm_conversion_seconds": 0.0014692909999212134,
+      "audio_seconds": 16.95,
+      "pcm_bytes": 813600,
+      "pcm_sha256": "f2ee421fb3b276dbde358616bd02ad296386ccf977085684df5ebdca649ee912",
+      "segment_phoneme_counts": [
+        270
+      ]
+    },
+    "forward_phase_seconds": {
+      "graph_to_duration": 0.017890457999783393,
+      "duration_scalar_reads_and_indices": 0.11435474999962025,
+      "alignment_and_decoder_graph": 0.015273167000486865,
+      "audio_eval": 1.2085394579999047,
+      "return": 2.6749999960884452e-05
+    }
+  },
+  "coverage_limit": "Exact baseline audio equality and complete source graphemes; audition files before claiming pronunciation quality. No ASR scoring or acoustic capture."
+}

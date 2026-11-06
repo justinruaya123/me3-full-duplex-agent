@@ -1,0 +1,62 @@
+{
+  "text": "Oh really? Oh got it. What's the track?",
+  "chunks": [
+    {
+      "text": "Oh",
+      "timestamp": [
+        5.97,
+        6.51
+      ]
+    },
+    {
+      "text": "really?",
+      "timestamp": [
+        6.51,
+        6.85
+      ]
+    },
+    {
+      "text": "Oh",
+      "timestamp": [
+        13.73,
+        13.99
+      ]
+    },
+    {
+      "text": "got",
+      "timestamp": [
+        13.99,
+        14.25
+      ]
+    },
+    {
+      "text": "it.",
+      "timestamp": [
+        14.25,
+        14.51
+      ]
+    },
+    {
+      "text": "What's",
+      "timestamp": [
+        15.21,
+        15.89
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        15.89,
+        16.01
+      ]
+    },
+    {
+      "text": "track?",
+      "timestamp": [
+        16.01,
+        16.29
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

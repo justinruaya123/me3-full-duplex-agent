@@ -1,0 +1,35 @@
+{
+  "kind": "private decoder-only compile; complete development inputs",
+  "model": "mlx-community/Kokoro-82M-bf16",
+  "voice": "af_heart",
+  "speed": 1.0,
+  "snapshot": "a71e4d38b236d968966a2002c4c895dbd12b1c3c",
+  "source_freeze": "c321634",
+  "versions": {
+    "mlx-audio": "0.6.4",
+    "mlx": "0.32.4",
+    "misaki": "0.9.4"
+  },
+  "compile": {
+    "scope": "existing decoder only; original module retained",
+    "shapeless": false,
+    "captures": "original decoder arrays and live MLX RNG state",
+    "cold_policy": "first compiled invocation of each complete text"
+  },
+  "controls": [],
+  "cold": [],
+  "pairs": [],
+  "coverage": [],
+  "numerical_distributions": [],
+  "completed": false,
+  "contract_passed": false,
+  "strict_output_passed": true,
+  "candidate_accepted": false,
+  "load_seconds": 0.2365365829991788,
+  "training_modules_before": [],
+  "error": {
+    "type": "RuntimeError",
+    "message": "Installed MLX exposes no capturable RNG state"
+  },
+  "decoder_restored": true
+}

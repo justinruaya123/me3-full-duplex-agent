@@ -1,0 +1,1359 @@
+{
+  "passed": true,
+  "kind": "actual native same-weight RED/GREEN with reference language path; generated development speech",
+  "asr_model": "mlx-community/whisper-large-v3-turbo",
+  "rows": [
+    {
+      "input": "ready-r1",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 2.555493791999652,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "input": "ready-r1",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.999407749999591,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "input": "math-r1",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9591828749998967,
+      "text": " What is 17 plus 25?",
+      "language": "en",
+      "words": [
+        {
+          "word": " What",
+          "start": 0.0,
+          "end": 0.42,
+          "probability": 0.919921875
+        },
+        {
+          "word": " is",
+          "start": 0.42,
+          "end": 0.54,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " 17",
+          "start": 0.54,
+          "end": 0.86,
+          "probability": 0.9423828125
+        },
+        {
+          "word": " plus",
+          "start": 0.86,
+          "end": 1.28,
+          "probability": 0.86279296875
+        },
+        {
+          "word": " 25?",
+          "start": 1.28,
+          "end": 1.72,
+          "probability": 0.99755859375
+        }
+      ]
+    },
+    {
+      "input": "math-r1",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.8120241250007894,
+      "text": " What is 17 plus 25?",
+      "language": "en",
+      "words": [
+        {
+          "word": " What",
+          "start": 0.0,
+          "end": 0.42,
+          "probability": 0.919921875
+        },
+        {
+          "word": " is",
+          "start": 0.42,
+          "end": 0.54,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " 17",
+          "start": 0.54,
+          "end": 0.86,
+          "probability": 0.9423828125
+        },
+        {
+          "word": " plus",
+          "start": 0.86,
+          "end": 1.28,
+          "probability": 0.86279296875
+        },
+        {
+          "word": " 25?",
+          "start": 1.28,
+          "end": 1.72,
+          "probability": 0.99755859375
+        }
+      ]
+    },
+    {
+      "input": "ambiguous-r1",
+      "variant": "reference",
+      "expected_project_calls": 2,
+      "encoder_calls": 2,
+      "seconds": 1.807483833000333,
+      "text": " M\u00e4mmel.",
+      "language": "sv",
+      "words": [
+        {
+          "word": " M\u00e4mmel.",
+          "start": 0.0,
+          "end": 0.82,
+          "probability": 0.5888671875
+        }
+      ]
+    },
+    {
+      "input": "ambiguous-r1",
+      "variant": "project",
+      "expected_project_calls": 2,
+      "encoder_calls": 2,
+      "seconds": 1.8209696670000994,
+      "text": " M\u00e4mmel.",
+      "language": "sv",
+      "words": [
+        {
+          "word": " M\u00e4mmel.",
+          "start": 0.0,
+          "end": 0.82,
+          "probability": 0.5888671875
+        }
+      ]
+    },
+    {
+      "input": "dev-01-r1",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9628030829999261,
+      "text": " Please wait a moment.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Please",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.931640625
+        },
+        {
+          "word": " wait",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " a",
+          "start": 0.8,
+          "end": 0.92,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " moment.",
+          "start": 0.92,
+          "end": 1.16,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "input": "dev-01-r1",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.8070043750003606,
+      "text": " Please wait a moment.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Please",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.931640625
+        },
+        {
+          "word": " wait",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " a",
+          "start": 0.8,
+          "end": 0.92,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " moment.",
+          "start": 0.92,
+          "end": 1.16,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "input": "dev-02-r1",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.830033457999889,
+      "text": " Actually, could you explain that?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Actually,",
+          "start": 0.0,
+          "end": 0.72,
+          "probability": 0.93310546875
+        },
+        {
+          "word": " could",
+          "start": 0.96,
+          "end": 1.02,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " you",
+          "start": 1.02,
+          "end": 1.14,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " explain",
+          "start": 1.14,
+          "end": 1.52,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " that?",
+          "start": 1.52,
+          "end": 1.76,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "input": "dev-02-r1",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9782700409996323,
+      "text": " Actually, could you explain that?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Actually,",
+          "start": 0.0,
+          "end": 0.72,
+          "probability": 0.93310546875
+        },
+        {
+          "word": " could",
+          "start": 0.96,
+          "end": 1.02,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " you",
+          "start": 1.02,
+          "end": 1.14,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " explain",
+          "start": 1.14,
+          "end": 1.52,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " that?",
+          "start": 1.52,
+          "end": 1.76,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "input": "dev-03-r1",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9438190830005624,
+      "text": " Yes.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Yes.",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.8359375
+        }
+      ]
+    },
+    {
+      "input": "dev-03-r1",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.7906100420004805,
+      "text": " Yes.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Yes.",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.8359375
+        }
+      ]
+    },
+    {
+      "input": "dev-05-r1",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.8075961249996908,
+      "text": " Stop talking.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Stop",
+          "start": 0.0,
+          "end": 0.64,
+          "probability": 0.87890625
+        },
+        {
+          "word": " talking.",
+          "start": 0.64,
+          "end": 1.06,
+          "probability": 0.9365234375
+        }
+      ]
+    },
+    {
+      "input": "dev-05-r1",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9654357500003243,
+      "text": " Stop talking.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Stop",
+          "start": 0.0,
+          "end": 0.64,
+          "probability": 0.87890625
+        },
+        {
+          "word": " talking.",
+          "start": 0.64,
+          "end": 1.06,
+          "probability": 0.9365234375
+        }
+      ]
+    },
+    {
+      "input": "dev-06-r1",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9685068750004575,
+      "text": " Thanks I follow.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Thanks",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.94775390625
+        },
+        {
+          "word": " I",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.445068359375
+        },
+        {
+          "word": " follow.",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.92529296875
+        }
+      ]
+    },
+    {
+      "input": "dev-06-r1",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.8187380839999605,
+      "text": " Thanks I follow.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Thanks",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.94775390625
+        },
+        {
+          "word": " I",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.445068359375
+        },
+        {
+          "word": " follow.",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.92529296875
+        }
+      ]
+    },
+    {
+      "input": "dev-07-r1",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.8253236250002374,
+      "text": " Six small ships pass the shore.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Six",
+          "start": 0.0,
+          "end": 0.48,
+          "probability": 0.75048828125
+        },
+        {
+          "word": " small",
+          "start": 0.48,
+          "end": 0.8,
+          "probability": 0.994140625
+        },
+        {
+          "word": " ships",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.998046875
+        },
+        {
+          "word": " pass",
+          "start": 1.1,
+          "end": 1.36,
+          "probability": 0.7412109375
+        },
+        {
+          "word": " the",
+          "start": 1.36,
+          "end": 1.52,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " shore.",
+          "start": 1.52,
+          "end": 1.78,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "input": "dev-07-r1",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9688434159997996,
+      "text": " Six small ships pass the shore.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Six",
+          "start": 0.0,
+          "end": 0.48,
+          "probability": 0.75048828125
+        },
+        {
+          "word": " small",
+          "start": 0.48,
+          "end": 0.8,
+          "probability": 0.994140625
+        },
+        {
+          "word": " ships",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.998046875
+        },
+        {
+          "word": " pass",
+          "start": 1.1,
+          "end": 1.36,
+          "probability": 0.7412109375
+        },
+        {
+          "word": " the",
+          "start": 1.36,
+          "end": 1.52,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " shore.",
+          "start": 1.52,
+          "end": 1.78,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "input": "dev-08-r1",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9613572500002192,
+      "text": " Can we discuss another example?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Can",
+          "start": 0.0,
+          "end": 0.44,
+          "probability": 0.93798828125
+        },
+        {
+          "word": " we",
+          "start": 0.44,
+          "end": 0.56,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " discuss",
+          "start": 0.56,
+          "end": 0.98,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " another",
+          "start": 0.98,
+          "end": 1.46,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " example?",
+          "start": 1.46,
+          "end": 1.94,
+          "probability": 0.99951171875
+        }
+      ]
+    },
+    {
+      "input": "dev-08-r1",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.8082209580006747,
+      "text": " Can we discuss another example?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Can",
+          "start": 0.0,
+          "end": 0.44,
+          "probability": 0.93798828125
+        },
+        {
+          "word": " we",
+          "start": 0.44,
+          "end": 0.56,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " discuss",
+          "start": 0.56,
+          "end": 0.98,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " another",
+          "start": 0.98,
+          "end": 1.46,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " example?",
+          "start": 1.46,
+          "end": 1.94,
+          "probability": 0.99951171875
+        }
+      ]
+    },
+    {
+      "input": "ready-r2",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.8318571250001696,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "input": "ready-r2",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9829558330002328,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "input": "math-r2",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9805943330002265,
+      "text": " What is 17 plus 25?",
+      "language": "en",
+      "words": [
+        {
+          "word": " What",
+          "start": 0.0,
+          "end": 0.42,
+          "probability": 0.919921875
+        },
+        {
+          "word": " is",
+          "start": 0.42,
+          "end": 0.54,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " 17",
+          "start": 0.54,
+          "end": 0.86,
+          "probability": 0.9423828125
+        },
+        {
+          "word": " plus",
+          "start": 0.86,
+          "end": 1.28,
+          "probability": 0.86279296875
+        },
+        {
+          "word": " 25?",
+          "start": 1.28,
+          "end": 1.72,
+          "probability": 0.99755859375
+        }
+      ]
+    },
+    {
+      "input": "math-r2",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.8209071250003035,
+      "text": " What is 17 plus 25?",
+      "language": "en",
+      "words": [
+        {
+          "word": " What",
+          "start": 0.0,
+          "end": 0.42,
+          "probability": 0.919921875
+        },
+        {
+          "word": " is",
+          "start": 0.42,
+          "end": 0.54,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " 17",
+          "start": 0.54,
+          "end": 0.86,
+          "probability": 0.9423828125
+        },
+        {
+          "word": " plus",
+          "start": 0.86,
+          "end": 1.28,
+          "probability": 0.86279296875
+        },
+        {
+          "word": " 25?",
+          "start": 1.28,
+          "end": 1.72,
+          "probability": 0.99755859375
+        }
+      ]
+    },
+    {
+      "input": "ambiguous-r2",
+      "variant": "reference",
+      "expected_project_calls": 2,
+      "encoder_calls": 2,
+      "seconds": 1.8220680829999765,
+      "text": " M\u00e4mmel.",
+      "language": "sv",
+      "words": [
+        {
+          "word": " M\u00e4mmel.",
+          "start": 0.0,
+          "end": 0.82,
+          "probability": 0.5888671875
+        }
+      ]
+    },
+    {
+      "input": "ambiguous-r2",
+      "variant": "project",
+      "expected_project_calls": 2,
+      "encoder_calls": 2,
+      "seconds": 1.844114040999557,
+      "text": " M\u00e4mmel.",
+      "language": "sv",
+      "words": [
+        {
+          "word": " M\u00e4mmel.",
+          "start": 0.0,
+          "end": 0.82,
+          "probability": 0.5888671875
+        }
+      ]
+    },
+    {
+      "input": "dev-01-r2",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9773286250001547,
+      "text": " Please wait a moment.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Please",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.931640625
+        },
+        {
+          "word": " wait",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " a",
+          "start": 0.8,
+          "end": 0.92,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " moment.",
+          "start": 0.92,
+          "end": 1.16,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "input": "dev-01-r2",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.824864374999379,
+      "text": " Please wait a moment.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Please",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.931640625
+        },
+        {
+          "word": " wait",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " a",
+          "start": 0.8,
+          "end": 0.92,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " moment.",
+          "start": 0.92,
+          "end": 1.16,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "input": "dev-02-r2",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.8429153329998371,
+      "text": " Actually, could you explain that?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Actually,",
+          "start": 0.0,
+          "end": 0.72,
+          "probability": 0.93310546875
+        },
+        {
+          "word": " could",
+          "start": 0.96,
+          "end": 1.02,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " you",
+          "start": 1.02,
+          "end": 1.14,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " explain",
+          "start": 1.14,
+          "end": 1.52,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " that?",
+          "start": 1.52,
+          "end": 1.76,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "input": "dev-02-r2",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 1.0376831670000684,
+      "text": " Actually, could you explain that?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Actually,",
+          "start": 0.0,
+          "end": 0.72,
+          "probability": 0.93310546875
+        },
+        {
+          "word": " could",
+          "start": 0.96,
+          "end": 1.02,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " you",
+          "start": 1.02,
+          "end": 1.14,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " explain",
+          "start": 1.14,
+          "end": 1.52,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " that?",
+          "start": 1.52,
+          "end": 1.76,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "input": "dev-03-r2",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9534625419992153,
+      "text": " Yes.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Yes.",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.8359375
+        }
+      ]
+    },
+    {
+      "input": "dev-03-r2",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.8013121659996614,
+      "text": " Yes.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Yes.",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.8359375
+        }
+      ]
+    },
+    {
+      "input": "dev-05-r2",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.802987832999861,
+      "text": " Stop talking.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Stop",
+          "start": 0.0,
+          "end": 0.64,
+          "probability": 0.87890625
+        },
+        {
+          "word": " talking.",
+          "start": 0.64,
+          "end": 1.06,
+          "probability": 0.9365234375
+        }
+      ]
+    },
+    {
+      "input": "dev-05-r2",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 1.002208249999967,
+      "text": " Stop talking.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Stop",
+          "start": 0.0,
+          "end": 0.64,
+          "probability": 0.87890625
+        },
+        {
+          "word": " talking.",
+          "start": 0.64,
+          "end": 1.06,
+          "probability": 0.9365234375
+        }
+      ]
+    },
+    {
+      "input": "dev-06-r2",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 1.001182207999591,
+      "text": " Thanks I follow.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Thanks",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.94775390625
+        },
+        {
+          "word": " I",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.445068359375
+        },
+        {
+          "word": " follow.",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.92529296875
+        }
+      ]
+    },
+    {
+      "input": "dev-06-r2",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.8427871670000968,
+      "text": " Thanks I follow.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Thanks",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.94775390625
+        },
+        {
+          "word": " I",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.445068359375
+        },
+        {
+          "word": " follow.",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.92529296875
+        }
+      ]
+    },
+    {
+      "input": "dev-07-r2",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.8593166669998027,
+      "text": " Six small ships pass the shore.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Six",
+          "start": 0.0,
+          "end": 0.48,
+          "probability": 0.75048828125
+        },
+        {
+          "word": " small",
+          "start": 0.48,
+          "end": 0.8,
+          "probability": 0.994140625
+        },
+        {
+          "word": " ships",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.998046875
+        },
+        {
+          "word": " pass",
+          "start": 1.1,
+          "end": 1.36,
+          "probability": 0.7412109375
+        },
+        {
+          "word": " the",
+          "start": 1.36,
+          "end": 1.52,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " shore.",
+          "start": 1.52,
+          "end": 1.78,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "input": "dev-07-r2",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 1.0070373339995058,
+      "text": " Six small ships pass the shore.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Six",
+          "start": 0.0,
+          "end": 0.48,
+          "probability": 0.75048828125
+        },
+        {
+          "word": " small",
+          "start": 0.48,
+          "end": 0.8,
+          "probability": 0.994140625
+        },
+        {
+          "word": " ships",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.998046875
+        },
+        {
+          "word": " pass",
+          "start": 1.1,
+          "end": 1.36,
+          "probability": 0.7412109375
+        },
+        {
+          "word": " the",
+          "start": 1.36,
+          "end": 1.52,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " shore.",
+          "start": 1.52,
+          "end": 1.78,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "input": "dev-08-r2",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9719247499997437,
+      "text": " Can we discuss another example?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Can",
+          "start": 0.0,
+          "end": 0.44,
+          "probability": 0.93798828125
+        },
+        {
+          "word": " we",
+          "start": 0.44,
+          "end": 0.56,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " discuss",
+          "start": 0.56,
+          "end": 0.98,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " another",
+          "start": 0.98,
+          "end": 1.46,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " example?",
+          "start": 1.46,
+          "end": 1.94,
+          "probability": 0.99951171875
+        }
+      ]
+    },
+    {
+      "input": "dev-08-r2",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.878353750000315,
+      "text": " Can we discuss another example?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Can",
+          "start": 0.0,
+          "end": 0.44,
+          "probability": 0.93798828125
+        },
+        {
+          "word": " we",
+          "start": 0.44,
+          "end": 0.56,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " discuss",
+          "start": 0.56,
+          "end": 0.98,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " another",
+          "start": 0.98,
+          "end": 1.46,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " example?",
+          "start": 1.46,
+          "end": 1.94,
+          "probability": 0.99951171875
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{"stage": "vad_start", "t": 8872.639965666, "pid": 20035, "src": "ws", "recv": 8872.642358958, "lt": 8872.640149541, "tt": 0.2938}
+{"stage": "vad_start", "t": 8872.640014625, "pid": 20035, "src": "ws", "recv": 8872.642419041, "lt": 8872.6401985, "tt": 0.2939}
+{"stage": "vad_end", "t": 8873.308508208, "pid": 20035, "src": "ws", "recv": 8873.309259791, "lt": 8873.308692083, "tt": 0.9624}
+{"stage": "vad_end", "t": 8873.30853, "pid": 20035, "src": "ws", "recv": 8873.309282333, "lt": 8873.308713875, "tt": 0.9624}
+{"stage": "vad_start", "t": 8873.698858208, "pid": 20035, "src": "ws", "recv": 8873.700341541, "lt": 8873.699042082999, "tt": 1.3527}
+{"stage": "vad_start", "t": 8873.698884583, "pid": 20035, "src": "ws", "recv": 8873.7004435, "lt": 8873.699068458, "tt": 1.3527}
+{"stage": "asr_partial", "t": 8875.336411333, "pid": 20035, "text": "Yeah, that way.", "src": "ws", "recv": 8875.336644583, "lt": 8875.336595208, "tt": 2.9903}
+{"stage": "asr_partial", "t": 8876.41871925, "pid": 20035, "text": "Yeah. That way, if the remote's not...", "src": "ws", "recv": 8876.419149541, "lt": 8876.418903124999, "tt": 4.0726}
+{"stage": "asr_partial", "t": 8877.535832666, "pid": 20035, "text": "Yeah. That way, if the remote's not where you left it...", "src": "ws", "recv": 8877.536079625, "lt": 8877.536016541, "tt": 5.1897}
+{"stage": "asr_partial", "t": 8878.695076958, "pid": 20035, "text": "Yeah, that way if the remote's not where you left it, you don't have to blame everyone.", "src": "ws", "recv": 8878.695260833, "lt": 8878.695260833, "tt": 6.3489}
+{"stage": "asr_partial", "t": 8879.867672666, "pid": 20035, "text": "Yeah, that way if the remote's not where you left it, you don't have to blame everyone else. You can just ask.", "src": "ws", "recv": 8879.867914, "lt": 8879.867856541, "tt": 7.5215}
+{"stage": "vad_end", "t": 8880.095764333, "pid": 20035, "src": "ws", "recv": 8880.097191541, "lt": 8880.095948208, "tt": 7.7496}
+{"stage": "vad_end", "t": 8880.095797416, "pid": 20035, "src": "ws", "recv": 8880.097312708, "lt": 8880.095981290999, "tt": 7.7497}
+{"stage": "asr_partial", "t": 8881.033698208, "pid": 20035, "text": "Yeah. That way, if the remote's not where you left it, you don't have to blame everyone else. You can just ask someone.", "src": "ws", "recv": 8881.033929375, "lt": 8881.033882083, "tt": 8.6876}
+{"stage": "vad_start", "t": 8881.531600125, "pid": 20035, "src": "ws", "recv": 8881.533148125, "lt": 8881.531783999999, "tt": 9.1855}
+{"stage": "vad_start", "t": 8881.531627, "pid": 20035, "src": "ws", "recv": 8881.533297541, "lt": 8881.531810875, "tt": 9.1855}
+{"stage": "asr_partial", "t": 8883.42263275, "pid": 20035, "text": "Yeah, that way if the remote's not where you left it, you don't have to blame everyone else. You can just ask someone. Always my thing.", "src": "ws", "recv": 8883.422829, "lt": 8883.422816625, "tt": 11.0765}
+{"stage": "vad_end", "t": 8884.12174375, "pid": 20035, "src": "ws", "recv": 8884.123056083, "lt": 8884.121927625, "tt": 11.7756}
+{"stage": "vad_end", "t": 8884.121768583, "pid": 20035, "src": "ws", "recv": 8884.123133791, "lt": 8884.121952458, "tt": 11.7756}
+{"stage": "vad_start", "t": 8884.220947208, "pid": 20035, "src": "ws", "recv": 8884.222473625, "lt": 8884.221131082999, "tt": 11.8748}
+{"stage": "vad_start", "t": 8884.220983166, "pid": 20035, "src": "ws", "recv": 8884.22255625, "lt": 8884.221167041, "tt": 11.8748}
+{"stage": "vad_end", "t": 8884.764365833, "pid": 20035, "src": "ws", "recv": 8884.765002333, "lt": 8884.764549708, "tt": 12.4182}
+{"stage": "vad_end", "t": 8884.764374625, "pid": 20035, "src": "ws", "recv": 8884.7650125, "lt": 8884.7645585, "tt": 12.4182}
+{"stage": "vad_start", "t": 8885.46864525, "pid": 20035, "src": "ws", "recv": 8885.470317791, "lt": 8885.468829124999, "tt": 13.1225}
+{"stage": "vad_start", "t": 8885.468682416, "pid": 20035, "src": "ws", "recv": 8885.470424375, "lt": 8885.468866291, "tt": 13.1225}
+{"stage": "asr_partial", "t": 8887.626803875, "pid": 20035, "text": "Yeah, that way, if the remote's not where you left it, you don't have to blame everyone else. You can just ask someone. That's always my thing. Like when things get moved around that, you know, like I don't know who.", "src": "ws", "recv": 8887.627001208, "lt": 8887.62698775, "tt": 15.2807}
+{"stage": "vad_end", "t": 8887.866475541, "pid": 20035, "src": "ws", "recv": 8887.868076166, "lt": 8887.866659416, "tt": 15.5203}
+{"stage": "vad_end", "t": 8887.866510041, "pid": 20035, "src": "ws", "recv": 8887.868184041, "lt": 8887.866693916, "tt": 15.5204}
+{"stage": "vad_start", "t": 8887.966822083, "pid": 20035, "src": "ws", "recv": 8887.96911475, "lt": 8887.967005958, "tt": 15.6207}
+{"stage": "vad_start", "t": 8887.966853125, "pid": 20035, "src": "ws", "recv": 8887.969149916, "lt": 8887.967037, "tt": 15.6207}
+{"stage": "vad_end", "t": 8889.535853166, "pid": 20035, "src": "ws", "recv": 8889.537264458, "lt": 8889.536037041, "tt": 17.1897}
+{"stage": "vad_end", "t": 8889.535883166, "pid": 20035, "src": "ws", "recv": 8889.537363458, "lt": 8889.536067041, "tt": 17.1897}
+{"stage": "asr_partial", "t": 8890.554303416, "pid": 20035, "text": "Yeah, that way, if the remote's not where you left it, you don't have to blame everyone else. You can just ask someone. That's always my thing. Like when things get moved around that, you know, like I don't know who moved it. I can't find it. It always made me crazy.", "src": "ws", "recv": 8890.55460625, "lt": 8890.554487291, "tt": 18.2082}
+{"stage": "asr_partial", "t": 8892.021144375, "pid": 20035, "text": "Yeah, that way, if the remote's not where you left it, you don't have to blame everyone else. You can just ask someone. That's always my thing. Like when things get moved around that, you know, like I don't know who moved it. I can't find it. It always made me crazy.", "src": "ws", "recv": 8892.021380083, "lt": 8892.021328249999, "tt": 19.675}

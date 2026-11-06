@@ -1,0 +1,28 @@
+{
+  "pre": {
+    "wpm": 166.6666666666667,
+    "pitch_mean": 214.43029195607366,
+    "pitch_sd": 43.65342860418867,
+    "intensity_mean": -28.92033050885874,
+    "intensity_sd": 8.39337482094043,
+    "utmosv2": null,
+    "speech_s": 1.632
+  },
+  "post": {
+    "wpm": 231.75965665236052,
+    "pitch_mean": 192.1810657900178,
+    "pitch_sd": 49.48955455211307,
+    "intensity_mean": -29.569164990468828,
+    "intensity_sd": 7.011375291288303,
+    "utmosv2": null,
+    "speech_s": 5.144
+  },
+  "delta": {
+    "wpm": 65.0929899856938,
+    "pitch_mean": -22.24922616605585,
+    "pitch_sd": 5.836125947924401,
+    "intensity_mean": -0.6488344816100877,
+    "intensity_sd": -1.381999529652127,
+    "utmosv2": null
+  }
+}

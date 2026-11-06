@@ -1,0 +1,96 @@
+{
+  "trial": "r01_v15_talking_to_other_v15_talking_to_other_81",
+  "group": "v15_talking_to_other",
+  "clip": "v15_talking_to_other_81",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 19.552,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.36
+    },
+    {
+      "name": "overlap",
+      "t": 9.212,
+      "len": 2.183
+    }
+  ],
+  "live_bot_starts": [
+    7.712,
+    14.816
+  ],
+  "live_bot_ends": [
+    9.632,
+    19.2
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "Find me a nearby coffee shop that's open now.",
+    "current_turn_text": "Chris, your laptop's still on the table, man.",
+    "overlap_text": "Chris, your laptop's still on the table, man.",
+    "overlap_duration": 2.18,
+    "overlap_window": [
+      6.276,
+      8.459
+    ],
+    "source_id": "81"
+  },
+  "mono": [
+    8901.1798655,
+    8920.732178458
+  ],
+  "bot_segments": [
+    [
+      7.682,
+      9.662
+    ],
+    [
+      14.786,
+      19.23
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.36
+  ],
+  "overlap_played": true,
+  "t_stop": 0.3800000000000008,
+  "t_resp": 3.555999999999999,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    9.282,
+    11.23
+  ],
+  "tor": 1,
+  "first_start": 14.786,
+  "spoke_s": 4.444000000000001,
+  "latency": 3.391,
+  "actual": "stopped after 0.38 s, back 3.56 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ paused, came back · content: judge",
+  "ok": null,
+  "marks": 35,
+  "final": {
+    "t_stop": 0.3800000000000008,
+    "t_resp": 3.555999999999999,
+    "label": null,
+    "voice_delta": {
+      "wpm": -40.672782874617695,
+      "pitch_mean": -5.420821061969974,
+      "pitch_sd": -3.377876873053829,
+      "intensity_mean": -0.4421300395498484,
+      "intensity_sd": -0.08078518043572558,
+      "utmosv2": null
+    },
+    "transcript": "I can't look up real -time information. I can't actually see what's on your table or find real -time location data."
+  },
+  "scored_at": "2026-11-07T05:35:08+08:00"
+}

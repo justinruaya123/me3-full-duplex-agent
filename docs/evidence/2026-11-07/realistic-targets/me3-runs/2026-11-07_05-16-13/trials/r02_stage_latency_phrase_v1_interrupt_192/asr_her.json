@@ -1,0 +1,83 @@
+{
+  "text": "Could you be more specific about which path you're referring to?",
+  "chunks": [
+    {
+      "text": "Could",
+      "timestamp": [
+        5.97,
+        6.43
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        6.43,
+        6.55
+      ]
+    },
+    {
+      "text": "be",
+      "timestamp": [
+        6.55,
+        6.69
+      ]
+    },
+    {
+      "text": "more",
+      "timestamp": [
+        6.69,
+        6.89
+      ]
+    },
+    {
+      "text": "specific",
+      "timestamp": [
+        6.89,
+        7.35
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        7.35,
+        7.79
+      ]
+    },
+    {
+      "text": "which",
+      "timestamp": [
+        7.79,
+        8.03
+      ]
+    },
+    {
+      "text": "path",
+      "timestamp": [
+        8.03,
+        8.27
+      ]
+    },
+    {
+      "text": "you're",
+      "timestamp": [
+        8.27,
+        8.51
+      ]
+    },
+    {
+      "text": "referring",
+      "timestamp": [
+        8.51,
+        8.85
+      ]
+    },
+    {
+      "text": "to?",
+      "timestamp": [
+        8.85,
+        9.17
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

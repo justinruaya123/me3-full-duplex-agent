@@ -1,0 +1,62 @@
+{
+  "text": "That's a massive topic for a quick chat.",
+  "chunks": [
+    {
+      "text": "That's",
+      "timestamp": [
+        4.56,
+        5.22
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        5.22,
+        5.28
+      ]
+    },
+    {
+      "text": "massive",
+      "timestamp": [
+        5.28,
+        5.58
+      ]
+    },
+    {
+      "text": "topic",
+      "timestamp": [
+        5.58,
+        6.04
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        6.04,
+        6.26
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.26,
+        6.4
+      ]
+    },
+    {
+      "text": "quick",
+      "timestamp": [
+        6.4,
+        6.5
+      ]
+    },
+    {
+      "text": "chat.",
+      "timestamp": [
+        6.5,
+        6.82
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,76 @@
+{
+  "text": "That's a great goal. Where would you like to start?",
+  "chunks": [
+    {
+      "text": "That's",
+      "timestamp": [
+        4.43,
+        5.09
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        5.09,
+        5.17
+      ]
+    },
+    {
+      "text": "great",
+      "timestamp": [
+        5.17,
+        5.35
+      ]
+    },
+    {
+      "text": "goal.",
+      "timestamp": [
+        5.35,
+        5.69
+      ]
+    },
+    {
+      "text": "Where",
+      "timestamp": [
+        6.73,
+        7.05
+      ]
+    },
+    {
+      "text": "would",
+      "timestamp": [
+        7.05,
+        7.23
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        7.23,
+        7.33
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        7.33,
+        7.51
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        7.51,
+        7.71
+      ]
+    },
+    {
+      "text": "start?",
+      "timestamp": [
+        7.71,
+        7.99
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

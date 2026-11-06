@@ -1,0 +1,146 @@
+{
+  "text": "I don't have access to real -time data, so I can't tell you the current score of the Mariners game.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.11,
+        4.55
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        4.55,
+        4.79
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        4.79,
+        4.93
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        4.93,
+        5.35
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        5.35,
+        5.61
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        5.61,
+        5.83
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        5.83,
+        6.09
+      ]
+    },
+    {
+      "text": "data,",
+      "timestamp": [
+        6.09,
+        6.43
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        6.79,
+        7.05
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        7.05,
+        7.23
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        7.23,
+        7.59
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        7.59,
+        7.75
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        7.75,
+        7.93
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        7.93,
+        8.05
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        8.05,
+        8.39
+      ]
+    },
+    {
+      "text": "score",
+      "timestamp": [
+        8.39,
+        8.79
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        8.79,
+        8.95
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.95,
+        9.09
+      ]
+    },
+    {
+      "text": "Mariners",
+      "timestamp": [
+        9.09,
+        9.51
+      ]
+    },
+    {
+      "text": "game.",
+      "timestamp": [
+        9.51,
+        9.77
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

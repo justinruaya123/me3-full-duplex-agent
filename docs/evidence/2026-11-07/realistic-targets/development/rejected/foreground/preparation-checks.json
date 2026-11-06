@@ -1,0 +1,18 @@
+{
+  "cases": 8,
+  "provider_calls": 0,
+  "baseline_candidate_histories_identical": true,
+  "case_ids": [
+    "math_42",
+    "boiling_100_c",
+    "photosynthesis_facts",
+    "corrected_delivery_day",
+    "invoice_1234_56",
+    "beginner_bread_step",
+    "ambiguous_referents",
+    "unsupported_email_action"
+  ],
+  "runner_sha256": "ac7c41c0f693fb8fc7978e24b2d6346f713ea12fe92bd6d48b3689ae1158a3ce",
+  "prepared_sha256": "552ef6738ffc7b634f75af8547e5eddc3d0e066f4e7b5de92289f1ecc9dacbc7",
+  "syntax_check": "passed; no inference"
+}

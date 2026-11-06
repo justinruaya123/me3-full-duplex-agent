@@ -1,0 +1,76 @@
+{
+  "text": "I'm here to help, but I can't physically assist you.",
+  "chunks": [
+    {
+      "text": "I'm",
+      "timestamp": [
+        5.49,
+        5.97
+      ]
+    },
+    {
+      "text": "here",
+      "timestamp": [
+        5.97,
+        6.13
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.13,
+        6.29
+      ]
+    },
+    {
+      "text": "help,",
+      "timestamp": [
+        6.29,
+        6.55
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        6.89,
+        6.97
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        6.97,
+        7.07
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        7.07,
+        7.37
+      ]
+    },
+    {
+      "text": "physically",
+      "timestamp": [
+        7.37,
+        7.61
+      ]
+    },
+    {
+      "text": "assist",
+      "timestamp": [
+        7.61,
+        8.01
+      ]
+    },
+    {
+      "text": "you.",
+      "timestamp": [
+        8.01,
+        8.29
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

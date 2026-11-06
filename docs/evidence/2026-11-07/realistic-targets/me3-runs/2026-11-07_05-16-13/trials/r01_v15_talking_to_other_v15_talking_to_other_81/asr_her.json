@@ -1,0 +1,153 @@
+{
+  "text": "I can't look up real -time information. I can't actually see what's on your table or find real -time location data.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        7.5,
+        7.76
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        7.76,
+        8.1
+      ]
+    },
+    {
+      "text": "look",
+      "timestamp": [
+        8.1,
+        8.22
+      ]
+    },
+    {
+      "text": "up",
+      "timestamp": [
+        8.22,
+        8.4
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        8.4,
+        8.66
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        8.66,
+        8.94
+      ]
+    },
+    {
+      "text": "information.",
+      "timestamp": [
+        8.94,
+        9.3
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        14.65,
+        14.87
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        14.87,
+        15.23
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        15.23,
+        15.55
+      ]
+    },
+    {
+      "text": "see",
+      "timestamp": [
+        15.55,
+        15.85
+      ]
+    },
+    {
+      "text": "what's",
+      "timestamp": [
+        15.85,
+        16.11
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        16.11,
+        16.19
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        16.19,
+        16.29
+      ]
+    },
+    {
+      "text": "table",
+      "timestamp": [
+        16.29,
+        16.63
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        16.63,
+        17.19
+      ]
+    },
+    {
+      "text": "find",
+      "timestamp": [
+        17.19,
+        17.51
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        17.51,
+        17.87
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        17.87,
+        18.13
+      ]
+    },
+    {
+      "text": "location",
+      "timestamp": [
+        18.13,
+        18.57
+      ]
+    },
+    {
+      "text": "data.",
+      "timestamp": [
+        18.57,
+        19.01
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

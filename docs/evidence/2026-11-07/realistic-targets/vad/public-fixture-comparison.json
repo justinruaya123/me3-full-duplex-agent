@@ -1,0 +1,25 @@
+{
+  "sources": [
+    {
+      "path": ".local/verification/d2/voice-sample.wav",
+      "file_sha256": "5acd95a2daa09061acbc47ab0efdcc26fd35c8439357f1a85fdb3df68eb820dc",
+      "pcm_sha256": "b43b8c5c59b4d629fc5c8df6d4d17d7bd30e2b83dad18189ea3352882a43fad1",
+      "rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "frames": 62400
+    },
+    {
+      "path": "docs/evidence/2026-11-07/d2/voice-sample.wav",
+      "file_sha256": "8ae222355a5c941aa7e26455aa4c8ba9a8bf4f6d61ae5cfbd9c6c45849c25d46",
+      "pcm_sha256": "7bd043115a3f3e5d08a898587d4d13e90da2ff728d3135663f9f655e9da3bd26",
+      "rate": 24000,
+      "channels": 1,
+      "sample_width": 2,
+      "frames": 62400
+    }
+  ],
+  "samples_identical": false,
+  "differing_samples": 43911,
+  "max_abs_sample_difference": 1894
+}

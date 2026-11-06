@@ -1,0 +1,90 @@
+{
+  "text": "I can't access external systems like FedEx to check your package status.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.75,
+        5.17
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        5.17,
+        5.55
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        5.55,
+        5.81
+      ]
+    },
+    {
+      "text": "external",
+      "timestamp": [
+        5.81,
+        6.31
+      ]
+    },
+    {
+      "text": "systems",
+      "timestamp": [
+        6.31,
+        6.83
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        6.83,
+        7.23
+      ]
+    },
+    {
+      "text": "FedEx",
+      "timestamp": [
+        7.23,
+        7.75
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        7.75,
+        8.15
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        8.15,
+        8.37
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        8.37,
+        8.51
+      ]
+    },
+    {
+      "text": "package",
+      "timestamp": [
+        8.51,
+        8.81
+      ]
+    },
+    {
+      "text": "status.",
+      "timestamp": [
+        8.81,
+        9.29
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

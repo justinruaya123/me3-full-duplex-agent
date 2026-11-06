@@ -1,0 +1,24 @@
+test_noise_and_clicks_do_not_create_provisional_turns (test_vad_onset_v1.VADOnsetTests.test_noise_and_clicks_do_not_create_provisional_turns) ... 2026-11-07 04:56:01.447 Python[17427:194733] 2026-11-07 04:56:01.447341 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Executing <Task pending name='Task-2' coro=<VADOnsetTests.test_noise_and_clicks_do_not_create_provisional_turns() running at /Users/jus/Documents/Grad/AI231/ME3/tests/test_vad_onset_v1.py:168> wait_for=<Future pending cb=[Task.task_wakeup()] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:459> cb=[_run_until_complete_cb() at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:181] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.318 seconds
+ok
+test_quiet_development_speech_pauses_within_450ms (test_vad_onset_v1.VADOnsetTests.test_quiet_development_speech_pauses_within_450ms) ... FAIL
+
+======================================================================
+FAIL: test_quiet_development_speech_pauses_within_450ms (test_vad_onset_v1.VADOnsetTests.test_quiet_development_speech_pauses_within_450ms)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_vad_onset_v1.py", line 154, in test_quiet_development_speech_pauses_within_450ms
+    self.assertTrue(starts, "No provisional onset within 450 ms")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true : No provisional onset within 450 ms
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.976s
+
+FAILED (failures=1)

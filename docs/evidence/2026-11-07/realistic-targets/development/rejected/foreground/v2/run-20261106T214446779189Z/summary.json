@@ -1,0 +1,212 @@
+{
+  "planned_calls": 30,
+  "attempted_calls": 30,
+  "stopped_reason": null,
+  "by_arm": {
+    "baseline": {
+      "attempted": 10,
+      "protocol_complete": 10,
+      "literal_fact_guard_passes": 8,
+      "useful_first_guard_passes": 7,
+      "filler_prefixes": 1,
+      "completion_claim_flags": 0,
+      "ai_boilerplate_flags": 0,
+      "generic_physical_disclaimer_flags": 0,
+      "clarification_cases": 3,
+      "single_question_clarifications": 1,
+      "median_first_sentence_words": 8.5,
+      "median_first_clause_chars": 45.0
+    },
+    "baseline_control": {
+      "attempted": 10,
+      "protocol_complete": 10,
+      "literal_fact_guard_passes": 8,
+      "useful_first_guard_passes": 6,
+      "filler_prefixes": 2,
+      "completion_claim_flags": 0,
+      "ai_boilerplate_flags": 0,
+      "generic_physical_disclaimer_flags": 1,
+      "clarification_cases": 3,
+      "single_question_clarifications": 1,
+      "median_first_sentence_words": 6.5,
+      "median_first_clause_chars": 37.0
+    },
+    "candidate": {
+      "attempted": 10,
+      "protocol_complete": 10,
+      "literal_fact_guard_passes": 9,
+      "useful_first_guard_passes": 6,
+      "filler_prefixes": 0,
+      "completion_claim_flags": 0,
+      "ai_boilerplate_flags": 0,
+      "generic_physical_disclaimer_flags": 0,
+      "clarification_cases": 3,
+      "single_question_clarifications": 3,
+      "median_first_sentence_words": 6.0,
+      "median_first_clause_chars": 33.5
+    }
+  },
+  "pairs": [
+    {
+      "case": "math_42",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 3,
+      "first_clause_char_delta": 11
+    },
+    {
+      "case": "math_42",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 0,
+      "first_clause_char_delta": -2
+    },
+    {
+      "case": "boiling_100_c",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 0,
+      "first_clause_char_delta": 0
+    },
+    {
+      "case": "boiling_100_c",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 0,
+      "first_clause_char_delta": 2
+    },
+    {
+      "case": "photosynthesis_facts",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -8,
+      "first_clause_char_delta": -38
+    },
+    {
+      "case": "photosynthesis_facts",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -14,
+      "first_clause_char_delta": -83
+    },
+    {
+      "case": "corrected_delivery_day",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -1,
+      "first_clause_char_delta": -3
+    },
+    {
+      "case": "corrected_delivery_day",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -4,
+      "first_clause_char_delta": -19
+    },
+    {
+      "case": "invoice_1234_56",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -1,
+      "first_clause_char_delta": -8
+    },
+    {
+      "case": "invoice_1234_56",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 0,
+      "first_clause_char_delta": 0
+    },
+    {
+      "case": "beginner_bread_step",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -30,
+      "first_clause_char_delta": -142
+    },
+    {
+      "case": "beginner_bread_step",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -22,
+      "first_clause_char_delta": -100
+    },
+    {
+      "case": "ambiguous_referents",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -5,
+      "first_clause_char_delta": -24
+    },
+    {
+      "case": "ambiguous_referents",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 1,
+      "first_clause_char_delta": 3
+    },
+    {
+      "case": "unsupported_email_action",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -2,
+      "first_clause_char_delta": -11
+    },
+    {
+      "case": "unsupported_email_action",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -6,
+      "first_clause_char_delta": -38
+    },
+    {
+      "case": "holdout_unspecified_choices",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 0,
+      "first_clause_char_delta": 0
+    },
+    {
+      "case": "holdout_unspecified_choices",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 2,
+      "first_clause_char_delta": 13
+    },
+    {
+      "case": "holdout_unknown_pass_threshold",
+      "repeat": 1,
+      "other_arm": "candidate",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": 1,
+      "first_clause_char_delta": 4
+    },
+    {
+      "case": "holdout_unknown_pass_threshold",
+      "repeat": 1,
+      "other_arm": "baseline_control",
+      "both_protocol_complete": true,
+      "first_sentence_word_delta": -2,
+      "first_clause_char_delta": -9
+    }
+  ],
+  "quality_decision": "manual review required; no native TTS measured"
+}

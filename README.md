@@ -1,7 +1,8 @@
 # ME3: Pi-default full-duplex agent
 
-Continues `prototype/hermes-duplex-v1` at `642cc73`, on
-`feat/pi-full-duplex-v1`. The [November 4 specification](docs/ME3_SPEC_2026-11-04.md)
+Continues `prototype/hermes-duplex-v1` at `642cc73` through
+`feat/pi-full-duplex-v1`; the published testing branch is
+`hermes/benchmark-latency-v1`. The [November 4 specification](docs/ME3_SPEC_2026-11-04.md)
 supersedes the older Hermes-first default. The controller remains harness-neutral;
 Hermes and the older OnIt/ME2-related baseline remain available.
 
@@ -24,9 +25,10 @@ installed in the validation environment. Setup uses isolated environments:
 ./scripts/me3.sh doctor
 ```
 
-The ignored `.env` is created without overwriting an existing file. It contains
-no API credentials. The installed Pi catalog identifies Sol as
-`openai-codex/gpt-5.6-sol`; no different model is selected automatically.
+The ignored `.env` is created with placeholders without overwriting an existing
+file. Fill private operator credentials locally. The tested selection is
+`openai-codex/gpt-6.1-sol`; its local RPC and real inference were verified.
+Each account/target must verify its own access; no model fallback is automatic.
 Configure Pi in the isolated directory selected by `PI_CODING_AGENT_DIR`:
 
 ```sh
@@ -78,14 +80,20 @@ a blocked bind is a failed environmental check, never a passed preview test.
 Pipeline tests explicitly skip when optional Pipecat is absent. Their inference
 and transport fixtures are labelled; they are not acoustic or provider tests.
 
-The unchanged course benchmark launcher/scorer is supported through
-`integrations/fdbench_entry.py`. Course runs globally bypass ownership; separate
-ownership runs keep it enabled. See [benchmark boundaries](docs/BENCHMARK.md).
-The latest real Mac run reduced E2E mean from 5.422s to 3.639s and ASR final
-mean from 4.454s to 2.786s with the same selected model IDs and local speech
-weights. The full latency and
-duplex gates remain unpassed; [the comparison](docs/evidence/2026-11-07/latency-improvement/README.md)
-includes p95, extra word errors, missing replies and slower interruption cases.
+The unchanged canonical ME3 benchmark is supported through
+`integrations/fdbench_entry.py`, with private fresh-session control through the
+official assistant/reset hooks. Course runs globally bypass ownership; separate
+ownership runs keep it enabled. The final real Mac run completed 60/60 items and
+72 recordings using Whisper Turbo, Qwen and Kokoro. E2E mean/p95 was
+**2.552/3.711s**, over 29 timed replies; WER was **1.449%**. One of 30 phrase
+trials had no recorded reply. ASR final **1.470/2.036s** and TTS p95 **0.696s**
+still exceed their targets; small interruption samples and semantic failures
+remain unqualified. See [canonical metrics and limits](docs/BENCHMARK.md).
+
+The verified feature branch is `hermes/benchmark-latency-v1`. Follow the
+[planned Raspberry Pi pull/setup/testing procedure](docs/RASPBERRY_PI_TESTING.md)
+for a later target run. It keeps jobs/orchestration on the Pi and only inference
+offloaded. That procedure has not been executed on Raspberry Pi hardware here.
 
 Current evidence, counts, measured software/device probes and unpassed gates
 are in [DUPLEX_STATUS](docs/DUPLEX_STATUS.md). No GPT Live parity, p95 acoustic

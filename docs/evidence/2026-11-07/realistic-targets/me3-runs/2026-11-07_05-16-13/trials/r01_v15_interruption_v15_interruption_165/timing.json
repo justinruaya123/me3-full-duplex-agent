@@ -1,0 +1,98 @@
+{
+  "trial": "r01_v15_interruption_v15_interruption_165",
+  "group": "v15_interruption",
+  "clip": "v15_interruption_165",
+  "variant": "main",
+  "expected": "stop, answer the new request (Respond)",
+  "duration": 21.248,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.616
+    },
+    {
+      "name": "overlap",
+      "t": 7.58,
+      "len": 3.616
+    }
+  ],
+  "live_bot_starts": [
+    6.08,
+    15.808,
+    18.144
+  ],
+  "live_bot_ends": [
+    8.256,
+    17.792,
+    20.896
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "How can I train my dog to follow basic commands?",
+    "current_turn_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_duration": 3.62,
+    "overlap_window": [
+      7.275,
+      10.891
+    ],
+    "source_id": "165"
+  },
+  "mono": [
+    8785.241782791,
+    8806.495457666
+  ],
+  "bot_segments": [
+    [
+      6.05,
+      8.286
+    ],
+    [
+      15.778,
+      20.926
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.616
+  ],
+  "overlap_played": true,
+  "t_stop": 0.34799999999999986,
+  "t_resp": 4.582000000000001,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    7.938,
+    11.196
+  ],
+  "tor": 1,
+  "first_start": 15.778,
+  "spoke_s": 3.4179999999999975,
+  "latency": 4.582000000000001,
+  "actual": "stopped after 0.35 s, back 4.58 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ replied · content: judge",
+  "ok": null,
+  "marks": 41,
+  "final": {
+    "t_stop": 0.34799999999999986,
+    "t_resp": 4.582000000000001,
+    "label": null,
+    "voice_delta": {
+      "wpm": -20.481494789795136,
+      "pitch_mean": -10.3372573010993,
+      "pitch_sd": 7.2541439198663085,
+      "intensity_mean": -0.6840880553181847,
+      "intensity_sd": -0.58759313818428,
+      "utmosv2": null
+    },
+    "transcript": "Start with high -value treats and short sessions. You asked about dog training first, but then mentioned switching your phone to silent mode."
+  },
+  "scored_at": "2026-11-07T05:35:05+08:00"
+}

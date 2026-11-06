@@ -1,0 +1,28 @@
+test_stale_playback_hint_without_active_speech_keeps_pause (test_paused_backchannel_v1.PurePausedControllerTests.test_stale_playback_hint_without_active_speech_keeps_pause) ... FAIL
+
+======================================================================
+FAIL: test_stale_playback_hint_without_active_speech_keeps_pause (test_paused_backchannel_v1.PurePausedControllerTests.test_stale_playback_hint_without_active_speech_keeps_pause)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 212, in test_stale_playback_hint_without_active_speech_keeps_pause
+    self.assertEqual(await self.controller.transcript(
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.event(), addressed=True,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ), "hold")
+    ^^^^^^^^^^
+AssertionError: 'backchannel' != 'hold'
+- backchannel
++ hold
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (failures=1)

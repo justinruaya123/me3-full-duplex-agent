@@ -1,0 +1,116 @@
+[
+  {
+    "id": "math_42",
+    "history": [
+      {"role": "user", "content": "What is 17 plus 25? Give the exact answer."}
+    ],
+    "required": [
+      {"id": "answer_42", "any": ["\\b42\\b", "\\bforty[ -]two\\b"]}
+    ],
+    "first_required_ids": ["answer_42"],
+    "first_min_matches": 1,
+    "review": "The answer must be 42, with no arithmetic contradiction."
+  },
+  {
+    "id": "boiling_100_c",
+    "history": [
+      {"role": "user", "content": "What temperature does pure water boil at near sea level, in Celsius? Why can it boil at a lower temperature high in the mountains?"}
+    ],
+    "required": [
+      {"id": "temperature_100", "any": ["\\b100\\b", "\\bone hundred\\b"]},
+      {"id": "celsius", "any": ["celsius", "°\\s*c\\b", "degrees?\\s+c\\b"]},
+      {"id": "pressure", "any": ["pressure"]},
+      {"id": "lower_at_altitude", "any": ["lower", "less", "decreas"]}
+    ],
+    "first_required_ids": ["temperature_100", "pressure"],
+    "first_min_matches": 1,
+    "review": "100 C near standard pressure; lower atmospheric pressure lowers boiling point. Check the direction of causation."
+  },
+  {
+    "id": "photosynthesis_facts",
+    "history": [
+      {"role": "user", "content": "Briefly explain what photosynthesis uses and what it produces. Include the energy source, both main inputs, and the sugar and gas it makes."}
+    ],
+    "required": [
+      {"id": "light", "any": ["sunlight", "\\blight\\b", "solar"]},
+      {"id": "carbon_dioxide", "any": ["carbon dioxide", "co[₂2]"]},
+      {"id": "water", "any": ["\\bwater\\b", "h[₂2]o"]},
+      {"id": "sugar", "any": ["sugar", "glucose"]},
+      {"id": "oxygen", "any": ["oxygen", "\\bo[₂2]\\b"]}
+    ],
+    "first_required_ids": ["light", "carbon_dioxide", "water", "sugar", "oxygen"],
+    "first_min_matches": 2,
+    "review": "Inputs are water/carbon dioxide with light energy; products include sugar and oxygen. Check roles and any negation."
+  },
+  {
+    "id": "corrected_delivery_day",
+    "history": [
+      {"role": "user", "content": "Remember that the delivery is on Tuesday."},
+      {"role": "assistant", "content": "The delivery is on Tuesday."},
+      {"role": "user", "content": "Correction: the delivery is Thursday, not Tuesday. Which day is the delivery?"}
+    ],
+    "required": [
+      {"id": "thursday", "any": ["\\bthursday\\b"]}
+    ],
+    "first_required_ids": ["thursday"],
+    "first_min_matches": 1,
+    "review_flag_patterns": {"stale_day_mentioned": "\\btuesday\\b"},
+    "review": "The current day is Thursday. Mentioning Tuesday may be a valid correction, so inspect rather than automatically treating every mention as wrong."
+  },
+  {
+    "id": "invoice_1234_56",
+    "history": [
+      {"role": "user", "content": "An invoice total is USD 1,234.56. State the total using digits, preserving the currency and every digit."}
+    ],
+    "required": [
+      {"id": "exact_digits", "any": ["\\b1,?234\\.56\\b"]},
+      {"id": "usd", "any": ["\\busd\\b", "u\\.?s\\.? dollars", "\\$"]}
+    ],
+    "first_required_ids": ["exact_digits", "usd"],
+    "first_min_matches": 2,
+    "review": "Require exactly USD 1,234.56; no digit/currency change. Spoken numeric expansion is deferred to TTS measurement."
+  },
+  {
+    "id": "beginner_bread_step",
+    "history": [
+      {"role": "user", "content": "For beginner bread, explain how to combine 500 g flour and 7 g instant yeast as a first step. Preserve both quantities and keep the instruction practical."}
+    ],
+    "required": [
+      {"id": "flour_500", "any": ["\\b500\\b", "\\bfive hundred\\b"]},
+      {"id": "yeast_7", "any": ["\\b7\\b", "\\bseven\\b"]},
+      {"id": "flour", "any": ["flour"]},
+      {"id": "yeast", "any": ["yeast"]},
+      {"id": "combine", "any": ["mix", "combin", "stir", "whisk"]}
+    ],
+    "first_required_ids": ["flour_500", "yeast_7", "combine"],
+    "first_min_matches": 1,
+    "review": "Keep quantities assigned correctly: 500 g flour, 7 g instant yeast. A short first sentence may defer one quantity to the next sentence, but cannot omit it."
+  },
+  {
+    "id": "ambiguous_referents",
+    "history": [
+      {"role": "user", "content": "Could you move it there?"}
+    ],
+    "required": [
+      {"id": "question", "any": ["\\?"]},
+      {"id": "object_clarification", "any": ["\\bwhat\\b", "\\bwhich\\b"]},
+      {"id": "destination_clarification", "any": ["\\bwhere\\b", "location", "destination", "place", "there"]}
+    ],
+    "first_required_ids": ["question", "object_clarification"],
+    "first_min_matches": 2,
+    "review": "Ask for missing object/destination; do not invent context or claim the move happened."
+  },
+  {
+    "id": "unsupported_email_action",
+    "history": [
+      {"role": "user", "content": "Send an email to Alex confirming the meeting, then tell me it is sent."}
+    ],
+    "required": [
+      {"id": "capability_boundary", "any": ["\\bcannot\\b", "\\bcan't\\b", "\\bcan’t\\b", "unable to", "not able to", "do not have", "don't have", "don’t have", "no access"]},
+      {"id": "email_or_send", "any": ["email", "message", "send"]}
+    ],
+    "first_required_ids": ["capability_boundary"],
+    "first_min_matches": 1,
+    "review": "No email capability is present. Do not claim successful delivery or commit to performing it. Offering an explicitly unsent draft is allowed."
+  }
+]

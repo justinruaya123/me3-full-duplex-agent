@@ -1,0 +1,240 @@
+{
+  "kind": "same-baseline native controls; all RNGs reset; loader eval state unchanged",
+  "training_modules_before": [],
+  "trials": [
+    {
+      "case": "brief",
+      "before": {
+        "first_pcm_seconds": 0.18602424999971845,
+        "total_seconds": 0.19038245800038567,
+        "pcm_conversion_seconds": 0.00028479199954745127,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "398967250201806a5cffc0af2ece0d8eebb7cdaeedb090a4fed8a53cc1de3a8f",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "after": {
+        "first_pcm_seconds": 0.18514991600022768,
+        "total_seconds": 0.19094329100062168,
+        "pcm_conversion_seconds": 0.0003157499995722901,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "54624528fb683aab76cbc1fdd15cb2120c339ebcae91697ffa0a6e2780dc8b40",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "exact_pcm": false,
+      "same_shapes": true,
+      "max_abs_float_difference": 8.940696716308594e-08,
+      "rmse": 5.0076348437045644e-09
+    },
+    {
+      "case": "medium",
+      "before": {
+        "first_pcm_seconds": 0.3847787499998958,
+        "total_seconds": 0.39828699999998207,
+        "pcm_conversion_seconds": 0.0008193749999918509,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "159964c765a160c290dadbf7bf87dc9d9d646c2fd48f7d5539055b00c4c60ff6",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "after": {
+        "first_pcm_seconds": 0.4112436670002353,
+        "total_seconds": 0.42604887500056066,
+        "pcm_conversion_seconds": 0.0008157500005836482,
+        "audio_seconds": 4.475,
+        "pcm_bytes": 214800,
+        "pcm_sha256": "20a22a417caf7f239d9c4aa5304cf4d8f60d5ed271b9770dbf73f607e290fc70",
+        "segment_phoneme_counts": [
+          67
+        ]
+      },
+      "exact_pcm": false,
+      "same_shapes": true,
+      "max_abs_float_difference": 8.940696716308594e-08,
+      "rmse": 4.7538366649651795e-09
+    },
+    {
+      "case": "numbers",
+      "before": {
+        "first_pcm_seconds": 0.6523094579997633,
+        "total_seconds": 0.6698588750005001,
+        "pcm_conversion_seconds": 0.0010447909999129479,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "01557021a566b3ceedb62ca09cbe1d15e6bbb5e2015e9ab843b3e8f8711e12b5",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "after": {
+        "first_pcm_seconds": 0.649233957999968,
+        "total_seconds": 0.6621240419999594,
+        "pcm_conversion_seconds": 0.0008192909999706899,
+        "audio_seconds": 7.7,
+        "pcm_bytes": 369600,
+        "pcm_sha256": "b0f0f031ad1d08e4033cb592b34a8b8cae74cbc4c9a8a584c717fa3940c3e3f2",
+        "segment_phoneme_counts": [
+          127
+        ]
+      },
+      "exact_pcm": false,
+      "same_shapes": true,
+      "max_abs_float_difference": 7.450580596923828e-08,
+      "rmse": 4.9752875107005496e-09
+    },
+    {
+      "case": "long",
+      "before": {
+        "first_pcm_seconds": 0.9006846669999504,
+        "total_seconds": 0.9348314589997244,
+        "pcm_conversion_seconds": 0.016091666999273002,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "e6b09322b78e69186e74e1f072c5d4aa6ddafcf90d1a45867484d252b077d82d",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "after": {
+        "first_pcm_seconds": 0.8545223750006699,
+        "total_seconds": 0.8674809590002042,
+        "pcm_conversion_seconds": 0.000893917000212241,
+        "audio_seconds": 10.325,
+        "pcm_bytes": 495600,
+        "pcm_sha256": "2cb0389554d2108ff72a39bbc1393dde15a78c3cb5cb2134a483f5f2c290d4e8",
+        "segment_phoneme_counts": [
+          169
+        ]
+      },
+      "exact_pcm": false,
+      "same_shapes": true,
+      "max_abs_float_difference": 8.940696716308594e-08,
+      "rmse": 5.197030338144523e-09
+    },
+    {
+      "case": "extended",
+      "before": {
+        "first_pcm_seconds": 1.356325165999806,
+        "total_seconds": 1.371262165999724,
+        "pcm_conversion_seconds": 0.0017429159997846,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "b5eb5bc5f26497bf5f9ec1531a172d2b18ea3c9cfbfe491be507554642469c9b",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "after": {
+        "first_pcm_seconds": 1.3792020419996334,
+        "total_seconds": 1.4081999999998516,
+        "pcm_conversion_seconds": 0.0018311670000912272,
+        "audio_seconds": 16.95,
+        "pcm_bytes": 813600,
+        "pcm_sha256": "353ef01942ae19c784a1c654b06c47d97bdc4a111cce27c4abc8fb6fecf77c3d",
+        "segment_phoneme_counts": [
+          270
+        ]
+      },
+      "exact_pcm": false,
+      "same_shapes": true,
+      "max_abs_float_difference": 1.0058283805847168e-07,
+      "rmse": 4.961128156941368e-09
+    }
+  ],
+  "rng_profiles": [
+    {
+      "repeat": 0,
+      "record": {
+        "first_pcm_seconds": 0.2665891249998822,
+        "total_seconds": 0.2729010000002745,
+        "pcm_conversion_seconds": 0.00035141700027452316,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "113861da37279b4e1841f2278a96723b3536e956d6ad125fda980c77dcdf9462",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "draws": [
+        {
+          "name": "uniform",
+          "shape": [
+            1,
+            9
+          ],
+          "sha256": "6313c9c64634b515329ba56848c06f2af6ff1cf4c1120ce523a1dd1467bc9dbf"
+        },
+        {
+          "name": "normal",
+          "shape": [
+            1,
+            44400,
+            9
+          ],
+          "sha256": "6db1f1a66ad5ba42917b588d5e09fcbf1089cb775efb983e5b2119fcc0722e06"
+        },
+        {
+          "name": "normal",
+          "shape": [
+            1,
+            44400,
+            1
+          ],
+          "sha256": "c6da55aa3588fa1693f61f9174b7e6e97495f019a4870f78d3740d1a8e72f382"
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "record": {
+        "first_pcm_seconds": 0.17905024999981833,
+        "total_seconds": 0.18543412500002887,
+        "pcm_conversion_seconds": 0.0004355409992058412,
+        "audio_seconds": 1.85,
+        "pcm_bytes": 88800,
+        "pcm_sha256": "dc7bf98aad1df4c71a2dd7ef5a41d4253156f28d47e47bccb57b97af51b7ff91",
+        "segment_phoneme_counts": [
+          19
+        ]
+      },
+      "draws": [
+        {
+          "name": "uniform",
+          "shape": [
+            1,
+            9
+          ],
+          "sha256": "6313c9c64634b515329ba56848c06f2af6ff1cf4c1120ce523a1dd1467bc9dbf"
+        },
+        {
+          "name": "normal",
+          "shape": [
+            1,
+            44400,
+            9
+          ],
+          "sha256": "6db1f1a66ad5ba42917b588d5e09fcbf1089cb775efb983e5b2119fcc0722e06"
+        },
+        {
+          "name": "normal",
+          "shape": [
+            1,
+            44400,
+            1
+          ],
+          "sha256": "c6da55aa3588fa1693f61f9174b7e6e97495f019a4870f78d3740d1a8e72f382"
+        }
+      ]
+    }
+  ],
+  "training_modules_after": [],
+  "all_rng_draws_identical": true,
+  "exact_pcm_controls": 0
+}

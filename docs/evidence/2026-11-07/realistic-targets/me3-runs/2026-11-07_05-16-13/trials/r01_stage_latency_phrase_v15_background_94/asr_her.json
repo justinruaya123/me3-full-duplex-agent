@@ -1,0 +1,104 @@
+{
+  "text": "I'm here to chat, not to perform web searches or check live tracking data.",
+  "chunks": [
+    {
+      "text": "I'm",
+      "timestamp": [
+        4.98,
+        5.48
+      ]
+    },
+    {
+      "text": "here",
+      "timestamp": [
+        5.48,
+        5.66
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        5.66,
+        5.84
+      ]
+    },
+    {
+      "text": "chat,",
+      "timestamp": [
+        5.84,
+        6.16
+      ]
+    },
+    {
+      "text": "not",
+      "timestamp": [
+        6.6,
+        6.78
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.78,
+        6.96
+      ]
+    },
+    {
+      "text": "perform",
+      "timestamp": [
+        6.96,
+        7.32
+      ]
+    },
+    {
+      "text": "web",
+      "timestamp": [
+        7.32,
+        7.58
+      ]
+    },
+    {
+      "text": "searches",
+      "timestamp": [
+        7.58,
+        7.92
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        7.92,
+        8.3
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        8.3,
+        8.58
+      ]
+    },
+    {
+      "text": "live",
+      "timestamp": [
+        8.58,
+        8.86
+      ]
+    },
+    {
+      "text": "tracking",
+      "timestamp": [
+        8.86,
+        9.24
+      ]
+    },
+    {
+      "text": "data.",
+      "timestamp": [
+        9.24,
+        9.56
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

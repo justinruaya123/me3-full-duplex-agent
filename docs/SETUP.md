@@ -98,14 +98,20 @@ imports occur only in this process; the Pi runtime makes authenticated HTTP
 inference calls. LAN endpoints require keys. Deliberately select a LAN bind
 address if using a Pi; never expose this service as a public deployment.
 
-The November 7 optimized build reuses byte-identical Whisper encoder features
-within one native request, with request cleanup on success/failure. It preserves
-full context, automatic language detection, word timestamps and the selected
-weights. Capture can reuse an identical current-generation recognition while
-still requiring final turn approval. No new API settings or dependencies are
-needed. The real rerun reduced E2E mean 5.422s -> 3.639s and ASR final mean
-4.454s -> 2.786s; p95 and duplex qualification remain open. See
-[the measured comparison](evidence/2026-11-07/latency-improvement/README.md).
+The current selected Turbo path reuses byte-identical encoder features within
+one native request and releases the memo on success/failure. Automatic language
+detection first uses the decoder's full-context mel. At confidence >=0.95 its
+features can serve decoding/alignment; lower confidence uses the installed
+detector's original padding/input without evicting the decode memo. No language
+is forced. High-confidence language padding is a changed heuristic, not proof
+of universal equivalence. Twenty generated development pairs retained identical
+text/language/word fields; broader multilingual quality remains unqualified.
+Seventeen warm ordinary pairs averaged 1.824s -> 0.978s, separately from the
+two ambiguous pairs and cold observation. Selected weights and real timestamps
+remain fixed. Capture reuse still requires identical current-generation PCM
+and final turn approval. No new API settings or dependencies are needed.
+See [the current evidence](evidence/2026-11-07/realistic-targets/README.md) and
+[canonical ME3 measurements](BENCHMARK.md) for clocks and unpassed gates.
 
 Kokoro requires `misaki[en]`; this dependency is included. The first model use
 can download weights. Existing small Whisper weights do not satisfy the
@@ -143,7 +149,13 @@ as the reference. `ME3_AEC_DELAY_MS` is an explicit device-delay hint. The DSP
 adapter is software-smoke-tested; physical echo/double-talk is unqualified.
 Licensed Krisp interruption prediction is not implemented/qualified. Provisional VAD
 pauses preserve unplayed PCM; accepted backchannels resume it; confirmed turns
-invalidate obsolete output. ASR uses bounded rolling whole-turn windows, stable
+invalidate obsolete output. An ended VAD capture is distinct from a semantic
+commit. The finite English acknowledgement baseline can resolve only the floor
+for an owner-verified, wholly affirmative ended capture with no prior non-ack
+hypothesis. It requires existing transport-observed audio and guards both
+pending and currently delivered questions. It resumes retained PCM without a
+request, tool, approval, job cancellation or fabricated ASR-final mark. Unknown
+or non-acknowledgement hypotheses remain held. ASR uses bounded whole-turn windows, stable
 prefix reconciliation and SmartTurn readiness. Inputs longer than 16 seconds
 are explicitly discarded rather than executing a fragment. Cached autonomous
 Kokoro backchannels and long-dictation stitching remain unpassed requirements.
@@ -193,8 +205,11 @@ and reports that fact. Public deployment is not authorized by a preview request.
 The latest tested copy is `.local/fd-benchmark-20261107` at
 `57eaddbc188ce9a19b8fd002b575f703426956f4`. The older
 `.local/fd-benchmark` at `106ac8e543a5fd996e254a87e69fa101bfd27a42` is preserved.
-The scorer is unchanged. Both November 7 real-model runs completed 40 queue
-items / 44 recordings each, scored with real evaluation ASR and Praat.
+The scorer is unchanged. The two earlier continuous-session runs completed
+40 queue items / 44 recordings each, scored with real evaluation ASR and Praat.
+Use the canonical ME3 runner, complete official dataset and original scorer for
+benchmark evidence. Native profiles, provider probes and control simulations
+are separate development checks.
 See [results and limits](BENCHMARK.md) and
 [the evidence](evidence/2026-11-07/course-benchmark/README.md).
 
@@ -222,38 +237,64 @@ the measured run used the downloaded cache with `HF_HUB_OFFLINE=1`.
 No judge was selected and UTMOS was not installed; those are unscored gates.
 
 Start `./scripts/me3.sh speech` in one terminal and wait for its listening
-banner. In another terminal at the project root:
+banner. In another terminal at the project root, the following uses the official
+assistant/reset hooks to give every recording a fresh local runtime. The wrapper
+owns only its benchmark child; ordinary `/end` and `/mute` retain delegated work.
+Its control/log instance directories must be new. Create the log parent only:
 
 ```sh
 set -a
 . ./.env
 set +a
-export FDBENCH_PROJECT="$PWD"
-export FDBENCH_ENTRY="$PWD/integrations/fdbench_entry.py"
-export FDBENCH_ASSISTANT_PYTHON="$PWD/.venv313/bin/python"
+me3_project="$PWD"
+me3_python="$me3_project/.venv313/bin/python"
+me3_bench="$me3_project/.local/fd-benchmark-20261107"
+me3_instance="me3-mac-$(date -u +%Y%m%dT%H%M%S)-$$"
+me3_control="/tmp/$me3_instance"
+me3_logs="$me3_project/.local/qualification/$me3_instance"
+mkdir -p "$me3_project/.local/qualification"
+export FDBENCH_PROJECT="$me3_project"
+export FDBENCH_ENTRY="$me3_project/integrations/fdbench_entry.py"
+export FDBENCH_ASSISTANT_PYTHON="$me3_python"
 export ME3_BENCHMARK_PROFILE=course
-.venv313/bin/python .local/fd-benchmark-20261107/launch_assistant.py --check
-cd .local/fd-benchmark-20261107
-.venv/bin/python -m fdbench run --student me3-local --rounds 1 \
-  --phrases 10 --runs 3 --seed 231 --connect direct --where local \
-  --judge-provider none --no-score --yes --recordings r --no-live
+
+me3_assistant_cmd=$(
+  "$me3_python" -c 'import shlex,sys; print(shlex.join(sys.argv[1:]))' \
+    "$me3_python" "$me3_project/integrations/benchmark_control.py" serve \
+    --control-dir "$me3_control" --instance "$me3_instance" \
+    --project "$me3_project" --launcher "$me3_bench/launch_assistant.py" \
+    --python "$me3_python" --log-root "$me3_logs"
+)
+me3_reset_cmd=$(
+  "$me3_python" -c 'import shlex,sys; print(shlex.join(sys.argv[1:]))' \
+    "$me3_python" "$me3_project/integrations/benchmark_control.py" reset \
+    --control-dir "$me3_control" --instance "$me3_instance"
+)
+"$me3_python" "$me3_bench/launch_assistant.py" --check
+cd "$me3_bench"
+.venv/bin/python -m fdbench run --student me3-local --rounds 3 \
+  --phrases 10 --runs 3 --seed 231 --gap 6 --connect direct --where local \
+  --judge-provider none --no-score --yes --recordings r --no-live \
+  --assistant-cmd "$me3_assistant_cmd" --reset-cmd "$me3_reset_cmd"
 # Use the run directory printed above for a new measurement.
-.venv/bin/python -m fdbench score runs/me3-local/2026-11-07_02-16-38 \
+.venv/bin/python -m fdbench score runs/me3-local/RUN_ID \
   --judge-provider none --no-utmos --asr-model small
 ```
 
 Direct feed opens no microphone or speaker. The course profile globally
 bypasses ownership; `ownership` enables it. No scenario labels are read by the
-agent. Default six-second gaps leave conversation and incomplete capture state
-intact; the current run is a continuous-session diagnostic. Independent trials
-still require a fresh build/session through the upstream `--reset-cmd` hook;
-that integration is not implemented. One round is insufficient for reliable
-per-stratum rates/p95, and content labels need an explicitly configured judge.
+agent. The wrapper resets between recordings, including clean twins; a
+six-second silence gap alone does not reset conversation or incomplete capture.
+Three complete rounds plus ten phrases repeated three times schedule 60 queue
+items and 72 recording variants with the complete official dataset. Retain
+missing replies, errors and overlaps not played in the reported denominators.
+Small per-stratum samples remain insufficient for a reliable p95, and content
+labels need an explicitly configured judge.
 The launcher `READY` result alone is only an import/rate contract check.
 
-Pi deployment: use 64-bit Linux, Python >=3.11, Node, Pi CLI, PortAudio and the
-portable runtime dependencies; configure authenticated M2 speech endpoints.
-Do not install MLX on the Pi. Before qualification, repeat device/provider tests,
-idle/busy contention and failures, speakerphone echo/double-talk, accents and the
-30-minute CPU/memory/temperature/dropout soak on the actual Pi4/4GB. Mac results
-and software fixture timing do not satisfy those gates.
+For pulling this branch and preparing a Pi, follow the
+[Raspberry Pi testing procedure](RASPBERRY_PI_TESTING.md). It uses explicit
+portable-runtime paths and the verified Pi CLI package; Mac locks and MLX are
+not Pi installation recipes. ARM installation, actual audio, idle/busy and LAN
+failure tests, echo/double-talk and the 30-minute resource/dropout soak remain
+target-hardware gates. The procedure has not been executed on a Pi here.

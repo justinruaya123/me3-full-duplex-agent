@@ -1,0 +1,1757 @@
+[
+  {
+    "case": "math_42",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer first. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"What is 17 plus 25? Give the exact answer.\"}]",
+    "full_output": "The sum is 42.",
+    "project_clauses": [
+      {
+        "text": "The sum is 42.",
+        "ready_s": 0.6247567499995057
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.031008207999548176,
+      "llm_first_token": 0.5276455829989573
+    },
+    "first_project_clause_ready_s": 0.6247567499995057,
+    "total_s": 0.6247773750001215,
+    "metrics": {
+      "first_sentence": "The sum is 42.",
+      "first_sentence_words": 4,
+      "first_sentence_chars": 14,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        4
+      ],
+      "sentence_chars": [
+        14
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 4,
+      "full_chars": 14,
+      "first_project_clause": "The sum is 42.",
+      "first_project_clause_words": 4,
+      "first_project_clause_chars": 14,
+      "required_literal_guards": {
+        "answer_42": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "math_42",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"What is 17 plus 25? Give the exact answer.\"}]",
+    "full_output": "That's 42.",
+    "project_clauses": [
+      {
+        "text": "That's 42.",
+        "ready_s": 0.21712254200065217
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.013961250000647851,
+      "llm_first_token": 0.08412187499925494
+    },
+    "first_project_clause_ready_s": 0.21712254200065217,
+    "total_s": 0.21713908399942738,
+    "metrics": {
+      "first_sentence": "That's 42.",
+      "first_sentence_words": 2,
+      "first_sentence_chars": 10,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        2
+      ],
+      "sentence_chars": [
+        10
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 2,
+      "full_chars": 10,
+      "first_project_clause": "That's 42.",
+      "first_project_clause_words": 2,
+      "first_project_clause_chars": 10,
+      "required_literal_guards": {
+        "answer_42": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "math_42",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"What is 17 plus 25? Give the exact answer.\"}]",
+    "full_output": "42.",
+    "project_clauses": [
+      {
+        "text": "42.",
+        "ready_s": 0.30470895799953723
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.011688124999636784,
+      "llm_first_token": 0.258442082998954
+    },
+    "first_project_clause_ready_s": 0.30470895799953723,
+    "total_s": 0.30472145800013095,
+    "metrics": {
+      "first_sentence": "42.",
+      "first_sentence_words": 1,
+      "first_sentence_chars": 3,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        1
+      ],
+      "sentence_chars": [
+        3
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 1,
+      "full_chars": 3,
+      "first_project_clause": "42.",
+      "first_project_clause_words": 1,
+      "first_project_clause_chars": 3,
+      "required_literal_guards": {
+        "answer_42": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "boiling_100_c",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"What temperature does pure water boil at near sea level, in Celsius? Why can it boil at a lower temperature high in the mountains?\"}]",
+    "full_output": "Pure water boils at 100 degrees Celsius at sea level. It boils at a lower temperature at high altitudes because the air pressure is lower there. Since boiling happens when a liquid\u2019s vapor pressure equals the surrounding atmospheric pressure, lower outside pressure allows the water to reach that point at a cooler temperature.",
+    "project_clauses": [
+      {
+        "text": "Pure water boils at 100 degrees Celsius at sea level.",
+        "ready_s": 0.5090560000007827
+      },
+      {
+        "text": "It boils at a lower temperature at high altitudes because the air pressure is lower there.",
+        "ready_s": 0.5662024590001238
+      },
+      {
+        "text": "Since boiling happens when a liquid\u2019s vapor pressure equals the surrounding atmospheric pressure, lower outside pressure allows the water to reach that point at a cooler temperature.",
+        "ready_s": 1.0137727919991448
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.012155291999079054,
+      "llm_first_token": 0.10068708399921888
+    },
+    "first_project_clause_ready_s": 0.5090560000007827,
+    "total_s": 1.013831709000442,
+    "metrics": {
+      "first_sentence": "Pure water boils at 100 degrees Celsius at sea level.",
+      "first_sentence_words": 10,
+      "first_sentence_chars": 53,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        10,
+        16,
+        27
+      ],
+      "sentence_chars": [
+        53,
+        90,
+        182
+      ],
+      "sentences_over_12_words": 2,
+      "full_words": 53,
+      "full_chars": 327,
+      "first_project_clause": "Pure water boils at 100 degrees Celsius at sea level.",
+      "first_project_clause_words": 10,
+      "first_project_clause_chars": 53,
+      "required_literal_guards": {
+        "temperature_100": true,
+        "celsius": true,
+        "pressure": true,
+        "lower_at_altitude": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "boiling_100_c",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"What temperature does pure water boil at near sea level, in Celsius? Why can it boil at a lower temperature high in the mountains?\"}]",
+    "full_output": "So, at sea level, pure water boils at exactly 100 degrees Celsius. Up in the mountains, it boils at a lower temperature because the air pressure is thinner. Less pressure pushing down on the water means it doesn\u2019t need to get as hot to form bubbles and boil.",
+    "project_clauses": [
+      {
+        "text": "So, at sea level, pure water boils at exactly 100 degrees Celsius.",
+        "ready_s": 0.5121003330004896
+      },
+      {
+        "text": "Up in the mountains, it boils at a lower temperature because the air pressure is thinner.",
+        "ready_s": 0.7203574579998531
+      },
+      {
+        "text": "Less pressure pushing down on the water means it doesn\u2019t need to get as hot to form bubbles and boil.",
+        "ready_s": 1.6733054169999377
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.013423417000012705,
+      "llm_first_token": 0.20455391699942993
+    },
+    "first_project_clause_ready_s": 0.5121003330004896,
+    "total_s": 1.673321832999136,
+    "metrics": {
+      "first_sentence": "So, at sea level, pure water boils at exactly 100 degrees Celsius.",
+      "first_sentence_words": 12,
+      "first_sentence_chars": 66,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        12,
+        16,
+        20
+      ],
+      "sentence_chars": [
+        66,
+        89,
+        101
+      ],
+      "sentences_over_12_words": 2,
+      "full_words": 48,
+      "full_chars": 258,
+      "first_project_clause": "So, at sea level, pure water boils at exactly 100 degrees Celsius.",
+      "first_project_clause_words": 12,
+      "first_project_clause_chars": 66,
+      "required_literal_guards": {
+        "temperature_100": true,
+        "celsius": true,
+        "pressure": true,
+        "lower_at_altitude": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "boiling_100_c",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer first. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"What temperature does pure water boil at near sea level, in Celsius? Why can it boil at a lower temperature high in the mountains?\"}]",
+    "full_output": "Water boils at 100 degrees Celsius near sea level. Atmospheric pressure drops at high altitudes. Lower pressure requires less heat to boil. Thus, boiling occurs at lower temperatures.",
+    "project_clauses": [
+      {
+        "text": "Water boils at 100 degrees Celsius near sea level.",
+        "ready_s": 0.4206255829994916
+      },
+      {
+        "text": "Atmospheric pressure drops at high altitudes.",
+        "ready_s": 0.4835511250003037
+      },
+      {
+        "text": "Lower pressure requires less heat to boil.",
+        "ready_s": 0.6169456249990617
+      },
+      {
+        "text": "Thus, boiling occurs at lower temperatures.",
+        "ready_s": 0.6870084579986724
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.013900874999308144,
+      "llm_first_token": 0.29486229099893535
+    },
+    "first_project_clause_ready_s": 0.4206255829994916,
+    "total_s": 0.6870267909998802,
+    "metrics": {
+      "first_sentence": "Water boils at 100 degrees Celsius near sea level.",
+      "first_sentence_words": 9,
+      "first_sentence_chars": 50,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        9,
+        6,
+        7,
+        6
+      ],
+      "sentence_chars": [
+        50,
+        45,
+        42,
+        43
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 28,
+      "full_chars": 183,
+      "first_project_clause": "Water boils at 100 degrees Celsius near sea level.",
+      "first_project_clause_words": 9,
+      "first_project_clause_chars": 50,
+      "required_literal_guards": {
+        "temperature_100": true,
+        "celsius": true,
+        "pressure": true,
+        "lower_at_altitude": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "photosynthesis_facts",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Briefly explain what photosynthesis uses and what it produces. Include the energy source, both main inputs, and the sugar and gas it makes.\"}]",
+    "full_output": "Photosynthesis uses sunlight as its energy source. It takes in carbon dioxide and water as its two main inputs. The process produces sugar for energy and releases oxygen gas.",
+    "project_clauses": [
+      {
+        "text": "Photosynthesis uses sunlight as its energy source.",
+        "ready_s": 1.6098212500000955
+      },
+      {
+        "text": "It takes in carbon dioxide and water as its two main inputs.",
+        "ready_s": 1.6101657079998404
+      },
+      {
+        "text": "The process produces sugar for energy and releases oxygen gas.",
+        "ready_s": 1.6121048750010232
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.012722290999590768,
+      "llm_first_token": 0.7685455829996499
+    },
+    "first_project_clause_ready_s": 1.6098212500000955,
+    "total_s": 1.6121355409995886,
+    "metrics": {
+      "first_sentence": "Photosynthesis uses sunlight as its energy source.",
+      "first_sentence_words": 7,
+      "first_sentence_chars": 50,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        7,
+        12,
+        10
+      ],
+      "sentence_chars": [
+        50,
+        60,
+        62
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 29,
+      "full_chars": 174,
+      "first_project_clause": "Photosynthesis uses sunlight as its energy source.",
+      "first_project_clause_words": 7,
+      "first_project_clause_chars": 50,
+      "required_literal_guards": {
+        "light": true,
+        "carbon_dioxide": true,
+        "water": true,
+        "sugar": true,
+        "oxygen": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "photosynthesis_facts",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer first. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"Briefly explain what photosynthesis uses and what it produces. Include the energy source, both main inputs, and the sugar and gas it makes.\"}]",
+    "full_output": "Photosynthesis uses sunlight for energy. It takes in carbon dioxide and water. It produces glucose and oxygen.",
+    "project_clauses": [
+      {
+        "text": "Photosynthesis uses sunlight for energy.",
+        "ready_s": 0.357239541999661
+      },
+      {
+        "text": "It takes in carbon dioxide and water.",
+        "ready_s": 0.5774917079997977
+      },
+      {
+        "text": "It produces glucose and oxygen.",
+        "ready_s": 0.6292243749994668
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.012965457999598584,
+      "llm_first_token": 0.09869466700001794
+    },
+    "first_project_clause_ready_s": 0.357239541999661,
+    "total_s": 0.6292604169993865,
+    "metrics": {
+      "first_sentence": "Photosynthesis uses sunlight for energy.",
+      "first_sentence_words": 5,
+      "first_sentence_chars": 40,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        5,
+        7,
+        5
+      ],
+      "sentence_chars": [
+        40,
+        37,
+        31
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 17,
+      "full_chars": 110,
+      "first_project_clause": "Photosynthesis uses sunlight for energy.",
+      "first_project_clause_words": 5,
+      "first_project_clause_chars": 40,
+      "required_literal_guards": {
+        "light": true,
+        "carbon_dioxide": true,
+        "water": true,
+        "sugar": true,
+        "oxygen": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "photosynthesis_facts",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Briefly explain what photosynthesis uses and what it produces. Include the energy source, both main inputs, and the sugar and gas it makes.\"}]",
+    "full_output": "Photosynthesis uses sunlight as its energy source, taking in carbon dioxide and water as its main inputs to produce glucose and oxygen.",
+    "project_clauses": [
+      {
+        "text": "Photosynthesis uses sunlight as its energy source, taking in carbon dioxide and water as its main inputs to produce glucose and oxygen.",
+        "ready_s": 0.5038245420000749
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.016989749999993364,
+      "llm_first_token": 0.14236583300044003
+    },
+    "first_project_clause_ready_s": 0.5038245420000749,
+    "total_s": 0.5038582500001212,
+    "metrics": {
+      "first_sentence": "Photosynthesis uses sunlight as its energy source, taking in carbon dioxide and water as its main inputs to produce glucose and oxygen.",
+      "first_sentence_words": 22,
+      "first_sentence_chars": 135,
+      "first_sentence_at_most_12_words": false,
+      "sentence_words": [
+        22
+      ],
+      "sentence_chars": [
+        135
+      ],
+      "sentences_over_12_words": 1,
+      "full_words": 22,
+      "full_chars": 135,
+      "first_project_clause": "Photosynthesis uses sunlight as its energy source, taking in carbon dioxide and water as its main inputs to produce glucose and oxygen.",
+      "first_project_clause_words": 22,
+      "first_project_clause_chars": 135,
+      "required_literal_guards": {
+        "light": true,
+        "carbon_dioxide": true,
+        "water": true,
+        "sugar": true,
+        "oxygen": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "corrected_delivery_day",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer first. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"Remember that the delivery is on Tuesday.\"}, {\"role\": \"assistant\", \"content\": \"The delivery is on Tuesday.\"}, {\"role\": \"user\", \"content\": \"Correction: the delivery is Thursday, not Tuesday. Which day is the delivery?\"}]",
+    "full_output": "The delivery is on Thursday.",
+    "project_clauses": [
+      {
+        "text": "The delivery is on Thursday.",
+        "ready_s": 0.6815871669987246
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.014002208999954746,
+      "llm_first_token": 0.29986099999950966
+    },
+    "first_project_clause_ready_s": 0.6815871669987246,
+    "total_s": 0.6816010419988743,
+    "metrics": {
+      "first_sentence": "The delivery is on Thursday.",
+      "first_sentence_words": 5,
+      "first_sentence_chars": 28,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        5
+      ],
+      "sentence_chars": [
+        28
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 5,
+      "full_chars": 28,
+      "first_project_clause": "The delivery is on Thursday.",
+      "first_project_clause_words": 5,
+      "first_project_clause_chars": 28,
+      "required_literal_guards": {
+        "thursday": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {
+        "stale_day_mentioned": false
+      },
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "corrected_delivery_day",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Remember that the delivery is on Tuesday.\"}, {\"role\": \"assistant\", \"content\": \"The delivery is on Tuesday.\"}, {\"role\": \"user\", \"content\": \"Correction: the delivery is Thursday, not Tuesday. Which day is the delivery?\"}]",
+    "full_output": "The delivery is on Thursday.",
+    "project_clauses": [
+      {
+        "text": "The delivery is on Thursday.",
+        "ready_s": 0.3452234589985892
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.012087208999219001,
+      "llm_first_token": 0.2686846670003433
+    },
+    "first_project_clause_ready_s": 0.3452234589985892,
+    "total_s": 0.34525404200030607,
+    "metrics": {
+      "first_sentence": "The delivery is on Thursday.",
+      "first_sentence_words": 5,
+      "first_sentence_chars": 28,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        5
+      ],
+      "sentence_chars": [
+        28
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 5,
+      "full_chars": 28,
+      "first_project_clause": "The delivery is on Thursday.",
+      "first_project_clause_words": 5,
+      "first_project_clause_chars": 28,
+      "required_literal_guards": {
+        "thursday": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {
+        "stale_day_mentioned": false
+      },
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "corrected_delivery_day",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Remember that the delivery is on Tuesday.\"}, {\"role\": \"assistant\", \"content\": \"The delivery is on Tuesday.\"}, {\"role\": \"user\", \"content\": \"Correction: the delivery is Thursday, not Tuesday. Which day is the delivery?\"}]",
+    "full_output": "The delivery is on Thursday.",
+    "project_clauses": [
+      {
+        "text": "The delivery is on Thursday.",
+        "ready_s": 0.25715170800140186
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.01175025000156893,
+      "llm_first_token": 0.1669638750008744
+    },
+    "first_project_clause_ready_s": 0.25715170800140186,
+    "total_s": 0.25718366600085574,
+    "metrics": {
+      "first_sentence": "The delivery is on Thursday.",
+      "first_sentence_words": 5,
+      "first_sentence_chars": 28,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        5
+      ],
+      "sentence_chars": [
+        28
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 5,
+      "full_chars": 28,
+      "first_project_clause": "The delivery is on Thursday.",
+      "first_project_clause_words": 5,
+      "first_project_clause_chars": 28,
+      "required_literal_guards": {
+        "thursday": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {
+        "stale_day_mentioned": false
+      },
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "invoice_1234_56",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"An invoice total is USD 1,234.56. State the total using digits, preserving the currency and every digit.\"}]",
+    "full_output": "The invoice total is USD 1,234.56.",
+    "project_clauses": [
+      {
+        "text": "The invoice total is USD 1,234.56.",
+        "ready_s": 0.6509927909992257
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.01250524999886693,
+      "llm_first_token": 0.40791100000024016
+    },
+    "first_project_clause_ready_s": 0.6509927909992257,
+    "total_s": 0.65104620800048,
+    "metrics": {
+      "first_sentence": "The invoice total is USD 1,234.56.",
+      "first_sentence_words": 6,
+      "first_sentence_chars": 34,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        6
+      ],
+      "sentence_chars": [
+        34
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 6,
+      "full_chars": 34,
+      "first_project_clause": "The invoice total is USD 1,234.56.",
+      "first_project_clause_words": 6,
+      "first_project_clause_chars": 34,
+      "required_literal_guards": {
+        "exact_digits": true,
+        "usd": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "invoice_1234_56",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"An invoice total is USD 1,234.56. State the total using digits, preserving the currency and every digit.\"}]",
+    "full_output": "The total is USD 1,234.56.",
+    "project_clauses": [
+      {
+        "text": "The total is USD 1,234.56.",
+        "ready_s": 0.7136998750011116
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.012344125001618522,
+      "llm_first_token": 0.40868616700026905
+    },
+    "first_project_clause_ready_s": 0.7136998750011116,
+    "total_s": 0.7137148750007327,
+    "metrics": {
+      "first_sentence": "The total is USD 1,234.56.",
+      "first_sentence_words": 5,
+      "first_sentence_chars": 26,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        5
+      ],
+      "sentence_chars": [
+        26
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 5,
+      "full_chars": 26,
+      "first_project_clause": "The total is USD 1,234.56.",
+      "first_project_clause_words": 5,
+      "first_project_clause_chars": 26,
+      "required_literal_guards": {
+        "exact_digits": true,
+        "usd": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "invoice_1234_56",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer first. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"An invoice total is USD 1,234.56. State the total using digits, preserving the currency and every digit.\"}]",
+    "full_output": "The invoice total is USD 1,234.56.",
+    "project_clauses": [
+      {
+        "text": "The invoice total is USD 1,234.56.",
+        "ready_s": 1.4324342080017232
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.013245500000266475,
+      "llm_first_token": 0.1625428750012361
+    },
+    "first_project_clause_ready_s": 1.4324342080017232,
+    "total_s": 1.432449333000477,
+    "metrics": {
+      "first_sentence": "The invoice total is USD 1,234.56.",
+      "first_sentence_words": 6,
+      "first_sentence_chars": 34,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        6
+      ],
+      "sentence_chars": [
+        34
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 6,
+      "full_chars": 34,
+      "first_project_clause": "The invoice total is USD 1,234.56.",
+      "first_project_clause_words": 6,
+      "first_project_clause_chars": 34,
+      "required_literal_guards": {
+        "exact_digits": true,
+        "usd": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "beginner_bread_step",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"For beginner bread, explain how to combine 500 g flour and 7 g instant yeast as a first step. Preserve both quantities and keep the instruction practical.\"}]",
+    "full_output": "So, start by putting that 500 grams of flour into a bowl. Then, just sprinkle the 7 grams of instant yeast directly on top of it and stir until they\u2019re evenly mixed.",
+    "project_clauses": [
+      {
+        "text": "So, start by putting that 500 grams of flour into a bowl.",
+        "ready_s": 0.8256500839997898
+      },
+      {
+        "text": "Then, just sprinkle the 7 grams of instant yeast directly on top of it and stir until they\u2019re evenly mixed.",
+        "ready_s": 1.1042979169997125
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.01301699999930861,
+      "llm_first_token": 0.4830244999993738
+    },
+    "first_project_clause_ready_s": 0.8256500839997898,
+    "total_s": 1.1043421670001408,
+    "metrics": {
+      "first_sentence": "So, start by putting that 500 grams of flour into a bowl.",
+      "first_sentence_words": 12,
+      "first_sentence_chars": 57,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        12,
+        20
+      ],
+      "sentence_chars": [
+        57,
+        107
+      ],
+      "sentences_over_12_words": 1,
+      "full_words": 32,
+      "full_chars": 165,
+      "first_project_clause": "So, start by putting that 500 grams of flour into a bowl.",
+      "first_project_clause_words": 12,
+      "first_project_clause_chars": 57,
+      "required_literal_guards": {
+        "flour_500": true,
+        "yeast_7": true,
+        "flour": true,
+        "yeast": true,
+        "combine": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "beginner_bread_step",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer first. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"For beginner bread, explain how to combine 500 g flour and 7 g instant yeast as a first step. Preserve both quantities and keep the instruction practical.\"}]",
+    "full_output": "Whisk the dry ingredients together. Add 500 g flour to a bowl. Sprinkle 7 g instant yeast on top. Stir until fully mixed.",
+    "project_clauses": [
+      {
+        "text": "Whisk the dry ingredients together.",
+        "ready_s": 0.7170761659999698
+      },
+      {
+        "text": "Add 500 g flour to a bowl.",
+        "ready_s": 1.114235250001002
+      },
+      {
+        "text": "Sprinkle 7 g instant yeast on top.",
+        "ready_s": 1.1145934579999448
+      },
+      {
+        "text": "Stir until fully mixed.",
+        "ready_s": 1.1149264160012535
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.011956624999584164,
+      "llm_first_token": 0.6396024160003435
+    },
+    "first_project_clause_ready_s": 0.7170761659999698,
+    "total_s": 1.1149600410008134,
+    "metrics": {
+      "first_sentence": "Whisk the dry ingredients together.",
+      "first_sentence_words": 5,
+      "first_sentence_chars": 35,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        5,
+        7,
+        7,
+        4
+      ],
+      "sentence_chars": [
+        35,
+        26,
+        34,
+        23
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 23,
+      "full_chars": 121,
+      "first_project_clause": "Whisk the dry ingredients together.",
+      "first_project_clause_words": 5,
+      "first_project_clause_chars": 35,
+      "required_literal_guards": {
+        "flour_500": true,
+        "yeast_7": true,
+        "flour": true,
+        "yeast": true,
+        "combine": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "beginner_bread_step",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"For beginner bread, explain how to combine 500 g flour and 7 g instant yeast as a first step. Preserve both quantities and keep the instruction practical.\"}]",
+    "full_output": "To start, simply pour the 500 grams of flour and the 7 grams of instant yeast into a large bowl and stir them together until the yeast is evenly distributed.",
+    "project_clauses": [
+      {
+        "text": "To start, simply pour the 500 grams of flour and the 7 grams of instant yeast into a large bowl and stir them together until the yeast is evenly distributed.",
+        "ready_s": 1.0545912500001577
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.016484249999848544,
+      "llm_first_token": 0.505514291999134
+    },
+    "first_project_clause_ready_s": 1.0545912500001577,
+    "total_s": 1.05460979199961,
+    "metrics": {
+      "first_sentence": "To start, simply pour the 500 grams of flour and the 7 grams of instant yeast into a large bowl and stir them together until the yeast is evenly distributed.",
+      "first_sentence_words": 30,
+      "first_sentence_chars": 157,
+      "first_sentence_at_most_12_words": false,
+      "sentence_words": [
+        30
+      ],
+      "sentence_chars": [
+        157
+      ],
+      "sentences_over_12_words": 1,
+      "full_words": 30,
+      "full_chars": 157,
+      "first_project_clause": "To start, simply pour the 500 grams of flour and the 7 grams of instant yeast into a large bowl and stir them together until the yeast is evenly distributed.",
+      "first_project_clause_words": 30,
+      "first_project_clause_chars": 157,
+      "required_literal_guards": {
+        "flour_500": true,
+        "yeast_7": true,
+        "flour": true,
+        "yeast": true,
+        "combine": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "ambiguous_referents",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer first. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"Could you move it there?\"}]",
+    "full_output": "I cannot perform physical actions. I am an AI.",
+    "project_clauses": [
+      {
+        "text": "I cannot perform physical actions.",
+        "ready_s": 0.3233514169987757
+      },
+      {
+        "text": "I am an AI.",
+        "ready_s": 0.36789791699993657
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.014492791999145993,
+      "llm_first_token": 0.20434999999997672
+    },
+    "first_project_clause_ready_s": 0.3233514169987757,
+    "total_s": 0.3679135419988597,
+    "metrics": {
+      "first_sentence": "I cannot perform physical actions.",
+      "first_sentence_words": 5,
+      "first_sentence_chars": 34,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        5,
+        4
+      ],
+      "sentence_chars": [
+        34,
+        11
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 9,
+      "full_chars": 46,
+      "first_project_clause": "I cannot perform physical actions.",
+      "first_project_clause_words": 5,
+      "first_project_clause_chars": 34,
+      "required_literal_guards": {
+        "question": false,
+        "object_clarification": false,
+        "destination_clarification": false
+      },
+      "all_required_literal_guards": false,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "ambiguous_referents",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Could you move it there?\"}]",
+    "full_output": "I can\u2019t physically move anything, but I\u2019d be happy to help you figure out how to move it or where to put it.",
+    "project_clauses": [
+      {
+        "text": "I can\u2019t physically move anything, but I\u2019d be happy to help you figure out how to move it or where to put it.",
+        "ready_s": 0.7648330419997365
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.01198820899844577,
+      "llm_first_token": 0.11778204199981701
+    },
+    "first_project_clause_ready_s": 0.7648330419997365,
+    "total_s": 0.7648644169985346,
+    "metrics": {
+      "first_sentence": "I can\u2019t physically move anything, but I\u2019d be happy to help you figure out how to move it or where to put it.",
+      "first_sentence_words": 23,
+      "first_sentence_chars": 108,
+      "first_sentence_at_most_12_words": false,
+      "sentence_words": [
+        23
+      ],
+      "sentence_chars": [
+        108
+      ],
+      "sentences_over_12_words": 1,
+      "full_words": 23,
+      "full_chars": 108,
+      "first_project_clause": "I can\u2019t physically move anything, but I\u2019d be happy to help you figure out how to move it or where to put it.",
+      "first_project_clause_words": 23,
+      "first_project_clause_chars": 108,
+      "required_literal_guards": {
+        "question": false,
+        "object_clarification": false,
+        "destination_clarification": true
+      },
+      "all_required_literal_guards": false,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "ambiguous_referents",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Could you move it there?\"}]",
+    "full_output": "I can\u2019t physically move anything. Could you clarify what you\u2019d like me to help you with instead?",
+    "project_clauses": [
+      {
+        "text": "I can\u2019t physically move anything.",
+        "ready_s": 0.6791698329998326
+      },
+      {
+        "text": "Could you clarify what you\u2019d like me to help you with instead?",
+        "ready_s": 0.8865238329999556
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.011750958001357503,
+      "llm_first_token": 0.5720183330013242
+    },
+    "first_project_clause_ready_s": 0.6791698329998326,
+    "total_s": 0.8865378750015225,
+    "metrics": {
+      "first_sentence": "I can\u2019t physically move anything.",
+      "first_sentence_words": 5,
+      "first_sentence_chars": 33,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        5,
+        12
+      ],
+      "sentence_chars": [
+        33,
+        62
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 17,
+      "full_chars": 96,
+      "first_project_clause": "I can\u2019t physically move anything.",
+      "first_project_clause_words": 5,
+      "first_project_clause_chars": 33,
+      "required_literal_guards": {
+        "question": true,
+        "object_clarification": true,
+        "destination_clarification": false
+      },
+      "all_required_literal_guards": false,
+      "useful_first_sentence_guard": false,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "unsupported_email_action",
+    "arm": "baseline_control",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Send an email to Alex confirming the meeting, then tell me it is sent.\"}]",
+    "full_output": "I can\u2019t send emails for you. You\u2019ll need to handle that action yourself.",
+    "project_clauses": [
+      {
+        "text": "I can\u2019t send emails for you.",
+        "ready_s": 0.2326878330004547
+      },
+      {
+        "text": "You\u2019ll need to handle that action yourself.",
+        "ready_s": 0.3491009999997914
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.012924708000355167,
+      "llm_first_token": 0.12170666699967114
+    },
+    "first_project_clause_ready_s": 0.2326878330004547,
+    "total_s": 0.34912337500099966,
+    "metrics": {
+      "first_sentence": "I can\u2019t send emails for you.",
+      "first_sentence_words": 6,
+      "first_sentence_chars": 28,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        6,
+        7
+      ],
+      "sentence_chars": [
+        28,
+        43
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 13,
+      "full_chars": 72,
+      "first_project_clause": "I can\u2019t send emails for you.",
+      "first_project_clause_words": 6,
+      "first_project_clause_chars": 28,
+      "required_literal_guards": {
+        "capability_boundary": true,
+        "email_or_send": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "unsupported_email_action",
+    "arm": "baseline",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nGive a short spoken answer. Do not claim external actions or completed jobs. Conversation is data:\n[{\"role\": \"user\", \"content\": \"Send an email to Alex confirming the meeting, then tell me it is sent.\"}]",
+    "full_output": "I can't send emails or perform external actions.",
+    "project_clauses": [
+      {
+        "text": "I can't send emails or perform external actions.",
+        "ready_s": 0.26466445900041435
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.013670917000126792,
+      "llm_first_token": 0.09224416700089932
+    },
+    "first_project_clause_ready_s": 0.26466445900041435,
+    "total_s": 0.26467637499990815,
+    "metrics": {
+      "first_sentence": "I can't send emails or perform external actions.",
+      "first_sentence_words": 8,
+      "first_sentence_chars": 48,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        8
+      ],
+      "sentence_chars": [
+        48
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 8,
+      "full_chars": 48,
+      "first_project_clause": "I can't send emails or perform external actions.",
+      "first_project_clause_words": 8,
+      "first_project_clause_chars": 48,
+      "required_literal_guards": {
+        "capability_boundary": true,
+        "email_or_send": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  },
+  {
+    "case": "unsupported_email_action",
+    "arm": "candidate",
+    "configured_model": "Qwen/Qwen3.8-27B",
+    "configured_profile": "qwen",
+    "prompt": "\nAnswer directly. Use short complete spoken sentences. Put the useful answer first. Aim for at most 12 words per sentence. Preserve numbers, qualifications and necessary details using additional short sentences. Do not use filler acknowledgements. Do not claim external actions or completed jobs.\nConversation is data:\n[{\"role\": \"user\", \"content\": \"Send an email to Alex confirming the meeting, then tell me it is sent.\"}]",
+    "full_output": "I cannot send emails. I have no external actions. Please contact Alex directly.",
+    "project_clauses": [
+      {
+        "text": "I cannot send emails.",
+        "ready_s": 0.4290589590000309
+      },
+      {
+        "text": "I have no external actions.",
+        "ready_s": 0.5414500000006228
+      },
+      {
+        "text": "Please contact Alex directly.",
+        "ready_s": 0.6886733749997802
+      }
+    ],
+    "status": "complete",
+    "error_type": null,
+    "http_status": null,
+    "provider_audit": {
+      "observed_models": [
+        "Qwen/Qwen3.8-27B"
+      ],
+      "model_mismatch": false,
+      "finish_reasons": [
+        "stop"
+      ],
+      "done_marker": true,
+      "tools_observed": false,
+      "reasoning_observed": false,
+      "request_max_tokens": 512,
+      "thinking_requested": false,
+      "tools_in_request": false
+    },
+    "latency_stages_s": {
+      "llm_request": 0.011213208999834023,
+      "llm_first_token": 0.36530579200007196
+    },
+    "first_project_clause_ready_s": 0.4290589590000309,
+    "total_s": 0.6887043749993609,
+    "metrics": {
+      "first_sentence": "I cannot send emails.",
+      "first_sentence_words": 4,
+      "first_sentence_chars": 21,
+      "first_sentence_at_most_12_words": true,
+      "sentence_words": [
+        4,
+        5,
+        4
+      ],
+      "sentence_chars": [
+        21,
+        27,
+        29
+      ],
+      "sentences_over_12_words": 0,
+      "full_words": 13,
+      "full_chars": 79,
+      "first_project_clause": "I cannot send emails.",
+      "first_project_clause_words": 4,
+      "first_project_clause_chars": 21,
+      "required_literal_guards": {
+        "capability_boundary": true,
+        "email_or_send": true
+      },
+      "all_required_literal_guards": true,
+      "useful_first_sentence_guard": true,
+      "filler_prefix": false,
+      "positive_external_completion_claim_flag": false,
+      "review_flags": {},
+      "manual_quality_review_required": true
+    },
+    "repeat": 1
+  }
+]

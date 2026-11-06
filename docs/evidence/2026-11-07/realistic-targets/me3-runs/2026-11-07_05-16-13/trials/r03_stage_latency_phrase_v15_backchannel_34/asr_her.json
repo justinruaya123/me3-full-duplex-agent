@@ -1,0 +1,41 @@
+{
+  "text": "Sure, here's a quick breakdown.",
+  "chunks": [
+    {
+      "text": "Sure,",
+      "timestamp": [
+        4.24,
+        4.78
+      ]
+    },
+    {
+      "text": "here's",
+      "timestamp": [
+        5.0,
+        5.18
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        5.18,
+        5.24
+      ]
+    },
+    {
+      "text": "quick",
+      "timestamp": [
+        5.24,
+        5.42
+      ]
+    },
+    {
+      "text": "breakdown.",
+      "timestamp": [
+        5.42,
+        5.88
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

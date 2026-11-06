@@ -1,0 +1,44 @@
+test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) ... 
+  test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='okay sure') ... FAIL
+  test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='sure right') ... FAIL
+
+======================================================================
+FAIL: test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='okay sure')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 39, in test_whole_ack_units_are_bounded_and_never_match_a_prefix
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        classify_overlap(text, True, addressed=True),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "backchannel",
+        ^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'turn' != 'backchannel'
+- turn
++ backchannel
+
+
+======================================================================
+FAIL: test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='sure right')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 39, in test_whole_ack_units_are_bounded_and_never_match_a_prefix
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        classify_overlap(text, True, addressed=True),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "backchannel",
+        ^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'turn' != 'backchannel'
+- turn
++ backchannel
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=2)

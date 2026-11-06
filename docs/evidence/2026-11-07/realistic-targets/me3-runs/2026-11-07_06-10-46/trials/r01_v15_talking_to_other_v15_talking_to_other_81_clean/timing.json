@@ -1,0 +1,62 @@
+{
+  "trial": "r01_v15_talking_to_other_v15_talking_to_other_81_clean",
+  "group": "v15_talking_to_other",
+  "clip": "v15_talking_to_other_81",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 15.36,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.36
+    }
+  ],
+  "live_bot_starts": [
+    8.64
+  ],
+  "live_bot_ends": [
+    15.008
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Find me a nearby coffee shop that's open now.",
+    "current_turn_text": "Chris, your laptop's still on the table, man.",
+    "overlap_text": "Chris, your laptop's still on the table, man.",
+    "overlap_duration": 2.18,
+    "overlap_window": [
+      6.276,
+      8.459
+    ],
+    "source_id": "81"
+  },
+  "mono": [
+    12175.102021375,
+    12190.4422975
+  ],
+  "bot_segments": [
+    [
+      8.61,
+      15.038
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.36
+  ],
+  "tor": 1,
+  "first_start": 8.61,
+  "spoke_s": 1.75,
+  "actual": "replied after 6.25 s, spoke 1.8 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 15,
+  "final": {
+    "transcript": "I can't check real -time locations or business hours, so I can't find a specific open coffee shop for you."
+  },
+  "scored_at": "2026-11-07T06:36:11+08:00"
+}

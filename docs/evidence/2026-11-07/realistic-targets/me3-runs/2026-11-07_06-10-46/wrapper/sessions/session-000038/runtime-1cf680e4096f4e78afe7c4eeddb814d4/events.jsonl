@@ -1,0 +1,15 @@
+{"event": "supervisor_started", "mono_ns": 12074219201041}
+{"event": "voice_profile", "mono_ns": 12074329649875, "profile": "course", "session_id": "1ecb4896e3d94f22b60049fae56418f5", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 12080593167791, "session_id": "1ecb4896e3d94f22b60049fae56418f5"}
+{"event": "user_stopped_asr_pending", "mono_ns": 12082059819750, "session_id": "1ecb4896e3d94f22b60049fae56418f5"}
+{"event": "transcript_revision", "mono_ns": 12082186970041, "session_id": "1ecb4896e3d94f22b60049fae56418f5", "revision": 1, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 12083225082750, "session_id": "1ecb4896e3d94f22b60049fae56418f5", "revision": 2, "committed": true, "turn_id": "1", "capture_ended": true}
+{"event": "floor_decision", "mono_ns": 12083225393666, "session_id": "1ecb4896e3d94f22b60049fae56418f5", "decision": "turn", "addressee_known": true}
+{"event": "speech_cancelled", "mono_ns": 12083225799791, "session_id": "1ecb4896e3d94f22b60049fae56418f5", "epoch": 1}
+{"event": "speech_submitted", "mono_ns": 12084098375791, "epoch": 1, "utterance": "1ecb4896e3d94f22b60049fae56418f5:1:1", "profile": "course"}
+{"event": "user_started", "mono_ns": 12087984406125, "session_id": "1ecb4896e3d94f22b60049fae56418f5"}
+{"event": "user_stopped_asr_pending", "mono_ns": 12088936611791, "session_id": "1ecb4896e3d94f22b60049fae56418f5"}
+{"event": "transcript_revision", "mono_ns": 12089562344791, "session_id": "1ecb4896e3d94f22b60049fae56418f5", "revision": 1, "committed": false, "turn_id": "2", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 12090606607083, "session_id": "1ecb4896e3d94f22b60049fae56418f5", "revision": 2, "committed": false, "turn_id": "2", "capture_ended": true}
+{"event": "provisional_backchannel_resolved", "mono_ns": 12090606898250, "session_id": "1ecb4896e3d94f22b60049fae56418f5", "turn_id": "2", "revision": 2}
+{"event": "provisional_backchannel_resumed", "mono_ns": 12090607023166, "generation": 3, "turn_id": "2"}

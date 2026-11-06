@@ -1,0 +1,68 @@
+{
+  "trial": "r01_v15_backchannel_v15_backchannel_60_clean",
+  "group": "v15_backchannel",
+  "clip": "v15_backchannel_60",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 11.264,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.848
+    }
+  ],
+  "live_bot_starts": [
+    4.64,
+    9.504
+  ],
+  "live_bot_ends": [
+    8.512,
+    10.912
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Explain astronomy in depth.",
+    "current_turn_text": "",
+    "overlap_text": "yes sure",
+    "overlap_duration": 1.02,
+    "overlap_window": [
+      5.579,
+      6.601
+    ],
+    "source_id": "60"
+  },
+  "mono": [
+    8854.353793083,
+    8865.595455166
+  ],
+  "bot_segments": [
+    [
+      4.61,
+      8.542
+    ],
+    [
+      9.474,
+      10.942
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.848
+  ],
+  "tor": 1,
+  "first_start": 4.61,
+  "spoke_s": 5.238,
+  "actual": "replied after 2.76 s, spoke 5.2 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 23,
+  "final": {
+    "transcript": "Honestly, in -depth is a huge ask for a short -spoken answer. But here's the quick version."
+  },
+  "scored_at": "2026-11-07T05:35:00+08:00"
+}

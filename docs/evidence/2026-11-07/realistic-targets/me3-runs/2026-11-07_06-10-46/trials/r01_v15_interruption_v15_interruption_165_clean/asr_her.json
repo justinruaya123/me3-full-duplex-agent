@@ -1,0 +1,104 @@
+{
+  "text": "Start with short five -minute sessions and use high -value treats for positive reinforcement.",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        5.87,
+        6.35
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        6.35,
+        6.61
+      ]
+    },
+    {
+      "text": "short",
+      "timestamp": [
+        6.61,
+        6.95
+      ]
+    },
+    {
+      "text": "five",
+      "timestamp": [
+        6.95,
+        7.37
+      ]
+    },
+    {
+      "text": "-minute",
+      "timestamp": [
+        7.37,
+        7.63
+      ]
+    },
+    {
+      "text": "sessions",
+      "timestamp": [
+        7.63,
+        8.03
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        8.03,
+        8.81
+      ]
+    },
+    {
+      "text": "use",
+      "timestamp": [
+        8.81,
+        8.99
+      ]
+    },
+    {
+      "text": "high",
+      "timestamp": [
+        8.99,
+        9.23
+      ]
+    },
+    {
+      "text": "-value",
+      "timestamp": [
+        9.23,
+        9.49
+      ]
+    },
+    {
+      "text": "treats",
+      "timestamp": [
+        9.49,
+        9.85
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        9.85,
+        10.13
+      ]
+    },
+    {
+      "text": "positive",
+      "timestamp": [
+        10.13,
+        10.59
+      ]
+    },
+    {
+      "text": "reinforcement.",
+      "timestamp": [
+        10.59,
+        11.25
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

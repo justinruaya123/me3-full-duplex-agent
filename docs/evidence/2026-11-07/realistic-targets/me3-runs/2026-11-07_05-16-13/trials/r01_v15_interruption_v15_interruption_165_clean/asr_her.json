@@ -1,0 +1,69 @@
+{
+  "text": "Start with high -value treats and short, positive sessions.",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        6.19,
+        6.67
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        6.67,
+        6.87
+      ]
+    },
+    {
+      "text": "high",
+      "timestamp": [
+        6.87,
+        7.03
+      ]
+    },
+    {
+      "text": "-value",
+      "timestamp": [
+        7.03,
+        7.27
+      ]
+    },
+    {
+      "text": "treats",
+      "timestamp": [
+        7.27,
+        7.59
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        7.59,
+        8.01
+      ]
+    },
+    {
+      "text": "short,",
+      "timestamp": [
+        8.01,
+        8.35
+      ]
+    },
+    {
+      "text": "positive",
+      "timestamp": [
+        8.55,
+        8.91
+      ]
+    },
+    {
+      "text": "sessions.",
+      "timestamp": [
+        8.91,
+        9.35
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

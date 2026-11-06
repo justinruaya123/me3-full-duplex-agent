@@ -1,0 +1,118 @@
+{
+  "kind": "explicitly rejected decoder-only compile development candidate",
+  "model": "mlx-community/Kokoro-82M-bf16",
+  "voice": "af_heart",
+  "snapshot": "a71e4d38b236d968966a2002c4c895dbd12b1c3c",
+  "source_freeze": "c321634",
+  "complete": false,
+  "candidate_accepted": false,
+  "decoder_restored": true,
+  "actual_native_generations_v2": 7,
+  "planned_native_generations": 52,
+  "v1_failure": "Installed MLX exposes no capturable RNG state; no speech generations",
+  "v2_failure": {
+    "type": "RuntimeError",
+    "message": "Compiled warm call changed PRNG advancement"
+  },
+  "reached_cases": [
+    "brief"
+  ],
+  "unreached_cases": [
+    "medium",
+    "numbers",
+    "long",
+    "extended"
+  ],
+  "changed_seed_pair_reached": false,
+  "coverage_profiles_reached": 0,
+  "unchanged_control_first_pcm_seconds": [
+    0.18078116699871316,
+    0.18016104100024677,
+    0.17673041699890746
+  ],
+  "unchanged_control_pairwise_errors": [
+    {
+      "same_shapes": true,
+      "same_dtypes": true,
+      "same_phoneme_counts": true,
+      "same_audio_duration": true,
+      "exact_pcm": false,
+      "exact_float_bytes": false,
+      "max_abs_float_error": 8.940696716308594e-08,
+      "mean_abs_float_error": 1.4571558419748818e-09,
+      "float_rmse": 4.919258989190238e-09,
+      "different_float_samples": 16976,
+      "different_pcm_samples": 3,
+      "max_pcm_lsb_error": 1
+    },
+    {
+      "same_shapes": true,
+      "same_dtypes": true,
+      "same_phoneme_counts": true,
+      "same_audio_duration": true,
+      "exact_pcm": false,
+      "exact_float_bytes": false,
+      "max_abs_float_error": 7.82310962677002e-08,
+      "mean_abs_float_error": 1.4535135629822756e-09,
+      "float_rmse": 4.971850104963918e-09,
+      "different_float_samples": 16943,
+      "different_pcm_samples": 2,
+      "max_pcm_lsb_error": 1
+    },
+    {
+      "same_shapes": true,
+      "same_dtypes": true,
+      "same_phoneme_counts": true,
+      "same_audio_duration": true,
+      "exact_pcm": false,
+      "exact_float_bytes": false,
+      "max_abs_float_error": 8.940696716308594e-08,
+      "mean_abs_float_error": 1.5350286104810095e-09,
+      "float_rmse": 5.132631908987571e-09,
+      "different_float_samples": 16985,
+      "different_pcm_samples": 1,
+      "max_pcm_lsb_error": 1
+    }
+  ],
+  "cold_first_pcm_seconds": 8.15120591699997,
+  "cold_next_draw_matches_baseline": true,
+  "cold_errors": {
+    "same_shapes": true,
+    "same_dtypes": true,
+    "same_phoneme_counts": true,
+    "same_audio_duration": true,
+    "exact_pcm": false,
+    "exact_float_bytes": false,
+    "max_abs_float_error": 1.4528632164001465e-06,
+    "mean_abs_float_error": 6.035853260654088e-08,
+    "float_rmse": 1.289496326067358e-07,
+    "different_float_samples": 43533,
+    "different_pcm_samples": 95,
+    "max_pcm_lsb_error": 1
+  },
+  "warm_pair_baseline_first_pcm_seconds": 0.19348962500043854,
+  "warm_pair_compiled_first_pcm_seconds": 0.13743187499858323,
+  "warm_next_draw_matches_baseline": false,
+  "warm_errors": {
+    "same_shapes": true,
+    "same_dtypes": true,
+    "same_phoneme_counts": true,
+    "same_audio_duration": true,
+    "exact_pcm": false,
+    "exact_float_bytes": false,
+    "max_abs_float_error": 1.4528632164001465e-06,
+    "mean_abs_float_error": 6.035552082406224e-08,
+    "float_rmse": 1.2889582096643823e-07,
+    "different_float_samples": 43569,
+    "different_pcm_samples": 99,
+    "max_pcm_lsb_error": 1
+  },
+  "baseline_next_draw_sha256": "ee23846ba7a29bbc98388c2c5148a33149ec58bc37078d400fe8f1581717e5c6",
+  "compiled_warm_next_draw_sha256": "254e46253831871eeb27eaf45ecb250ae9d006c6ce6d80dce3774dc7aae24750",
+  "all_reached_output_durations_seconds": 1.85,
+  "reached_phoneme_count": 19,
+  "reached_audio_dtype": "float32",
+  "saved_audit_wavs": false,
+  "limit": "Stopped before coverage/audit WAV phase on failed RNG guard; no full five-text or changed-seed qualification. Canary tests public continuation, not internal RNG state. One timing pair is not a latency qualification.",
+  "known_load": "Root reserved sole GPU and avoided provider/heavy CPU work; another agent was permitted tiny fixture tests, exact overlap not logged."
+}

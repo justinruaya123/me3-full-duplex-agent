@@ -1,0 +1,125 @@
+{
+  "text": "I can't actually check live locations. Hey, did you mean to ask me about the coffee shop?",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        6.42,
+        6.74
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        6.74,
+        7.14
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        7.14,
+        7.5
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        7.5,
+        7.82
+      ]
+    },
+    {
+      "text": "live",
+      "timestamp": [
+        7.82,
+        8.08
+      ]
+    },
+    {
+      "text": "locations.",
+      "timestamp": [
+        8.08,
+        8.5
+      ]
+    },
+    {
+      "text": "Hey,",
+      "timestamp": [
+        14.03,
+        14.31
+      ]
+    },
+    {
+      "text": "did",
+      "timestamp": [
+        14.65,
+        14.71
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        14.71,
+        14.85
+      ]
+    },
+    {
+      "text": "mean",
+      "timestamp": [
+        14.85,
+        15.01
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        15.01,
+        15.17
+      ]
+    },
+    {
+      "text": "ask",
+      "timestamp": [
+        15.17,
+        15.43
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        15.43,
+        15.61
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        15.61,
+        15.75
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        15.75,
+        15.91
+      ]
+    },
+    {
+      "text": "coffee",
+      "timestamp": [
+        15.91,
+        16.19
+      ]
+    },
+    {
+      "text": "shop?",
+      "timestamp": [
+        16.19,
+        16.55
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

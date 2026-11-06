@@ -1,0 +1,64 @@
+{
+  "trial": "r01_v15_background_v15_background_27_clean",
+  "group": "v15_background",
+  "clip": "v15_background_27",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 10.944,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.784
+    }
+  ],
+  "live_bot_starts": [
+    5.28,
+    8.352
+  ],
+  "live_bot_ends": [
+    7.968,
+    10.592
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Define the word 'ephemeral'.",
+    "current_turn_text": "",
+    "overlap_text": "Your coffee's getting cold.",
+    "overlap_duration": 1.72,
+    "overlap_window": [
+      5.625,
+      7.343
+    ],
+    "source_id": "27"
+  },
+  "mono": [
+    8706.757605375,
+    8717.693037666
+  ],
+  "bot_segments": [
+    [
+      5.25,
+      10.622
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.784
+  ],
+  "tor": 1,
+  "first_start": 5.25,
+  "spoke_s": 4.534000000000001,
+  "actual": "replied after 3.47 s, spoke 4.5 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 14,
+  "final": {
+    "transcript": "Ephemeral means lasting for a very short time, or something that is transitory and fleeting."
+  },
+  "scored_at": "2026-11-07T05:35:03+08:00"
+}

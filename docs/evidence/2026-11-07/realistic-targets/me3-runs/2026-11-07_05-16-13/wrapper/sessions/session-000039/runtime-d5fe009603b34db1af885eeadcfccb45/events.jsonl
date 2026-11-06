@@ -1,0 +1,15 @@
+{"event": "supervisor_started", "mono_ns": 8848191530875}
+{"event": "voice_profile", "mono_ns": 8848298224791, "profile": "course", "session_id": "9c3c04d34c674270845c46530122eb9e", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 8854556053875, "session_id": "9c3c04d34c674270845c46530122eb9e"}
+{"event": "user_stopped_asr_pending", "mono_ns": 8856032086625, "session_id": "9c3c04d34c674270845c46530122eb9e"}
+{"event": "transcript_revision", "mono_ns": 8856110321833, "session_id": "9c3c04d34c674270845c46530122eb9e", "revision": 1, "committed": false, "turn_id": "1"}
+{"event": "transcript_revision", "mono_ns": 8857118336708, "session_id": "9c3c04d34c674270845c46530122eb9e", "revision": 2, "committed": true, "turn_id": "1"}
+{"event": "floor_decision", "mono_ns": 8857118802958, "session_id": "9c3c04d34c674270845c46530122eb9e", "decision": "turn", "addressee_known": true}
+{"event": "speech_cancelled", "mono_ns": 8857119255791, "session_id": "9c3c04d34c674270845c46530122eb9e", "epoch": 1}
+{"event": "speech_submitted", "mono_ns": 8858153546333, "epoch": 1, "utterance": "9c3c04d34c674270845c46530122eb9e:1:1", "profile": "course"}
+{"event": "transport_utterance_completed", "mono_ns": 8863268103291, "utterance": "9c3c04d34c674270845c46530122eb9e:1:1", "bytes": 211200, "profile": "course"}
+{"event": "playback_completed", "mono_ns": 8863269035166, "session_id": "9c3c04d34c674270845c46530122eb9e", "epoch": 1, "kind": "reply"}
+{"event": "speech_submitted", "mono_ns": 8863270139541, "epoch": 1, "utterance": "9c3c04d34c674270845c46530122eb9e:1:2", "profile": "course"}
+{"event": "transport_utterance_completed", "mono_ns": 8865603535416, "utterance": "9c3c04d34c674270845c46530122eb9e:1:2", "bytes": 96000, "profile": "course"}
+{"event": "playback_completed", "mono_ns": 8865603968333, "session_id": "9c3c04d34c674270845c46530122eb9e", "epoch": 1, "kind": "reply"}
+{"event": "speech_submitted", "mono_ns": 8865604441916, "epoch": 1, "utterance": "9c3c04d34c674270845c46530122eb9e:1:3", "profile": "course"}

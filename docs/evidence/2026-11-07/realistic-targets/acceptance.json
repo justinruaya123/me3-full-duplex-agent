@@ -1,0 +1,169 @@
+{
+  "kind": "operator analysis of unchanged canonical ME3 outputs; not a replacement scorer",
+  "official_targets_observed": {
+    "course.e2e": {
+      "limit_seconds": 4,
+      "reported_mean": 2.5517379310344834,
+      "reported_p95": 3.710559999999999,
+      "n": 29,
+      "both_reported_values_below_limit": true
+    },
+    "course.asr_final": {
+      "limit_seconds": 0.8,
+      "reported_mean": 1.4704000000000002,
+      "reported_p95": 2.0359599999999998,
+      "n": 30,
+      "both_reported_values_below_limit": false
+    },
+    "course.llm_ttft": {
+      "limit_seconds": 1.5,
+      "reported_mean": 0.4023103448275862,
+      "reported_p95": 0.7449399999999997,
+      "n": 29,
+      "both_reported_values_below_limit": true
+    },
+    "course.tts_ttfb": {
+      "limit_seconds": 0.6,
+      "reported_mean": 0.4239827586206896,
+      "reported_p95": 0.6960200000000001,
+      "n": 29,
+      "both_reported_values_below_limit": false
+    },
+    "course.barge_in": {
+      "limit_seconds": 0.8,
+      "reported_mean": 0.3373333333333335,
+      "reported_p95": 0.4056,
+      "n": 3,
+      "both_reported_values_below_limit": true
+    }
+  },
+  "wer": {
+    "n": 30,
+    "ref_words": 207,
+    "edits": 3,
+    "wer": 0.014492753623188406,
+    "mean_phrase_wer": 0.014285714285714285
+  },
+  "missing_phrase_replies": [
+    {
+      "trial": "r03_stage_latency_phrase_v15_background_91",
+      "recording_duration_seconds": 10.912,
+      "last_stage": "llm_request",
+      "last_stage_trial_seconds": 3.9993,
+      "observed_wait_after_llm_request_to_record_end_seconds": 6.912700000000001,
+      "cause": "not established by stage telemetry; first text/output not observed before recording closed"
+    }
+  ],
+  "recorded_phrase_replies": 29,
+  "phrase_trials": 30,
+  "scheduled_interruption_cases": 6,
+  "valid_stop_samples": 3,
+  "stop_p95_qualification": "insufficient valid samples; upstream excludes already-silent cases, no fabricated zero stops",
+  "official_false_turn_metric": {
+    "n": 6,
+    "k": 2,
+    "value": 0.3333333333333333
+  },
+  "false_turn_recordings_with_detected_bot_speech": [
+    {
+      "trial": "r01_false_tt_false_tv_radio_000",
+      "actual": "spoke 3.1 s after +4.9 s",
+      "official_tor": 1,
+      "detected_bot_segments": [
+        [
+          8.514,
+          14.238
+        ]
+      ]
+    },
+    {
+      "trial": "r02_false_tt_false_background_009",
+      "actual": "spoke 0.9 s after +2.5 s",
+      "official_tor": 0,
+      "detected_bot_segments": [
+        [
+          3.874,
+          4.766
+        ]
+      ]
+    },
+    {
+      "trial": "r03_false_tt_false_side_talk_005",
+      "actual": "spoke 2.7 s after +3.4 s",
+      "official_tor": 1,
+      "detected_bot_segments": [
+        [
+          5.794,
+          8.478
+        ]
+      ]
+    },
+    {
+      "trial": "r03_false_tt_false_tv_radio_004",
+      "actual": "spoke 0.9 s after +1.7 s",
+      "official_tor": 0,
+      "detected_bot_segments": [
+        [
+          5.954,
+          6.878
+        ]
+      ]
+    }
+  ],
+  "false_turn_speech_observation": "4/6 contain digital bot speech; original word-count threshold counts only2/6. Not independent addressee rejection.",
+  "behavior": {
+    "v1_turntaking.tor": {
+      "n": 3,
+      "k": 1,
+      "value": 0.3333333333333333
+    },
+    "v1_interrupt.tor": {
+      "n": 3,
+      "k": 2,
+      "value": 0.6666666666666666
+    },
+    "v1_pause_synth.tor": {
+      "n": 3,
+      "k": 0,
+      "value": 0.0
+    },
+    "v1_pause_candor.tor": {
+      "n": 3,
+      "k": 0,
+      "value": 0.0
+    },
+    "v15_backchannel.class.paused": {
+      "n": 3,
+      "k": 2,
+      "value": 0.6666666666666666
+    },
+    "v15_backchannel.class.stopped": {
+      "n": 3,
+      "k": 1,
+      "value": 0.3333333333333333
+    }
+  },
+  "all_acceptance_gates_passed": false,
+  "next_unpassed_gate": "ASRfinal mean/p95<=.8s withWhisperTurbohard; TTS p95<=.6s also open",
+  "unpassed": [
+    "independent ownership/addressee/overlap service",
+    "broader semantic turn/backchannel handling",
+    "content judge/UTMOS",
+    "busy-worker real speech",
+    "long dictation stitching",
+    "physical shared-clock acoustics/AEC",
+    "Raspberry Pi install/audio and30-minute soak"
+  ],
+  "complete_installed_suite": {
+    "tests": 208,
+    "failures": 0,
+    "skips": 0,
+    "seconds": 14.958
+  },
+  "v1_subset": {
+    "tests": 178,
+    "failures": 0,
+    "skips": 0,
+    "seconds": 10.532
+  }
+}

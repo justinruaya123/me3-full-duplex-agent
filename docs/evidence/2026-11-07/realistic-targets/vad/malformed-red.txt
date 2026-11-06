@@ -1,0 +1,21 @@
+test_malformed_recognition_is_not_an_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_malformed_recognition_is_not_an_empty_resolution) ... FAIL
+
+======================================================================
+FAIL: test_malformed_recognition_is_not_an_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_malformed_recognition_is_not_an_empty_resolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 178, in test_malformed_recognition_is_not_an_empty_resolution
+    with self.assertRaisesRegex(TypeError, "ASR must return text"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+FAILED (failures=1)

@@ -1,0 +1,62 @@
+{
+  "trial": "r01_v15_interruption_v15_interruption_165_clean",
+  "group": "v15_interruption",
+  "clip": "v15_interruption_165",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 10.624,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.616
+    }
+  ],
+  "live_bot_starts": [
+    6.528
+  ],
+  "live_bot_ends": [
+    9.696
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "How can I train my dog to follow basic commands?",
+    "current_turn_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_duration": 3.62,
+    "overlap_window": [
+      7.275,
+      10.891
+    ],
+    "source_id": "165"
+  },
+  "mono": [
+    8813.360913458,
+    8823.961503958
+  ],
+  "bot_segments": [
+    [
+      6.498,
+      9.726
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.616
+  ],
+  "tor": 1,
+  "first_start": 6.498,
+  "spoke_s": 3.2280000000000006,
+  "actual": "replied after 3.88 s, spoke 3.2 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 18,
+  "final": {
+    "transcript": "Start with high -value treats and short, positive sessions."
+  },
+  "scored_at": "2026-11-07T05:35:06+08:00"
+}

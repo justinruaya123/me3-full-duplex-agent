@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "decision": "FAILED MANUAL QUALITY GATE; DO NOT PROMOTE",
+  "run_dir": ".local/verification/targets/foreground/v2/run-20261106T214446779189Z",
+  "completed_calls": 30,
+  "reviewer": "parent/root full-output review",
+  "failed_cases": [
+    {
+      "case": "boiling_100_c",
+      "full_output": "Pure water boils at 100 degrees Celsius near sea level.\n\nPressure drops at high altitudes. Lower pressure weakens molecular cohesion. Water molecules escape vaporization faster. Boiling occurs at lower temperatures.",
+      "literal_guards": {
+        "temperature_100": true,
+        "celsius": true,
+        "pressure": true,
+        "lower_at_altitude": true
+      }
+    },
+    {
+      "case": "ambiguous_referents",
+      "full_output": "No, I cannot move physical items.\n\nWhich item do you want to move?",
+      "literal_guards": {
+        "question": true,
+        "object_clarification": true,
+        "destination_clarification": false
+      }
+    }
+  ],
+  "reasons": [
+    "Boiling explanation incorrectly claims lower pressure weakens molecular cohesion. Literal fact mentions did not establish causal accuracy.",
+    "Ambiguity response assumes a physical object, leads with a capability disclaimer, and asks about the item without the missing destination."
+  ],
+  "useful_first_literal_guard": {
+    "passed": 6,
+    "cases": 10
+  },
+  "preserved": "Original cases, guards and all run results remain untouched.",
+  "next": "No V3 tuning or production prompt promotion. Stop-latency qualification is a separate task."
+}

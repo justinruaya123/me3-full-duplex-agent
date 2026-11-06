@@ -1,0 +1,64 @@
+{
+  "trial": "r02_v1_pause_synth_v1_pause_synth_115",
+  "group": "v1_pause_synth",
+  "clip": "v1_pause_synth_115",
+  "variant": "main",
+  "expected": "stay silent through the pause",
+  "duration": 13.856,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 7.5626875
+    }
+  ],
+  "live_bot_starts": [
+    11.008
+  ],
+  "live_bot_ends": [
+    13.504
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "pause": [
+      5.04,
+      6.640000000000001
+    ],
+    "source_id": "115",
+    "text": "Technology is changing so fast. It's unreal, especially in the area of artificial intelligence, which is pretty evolving every day."
+  },
+  "mono": [
+    12516.628250041,
+    12530.475935625
+  ],
+  "bot_segments": [
+    [
+      10.978,
+      13.534
+    ]
+  ],
+  "play_first": [
+    0.0,
+    7.5626875
+  ],
+  "tor": 0,
+  "first_start": null,
+  "spoke_s": 0.0,
+  "cut_in_during_pause": false,
+  "actual": "silent during clip",
+  "verdict": "✓ TOR 0",
+  "ok": true,
+  "marks": 32,
+  "final": {
+    "tor": 0,
+    "words": 0,
+    "verdict": "✓ TOR 0",
+    "ok": true,
+    "transcript": "Yeah, it's definitely moving at lightning speed."
+  },
+  "scored_at": "2026-11-07T06:36:41+08:00"
+}

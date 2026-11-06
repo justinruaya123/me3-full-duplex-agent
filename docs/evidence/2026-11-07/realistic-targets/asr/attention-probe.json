@@ -1,0 +1,273 @@
+{
+  "passed": true,
+  "asr_model": "mlx-community/whisper-large-v3-turbo",
+  "tts_model": "mlx-community/Kokoro-82M-bf16",
+  "voice": "af_heart",
+  "kind": "same weights native development experiment; full context and word alignment",
+  "trials": [
+    {
+      "mode": "warm",
+      "seconds": 3.0340362500000992,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "mode": "cached_auto",
+      "seconds": 1.837357874999725,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "mode": "fused_auto",
+      "seconds": 1.8595434579992798,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "mode": "fused_auto",
+      "seconds": 1.6935916250004084,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "mode": "fused_english",
+      "seconds": 0.8843647909998253,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "mode": "fused_english",
+      "seconds": 0.8977945830001772,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    }
+  ]
+}

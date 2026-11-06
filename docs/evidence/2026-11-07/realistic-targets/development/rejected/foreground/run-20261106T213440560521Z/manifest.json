@@ -1,0 +1,140 @@
+{
+  "kind": "actual configured Qwen; text/provider development pilot",
+  "model": "Qwen/Qwen3.8-27B",
+  "profile": "qwen",
+  "repeats": 1,
+  "baseline_control": true,
+  "seed": 231,
+  "request_timeout_s": 30,
+  "run_timeout_s": 240,
+  "max_concurrency": 1,
+  "source_hashes": {
+    "me3/duplex.py": "1ce883b8f772cc8bc9dedfaf0f86062a3f899d1d79e9649c026b67c4b8c70141",
+    "me3/foreground.py": "8e2ad9436c16e9e18f20d02c1a35fbdfedf57410e4f82829b97b17a12dd11e4a",
+    "me3/configuration.py": "e5df18353eb868d4edd991cadf56584a3cbd9c88d5e7b3affd325e107587f927",
+    "me3/incremental.py": "bb315a5d601ab0036015362b9ad4118c311a64e614469811d0c49e03b9cee66c"
+  },
+  "prepared_sha256": "f7cc7848ecf125a929449a4a93481ca62dd80bf023402fe509ca8ccee7250fbf",
+  "plan": [
+    {
+      "repeat": 1,
+      "case": "math_42",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "math_42",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "math_42",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "boiling_100_c",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "boiling_100_c",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "boiling_100_c",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "photosynthesis_facts",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "photosynthesis_facts",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "photosynthesis_facts",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "corrected_delivery_day",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "corrected_delivery_day",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "corrected_delivery_day",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "invoice_1234_56",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "invoice_1234_56",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "invoice_1234_56",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "beginner_bread_step",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "beginner_bread_step",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "beginner_bread_step",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "ambiguous_referents",
+      "arm": "candidate"
+    },
+    {
+      "repeat": 1,
+      "case": "ambiguous_referents",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "ambiguous_referents",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "unsupported_email_action",
+      "arm": "baseline_control"
+    },
+    {
+      "repeat": 1,
+      "case": "unsupported_email_action",
+      "arm": "baseline"
+    },
+    {
+      "repeat": 1,
+      "case": "unsupported_email_action",
+      "arm": "candidate"
+    }
+  ]
+}

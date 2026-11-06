@@ -1,0 +1,2 @@
+{"event": "supervisor_started", "mono_ns": 8181850328625}
+{"event": "voice_profile", "mono_ns": 8181927765250, "profile": "course", "session_id": "6fa46f38d7ac404991222ddb8034fa26", "ownership_bypassed": true, "audio_mode": "headphones"}

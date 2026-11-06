@@ -1,0 +1,55 @@
+{
+  "text": "Yeah, it's definitely moving at lightning speed.",
+  "chunks": [
+    {
+      "text": "Yeah,",
+      "timestamp": [
+        10.67,
+        11.19
+      ]
+    },
+    {
+      "text": "it's",
+      "timestamp": [
+        11.45,
+        11.67
+      ]
+    },
+    {
+      "text": "definitely",
+      "timestamp": [
+        11.67,
+        12.01
+      ]
+    },
+    {
+      "text": "moving",
+      "timestamp": [
+        12.01,
+        12.39
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        12.39,
+        12.59
+      ]
+    },
+    {
+      "text": "lightning",
+      "timestamp": [
+        12.59,
+        12.83
+      ]
+    },
+    {
+      "text": "speed.",
+      "timestamp": [
+        12.83,
+        13.17
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

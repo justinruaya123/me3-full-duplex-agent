@@ -1,0 +1,54 @@
+{
+  "trial": "r01_v1_turntaking_v1_turntaking_38",
+  "group": "v1_turntaking",
+  "clip": "v1_turntaking_38",
+  "variant": "main",
+  "expected": "reply within 8 s",
+  "duration": 13.952,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 6.23
+    }
+  ],
+  "live_bot_starts": [],
+  "live_bot_ends": [],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 0
+  },
+  "clip_meta": {
+    "turn_end": 5.930000000000291,
+    "last_words": "",
+    "source_id": "38"
+  },
+  "mono": [
+    12013.878676,
+    12027.816267541
+  ],
+  "bot_segments": [],
+  "play_first": [
+    0.0,
+    6.23
+  ],
+  "tor": 0,
+  "first_start": null,
+  "spoke_s": 0.0,
+  "latency": null,
+  "turn_end": 5.930000000000291,
+  "actual": "no reply",
+  "verdict": "✗ missed",
+  "ok": false,
+  "marks": 15,
+  "final": {
+    "tor": 0,
+    "words": 0,
+    "latency": null,
+    "verdict": "✗ missed",
+    "ok": false,
+    "transcript": ""
+  },
+  "scored_at": "2026-11-07T06:36:12+08:00"
+}

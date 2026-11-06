@@ -1,0 +1,55 @@
+{
+  "text": "to give a truly in -depth expo...",
+  "chunks": [
+    {
+      "text": "to",
+      "timestamp": [
+        6.1,
+        6.52
+      ]
+    },
+    {
+      "text": "give",
+      "timestamp": [
+        6.52,
+        6.68
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.68,
+        6.82
+      ]
+    },
+    {
+      "text": "truly",
+      "timestamp": [
+        6.82,
+        7.22
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        7.22,
+        7.6
+      ]
+    },
+    {
+      "text": "-depth",
+      "timestamp": [
+        7.6,
+        7.88
+      ]
+    },
+    {
+      "text": "expo...",
+      "timestamp": [
+        7.88,
+        8.52
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,48 @@
+{
+  "text": "I need a bit more context.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.46,
+        4.9
+      ]
+    },
+    {
+      "text": "need",
+      "timestamp": [
+        4.9,
+        5.1
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        5.1,
+        5.22
+      ]
+    },
+    {
+      "text": "bit",
+      "timestamp": [
+        5.22,
+        5.28
+      ]
+    },
+    {
+      "text": "more",
+      "timestamp": [
+        5.28,
+        5.46
+      ]
+    },
+    {
+      "text": "context.",
+      "timestamp": [
+        5.46,
+        5.92
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

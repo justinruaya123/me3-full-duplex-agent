@@ -1,0 +1,104 @@
+{
+  "text": "Start by contributing to your employer's 401k up to the match. It's free money",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        5.71,
+        6.19
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        6.19,
+        6.41
+      ]
+    },
+    {
+      "text": "contributing",
+      "timestamp": [
+        6.41,
+        6.95
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.95,
+        7.23
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        7.23,
+        7.33
+      ]
+    },
+    {
+      "text": "employer's",
+      "timestamp": [
+        7.33,
+        7.91
+      ]
+    },
+    {
+      "text": "401k",
+      "timestamp": [
+        7.91,
+        9.41
+      ]
+    },
+    {
+      "text": "up",
+      "timestamp": [
+        9.41,
+        9.97
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        9.97,
+        10.15
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        10.15,
+        10.23
+      ]
+    },
+    {
+      "text": "match.",
+      "timestamp": [
+        10.23,
+        10.59
+      ]
+    },
+    {
+      "text": "It's",
+      "timestamp": [
+        10.87,
+        11.07
+      ]
+    },
+    {
+      "text": "free",
+      "timestamp": [
+        11.07,
+        11.25
+      ]
+    },
+    {
+      "text": "money",
+      "timestamp": [
+        11.25,
+        11.51
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,167 @@
+{
+  "text": "Start by enabling two -factor authentication. Sure, we can definitely switch topics to online shopping. What would you like to know about it?",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        5.62,
+        6.12
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        6.12,
+        6.42
+      ]
+    },
+    {
+      "text": "enabling",
+      "timestamp": [
+        6.42,
+        6.82
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        6.82,
+        7.12
+      ]
+    },
+    {
+      "text": "-factor",
+      "timestamp": [
+        7.12,
+        7.62
+      ]
+    },
+    {
+      "text": "authentication.",
+      "timestamp": [
+        7.62,
+        8.1
+      ]
+    },
+    {
+      "text": "Sure,",
+      "timestamp": [
+        13.35,
+        13.63
+      ]
+    },
+    {
+      "text": "we",
+      "timestamp": [
+        13.93,
+        13.99
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        13.99,
+        14.15
+      ]
+    },
+    {
+      "text": "definitely",
+      "timestamp": [
+        14.15,
+        14.57
+      ]
+    },
+    {
+      "text": "switch",
+      "timestamp": [
+        14.57,
+        14.83
+      ]
+    },
+    {
+      "text": "topics",
+      "timestamp": [
+        14.83,
+        15.29
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        15.29,
+        15.53
+      ]
+    },
+    {
+      "text": "online",
+      "timestamp": [
+        15.53,
+        15.91
+      ]
+    },
+    {
+      "text": "shopping.",
+      "timestamp": [
+        15.91,
+        16.39
+      ]
+    },
+    {
+      "text": "What",
+      "timestamp": [
+        17.29,
+        17.73
+      ]
+    },
+    {
+      "text": "would",
+      "timestamp": [
+        17.73,
+        17.83
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        17.83,
+        17.95
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        17.95,
+        18.13
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        18.13,
+        18.29
+      ]
+    },
+    {
+      "text": "know",
+      "timestamp": [
+        18.29,
+        18.45
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        18.45,
+        18.67
+      ]
+    },
+    {
+      "text": "it?",
+      "timestamp": [
+        18.67,
+        18.89
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

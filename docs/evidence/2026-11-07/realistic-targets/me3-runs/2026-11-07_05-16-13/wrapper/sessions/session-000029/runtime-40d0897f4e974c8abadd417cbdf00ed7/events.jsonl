@@ -1,0 +1,15 @@
+{"event": "supervisor_started", "mono_ns": 8648900261375}
+{"event": "voice_profile", "mono_ns": 8648986447625, "profile": "course", "session_id": "ae7df9be45d341f680c8205cfa2be9d1", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 8655807217458, "session_id": "ae7df9be45d341f680c8205cfa2be9d1"}
+{"event": "user_stopped_asr_pending", "mono_ns": 8657279278541, "session_id": "ae7df9be45d341f680c8205cfa2be9d1"}
+{"event": "transcript_revision", "mono_ns": 8657368520916, "session_id": "ae7df9be45d341f680c8205cfa2be9d1", "revision": 1, "committed": false, "turn_id": "1"}
+{"event": "transcript_revision", "mono_ns": 8658392852791, "session_id": "ae7df9be45d341f680c8205cfa2be9d1", "revision": 2, "committed": true, "turn_id": "1"}
+{"event": "floor_decision", "mono_ns": 8658393157708, "session_id": "ae7df9be45d341f680c8205cfa2be9d1", "decision": "turn", "addressee_known": true}
+{"event": "speech_cancelled", "mono_ns": 8658393645625, "session_id": "ae7df9be45d341f680c8205cfa2be9d1", "epoch": 1}
+{"event": "speech_submitted", "mono_ns": 8658671715125, "epoch": 1, "utterance": "ae7df9be45d341f680c8205cfa2be9d1:1:1", "profile": "course"}
+{"event": "transport_utterance_completed", "mono_ns": 8661201705916, "utterance": "ae7df9be45d341f680c8205cfa2be9d1:1:1", "bytes": 105600, "profile": "course"}
+{"event": "playback_completed", "mono_ns": 8661202806083, "session_id": "ae7df9be45d341f680c8205cfa2be9d1", "epoch": 1, "kind": "reply"}
+{"event": "speech_submitted", "mono_ns": 8661204124750, "epoch": 1, "utterance": "ae7df9be45d341f680c8205cfa2be9d1:1:2", "profile": "course"}
+{"event": "transport_utterance_completed", "mono_ns": 8663668764958, "utterance": "ae7df9be45d341f680c8205cfa2be9d1:1:2", "bytes": 101760, "profile": "course"}
+{"event": "playback_completed", "mono_ns": 8663670075708, "session_id": "ae7df9be45d341f680c8205cfa2be9d1", "epoch": 1, "kind": "reply"}
+{"event": "speech_submitted", "mono_ns": 8663672142000, "epoch": 1, "utterance": "ae7df9be45d341f680c8205cfa2be9d1:1:3", "profile": "course"}

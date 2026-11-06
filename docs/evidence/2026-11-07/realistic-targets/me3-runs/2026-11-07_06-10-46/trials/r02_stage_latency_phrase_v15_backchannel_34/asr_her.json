@@ -1,0 +1,104 @@
+{
+  "text": "Hey, here's the quick breakdown. Think of sleep as a cycle, not a switch.",
+  "chunks": [
+    {
+      "text": "Hey,",
+      "timestamp": [
+        4.37,
+        4.93
+      ]
+    },
+    {
+      "text": "here's",
+      "timestamp": [
+        5.01,
+        5.35
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        5.35,
+        5.47
+      ]
+    },
+    {
+      "text": "quick",
+      "timestamp": [
+        5.47,
+        5.67
+      ]
+    },
+    {
+      "text": "breakdown.",
+      "timestamp": [
+        5.67,
+        6.11
+      ]
+    },
+    {
+      "text": "Think",
+      "timestamp": [
+        6.81,
+        6.87
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        6.87,
+        7.01
+      ]
+    },
+    {
+      "text": "sleep",
+      "timestamp": [
+        7.01,
+        7.29
+      ]
+    },
+    {
+      "text": "as",
+      "timestamp": [
+        7.29,
+        7.51
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        7.51,
+        7.61
+      ]
+    },
+    {
+      "text": "cycle,",
+      "timestamp": [
+        7.61,
+        7.97
+      ]
+    },
+    {
+      "text": "not",
+      "timestamp": [
+        8.19,
+        8.31
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        8.31,
+        8.45
+      ]
+    },
+    {
+      "text": "switch.",
+      "timestamp": [
+        8.45,
+        8.69
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

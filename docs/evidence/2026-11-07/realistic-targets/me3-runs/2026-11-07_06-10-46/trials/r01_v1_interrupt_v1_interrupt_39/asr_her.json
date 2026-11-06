@@ -1,0 +1,55 @@
+{
+  "text": "It's really down to preference. Sure, absolutely.",
+  "chunks": [
+    {
+      "text": "It's",
+      "timestamp": [
+        5.58,
+        6.18
+      ]
+    },
+    {
+      "text": "really",
+      "timestamp": [
+        6.18,
+        6.4
+      ]
+    },
+    {
+      "text": "down",
+      "timestamp": [
+        6.4,
+        6.66
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.66,
+        6.84
+      ]
+    },
+    {
+      "text": "preference.",
+      "timestamp": [
+        6.84,
+        7.24
+      ]
+    },
+    {
+      "text": "Sure,",
+      "timestamp": [
+        12.99,
+        13.37
+      ]
+    },
+    {
+      "text": "absolutely.",
+      "timestamp": [
+        13.51,
+        13.95
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,83 @@
+{
+  "text": "Pick up a brush and just start. Don't worry about perfection.",
+  "chunks": [
+    {
+      "text": "Pick",
+      "timestamp": [
+        3.89,
+        4.35
+      ]
+    },
+    {
+      "text": "up",
+      "timestamp": [
+        4.35,
+        4.51
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        4.51,
+        4.61
+      ]
+    },
+    {
+      "text": "brush",
+      "timestamp": [
+        4.61,
+        4.83
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        4.83,
+        5.09
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        5.09,
+        5.27
+      ]
+    },
+    {
+      "text": "start.",
+      "timestamp": [
+        5.27,
+        5.59
+      ]
+    },
+    {
+      "text": "Don't",
+      "timestamp": [
+        6.73,
+        7.03
+      ]
+    },
+    {
+      "text": "worry",
+      "timestamp": [
+        7.03,
+        7.21
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        7.21,
+        7.45
+      ]
+    },
+    {
+      "text": "perfection.",
+      "timestamp": [
+        7.45,
+        7.99
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

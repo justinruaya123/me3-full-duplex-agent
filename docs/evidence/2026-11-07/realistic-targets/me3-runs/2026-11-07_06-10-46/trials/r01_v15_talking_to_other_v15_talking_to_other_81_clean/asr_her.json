@@ -1,0 +1,146 @@
+{
+  "text": "I can't check real -time locations or business hours, so I can't find a specific open coffee shop for you.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        8.27,
+        8.69
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        8.69,
+        8.99
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        8.99,
+        9.19
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        9.19,
+        9.49
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        9.49,
+        9.73
+      ]
+    },
+    {
+      "text": "locations",
+      "timestamp": [
+        9.73,
+        10.29
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        10.29,
+        10.69
+      ]
+    },
+    {
+      "text": "business",
+      "timestamp": [
+        10.69,
+        10.97
+      ]
+    },
+    {
+      "text": "hours,",
+      "timestamp": [
+        10.97,
+        11.39
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        11.81,
+        12.05
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        12.05,
+        12.23
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        12.23,
+        12.59
+      ]
+    },
+    {
+      "text": "find",
+      "timestamp": [
+        12.59,
+        12.75
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        12.75,
+        12.89
+      ]
+    },
+    {
+      "text": "specific",
+      "timestamp": [
+        12.89,
+        13.31
+      ]
+    },
+    {
+      "text": "open",
+      "timestamp": [
+        13.31,
+        13.73
+      ]
+    },
+    {
+      "text": "coffee",
+      "timestamp": [
+        13.73,
+        14.19
+      ]
+    },
+    {
+      "text": "shop",
+      "timestamp": [
+        14.19,
+        14.51
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        14.51,
+        14.73
+      ]
+    },
+    {
+      "text": "you.",
+      "timestamp": [
+        14.73,
+        14.87
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

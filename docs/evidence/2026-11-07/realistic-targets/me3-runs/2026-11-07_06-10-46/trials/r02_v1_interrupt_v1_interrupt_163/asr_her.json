@@ -1,0 +1,76 @@
+{
+  "text": "To me, it's all about the balance of f -",
+  "chunks": [
+    {
+      "text": "To",
+      "timestamp": [
+        6.93,
+        7.37
+      ]
+    },
+    {
+      "text": "me,",
+      "timestamp": [
+        7.37,
+        7.59
+      ]
+    },
+    {
+      "text": "it's",
+      "timestamp": [
+        7.85,
+        8.07
+      ]
+    },
+    {
+      "text": "all",
+      "timestamp": [
+        8.07,
+        8.21
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        8.21,
+        8.37
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.37,
+        8.53
+      ]
+    },
+    {
+      "text": "balance",
+      "timestamp": [
+        8.53,
+        8.83
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        8.83,
+        9.07
+      ]
+    },
+    {
+      "text": "f",
+      "timestamp": [
+        9.07,
+        9.19
+      ]
+    },
+    {
+      "text": "-",
+      "timestamp": [
+        9.19,
+        9.27
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

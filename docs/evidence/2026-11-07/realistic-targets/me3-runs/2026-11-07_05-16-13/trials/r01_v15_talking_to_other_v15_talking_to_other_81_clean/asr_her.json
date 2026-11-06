@@ -1,0 +1,97 @@
+{
+  "text": "I don't have access to your current location or real -time business data.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        6.7,
+        7.08
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        7.08,
+        7.26
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        7.26,
+        7.34
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        7.34,
+        7.74
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        7.74,
+        8.0
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        8.0,
+        8.1
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        8.1,
+        8.38
+      ]
+    },
+    {
+      "text": "location",
+      "timestamp": [
+        8.38,
+        8.94
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        8.94,
+        9.54
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        9.54,
+        9.84
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        9.84,
+        10.12
+      ]
+    },
+    {
+      "text": "business",
+      "timestamp": [
+        10.12,
+        10.4
+      ]
+    },
+    {
+      "text": "data.",
+      "timestamp": [
+        10.4,
+        10.76
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

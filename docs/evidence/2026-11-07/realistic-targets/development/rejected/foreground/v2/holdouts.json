@@ -1,0 +1,35 @@
+[
+  {
+    "id": "holdout_unspecified_choices",
+    "history": [
+      {"role": "user", "content": "Should I use the first one or the second one?"}
+    ],
+    "required": [
+      {"id": "question", "any": ["\\?"]},
+      {"id": "specific_missing_comparison", "any": ["options", "choices", "alternatives", "two", "first", "second", "comparing", "decision"]},
+      {"id": "clarifying_form", "any": ["\\bwhat\\b", "\\bwhich\\b", "\\bhow\\b", "describe", "tell me"]}
+    ],
+    "first_required_ids": ["question", "specific_missing_comparison"],
+    "first_min_matches": 2,
+    "review_flag_patterns": {
+      "unjustified_option_selection": "\\b(?:choose|use|pick|recommend|go with)\\s+(?:the\\s+)?(?:first|second)(?:\\s+one)?\\b"
+    },
+    "review": "The options and decision context are unknown. Ask one specific question that elicits the missing comparison; do not choose an option or give a generic AI disclaimer. No exact first-sentence wording is required."
+  },
+  {
+    "id": "holdout_unknown_pass_threshold",
+    "history": [
+      {"role": "user", "content": "I scored 80%. Can I tell the class I passed?"}
+    ],
+    "required": [
+      {"id": "question", "any": ["\\?"]},
+      {"id": "missing_pass_criterion", "any": ["threshold", "cut[ -]?off", "minimum", "pass mark", "passing (?:mark|score|grade|percentage)", "pass percentage", "percentage.*(?:pass|need|required)", "grading", "criteria", "criterion", "requirement", "required score"]}
+    ],
+    "first_required_ids": ["question", "missing_pass_criterion"],
+    "first_min_matches": 2,
+    "review_flag_patterns": {
+      "unqualified_pass_claim": "\\b(?:you(?:'ve| have)?\\s+passed|you pass|80%?\\s+(?:is|means)\\s+(?:a\\s+)?pass)\\b"
+    },
+    "review": "The passing threshold/rules are missing. Ask a specific question about that criterion or clearly qualify the uncertainty before that question. Do not infer pass/fail from 80% alone. Repeating 80% is optional when asking for the missing threshold; changing it is unacceptable. No canned exact answer is required."
+  }
+]

@@ -1,0 +1,84 @@
+{
+  "trial": "r02_stage_latency_phrase_v15_backchannel_34",
+  "group": "stage_latency",
+  "clip": "phrase_v15_backchannel_34",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 12.48,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.88
+    }
+  ],
+  "live_bot_starts": [
+    6.528
+  ],
+  "live_bot_ends": [
+    12.128
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "Outline sleep science clearly.",
+    "source": "v15_backchannel_34"
+  },
+  "mono": [
+    8431.565711375,
+    8444.026505458
+  ],
+  "bot_segments": [
+    [
+      6.498,
+      12.158
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.88
+  ],
+  "tor": 1,
+  "first_start": 6.498,
+  "spoke_s": 3.381999999999999,
+  "user_end": 1.63,
+  "latency": 4.868,
+  "actual": "replied 4.87 s after speech end",
+  "verdict": "✓ 4.87 s",
+  "ok": true,
+  "marks": 18,
+  "final": {
+    "stages": {
+      "e2e_heard": 4.868,
+      "e2e": 4.3281,
+      "e2e_source": "marks",
+      "asr_final": 1.9695,
+      "llm_ttft": 1.3906,
+      "tts_ttfb": 0.5424,
+      "endpointing": 0.1344,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "outline sleep science clearly,",
+      "wer": {
+        "ref_words": 4,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 41,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Sleep is a cyclical process, primarily driven by your circadian rhythm and sleep pressure."
+  },
+  "scored_at": "2026-11-07T05:35:12+08:00"
+}

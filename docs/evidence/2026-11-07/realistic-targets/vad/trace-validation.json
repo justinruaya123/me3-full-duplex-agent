@@ -1,0 +1,29 @@
+{
+  "scope": "measurement instrumentation validation",
+  "checks": [
+    {
+      "stimulus": "voice-sample/warm_silence/gain0",
+      "setting": "baseline",
+      "chunks": 218,
+      "states_identical": true
+    },
+    {
+      "stimulus": "voice-sample/warm_silence/gain0",
+      "setting": "volume_050",
+      "chunks": 218,
+      "states_identical": true
+    },
+    {
+      "stimulus": "voice-sample/warm_silence/gain-24",
+      "setting": "baseline",
+      "chunks": 218,
+      "states_identical": true
+    },
+    {
+      "stimulus": "voice-sample/warm_silence/gain-24",
+      "setting": "volume_050",
+      "chunks": 218,
+      "states_identical": true
+    }
+  ]
+}

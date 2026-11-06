@@ -1,0 +1,79 @@
+{
+  "kind": "coordinator verification; source reports remain unchanged",
+  "measured_runtime_commit": "6bbbfd57d5e5c062ec3846762158118a7318b0db",
+  "complete_suite": {
+    "tests": 208,
+    "failures": 0,
+    "skips": 0,
+    "seconds": 14.958,
+    "receipt": "full-suite/final.txt"
+  },
+  "v1_subset": {
+    "tests": 178,
+    "failures": 0,
+    "skips": 0,
+    "seconds": 10.532,
+    "receipt": "full-suite/paused-backchannel-v1.txt"
+  },
+  "focused_floor_tests": {
+    "tests": 26,
+    "failures": 0,
+    "skips": 0,
+    "installed_pipecat_fixtures": 5
+  },
+  "checks": {
+    "changed_python_ruff_E_F_I_79": "passed",
+    "compileall_me3_tests_integrations": "passed",
+    "control_demo": "passed; simulation only",
+    "shell_documentation_syntax": "24 blocks parsed,0 executed",
+    "local_document_links": "passed",
+    "external_scorer_hashes": 9,
+    "external_benchmark_clean": "passed",
+    "official_dataset_manifest_pin": "matched",
+    "runtime_source_equal_to_measured_commit": "passed",
+    "raw_audio_or_model_files_in_archive": 0
+  },
+  "raw_copy_receipts": {
+    "initial_native_package": {
+      "files": 64,
+      "byte_identical": true
+    },
+    "later_canonical_and_rejected_packages": {
+      "files": 796,
+      "byte_identical": true
+    }
+  },
+  "scoring": {
+    "tool": "unchanged canonical ME3",
+    "benchmark_commit": "57eaddbc188ce9a19b8fd002b575f703426956f4",
+    "final_run": "2026-11-07_06-10-46",
+    "queue_items": 60,
+    "recordings": 72,
+    "transport_errors": 0,
+    "scoring_errors": 0,
+    "phrase_replies_recorded": 29,
+    "phrase_trials": 30,
+    "valid_stop_samples": 3,
+    "scheduled_stop_cases": 6,
+    "judge": "none",
+    "utmos": "not installed/not scored"
+  },
+  "hardware_scope": {
+    "measured": "Mac M2 Darwin arm64,16GB; direct digital transport",
+    "raspberry_pi": "not run/unpassed",
+    "acoustics": "not run/unpassed",
+    "physical_speakerphone_AEC": "not run/unpassed",
+    "30_minute_target_soak": "not run/unpassed",
+    "busy_worker_audio": "not run/unpassed"
+  },
+  "normal_voice_readiness": {
+    "ready": false,
+    "blockers": [
+      "wake phrase",
+      "independent speaker/overlap/addressee verifier"
+    ],
+    "provider_subprobes": "PiRPC and actual Qwen/Sol passed"
+  },
+  "acceptance": "not fully passed; see acceptance.json and official results",
+  "artifact_manifest": "sha256.json, includes this verification and independent audit; excludes itself"
+}

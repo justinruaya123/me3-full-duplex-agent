@@ -1,0 +1,62 @@
+{
+  "trial": "r03_false_tt_false_side_talk_005",
+  "group": "false_tt",
+  "clip": "false_side_talk_005",
+  "variant": "main",
+  "expected": "stay silent",
+  "duration": 9.664,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.415
+    }
+  ],
+  "live_bot_starts": [
+    5.824
+  ],
+  "live_bot_ends": [
+    8.448
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "kind": "side_talk",
+    "kind_label": "side talk",
+    "level_db": -8,
+    "text": "Dad, gimme a hand with this math real quick.",
+    "source": "v15_talking_to_other_40"
+  },
+  "mono": [
+    12699.084023625,
+    12708.74265375
+  ],
+  "bot_segments": [
+    [
+      5.794,
+      8.478
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.415
+  ],
+  "tor": 1,
+  "first_start": 5.794,
+  "spoke_s": 2.684,
+  "actual": "spoke 2.7 s after +3.4 s",
+  "verdict": "✗ took turn",
+  "ok": false,
+  "marks": 21,
+  "final": {
+    "tor": 1,
+    "words": 10,
+    "verdict": "✗ took turn",
+    "ok": false,
+    "transcript": "I'm here to help, but I can't physically assist you."
+  },
+  "scored_at": "2026-11-07T06:36:44+08:00"
+}

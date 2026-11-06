@@ -1,0 +1,139 @@
+{
+  "text": "I can't actually set an alarm on your device, but you can easily create a recurring alarm for six...",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        6.06,
+        6.5
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        6.5,
+        6.86
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        6.86,
+        7.2
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        7.2,
+        7.5
+      ]
+    },
+    {
+      "text": "an",
+      "timestamp": [
+        7.5,
+        7.62
+      ]
+    },
+    {
+      "text": "alarm",
+      "timestamp": [
+        7.62,
+        7.9
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        7.9,
+        8.1
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        8.1,
+        8.22
+      ]
+    },
+    {
+      "text": "device,",
+      "timestamp": [
+        8.22,
+        8.62
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        9.14,
+        9.38
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        9.38,
+        9.5
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        9.5,
+        9.66
+      ]
+    },
+    {
+      "text": "easily",
+      "timestamp": [
+        9.66,
+        10.02
+      ]
+    },
+    {
+      "text": "create",
+      "timestamp": [
+        10.02,
+        10.48
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        10.48,
+        10.64
+      ]
+    },
+    {
+      "text": "recurring",
+      "timestamp": [
+        10.64,
+        10.98
+      ]
+    },
+    {
+      "text": "alarm",
+      "timestamp": [
+        10.98,
+        11.42
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        11.42,
+        11.64
+      ]
+    },
+    {
+      "text": "six...",
+      "timestamp": [
+        11.64,
+        12.38
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

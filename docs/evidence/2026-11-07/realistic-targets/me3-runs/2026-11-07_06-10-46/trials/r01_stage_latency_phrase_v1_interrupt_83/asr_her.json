@@ -1,0 +1,76 @@
+{
+  "text": "That's a big step. What's drawing you toward a change?",
+  "chunks": [
+    {
+      "text": "That's",
+      "timestamp": [
+        4.53,
+        5.23
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        5.23,
+        5.31
+      ]
+    },
+    {
+      "text": "big",
+      "timestamp": [
+        5.31,
+        5.45
+      ]
+    },
+    {
+      "text": "step.",
+      "timestamp": [
+        5.45,
+        5.77
+      ]
+    },
+    {
+      "text": "What's",
+      "timestamp": [
+        6.73,
+        7.19
+      ]
+    },
+    {
+      "text": "drawing",
+      "timestamp": [
+        7.19,
+        7.43
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        7.43,
+        7.61
+      ]
+    },
+    {
+      "text": "toward",
+      "timestamp": [
+        7.61,
+        7.79
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        7.79,
+        7.93
+      ]
+    },
+    {
+      "text": "change?",
+      "timestamp": [
+        7.93,
+        8.23
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

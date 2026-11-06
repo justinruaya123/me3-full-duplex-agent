@@ -1,0 +1,132 @@
+{
+  "text": "I can't actually set an alarm for you. I can't set alarms or check real -time traffic conditions.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        5.87,
+        6.23
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        6.23,
+        6.55
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        6.55,
+        6.89
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        6.89,
+        7.17
+      ]
+    },
+    {
+      "text": "an",
+      "timestamp": [
+        7.17,
+        7.29
+      ]
+    },
+    {
+      "text": "alarm",
+      "timestamp": [
+        7.29,
+        7.55
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        7.55,
+        7.77
+      ]
+    },
+    {
+      "text": "you.",
+      "timestamp": [
+        7.77,
+        7.93
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        12.44,
+        12.74
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        12.74,
+        13.06
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        13.06,
+        13.18
+      ]
+    },
+    {
+      "text": "alarms",
+      "timestamp": [
+        13.18,
+        13.62
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        13.62,
+        14.1
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        14.1,
+        14.38
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        14.38,
+        14.64
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        14.64,
+        14.88
+      ]
+    },
+    {
+      "text": "traffic",
+      "timestamp": [
+        14.88,
+        15.28
+      ]
+    },
+    {
+      "text": "conditions.",
+      "timestamp": [
+        15.28,
+        15.76
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

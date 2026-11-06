@@ -1,0 +1,90 @@
+{
+  "text": "That's a big decision. What's prompting the change for you right now?",
+  "chunks": [
+    {
+      "text": "That's",
+      "timestamp": [
+        4.82,
+        5.46
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        5.46,
+        5.52
+      ]
+    },
+    {
+      "text": "big",
+      "timestamp": [
+        5.52,
+        5.72
+      ]
+    },
+    {
+      "text": "decision.",
+      "timestamp": [
+        5.72,
+        6.2
+      ]
+    },
+    {
+      "text": "What's",
+      "timestamp": [
+        7.3,
+        7.64
+      ]
+    },
+    {
+      "text": "prompting",
+      "timestamp": [
+        7.64,
+        8.04
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.04,
+        8.14
+      ]
+    },
+    {
+      "text": "change",
+      "timestamp": [
+        8.14,
+        8.42
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        8.42,
+        8.64
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        8.64,
+        8.74
+      ]
+    },
+    {
+      "text": "right",
+      "timestamp": [
+        8.74,
+        8.96
+      ]
+    },
+    {
+      "text": "now?",
+      "timestamp": [
+        8.96,
+        9.24
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

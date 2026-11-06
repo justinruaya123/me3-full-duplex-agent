@@ -1,0 +1,125 @@
+{
+  "text": "I don't have access to real -time sports scores, so I can't tell you the current result.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        3.92,
+        4.38
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        4.38,
+        4.58
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        4.58,
+        4.72
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        4.72,
+        5.16
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        5.16,
+        5.42
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        5.42,
+        5.64
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        5.64,
+        5.9
+      ]
+    },
+    {
+      "text": "sports",
+      "timestamp": [
+        5.9,
+        6.22
+      ]
+    },
+    {
+      "text": "scores,",
+      "timestamp": [
+        6.22,
+        6.68
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        7.04,
+        7.32
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        7.32,
+        7.48
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        7.48,
+        7.84
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        7.84,
+        8.0
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        8.0,
+        8.2
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.2,
+        8.32
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        8.32,
+        8.58
+      ]
+    },
+    {
+      "text": "result.",
+      "timestamp": [
+        8.58,
+        8.98
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

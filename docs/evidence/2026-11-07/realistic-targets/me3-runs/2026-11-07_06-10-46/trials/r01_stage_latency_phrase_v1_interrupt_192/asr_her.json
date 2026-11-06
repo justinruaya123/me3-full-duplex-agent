@@ -1,0 +1,111 @@
+{
+  "text": "I don't have access to your current location or the specific map you're looking at.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        5.04,
+        5.46
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        5.46,
+        5.68
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        5.68,
+        5.8
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        5.8,
+        6.24
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.24,
+        6.5
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        6.5,
+        6.6
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        6.6,
+        6.9
+      ]
+    },
+    {
+      "text": "location",
+      "timestamp": [
+        6.9,
+        7.46
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        7.46,
+        8.04
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.04,
+        8.18
+      ]
+    },
+    {
+      "text": "specific",
+      "timestamp": [
+        8.18,
+        8.52
+      ]
+    },
+    {
+      "text": "map",
+      "timestamp": [
+        8.52,
+        8.88
+      ]
+    },
+    {
+      "text": "you're",
+      "timestamp": [
+        8.88,
+        9.1
+      ]
+    },
+    {
+      "text": "looking",
+      "timestamp": [
+        9.1,
+        9.3
+      ]
+    },
+    {
+      "text": "at.",
+      "timestamp": [
+        9.3,
+        9.6
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

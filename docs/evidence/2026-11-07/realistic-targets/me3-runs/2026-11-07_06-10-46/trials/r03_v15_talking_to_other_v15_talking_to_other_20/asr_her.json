@@ -1,0 +1,48 @@
+{
+  "text": "I can't send messages to external...",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.59,
+        5.01
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        5.01,
+        5.37
+      ]
+    },
+    {
+      "text": "send",
+      "timestamp": [
+        5.37,
+        5.47
+      ]
+    },
+    {
+      "text": "messages",
+      "timestamp": [
+        5.47,
+        5.99
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        5.99,
+        6.35
+      ]
+    },
+    {
+      "text": "external...",
+      "timestamp": [
+        6.35,
+        7.03
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

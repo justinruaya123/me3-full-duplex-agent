@@ -1,0 +1,35 @@
+test_backchannel_resumes_retained_pcm_without_cancellation (test_provisional_pause_v1.ProvisionalPauseTests.test_backchannel_resumes_retained_pcm_without_cancellation) ... 2026-11-07 04:48:07.437 Python[16001:182282] 2026-11-07 04:48:07.437050 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Executing <Task pending name='Task-2' coro=<ProvisionalPauseTests.test_backchannel_resumes_retained_pcm_without_cancellation() running at /Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py:165> wait_for=<Future pending cb=[Task.task_wakeup()] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:459> cb=[_run_until_complete_cb() at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:181] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.545 seconds
+ok
+test_empty_recognition_does_not_leave_unresolved_pause (test_provisional_pause_v1.ProvisionalPauseTests.test_empty_recognition_does_not_leave_unresolved_pause) ... FAIL
+test_uncommitted_stop_does_not_cancel_or_execute (test_provisional_pause_v1.ProvisionalPauseTests.test_uncommitted_stop_does_not_cancel_or_execute) ... ok
+
+======================================================================
+FAIL: test_empty_recognition_does_not_leave_unresolved_pause (test_provisional_pause_v1.ProvisionalPauseTests.test_empty_recognition_does_not_leave_unresolved_pause)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 171, in test_empty_recognition_does_not_leave_unresolved_pause
+    await self.exercise("", complete=False)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 147, in exercise
+    self.assertTrue(
+    ~~~~~~~~~~~~~~~^
+        second_audio.is_set() or explicit_failure,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "Empty recognition must resolve the pause or report "
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "an explicit failure after recognition completes",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: False is not true : Empty recognition must resolve the pause or report an explicit failure after recognition completes
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.641s
+
+FAILED (failures=1)

@@ -1,0 +1,217 @@
+{
+  "passed": true,
+  "kind": "actual native same-weight RED/GREEN with reference language path; generated development speech",
+  "asr_model": "mlx-community/whisper-large-v3-turbo",
+  "rows": [
+    {
+      "input": "ready",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 2.5416534589994626,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "input": "ready",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 1.021766583000499,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "input": "math",
+      "variant": "reference",
+      "expected_project_calls": 1,
+      "encoder_calls": 2,
+      "seconds": 1.825095959000464,
+      "text": " What is 17 plus 25?",
+      "language": "en",
+      "words": [
+        {
+          "word": " What",
+          "start": 0.0,
+          "end": 0.42,
+          "probability": 0.919921875
+        },
+        {
+          "word": " is",
+          "start": 0.42,
+          "end": 0.54,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " 17",
+          "start": 0.54,
+          "end": 0.86,
+          "probability": 0.9423828125
+        },
+        {
+          "word": " plus",
+          "start": 0.86,
+          "end": 1.28,
+          "probability": 0.86279296875
+        },
+        {
+          "word": " 25?",
+          "start": 1.28,
+          "end": 1.72,
+          "probability": 0.99755859375
+        }
+      ]
+    },
+    {
+      "input": "math",
+      "variant": "project",
+      "expected_project_calls": 1,
+      "encoder_calls": 1,
+      "seconds": 0.9613839159992494,
+      "text": " What is 17 plus 25?",
+      "language": "en",
+      "words": [
+        {
+          "word": " What",
+          "start": 0.0,
+          "end": 0.42,
+          "probability": 0.919921875
+        },
+        {
+          "word": " is",
+          "start": 0.42,
+          "end": 0.54,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " 17",
+          "start": 0.54,
+          "end": 0.86,
+          "probability": 0.9423828125
+        },
+        {
+          "word": " plus",
+          "start": 0.86,
+          "end": 1.28,
+          "probability": 0.86279296875
+        },
+        {
+          "word": " 25?",
+          "start": 1.28,
+          "end": 1.72,
+          "probability": 0.99755859375
+        }
+      ]
+    },
+    {
+      "input": "ambiguous",
+      "variant": "reference",
+      "expected_project_calls": 2,
+      "encoder_calls": 2,
+      "seconds": 1.8287571250002657,
+      "text": " M\u00e4mmel.",
+      "language": "sv",
+      "words": [
+        {
+          "word": " M\u00e4mmel.",
+          "start": 0.0,
+          "end": 0.82,
+          "probability": 0.5888671875
+        }
+      ]
+    },
+    {
+      "input": "ambiguous",
+      "variant": "project",
+      "expected_project_calls": 2,
+      "encoder_calls": 2,
+      "seconds": 1.825219874999675,
+      "text": " M\u00e4mmel.",
+      "language": "sv",
+      "words": [
+        {
+          "word": " M\u00e4mmel.",
+          "start": 0.0,
+          "end": 0.82,
+          "probability": 0.5888671875
+        }
+      ]
+    }
+  ]
+}

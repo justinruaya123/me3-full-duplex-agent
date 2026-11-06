@@ -1,0 +1,89 @@
+{
+  "trial": "r03_v1_interrupt_v1_interrupt_174",
+  "group": "v1_interrupt",
+  "clip": "v1_interrupt_174",
+  "variant": "main",
+  "expected": "stop, then answer the new request",
+  "duration": 19.424,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.464
+    },
+    {
+      "name": "overlap",
+      "t": 7.452,
+      "len": 2.485375
+    }
+  ],
+  "live_bot_starts": [
+    5.952,
+    13.504,
+    17.632
+  ],
+  "live_bot_ends": [
+    8.352,
+    16.64,
+    19.072
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "How can I protect my online accounts?",
+    "interrupt_text": "Actually, can we talk about online shopping instead?",
+    "source_id": "174"
+  },
+  "mono": [
+    12792.308431416,
+    12811.720839458
+  ],
+  "bot_segments": [
+    [
+      5.922,
+      8.382
+    ],
+    [
+      13.474,
+      16.67
+    ],
+    [
+      17.602,
+      19.102
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.464
+  ],
+  "overlap_played": true,
+  "t_stop": 0.4119999999999999,
+  "t_resp": 3.536625000000001,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    7.97,
+    9.937375
+  ],
+  "tor": 1,
+  "first_start": 13.474,
+  "spoke_s": 4.463374999999999,
+  "latency": 3.536625000000001,
+  "actual": "stopped after 0.41 s, back 3.54 s after",
+  "verdict": "✓ yielded, 3.54 s",
+  "ok": true,
+  "marks": 40,
+  "final": {
+    "tor": 1,
+    "words": 12,
+    "latency": 3.536625000000001,
+    "t_stop": 0.4119999999999999,
+    "verdict": "✓ yielded, 3.54 s",
+    "ok": true,
+    "transcript": "Start by enabling two -factor authentication. Sure, we can definitely switch topics to online shopping. What would you like to know about it?"
+  },
+  "scored_at": "2026-11-07T06:37:11+08:00"
+}

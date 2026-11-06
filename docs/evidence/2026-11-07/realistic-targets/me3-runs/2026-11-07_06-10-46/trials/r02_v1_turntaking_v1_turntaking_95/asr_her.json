@@ -1,0 +1,83 @@
+{
+  "text": "I see, so your extended family is mostly outside the US.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        18.42,
+        18.8
+      ]
+    },
+    {
+      "text": "see,",
+      "timestamp": [
+        18.8,
+        19.02
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        19.34,
+        19.48
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        19.48,
+        19.6
+      ]
+    },
+    {
+      "text": "extended",
+      "timestamp": [
+        19.6,
+        19.98
+      ]
+    },
+    {
+      "text": "family",
+      "timestamp": [
+        19.98,
+        20.5
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        20.5,
+        20.82
+      ]
+    },
+    {
+      "text": "mostly",
+      "timestamp": [
+        20.82,
+        21.22
+      ]
+    },
+    {
+      "text": "outside",
+      "timestamp": [
+        21.22,
+        21.6
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        21.6,
+        21.9
+      ]
+    },
+    {
+      "text": "US.",
+      "timestamp": [
+        21.9,
+        22.12
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

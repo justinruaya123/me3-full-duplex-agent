@@ -1,0 +1,24 @@
+{"stage": "vad_start", "t": 8969.631661458, "pid": 20116, "src": "ws", "recv": 8969.634181916, "lt": 8969.631837832998, "tt": 0.2635}
+{"stage": "vad_start", "t": 8969.631720958, "pid": 20116, "src": "ws", "recv": 8969.634249041, "lt": 8969.631897332998, "tt": 0.2635}
+{"stage": "asr_partial", "t": 8971.194323208, "pid": 20116, "text": "How do I make that?", "src": "ws", "recv": 8971.195401291, "lt": 8971.194499582998, "tt": 1.8261}
+{"stage": "asr_partial", "t": 8972.219175666, "pid": 20116, "text": "How do I make that soup you mentioned first?", "src": "ws", "recv": 8972.219718041, "lt": 8972.219352040998, "tt": 2.851}
+{"stage": "vad_end", "t": 8972.381196916, "pid": 20116, "src": "ws", "recv": 8972.3823705, "lt": 8972.381373290998, "tt": 3.013}
+{"stage": "vad_end", "t": 8972.38122275, "pid": 20116, "src": "ws", "recv": 8972.382402208, "lt": 8972.381399124999, "tt": 3.013}
+{"stage": "vad_start", "t": 8972.670723583, "pid": 20116, "src": "ws", "recv": 8972.672676708, "lt": 8972.670899957999, "tt": 3.3025}
+{"stage": "vad_start", "t": 8972.670759166, "pid": 20116, "src": "ws", "recv": 8972.672761041, "lt": 8972.670935540998, "tt": 3.3026}
+{"stage": "asr_partial", "t": 8974.377843833, "pid": 20116, "text": "How do I make that soup you mentioned first? You start with topping all the vegetables.", "src": "ws", "recv": 8974.37802775, "lt": 8974.378020207998, "tt": 5.0096}
+{"stage": "asr_partial", "t": 8975.475802916, "pid": 20116, "text": "How do I make that soup you mentioned first? You start with chopping all the vegetables and why?", "src": "ws", "recv": 8975.476136583, "lt": 8975.475979290999, "tt": 6.1076}
+{"stage": "asr_partial", "t": 8976.62697875, "pid": 20116, "text": "How do I make that soup you mentioned first? You start with chopping all the vegetables, and while you're at it, make sure...", "src": "ws", "recv": 8976.627271666, "lt": 8976.627155125, "tt": 7.2588}
+{"stage": "vad_end", "t": 8976.69773975, "pid": 20116, "src": "ws", "recv": 8976.698977375, "lt": 8976.697916124998, "tt": 7.3295}
+{"stage": "vad_end", "t": 8976.697763708, "pid": 20116, "src": "ws", "recv": 8976.699080166, "lt": 8976.697940082999, "tt": 7.3296}
+{"stage": "asr_partial", "t": 8977.809449583, "pid": 20116, "text": "How do I make that soup you mentioned first? You start with chopping all the vegetables, and while you're at it, make sure to...", "src": "ws", "recv": 8977.809901958, "lt": 8977.809625957998, "tt": 8.4412}
+{"stage": "vad_start", "t": 8978.010561541, "pid": 20116, "src": "ws", "recv": 8978.011481333, "lt": 8978.010737915998, "tt": 8.6424}
+{"stage": "vad_start", "t": 8978.010570916, "pid": 20116, "src": "ws", "recv": 8978.011503166, "lt": 8978.010747290999, "tt": 8.6424}
+{"stage": "vad_end", "t": 8979.165142083, "pid": 20116, "src": "ws", "recv": 8979.166401458, "lt": 8979.165318458, "tt": 9.7969}
+{"stage": "vad_end", "t": 8979.165167375, "pid": 20116, "src": "ws", "recv": 8979.166507041, "lt": 8979.165343749999, "tt": 9.797}
+{"stage": "vad_start", "t": 8979.482825375, "pid": 20116, "src": "ws", "recv": 8979.484492291, "lt": 8979.483001749999, "tt": 10.1146}
+{"stage": "vad_start", "t": 8979.482853541, "pid": 20116, "src": "ws", "recv": 8979.48459375, "lt": 8979.483029915998, "tt": 10.1146}
+{"stage": "vad_end", "t": 8980.923913125, "pid": 20116, "src": "ws", "recv": 8980.925199833, "lt": 8980.924089499998, "tt": 11.5557}
+{"stage": "vad_end", "t": 8980.923940125, "pid": 20116, "src": "ws", "recv": 8980.925296541, "lt": 8980.924116499998, "tt": 11.5557}
+{"stage": "asr_partial", "t": 8981.452851083, "pid": 20116, "text": "How do I make that soup you mentioned first? You start with topping all the vegetables, and while you're at it, make sure to keep an eye on the heat. You don't want anything.", "src": "ws", "recv": 8981.453086208, "lt": 8981.453027458, "tt": 12.0846}
+{"stage": "asr_partial", "t": 8982.721256291, "pid": 20116, "text": "How do I make that soup you mentioned first? You start with chopping all the vegetables, and while you're at it, make sure to keep an eye on the heat. You don't want anything to burn.", "src": "ws", "recv": 8982.721432666, "lt": 8982.721432666, "tt": 13.3531}

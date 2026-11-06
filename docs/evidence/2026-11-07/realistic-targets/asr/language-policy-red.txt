@@ -1,0 +1,41 @@
+test_confident_detected_language_does_not_force_english_or_redetect (test_whisper_language_v1.AutomaticLanguageTests.test_confident_detected_language_does_not_force_english_or_redetect) ... ERROR
+test_detection_failure_is_explicit (test_whisper_language_v1.AutomaticLanguageTests.test_detection_failure_is_explicit) ... ERROR
+test_malformed_probabilities_cannot_select_an_implicit_language (test_whisper_language_v1.AutomaticLanguageTests.test_malformed_probabilities_cannot_select_an_implicit_language) ... ERROR
+test_uncertain_decode_input_uses_standard_language_detection (test_whisper_language_v1.AutomaticLanguageTests.test_uncertain_decode_input_uses_standard_language_detection) ... ERROR
+
+======================================================================
+ERROR: test_confident_detected_language_does_not_force_english_or_redetect (test_whisper_language_v1.AutomaticLanguageTests.test_confident_detected_language_does_not_force_english_or_redetect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_whisper_language_v1.py", line 11, in test_confident_detected_language_does_not_force_english_or_redetect
+    from me3.whisper_inference import automatic_language
+ImportError: cannot import name 'automatic_language' from 'me3.whisper_inference' (/Users/jus/Documents/Grad/AI231/ME3/me3/whisper_inference.py)
+
+======================================================================
+ERROR: test_detection_failure_is_explicit (test_whisper_language_v1.AutomaticLanguageTests.test_detection_failure_is_explicit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_whisper_language_v1.py", line 36, in test_detection_failure_is_explicit
+    from me3.whisper_inference import automatic_language
+ImportError: cannot import name 'automatic_language' from 'me3.whisper_inference' (/Users/jus/Documents/Grad/AI231/ME3/me3/whisper_inference.py)
+
+======================================================================
+ERROR: test_malformed_probabilities_cannot_select_an_implicit_language (test_whisper_language_v1.AutomaticLanguageTests.test_malformed_probabilities_cannot_select_an_implicit_language)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_whisper_language_v1.py", line 45, in test_malformed_probabilities_cannot_select_an_implicit_language
+    from me3.whisper_inference import automatic_language
+ImportError: cannot import name 'automatic_language' from 'me3.whisper_inference' (/Users/jus/Documents/Grad/AI231/ME3/me3/whisper_inference.py)
+
+======================================================================
+ERROR: test_uncertain_decode_input_uses_standard_language_detection (test_whisper_language_v1.AutomaticLanguageTests.test_uncertain_decode_input_uses_standard_language_detection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_whisper_language_v1.py", line 21, in test_uncertain_decode_input_uses_standard_language_detection
+    from me3.whisper_inference import automatic_language
+ImportError: cannot import name 'automatic_language' from 'me3.whisper_inference' (/Users/jus/Documents/Grad/AI231/ME3/me3/whisper_inference.py)
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (errors=4)

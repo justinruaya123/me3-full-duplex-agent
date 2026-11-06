@@ -1,0 +1,153 @@
+{
+  "text": "Sleep science is fundamentally about understanding the brain's electrical activity cycles, primarily non -rapid eye movement and rapid eye movement stages.",
+  "chunks": [
+    {
+      "text": "Sleep",
+      "timestamp": [
+        5.39,
+        5.89
+      ]
+    },
+    {
+      "text": "science",
+      "timestamp": [
+        5.89,
+        6.33
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        6.33,
+        6.69
+      ]
+    },
+    {
+      "text": "fundamentally",
+      "timestamp": [
+        6.69,
+        7.33
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        7.33,
+        7.77
+      ]
+    },
+    {
+      "text": "understanding",
+      "timestamp": [
+        7.77,
+        8.45
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.45,
+        8.79
+      ]
+    },
+    {
+      "text": "brain's",
+      "timestamp": [
+        8.79,
+        9.35
+      ]
+    },
+    {
+      "text": "electrical",
+      "timestamp": [
+        9.35,
+        9.87
+      ]
+    },
+    {
+      "text": "activity",
+      "timestamp": [
+        9.87,
+        10.33
+      ]
+    },
+    {
+      "text": "cycles,",
+      "timestamp": [
+        10.33,
+        10.87
+      ]
+    },
+    {
+      "text": "primarily",
+      "timestamp": [
+        11.31,
+        11.79
+      ]
+    },
+    {
+      "text": "non",
+      "timestamp": [
+        11.79,
+        12.29
+      ]
+    },
+    {
+      "text": "-rapid",
+      "timestamp": [
+        12.29,
+        12.75
+      ]
+    },
+    {
+      "text": "eye",
+      "timestamp": [
+        12.75,
+        12.95
+      ]
+    },
+    {
+      "text": "movement",
+      "timestamp": [
+        12.95,
+        13.27
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        13.27,
+        13.93
+      ]
+    },
+    {
+      "text": "rapid",
+      "timestamp": [
+        13.93,
+        14.29
+      ]
+    },
+    {
+      "text": "eye",
+      "timestamp": [
+        14.29,
+        14.59
+      ]
+    },
+    {
+      "text": "movement",
+      "timestamp": [
+        14.59,
+        14.87
+      ]
+    },
+    {
+      "text": "stages.",
+      "timestamp": [
+        14.87,
+        15.29
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

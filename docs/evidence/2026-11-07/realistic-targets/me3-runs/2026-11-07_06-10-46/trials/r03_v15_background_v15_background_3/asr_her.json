@@ -1,0 +1,62 @@
+{
+  "text": "I don't have access to real -time clock.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        5.94,
+        6.32
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        6.32,
+        6.5
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        6.5,
+        6.6
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        6.6,
+        7.0
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        7.0,
+        7.22
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        7.22,
+        7.44
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        7.44,
+        7.7
+      ]
+    },
+    {
+      "text": "clock.",
+      "timestamp": [
+        7.7,
+        7.98
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

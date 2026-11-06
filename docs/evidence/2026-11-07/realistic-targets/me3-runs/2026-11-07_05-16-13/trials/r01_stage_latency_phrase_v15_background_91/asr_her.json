@@ -1,0 +1,27 @@
+{
+  "text": "It's a Thursday.",
+  "chunks": [
+    {
+      "text": "It's",
+      "timestamp": [
+        6.35,
+        6.89
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.89,
+        6.97
+      ]
+    },
+    {
+      "text": "Thursday.",
+      "timestamp": [
+        6.97,
+        7.37
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

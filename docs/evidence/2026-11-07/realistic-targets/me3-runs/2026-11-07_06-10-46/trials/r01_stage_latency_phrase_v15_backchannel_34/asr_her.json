@@ -1,0 +1,62 @@
+{
+  "text": "Think of sleep as a nightly housekeeping shift.",
+  "chunks": [
+    {
+      "text": "Think",
+      "timestamp": [
+        3.57,
+        4.05
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        4.05,
+        4.17
+      ]
+    },
+    {
+      "text": "sleep",
+      "timestamp": [
+        4.17,
+        4.47
+      ]
+    },
+    {
+      "text": "as",
+      "timestamp": [
+        4.47,
+        4.89
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        4.89,
+        4.97
+      ]
+    },
+    {
+      "text": "nightly",
+      "timestamp": [
+        4.97,
+        5.39
+      ]
+    },
+    {
+      "text": "housekeeping",
+      "timestamp": [
+        5.39,
+        5.83
+      ]
+    },
+    {
+      "text": "shift.",
+      "timestamp": [
+        5.83,
+        6.27
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

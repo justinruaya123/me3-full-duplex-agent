@@ -1,0 +1,181 @@
+{
+  "text": "Well, it really depends on your specific goals, but apps like Duolingo are great for building basic habits, while Babbel focuses more on structured lessons.",
+  "chunks": [
+    {
+      "text": "Well,",
+      "timestamp": [
+        6.64,
+        7.16
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        7.4,
+        7.48
+      ]
+    },
+    {
+      "text": "really",
+      "timestamp": [
+        7.48,
+        7.76
+      ]
+    },
+    {
+      "text": "depends",
+      "timestamp": [
+        7.76,
+        8.08
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        8.08,
+        8.36
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        8.36,
+        8.46
+      ]
+    },
+    {
+      "text": "specific",
+      "timestamp": [
+        8.46,
+        8.8
+      ]
+    },
+    {
+      "text": "goals,",
+      "timestamp": [
+        8.8,
+        9.32
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        9.78,
+        9.98
+      ]
+    },
+    {
+      "text": "apps",
+      "timestamp": [
+        9.98,
+        10.28
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        10.28,
+        10.52
+      ]
+    },
+    {
+      "text": "Duolingo",
+      "timestamp": [
+        10.52,
+        11.04
+      ]
+    },
+    {
+      "text": "are",
+      "timestamp": [
+        11.04,
+        11.32
+      ]
+    },
+    {
+      "text": "great",
+      "timestamp": [
+        11.32,
+        11.56
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        11.56,
+        11.8
+      ]
+    },
+    {
+      "text": "building",
+      "timestamp": [
+        11.8,
+        12.12
+      ]
+    },
+    {
+      "text": "basic",
+      "timestamp": [
+        12.12,
+        12.52
+      ]
+    },
+    {
+      "text": "habits,",
+      "timestamp": [
+        12.52,
+        13.04
+      ]
+    },
+    {
+      "text": "while",
+      "timestamp": [
+        13.44,
+        13.68
+      ]
+    },
+    {
+      "text": "Babbel",
+      "timestamp": [
+        13.68,
+        14.06
+      ]
+    },
+    {
+      "text": "focuses",
+      "timestamp": [
+        14.06,
+        14.46
+      ]
+    },
+    {
+      "text": "more",
+      "timestamp": [
+        14.46,
+        14.84
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        14.84,
+        15.08
+      ]
+    },
+    {
+      "text": "structured",
+      "timestamp": [
+        15.08,
+        15.48
+      ]
+    },
+    {
+      "text": "lessons.",
+      "timestamp": [
+        15.48,
+        15.98
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,175 @@
+test_empty_audio_final_resolves_without_requesting_inference (test_provisional_pause_v1.EmptyCaptureTests.test_empty_audio_final_resolves_without_requesting_inference) ... ERROR
+test_empty_final_resolves_once_without_committed_transcript (test_provisional_pause_v1.EmptyCaptureTests.test_empty_final_resolves_once_without_committed_transcript) ... ERROR
+test_late_empty_result_after_close_cannot_resolve (test_provisional_pause_v1.EmptyCaptureTests.test_late_empty_result_after_close_cannot_resolve) ... ERROR
+test_late_empty_result_cannot_resolve_new_speech (test_provisional_pause_v1.EmptyCaptureTests.test_late_empty_result_cannot_resolve_new_speech) ... ERROR
+test_prior_incomplete_text_prevents_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_prior_incomplete_text_prevents_empty_resolution) ... ERROR
+test_queued_old_finish_cannot_mark_new_speech_inactive (test_provisional_pause_v1.EmptyCaptureTests.test_queued_old_finish_cannot_mark_new_speech_inactive) ... ERROR
+test_recognition_failure_propagates_without_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_recognition_failure_propagates_without_empty_resolution) ... ERROR
+test_backchannel_resumes_retained_pcm_without_cancellation (test_provisional_pause_v1.ProvisionalPauseTests.test_backchannel_resumes_retained_pcm_without_cancellation) ... 2026-11-07 04:49:25.334 Python[16219:183520] 2026-11-07 04:49:25.334336 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Executing <Task pending name='Task-37' coro=<ProvisionalPauseTests.test_backchannel_resumes_retained_pcm_without_cancellation() running at /Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py:323> wait_for=<Future pending cb=[Task.task_wakeup()] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:459> cb=[_run_until_complete_cb() at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:181] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.674 seconds
+ok
+test_empty_recognition_does_not_leave_unresolved_pause (test_provisional_pause_v1.ProvisionalPauseTests.test_empty_recognition_does_not_leave_unresolved_pause) ... FAIL
+test_uncommitted_stop_does_not_cancel_or_execute (test_provisional_pause_v1.ProvisionalPauseTests.test_uncommitted_stop_does_not_cancel_or_execute) ... ok
+
+======================================================================
+ERROR: test_empty_audio_final_resolves_without_requesting_inference (test_provisional_pause_v1.EmptyCaptureTests.test_empty_audio_final_resolves_without_requesting_inference)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 51, in test_empty_audio_final_resolves_without_requesting_inference
+    capture = self.capture(recognize)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 27, in capture
+    return RollingCapture(
+        "session", recognize, analyze, emit,
+        on_empty=self.resolved.append,
+    )
+TypeError: RollingCapture.__init__() got an unexpected keyword argument 'on_empty'
+
+======================================================================
+ERROR: test_empty_final_resolves_once_without_committed_transcript (test_provisional_pause_v1.EmptyCaptureTests.test_empty_final_resolves_once_without_committed_transcript)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 36, in test_empty_final_resolves_once_without_committed_transcript
+    capture = self.capture(recognize)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 27, in capture
+    return RollingCapture(
+        "session", recognize, analyze, emit,
+        on_empty=self.resolved.append,
+    )
+TypeError: RollingCapture.__init__() got an unexpected keyword argument 'on_empty'
+
+======================================================================
+ERROR: test_late_empty_result_after_close_cannot_resolve (test_provisional_pause_v1.EmptyCaptureTests.test_late_empty_result_after_close_cannot_resolve)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 96, in test_late_empty_result_after_close_cannot_resolve
+    capture = self.capture(recognize)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 27, in capture
+    return RollingCapture(
+        "session", recognize, analyze, emit,
+        on_empty=self.resolved.append,
+    )
+TypeError: RollingCapture.__init__() got an unexpected keyword argument 'on_empty'
+
+======================================================================
+ERROR: test_late_empty_result_cannot_resolve_new_speech (test_provisional_pause_v1.EmptyCaptureTests.test_late_empty_result_cannot_resolve_new_speech)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 68, in test_late_empty_result_cannot_resolve_new_speech
+    capture = self.capture(recognize)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 27, in capture
+    return RollingCapture(
+        "session", recognize, analyze, emit,
+        on_empty=self.resolved.append,
+    )
+TypeError: RollingCapture.__init__() got an unexpected keyword argument 'on_empty'
+
+======================================================================
+ERROR: test_prior_incomplete_text_prevents_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_prior_incomplete_text_prevents_empty_resolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 142, in test_prior_incomplete_text_prevents_empty_resolution
+    capture = self.capture(recognize)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 27, in capture
+    return RollingCapture(
+        "session", recognize, analyze, emit,
+        on_empty=self.resolved.append,
+    )
+TypeError: RollingCapture.__init__() got an unexpected keyword argument 'on_empty'
+
+======================================================================
+ERROR: test_queued_old_finish_cannot_mark_new_speech_inactive (test_provisional_pause_v1.EmptyCaptureTests.test_queued_old_finish_cannot_mark_new_speech_inactive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 121, in test_queued_old_finish_cannot_mark_new_speech_inactive
+    capture = self.capture(recognize)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 27, in capture
+    return RollingCapture(
+        "session", recognize, analyze, emit,
+        on_empty=self.resolved.append,
+    )
+TypeError: RollingCapture.__init__() got an unexpected keyword argument 'on_empty'
+
+======================================================================
+ERROR: test_recognition_failure_propagates_without_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_recognition_failure_propagates_without_empty_resolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 159, in test_recognition_failure_propagates_without_empty_resolution
+    capture = self.capture(recognize)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 27, in capture
+    return RollingCapture(
+        "session", recognize, analyze, emit,
+        on_empty=self.resolved.append,
+    )
+TypeError: RollingCapture.__init__() got an unexpected keyword argument 'on_empty'
+
+======================================================================
+FAIL: test_empty_recognition_does_not_leave_unresolved_pause (test_provisional_pause_v1.ProvisionalPauseTests.test_empty_recognition_does_not_leave_unresolved_pause)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 329, in test_empty_recognition_does_not_leave_unresolved_pause
+    await self.exercise("", complete=False)
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_provisional_pause_v1.py", line 305, in exercise
+    self.assertTrue(
+    ~~~~~~~~~~~~~~~^
+        second_audio.is_set() or explicit_failure,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "Empty recognition must resolve the pause or report "
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "an explicit failure after recognition completes",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: False is not true : Empty recognition must resolve the pause or report an explicit failure after recognition completes
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.797s
+
+FAILED (failures=1, errors=7)

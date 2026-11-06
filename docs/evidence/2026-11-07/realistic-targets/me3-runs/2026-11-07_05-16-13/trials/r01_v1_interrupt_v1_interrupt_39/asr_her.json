@@ -1,0 +1,83 @@
+{
+  "text": "It depends on your personal schedule and sure let's do that.",
+  "chunks": [
+    {
+      "text": "It",
+      "timestamp": [
+        6.67,
+        7.15
+      ]
+    },
+    {
+      "text": "depends",
+      "timestamp": [
+        7.15,
+        7.47
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        7.47,
+        7.71
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        7.71,
+        7.83
+      ]
+    },
+    {
+      "text": "personal",
+      "timestamp": [
+        7.83,
+        8.31
+      ]
+    },
+    {
+      "text": "schedule",
+      "timestamp": [
+        8.31,
+        8.83
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        8.83,
+        9.17
+      ]
+    },
+    {
+      "text": "sure",
+      "timestamp": [
+        9.17,
+        10.03
+      ]
+    },
+    {
+      "text": "let's",
+      "timestamp": [
+        15.09,
+        15.45
+      ]
+    },
+    {
+      "text": "do",
+      "timestamp": [
+        15.45,
+        15.57
+      ]
+    },
+    {
+      "text": "that.",
+      "timestamp": [
+        15.57,
+        15.79
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,146 @@
+{
+  "text": "Start by maxing out any employer match first, then funnel whatever you can afford into a Roth or traditional IRA.",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        5.68,
+        6.16
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        6.16,
+        6.4
+      ]
+    },
+    {
+      "text": "maxing",
+      "timestamp": [
+        6.4,
+        6.88
+      ]
+    },
+    {
+      "text": "out",
+      "timestamp": [
+        6.88,
+        7.02
+      ]
+    },
+    {
+      "text": "any",
+      "timestamp": [
+        7.02,
+        7.34
+      ]
+    },
+    {
+      "text": "employer",
+      "timestamp": [
+        7.34,
+        7.76
+      ]
+    },
+    {
+      "text": "match",
+      "timestamp": [
+        7.76,
+        8.14
+      ]
+    },
+    {
+      "text": "first,",
+      "timestamp": [
+        8.14,
+        8.54
+      ]
+    },
+    {
+      "text": "then",
+      "timestamp": [
+        9.06,
+        9.26
+      ]
+    },
+    {
+      "text": "funnel",
+      "timestamp": [
+        9.26,
+        9.6
+      ]
+    },
+    {
+      "text": "whatever",
+      "timestamp": [
+        9.6,
+        9.9
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        9.9,
+        10.2
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        10.2,
+        10.32
+      ]
+    },
+    {
+      "text": "afford",
+      "timestamp": [
+        10.32,
+        10.66
+      ]
+    },
+    {
+      "text": "into",
+      "timestamp": [
+        10.66,
+        10.92
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        10.92,
+        11.1
+      ]
+    },
+    {
+      "text": "Roth",
+      "timestamp": [
+        11.1,
+        11.42
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        11.42,
+        11.86
+      ]
+    },
+    {
+      "text": "traditional",
+      "timestamp": [
+        11.86,
+        12.3
+      ]
+    },
+    {
+      "text": "IRA.",
+      "timestamp": [
+        12.3,
+        12.76
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,963 @@
+{
+  "passed": false,
+  "kind": "private same-model development probe, auto language from exact decode mel; no production change",
+  "asr_model": "mlx-community/whisper-large-v3-turbo",
+  "tts_model": "mlx-community/Kokoro-82M-bf16",
+  "voice": "af_heart",
+  "rows": [
+    {
+      "input": "ready",
+      "mode": "baseline",
+      "seconds": 2.691313082999841,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "input": "ready",
+      "mode": "single",
+      "seconds": 1.0246638329999769,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "input": "ready",
+      "mode": "compiled-single",
+      "seconds": 1.0009231249996446,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Hello,",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.9375
+        },
+        {
+          "word": " the",
+          "start": 0.86,
+          "end": 0.98,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " voice",
+          "start": 0.98,
+          "end": 1.2,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " system",
+          "start": 1.2,
+          "end": 1.52,
+          "probability": 1.0
+        },
+        {
+          "word": " is",
+          "start": 1.52,
+          "end": 1.72,
+          "probability": 1.0
+        },
+        {
+          "word": " ready.",
+          "start": 1.72,
+          "end": 1.96,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "input": "01",
+      "mode": "compiled-single",
+      "seconds": 0.9682590000002165,
+      "text": " Please wait a moment.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Please",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.931640625
+        },
+        {
+          "word": " wait",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " a",
+          "start": 0.8,
+          "end": 0.92,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " moment.",
+          "start": 0.92,
+          "end": 1.16,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "input": "01",
+      "mode": "single",
+      "seconds": 0.9640494169998419,
+      "text": " Please wait a moment.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Please",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.931640625
+        },
+        {
+          "word": " wait",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " a",
+          "start": 0.8,
+          "end": 0.92,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " moment.",
+          "start": 0.92,
+          "end": 1.16,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "input": "01",
+      "mode": "baseline",
+      "seconds": 1.8263944589998573,
+      "text": " Please wait a moment.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Please",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.931640625
+        },
+        {
+          "word": " wait",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " a",
+          "start": 0.8,
+          "end": 0.92,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " moment.",
+          "start": 0.92,
+          "end": 1.16,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "input": "02",
+      "mode": "baseline",
+      "seconds": 1.8262184169998363,
+      "text": " Actually, could you explain that?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Actually,",
+          "start": 0.0,
+          "end": 0.72,
+          "probability": 0.93310546875
+        },
+        {
+          "word": " could",
+          "start": 0.96,
+          "end": 1.02,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " you",
+          "start": 1.02,
+          "end": 1.14,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " explain",
+          "start": 1.14,
+          "end": 1.52,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " that?",
+          "start": 1.52,
+          "end": 1.76,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "input": "02",
+      "mode": "single",
+      "seconds": 0.9726346670004204,
+      "text": " Actually, could you explain that?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Actually,",
+          "start": 0.0,
+          "end": 0.72,
+          "probability": 0.93310546875
+        },
+        {
+          "word": " could",
+          "start": 0.96,
+          "end": 1.02,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " you",
+          "start": 1.02,
+          "end": 1.14,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " explain",
+          "start": 1.14,
+          "end": 1.52,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " that?",
+          "start": 1.52,
+          "end": 1.76,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "input": "02",
+      "mode": "compiled-single",
+      "seconds": 0.972945874999823,
+      "text": " Actually, could you explain that?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Actually,",
+          "start": 0.0,
+          "end": 0.72,
+          "probability": 0.93310546875
+        },
+        {
+          "word": " could",
+          "start": 0.96,
+          "end": 1.02,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " you",
+          "start": 1.02,
+          "end": 1.14,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " explain",
+          "start": 1.14,
+          "end": 1.52,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " that?",
+          "start": 1.52,
+          "end": 1.76,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "input": "03",
+      "mode": "compiled-single",
+      "seconds": 0.9460993749999034,
+      "text": " Yes.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Yes.",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.8359375
+        }
+      ]
+    },
+    {
+      "input": "03",
+      "mode": "single",
+      "seconds": 0.9483323750000636,
+      "text": " Yes.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Yes.",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.8359375
+        }
+      ]
+    },
+    {
+      "input": "03",
+      "mode": "baseline",
+      "seconds": 1.8024110000005749,
+      "text": " Yes.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Yes.",
+          "start": 0.0,
+          "end": 0.58,
+          "probability": 0.8359375
+        }
+      ]
+    },
+    {
+      "input": "04",
+      "mode": "baseline",
+      "seconds": 1.827439042000151,
+      "text": " M\u00e4mmel.",
+      "language": "sv",
+      "words": [
+        {
+          "word": " M\u00e4mmel.",
+          "start": 0.0,
+          "end": 0.82,
+          "probability": 0.5888671875
+        }
+      ]
+    },
+    {
+      "input": "04",
+      "mode": "single",
+      "seconds": 2.3029089999999997,
+      "text": " Mammal.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Mammal.",
+          "start": 0.0,
+          "end": 0.84,
+          "probability": 0.5009765625
+        }
+      ]
+    },
+    {
+      "input": "04",
+      "mode": "compiled-single",
+      "seconds": 1.0980516669997087,
+      "text": " Mammal.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Mammal.",
+          "start": 0.0,
+          "end": 0.84,
+          "probability": 0.5009765625
+        }
+      ]
+    },
+    {
+      "input": "05",
+      "mode": "compiled-single",
+      "seconds": 0.9556562910001958,
+      "text": " Stop talking.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Stop",
+          "start": 0.0,
+          "end": 0.64,
+          "probability": 0.87890625
+        },
+        {
+          "word": " talking.",
+          "start": 0.64,
+          "end": 1.06,
+          "probability": 0.9365234375
+        }
+      ]
+    },
+    {
+      "input": "05",
+      "mode": "single",
+      "seconds": 0.9546277910003482,
+      "text": " Stop talking.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Stop",
+          "start": 0.0,
+          "end": 0.64,
+          "probability": 0.87890625
+        },
+        {
+          "word": " talking.",
+          "start": 0.64,
+          "end": 1.06,
+          "probability": 0.9365234375
+        }
+      ]
+    },
+    {
+      "input": "05",
+      "mode": "baseline",
+      "seconds": 1.8111153339996235,
+      "text": " Stop talking.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Stop",
+          "start": 0.0,
+          "end": 0.64,
+          "probability": 0.87890625
+        },
+        {
+          "word": " talking.",
+          "start": 0.64,
+          "end": 1.06,
+          "probability": 0.9365234375
+        }
+      ]
+    },
+    {
+      "input": "06",
+      "mode": "baseline",
+      "seconds": 1.810848666000311,
+      "text": " Thanks I follow.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Thanks",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.94775390625
+        },
+        {
+          "word": " I",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.445068359375
+        },
+        {
+          "word": " follow.",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.92529296875
+        }
+      ]
+    },
+    {
+      "input": "06",
+      "mode": "single",
+      "seconds": 0.9613093749994732,
+      "text": " Thanks I follow.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Thanks",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.94775390625
+        },
+        {
+          "word": " I",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.445068359375
+        },
+        {
+          "word": " follow.",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.92529296875
+        }
+      ]
+    },
+    {
+      "input": "06",
+      "mode": "compiled-single",
+      "seconds": 0.957194999999956,
+      "text": " Thanks I follow.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Thanks",
+          "start": 0.0,
+          "end": 0.6,
+          "probability": 0.94775390625
+        },
+        {
+          "word": " I",
+          "start": 0.6,
+          "end": 0.8,
+          "probability": 0.445068359375
+        },
+        {
+          "word": " follow.",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.92529296875
+        }
+      ]
+    },
+    {
+      "input": "07",
+      "mode": "compiled-single",
+      "seconds": 0.9695467090004968,
+      "text": " Six small ships pass the shore.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Six",
+          "start": 0.0,
+          "end": 0.48,
+          "probability": 0.75048828125
+        },
+        {
+          "word": " small",
+          "start": 0.48,
+          "end": 0.8,
+          "probability": 0.994140625
+        },
+        {
+          "word": " ships",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.998046875
+        },
+        {
+          "word": " pass",
+          "start": 1.1,
+          "end": 1.36,
+          "probability": 0.7412109375
+        },
+        {
+          "word": " the",
+          "start": 1.36,
+          "end": 1.52,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " shore.",
+          "start": 1.52,
+          "end": 1.78,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "input": "07",
+      "mode": "single",
+      "seconds": 0.9754434169999513,
+      "text": " Six small ships pass the shore.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Six",
+          "start": 0.0,
+          "end": 0.48,
+          "probability": 0.75048828125
+        },
+        {
+          "word": " small",
+          "start": 0.48,
+          "end": 0.8,
+          "probability": 0.994140625
+        },
+        {
+          "word": " ships",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.998046875
+        },
+        {
+          "word": " pass",
+          "start": 1.1,
+          "end": 1.36,
+          "probability": 0.7412109375
+        },
+        {
+          "word": " the",
+          "start": 1.36,
+          "end": 1.52,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " shore.",
+          "start": 1.52,
+          "end": 1.78,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "input": "07",
+      "mode": "baseline",
+      "seconds": 1.8334377500004848,
+      "text": " Six small ships pass the shore.",
+      "language": "en",
+      "words": [
+        {
+          "word": " Six",
+          "start": 0.0,
+          "end": 0.48,
+          "probability": 0.75048828125
+        },
+        {
+          "word": " small",
+          "start": 0.48,
+          "end": 0.8,
+          "probability": 0.994140625
+        },
+        {
+          "word": " ships",
+          "start": 0.8,
+          "end": 1.1,
+          "probability": 0.998046875
+        },
+        {
+          "word": " pass",
+          "start": 1.1,
+          "end": 1.36,
+          "probability": 0.7412109375
+        },
+        {
+          "word": " the",
+          "start": 1.36,
+          "end": 1.52,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " shore.",
+          "start": 1.52,
+          "end": 1.78,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "input": "08",
+      "mode": "baseline",
+      "seconds": 1.8206187499999942,
+      "text": " Can we discuss another example?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Can",
+          "start": 0.0,
+          "end": 0.44,
+          "probability": 0.93798828125
+        },
+        {
+          "word": " we",
+          "start": 0.44,
+          "end": 0.56,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " discuss",
+          "start": 0.56,
+          "end": 0.98,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " another",
+          "start": 0.98,
+          "end": 1.46,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " example?",
+          "start": 1.46,
+          "end": 1.94,
+          "probability": 0.99951171875
+        }
+      ]
+    },
+    {
+      "input": "08",
+      "mode": "single",
+      "seconds": 0.9661128329998974,
+      "text": " Can we discuss another example?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Can",
+          "start": 0.0,
+          "end": 0.44,
+          "probability": 0.93798828125
+        },
+        {
+          "word": " we",
+          "start": 0.44,
+          "end": 0.56,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " discuss",
+          "start": 0.56,
+          "end": 0.98,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " another",
+          "start": 0.98,
+          "end": 1.46,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " example?",
+          "start": 1.46,
+          "end": 1.94,
+          "probability": 0.99951171875
+        }
+      ]
+    },
+    {
+      "input": "08",
+      "mode": "compiled-single",
+      "seconds": 0.9657095409993417,
+      "text": " Can we discuss another example?",
+      "language": "en",
+      "words": [
+        {
+          "word": " Can",
+          "start": 0.0,
+          "end": 0.44,
+          "probability": 0.93798828125
+        },
+        {
+          "word": " we",
+          "start": 0.44,
+          "end": 0.56,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " discuss",
+          "start": 0.56,
+          "end": 0.98,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " another",
+          "start": 0.98,
+          "end": 1.46,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " example?",
+          "start": 1.46,
+          "end": 1.94,
+          "probability": 0.99951171875
+        }
+      ]
+    },
+    {
+      "input": "math",
+      "mode": "compiled-single",
+      "seconds": 0.9642234579996511,
+      "text": " What is 17 plus 25?",
+      "language": "en",
+      "words": [
+        {
+          "word": " What",
+          "start": 0.0,
+          "end": 0.42,
+          "probability": 0.919921875
+        },
+        {
+          "word": " is",
+          "start": 0.42,
+          "end": 0.54,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " 17",
+          "start": 0.54,
+          "end": 0.86,
+          "probability": 0.9423828125
+        },
+        {
+          "word": " plus",
+          "start": 0.86,
+          "end": 1.28,
+          "probability": 0.86279296875
+        },
+        {
+          "word": " 25?",
+          "start": 1.28,
+          "end": 1.72,
+          "probability": 0.99755859375
+        }
+      ]
+    },
+    {
+      "input": "math",
+      "mode": "single",
+      "seconds": 0.9627692499998375,
+      "text": " What is 17 plus 25?",
+      "language": "en",
+      "words": [
+        {
+          "word": " What",
+          "start": 0.0,
+          "end": 0.42,
+          "probability": 0.919921875
+        },
+        {
+          "word": " is",
+          "start": 0.42,
+          "end": 0.54,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " 17",
+          "start": 0.54,
+          "end": 0.86,
+          "probability": 0.9423828125
+        },
+        {
+          "word": " plus",
+          "start": 0.86,
+          "end": 1.28,
+          "probability": 0.86279296875
+        },
+        {
+          "word": " 25?",
+          "start": 1.28,
+          "end": 1.72,
+          "probability": 0.99755859375
+        }
+      ]
+    },
+    {
+      "input": "math",
+      "mode": "baseline",
+      "seconds": 1.8251790410004105,
+      "text": " What is 17 plus 25?",
+      "language": "en",
+      "words": [
+        {
+          "word": " What",
+          "start": 0.0,
+          "end": 0.42,
+          "probability": 0.919921875
+        },
+        {
+          "word": " is",
+          "start": 0.42,
+          "end": 0.54,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " 17",
+          "start": 0.54,
+          "end": 0.86,
+          "probability": 0.9423828125
+        },
+        {
+          "word": " plus",
+          "start": 0.86,
+          "end": 1.28,
+          "probability": 0.86279296875
+        },
+        {
+          "word": " 25?",
+          "start": 1.28,
+          "end": 1.72,
+          "probability": 0.99755859375
+        }
+      ]
+    }
+  ]
+}

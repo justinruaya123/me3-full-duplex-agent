@@ -1,0 +1,118 @@
+{
+  "text": "Sleep science explains that sleep isn't just shutting off. It's an active process with distinct stages.",
+  "chunks": [
+    {
+      "text": "Sleep",
+      "timestamp": [
+        4.91,
+        5.41
+      ]
+    },
+    {
+      "text": "science",
+      "timestamp": [
+        5.41,
+        5.83
+      ]
+    },
+    {
+      "text": "explains",
+      "timestamp": [
+        5.83,
+        6.41
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        6.41,
+        6.81
+      ]
+    },
+    {
+      "text": "sleep",
+      "timestamp": [
+        6.81,
+        7.11
+      ]
+    },
+    {
+      "text": "isn't",
+      "timestamp": [
+        7.11,
+        7.51
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        7.51,
+        7.69
+      ]
+    },
+    {
+      "text": "shutting",
+      "timestamp": [
+        7.69,
+        8.13
+      ]
+    },
+    {
+      "text": "off.",
+      "timestamp": [
+        8.13,
+        8.53
+      ]
+    },
+    {
+      "text": "It's",
+      "timestamp": [
+        8.99,
+        9.35
+      ]
+    },
+    {
+      "text": "an",
+      "timestamp": [
+        9.35,
+        9.43
+      ]
+    },
+    {
+      "text": "active",
+      "timestamp": [
+        9.43,
+        9.79
+      ]
+    },
+    {
+      "text": "process",
+      "timestamp": [
+        9.79,
+        10.31
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        10.31,
+        10.65
+      ]
+    },
+    {
+      "text": "distinct",
+      "timestamp": [
+        10.65,
+        11.01
+      ]
+    },
+    {
+      "text": "stages.",
+      "timestamp": [
+        11.01,
+        11.51
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

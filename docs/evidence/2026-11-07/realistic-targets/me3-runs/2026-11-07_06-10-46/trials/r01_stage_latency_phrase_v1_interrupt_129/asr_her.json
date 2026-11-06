@@ -1,0 +1,111 @@
+{
+  "text": "Honestly, the best way is just to pick up a brush and start messing around.",
+  "chunks": [
+    {
+      "text": "Honestly,",
+      "timestamp": [
+        4.5,
+        5.26
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        5.62,
+        5.7
+      ]
+    },
+    {
+      "text": "best",
+      "timestamp": [
+        5.7,
+        5.94
+      ]
+    },
+    {
+      "text": "way",
+      "timestamp": [
+        5.94,
+        6.14
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        6.14,
+        6.32
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        6.32,
+        6.5
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.5,
+        6.64
+      ]
+    },
+    {
+      "text": "pick",
+      "timestamp": [
+        6.64,
+        6.8
+      ]
+    },
+    {
+      "text": "up",
+      "timestamp": [
+        6.8,
+        6.94
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.94,
+        7.04
+      ]
+    },
+    {
+      "text": "brush",
+      "timestamp": [
+        7.04,
+        7.36
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        7.36,
+        7.82
+      ]
+    },
+    {
+      "text": "start",
+      "timestamp": [
+        7.82,
+        8.08
+      ]
+    },
+    {
+      "text": "messing",
+      "timestamp": [
+        8.08,
+        8.42
+      ]
+    },
+    {
+      "text": "around.",
+      "timestamp": [
+        8.42,
+        8.84
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

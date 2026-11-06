@@ -1,0 +1,111 @@
+{
+  "text": "So basically, you hit the ball over the net into your opponent's court. If you...",
+  "chunks": [
+    {
+      "text": "So",
+      "timestamp": [
+        4.85,
+        5.33
+      ]
+    },
+    {
+      "text": "basically,",
+      "timestamp": [
+        5.33,
+        5.85
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        6.41,
+        6.55
+      ]
+    },
+    {
+      "text": "hit",
+      "timestamp": [
+        6.55,
+        6.71
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        6.71,
+        6.85
+      ]
+    },
+    {
+      "text": "ball",
+      "timestamp": [
+        6.85,
+        7.09
+      ]
+    },
+    {
+      "text": "over",
+      "timestamp": [
+        7.09,
+        7.35
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        7.35,
+        7.49
+      ]
+    },
+    {
+      "text": "net",
+      "timestamp": [
+        7.49,
+        7.71
+      ]
+    },
+    {
+      "text": "into",
+      "timestamp": [
+        7.71,
+        7.99
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        7.99,
+        8.17
+      ]
+    },
+    {
+      "text": "opponent's",
+      "timestamp": [
+        8.17,
+        8.73
+      ]
+    },
+    {
+      "text": "court.",
+      "timestamp": [
+        8.73,
+        9.01
+      ]
+    },
+    {
+      "text": "If",
+      "timestamp": [
+        9.85,
+        9.85
+      ]
+    },
+    {
+      "text": "you...",
+      "timestamp": [
+        9.85,
+        10.21
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

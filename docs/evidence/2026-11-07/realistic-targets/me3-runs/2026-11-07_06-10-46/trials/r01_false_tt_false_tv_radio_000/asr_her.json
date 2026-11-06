@@ -1,0 +1,111 @@
+{
+  "text": "Well, it really depends on your goals, but Duolingo is great for casual daily practice.",
+  "chunks": [
+    {
+      "text": "Well,",
+      "timestamp": [
+        8.14,
+        8.68
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        8.88,
+        8.98
+      ]
+    },
+    {
+      "text": "really",
+      "timestamp": [
+        8.98,
+        9.28
+      ]
+    },
+    {
+      "text": "depends",
+      "timestamp": [
+        9.28,
+        9.56
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        9.56,
+        9.86
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        9.86,
+        9.96
+      ]
+    },
+    {
+      "text": "goals,",
+      "timestamp": [
+        9.96,
+        10.3
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        10.92,
+        10.98
+      ]
+    },
+    {
+      "text": "Duolingo",
+      "timestamp": [
+        10.98,
+        11.54
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        11.54,
+        11.9
+      ]
+    },
+    {
+      "text": "great",
+      "timestamp": [
+        11.9,
+        12.22
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        12.22,
+        12.46
+      ]
+    },
+    {
+      "text": "casual",
+      "timestamp": [
+        12.46,
+        12.94
+      ]
+    },
+    {
+      "text": "daily",
+      "timestamp": [
+        12.94,
+        13.3
+      ]
+    },
+    {
+      "text": "practice.",
+      "timestamp": [
+        13.3,
+        13.82
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

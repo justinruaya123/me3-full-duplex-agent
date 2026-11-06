@@ -1,0 +1,104 @@
+{
+  "text": "Sure and short, players hit the ball over the net into the opponent's court.",
+  "chunks": [
+    {
+      "text": "Sure",
+      "timestamp": [
+        4.88,
+        5.46
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        5.46,
+        5.72
+      ]
+    },
+    {
+      "text": "short,",
+      "timestamp": [
+        5.72,
+        6.02
+      ]
+    },
+    {
+      "text": "players",
+      "timestamp": [
+        6.62,
+        6.88
+      ]
+    },
+    {
+      "text": "hit",
+      "timestamp": [
+        6.88,
+        7.16
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        7.16,
+        7.3
+      ]
+    },
+    {
+      "text": "ball",
+      "timestamp": [
+        7.3,
+        7.54
+      ]
+    },
+    {
+      "text": "over",
+      "timestamp": [
+        7.54,
+        7.82
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        7.82,
+        7.96
+      ]
+    },
+    {
+      "text": "net",
+      "timestamp": [
+        7.96,
+        8.18
+      ]
+    },
+    {
+      "text": "into",
+      "timestamp": [
+        8.18,
+        8.44
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.44,
+        8.6
+      ]
+    },
+    {
+      "text": "opponent's",
+      "timestamp": [
+        8.6,
+        9.18
+      ]
+    },
+    {
+      "text": "court.",
+      "timestamp": [
+        9.18,
+        9.44
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

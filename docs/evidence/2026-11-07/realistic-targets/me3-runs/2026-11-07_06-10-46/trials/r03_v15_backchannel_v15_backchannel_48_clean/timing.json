@@ -1,0 +1,62 @@
+{
+  "trial": "r03_v15_backchannel_v15_backchannel_48_clean",
+  "group": "v15_backchannel",
+  "clip": "v15_backchannel_48",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 8.256,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.296
+    }
+  ],
+  "live_bot_starts": [
+    4.928
+  ],
+  "live_bot_ends": [
+    7.04
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Explain the periodic table completely.",
+    "current_turn_text": "",
+    "overlap_text": "yes yeah",
+    "overlap_duration": 0.7,
+    "overlap_window": [
+      6.043,
+      6.74
+    ],
+    "source_id": "48"
+  },
+  "mono": [
+    12736.347861541,
+    12744.584839
+  ],
+  "bot_segments": [
+    [
+      4.898,
+      7.07
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.296
+  ],
+  "tor": 1,
+  "first_start": 4.898,
+  "spoke_s": 2.1720000000000006,
+  "actual": "replied after 2.60 s, spoke 2.2 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 21,
+  "final": {
+    "transcript": "That's a massive topic for a quick chat."
+  },
+  "scored_at": "2026-11-07T06:37:01+08:00"
+}

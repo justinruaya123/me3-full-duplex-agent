@@ -1,0 +1,273 @@
+test_control_rejects_insecure_or_symlink_directory (test_benchmark_control_v1.BenchmarkControlTests.test_control_rejects_insecure_or_symlink_directory) ... ok
+test_disconnect_bounds_hung_cleanup_below_upstream_wait (test_benchmark_control_v1.BenchmarkControlTests.test_disconnect_bounds_hung_cleanup_below_upstream_wait) ... ok
+test_existing_control_directory_is_preserved_and_refused (test_benchmark_control_v1.BenchmarkControlTests.test_existing_control_directory_is_preserved_and_refused) ... ok
+test_failed_reset_is_terminal_without_old_session_fallback (test_benchmark_control_v1.BenchmarkControlTests.test_failed_reset_is_terminal_without_old_session_fallback) ... ok
+test_invalid_and_oversized_messages_cannot_reset (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_and_oversized_messages_cannot_reset) ... ok
+test_invalid_operation_type_cannot_terminate_control_parent (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_operation_type_cannot_terminate_control_parent) ... ok
+test_invalid_state_fifo_cannot_block_control_client (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_state_fifo_cannot_block_control_client) ... ok
+test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) ... ok
+test_malformed_or_stalled_request_cannot_block_control (test_benchmark_control_v1.BenchmarkControlTests.test_malformed_or_stalled_request_cannot_block_control) ... ok
+test_reset_kills_descendant_even_after_launcher_exits_on_term (test_benchmark_control_v1.BenchmarkControlTests.test_reset_kills_descendant_even_after_launcher_exits_on_term) ... ok
+test_reset_reconnects_new_child_with_fresh_log_and_runtime_tree (test_benchmark_control_v1.BenchmarkControlTests.test_reset_reconnects_new_child_with_fresh_log_and_runtime_tree) ... ok
+test_slow_trickle_cannot_extend_request_deadline (test_benchmark_control_v1.BenchmarkControlTests.test_slow_trickle_cannot_extend_request_deadline) ... ok
+test_start_timeout_reaps_child_and_removes_socket (test_benchmark_control_v1.BenchmarkControlTests.test_start_timeout_reaps_child_and_removes_socket) ... ok
+test_term_and_explicit_stop_reap_owned_child (test_benchmark_control_v1.BenchmarkControlTests.test_term_and_explicit_stop_reap_owned_child) ... ok
+test_wrong_instance_and_replayed_generation_cannot_reset (test_benchmark_control_v1.BenchmarkControlTests.test_wrong_instance_and_replayed_generation_cannot_reset) ... ok
+test_changed_audio_and_new_generation_require_fresh_recognition (test_capture_v1.CaptureTests.test_changed_audio_and_new_generation_require_fresh_recognition) ... ok
+test_identical_final_reuses_text_only_after_turn_approval (test_capture_v1.CaptureTests.test_identical_final_reuses_text_only_after_turn_approval) ... ok
+test_incomplete_acoustic_turn_only_emits_provisional_text (test_capture_v1.CaptureTests.test_incomplete_acoustic_turn_only_emits_provisional_text) ... ok
+test_latest_final_replaces_waiting_partial_after_speech_resumes (test_capture_v1.CaptureTests.test_latest_final_replaces_waiting_partial_after_speech_resumes) ... ok
+test_overflow_and_transcript_gap_cannot_commit_fragment (test_capture_v1.CaptureTests.test_overflow_and_transcript_gap_cannot_commit_fragment) ... ok
+test_pending_snapshot_overflow_invalidates_authorization (test_capture_v1.CaptureTests.test_pending_snapshot_overflow_invalidates_authorization) ... ok
+test_resumed_audio_fences_late_final_hypothesis (test_capture_v1.CaptureTests.test_resumed_audio_fences_late_final_hypothesis) ... ok
+test_resumed_turn_replaces_stale_queued_final_with_fresh_audio (test_capture_v1.CaptureTests.test_resumed_turn_replaces_stale_queued_final_with_fresh_audio) ... ok
+test_backchannel_does_not_stop_playback (test_duplex_v1.ControllerTests.test_backchannel_does_not_stop_playback) ... ok
+test_completion_waits_for_user_and_quiet_boundary (test_duplex_v1.ControllerTests.test_completion_waits_for_user_and_quiet_boundary) ... ok
+test_delegate_returns_before_completion (test_duplex_v1.ControllerTests.test_delegate_returns_before_completion) ... ok
+test_incomplete_turn_backchannel_is_rate_limited (test_duplex_v1.ControllerTests.test_incomplete_turn_backchannel_is_rate_limited) ... ok
+test_interrupted_notice_can_be_retried (test_duplex_v1.ControllerTests.test_interrupted_notice_can_be_retried) ... ok
+test_notice_scheduled_just_before_user_onset_is_deferred (test_duplex_v1.ControllerTests.test_notice_scheduled_just_before_user_onset_is_deferred) ... ok
+test_old_reply_waits_for_transcript_not_vad_silence (test_duplex_v1.ControllerTests.test_old_reply_waits_for_transcript_not_vad_silence) ... ok
+test_provider_failure_does_not_fake_success (test_duplex_v1.ControllerTests.test_provider_failure_does_not_fake_success) ... ok
+test_reject_empty_or_oversize_input (test_duplex_v1.ControllerTests.test_reject_empty_or_oversize_input) ... ok
+test_reply_is_recorded_only_after_delivery (test_duplex_v1.ControllerTests.test_reply_is_recorded_only_after_delivery) ... ok
+test_stale_foreground_result_is_fenced (test_duplex_v1.ControllerTests.test_stale_foreground_result_is_fenced) ... ok
+test_stop_does_not_cancel_job (test_duplex_v1.ControllerTests.test_stop_does_not_cancel_job) ... ok
+test_unknown_background_speech_is_not_claimed_rejected (test_duplex_v1.ControllerTests.test_unknown_background_speech_is_not_claimed_rejected) ... ok
+test_acknowledgment_during_speech_keeps_floor (test_duplex_v1.PolicyTests.test_acknowledgment_during_speech_keeps_floor) ... ok
+test_acknowledgment_prefix_does_not_hide_command (test_duplex_v1.PolicyTests.test_acknowledgment_prefix_does_not_hide_command) ... ok
+test_background_classification_requires_external_evidence (test_duplex_v1.PolicyTests.test_background_classification_requires_external_evidence) ... ok
+test_idle_acknowledgment_is_a_turn (test_duplex_v1.PolicyTests.test_idle_acknowledgment_is_a_turn) ... ok
+test_stop_must_be_entire_control_phrase (test_duplex_v1.PolicyTests.test_stop_must_be_entire_control_phrase) ... ok
+test_played_reference_is_resampled_and_paired_with_capture (test_echo_v1.EchoTests.test_played_reference_is_resampled_and_paired_with_capture) ... ok
+test_wrong_rates_and_reference_overflow_fail_explicitly (test_echo_v1.EchoTests.test_wrong_rates_and_reference_overflow_fail_explicitly) ... ok
+test_cancellation_reaps_local_child (test_harness_v1.ProcessTests.test_cancellation_reaps_local_child) ... ok
+test_hermes_requires_explicit_source_and_configuration (test_harness_v1.ProcessTests.test_hermes_requires_explicit_source_and_configuration) ... ok
+test_json_process_returns_valid_result (test_harness_v1.ProcessTests.test_json_process_returns_valid_result) ... ok
+test_malformed_or_empty_result_fails (test_harness_v1.ProcessTests.test_malformed_or_empty_result_fails) ... ok
+test_output_is_bounded (test_harness_v1.ProcessTests.test_output_is_bounded) ... ok
+test_output_limit_drains_pipes_before_return (test_harness_v1.ProcessTests.test_output_limit_drains_pipes_before_return) ... ok
+test_pi_aborted_message_does_not_publish_partial_text (test_harness_v1.ProcessTests.test_pi_aborted_message_does_not_publish_partial_text) ... ok
+test_pi_command_failure_surfaces (test_harness_v1.ProcessTests.test_pi_command_failure_surfaces) ... ok
+test_pi_waits_for_settled_not_agent_end (test_harness_v1.ProcessTests.test_pi_waits_for_settled_not_agent_end) ... ok
+test_provider_error_is_not_a_mock_result (test_harness_v1.ProcessTests.test_provider_error_is_not_a_mock_result) ... ok
+test_timeout_reaps_child (test_harness_v1.ProcessTests.test_timeout_reaps_child) ... ok
+test_first_clause_plays_before_generation_finishes (test_incremental_v1.ClauseTests.test_first_clause_plays_before_generation_finishes) ... ok
+test_buffer_overflow_fails_instead_of_dropping_audio_silently (test_incremental_v1.PlaybackTests.test_buffer_overflow_fails_instead_of_dropping_audio_silently) ... ok
+test_late_receipt_cannot_confirm_new_audio (test_incremental_v1.PlaybackTests.test_late_receipt_cannot_confirm_new_audio) ... ok
+test_provisional_pause_preserves_unplayed_pcm (test_incremental_v1.PlaybackTests.test_provisional_pause_preserves_unplayed_pcm) ... ok
+test_commit_is_once_and_older_revisions_are_ignored (test_incremental_v1.TranscriptTests.test_commit_is_once_and_older_revisions_are_ignored) ... ok
+test_provisional_delegate_and_stop_never_authorize (test_incremental_v1.TranscriptTests.test_provisional_delegate_and_stop_never_authorize) ... ok
+test_rolling_revisions_keep_stability_separate_from_commit (test_incremental_v1.TranscriptTests.test_rolling_revisions_keep_stability_separate_from_commit) ... ok
+test_answer_to_pending_question_is_not_a_backchannel (test_ownership_v1.IngressTests.test_answer_to_pending_question_is_not_a_backchannel) ... ok
+test_wrong_session_or_unverified_commit_cannot_delegate (test_ownership_v1.IngressTests.test_wrong_session_or_unverified_commit_cannot_delegate) ... ok
+test_timeout_and_mute_revoke_authority (test_ownership_v1.OwnershipTests.test_timeout_and_mute_revoke_authority) ... ok
+test_unknown_mixed_nonowner_and_side_talk_cannot_authorize (test_ownership_v1.OwnershipTests.test_unknown_mixed_nonowner_and_side_talk_cannot_authorize) ... ok
+test_wake_is_not_identity_and_enrollment_is_deliberate (test_ownership_v1.OwnershipTests.test_wake_is_not_identity_and_enrollment_is_deliberate) ... ok
+test_gap_and_bot_stopped_event_do_not_confirm_entire_utterance (test_pipeline_v1.PipelineTests.test_gap_and_bot_stopped_event_do_not_confirm_entire_utterance) ... 2026-11-07 04:55:01.932 | INFO     | pipecat:<module>:54 - ᓚᘏᗢ Pipecat 1.15.1.dev12 (Python 3.13.6 (v3.13.6:4e665351082, Aug  6 2025, 11:22:35) [Clang 16.0.0 (clang-1600.0.26.6)]) ᓚᘏᗢ
+2026-11-07 04:55:02.161 | DEBUG    | pipecat.audio.vad.silero:__init__:169 - Loading Silero VAD model...
+2026-11-07 04:55:02.181 | DEBUG    | pipecat.audio.vad.silero:__init__:194 - Loaded Silero VAD
+2026-11-07 04:55:02.181 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Pipeline#0::Source -> Source#0
+2026-11-07 04:55:02.181 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Source#0 -> EchoCleaner#0
+2026-11-07 04:55:02.181 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking EchoCleaner#0 -> VADProcessor#0
+2026-11-07 04:55:02.181 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking VADProcessor#0 -> Bridge#0
+2026-11-07 04:55:02.181 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Bridge#0 -> OutputFence#0
+2026-11-07 04:55:02.181 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking OutputFence#0 -> Sink#0
+2026-11-07 04:55:02.181 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Sink#0 -> ReceiptSink#0
+2026-11-07 04:55:02.181 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking ReceiptSink#0 -> Pipeline#0::Sink
+2026-11-07 04:55:02.182 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking PipelineWorker#0::Source -> RTVIProcessor#0
+2026-11-07 04:55:02.182 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking RTVIProcessor#0 -> Pipeline#0
+2026-11-07 04:55:02.182 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Pipeline#0 -> PipelineWorker#0::Sink
+Executing <Task pending name='Task-272' coro=<PipelineTests.test_gap_and_bot_stopped_event_do_not_confirm_entire_utterance() running at /Users/jus/Documents/Grad/AI231/ME3/tests/test_pipeline_v1.py:90> wait_for=<Future pending cb=[Task.task_wakeup()] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:459> cb=[_run_until_complete_cb() at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:181] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.263 seconds
+2026-11-07 04:55:02.182 | DEBUG    | pipecat.workers.runner:add_workers:230 - WorkerRunner 'runner-7456bb78': added worker 'PipelineWorker#0'
+2026-11-07 04:55:02.183 | DEBUG    | pipecat.workers.runner:run:273 - WorkerRunner 'runner-7456bb78': started running
+2026-11-07 04:55:02.184 | DEBUG    | pipecat.workers.runner:_start_worker:459 - WorkerRunner 'runner-7456bb78': starting worker 'PipelineWorker#0'
+2026-11-07 04:55:02.189 | DEBUG    | pipecat.audio.vad.vad_analyzer:set_params:157 - Setting VAD params to: confidence=0.7 start_secs=0.2 stop_secs=0.2 min_volume=0.6
+2026-11-07 04:55:02.190 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_start:1327 - PipelineWorker#0: Starting. Waiting for StartFrame#0 to reach the end of the pipeline...
+2026-11-07 04:55:02.192 | DEBUG    | pipecat.processors.frame_processor:broadcast_interruption:1050 - Bridge#0: broadcasting interruption
+2026-11-07 04:55:02.200 | DEBUG    | pipecat.registry.registry:register:132 - Worker 'PipelineWorker#0' ready (local)
+2026-11-07 04:55:02.200 | DEBUG    | pipecat.workers.runner:_send_registry:511 - WorkerRunner 'runner-7456bb78': broadcasting registry: ['PipelineWorker#0']
+2026-11-07 04:55:02.200 | DEBUG    | pipecat.workers.base_worker:_maybe_activate:1284 - Worker 'PipelineWorker#0': activated
+2026-11-07 04:55:02.201 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_start:1344 - PipelineWorker#0: StartFrame#0 reached the end of the pipeline, pipeline is now ready.
+2026-11-07 04:55:02.300 | DEBUG    | pipecat.processors.frame_processor:broadcast_interruption:1050 - Bridge#0: broadcasting interruption
+2026-11-07 04:55:02.301 | DEBUG    | pipecat.processors.frame_processor:broadcast_interruption:1050 - Bridge#0: broadcasting interruption
+2026-11-07 04:55:02.301 | DEBUG    | pipecat.pipeline.worker:_cancel:1188 - Cancelling pipeline worker PipelineWorker#0
+2026-11-07 04:55:02.302 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_end:1364 - PipelineWorker#0: Closing. Waiting for CancelFrame#0(reason: None) to reach the end of the pipeline...
+2026-11-07 04:55:02.316 | DEBUG    | pipecat.pipeline.worker:wait_for_cancel:1355 - PipelineWorker#0: CancelFrame#0(reason: None) reached the end of the pipeline.
+2026-11-07 04:55:02.316 | DEBUG    | pipecat.utils.base_object:cleanup:179 - PipelineWorker#0: waiting on event handlers to finish ['on_pipeline_finished']...
+2026-11-07 04:55:02.321 | DEBUG    | pipecat.pipeline.worker:run:927 - Pipeline worker PipelineWorker#0 is finishing...
+2026-11-07 04:55:02.321 | DEBUG    | pipecat.pipeline.worker:run:932 - Pipeline worker PipelineWorker#0 has finished
+2026-11-07 04:55:02.322 | DEBUG    | pipecat.workers.runner:run:316 - WorkerRunner 'runner-7456bb78': finished running
+ok
+test_empty_audio_final_resolves_without_requesting_inference (test_provisional_pause_v1.EmptyCaptureTests.test_empty_audio_final_resolves_without_requesting_inference) ... ok
+test_empty_final_resolves_once_without_committed_transcript (test_provisional_pause_v1.EmptyCaptureTests.test_empty_final_resolves_once_without_committed_transcript) ... ok
+test_late_empty_result_after_close_cannot_resolve (test_provisional_pause_v1.EmptyCaptureTests.test_late_empty_result_after_close_cannot_resolve) ... ok
+test_late_empty_result_cannot_resolve_new_speech (test_provisional_pause_v1.EmptyCaptureTests.test_late_empty_result_cannot_resolve_new_speech) ... ok
+test_malformed_recognition_is_not_an_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_malformed_recognition_is_not_an_empty_resolution) ... ok
+test_prior_incomplete_text_prevents_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_prior_incomplete_text_prevents_empty_resolution) ... ok
+test_queued_old_finish_cannot_mark_new_speech_inactive (test_provisional_pause_v1.EmptyCaptureTests.test_queued_old_finish_cannot_mark_new_speech_inactive) ... ok
+test_recognition_failure_propagates_without_empty_resolution (test_provisional_pause_v1.EmptyCaptureTests.test_recognition_failure_propagates_without_empty_resolution) ... ok
+test_backchannel_resumes_retained_pcm_without_cancellation (test_provisional_pause_v1.ProvisionalPauseTests.test_backchannel_resumes_retained_pcm_without_cancellation) ... 2026-11-07 04:55:02.337 | DEBUG    | pipecat.audio.vad.silero:__init__:169 - Loading Silero VAD model...
+2026-11-07 04:55:02.355 | DEBUG    | pipecat.audio.vad.silero:__init__:194 - Loaded Silero VAD
+2026-11-07 04:55:02.356 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Pipeline#2::Source -> Source#1
+2026-11-07 04:55:02.356 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Source#1 -> EchoCleaner#1
+2026-11-07 04:55:02.356 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking EchoCleaner#1 -> VADProcessor#1
+2026-11-07 04:55:02.356 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking VADProcessor#1 -> Bridge#1
+2026-11-07 04:55:02.356 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Bridge#1 -> OutputFence#1
+2026-11-07 04:55:02.356 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking OutputFence#1 -> Sink#1
+2026-11-07 04:55:02.356 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Sink#1 -> ReceiptSink#1
+2026-11-07 04:55:02.356 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking ReceiptSink#1 -> Pipeline#2::Sink
+2026-11-07 04:55:02.356 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking PipelineWorker#1::Source -> RTVIProcessor#1
+2026-11-07 04:55:02.356 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking RTVIProcessor#1 -> Pipeline#2
+2026-11-07 04:55:02.356 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Pipeline#2 -> PipelineWorker#1::Sink
+2026-11-07 04:55:02.356 | DEBUG    | pipecat.workers.runner:add_workers:230 - WorkerRunner 'runner-34ff45ca': added worker 'PipelineWorker#1'
+2026-11-07 04:55:02.356 | DEBUG    | pipecat.workers.runner:run:273 - WorkerRunner 'runner-34ff45ca': started running
+2026-11-07 04:55:02.357 | DEBUG    | pipecat.workers.runner:_start_worker:459 - WorkerRunner 'runner-34ff45ca': starting worker 'PipelineWorker#1'
+2026-11-07 04:55:02.361 | DEBUG    | pipecat.audio.vad.vad_analyzer:set_params:157 - Setting VAD params to: confidence=0.7 start_secs=0.2 stop_secs=0.2 min_volume=0.6
+2026-11-07 04:55:02.362 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_start:1327 - PipelineWorker#1: Starting. Waiting for StartFrame#1 to reach the end of the pipeline...
+2026-11-07 04:55:02.364 | DEBUG    | pipecat.processors.frame_processor:broadcast_interruption:1050 - Bridge#1: broadcasting interruption
+2026-11-07 04:55:02.371 | DEBUG    | pipecat.registry.registry:register:132 - Worker 'PipelineWorker#1' ready (local)
+2026-11-07 04:55:02.372 | DEBUG    | pipecat.workers.runner:_send_registry:511 - WorkerRunner 'runner-34ff45ca': broadcasting registry: ['PipelineWorker#1']
+2026-11-07 04:55:02.372 | DEBUG    | pipecat.workers.base_worker:_maybe_activate:1284 - Worker 'PipelineWorker#1': activated
+2026-11-07 04:55:02.372 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_start:1344 - PipelineWorker#1: StartFrame#1 reached the end of the pipeline, pipeline is now ready.
+2026-11-07 04:55:02.440 | DEBUG    | pipecat.processors.frame_processor:broadcast_interruption:1050 - Bridge#1: broadcasting interruption
+2026-11-07 04:55:02.442 | DEBUG    | pipecat.processors.frame_processor:broadcast_interruption:1050 - Bridge#1: broadcasting interruption
+2026-11-07 04:55:02.442 | DEBUG    | pipecat.pipeline.worker:_cancel:1188 - Cancelling pipeline worker PipelineWorker#1
+2026-11-07 04:55:02.444 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_end:1364 - PipelineWorker#1: Closing. Waiting for CancelFrame#1(reason: None) to reach the end of the pipeline...
+2026-11-07 04:55:02.456 | DEBUG    | pipecat.pipeline.worker:wait_for_cancel:1355 - PipelineWorker#1: CancelFrame#1(reason: None) reached the end of the pipeline.
+2026-11-07 04:55:02.456 | DEBUG    | pipecat.utils.base_object:cleanup:179 - PipelineWorker#1: waiting on event handlers to finish ['on_pipeline_finished']...
+2026-11-07 04:55:02.460 | DEBUG    | pipecat.pipeline.worker:run:927 - Pipeline worker PipelineWorker#1 is finishing...
+2026-11-07 04:55:02.460 | DEBUG    | pipecat.pipeline.worker:run:932 - Pipeline worker PipelineWorker#1 has finished
+2026-11-07 04:55:02.461 | DEBUG    | pipecat.workers.runner:run:316 - WorkerRunner 'runner-34ff45ca': finished running
+ok
+test_empty_recognition_does_not_leave_unresolved_pause (test_provisional_pause_v1.ProvisionalPauseTests.test_empty_recognition_does_not_leave_unresolved_pause) ... 2026-11-07 04:55:02.465 | DEBUG    | pipecat.audio.vad.silero:__init__:169 - Loading Silero VAD model...
+2026-11-07 04:55:02.483 | DEBUG    | pipecat.audio.vad.silero:__init__:194 - Loaded Silero VAD
+2026-11-07 04:55:02.483 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Pipeline#4::Source -> Source#2
+2026-11-07 04:55:02.483 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Source#2 -> EchoCleaner#2
+2026-11-07 04:55:02.483 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking EchoCleaner#2 -> VADProcessor#2
+2026-11-07 04:55:02.483 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking VADProcessor#2 -> Bridge#2
+2026-11-07 04:55:02.483 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Bridge#2 -> OutputFence#2
+2026-11-07 04:55:02.483 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking OutputFence#2 -> Sink#2
+2026-11-07 04:55:02.483 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Sink#2 -> ReceiptSink#2
+2026-11-07 04:55:02.483 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking ReceiptSink#2 -> Pipeline#4::Sink
+2026-11-07 04:55:02.483 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking PipelineWorker#2::Source -> RTVIProcessor#2
+2026-11-07 04:55:02.483 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking RTVIProcessor#2 -> Pipeline#4
+2026-11-07 04:55:02.483 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Pipeline#4 -> PipelineWorker#2::Sink
+2026-11-07 04:55:02.484 | DEBUG    | pipecat.workers.runner:add_workers:230 - WorkerRunner 'runner-f4d4e859': added worker 'PipelineWorker#2'
+2026-11-07 04:55:02.484 | DEBUG    | pipecat.workers.runner:run:273 - WorkerRunner 'runner-f4d4e859': started running
+2026-11-07 04:55:02.485 | DEBUG    | pipecat.workers.runner:_start_worker:459 - WorkerRunner 'runner-f4d4e859': starting worker 'PipelineWorker#2'
+2026-11-07 04:55:02.489 | DEBUG    | pipecat.audio.vad.vad_analyzer:set_params:157 - Setting VAD params to: confidence=0.7 start_secs=0.2 stop_secs=0.2 min_volume=0.6
+2026-11-07 04:55:02.489 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_start:1327 - PipelineWorker#2: Starting. Waiting for StartFrame#2 to reach the end of the pipeline...
+2026-11-07 04:55:02.491 | DEBUG    | pipecat.processors.frame_processor:broadcast_interruption:1050 - Bridge#2: broadcasting interruption
+2026-11-07 04:55:02.499 | DEBUG    | pipecat.registry.registry:register:132 - Worker 'PipelineWorker#2' ready (local)
+2026-11-07 04:55:02.499 | DEBUG    | pipecat.workers.runner:_send_registry:511 - WorkerRunner 'runner-f4d4e859': broadcasting registry: ['PipelineWorker#2']
+2026-11-07 04:55:02.499 | DEBUG    | pipecat.workers.base_worker:_maybe_activate:1284 - Worker 'PipelineWorker#2': activated
+2026-11-07 04:55:02.499 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_start:1344 - PipelineWorker#2: StartFrame#2 reached the end of the pipeline, pipeline is now ready.
+2026-11-07 04:55:02.568 | DEBUG    | pipecat.processors.frame_processor:broadcast_interruption:1050 - Bridge#2: broadcasting interruption
+2026-11-07 04:55:02.570 | DEBUG    | pipecat.processors.frame_processor:broadcast_interruption:1050 - Bridge#2: broadcasting interruption
+2026-11-07 04:55:02.570 | DEBUG    | pipecat.pipeline.worker:_cancel:1188 - Cancelling pipeline worker PipelineWorker#2
+2026-11-07 04:55:02.571 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_end:1364 - PipelineWorker#2: Closing. Waiting for CancelFrame#2(reason: None) to reach the end of the pipeline...
+2026-11-07 04:55:02.583 | DEBUG    | pipecat.pipeline.worker:wait_for_cancel:1355 - PipelineWorker#2: CancelFrame#2(reason: None) reached the end of the pipeline.
+2026-11-07 04:55:02.583 | DEBUG    | pipecat.utils.base_object:cleanup:179 - PipelineWorker#2: waiting on event handlers to finish ['on_pipeline_finished']...
+2026-11-07 04:55:02.588 | DEBUG    | pipecat.pipeline.worker:run:927 - Pipeline worker PipelineWorker#2 is finishing...
+2026-11-07 04:55:02.588 | DEBUG    | pipecat.pipeline.worker:run:932 - Pipeline worker PipelineWorker#2 has finished
+2026-11-07 04:55:02.589 | DEBUG    | pipecat.workers.runner:run:316 - WorkerRunner 'runner-f4d4e859': finished running
+ok
+test_uncommitted_stop_does_not_cancel_or_execute (test_provisional_pause_v1.ProvisionalPauseTests.test_uncommitted_stop_does_not_cancel_or_execute) ... 2026-11-07 04:55:02.593 | DEBUG    | pipecat.audio.vad.silero:__init__:169 - Loading Silero VAD model...
+2026-11-07 04:55:02.611 | DEBUG    | pipecat.audio.vad.silero:__init__:194 - Loaded Silero VAD
+2026-11-07 04:55:02.612 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Pipeline#6::Source -> Source#3
+2026-11-07 04:55:02.612 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Source#3 -> EchoCleaner#3
+2026-11-07 04:55:02.612 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking EchoCleaner#3 -> VADProcessor#3
+2026-11-07 04:55:02.612 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking VADProcessor#3 -> Bridge#3
+2026-11-07 04:55:02.612 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Bridge#3 -> OutputFence#3
+2026-11-07 04:55:02.612 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking OutputFence#3 -> Sink#3
+2026-11-07 04:55:02.612 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Sink#3 -> ReceiptSink#3
+2026-11-07 04:55:02.612 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking ReceiptSink#3 -> Pipeline#6::Sink
+2026-11-07 04:55:02.612 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking PipelineWorker#3::Source -> RTVIProcessor#3
+2026-11-07 04:55:02.612 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking RTVIProcessor#3 -> Pipeline#6
+2026-11-07 04:55:02.612 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Pipeline#6 -> PipelineWorker#3::Sink
+2026-11-07 04:55:02.612 | DEBUG    | pipecat.workers.runner:add_workers:230 - WorkerRunner 'runner-98eba72a': added worker 'PipelineWorker#3'
+2026-11-07 04:55:02.613 | DEBUG    | pipecat.workers.runner:run:273 - WorkerRunner 'runner-98eba72a': started running
+2026-11-07 04:55:02.613 | DEBUG    | pipecat.workers.runner:_start_worker:459 - WorkerRunner 'runner-98eba72a': starting worker 'PipelineWorker#3'
+2026-11-07 04:55:02.617 | DEBUG    | pipecat.audio.vad.vad_analyzer:set_params:157 - Setting VAD params to: confidence=0.7 start_secs=0.2 stop_secs=0.2 min_volume=0.6
+2026-11-07 04:55:02.618 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_start:1327 - PipelineWorker#3: Starting. Waiting for StartFrame#3 to reach the end of the pipeline...
+2026-11-07 04:55:02.620 | DEBUG    | pipecat.processors.frame_processor:broadcast_interruption:1050 - Bridge#3: broadcasting interruption
+2026-11-07 04:55:02.628 | DEBUG    | pipecat.registry.registry:register:132 - Worker 'PipelineWorker#3' ready (local)
+2026-11-07 04:55:02.628 | DEBUG    | pipecat.workers.runner:_send_registry:511 - WorkerRunner 'runner-98eba72a': broadcasting registry: ['PipelineWorker#3']
+2026-11-07 04:55:02.628 | DEBUG    | pipecat.workers.base_worker:_maybe_activate:1284 - Worker 'PipelineWorker#3': activated
+2026-11-07 04:55:02.628 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_start:1344 - PipelineWorker#3: StartFrame#3 reached the end of the pipeline, pipeline is now ready.
+2026-11-07 04:55:02.792 | DEBUG    | pipecat.processors.frame_processor:broadcast_interruption:1050 - Bridge#3: broadcasting interruption
+2026-11-07 04:55:02.794 | DEBUG    | pipecat.processors.frame_processor:broadcast_interruption:1050 - Bridge#3: broadcasting interruption
+2026-11-07 04:55:02.794 | DEBUG    | pipecat.pipeline.worker:_cancel:1188 - Cancelling pipeline worker PipelineWorker#3
+2026-11-07 04:55:02.796 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_end:1364 - PipelineWorker#3: Closing. Waiting for CancelFrame#3(reason: None) to reach the end of the pipeline...
+2026-11-07 04:55:02.811 | DEBUG    | pipecat.pipeline.worker:wait_for_cancel:1355 - PipelineWorker#3: CancelFrame#3(reason: None) reached the end of the pipeline.
+2026-11-07 04:55:02.812 | DEBUG    | pipecat.utils.base_object:cleanup:179 - PipelineWorker#3: waiting on event handlers to finish ['on_pipeline_finished']...
+2026-11-07 04:55:02.816 | DEBUG    | pipecat.pipeline.worker:run:927 - Pipeline worker PipelineWorker#3 is finishing...
+2026-11-07 04:55:02.816 | DEBUG    | pipecat.pipeline.worker:run:932 - Pipeline worker PipelineWorker#3 has finished
+2026-11-07 04:55:02.818 | DEBUG    | pipecat.workers.runner:run:316 - WorkerRunner 'runner-98eba72a': finished running
+ok
+test_ambiguous_cancel_and_show_never_choose_a_job (test_results_v1.ResultTests.test_ambiguous_cancel_and_show_never_choose_a_job) ... ok
+test_closed_session_cannot_authorize_more_actions (test_results_v1.ResultTests.test_closed_session_cannot_authorize_more_actions) ... ok
+test_completed_website_can_be_revised_and_old_result_is_fenced (test_results_v1.ResultTests.test_completed_website_can_be_revised_and_old_result_is_fenced) ... ok
+test_dedup_and_owner_filter_survive_session_end (test_results_v1.ResultTests.test_dedup_and_owner_filter_survive_session_end) ... ok
+test_preview_requires_current_verified_files_and_is_loopback (test_results_v1.ResultTests.test_preview_requires_current_verified_files_and_is_loopback) ... Close running child process: kill <_UnixSubprocessTransport closed pid=17225 running stdin=<_UnixWritePipeTransport closing fd=16 idle bufsize=0>>
+ok
+test_result_retrieval_does_not_replace_focus_or_earlier_thread (test_results_v1.ResultTests.test_result_retrieval_does_not_replace_focus_or_earlier_thread) ... ok
+test_several_completions_are_grouped_without_focus_change (test_results_v1.ResultTests.test_several_completions_are_grouped_without_focus_change) ... ok
+test_tampered_artifact_cannot_start_preview (test_results_v1.ResultTests.test_tampered_artifact_cannot_start_preview) ... ok
+test_distinct_turn_ids_reuse_identical_active_job (test_review_v1.ReviewTests.test_distinct_turn_ids_reuse_identical_active_job) ... ok
+test_focusing_running_job_preserves_unrelated_conversation (test_review_v1.ReviewTests.test_focusing_running_job_preserves_unrelated_conversation) ... ok
+test_foreground_and_worker_failures_are_reported_without_success (test_review_v1.ReviewTests.test_foreground_and_worker_failures_are_reported_without_success) ... ok
+test_full_queue_is_reported_without_ending_conversation (test_review_v1.ReviewTests.test_full_queue_is_reported_without_ending_conversation) ... ok
+test_identical_active_revision_is_not_executed_twice (test_review_v1.ReviewTests.test_identical_active_revision_is_not_executed_twice) ... ok
+test_idle_expiry_revokes_result_delivery_without_new_speech (test_review_v1.ReviewTests.test_idle_expiry_revokes_result_delivery_without_new_speech) ... ok
+test_model_output_never_routes_host_tools (test_review_v1.ReviewTests.test_model_output_never_routes_host_tools) ... ok
+test_mute_during_enrollment_erases_late_reference (test_review_v1.ReviewTests.test_mute_during_enrollment_erases_late_reference) ... ok
+test_playback_receipts_are_fenced_across_distinct_sessions (test_review_v1.ReviewTests.test_playback_receipts_are_fenced_across_distinct_sessions) ... ok
+test_preview_reopens_after_same_owner_reconnects (test_review_v1.ReviewTests.test_preview_reopens_after_same_owner_reconnects) ... ok
+test_stale_provider_failure_does_not_replace_newer_turn (test_review_v1.ReviewTests.test_stale_provider_failure_does_not_replace_newer_turn) ... ok
+test_foreground_never_inherits_worker_credentials_or_model (test_setup_v1.ConfigurationTests.test_foreground_never_inherits_worker_credentials_or_model) ... ok
+test_foreground_rejects_credentials_in_url_and_unknown_profile (test_setup_v1.ConfigurationTests.test_foreground_rejects_credentials_in_url_and_unknown_profile) ... ok
+test_report_identifies_missing_roles_without_exposing_credentials (test_setup_v1.DoctorTests.test_report_identifies_missing_roles_without_exposing_credentials) ... ok
+test_voice_lan_endpoints_require_authentication (test_setup_v1.DoctorTests.test_voice_lan_endpoints_require_authentication) ... ok
+test_silent_model_substitution_is_rejected (test_setup_v1.ForegroundTests.test_silent_model_substitution_is_rejected) ... ok
+test_stream_enforces_model_and_disables_reasoning (test_setup_v1.ForegroundTests.test_stream_enforces_model_and_disables_reasoning) ... ok
+test_failed_requested_probe_cannot_report_ready (test_setup_v1.ProbeFailureTests.test_failed_requested_probe_cannot_report_ready) ... ok
+test_ending_voice_session_keeps_real_supervisor_job_alive (test_setup_v1.RuntimeTests.test_ending_voice_session_keeps_real_supervisor_job_alive) ... ok
+test_missing_worker_model_never_uses_foreground_model (test_setup_v1.SetupTests.test_missing_worker_model_never_uses_foreground_model) ... ok
+test_pi_is_default_and_worker_model_is_explicit (test_setup_v1.SetupTests.test_pi_is_default_and_worker_model_is_explicit) ... ok
+test_nonzero_exit_or_malformed_report_cannot_claim_success (test_speech_check_v1.BoundedCheckTests.test_nonzero_exit_or_malformed_report_cannot_claim_success) ... ok
+test_oversized_output_is_stopped_before_the_time_deadline (test_speech_check_v1.BoundedCheckTests.test_oversized_output_is_stopped_before_the_time_deadline) ... ok
+test_success_requires_the_exact_selected_models (test_speech_check_v1.BoundedCheckTests.test_success_requires_the_exact_selected_models) ... ok
+test_timeout_cleans_descendants_that_keep_stdout_open (test_speech_check_v1.BoundedCheckTests.test_timeout_cleans_descendants_that_keep_stdout_open) ... ok
+test_timeout_reaps_worker_even_after_it_printed_success (test_speech_check_v1.BoundedCheckTests.test_timeout_reaps_worker_even_after_it_printed_success) ... ok
+test_service_shutdown_terminates_inflight_native_work (test_speech_check_v1.ServiceProcessTests.test_service_shutdown_terminates_inflight_native_work) ... ok
+test_startup_timeout_terminates_a_blocked_native_thread (test_speech_check_v1.ServiceProcessTests.test_startup_timeout_terminates_a_blocked_native_thread) ... ok
+test_readiness_accepts_recognized_phrase_with_asr_punctuation (test_speech_server_v1.SpeechCheckTests.test_readiness_accepts_recognized_phrase_with_asr_punctuation) ... ok
+test_readiness_rejects_silence_truncation_and_wrong_transcript (test_speech_server_v1.SpeechCheckTests.test_readiness_rejects_silence_truncation_and_wrong_transcript) ... ok
+test_auth_exact_models_and_raw_pcm_contract (test_speech_server_v1.SpeechServerTests.test_auth_exact_models_and_raw_pcm_contract) ... ok
+test_cancelled_native_call_stays_busy_until_thread_finishes (test_speech_server_v1.SpeechServerTests.test_cancelled_native_call_stays_busy_until_thread_finishes) ... ok
+test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) ... ok
+test_failed_warmup_prevents_listening_and_closes_models (test_speech_server_v1.SpeechServerTests.test_failed_warmup_prevents_listening_and_closes_models) ... ok
+test_partial_upload_reserves_single_role_capacity (test_speech_server_v1.SpeechServerTests.test_partial_upload_reserves_single_role_capacity) ... ok
+test_llm_first_token_is_marked_once_for_valid_text (test_stage_marks_v1.StageMarksTests.test_llm_first_token_is_marked_once_for_valid_text) ... ok
+test_partial_and_stale_text_cannot_be_marked_as_new_final (test_stage_marks_v1.StageMarksTests.test_partial_and_stale_text_cannot_be_marked_as_new_final) ... ok
+test_wrong_model_cannot_publish_a_first_token_mark (test_stage_marks_v1.StageMarksTests.test_wrong_model_cannot_publish_a_first_token_mark) ... ok
+test_explicit_local_providers (test_voice_v1.SettingsTests.test_explicit_local_providers) ... ok
+test_installed_pipecat_api (test_voice_v1.SettingsTests.test_installed_pipecat_api) ... ok
+test_missing_endpoints_fail_before_loading_audio (test_voice_v1.SettingsTests.test_missing_endpoints_fail_before_loading_audio) ... ok
+test_persistent_rpc_reuses_job_process_and_checks_exact_model (test_website_v1.PiWorkerTests.test_persistent_rpc_reuses_job_process_and_checks_exact_model) ... ok
+test_wrong_model_is_rejected_before_prompt (test_website_v1.PiWorkerTests.test_wrong_model_is_rejected_before_prompt) ... ok
+test_build_writes_files_and_records_real_syntax_receipt (test_website_v1.WebsiteTests.test_build_writes_files_and_records_real_syntax_receipt) ... ok
+test_invalid_javascript_and_missing_viewport_never_pass (test_website_v1.WebsiteTests.test_invalid_javascript_and_missing_viewport_never_pass) ... ok
+test_oversized_bundle_and_inline_syntax_errors_are_rejected (test_website_v1.WebsiteTests.test_oversized_bundle_and_inline_syntax_errors_are_rejected) ... ok
+test_path_escape_symlinks_and_package_scripts_are_rejected (test_website_v1.WebsiteTests.test_path_escape_symlinks_and_package_scripts_are_rejected) ... ok
+test_stale_result_cannot_write_files_or_run_build (test_website_v1.WebsiteTests.test_stale_result_cannot_write_files_or_run_build) ... ok
+test_exact_input_is_reused_but_changed_input_is_encoded (test_whisper_inference_v1.WhisperInferenceTests.test_exact_input_is_reused_but_changed_input_is_encoded) ... ok
+test_failure_restores_model_and_does_not_publish_failed_features (test_whisper_inference_v1.WhisperInferenceTests.test_failure_restores_model_and_does_not_publish_failed_features) ... ok
+test_requests_do_not_share_audio_or_encoded_features (test_whisper_inference_v1.WhisperInferenceTests.test_requests_do_not_share_audio_or_encoded_features) ... ok
+
+----------------------------------------------------------------------
+Ran 137 tests in 7.430s
+
+OK

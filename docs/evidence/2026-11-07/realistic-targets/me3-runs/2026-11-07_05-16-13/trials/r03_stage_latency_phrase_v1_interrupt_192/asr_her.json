@@ -1,0 +1,90 @@
+{
+  "text": "Could you please clarify which path or location you are referring to?",
+  "chunks": [
+    {
+      "text": "Could",
+      "timestamp": [
+        7.76,
+        8.2
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        8.2,
+        8.32
+      ]
+    },
+    {
+      "text": "please",
+      "timestamp": [
+        8.32,
+        8.54
+      ]
+    },
+    {
+      "text": "clarify",
+      "timestamp": [
+        8.54,
+        9.08
+      ]
+    },
+    {
+      "text": "which",
+      "timestamp": [
+        9.08,
+        9.46
+      ]
+    },
+    {
+      "text": "path",
+      "timestamp": [
+        9.46,
+        9.88
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        9.88,
+        10.12
+      ]
+    },
+    {
+      "text": "location",
+      "timestamp": [
+        10.12,
+        10.56
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        10.56,
+        10.84
+      ]
+    },
+    {
+      "text": "are",
+      "timestamp": [
+        10.84,
+        10.92
+      ]
+    },
+    {
+      "text": "referring",
+      "timestamp": [
+        10.92,
+        11.28
+      ]
+    },
+    {
+      "text": "to?",
+      "timestamp": [
+        11.28,
+        11.64
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

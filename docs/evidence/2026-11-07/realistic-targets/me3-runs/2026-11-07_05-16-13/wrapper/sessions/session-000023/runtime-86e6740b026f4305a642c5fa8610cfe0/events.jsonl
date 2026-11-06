@@ -1,0 +1,16 @@
+{"event": "supervisor_started", "mono_ns": 8552582797083}
+{"event": "voice_profile", "mono_ns": 8552661970208, "profile": "course", "session_id": "75e99123552a48f8b69b1afc5f4b7558", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 8559006062375, "session_id": "75e99123552a48f8b69b1afc5f4b7558"}
+{"event": "user_stopped_asr_pending", "mono_ns": 8560188018583, "session_id": "75e99123552a48f8b69b1afc5f4b7558"}
+{"event": "user_started", "mono_ns": 8560284079125, "session_id": "75e99123552a48f8b69b1afc5f4b7558"}
+{"event": "user_stopped_asr_pending", "mono_ns": 8561373932333, "session_id": "75e99123552a48f8b69b1afc5f4b7558"}
+{"event": "transcript_revision", "mono_ns": 8561585525875, "session_id": "75e99123552a48f8b69b1afc5f4b7558", "revision": 1, "committed": false, "turn_id": "1"}
+{"event": "transcript_revision", "mono_ns": 8562609058791, "session_id": "75e99123552a48f8b69b1afc5f4b7558", "revision": 2, "committed": true, "turn_id": "1"}
+{"event": "floor_decision", "mono_ns": 8562609426250, "session_id": "75e99123552a48f8b69b1afc5f4b7558", "decision": "turn", "addressee_known": true}
+{"event": "speech_cancelled", "mono_ns": 8562609884083, "session_id": "75e99123552a48f8b69b1afc5f4b7558", "epoch": 1}
+{"event": "speech_submitted", "mono_ns": 8563316316541, "epoch": 1, "utterance": "75e99123552a48f8b69b1afc5f4b7558:1:1", "profile": "course"}
+{"event": "transport_utterance_completed", "mono_ns": 8565565265375, "utterance": "75e99123552a48f8b69b1afc5f4b7558:1:1", "bytes": 94080, "profile": "course"}
+{"event": "playback_completed", "mono_ns": 8565566897583, "session_id": "75e99123552a48f8b69b1afc5f4b7558", "epoch": 1, "kind": "reply"}
+{"event": "speech_submitted", "mono_ns": 8565571164833, "epoch": 1, "utterance": "75e99123552a48f8b69b1afc5f4b7558:1:2", "profile": "course"}
+{"event": "transport_utterance_completed", "mono_ns": 8568590989500, "utterance": "75e99123552a48f8b69b1afc5f4b7558:1:2", "bytes": 124800, "profile": "course"}
+{"event": "playback_completed", "mono_ns": 8568591575416, "session_id": "75e99123552a48f8b69b1afc5f4b7558", "epoch": 1, "kind": "reply"}

@@ -1,0 +1,104 @@
+{
+  "text": "Sleep is a cyclical process, primarily driven by your circadian rhythm and sleep pressure.",
+  "chunks": [
+    {
+      "text": "Sleep",
+      "timestamp": [
+        6.16,
+        6.66
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        6.66,
+        7.02
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        7.02,
+        7.14
+      ]
+    },
+    {
+      "text": "cyclical",
+      "timestamp": [
+        7.14,
+        7.66
+      ]
+    },
+    {
+      "text": "process,",
+      "timestamp": [
+        7.66,
+        8.16
+      ]
+    },
+    {
+      "text": "primarily",
+      "timestamp": [
+        8.72,
+        9.08
+      ]
+    },
+    {
+      "text": "driven",
+      "timestamp": [
+        9.08,
+        9.56
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        9.56,
+        9.9
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        9.9,
+        10.04
+      ]
+    },
+    {
+      "text": "circadian",
+      "timestamp": [
+        10.04,
+        10.6
+      ]
+    },
+    {
+      "text": "rhythm",
+      "timestamp": [
+        10.6,
+        10.94
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        10.94,
+        11.28
+      ]
+    },
+    {
+      "text": "sleep",
+      "timestamp": [
+        11.28,
+        11.5
+      ]
+    },
+    {
+      "text": "pressure.",
+      "timestamp": [
+        11.5,
+        11.92
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

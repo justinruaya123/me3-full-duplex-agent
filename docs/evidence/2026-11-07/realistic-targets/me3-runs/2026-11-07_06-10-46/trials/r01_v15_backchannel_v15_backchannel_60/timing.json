@@ -1,0 +1,98 @@
+{
+  "trial": "r01_v15_backchannel_v15_backchannel_60",
+  "group": "v15_backchannel",
+  "clip": "v15_backchannel_60",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 18.464,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.848
+    },
+    {
+      "name": "overlap",
+      "t": 7.388,
+      "len": 1.022
+    }
+  ],
+  "live_bot_starts": [
+    5.888,
+    10.272,
+    14.4
+  ],
+  "live_bot_ends": [
+    7.712,
+    13.856,
+    18.112
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Explain astronomy in depth.",
+    "current_turn_text": "",
+    "overlap_text": "yes sure",
+    "overlap_duration": 1.02,
+    "overlap_window": [
+      5.579,
+      6.601
+    ],
+    "source_id": "60"
+  },
+  "mono": [
+    12080.383074208,
+    12098.82999875
+  ],
+  "bot_segments": [
+    [
+      5.794,
+      7.742
+    ],
+    [
+      10.242,
+      18.142
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.848
+  ],
+  "overlap_played": true,
+  "t_stop": 0.31599999999999984,
+  "t_resp": 1.8320000000000007,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    7.426,
+    8.41
+  ],
+  "tor": 1,
+  "first_start": 10.242,
+  "spoke_s": 6.167999999999999,
+  "latency": 1.8320000000000007,
+  "actual": "stopped after 0.32 s, back 1.83 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ paused, came back · content: judge",
+  "ok": null,
+  "marks": 20,
+  "final": {
+    "t_stop": 0.31599999999999984,
+    "t_resp": 1.8320000000000007,
+    "label": null,
+    "voice_delta": {
+      "wpm": -2.0547574845442966,
+      "pitch_mean": -32.50067583220769,
+      "pitch_sd": 0.6464145056627402,
+      "intensity_mean": -1.2753064738258573,
+      "intensity_sd": -0.8312924538192847,
+      "utmosv2": null
+    },
+    "transcript": "Honestly, I can't really cover the entire depth of astronomy in a single short answer. But I can tell you it's the study of everything outside our atmosphere."
+  },
+  "scored_at": "2026-11-07T06:36:01+08:00"
+}

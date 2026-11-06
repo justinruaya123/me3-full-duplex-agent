@@ -1,0 +1,63 @@
+{
+  "trial": "r02_v1_turntaking_v1_turntaking_95",
+  "group": "v1_turntaking",
+  "clip": "v1_turntaking_95",
+  "variant": "main",
+  "expected": "reply within 8 s",
+  "duration": 22.816,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 14.9199375
+    }
+  ],
+  "live_bot_starts": [
+    18.72
+  ],
+  "live_bot_ends": [
+    22.464
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "turn_end": 14.61999999999989,
+    "last_words": "",
+    "source_id": "95"
+  },
+  "mono": [
+    12430.490526125,
+    12453.289012583
+  ],
+  "bot_segments": [
+    [
+      18.69,
+      22.494
+    ]
+  ],
+  "play_first": [
+    0.0,
+    14.9199375
+  ],
+  "tor": 1,
+  "first_start": 18.69,
+  "spoke_s": 3.8039999999999985,
+  "latency": 4.07000000000011,
+  "turn_end": 14.61999999999989,
+  "actual": "replied after 4.07 s, spoke 3.8 s",
+  "verdict": "✓ 4.07 s",
+  "ok": true,
+  "marks": 36,
+  "final": {
+    "tor": 1,
+    "words": 11,
+    "latency": 4.07000000000011,
+    "verdict": "✓ 4.07 s",
+    "ok": true,
+    "transcript": "I see, so your extended family is mostly outside the US."
+  },
+  "scored_at": "2026-11-07T06:36:43+08:00"
+}

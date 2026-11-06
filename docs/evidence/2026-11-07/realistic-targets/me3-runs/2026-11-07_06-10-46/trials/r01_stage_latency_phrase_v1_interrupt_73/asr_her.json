@@ -1,0 +1,62 @@
+{
+  "text": "Start by enrolling in your employer's 401k plan.",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        6.06,
+        6.56
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        6.56,
+        6.84
+      ]
+    },
+    {
+      "text": "enrolling",
+      "timestamp": [
+        6.84,
+        7.34
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        7.34,
+        7.58
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        7.58,
+        7.68
+      ]
+    },
+    {
+      "text": "employer's",
+      "timestamp": [
+        7.68,
+        8.28
+      ]
+    },
+    {
+      "text": "401k",
+      "timestamp": [
+        8.28,
+        9.88
+      ]
+    },
+    {
+      "text": "plan.",
+      "timestamp": [
+        9.88,
+        10.58
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

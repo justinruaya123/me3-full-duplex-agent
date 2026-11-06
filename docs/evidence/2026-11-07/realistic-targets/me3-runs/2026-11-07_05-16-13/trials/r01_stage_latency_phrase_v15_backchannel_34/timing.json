@@ -1,0 +1,84 @@
+{
+  "trial": "r01_stage_latency_phrase_v15_backchannel_34",
+  "group": "stage_latency",
+  "clip": "phrase_v15_backchannel_34",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 16.0,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.88
+    }
+  ],
+  "live_bot_starts": [
+    5.728
+  ],
+  "live_bot_ends": [
+    15.648
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "Outline sleep science clearly.",
+    "source": "v15_backchannel_34"
+  },
+  "mono": [
+    8228.502083666,
+    8244.475732166
+  ],
+  "bot_segments": [
+    [
+      5.698,
+      15.678
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.88
+  ],
+  "tor": 1,
+  "first_start": 5.698,
+  "spoke_s": 4.181999999999999,
+  "user_end": 1.63,
+  "latency": 4.0680000000000005,
+  "actual": "replied 4.07 s after speech end",
+  "verdict": "✓ 4.07 s",
+  "ok": true,
+  "marks": 18,
+  "final": {
+    "stages": {
+      "e2e_heard": 4.068,
+      "e2e": 3.5965,
+      "e2e_source": "marks",
+      "asr_final": 1.9492,
+      "llm_ttft": 0.3406,
+      "tts_ttfb": 1.035,
+      "endpointing": 0.1308,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "outline sleep science clearly,",
+      "wer": {
+        "ref_words": 4,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 41,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Sleep science is fundamentally about understanding the brain's electrical activity cycles, primarily non -rapid eye movement and rapid eye movement stages."
+  },
+  "scored_at": "2026-11-07T05:34:45+08:00"
+}

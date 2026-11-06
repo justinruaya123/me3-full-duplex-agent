@@ -1,0 +1,38 @@
+{
+  "kind": "post-run local cleanup observation; not an audio measurement",
+  "observed_utc": "2026-11-06T22:40:04.186676+00:00",
+  "benchmark_run": "2026-11-07_06-10-46",
+  "instance": "me3-f2f30ede74324e0a",
+  "control_socket_present": false,
+  "published_state_ready": true,
+  "published_state_generation": 72,
+  "published_last_child_pid": 26143,
+  "published_state_note": "Preserved historical state, not a post-shutdown readiness claim.",
+  "liveness_observation": {
+    "last_child_pid": {
+      "status": "not present",
+      "errno": 3
+    },
+    "last_owned_process_group": {
+      "status": "not present",
+      "errno": 3
+    }
+  },
+  "runtime_event_counts": {
+    "floor_decision": 75,
+    "playback_completed": 59,
+    "playback_delivery_unknown": 10,
+    "provisional_backchannel_resolved": 1,
+    "provisional_backchannel_resumed": 1,
+    "speech_cancelled": 75,
+    "speech_submitted": 116,
+    "supervisor_closed": 1,
+    "supervisor_started": 72,
+    "transcript_revision": 258,
+    "transport_utterance_completed": 59,
+    "user_started": 117,
+    "user_stopped_asr_pending": 117,
+    "voice_profile": 72
+  },
+  "limits": "PID/group checks cover the last recorded owned child/group at this instant, not individually every earlier generation. Trace counts describe recorded events, not uninstrumented effects."
+}

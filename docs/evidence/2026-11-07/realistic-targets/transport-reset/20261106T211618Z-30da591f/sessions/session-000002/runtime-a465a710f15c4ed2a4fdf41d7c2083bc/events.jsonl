@@ -1,0 +1,4 @@
+{"event": "supervisor_started", "mono_ns": 8182378100625}
+{"event": "voice_profile", "mono_ns": 8182457651833, "profile": "course", "session_id": "aef62b2729fb4ccf99b31ce5b7511ada", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "speech_cancelled", "mono_ns": 8182693889166, "session_id": "aef62b2729fb4ccf99b31ce5b7511ada", "epoch": 1}
+{"event": "supervisor_closed", "mono_ns": 8182713638833}

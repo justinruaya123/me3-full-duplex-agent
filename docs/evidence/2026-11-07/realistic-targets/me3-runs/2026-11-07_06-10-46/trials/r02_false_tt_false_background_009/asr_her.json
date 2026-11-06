@@ -1,0 +1,20 @@
+{
+  "text": "Sweet dreams.",
+  "chunks": [
+    {
+      "text": "Sweet",
+      "timestamp": [
+        3.54,
+        4.04
+      ]
+    },
+    {
+      "text": "dreams.",
+      "timestamp": [
+        4.04,
+        4.42
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

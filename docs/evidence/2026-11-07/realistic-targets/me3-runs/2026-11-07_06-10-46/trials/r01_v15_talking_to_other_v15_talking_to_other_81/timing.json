@@ -1,0 +1,96 @@
+{
+  "trial": "r01_v15_talking_to_other_v15_talking_to_other_81",
+  "group": "v15_talking_to_other",
+  "clip": "v15_talking_to_other_81",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 17.952,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.36
+    },
+    {
+      "name": "overlap",
+      "t": 8.1879375,
+      "len": 2.183
+    }
+  ],
+  "live_bot_starts": [
+    6.688,
+    14.144
+  ],
+  "live_bot_ends": [
+    8.576,
+    16.736
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "Find me a nearby coffee shop that's open now.",
+    "current_turn_text": "Chris, your laptop's still on the table, man.",
+    "overlap_text": "Chris, your laptop's still on the table, man.",
+    "overlap_duration": 2.18,
+    "overlap_window": [
+      6.276,
+      8.459
+    ],
+    "source_id": "81"
+  },
+  "mono": [
+    12150.463307333,
+    12168.399560625
+  ],
+  "bot_segments": [
+    [
+      6.658,
+      8.606
+    ],
+    [
+      14.114,
+      16.766
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.36
+  ],
+  "overlap_played": true,
+  "t_stop": 0.34800000000000075,
+  "t_resp": 3.9080000000000013,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    8.258,
+    10.206
+  ],
+  "tor": 1,
+  "first_start": 14.114,
+  "spoke_s": 2.6519999999999975,
+  "latency": 3.7430625000000006,
+  "actual": "stopped after 0.35 s, back 3.91 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ paused, came back · content: judge",
+  "ok": null,
+  "marks": 38,
+  "final": {
+    "t_stop": 0.34800000000000075,
+    "t_resp": 3.9080000000000013,
+    "label": null,
+    "voice_delta": {
+      "wpm": 88.82783882783869,
+      "pitch_mean": 3.8336081226358374,
+      "pitch_sd": -8.003137755192988,
+      "intensity_mean": -0.3973711190938154,
+      "intensity_sd": 0.7909527773481946,
+      "utmosv2": null
+    },
+    "transcript": "I can't actually check live locations. Hey, did you mean to ask me about the coffee shop?"
+  },
+  "scored_at": "2026-11-07T06:36:09+08:00"
+}

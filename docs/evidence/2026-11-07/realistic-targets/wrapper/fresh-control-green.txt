@@ -1,0 +1,20 @@
+test_control_rejects_insecure_or_symlink_directory (test_benchmark_control_v1.BenchmarkControlTests.test_control_rejects_insecure_or_symlink_directory) ... ok
+test_disconnect_bounds_hung_cleanup_below_upstream_wait (test_benchmark_control_v1.BenchmarkControlTests.test_disconnect_bounds_hung_cleanup_below_upstream_wait) ... ok
+test_existing_control_directory_is_preserved_and_refused (test_benchmark_control_v1.BenchmarkControlTests.test_existing_control_directory_is_preserved_and_refused) ... ok
+test_failed_reset_is_terminal_without_old_session_fallback (test_benchmark_control_v1.BenchmarkControlTests.test_failed_reset_is_terminal_without_old_session_fallback) ... ok
+test_invalid_and_oversized_messages_cannot_reset (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_and_oversized_messages_cannot_reset) ... ok
+test_invalid_operation_type_cannot_terminate_control_parent (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_operation_type_cannot_terminate_control_parent) ... ok
+test_invalid_state_fifo_cannot_block_control_client (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_state_fifo_cannot_block_control_client) ... ok
+test_invalid_timeout_is_rejected_before_connecting (test_benchmark_control_v1.BenchmarkControlTests.test_invalid_timeout_is_rejected_before_connecting) ... ok
+test_malformed_or_stalled_request_cannot_block_control (test_benchmark_control_v1.BenchmarkControlTests.test_malformed_or_stalled_request_cannot_block_control) ... ok
+test_reset_kills_descendant_even_after_launcher_exits_on_term (test_benchmark_control_v1.BenchmarkControlTests.test_reset_kills_descendant_even_after_launcher_exits_on_term) ... ok
+test_reset_reconnects_new_child_with_fresh_log_and_runtime_tree (test_benchmark_control_v1.BenchmarkControlTests.test_reset_reconnects_new_child_with_fresh_log_and_runtime_tree) ... ok
+test_slow_trickle_cannot_extend_request_deadline (test_benchmark_control_v1.BenchmarkControlTests.test_slow_trickle_cannot_extend_request_deadline) ... ok
+test_start_timeout_reaps_child_and_removes_socket (test_benchmark_control_v1.BenchmarkControlTests.test_start_timeout_reaps_child_and_removes_socket) ... ok
+test_term_and_explicit_stop_reap_owned_child (test_benchmark_control_v1.BenchmarkControlTests.test_term_and_explicit_stop_reap_owned_child) ... ok
+test_wrong_instance_and_replayed_generation_cannot_reset (test_benchmark_control_v1.BenchmarkControlTests.test_wrong_instance_and_replayed_generation_cannot_reset) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 4.329s
+
+OK

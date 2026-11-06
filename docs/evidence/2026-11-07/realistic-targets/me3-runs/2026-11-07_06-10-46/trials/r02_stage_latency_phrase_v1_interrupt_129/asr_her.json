@@ -1,0 +1,125 @@
+{
+  "text": "To start, grab some basic supplies like cheap brushes and paint, and don't worry about being perfect.",
+  "chunks": [
+    {
+      "text": "To",
+      "timestamp": [
+        4.46,
+        4.92
+      ]
+    },
+    {
+      "text": "start,",
+      "timestamp": [
+        4.92,
+        5.26
+      ]
+    },
+    {
+      "text": "grab",
+      "timestamp": [
+        5.56,
+        5.74
+      ]
+    },
+    {
+      "text": "some",
+      "timestamp": [
+        5.74,
+        6.02
+      ]
+    },
+    {
+      "text": "basic",
+      "timestamp": [
+        6.02,
+        6.42
+      ]
+    },
+    {
+      "text": "supplies",
+      "timestamp": [
+        6.42,
+        7.0
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        7.0,
+        7.32
+      ]
+    },
+    {
+      "text": "cheap",
+      "timestamp": [
+        7.32,
+        7.6
+      ]
+    },
+    {
+      "text": "brushes",
+      "timestamp": [
+        7.6,
+        7.98
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        7.98,
+        8.24
+      ]
+    },
+    {
+      "text": "paint,",
+      "timestamp": [
+        8.24,
+        8.58
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        8.94,
+        9.18
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        9.18,
+        9.46
+      ]
+    },
+    {
+      "text": "worry",
+      "timestamp": [
+        9.46,
+        9.66
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        9.66,
+        9.9
+      ]
+    },
+    {
+      "text": "being",
+      "timestamp": [
+        9.9,
+        10.2
+      ]
+    },
+    {
+      "text": "perfect.",
+      "timestamp": [
+        10.2,
+        10.62
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

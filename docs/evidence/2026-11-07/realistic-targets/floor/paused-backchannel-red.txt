@@ -1,0 +1,414 @@
+test_all_asr_hypotheses_can_only_veto_floor_relaxation (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_all_asr_hypotheses_can_only_veto_floor_relaxation) ... ERROR
+test_capture_end_is_optional_and_independent_of_semantic_commit (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_capture_end_is_optional_and_independent_of_semantic_commit) ... ERROR
+test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) ... 
+  test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='right okay') ... FAIL
+  test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='Yeah, right, okay!') ... FAIL
+  test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='Mm-hmm. Okay.') ... FAIL
+  test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='uh-huh yes') ... FAIL
+  test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='yes ok right') ... FAIL
+test_consume_rejects_stale_revision_session_generation_and_close (test_paused_backchannel_v1.PureCaptureBackchannelTests.test_consume_rejects_stale_revision_session_generation_and_close) ... ERROR
+test_consumption_preserves_only_post_capture_preroll (test_paused_backchannel_v1.PureCaptureBackchannelTests.test_consumption_preserves_only_post_capture_preroll) ... ERROR
+test_final_flags_do_not_commit_and_consumption_starts_fresh (test_paused_backchannel_v1.PureCaptureBackchannelTests.test_final_flags_do_not_commit_and_consumption_starts_fresh) ... ERROR
+test_partial_has_no_capture_end_and_prior_non_ack_persists (test_paused_backchannel_v1.PureCaptureBackchannelTests.test_partial_has_no_capture_end_and_prior_non_ack_persists) ... ERROR
+test_capture_non_ack_bit_blocks_unobserved_prior_hypothesis (test_paused_backchannel_v1.PurePausedControllerTests.test_capture_non_ack_bit_blocks_unobserved_prior_hypothesis) ... ERROR
+test_closed_controller_cannot_relax_or_record_late_ack (test_paused_backchannel_v1.PurePausedControllerTests.test_closed_controller_cannot_relax_or_record_late_ack) ... ERROR
+test_ended_ack_releases_only_floor_and_consumes_later_revisions (test_paused_backchannel_v1.PurePausedControllerTests.test_ended_ack_releases_only_floor_and_consumes_later_revisions) ... ERROR
+test_negative_or_unknown_addressing_never_relaxes_pause (test_paused_backchannel_v1.PurePausedControllerTests.test_negative_or_unknown_addressing_never_relaxes_pause) ... 
+  test_negative_or_unknown_addressing_never_relaxes_pause (test_paused_backchannel_v1.PurePausedControllerTests.test_negative_or_unknown_addressing_never_relaxes_pause) (addressed=False) ... ERROR
+  test_negative_or_unknown_addressing_never_relaxes_pause (test_paused_backchannel_v1.PurePausedControllerTests.test_negative_or_unknown_addressing_never_relaxes_pause) (addressed=None) ... ERROR
+  test_negative_or_unknown_addressing_never_relaxes_pause (test_paused_backchannel_v1.PurePausedControllerTests.test_negative_or_unknown_addressing_never_relaxes_pause) (addressed=1) ... ERROR
+test_no_confirmed_old_playback_or_delivery_rights_keeps_pause (test_paused_backchannel_v1.PurePausedControllerTests.test_no_confirmed_old_playback_or_delivery_rights_keeps_pause) ... ERROR
+test_ongoing_ack_hypothesis_keeps_pause (test_paused_backchannel_v1.PurePausedControllerTests.test_ongoing_ack_hypothesis_keeps_pause) ... ERROR
+test_ongoing_speech_and_stale_session_or_revision_cannot_resolve (test_paused_backchannel_v1.PurePausedControllerTests.test_ongoing_speech_and_stale_session_or_revision_cannot_resolve) ... ERROR
+test_pending_question_yes_cannot_approve_or_resolve_floor (test_paused_backchannel_v1.PurePausedControllerTests.test_pending_question_yes_cannot_approve_or_resolve_floor) ... ERROR
+test_prior_non_ack_cannot_be_erased_by_false_metadata (test_paused_backchannel_v1.PurePausedControllerTests.test_prior_non_ack_cannot_be_erased_by_false_metadata) ... ERROR
+test_unverified_owner_ack_cannot_relax_floor (test_paused_backchannel_v1.PurePausedControllerTests.test_unverified_owner_ack_cannot_relax_floor) ... ERROR
+
+======================================================================
+ERROR: test_all_asr_hypotheses_can_only_veto_floor_relaxation (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_all_asr_hypotheses_can_only_veto_floor_relaxation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 56, in test_all_asr_hypotheses_can_only_veto_floor_relaxation
+    ended = rolling.update("right okay", 0, 2, capture_ended=True)
+TypeError: RollingTranscript.update() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+ERROR: test_capture_end_is_optional_and_independent_of_semantic_commit (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_capture_end_is_optional_and_independent_of_semantic_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 45, in test_capture_end_is_optional_and_independent_of_semantic_commit
+    self.assertFalse(original.capture_ended)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TranscriptRevision' object has no attribute 'capture_ended'
+
+======================================================================
+ERROR: test_consume_rejects_stale_revision_session_generation_and_close (test_paused_backchannel_v1.PureCaptureBackchannelTests.test_consume_rejects_stale_revision_session_generation_and_close)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 327, in test_consume_rejects_stale_revision_session_generation_and_close
+    replace(event, capture_ended=False),
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/dataclasses.py", line 1596, in replace
+    return _replace(obj, **changes)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/dataclasses.py", line 1630, in _replace
+    return self.__class__(**changes)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: TranscriptRevision.__init__() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+ERROR: test_consumption_preserves_only_post_capture_preroll (test_paused_backchannel_v1.PureCaptureBackchannelTests.test_consumption_preserves_only_post_capture_preroll)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 359, in test_consumption_preserves_only_post_capture_preroll
+    self.assertTrue(capture.consume_backchannel(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RollingCapture' object has no attribute 'consume_backchannel'
+
+======================================================================
+ERROR: test_final_flags_do_not_commit_and_consumption_starts_fresh (test_paused_backchannel_v1.PureCaptureBackchannelTests.test_final_flags_do_not_commit_and_consumption_starts_fresh)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 274, in test_final_flags_do_not_commit_and_consumption_starts_fresh
+    self.assertTrue(event.capture_ended)
+                    ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TranscriptRevision' object has no attribute 'capture_ended'
+
+======================================================================
+ERROR: test_partial_has_no_capture_end_and_prior_non_ack_persists (test_paused_backchannel_v1.PureCaptureBackchannelTests.test_partial_has_no_capture_end_and_prior_non_ack_persists)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 300, in test_partial_has_no_capture_end_and_prior_non_ack_persists
+    self.assertFalse(self.events[0].capture_ended)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TranscriptRevision' object has no attribute 'capture_ended'
+
+======================================================================
+ERROR: test_capture_non_ack_bit_blocks_unobserved_prior_hypothesis (test_paused_backchannel_v1.PurePausedControllerTests.test_capture_non_ack_bit_blocks_unobserved_prior_hypothesis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 176, in test_capture_non_ack_bit_blocks_unobserved_prior_hypothesis
+    self.event(non_ack=True), addressed=True,
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 112, in event
+    return TranscriptRevision(
+        session, turn, revision, text, 0, 1, committed=committed,
+        capture_ended=ended, non_acknowledgment_seen=non_ack,
+    )
+TypeError: TranscriptRevision.__init__() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+ERROR: test_closed_controller_cannot_relax_or_record_late_ack (test_paused_backchannel_v1.PurePausedControllerTests.test_closed_controller_cannot_relax_or_record_late_ack)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 242, in test_closed_controller_cannot_relax_or_record_late_ack
+    self.event(), addressed=True,
+    ~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 112, in event
+    return TranscriptRevision(
+        session, turn, revision, text, 0, 1, committed=committed,
+        capture_ended=ended, non_acknowledgment_seen=non_ack,
+    )
+TypeError: TranscriptRevision.__init__() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+ERROR: test_ended_ack_releases_only_floor_and_consumes_later_revisions (test_paused_backchannel_v1.PurePausedControllerTests.test_ended_ack_releases_only_floor_and_consumes_later_revisions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 131, in test_ended_ack_releases_only_floor_and_consumes_later_revisions
+    result = await self.controller.transcript(self.event(), addressed=True)
+                                              ~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 112, in event
+    return TranscriptRevision(
+        session, turn, revision, text, 0, 1, committed=committed,
+        capture_ended=ended, non_acknowledgment_seen=non_ack,
+    )
+TypeError: TranscriptRevision.__init__() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+ERROR: test_negative_or_unknown_addressing_never_relaxes_pause (test_paused_backchannel_v1.PurePausedControllerTests.test_negative_or_unknown_addressing_never_relaxes_pause) (addressed=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 185, in test_negative_or_unknown_addressing_never_relaxes_pause
+    self.event(turn=str(index)), addressed=addressed,
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 112, in event
+    return TranscriptRevision(
+        session, turn, revision, text, 0, 1, committed=committed,
+        capture_ended=ended, non_acknowledgment_seen=non_ack,
+    )
+TypeError: TranscriptRevision.__init__() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+ERROR: test_negative_or_unknown_addressing_never_relaxes_pause (test_paused_backchannel_v1.PurePausedControllerTests.test_negative_or_unknown_addressing_never_relaxes_pause) (addressed=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 185, in test_negative_or_unknown_addressing_never_relaxes_pause
+    self.event(turn=str(index)), addressed=addressed,
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 112, in event
+    return TranscriptRevision(
+        session, turn, revision, text, 0, 1, committed=committed,
+        capture_ended=ended, non_acknowledgment_seen=non_ack,
+    )
+TypeError: TranscriptRevision.__init__() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+ERROR: test_negative_or_unknown_addressing_never_relaxes_pause (test_paused_backchannel_v1.PurePausedControllerTests.test_negative_or_unknown_addressing_never_relaxes_pause) (addressed=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 185, in test_negative_or_unknown_addressing_never_relaxes_pause
+    self.event(turn=str(index)), addressed=addressed,
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 112, in event
+    return TranscriptRevision(
+        session, turn, revision, text, 0, 1, committed=committed,
+        capture_ended=ended, non_acknowledgment_seen=non_ack,
+    )
+TypeError: TranscriptRevision.__init__() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+ERROR: test_no_confirmed_old_playback_or_delivery_rights_keeps_pause (test_paused_backchannel_v1.PurePausedControllerTests.test_no_confirmed_old_playback_or_delivery_rights_keeps_pause)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 193, in test_no_confirmed_old_playback_or_delivery_rights_keeps_pause
+    self.event(turn="not-playing"), addressed=True,
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 112, in event
+    return TranscriptRevision(
+        session, turn, revision, text, 0, 1, committed=committed,
+        capture_ended=ended, non_acknowledgment_seen=non_ack,
+    )
+TypeError: TranscriptRevision.__init__() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+ERROR: test_ongoing_ack_hypothesis_keeps_pause (test_paused_backchannel_v1.PurePausedControllerTests.test_ongoing_ack_hypothesis_keeps_pause)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 149, in test_ongoing_ack_hypothesis_keeps_pause
+    self.event(ended=False), addressed=True,
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 112, in event
+    return TranscriptRevision(
+        session, turn, revision, text, 0, 1, committed=committed,
+        capture_ended=ended, non_acknowledgment_seen=non_ack,
+    )
+TypeError: TranscriptRevision.__init__() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+ERROR: test_ongoing_speech_and_stale_session_or_revision_cannot_resolve (test_paused_backchannel_v1.PurePausedControllerTests.test_ongoing_speech_and_stale_session_or_revision_cannot_resolve)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 210, in test_ongoing_speech_and_stale_session_or_revision_cannot_resolve
+    self.event(revision=2), addressed=True,
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 112, in event
+    return TranscriptRevision(
+        session, turn, revision, text, 0, 1, committed=committed,
+        capture_ended=ended, non_acknowledgment_seen=non_ack,
+    )
+TypeError: TranscriptRevision.__init__() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+ERROR: test_pending_question_yes_cannot_approve_or_resolve_floor (test_paused_backchannel_v1.PurePausedControllerTests.test_pending_question_yes_cannot_approve_or_resolve_floor)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 158, in test_pending_question_yes_cannot_approve_or_resolve_floor
+    self.event("yes"), addressed=True,
+    ~~~~~~~~~~^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 112, in event
+    return TranscriptRevision(
+        session, turn, revision, text, 0, 1, committed=committed,
+        capture_ended=ended, non_acknowledgment_seen=non_ack,
+    )
+TypeError: TranscriptRevision.__init__() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+ERROR: test_prior_non_ack_cannot_be_erased_by_false_metadata (test_paused_backchannel_v1.PurePausedControllerTests.test_prior_non_ack_cannot_be_erased_by_false_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 166, in test_prior_non_ack_cannot_be_erased_by_false_metadata
+    self.event("please wait", ended=False), addressed=True,
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 112, in event
+    return TranscriptRevision(
+        session, turn, revision, text, 0, 1, committed=committed,
+        capture_ended=ended, non_acknowledgment_seen=non_ack,
+    )
+TypeError: TranscriptRevision.__init__() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+ERROR: test_unverified_owner_ack_cannot_relax_floor (test_paused_backchannel_v1.PurePausedControllerTests.test_unverified_owner_ack_cannot_relax_floor)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 233, in test_unverified_owner_ack_cannot_relax_floor
+    self.event(revision=revision), evidence,
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 112, in event
+    return TranscriptRevision(
+        session, turn, revision, text, 0, 1, committed=committed,
+        capture_ended=ended, non_acknowledgment_seen=non_ack,
+    )
+TypeError: TranscriptRevision.__init__() got an unexpected keyword argument 'capture_ended'
+
+======================================================================
+FAIL: test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='right okay')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 34, in test_whole_ack_units_are_bounded_and_never_match_a_prefix
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        classify_overlap(text, True, addressed=True), "backchannel",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'turn' != 'backchannel'
+- turn
++ backchannel
+
+
+======================================================================
+FAIL: test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='Yeah, right, okay!')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 34, in test_whole_ack_units_are_bounded_and_never_match_a_prefix
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        classify_overlap(text, True, addressed=True), "backchannel",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'turn' != 'backchannel'
+- turn
++ backchannel
+
+
+======================================================================
+FAIL: test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='Mm-hmm. Okay.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 34, in test_whole_ack_units_are_bounded_and_never_match_a_prefix
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        classify_overlap(text, True, addressed=True), "backchannel",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'turn' != 'backchannel'
+- turn
++ backchannel
+
+
+======================================================================
+FAIL: test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='uh-huh yes')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 34, in test_whole_ack_units_are_bounded_and_never_match_a_prefix
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        classify_overlap(text, True, addressed=True), "backchannel",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'turn' != 'backchannel'
+- turn
++ backchannel
+
+
+======================================================================
+FAIL: test_whole_ack_units_are_bounded_and_never_match_a_prefix (test_paused_backchannel_v1.PureAcknowledgmentPolicyTests.test_whole_ack_units_are_bounded_and_never_match_a_prefix) (text='yes ok right')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_paused_backchannel_v1.py", line 34, in test_whole_ack_units_are_bounded_and_never_match_a_prefix
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        classify_overlap(text, True, addressed=True), "backchannel",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'turn' != 'backchannel'
+- turn
++ backchannel
+
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.039s
+
+FAILED (failures=5, errors=18)

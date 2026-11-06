@@ -1,5 +1,106 @@
 # Implementation and qualification status
 
+## November 7: published Turbo-constrained build and canonical ME3 validation
+
+The published branch is `hermes/benchmark-latency-v1`. The final measured build
+is `6bbbfd57d5e5c062ec3846762158118a7318b0db`; subsequent evidence/documentation
+commits retain its runtime code. Pi.dev remains the default local worker and the
+controller remains harness-neutral. The operator's exact Whisper Turbo constraint
+is retained: `mlx-community/whisper-large-v3-turbo`. Qwen, Kokoro/`af_heart`,
+credentials, billing configuration and the external scorer were not substituted.
+
+The unchanged canonical ME3 benchmark `57eaddbc188ce9a19b8fd002b575f703426956f4`
+with the complete official dataset ran seed 231, ten phrases x three runs and
+three complete duplex rounds. Run `2026-11-07_06-10-46` completed **60/60 queue
+items / 72 recordings**, zero transport/scoring errors, in **1357.089s**.
+Every recording, including clean twins, received a fresh local runtime through
+the official assistant/reset hooks. The global course ownership bypass is
+explicit. No custom subset, development prompt pilot or simulator is used as
+benchmark acceptance evidence.
+
+| Metric | Mean | p95 | ME3 target | n | Observation |
+| --- | --- | --- | --- | --- | --- |
+| E2E, VAD end to output mark | 2.552s | 3.711s | 4s | 29 | Below on observed samples |
+| ASR final | 1.470s | 2.036s | 0.8s | 30 | Over |
+| LLM first text | 0.402s | 0.745s | 1.5s | 29 | Below on observed samples |
+| TTS first PCM | 0.424s | 0.696s | 0.6s | 29 | Over |
+| Interruption stop | 0.337s | 0.406s | 0.8s | 3 | Below on observed samples; n=3 is insufficient |
+| Corpus WER | 3/207 = 1.449% | Not applicable | 15% | 30 | Below |
+
+There were **29/30 recorded phrase replies**. The scorer excludes missing stage
+measurements; those exclusions are not passes. Recorded digital speech onset
+mean/p95 was **3.066/4.158s** over 29 replies, distinct from the output-mark clock.
+Six interruption cases were scheduled, but only three had valid stop timing;
+already-silent cases are not assigned zero latency. The sampled stop result
+does not establish a reliable p95 or the specification's 250ms acoustic gate.
+The maximum E2E/LLM samples, 6.304s/4.609s, remain in the reports.
+
+Behavior remains incomplete: turn-taking TOR **1/3**, interruption TOR **2/3**,
+false-turn rate **2/6** under the scorer's word threshold, and no counted speech during
+the three synthetic and three Candor pause windows. Four of six false-turn recordings contain detected bot speech, including short
+replies below that threshold. That rate does not establish rejection of
+non-addressed speech. Backchannel trials returned in **2/3** cases and one
+stayed silent. The previously stalled first-round acknowledgement returned after
+**1.832s** while remaining provisional; broader acknowledgement semantics remain
+unqualified. Content relevance/Respond/Resume labels and UTMOS are unscored.
+
+Implemented and tested increments:
+
+- `a8dbd9c`: owner-only, instance/generation-fenced benchmark resets with bounded
+  launcher group cleanup and fresh log/runtime directories. This explicit
+  benchmark process reset is separate from ordinary voice-session lifetime.
+- `fc3e0c1`: resolve entirely empty final recognition without a transcript or
+  action; fence late empty results and deferred stops after resumed speech.
+- `1271346`: reuse the selected Turbo decoder's full-context encoder features
+  for confident automatic language detection. Below 0.95, use the original
+  detector input without evicting decode features. The padding is a changed
+  heuristic, not universal language/quality equivalence. Twenty native generated
+  development pairs retained text/language/all word fields. Seventeen warm
+  ordinary pairs averaged 1.824s -> 0.978s; ambiguous and cold observations are
+  retained separately. No English default or smaller ASR was selected.
+- `c5292c0`: preserve decimals, dates, versions, titles and source words across
+  token partitions and bounded clause cuts; indivisible oversized tokens fail
+  explicitly rather than emitting fragments.
+- `c321634`: CPU-development VAD onset settings reduce quiet-speech delays while
+  retaining SmartTurn, ownership and action gates. Synthetic development onset
+  p95 was 393ms over 135 correlated variants; 66s of artificial negatives is
+  insufficient speech/echo/false-interruption qualification.
+- `cd9232f`: an ended, wholly affirmative acknowledgement can resume retained
+  audio without semantic commitment, a new request, history entry, job approval,
+  cancellation or epoch change. All earlier hypotheses can veto this relaxation.
+  Transport-observed PCM, current delivery rights and question lifetime guards
+  prevent startup, pending-answer and stale-result misclassification.
+- `6bbbfd5`: publish the planned Raspberry Pi pull/setup/ME3 procedure and the
+  verified Sol model example. Actual ARM installation/device tests remain unrun.
+
+Final installed verification: **208 passed, zero failures, zero skips**, 14.958s;
+the required v1 subset passed **178/178, zero skips**, 10.532s. Demo, compilation
+and changed-Python lint pass separately. The new floor tests include five actual
+Pipecat fixtures with fixture inference; they are control/transport evidence.
+Actual native/HTTP speech passed **6/6** checks earlier on the same speech model
+code. Current real Qwen and Sol inference plus local Pi RPC passed. Overall
+normal-voice doctor readiness remains false because the wake phrase and an
+independent speaker/overlap/addressee verifier are absent.
+
+Small TTS scalar/voice-cache probes and a decoder compiler candidate were not
+promoted: the latter had an 8.151s cold invocation and changed observed PRNG
+continuation. Two real-Qwen short-sentence prompt pilots completed their protocol
+but failed manual quality gates. The original foreground prompt and Kokoro
+inference path are retained. These are rejected development experiments, not
+alternative benchmark scores.
+
+**Next unpassed acceptance gate:** ASR final mean/p95 <=0.8s while retaining
+Turbo; current native ordinary inference is about 0.98s and final scheduling adds
+queue delay. TTS p95 <=0.6s also remains open. Broader semantic endpointing,
+acknowledgement/addressee handling, long turns, busy-worker speech, content/MOS,
+physical acoustics/AEC, actual Raspberry Pi installation and the 30-minute soak
+remain unpassed. Mac direct-feed results do not qualify those gates.
+
+Evidence: [complete iteration archive](evidence/2026-11-07/realistic-targets/README.md),
+[canonical ME3 results](BENCHMARK.md), [setup/launch](SETUP.md) and
+[planned Raspberry Pi procedure](RASPBERRY_PI_TESTING.md). The earlier
+continuous-session measurements below are preserved with their original scope.
+
 ## November 7: benchmark-driven inference improvements
 
 On `hermes/benchmark-latency-v1`, commits `87c3336` and `03e1ff7` improve the
