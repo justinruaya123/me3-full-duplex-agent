@@ -9,6 +9,17 @@ from dataclasses import dataclass
 from typing import AsyncIterator
 
 
+def is_acknowledgment(text: str) -> bool:
+    """Finite English lexical baseline: one to three entire affirmative units.
+
+    This identifies text only. It supplies no turn, speaker, action or delivery
+    authority. Any other word, including negation or a command, rejects it.
+    """
+    words = " ".join(re.sub(r"[^\w\s]", " ", text.casefold()).split())
+    unit = r"(?:mm hmm|mmhmm|mhm|uh huh|yeah|yes|right|okay|ok|sure)"
+    return re.fullmatch(unit + r"(?: " + unit + r"){0,2}", words) is not None
+
+
 @dataclass(frozen=True)
 class TranscriptRevision:
     session_id: str
@@ -19,6 +30,8 @@ class TranscriptRevision:
     end: float
     committed: bool = False
     stable_prefix: str = ""
+    capture_ended: bool = False
+    non_acknowledgment_seen: bool = False
 
     def __post_init__(self) -> None:
         if (
@@ -37,6 +50,7 @@ class RollingTranscript:
         self.previous: list[str] = []
         self.revision = 0
         self.closed = False
+        self.non_acknowledgment_seen = False
 
     def update(
         self,
@@ -45,6 +59,7 @@ class RollingTranscript:
         end: float,
         *,
         committed: bool = False,
+        capture_ended: bool = False,
     ) -> TranscriptRevision:
         if self.closed:
             raise ValueError("A committed transcript cannot be revised")
@@ -56,6 +71,7 @@ class RollingTranscript:
         self.previous = words
         self.revision += 1
         self.closed = committed
+        self.non_acknowledgment_seen |= not is_acknowledgment(text)
         return TranscriptRevision(
             self.session_id,
             self.turn_id,
@@ -65,6 +81,8 @@ class RollingTranscript:
             end,
             committed,
             " ".join(stable),
+            capture_ended=capture_ended,
+            non_acknowledgment_seen=self.non_acknowledgment_seen,
         )
 
 

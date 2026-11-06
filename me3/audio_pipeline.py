@@ -220,8 +220,10 @@ async def build(
         owner="course-benchmark" if profile == "course" else None,
         on_transcript=observe_transcript,
         is_playing=lambda: (
+            # TTSStarted may precede PCM; require a software transport receipt.
             ledger.active is not None
             and ledger.did_start
+            and received > 0
             and not ledger.did_complete
         ),
     )
@@ -264,15 +266,31 @@ async def build(
             "empty_turn_resolved", generation=generation
         )
 
+    def resume_backchannel(event, generation):
+        if (
+            closed or muted or controller._closed or controller.user_speaking
+            or not capture.consume_backchannel(event, generation=generation)
+        ):
+            return
+        pcm_buffer.resume()
+        resumed.set()
+        runtime.supervisor.trace(
+            "provisional_backchannel_resumed", generation=capture.generation,
+            turn_id=event.turn_id,
+        )
+
     async def emit(event, pcm):
         nonlocal enrollment_owner
         if closed or muted:
             return
+        generation = capture.generation
         if profile == "course":
-            await controller.transcript(event, addressed=True)
+            outcome = await controller.transcript(event, addressed=True)
             if event.committed:
                 pcm_buffer.resume()
                 resumed.set()
+            elif outcome == "backchannel":
+                resume_backchannel(event, generation)
             return
         if gate.owner is None:
             if enrollment_owner and event.committed:
@@ -301,7 +319,6 @@ async def build(
                 dismiss()
             return
         # Verification runs independently of controller/harness inference.
-        generation = capture.generation
         evidence = await verifier.verify(gate.owner, pcm, event.text)
         if generation != capture.generation or closed or muted:
             return
@@ -315,6 +332,8 @@ async def build(
         elif event.committed:
             pcm_buffer.resume()
             resumed.set()
+        elif outcome == "backchannel":
+            resume_backchannel(event, generation)
 
     capture = RollingCapture(
         session_id,

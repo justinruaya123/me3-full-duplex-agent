@@ -11,7 +11,7 @@ from contextlib import aclosing
 from pathlib import Path
 from typing import Awaitable, Callable, Protocol
 
-from me3.incremental import TranscriptRevision, clauses
+from me3.incremental import TranscriptRevision, clauses, is_acknowledgment
 
 
 class Backend(Protocol):
@@ -47,18 +47,7 @@ def classify_overlap(
         return "ignore"
     if words in {"stop", "stop talking", "stop speaking", "be quiet"}:
         return "stop"
-    acknowledgments = {
-        "mm hmm",
-        "mmhmm",
-        "mhm",
-        "uh huh",
-        "yeah",
-        "yes",
-        "right",
-        "okay",
-        "ok",
-    }
-    if speaking and words in acknowledgments:
+    if speaking and is_acknowledgment(text):
         return "backchannel"
     return "turn"
 
@@ -128,6 +117,7 @@ class DuplexController:
         self._active: asyncio.Task | None = None
         self._tasks: set[asyncio.Task] = set()
         self._speaking = False
+        self._question_epoch: int | None = None
         self._idle = asyncio.Event()
         self._idle.set()
         self._turn_final = asyncio.Event()
@@ -136,7 +126,8 @@ class DuplexController:
         self._last_backchannel = float("-inf")
         self._pending = ""
         self._closed = False
-        self._transcripts: dict[tuple[str, str], tuple[int, bool]] = {}
+        # Last revision, consumed/committed, any non-ack hypothesis observed.
+        self._transcripts: dict[tuple[str, str], tuple[int, bool, bool]] = {}
         self._transcript_session: str | None = None
         self._request_id: str | None = None
         self._sources: set[str] = set()
@@ -169,6 +160,7 @@ class DuplexController:
 
     async def _interrupt(self) -> None:
         self.epoch += 1
+        self._question_epoch = None
         old = self._active
         self._active = None
         if old and not old.done():
@@ -185,10 +177,16 @@ class DuplexController:
         if event.session_id != self._transcript_session:
             return "stale"
         key = (event.session_id, event.turn_id)
-        revision, committed = self._transcripts.get(key, (0, False))
-        if event.revision <= revision or committed:
+        revision, consumed, non_ack = self._transcripts.get(
+            key, (0, False, False),
+        )
+        if event.revision <= revision or consumed:
             return "stale"
-        self._transcripts[key] = (event.revision, event.committed)
+        non_ack = (
+            non_ack or event.non_acknowledgment_seen is not False
+            or not is_acknowledgment(event.text)
+        )
+        self._transcripts[key] = (event.revision, event.committed, non_ack)
         if len(self._transcripts) > 128:
             # Never forget a consumed turn within a session: require renewal.
             await self.close()
@@ -198,10 +196,31 @@ class DuplexController:
             revision=event.revision,
             committed=event.committed,
             turn_id=event.turn_id,
+            capture_ended=event.capture_ended,
         )
         if self.on_transcript:
             self.on_transcript(event)
         if not event.committed:
+            if (
+                event.capture_ended is True and not non_ack
+                and evidence.get("addressed") is True
+                and not self.user_speaking and not self.pending_question
+                and self._question_epoch != self.epoch
+                and self.busy and self._speaking
+                and self.is_playing is not None and self.is_playing()
+                and self.delivery_authorized()
+            ):
+                # Consume this turn without a fabricated commit, request,
+                # history entry, cancellation, job action or epoch change.
+                self._transcripts[key] = (event.revision, True, False)
+                self.turn_open = False
+                self._idle.set()
+                self._turn_final.set()
+                self.jobs.trace(
+                    "provisional_backchannel_resolved",
+                    turn_id=event.turn_id, revision=event.revision,
+                )
+                return "backchannel"
             self.turn_open = True
             self._turn_final.clear()
             return "hold"
@@ -226,7 +245,8 @@ class DuplexController:
         speaking = self.is_playing() if self.is_playing else self._speaking
         decision = classify_overlap(
             text,
-            speaking and not self.pending_question,
+            speaking and not self.pending_question
+            and self._question_epoch != self.epoch,
             addressed=addressed,
         )
         self._last_activity = self.clock()
@@ -508,6 +528,7 @@ class DuplexController:
         notices: list[dict] | None = None,
     ) -> None:
         guarded = notices or ([notice] if notice else [])
+        question = text.rstrip().endswith("?")
         try:
             if guarded and (self.user_speaking or self.turn_open):
                 return
@@ -525,6 +546,8 @@ class DuplexController:
                 if not self._current(job):
                     return
             self._speaking = True
+            if question:
+                self._question_epoch = epoch
             delivered = await self.speak(text)
             if (
                 delivered
@@ -533,7 +556,7 @@ class DuplexController:
                 and all(self._current(job) for job in guarded)
             ):
                 if record:
-                    self.pending_question = text.rstrip().endswith("?")
+                    self.pending_question = question
                     self.history.append({"role": "assistant", "content": text})
                     self.history = self.history[-12:]
                 for job in guarded:
@@ -553,6 +576,8 @@ class DuplexController:
         finally:
             for job in guarded:
                 self._sources.discard(job["id"])
+            if question and self._question_epoch == epoch:
+                self._question_epoch = None
             if epoch == self.epoch:
                 self._speaking = False
                 self._last_activity = self.clock()

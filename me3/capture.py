@@ -7,7 +7,11 @@ import io
 import re
 import wave
 
-from me3.incremental import RollingTranscript
+from me3.incremental import (
+    RollingTranscript,
+    TranscriptRevision,
+    is_acknowledgment,
+)
 
 
 def wav16(pcm: bytes) -> bytes:
@@ -177,6 +181,7 @@ class RollingCapture:
                 self.start_sample / 16000,
                 (self.start_sample + len(pcm) // 2) / 16000,
                 committed=committed,
+                capture_ended=final,
             )
             self.committed = committed
             await self.emit(event, pcm)
@@ -209,6 +214,33 @@ class RollingCapture:
             return
         self.active = False
         await self._snapshot(True)
+
+    def consume_backchannel(self, event: TranscriptRevision, *,
+                            generation: int) -> bool:
+        """Retire only the current ended ack after a floor-only decision."""
+        rolling = self.rolling
+        if (
+            self.closed or self.invalid or self.active or self.committed
+            or generation != self.generation or rolling is None
+            or event.session_id != self.session_id
+            or event.turn_id != rolling.turn_id
+            or event.revision != rolling.revision
+            or event.capture_ended is not True or event.committed
+            or event.non_acknowledgment_seen is not False
+            or rolling.non_acknowledgment_seen
+            or not is_acknowledgment(event.text)
+        ):
+            return False
+        # Preserve only samples newer than this ended capture. Dropping all
+        # preroll could lose an onset received while recognition was pending.
+        end_sample = self.start_sample + len(self.audio) // 2
+        keep = min(len(self.preroll), max(0, self.total - end_sample) * 2)
+        self.preroll = self.preroll[-keep:] if keep else b""
+        self.generation += 1
+        self._recognized = None
+        self.rolling = None
+        self.audio.clear()
+        return True
 
     async def close(self) -> None:
         self.closed = True
