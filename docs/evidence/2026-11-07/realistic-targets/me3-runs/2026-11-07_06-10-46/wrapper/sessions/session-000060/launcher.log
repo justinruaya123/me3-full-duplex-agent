@@ -1,0 +1,35 @@
+--- run 1: starting the assistant
+2026-11-07 06:29:11.261 | INFO     | pipecat:<module>:54 - ᓚᘏᗢ Pipecat 1.15.1.dev12 (Python 3.13.6 (v3.13.6:4e665351082, Aug  6 2025, 11:22:35) [Clang 16.0.0 (clang-1600.0.26.6)]) ᓚᘏᗢ
+2026-11-07 06:29:11.581 | DEBUG    | pipecat.audio.turn.smart_turn.local_smart_turn_v3:__init__:68 - Loading Local Smart Turn v3.x model from /Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/pipecat/audio/turn/smart_turn/data/smart-turn-v3.2-cpu.onnx...
+2026-11-07 06:29:11.608 | DEBUG    | pipecat.audio.turn.smart_turn.local_smart_turn_v3:__init__:78 - Loaded Local Smart Turn v3.x
+2026-11-07 06:29:11.609 | DEBUG    | pipecat.audio.vad.silero:__init__:169 - Loading Silero VAD model...
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.audio.vad.silero:__init__:194 - Loaded Silero VAD
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Pipeline#0::Source -> _Input#0
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking _Input#0 -> EchoCleaner#0
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking EchoCleaner#0 -> VADProcessor#0
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking VADProcessor#0 -> Bridge#0
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Bridge#0 -> OutputFence#0
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking OutputFence#0 -> _Output#0
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking _Output#0 -> ReceiptSink#0
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking ReceiptSink#0 -> Pipeline#0::Sink
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking PipelineWorker#0::Source -> RTVIProcessor#0
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking RTVIProcessor#0 -> Pipeline#0
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.processors.frame_processor:link:705 - Linking Pipeline#0 -> PipelineWorker#0::Sink
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.workers.runner:add_workers:230 - WorkerRunner 'runner-20d089a1': added worker 'PipelineWorker#0'
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.workers.runner:run:273 - WorkerRunner 'runner-20d089a1': started running
+2026-11-07 06:29:11.628 | DEBUG    | pipecat.workers.runner:_start_worker:459 - WorkerRunner 'runner-20d089a1': starting worker 'PipelineWorker#0'
+2026-11-07 06:29:11.629 | DEBUG    | pipecat.audio.vad.vad_analyzer:set_params:157 - Setting VAD params to: confidence=0.7 start_secs=0.096 stop_secs=0.2 min_volume=0.5
+2026-11-07 06:29:11.629 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_start:1327 - PipelineWorker#0: Starting. Waiting for StartFrame#0 to reach the end of the pipeline...
+connected to fdbench at ws://127.0.0.1:8791 · benchmark mode
+2026-11-07 06:29:11.643 | DEBUG    | pipecat.registry.registry:register:132 - Worker 'PipelineWorker#0' ready (local)
+2026-11-07 06:29:11.643 | DEBUG    | pipecat.workers.runner:_send_registry:511 - WorkerRunner 'runner-20d089a1': broadcasting registry: ['PipelineWorker#0']
+2026-11-07 06:29:11.643 | DEBUG    | pipecat.workers.base_worker:_maybe_activate:1284 - Worker 'PipelineWorker#0': activated
+2026-11-07 06:29:11.643 | DEBUG    | pipecat.pipeline.worker:_wait_for_pipeline_start:1344 - PipelineWorker#0: StartFrame#0 reached the end of the pipeline, pipeline is now ready.
+2026-11-07 06:29:17.898 | DEBUG    | pipecat.processors.audio.vad_processor:on_speech_started:73 - VADProcessor#0: User started speaking
+2026-11-07 06:29:19.883 | DEBUG    | pipecat.processors.audio.vad_processor:on_speech_stopped:81 - VADProcessor#0: User stopped speaking
+2026-11-07 06:29:20.662 | DEBUG    | pipecat.audio.turn.smart_turn.base_smart_turn:analyze_end_of_turn:167 - End of Turn result: EndOfTurnState.COMPLETE
+2026-11-07 06:29:21.664 | DEBUG    | pipecat.processors.frame_processor:broadcast_interruption:1050 - Bridge#0: broadcasting interruption
+2026-11-07 06:29:22.313 | DEBUG    | pipecat.transports.base_output:_bot_started_speaking:751 - Bot started speaking
+2026-11-07 06:29:25.141 | DEBUG    | pipecat.transports.base_output:_handle_frame:922 - Bot stopped speaking based on TTSStoppedFrame
+2026-11-07 06:29:25.141 | DEBUG    | pipecat.transports.base_output:_bot_stopped_speaking:856 - Bot stopped speaking
+2026-11-07 06:29:25.550 | DEBUG    | pipecat.transports.base_output:_bot_started_speaking:751 - Bot started speaking

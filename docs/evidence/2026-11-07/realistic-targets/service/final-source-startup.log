@@ -1,0 +1,427 @@
+/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Creating new KokoroPipeline for language: a
+======== Running on http://127.0.0.1:8002 ========
+(Press CTRL+C to quit)
+WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+ERROR:aiohttp.server:Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 191, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 258, in synthesize
+    await response.prepare(request)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 464, in prepare
+    return await self._start(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 472, in _start
+    await self._write_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/web_response.py", line 553, in _write_headers
+    writer.send_headers()
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 239, in send_headers
+    self._write(headers_buf)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/aiohttp/http_writer.py", line 103, in _write
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport

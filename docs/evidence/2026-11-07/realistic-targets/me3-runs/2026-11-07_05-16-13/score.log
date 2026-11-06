@@ -1,0 +1,105 @@
+
+Scoring… (transcribing with faster-whisper, this takes a while on a Pi)
+scoring 1/44 r01_false_tt_false_side_talk_004scoring 2/44 r01_false_tt_false_tv_radio_000scoring 3/44 r01_stage_latency_phrase_v15_backchannel_34scoring 4/44 r01_stage_latency_phrase_v15_background_91scoring 5/44 r01_stage_latency_phrase_v15_background_94scoring 6/44 r01_stage_latency_phrase_v15_interruption_188scoring 7/44 r01_stage_latency_phrase_v15_interruption_35scoring 8/44 r01_stage_latency_phrase_v15_talking_to_other_31scoring 9/44 r01_stage_latency_phrase_v1_interrupt_129scoring 10/44 r01_stage_latency_phrase_v1_interrupt_192scoring 11/44 r01_stage_latency_phrase_v1_interrupt_73scoring 12/44 r01_stage_latency_phrase_v1_interrupt_83scoring 13/44 r01_v15_backchannel_v15_backchannel_60scoring 14/44 r01_v15_backchannel_v15_backchannel_60_cleanscoring 15/44 r01_v15_background_v15_background_27scoring 16/44 r01_v15_background_v15_background_27_cleanscoring 17/44 r01_v15_interruption_v15_interruption_165scoring 18/44 r01_v15_interruption_v15_interruption_165_cleanscoring 19/44 r01_v15_talking_to_other_v15_talking_to_other_81scoring 20/44 r01_v15_talking_to_other_v15_talking_to_other_81_cleanscoring 21/44 r01_v1_interrupt_v1_interrupt_39scoring 22/44 r01_v1_pause_candor_v1_pause_candor_189scoring 23/44 r01_v1_pause_synth_v1_pause_synth_30scoring 24/44 r01_v1_turntaking_v1_turntaking_38scoring 25/44 r02_stage_latency_phrase_v15_backchannel_34scoring 26/44 r02_stage_latency_phrase_v15_background_91scoring 27/44 r02_stage_latency_phrase_v15_background_94scoring 28/44 r02_stage_latency_phrase_v15_interruption_188scoring 29/44 r02_stage_latency_phrase_v15_interruption_35scoring 30/44 r02_stage_latency_phrase_v15_talking_to_other_31scoring 31/44 r02_stage_latency_phrase_v1_interrupt_129scoring 32/44 r02_stage_latency_phrase_v1_interrupt_192scoring 33/44 r02_stage_latency_phrase_v1_interrupt_73scoring 34/44 r02_stage_latency_phrase_v1_interrupt_83scoring 35/44 r03_stage_latency_phrase_v15_backchannel_34scoring 36/44 r03_stage_latency_phrase_v15_background_91scoring 37/44 r03_stage_latency_phrase_v15_background_94scoring 38/44 r03_stage_latency_phrase_v15_interruption_188scoring 39/44 r03_stage_latency_phrase_v15_interruption_35scoring 40/44 r03_stage_latency_phrase_v15_talking_to_other_31scoring 41/44 r03_stage_latency_phrase_v1_interrupt_129scoring 42/44 r03_stage_latency_phrase_v1_interrupt_192scoring 43/44 r03_stage_latency_phrase_v1_interrupt_73scoring 44/44 r03_stage_latency_phrase_v1_interrupt_83Deck summary · template §5 (Evaluation & Benchmark)                             
+┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━┳━━━━━━━━━━┓
+┃ metric      ┃ definition        ┃ target   ┃ mean   ┃ p95    ┃ n  ┃          ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━╇━━━━╇━━━━━━━━━━┩
+│ E2E latency │ end of speech →   │ < 4.00 s │ 3.29 s │ 6.14 s │ 30 │ p95 over │
+│             │ audio out         │          │        │        │    │          │
+│ ASR final   │ end of speech →   │ < 0.80 s │ 1.46 s │ 1.96 s │ 30 │ over     │
+│             │ transcript        │          │        │        │    │          │
+│ LLM TTFT    │ transcript →      │ < 1.50 s │ 1.02 s │ 3.31 s │ 30 │ p95 over │
+│             │ first token       │          │        │        │    │          │
+│ TTS TTFB    │ text → first      │ < 0.60 s │ 0.46 s │ 1.13 s │ 30 │ p95 over │
+│             │ audio chunk       │          │        │        │    │          │
+│ Barge-in    │ speech → playback │ < 0.80 s │ 0.32 s │ 0.34 s │ 2  │ met      │
+│             │ stopped           │          │        │        │    │          │
+│ WER         │ ASR accuracy on   │ < 15 %   │ 1.4 %  │ —      │ 30 │ met      │
+│             │ test set          │          │        │        │    │          │
+└─────────────┴───────────────────┴──────────┴────────┴────────┴────┴──────────┘
+10 phrases × 3 runs · Darwin 25.5.0 · 16 GB · cooling: not stated · network: 
+cloud: unknown · benchmark link: same machine, 0 ms round trip · models: harness
+pipecat 1.15.1.dev12, ASR mlx-community/whisper-large-v3-turbo, LLM 
+Qwen/Qwen3.8-27B, TTS mlx-community/Kokoro-82M-bf16, voice af_heart, VAD Silero,
+turn SmartTurn v3.2
+context size per LLM call: median 43 tokens, max 67, first → last 43 → 60
+─────────────────────── Results · me3-local · 44 trials ────────────────────────
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+┃ metric                      ┃ value                                ┃ better  ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+│ Full-Duplex-Bench v1 (2025) │                                      │         │
+│ TOR, pause handling         │ 0%  (0/1)                            │ lower   │
+│ (synthetic)                 │                                      │         │
+│ TOR, pause handling         │ 0%  (0/1)                            │ lower   │
+│ (Candor)                    │                                      │         │
+│ TOR, turn-taking (col 6)    │ 0%  (0/1)                            │ higher  │
+│ Missed turn-taking rate     │ 100%  (1/1)                          │ lower   │
+│ False turn-taking rate      │ 50%  (1/2)                           │ lower   │
+│    · side talk              │ 0%  (0/1)                            │ lower   │
+│    · TV / radio             │ 100%  (1/1)                          │ lower   │
+│    · background speech      │ —                                    │ lower   │
+│    · noise                  │ —                                    │ lower   │
+│ Latency, turn-taking        │ —                                    │ lower   │
+│ TOR, interruption           │ 0%  (0/1)                            │ higher  │
+│ Judge score, interruption   │ — (not judged)                       │ higher  │
+│ (0–5)                       │                                      │         │
+│ Latency, interruption       │ —                                    │ lower   │
+├─────────────────────────────┼──────────────────────────────────────┼─────────┤
+│ Full-Duplex-Bench v1.5      │                                      │         │
+│ (2026) · overlap handling   │                                      │         │
+│ interruption · behaviour    │ — needs ASR + judge (content labels) │ Respond │
+│ (n=1)                       │                                      │ higher  │
+│    · timing (no content)    │ kept talking 0% · paused & came back │         │
+│                             │ 100% · stopped, silent 0%            │         │
+│    · stop latency           │ med 0.35 s · p95 0.35 s · mean 0.35  │ lower   │
+│                             │ s · n=1                              │         │
+│    · response latency       │ med 4.58 s · p95 4.58 s · mean 4.58  │ lower   │
+│                             │ s · n=1                              │         │
+│ backchannel · behaviour     │ — needs ASR + judge (content labels) │ Resume  │
+│ (n=1)                       │                                      │ higher  │
+│    · timing (no content)    │ kept talking 0% · paused & came back │         │
+│                             │ 0% · stopped, silent 100%            │         │
+│    · stop latency           │ med 0.28 s · p95 0.28 s · mean 0.28  │ lower   │
+│                             │ s · n=1                              │         │
+│    · response latency       │ —                                    │ lower   │
+│ talking to others ·         │ — needs ASR + judge (content labels) │ Resume  │
+│ behaviour (n=1)             │                                      │ higher  │
+│    · timing (no content)    │ kept talking 0% · paused & came back │         │
+│                             │ 100% · stopped, silent 0%            │         │
+│    · stop latency           │ med 0.38 s · p95 0.38 s · mean 0.38  │ lower   │
+│                             │ s · n=1                              │         │
+│    · response latency       │ med 3.56 s · p95 3.56 s · mean 3.56  │ lower   │
+│                             │ s · n=1                              │         │
+│ background speech ·         │ — needs ASR + judge (content labels) │ Resume  │
+│ behaviour (n=1)             │                                      │ higher  │
+│    · timing (no content)    │ kept talking 0% · paused & came back │         │
+│                             │ 100% · stopped, silent 0%            │         │
+│    · stop latency           │ med 0.22 s · p95 0.22 s · mean 0.22  │ lower   │
+│                             │ s · n=1                              │         │
+│    · response latency       │ med 2.24 s · p95 2.24 s · mean 2.24  │ lower   │
+│                             │ s · n=1                              │         │
+├─────────────────────────────┼──────────────────────────────────────┼─────────┤
+│ v1.5 voice change after an  │                                      │         │
+│ interruption · all          │                                      │         │
+│ interruption clips with     │                                      │         │
+│ voice data                  │                                      │         │
+│ Δ wpm                       │ Δ -20.48  (p=—, n=1)                 │ higher  │
+│ Δ pitch_mean                │ Δ -10.34  (p=—, n=1)                 │ higher  │
+│ Δ pitch_sd                  │ Δ +7.25  (p=—, n=1)                  │ higher  │
+│ Δ intensity_mean            │ Δ -0.68  (p=—, n=1)                  │ lower   │
+│ Δ intensity_sd              │ Δ -0.59  (p=—, n=1)                  │ higher  │
+│ Δ utmosv2                   │ — (not scored)                       │ no drop │
+├─────────────────────────────┼──────────────────────────────────────┼─────────┤
+│ Machine resources · Darwin  │                                      │         │
+│ 25.5.0                      │                                      │         │
+│ CPU, all cores              │ median 22% · p95 33% · busiest core  │ lower   │
+│                             │ p95 57%                              │         │
+│    · Assistant (pipeline +  │ CPU mean 0.0% · RAM peak 189 MB      │         │
+│ VAD)                        │                                      │         │
+│ Lowest free RAM             │ 1625 MB                              │ higher  │
+└─────────────────────────────┴──────────────────────────────────────┴─────────┘
+note: no judge: interruption relevance and v1.5 behaviour labels not scored
+judge: none · asr: faster-whisper/small
+
+Saved: runs/me3-local/2026-11-07_05-16-13/results.json, results.csv, 
+results.html · log: runs/me3-local/2026-11-07_05-16-13/run.log
