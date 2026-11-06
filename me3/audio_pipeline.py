@@ -71,6 +71,7 @@ async def build(
     turn_analyzer=None,
     verifier=None,
     config=None,
+    on_stage=None,
 ):
     from pipecat.audio.vad.silero import SileroVADAnalyzer
     from pipecat.frames.frames import (
@@ -116,7 +117,9 @@ async def build(
         runtime = AgentRuntime(
             Path(log_dir) / ("runtime-" + uuid.uuid4().hex),
             configured_backend(),
-            ForegroundBackend(ForegroundConfig.from_env(os.environ)),
+            ForegroundBackend(
+                ForegroundConfig.from_env(os.environ), on_stage=on_stage
+            ),
         )
     owns_speech = speech is None
     speech = speech or ConfiguredSpeech(config)
@@ -195,7 +198,7 @@ async def build(
                                 context_id=context,
                             )
                         )
-                        # Bound transport lead; capture continues independently.
+                        # Bound transport lead while capture continues.
                         await asyncio.sleep(count / 48000)
                 if ledger.active != token:
                     return False
@@ -205,10 +208,16 @@ async def build(
             if receipt is current_receipt:
                 receipt = receipt_id = None
 
+    def observe_transcript(event):
+        if on_stage:
+            stage = "asr_final" if event.committed else "asr_partial"
+            on_stage(stage, text=event.text)
+
     controller = runtime.open_session(
         speak,
         stop,
         owner="course-benchmark" if profile == "course" else None,
+        on_transcript=observe_transcript,
         is_playing=lambda: (
             ledger.active is not None
             and ledger.did_start
@@ -374,8 +383,8 @@ async def build(
                     if ledger.active:
                         ledger.started(ledger.active)
                 elif isinstance(frame, OutputAudioRawFrame) and receipt_id:
-                    # BaseOutputTransport can rechunk audio and omit context_id.
-                    # The matching final control frame remains ordered behind it.
+                    # Transport rechunking can omit context_id. The matching
+                    # final control frame remains ordered behind the audio.
                     if context is None or context == receipt_id:
                         received += len(frame.audio)
                         if echo is not None:

@@ -4,14 +4,18 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import AsyncIterator
+from typing import AsyncIterator, Callable
 
 from me3.configuration import ForegroundConfig
 
 
 class ForegroundBackend:
-    def __init__(self, config: ForegroundConfig, *, client=None) -> None:
+    def __init__(
+        self, config: ForegroundConfig, *, client=None,
+        on_stage: Callable[..., None] | None = None,
+    ) -> None:
         self.config, self.client = config, client
+        self.on_stage = on_stage
 
     async def stream(self, prompt: str) -> AsyncIterator[str]:
         import httpx
@@ -38,6 +42,12 @@ class ForegroundBackend:
             "chat_template_kwargs": {"enable_thinking": False},
         }
         total = 0
+        first_text = True
+        if self.on_stage:
+            self.on_stage(
+                "llm_request", chars=len(prompt), messages=1,
+                est_tokens=round(len(prompt) / 4),
+            )
         async with client.stream(
             "POST",
             self.config.base_url.rstrip("/") + "/chat/completions",
@@ -73,6 +83,10 @@ class ForegroundBackend:
                         total += len(text)
                         if total > 16000:
                             raise ValueError("Foreground output exceeds limit")
+                        if first_text:
+                            first_text = False
+                            if self.on_stage:
+                                self.on_stage("llm_first_token")
                         yield text
 
     async def run(

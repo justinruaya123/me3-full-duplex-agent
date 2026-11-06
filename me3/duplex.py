@@ -110,6 +110,7 @@ class DuplexController:
         quiet_seconds: float = 0.8,
         is_playing: Callable[[], bool] | None = None,
         delivery_authorized: Callable[[], bool] | None = None,
+        on_transcript: Callable[[TranscriptRevision], None] | None = None,
     ) -> None:
         if quiet_seconds < 0:
             raise ValueError("quiet_seconds must be nonnegative")
@@ -117,6 +118,7 @@ class DuplexController:
         self.speak, self.stop, self.clock = speak, stop, clock
         self.quiet_seconds, self.is_playing = quiet_seconds, is_playing
         self.delivery_authorized = delivery_authorized or (lambda: True)
+        self.on_transcript = on_transcript
         self.history: list[dict[str, str]] = []
         self.focus: str | None = None
         self.pending_question = False
@@ -197,6 +199,8 @@ class DuplexController:
             committed=event.committed,
             turn_id=event.turn_id,
         )
+        if self.on_transcript:
+            self.on_transcript(event)
         if not event.committed:
             self.turn_open = True
             self._turn_final.clear()
@@ -425,7 +429,8 @@ class DuplexController:
                     job_id, request, expected_revision=job["revision"]
                 )
                 say(
-                    "The new revision is queued; earlier results are superseded."
+                    "The new revision is queued; "
+                    "earlier results are superseded."
                 )
             elif action == "preview":
                 url = await self.jobs.preview(
@@ -435,7 +440,8 @@ class DuplexController:
             return action
         except (KeyError, ValueError, PermissionError, AttributeError):
             say(
-                "That job action is unavailable. Check the job ID and current status."
+                "That job action is unavailable. "
+                "Check the job ID and current status."
             )
             return "unavailable"
 
@@ -573,7 +579,8 @@ class DuplexController:
             return False
         self._last_activity = self.clock()
         text = (
-            "By the way, a background task is ready. Its result has been saved."
+            "By the way, a background task is ready. "
+            "Its result has been saved."
             if len(ready) == 1
             else f"By the way, {len(ready)} background tasks are ready. "
             "Their results have been saved."
