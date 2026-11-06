@@ -1,0 +1,13 @@
+{
+  "kind": "actual native paired comparison on three generated development inputs, two repetitions each",
+  "pairs": 6,
+  "uncached_mean_seconds": 2.8379075070042745,
+  "cached_mean_seconds": 1.9366725486664411,
+  "mean_reduction_percent": 31.75702365610874,
+  "all_transcript_language_and_word_fields_identical": true,
+  "encoder_evaluations": {
+    "before": 3,
+    "after": 2
+  },
+  "scope": "same full-context exact weights; auto language and word alignment preserved; not acoustic"
+}

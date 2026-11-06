@@ -1,0 +1,477 @@
+{
+  "passed": true,
+  "kind": "real native paired exact-model development audio, no acoustic capture",
+  "asr_model": "mlx-community/whisper-large-v3-turbo",
+  "tts_model": "mlx-community/Kokoro-82M-bf16",
+  "voice": "af_heart",
+  "trials": [
+    {
+      "case": "phrase",
+      "iteration": 0,
+      "audio_seconds": 2.6,
+      "transcript_language_and_word_timestamps_identical": true,
+      "pair": [
+        {
+          "mode": "uncached",
+          "seconds": 2.866397166013485,
+          "encoder_calls": 3,
+          "signature": {
+            "text": " Hello, the voice system is ready.",
+            "language": "en",
+            "words": [
+              {
+                "word": " Hello,",
+                "start": 0.0,
+                "end": 0.58,
+                "probability": 0.9375
+              },
+              {
+                "word": " the",
+                "start": 0.86,
+                "end": 0.98,
+                "probability": 0.9931640625
+              },
+              {
+                "word": " voice",
+                "start": 0.98,
+                "end": 1.2,
+                "probability": 0.9892578125
+              },
+              {
+                "word": " system",
+                "start": 1.2,
+                "end": 1.52,
+                "probability": 1.0
+              },
+              {
+                "word": " is",
+                "start": 1.52,
+                "end": 1.72,
+                "probability": 1.0
+              },
+              {
+                "word": " ready.",
+                "start": 1.72,
+                "end": 1.96,
+                "probability": 1.0
+              }
+            ]
+          }
+        },
+        {
+          "mode": "cached",
+          "seconds": 1.9488909169886028,
+          "encoder_calls": 2,
+          "signature": {
+            "text": " Hello, the voice system is ready.",
+            "language": "en",
+            "words": [
+              {
+                "word": " Hello,",
+                "start": 0.0,
+                "end": 0.58,
+                "probability": 0.9375
+              },
+              {
+                "word": " the",
+                "start": 0.86,
+                "end": 0.98,
+                "probability": 0.9931640625
+              },
+              {
+                "word": " voice",
+                "start": 0.98,
+                "end": 1.2,
+                "probability": 0.9892578125
+              },
+              {
+                "word": " system",
+                "start": 1.2,
+                "end": 1.52,
+                "probability": 1.0
+              },
+              {
+                "word": " is",
+                "start": 1.52,
+                "end": 1.72,
+                "probability": 1.0
+              },
+              {
+                "word": " ready.",
+                "start": 1.72,
+                "end": 1.96,
+                "probability": 1.0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case": "phrase",
+      "iteration": 1,
+      "audio_seconds": 2.6,
+      "transcript_language_and_word_timestamps_identical": true,
+      "pair": [
+        {
+          "mode": "cached",
+          "seconds": 1.958309834008105,
+          "encoder_calls": 2,
+          "signature": {
+            "text": " Hello, the voice system is ready.",
+            "language": "en",
+            "words": [
+              {
+                "word": " Hello,",
+                "start": 0.0,
+                "end": 0.58,
+                "probability": 0.9375
+              },
+              {
+                "word": " the",
+                "start": 0.86,
+                "end": 0.98,
+                "probability": 0.9931640625
+              },
+              {
+                "word": " voice",
+                "start": 0.98,
+                "end": 1.2,
+                "probability": 0.9892578125
+              },
+              {
+                "word": " system",
+                "start": 1.2,
+                "end": 1.52,
+                "probability": 1.0
+              },
+              {
+                "word": " is",
+                "start": 1.52,
+                "end": 1.72,
+                "probability": 1.0
+              },
+              {
+                "word": " ready.",
+                "start": 1.72,
+                "end": 1.96,
+                "probability": 1.0
+              }
+            ]
+          }
+        },
+        {
+          "mode": "uncached",
+          "seconds": 2.8538890839990927,
+          "encoder_calls": 3,
+          "signature": {
+            "text": " Hello, the voice system is ready.",
+            "language": "en",
+            "words": [
+              {
+                "word": " Hello,",
+                "start": 0.0,
+                "end": 0.58,
+                "probability": 0.9375
+              },
+              {
+                "word": " the",
+                "start": 0.86,
+                "end": 0.98,
+                "probability": 0.9931640625
+              },
+              {
+                "word": " voice",
+                "start": 0.98,
+                "end": 1.2,
+                "probability": 0.9892578125
+              },
+              {
+                "word": " system",
+                "start": 1.2,
+                "end": 1.52,
+                "probability": 1.0
+              },
+              {
+                "word": " is",
+                "start": 1.52,
+                "end": 1.72,
+                "probability": 1.0
+              },
+              {
+                "word": " ready.",
+                "start": 1.72,
+                "end": 1.96,
+                "probability": 1.0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case": "partial",
+      "iteration": 0,
+      "audio_seconds": 0.8,
+      "transcript_language_and_word_timestamps_identical": true,
+      "pair": [
+        {
+          "mode": "uncached",
+          "seconds": 2.8281052079983056,
+          "encoder_calls": 3,
+          "signature": {
+            "text": " Hello?",
+            "language": "en",
+            "words": [
+              {
+                "word": " Hello?",
+                "start": 0.0,
+                "end": 0.52,
+                "probability": 0.80322265625
+              }
+            ]
+          }
+        },
+        {
+          "mode": "cached",
+          "seconds": 1.916599457996199,
+          "encoder_calls": 2,
+          "signature": {
+            "text": " Hello?",
+            "language": "en",
+            "words": [
+              {
+                "word": " Hello?",
+                "start": 0.0,
+                "end": 0.52,
+                "probability": 0.80322265625
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case": "partial",
+      "iteration": 1,
+      "audio_seconds": 0.8,
+      "transcript_language_and_word_timestamps_identical": true,
+      "pair": [
+        {
+          "mode": "cached",
+          "seconds": 1.9063456660078373,
+          "encoder_calls": 2,
+          "signature": {
+            "text": " Hello?",
+            "language": "en",
+            "words": [
+              {
+                "word": " Hello?",
+                "start": 0.0,
+                "end": 0.52,
+                "probability": 0.80322265625
+              }
+            ]
+          }
+        },
+        {
+          "mode": "uncached",
+          "seconds": 2.8181780420127325,
+          "encoder_calls": 3,
+          "signature": {
+            "text": " Hello?",
+            "language": "en",
+            "words": [
+              {
+                "word": " Hello?",
+                "start": 0.0,
+                "end": 0.52,
+                "probability": 0.80322265625
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case": "question",
+      "iteration": 0,
+      "audio_seconds": 2.525,
+      "transcript_language_and_word_timestamps_identical": true,
+      "pair": [
+        {
+          "mode": "uncached",
+          "seconds": 2.847765166996396,
+          "encoder_calls": 3,
+          "signature": {
+            "text": " What is 17 plus 25?",
+            "language": "en",
+            "words": [
+              {
+                "word": " What",
+                "start": 0.0,
+                "end": 0.42,
+                "probability": 0.919921875
+              },
+              {
+                "word": " is",
+                "start": 0.42,
+                "end": 0.54,
+                "probability": 0.99560546875
+              },
+              {
+                "word": " 17",
+                "start": 0.54,
+                "end": 0.86,
+                "probability": 0.9423828125
+              },
+              {
+                "word": " plus",
+                "start": 0.86,
+                "end": 1.28,
+                "probability": 0.86279296875
+              },
+              {
+                "word": " 25?",
+                "start": 1.28,
+                "end": 1.72,
+                "probability": 0.99755859375
+              }
+            ]
+          }
+        },
+        {
+          "mode": "cached",
+          "seconds": 1.942989666989888,
+          "encoder_calls": 2,
+          "signature": {
+            "text": " What is 17 plus 25?",
+            "language": "en",
+            "words": [
+              {
+                "word": " What",
+                "start": 0.0,
+                "end": 0.42,
+                "probability": 0.919921875
+              },
+              {
+                "word": " is",
+                "start": 0.42,
+                "end": 0.54,
+                "probability": 0.99560546875
+              },
+              {
+                "word": " 17",
+                "start": 0.54,
+                "end": 0.86,
+                "probability": 0.9423828125
+              },
+              {
+                "word": " plus",
+                "start": 0.86,
+                "end": 1.28,
+                "probability": 0.86279296875
+              },
+              {
+                "word": " 25?",
+                "start": 1.28,
+                "end": 1.72,
+                "probability": 0.99755859375
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case": "question",
+      "iteration": 1,
+      "audio_seconds": 2.525,
+      "transcript_language_and_word_timestamps_identical": true,
+      "pair": [
+        {
+          "mode": "cached",
+          "seconds": 1.946899750008015,
+          "encoder_calls": 2,
+          "signature": {
+            "text": " What is 17 plus 25?",
+            "language": "en",
+            "words": [
+              {
+                "word": " What",
+                "start": 0.0,
+                "end": 0.42,
+                "probability": 0.919921875
+              },
+              {
+                "word": " is",
+                "start": 0.42,
+                "end": 0.54,
+                "probability": 0.99560546875
+              },
+              {
+                "word": " 17",
+                "start": 0.54,
+                "end": 0.86,
+                "probability": 0.9423828125
+              },
+              {
+                "word": " plus",
+                "start": 0.86,
+                "end": 1.28,
+                "probability": 0.86279296875
+              },
+              {
+                "word": " 25?",
+                "start": 1.28,
+                "end": 1.72,
+                "probability": 0.99755859375
+              }
+            ]
+          }
+        },
+        {
+          "mode": "uncached",
+          "seconds": 2.8131103750056354,
+          "encoder_calls": 3,
+          "signature": {
+            "text": " What is 17 plus 25?",
+            "language": "en",
+            "words": [
+              {
+                "word": " What",
+                "start": 0.0,
+                "end": 0.42,
+                "probability": 0.919921875
+              },
+              {
+                "word": " is",
+                "start": 0.42,
+                "end": 0.54,
+                "probability": 0.99560546875
+              },
+              {
+                "word": " 17",
+                "start": 0.54,
+                "end": 0.86,
+                "probability": 0.9423828125
+              },
+              {
+                "word": " plus",
+                "start": 0.86,
+                "end": 1.28,
+                "probability": 0.86279296875
+              },
+              {
+                "word": " 25?",
+                "start": 1.28,
+                "end": 1.72,
+                "probability": 0.99755859375
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "trial": "r01_v15_backchannel_v15_backchannel_60_clean",
+  "group": "v15_backchannel",
+  "clip": "v15_backchannel_60",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 8.736,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.848
+    }
+  ],
+  "live_bot_starts": [
+    6.208
+  ],
+  "live_bot_ends": [
+    7.52
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Explain astronomy in depth.",
+    "current_turn_text": "",
+    "overlap_text": "yes sure",
+    "overlap_duration": 1.02,
+    "overlap_window": [
+      5.579,
+      6.601
+    ],
+    "source_id": "60"
+  },
+  "mono": [
+    93114.160903041,
+    93122.935636833
+  ],
+  "bot_segments": [
+    [
+      6.178,
+      7.55
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.848
+  ],
+  "tor": 1,
+  "first_start": 6.178,
+  "spoke_s": 1.3719999999999999,
+  "actual": "replied after 4.33 s, spoke 1.4 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 20,
+  "final": {
+    "transcript": "Okay, brace yourself."
+  },
+  "scored_at": "2026-11-07T02:33:14+08:00"
+}

@@ -1,0 +1,90 @@
+{
+  "trial": "r03_stage_latency_phrase_v15_background_91",
+  "group": "stage_latency",
+  "clip": "phrase_v15_background_91",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 12.896,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.904
+    }
+  ],
+  "live_bot_starts": [
+    7.264,
+    9.792
+  ],
+  "live_bot_ends": [
+    8.736,
+    12.544
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "What day of the week is July 4th, 2026?",
+    "source": "v15_background_91"
+  },
+  "mono": [
+    92882.602887541,
+    92895.477138458
+  ],
+  "bot_segments": [
+    [
+      7.234,
+      8.766
+    ],
+    [
+      9.762,
+      12.574
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.904
+  ],
+  "tor": 1,
+  "first_start": 7.234,
+  "spoke_s": 3.67,
+  "user_end": 2.654,
+  "latency": 4.58,
+  "actual": "replied 4.58 s after speech end",
+  "verdict": "✓ 4.58 s",
+  "ok": true,
+  "marks": 25,
+  "final": {
+    "stages": {
+      "e2e_heard": 4.58,
+      "e2e": 4.1381,
+      "e2e_source": "marks",
+      "asr_final": 3.7072,
+      "llm_ttft": 0.0987,
+      "tts_ttfb": 0.2288,
+      "endpointing": 0.1353,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "What day of the week is July 4th, 2026?",
+      "wer": {
+        "ref_words": 9,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 269,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Let me check that calendar. July 4, 2026 is a Saturday."
+  },
+  "scored_at": "2026-11-07T02:33:55+08:00"
+}

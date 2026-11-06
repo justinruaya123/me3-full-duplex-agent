@@ -1,0 +1,84 @@
+{
+  "trial": "r01_stage_latency_phrase_v1_interrupt_129",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_129",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 11.52,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.016
+    }
+  ],
+  "live_bot_starts": [
+    7.52
+  ],
+  "live_bot_ends": [
+    11.168
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "How do I get started with painting?",
+    "source": "v1_interrupt_129"
+  },
+  "mono": [
+    92480.054349416,
+    92491.541474166
+  ],
+  "bot_segments": [
+    [
+      7.49,
+      11.198
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.016
+  ],
+  "tor": 1,
+  "first_start": 7.49,
+  "spoke_s": 2.526,
+  "user_end": 2.142,
+  "latency": 5.348000000000001,
+  "actual": "replied 5.35 s after speech end",
+  "verdict": "✓ 5.35 s",
+  "ok": true,
+  "marks": 14,
+  "final": {
+    "stages": {
+      "e2e_heard": 5.348,
+      "e2e": 4.9255,
+      "e2e_source": "marks",
+      "asr_final": 3.1806,
+      "llm_ttft": 0.105,
+      "tts_ttfb": 1.2243,
+      "endpointing": 0.0918,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "How do I get started with painting?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 130,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Start by gathering basic supplies like brushes and canvas."
+  },
+  "scored_at": "2026-11-07T02:33:06+08:00"
+}

@@ -1,0 +1,96 @@
+{
+  "trial": "r01_v15_background_v15_background_27",
+  "group": "v15_background",
+  "clip": "v15_background_27",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 15.584,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.784
+    },
+    {
+      "name": "overlap",
+      "t": 7.132,
+      "len": 1.718
+    }
+  ],
+  "live_bot_starts": [
+    5.632,
+    12.768
+  ],
+  "live_bot_ends": [
+    7.744,
+    14.368
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "Define the word 'ephemeral'.",
+    "current_turn_text": "",
+    "overlap_text": "Your coffee's getting cold.",
+    "overlap_duration": 1.72,
+    "overlap_window": [
+      5.625,
+      7.343
+    ],
+    "source_id": "27"
+  },
+  "mono": [
+    92948.252812708,
+    92963.831865291
+  ],
+  "bot_segments": [
+    [
+      5.602,
+      7.774
+    ],
+    [
+      12.738,
+      14.398
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.784
+  ],
+  "overlap_played": true,
+  "t_stop": 0.54,
+  "t_resp": 4.036,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    7.234,
+    8.702
+  ],
+  "tor": 1,
+  "first_start": 12.738,
+  "spoke_s": 1.6600000000000001,
+  "latency": 3.888,
+  "actual": "stopped after 0.54 s, back 4.04 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ paused, came back · content: judge",
+  "ok": null,
+  "marks": 32,
+  "final": {
+    "t_stop": 0.54,
+    "t_resp": 4.036,
+    "label": null,
+    "voice_delta": {
+      "wpm": -68.30824000593346,
+      "pitch_mean": -8.603439688020558,
+      "pitch_sd": -5.538663413268722,
+      "intensity_mean": -1.1423181329316527,
+      "intensity_sd": -1.3942929796088501,
+      "utmosv2": null
+    },
+    "transcript": "Ephemeral means lasting for a very short time. Oh, I hope you still enjoy it."
+  },
+  "scored_at": "2026-11-07T02:33:16+08:00"
+}

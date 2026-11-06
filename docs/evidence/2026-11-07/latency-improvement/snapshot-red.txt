@@ -1,0 +1,28 @@
+test_changed_audio_and_new_generation_require_fresh_recognition (test_capture_v1.CaptureTests.test_changed_audio_and_new_generation_require_fresh_recognition) ... ok
+test_identical_final_reuses_text_only_after_turn_approval (test_capture_v1.CaptureTests.test_identical_final_reuses_text_only_after_turn_approval) ... FAIL
+test_incomplete_acoustic_turn_only_emits_provisional_text (test_capture_v1.CaptureTests.test_incomplete_acoustic_turn_only_emits_provisional_text) ... ok
+test_latest_final_replaces_waiting_partial_after_speech_resumes (test_capture_v1.CaptureTests.test_latest_final_replaces_waiting_partial_after_speech_resumes) ... ok
+test_overflow_and_transcript_gap_cannot_commit_fragment (test_capture_v1.CaptureTests.test_overflow_and_transcript_gap_cannot_commit_fragment) ... ok
+test_pending_snapshot_overflow_invalidates_authorization (test_capture_v1.CaptureTests.test_pending_snapshot_overflow_invalidates_authorization) ... ok
+test_resumed_audio_fences_late_final_hypothesis (test_capture_v1.CaptureTests.test_resumed_audio_fences_late_final_hypothesis) ... ok
+test_resumed_turn_replaces_stale_queued_final_with_fresh_audio (test_capture_v1.CaptureTests.test_resumed_turn_replaces_stale_queued_final_with_fresh_audio) ... ok
+
+======================================================================
+FAIL: test_identical_final_reuses_text_only_after_turn_approval (test_capture_v1.CaptureTests.test_identical_final_reuses_text_only_after_turn_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_capture_v1.py", line 38, in test_identical_final_reuses_text_only_after_turn_approval
+    self.assertEqual(len(calls), 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.030s
+
+FAILED (failures=1)

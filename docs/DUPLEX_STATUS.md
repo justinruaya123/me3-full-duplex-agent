@@ -1,5 +1,72 @@
 # Implementation and qualification status
 
+## November 7: benchmark-driven inference improvements
+
+On `hermes/benchmark-latency-v1`, commits `87c3336` and `03e1ff7` improve the
+selected models' inference path. Exact Qwen/Whisper/Kokoro IDs, local speech
+weights, voice, credentials and the external scorer are unchanged. Remote
+Qwen weights are provider-managed; its exact response model ID is checked.
+Pi remains the default
+worker and the controller remains harness-neutral.
+
+Native profiling found three ~0.9s Whisper encoder evaluations per request.
+Decode and word alignment receive byte-identical mel inputs. Request-local
+reuse removes that duplicate evaluation, preserves automatic language detection
+and word timestamps, and releases input/features on every exit. Six paired
+real GPU checks on generated development speech fell from 2.838s to 1.937s mean
+(31.76%); transcripts, language and every word timing/probability were identical.
+Capture also reuses recognition for identical full PCM in the same generation;
+final commitment still requires SmartTurn approval. Changed audio, new
+generations, invalidation and close fence/erase that memo.
+
+The actual optimized run `2026-11-07_02-16-38`, frozen at `03e1ff7`, completed
+40/40 queue items / 44 recordings in 797.847s, with zero transport/scoring
+errors. Same benchmark `57eaddbc`, seed 231, 10 phrases x 3 runs plus one
+duplex round, same global course bypass and six-second gaps:
+
+| Metric | Baseline mean / p95 | Optimized mean / p95 | Target |
+| --- | --- | --- | --- |
+| E2E, VAD end to output mark | 5.422 / 6.788s | 3.639 / 5.077s | 4.0s |
+| ASR final | 4.454 / 5.231s | 2.786 / 3.546s | 0.8s |
+| LLM first text | 0.335 / 0.890s | 0.153 / 0.117s | 1.5s |
+| TTS first audio | 0.422 / 1.013s | 0.471 / 1.122s | 0.6s |
+| Barge-in stop, n=2 each | 0.380 / 0.380s | 0.748 / 1.022s | 0.8s |
+| Corpus WER | 4/207 = 1.932% | 5/207 = 2.415% | 15% |
+
+E2E mean improved 32.89%, ASR final mean 37.46%. All 30 phrase trials had
+recorded replies, versus 28/30 before. Optimized software stages have n=30;
+baseline E2E/LLM/TTS have n=29. Recorded speech onset mean/p95 improved from
+5.836/6.982s to 4.151/5.524s. The extra WER edit occurred in the same career
+phrase that varied across baseline repetitions; no benchmark-specific text
+correction was added. Native output equality is separate from whole-pipeline
+WER. Provider and host load were uncontrolled between runs; LLM/TTS code was
+unchanged, so their variation is not attributed to encoder reuse.
+
+Duplex results remain mixed: interruption TOR 0/1 -> 1/1; turn-taking TOR
+1/1 -> 0/1 (a three-word acknowledgement did not count); false turns remain
+2/2 and pause TOR remains 0/1 in each pause group. One backchannel trial stopped
+without returning. A slow interruption's mapped trace suggests ~0.922s before
+VAD start and ~0.130s from that mark to old output ending; this is one digital
+case, not acoustic qualification or justification to tune on a held-out clip.
+No judge/UTMOS score, physical acoustic p95, busy-worker or Pi claim is made.
+The unchanged six-second-gap protocol still permits context/capture carry-over.
+
+RED/GREEN tests preceded both changes; each stage passed the installed suite.
+The final suite is **141 passed, zero failures, zero skips**, 4.475s. Actual
+authenticated HTTP speech passed 6/6 checks, including word timestamps and
+concurrent ASR/TTS. Independent read-only review found no remaining
+Important/Critical findings in the changes. Evidence and unchanged official
+reports are in [latency improvement evidence](evidence/2026-11-07/latency-improvement/README.md).
+After task resumption the unchanged source passed **141/141 again, zero skips**,
+4.622s; the local speech service was found stopped after the interruption,
+then restarted and its exact-model catalog verified.
+
+**Next unpassed gate:** ASR final <=0.8s, E2E p95 <=4s, TTS p95 <=0.6s and
+reliable interruption p95 <=0.8s. Current native ASR still takes about 1.9s;
+further streaming/compute work is required. Detector/addressee qualification,
+fresh-session resets, long-turn stitching, meaningful response quality and
+larger independent samples remain open, along with the spec's acoustic targets.
+
 ## November 7: real course benchmark completed; latency gate not passed
 
 The unchanged external benchmark at `57eaddbc188ce9a19b8fd002b575f703426956f4`

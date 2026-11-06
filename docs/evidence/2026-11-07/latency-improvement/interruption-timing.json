@@ -1,0 +1,11 @@
+{
+  "scope": "mapped software mark versus benchmark digital audio; one case; no acoustic capture",
+  "trial": "r01_v15_interruption_v15_interruption_165",
+  "overlap_speech_onset": 8.162,
+  "mapped_vad_start": 9.0837,
+  "old_speech_segment_end": 9.214,
+  "estimated_onset_to_vad": 0.9216999999999995,
+  "estimated_vad_to_stop": 0.13030000000000008,
+  "wall_duration_minus_audio_duration": 0.07303483299596536,
+  "inference": "detector delay appears larger than output stop delay; not a causal qualification or threshold-tuning result"
+}

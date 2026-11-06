@@ -1,0 +1,84 @@
+{
+  "trial": "r03_stage_latency_phrase_v15_backchannel_34",
+  "group": "stage_latency",
+  "clip": "phrase_v15_backchannel_34",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 8.864,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.88
+    }
+  ],
+  "live_bot_starts": [
+    5.568
+  ],
+  "live_bot_ends": [
+    7.648
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "Outline sleep science clearly.",
+    "source": "v15_backchannel_34"
+  },
+  "mono": [
+    92901.608705583,
+    92910.45439575
+  ],
+  "bot_segments": [
+    [
+      5.474,
+      7.678
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.88
+  ],
+  "tor": 1,
+  "first_start": 5.474,
+  "spoke_s": 2.2039999999999997,
+  "user_end": 1.63,
+  "latency": 3.8440000000000003,
+  "actual": "replied 3.84 s after speech end",
+  "verdict": "✓ 3.84 s",
+  "ok": true,
+  "marks": 20,
+  "final": {
+    "stages": {
+      "e2e_heard": 3.844,
+      "e2e": 3.3669,
+      "e2e_source": "marks",
+      "asr_final": 2.8097,
+      "llm_ttft": 0.0975,
+      "tts_ttfb": 0.2858,
+      "endpointing": 0.1341,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "outline sleep science clearly,",
+      "wer": {
+        "ref_words": 4,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 262,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Sure, here's a quick look at sleep science."
+  },
+  "scored_at": "2026-11-07T02:33:53+08:00"
+}

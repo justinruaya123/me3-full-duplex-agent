@@ -1,5 +1,48 @@
 # Benchmark methods and results
 
+## Inference improvement: November 7
+
+The optimized build `03e1ff7` reran the identical pinned protocol as
+`2026-11-07_02-16-38`: all 40 queue items / 44 recordings completed and scored,
+with zero transport or scoring errors. Selected model IDs, local speech weights,
+voice, thresholds, seed, datasets and the external scorer were preserved.
+Remote Qwen weights are provider-managed; its exact response model ID is checked.
+
+| Metric | Baseline mean / p95 | Optimized mean / p95 | Default target |
+| --- | --- | --- | --- |
+| E2E | 5.422 / 6.788s | 3.639 / 5.077s | 4.0s |
+| ASR final | 4.454 / 5.231s | 2.786 / 3.546s | 0.8s |
+| LLM first text | 0.335 / 0.890s | 0.153 / 0.117s | 1.5s |
+| TTS first audio | 0.422 / 1.013s | 0.471 / 1.122s | 0.6s |
+| Barge-in, two samples each | 0.380 / 0.380s | 0.748 / 1.022s | 0.8s |
+| Corpus WER | 1.932% (4/207) | 2.415% (5/207) | 15% |
+
+Native encoder reuse reduced paired GPU inference from 2.838s to 1.937s mean
+without changing any transcript/language/word timing fields in six development
+pairs. The memo is one entry inside one request; auto language detection, full
+context and real word timestamps remain. Capture reuse requires identical full
+PCM in the current generation and still waits for SmartTurn before commitment.
+
+Observed E2E mean improved 32.89% and ASR final mean 37.46%. Optimized phrase
+coverage is 30/30 recorded replies, baseline 28/30; baseline software E2E, LLM
+and TTS samples are 29, optimized 30. Digital heard-onset mean/p95 is now
+4.151/5.524s versus 5.836/6.982s. Five versus four word errors is one extra edit,
+not evidence of unchanged whole-pipeline WER. End-to-end mean now meets 4s;
+its p95, ASR, TTS p95 and barge-in p95 still fail their gates.
+
+Runs were sequential and host/provider load varied; improved LLM timings and
+worse TTS timings cannot be attributed to this code change. Barge-in has only
+two samples. In one slower case the mapped VAD mark was ~0.922s after stimulus
+speech onset; old output ended ~0.130s later. The evidence retains that outlier,
+clock limits and all content/turn failures. No detector threshold was tuned to
+the benchmark. False turns remain 2/2; interruption TOR improved 0/1 -> 1/1
+while turn-taking TOR fell 1/1 -> 0/1. Content/relevance judging and UTMOS remain
+unscored. Physical acoustics and Pi qualification remain separate.
+
+[Comparison, native checks, tests and official reports](evidence/2026-11-07/latency-improvement/README.md)
+preserve the baseline below. Fresh-session resets, long-turn stitching,
+addressee/detector qualification and larger samples are still required.
+
 ## Actual course run: November 7
 
 The real Mac pipeline completed the supplied course benchmark at
@@ -77,7 +120,7 @@ cd .local/fd-benchmark-20261107
   --phrases 10 --runs 3 --seed 231 --connect direct --where local \
   --judge-provider none --no-score --yes --recordings r --no-live
 # Replace the run path with the folder printed by the new run.
-.venv/bin/python -m fdbench score runs/me3-local/2026-11-07_01-34-42 \
+.venv/bin/python -m fdbench score runs/me3-local/2026-11-07_02-16-38 \
   --judge-provider none --no-utmos --asr-model small
 ```
 

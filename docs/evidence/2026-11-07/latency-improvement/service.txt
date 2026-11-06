@@ -1,0 +1,8 @@
+/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Creating new KokoroPipeline for language: a
+======== Running on http://127.0.0.1:8002 ========
+(Press CTRL+C to quit)
+WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
+WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
+WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)

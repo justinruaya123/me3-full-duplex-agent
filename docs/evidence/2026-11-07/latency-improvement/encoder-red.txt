@@ -1,0 +1,32 @@
+test_exact_input_is_reused_but_changed_input_is_encoded (test_whisper_inference_v1.WhisperInferenceTests.test_exact_input_is_reused_but_changed_input_is_encoded) ... ERROR
+test_failure_restores_model_and_does_not_publish_failed_features (test_whisper_inference_v1.WhisperInferenceTests.test_failure_restores_model_and_does_not_publish_failed_features) ... ERROR
+test_requests_do_not_share_audio_or_encoded_features (test_whisper_inference_v1.WhisperInferenceTests.test_requests_do_not_share_audio_or_encoded_features) ... ERROR
+
+======================================================================
+ERROR: test_exact_input_is_reused_but_changed_input_is_encoded (test_whisper_inference_v1.WhisperInferenceTests.test_exact_input_is_reused_but_changed_input_is_encoded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_whisper_inference_v1.py", line 9, in test_exact_input_is_reused_but_changed_input_is_encoded
+    from me3.whisper_inference import request_encoder
+ModuleNotFoundError: No module named 'me3.whisper_inference'
+
+======================================================================
+ERROR: test_failure_restores_model_and_does_not_publish_failed_features (test_whisper_inference_v1.WhisperInferenceTests.test_failure_restores_model_and_does_not_publish_failed_features)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_whisper_inference_v1.py", line 50, in test_failure_restores_model_and_does_not_publish_failed_features
+    from me3.whisper_inference import request_encoder
+ModuleNotFoundError: No module named 'me3.whisper_inference'
+
+======================================================================
+ERROR: test_requests_do_not_share_audio_or_encoded_features (test_whisper_inference_v1.WhisperInferenceTests.test_requests_do_not_share_audio_or_encoded_features)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_whisper_inference_v1.py", line 30, in test_requests_do_not_share_audio_or_encoded_features
+    from me3.whisper_inference import request_encoder
+ModuleNotFoundError: No module named 'me3.whisper_inference'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (errors=3)

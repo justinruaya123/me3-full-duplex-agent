@@ -1,0 +1,299 @@
+{
+  "baseline_run": "2026-11-07_01-34-42",
+  "optimized_run": "2026-11-07_02-16-38",
+  "table": [
+    {
+      "key": "e2e",
+      "metric": "E2E latency",
+      "target": 4.0,
+      "unit": "s",
+      "before": {
+        "mean": 5.4218,
+        "p95": 6.7883,
+        "n": 29,
+        "status": "over"
+      },
+      "after": {
+        "mean": 3.638616666666666,
+        "p95": 5.076804999999999,
+        "n": 30,
+        "status": "p95_over"
+      },
+      "mean_reduction_percent": 32.88913890835763
+    },
+    {
+      "key": "asr_final",
+      "metric": "ASR final",
+      "target": 0.8,
+      "unit": "s",
+      "before": {
+        "mean": 4.453709999999999,
+        "p95": 5.230725,
+        "n": 30,
+        "status": "over"
+      },
+      "after": {
+        "mean": 2.785523333333333,
+        "p95": 3.5464199999999995,
+        "n": 30,
+        "status": "over"
+      },
+      "mean_reduction_percent": 37.456113367656776
+    },
+    {
+      "key": "llm_ttft",
+      "metric": "LLM TTFT",
+      "target": 1.5,
+      "unit": "s",
+      "before": {
+        "mean": 0.3348689655172414,
+        "p95": 0.8902999999999999,
+        "n": 29,
+        "status": "met"
+      },
+      "after": {
+        "mean": 0.15255999999999997,
+        "p95": 0.1171,
+        "n": 30,
+        "status": "met"
+      },
+      "mean_reduction_percent": 54.441881538841756
+    },
+    {
+      "key": "tts_ttfb",
+      "metric": "TTS TTFB",
+      "target": 0.6,
+      "unit": "s",
+      "before": {
+        "mean": 0.42204827586206894,
+        "p95": 1.0125599999999997,
+        "n": 29,
+        "status": "p95_over"
+      },
+      "after": {
+        "mean": 0.47093000000000007,
+        "p95": 1.1224199999999993,
+        "n": 30,
+        "status": "p95_over"
+      },
+      "mean_reduction_percent": -11.582021994542234
+    },
+    {
+      "key": "barge_in",
+      "metric": "Barge-in",
+      "target": 0.8,
+      "unit": "s",
+      "before": {
+        "mean": 0.3800000000000008,
+        "p95": 0.3800000000000008,
+        "n": 2,
+        "status": "met"
+      },
+      "after": {
+        "mean": 0.7480000000000002,
+        "p95": 1.0215999999999996,
+        "n": 2,
+        "status": "p95_over"
+      },
+      "mean_reduction_percent": -96.84210526315755
+    },
+    {
+      "key": "wer",
+      "metric": "WER",
+      "target": 0.15,
+      "unit": "ratio",
+      "before": {
+        "mean": 0.01932367149758454,
+        "p95": null,
+        "n": 30,
+        "status": "met"
+      },
+      "after": {
+        "mean": 0.024154589371980676,
+        "p95": null,
+        "n": 30,
+        "status": "met"
+      },
+      "mean_reduction_percent": -25.0
+    }
+  ],
+  "other_metrics": {
+    "course.e2e_heard": {
+      "before": {
+        "n": 28,
+        "median": 5.828,
+        "p95": 6.981599999999999,
+        "mean": 5.836,
+        "min": 4.612,
+        "max": 7.332,
+        "ci95_median": [
+          5.54,
+          6.164
+        ],
+        "p95_note": null
+      },
+      "after": {
+        "n": 30,
+        "median": 4.068,
+        "p95": 5.523999999999999,
+        "mean": 4.1512,
+        "min": 2.884,
+        "max": 6.532,
+        "ci95_median": [
+          3.86,
+          4.404
+        ],
+        "p95_note": null
+      }
+    },
+    "v1_pause_synth.tor": {
+      "before": {
+        "n": 1,
+        "k": 0,
+        "value": 0.0
+      },
+      "after": {
+        "n": 1,
+        "k": 0,
+        "value": 0.0
+      }
+    },
+    "v1_pause_candor.tor": {
+      "before": {
+        "n": 1,
+        "k": 0,
+        "value": 0.0
+      },
+      "after": {
+        "n": 1,
+        "k": 0,
+        "value": 0.0
+      }
+    },
+    "v1_turntaking.tor": {
+      "before": {
+        "n": 1,
+        "k": 1,
+        "value": 1.0
+      },
+      "after": {
+        "n": 1,
+        "k": 0,
+        "value": 0.0
+      }
+    },
+    "false_tt.rate": {
+      "before": {
+        "n": 2,
+        "k": 2,
+        "value": 1.0
+      },
+      "after": {
+        "n": 2,
+        "k": 2,
+        "value": 1.0
+      }
+    },
+    "v1_interrupt.tor": {
+      "before": {
+        "n": 1,
+        "k": 0,
+        "value": 0.0
+      },
+      "after": {
+        "n": 1,
+        "k": 1,
+        "value": 1.0
+      }
+    },
+    "v15_interruption.t_resp": {
+      "before": {
+        "n": 1,
+        "median": 4.518000000000001,
+        "p95": 4.518000000000001,
+        "mean": 4.518000000000001,
+        "min": 4.518000000000001,
+        "max": 4.518000000000001,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "after": {
+        "n": 1,
+        "median": 6.982000000000001,
+        "p95": 6.982000000000001,
+        "mean": 6.982000000000001,
+        "min": 6.982000000000001,
+        "max": 6.982000000000001,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      }
+    },
+    "v15_backchannel.t_resp": {
+      "before": {
+        "n": 1,
+        "median": 5.096,
+        "p95": 5.096,
+        "mean": 5.096,
+        "min": 5.096,
+        "max": 5.096,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "after": {
+        "n": 0,
+        "median": null,
+        "p95": null,
+        "mean": null,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": null
+      }
+    },
+    "v15_background.t_resp": {
+      "before": {
+        "n": 1,
+        "median": 6.02,
+        "p95": 6.02,
+        "mean": 6.02,
+        "min": 6.02,
+        "max": 6.02,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "after": {
+        "n": 1,
+        "median": 4.036,
+        "p95": 4.036,
+        "mean": 4.036,
+        "min": 4.036,
+        "max": 4.036,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      }
+    }
+  },
+  "limits": [
+    "continuous sessions; no hard reset",
+    "same phrases but sequential runs and provider load uncontrolled",
+    "two stop samples; no robust p95",
+    "judge/UTMOS not scored",
+    "not physical acoustic or Raspberry Pi qualification"
+  ]
+}

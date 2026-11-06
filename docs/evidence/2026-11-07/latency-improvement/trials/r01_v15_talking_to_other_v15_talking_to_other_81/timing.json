@@ -1,0 +1,96 @@
+{
+  "trial": "r01_v15_talking_to_other_v15_talking_to_other_81",
+  "group": "v15_talking_to_other",
+  "clip": "v15_talking_to_other_81",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 19.904,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.36
+    },
+    {
+      "name": "overlap",
+      "t": 9.66,
+      "len": 2.183
+    }
+  ],
+  "live_bot_starts": [
+    8.16,
+    16.096
+  ],
+  "live_bot_ends": [
+    10.08,
+    19.552
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "Find me a nearby coffee shop that's open now.",
+    "current_turn_text": "Chris, your laptop's still on the table, man.",
+    "overlap_text": "Chris, your laptop's still on the table, man.",
+    "overlap_duration": 2.18,
+    "overlap_window": [
+      6.276,
+      8.459
+    ],
+    "source_id": "81"
+  },
+  "mono": [
+    93158.3104845,
+    93178.1989315
+  ],
+  "bot_segments": [
+    [
+      8.13,
+      10.11
+    ],
+    [
+      16.066,
+      19.582
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.36
+  ],
+  "overlap_played": true,
+  "t_stop": 0.379999999999999,
+  "t_resp": 4.387999999999998,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    9.73,
+    11.678
+  ],
+  "tor": 1,
+  "first_start": 16.066,
+  "spoke_s": 3.516000000000002,
+  "latency": 4.222999999999999,
+  "actual": "stopped after 0.38 s, back 4.39 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ paused, came back · content: judge",
+  "ok": null,
+  "marks": 32,
+  "final": {
+    "t_stop": 0.379999999999999,
+    "t_resp": 4.387999999999998,
+    "label": null,
+    "voice_delta": {
+      "wpm": -130.87894344622015,
+      "pitch_mean": -16.16877167342531,
+      "pitch_sd": 6.169292497117453,
+      "intensity_mean": 0.028289721770967446,
+      "intensity_sd": -0.2876895804105688,
+      "utmosv2": null
+    },
+    "transcript": "I can't check real -time store hours or I can't search for nearby locations or locate your laptop."
+  },
+  "scored_at": "2026-11-07T02:33:24+08:00"
+}

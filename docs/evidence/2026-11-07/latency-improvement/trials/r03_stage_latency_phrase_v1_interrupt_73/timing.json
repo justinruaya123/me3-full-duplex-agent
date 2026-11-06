@@ -1,0 +1,90 @@
+{
+  "trial": "r03_stage_latency_phrase_v1_interrupt_73",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_73",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 9.056,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.4
+    }
+  ],
+  "live_bot_starts": [
+    0.096,
+    6.016
+  ],
+  "live_bot_ends": [
+    0.992,
+    7.84
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "How should I start saving for retirement?",
+    "source": "v1_interrupt_73"
+  },
+  "mono": [
+    92780.622241416,
+    92789.649680208
+  ],
+  "bot_segments": [
+    [
+      0.066,
+      1.022
+    ],
+    [
+      5.986,
+      7.87
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.4
+  ],
+  "tor": 1,
+  "first_start": 5.986,
+  "spoke_s": 1.8840000000000003,
+  "user_end": 2.43,
+  "latency": 3.5559999999999996,
+  "actual": "replied 3.56 s after speech end",
+  "verdict": "✓ 3.56 s",
+  "ok": true,
+  "marks": 22,
+  "final": {
+    "stages": {
+      "e2e_heard": 3.556,
+      "e2e": 3.0643,
+      "e2e_source": "marks",
+      "asr_final": 2.5748,
+      "llm_ttft": 0.0911,
+      "tts_ttfb": 0.2583,
+      "endpointing": 0.1318,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "How should I start saving for retirement?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 273,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "basic techniques, that's a smart move to start early."
+  },
+  "scored_at": "2026-11-07T02:34:08+08:00"
+}

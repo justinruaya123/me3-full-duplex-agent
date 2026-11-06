@@ -1,37 +1,49 @@
 # Improve measured voice latency with the selected models
 
-User authorized implementation from the real November 7 benchmark. Work starts
-from85e7595 onhermes/benchmark-latency-v1; the prior feature branch and unrelated
-untracked files remain intact. No model/credentials/billing/scorer changes.
+The user authorized implementation from the real November 7 benchmark. Work
+started from `85e7595` on `hermes/benchmark-latency-v1`; the previous feature
+branch and unrelated untracked files remain intact. Model IDs, weights, voice,
+credentials, billing and the external scorer were preserved.
 
-## Evidence and design
+## Design and evidence
 
-The baseline's ASR final mean/p95 is4.454/5.231s. Actual native profiling on a
-separate generated development phrase found three full encoder passes per ASR
-request, each~.9s. Decode and word alignment have byte-identical mel input;
-language detection uses different padding and must be computed independently.
-Keep auto language detection and actual word timestamps. Use a single-entry
-encoder memo only inside one native request; key exact shape, dtype and bytes,
-restore the original encoder and release its key/features on success or error.
-The service already serializes ASR and retains native capacity on cancellation.
-No cache may span requests or let changed audio reuse older features.
+The baseline ASR final mean/p95 was 4.454/5.231s. Actual native profiling on a
+separate generated development phrase found three full encoder passes, each
+about 0.9s. Decode and word alignment have byte-identical mel input; language
+detection has different padding and is independently evaluated. A single-entry
+request-local memo keys exact shape, dtype and bytes, restores the encoder,
+and releases its key/features on success or error. Existing native capacity
+retention after cancellation remains unchanged.
 
-## Implementation and verification sequence
+Capture additionally reuses one validated recognition only for identical full
+PCM in the same generation. It still requires SmartTurn approval before final
+commit, and clears on new generation, invalidation and close.
 
-1. Write failing behavioral tests for exact-input memoization, changed/mutated
-   input, failures and request cleanup/restoration. Implement the small local
-   request boundary with lazy optional imports, then full installed suite.
-2. Run actual paired uncached/cached native tests with identical model and
-   development audio. Require identical transcript/language/word timing output
-   and fewer encoder evaluations. Retain all failed measurements.
-3. Investigate partial/final scheduling separately. Implement a further bounded
-   optimization only if independently supported, with RED/GREEN safety tests.
-4. Restart and check the actual authenticated speech service, then freeze the
-   code and rerun the same upstream57eaddbc benchmark, seed231,10phrases x3runs
-   plusone duplex round. Keep course ownership bypass and default6s gaps for
-   comparability; disclose context carry-over. Preserve the baseline unchanged.
-5. Score real recordings with unchanged faster-whisper-small/Praat; no judge or
-   UTMOS pass claims. Compare mean/p95, missing replies and WER with denominators.
-6. Record code/model/source pins, native and benchmark receipts, exact tests,
-   setup commands and remaining gates in DUPLEX_STATUS/BENCHMARK/SETUP. Commit
-   coherent increments. No merge. Physical acoustics/Pi remain separate.
+## Completed implementation sequence
+
+- [x] Encoder reuse: failing regressions, implementation, full installed suite.
+- [x] Real paired native checks: six pairs, identical transcript/language/word
+  fields, 3 -> 2 encoder evaluations, 31.76% mean improvement.
+- [x] Identical-snapshot reuse: failing commit-safety regression, changed-audio
+  and generation coverage, full installed suite; no provisional authorization.
+- [x] Restart and verify real authenticated HTTP ASR/TTS, six checks passed.
+- [x] Freeze code at `03e1ff7`; repeat unchanged benchmark `57eaddbc`, seed 231,
+  10 phrases x 3 runs plus one duplex round. All 40 queue items / 44 recordings
+  completed. Retain course ownership bypass and default gaps for comparison.
+- [x] Real faster-whisper-small/Praat scoring; no judge or UTMOS success claim.
+- [x] Final installed suite: 141 passed, zero failures/skips, 4.475s. Record
+  native, HTTP and benchmark evidence, source pins, reproduction and limits.
+
+## Observed result and remaining gates
+
+E2E mean 5.422 -> 3.639s; ASR final mean 4.454 -> 2.786s. All 30 phrase trials
+had recorded replies, versus 28/30. E2E p95 remains over 4s. TTS and barge-in
+p95 were worse in this run; WER increased by one edit. Sequential provider and
+host load were uncontrolled, so the paired native comparison is the more
+direct evidence of encoder-compute reduction. Do not hide slower results or
+infer reliable p95 from two stop samples.
+
+ASR <=0.8s, E2E/TTS/stop p95, meaningful response and addressee behavior, fresh
+session resets, bounded long-turn stitching, configured judging, independent
+larger samples and physical acoustic/Pi qualification remain unpassed. No
+merge is authorized/performed by this work.

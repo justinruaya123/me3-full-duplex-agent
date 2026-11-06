@@ -1,0 +1,16 @@
+{
+  "external_scorer": "nine hashes unchanged; external Git clean",
+  "official_reports": "byte-identical to upstream output",
+  "private_settings_scan": "passed; no values printed",
+  "operator_env_mode": "0o600",
+  "html_svg_parse": "passed; no browser/acoustic claim",
+  "resumed_regression_suite": {
+    "tests": 141,
+    "passed": 141,
+    "failures": 0,
+    "skips": 0,
+    "seconds": 4.622
+  },
+  "speech_service": "running after restart; authenticated exact model catalog",
+  "diff_check": "source/authored documentation clean; raw upstream terminal padding and CSV CRLF intentionally preserved"
+}

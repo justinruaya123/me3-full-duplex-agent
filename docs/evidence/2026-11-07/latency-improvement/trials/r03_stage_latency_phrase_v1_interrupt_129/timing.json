@@ -1,0 +1,90 @@
+{
+  "trial": "r03_stage_latency_phrase_v1_interrupt_129",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_129",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 9.888,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.016
+    }
+  ],
+  "live_bot_starts": [
+    0.0,
+    6.176
+  ],
+  "live_bot_ends": [
+    1.024,
+    8.672
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "How do I get started with painting?",
+    "source": "v1_interrupt_129"
+  },
+  "mono": [
+    92916.563817708,
+    92926.456373208
+  ],
+  "bot_segments": [
+    [
+      0.0,
+      1.054
+    ],
+    [
+      6.146,
+      8.702
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.016
+  ],
+  "tor": 1,
+  "first_start": 6.146,
+  "spoke_s": 2.556,
+  "user_end": 2.142,
+  "latency": 4.004,
+  "actual": "replied 4.00 s after speech end",
+  "verdict": "✓ 4.00 s",
+  "ok": true,
+  "marks": 21,
+  "final": {
+    "stages": {
+      "e2e_heard": 4.004,
+      "e2e": 3.4806,
+      "e2e_source": "marks",
+      "asr_final": 2.9541,
+      "llm_ttft": 0.0822,
+      "tts_ttfb": 0.3116,
+      "endpointing": 0.1013,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "How do I get started with painting?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 260,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Deep sleep is crucial. Start with basic supplies and simple shapes."
+  },
+  "scored_at": "2026-11-07T02:34:04+08:00"
+}

@@ -1,0 +1,350 @@
+
+Pre-flight
+✓  Python 3.12.13                                                               
+✓  packages: core ok                                                            
+✓  scoring extras: ASR (faster-whisper), pitch/intensity (praat-parselmouth) ·  
+   not installed: UTMOSv2 quality                                               
+✓  Darwin 25.5.0 (arm64) · 16.0 GB RAM · 11.4 GB free                           
+✓  network: unknown                                                             
+✓  datasets: 430 clips in 10 groups                                             
+✓  dataset checksums ok (sampled)                                               
+✓  rig: direct feed on ws://127.0.0.1:8791 (no audio devices used)              
+✓  assistant project: /Users/jus/Documents/Grad/AI231/ME3                       
+✓  assistant python: /Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python    
+✓  judge: none (timing and turn-taking metrics only; judge later with `score`)  
+
+Starting her in benchmark mode: 
+/Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python 
+/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/launch_assistan
+t.py …
+her output goes to 
+/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/runs/me3-local/
+2026-11-07_02-16-38/assistant.log
+connected from 127.0.0.1:62172 · link round trip 0.4 ms
+giving her 5 s to settle
+
+Run folder: 
+/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/runs/me3-local/
+2026-11-07_02-16-38
+Planned: 40 trials: stage latency 10 phrases × 3 runs, then 1 round(s), about 15
+min 24 s. Press q to stop early; everything done so far is kept and scored.
+
+
+  1/40  stage latency (course)  ·  phrase_v15_background_91
+     clip          2.9 s phrase · stage timing + WER                                                                                                  
+     user          "What day of the week is July 4th, 2026?"                                                                                          
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.23 s after speech end                                                                                                    
+     verdict       ✓ 4.23 s                                                                                                                           
+
+  2/40  stage latency (course)  ·  phrase_v15_background_94
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Track my package from FedEx."                                                                                                     
+     expected      answer the phrase                                                                                                                  
+     actual        replied 6.53 s after speech end                                                                                                    
+     verdict       ✓ 6.53 s                                                                                                                           
+
+  3/40  stage latency (course)  ·  phrase_v1_interrupt_129
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get started with painting?"                                                                                              
+     expected      answer the phrase                                                                                                                  
+     actual        replied 5.35 s after speech end                                                                                                    
+     verdict       ✓ 5.35 s                                                                                                                           
+
+  4/40  stage latency (course)  ·  phrase_v15_backchannel_34
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Outline sleep science clearly."                                                                                                   
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.93 s after speech end                                                                                                    
+     verdict       ✓ 4.93 s                                                                                                                           
+
+  5/40  stage latency (course)  ·  phrase_v15_interruption_188
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I want to learn to play the guitar"                                                                                               
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.52 s after speech end                                                                                                    
+     verdict       ✓ 3.52 s                                                                                                                           
+
+  6/40  stage latency (course)  ·  phrase_v15_interruption_35
+     clip          2.8 s phrase · stage timing + WER                                                                                                  
+     user          "Could you tell me the rules of tennis?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.13 s after speech end                                                                                                    
+     verdict       ✓ 4.13 s                                                                                                                           
+
+  7/40  stage latency (course)  ·  phrase_v1_interrupt_192
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get to the park?"                                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.87 s after speech end                                                                                                    
+     verdict       ✓ 4.87 s                                                                                                                           
+
+  8/40  stage latency (course)  ·  phrase_v1_interrupt_73
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "How should I start saving for retirement?"                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.72 s after speech end                                                                                                    
+     verdict       ✓ 3.72 s                                                                                                                           
+
+  9/40  stage latency (course)  ·  phrase_v15_talking_to_other_31
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "What's the score of the Mariners game?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.61 s after speech end                                                                                                    
+     verdict       ✓ 4.61 s                                                                                                                           
+
+ 10/40  stage latency (course)  ·  phrase_v1_interrupt_83
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I'm thinking about changing my career path"                                                                                       
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.17 s after speech end                                                                                                    
+     verdict       ✓ 3.17 s                                                                                                                           
+
+ 11/40  stage latency (course)  ·  phrase_v15_talking_to_other_31
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "What's the score of the Mariners game?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.55 s after speech end                                                                                                    
+     verdict       ✓ 4.55 s                                                                                                                           
+
+ 12/40  stage latency (course)  ·  phrase_v15_background_91
+     clip          2.9 s phrase · stage timing + WER                                                                                                  
+     user          "What day of the week is July 4th, 2026?"                                                                                          
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.14 s after speech end                                                                                                    
+     verdict       ✓ 3.14 s                                                                                                                           
+
+ 13/40  stage latency (course)  ·  phrase_v1_interrupt_73
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "How should I start saving for retirement?"                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 5.67 s after speech end                                                                                                    
+     verdict       ✓ 5.67 s                                                                                                                           
+
+ 14/40  stage latency (course)  ·  phrase_v15_background_94
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Track my package from FedEx."                                                                                                     
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.88 s after speech end                                                                                                    
+     verdict       ✓ 3.88 s                                                                                                                           
+
+ 15/40  stage latency (course)  ·  phrase_v15_backchannel_34
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Outline sleep science clearly."                                                                                                   
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.97 s after speech end                                                                                                    
+     verdict       ✓ 3.97 s                                                                                                                           
+
+ 16/40  stage latency (course)  ·  phrase_v1_interrupt_83
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I'm thinking about changing my career path"                                                                                       
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.95 s after speech end                                                                                                    
+     verdict       ✓ 2.95 s                                                                                                                           
+
+ 17/40  stage latency (course)  ·  phrase_v15_interruption_188
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I want to learn to play the guitar"                                                                                               
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.24 s after speech end                                                                                                    
+     verdict       ✓ 3.24 s                                                                                                                           
+
+ 18/40  stage latency (course)  ·  phrase_v15_interruption_35
+     clip          2.8 s phrase · stage timing + WER                                                                                                  
+     user          "Could you tell me the rules of tennis?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.64 s after speech end                                                                                                    
+     verdict       ✓ 4.64 s                                                                                                                           
+
+ 19/40  stage latency (course)  ·  phrase_v1_interrupt_192
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get to the park?"                                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.45 s after speech end                                                                                                    
+     verdict       ✓ 4.45 s                                                                                                                           
+
+ 20/40  stage latency (course)  ·  phrase_v1_interrupt_129
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get started with painting?"                                                                                              
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.94 s after speech end                                                                                                    
+     verdict       ✓ 3.94 s                                                                                                                           
+
+ 21/40  stage latency (course)  ·  phrase_v1_interrupt_73
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "How should I start saving for retirement?"                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.56 s after speech end                                                                                                    
+     verdict       ✓ 3.56 s                                                                                                                           
+
+ 22/40  stage latency (course)  ·  phrase_v15_interruption_35
+     clip          2.8 s phrase · stage timing + WER                                                                                                  
+     user          "Could you tell me the rules of tennis?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.32 s after speech end                                                                                                    
+     verdict       ✓ 4.32 s                                                                                                                           
+
+ 23/40  stage latency (course)  ·  phrase_v1_interrupt_83
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I'm thinking about changing my career path"                                                                                       
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.88 s after speech end                                                                                                    
+     verdict       ✓ 2.88 s                                                                                                                           
+
+ 24/40  stage latency (course)  ·  phrase_v15_background_94
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Track my package from FedEx."                                                                                                     
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.26 s after speech end                                                                                                    
+     verdict       ✓ 4.26 s                                                                                                                           
+
+ 25/40  stage latency (course)  ·  phrase_v15_interruption_188
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I want to learn to play the guitar"                                                                                               
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.24 s after speech end                                                                                                    
+     verdict       ✓ 3.24 s                                                                                                                           
+
+ 26/40  stage latency (course)  ·  phrase_v1_interrupt_192
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get to the park?"                                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.36 s after speech end                                                                                                    
+     verdict       ✓ 4.36 s                                                                                                                           
+
+ 27/40  stage latency (course)  ·  phrase_v15_background_91
+     clip          2.9 s phrase · stage timing + WER                                                                                                  
+     user          "What day of the week is July 4th, 2026?"                                                                                          
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.58 s after speech end                                                                                                    
+     verdict       ✓ 4.58 s                                                                                                                           
+
+ 28/40  stage latency (course)  ·  phrase_v15_backchannel_34
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Outline sleep science clearly."                                                                                                   
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.84 s after speech end                                                                                                    
+     verdict       ✓ 3.84 s                                                                                                                           
+
+ 29/40  stage latency (course)  ·  phrase_v1_interrupt_129
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get started with painting?"                                                                                              
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.00 s after speech end                                                                                                    
+     verdict       ✓ 4.00 s                                                                                                                           
+
+ 30/40  stage latency (course)  ·  phrase_v15_talking_to_other_31
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "What's the score of the Mariners game?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.00 s after speech end                                                                                                    
+     verdict       ✓ 4.00 s                                                                                                                           
+
+ 31/40  v1.5 background speech  ·  v15_background_27
+     clip          1.8 s turn · background 1.7 s, played while she answers                                                                            
+     user          "Define the word 'ephemeral'."                                                                                                     
+     background    "Your coffee's getting cold."                                                                                                      
+     expected      keep talking (Resume)                                                                                                              
+     actual        stopped after 0.54 s, back 4.04 s after                                                                                            
+     verdict       ◐ paused, came back · content: judge                                                                                               
+
+ 31/40  v1.5 background speech (clean)  ·  v15_background_27
+     clip          1.8 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "Define the word 'ephemeral'."                                                                                                     
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 3.72 s, spoke 2.7 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+
+ 32/40  false turn-taking  ·  false_tv_radio_000
+     clip          3.7 s · TV / radio · -15 dB                                                                                                        
+     sound         TV / radio, not addressed to her                                                                                                   
+     words         "Actually, can you tell me which apps are good for language learning?"                                                             
+     expected      stay silent                                                                                                                        
+     actual        spoke 3.3 s after +4.7 s                                                                                                           
+     verdict       ✗ took turn                                                                                                                        
+
+ 33/40  false turn-taking  ·  false_side_talk_004
+     clip          2.0 s · side talk · -8 dB                                                                                                          
+     sound         side talk, not addressed to her                                                                                                    
+     words         "Mateo, pick up the kids at three, yeah?"                                                                                          
+     expected      stay silent                                                                                                                        
+     actual        spoke 3.1 s after +4.9 s                                                                                                           
+     verdict       ✗ took turn                                                                                                                        
+
+ 34/40  v1 turn-taking (Candor)  ·  v1_turntaking_38
+     clip          6.2 s clip · user's turn ends at 5.9 s                                                                                             
+     user          (Candor turn-taking clips come without a transcript)                                                                               
+     expected      reply within 8 s                                                                                                                   
+     actual        replied after 4.95 s, spoke 0.9 s                                                                                                  
+     verdict       ✗ too short?                                                                                                                       
+
+ 35/40  v1.5 interruption  ·  v15_interruption_165
+     clip          2.6 s turn · cut-in 3.6 s, played while she answers                                                                                
+     user          "How can I train my dog to follow basic commands?"                                                                                 
+     cut-in        "Wait, can I switch my phone to silent mode through voice command?"                                                                
+     expected      stop, answer the new request (Respond)                                                                                             
+     actual        stopped after 1.05 s, back 6.98 s after                                                                                            
+     verdict       ◐ replied · content: judge                                                                                                         
+
+ 35/40  v1.5 interruption (clean)  ·  v15_interruption_165
+     clip          2.6 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "How can I train my dog to follow basic commands?"                                                                                 
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 5.58 s, spoke 2.4 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+
+ 36/40  v1.5 backchannel  ·  v15_backchannel_60
+     clip          1.8 s turn · backchannel 1.0 s, played while she answers                                                                           
+     user          "Explain astronomy in depth."                                                                                                      
+     backchannel   "yes sure"                                                                                                                         
+     expected      keep talking (Resume)                                                                                                              
+     actual        was already silent, did not come back                                                                                              
+     verdict       ✗ stopped, silent                                                                                                                  
+
+ 36/40  v1.5 backchannel (clean)  ·  v15_backchannel_60
+     clip          1.8 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "Explain astronomy in depth."                                                                                                      
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 4.33 s, spoke 1.4 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+
+ 37/40  v1 pause (Candor)  ·  v1_pause_candor_189
+     clip          18.2 s clip · pause 0.7 s at 7.9 s                                                                                                 
+     user          "Yeah Like that way if the remote is not where you left it you don't have to blame everyone else You can just ask someone that was 
+                   always my thing Like when things get moved around that you know And like I don't know who moved it I can't find it always made me  
+                   crazy"                                                                                                                             
+     expected      stay silent through the pause                                                                                                      
+     actual        spoke 0.5 s at 0.0 s                                                                                                               
+     verdict       ✓ TOR 0?                                                                                                                           
+
+ 38/40  v1.5 talking to others  ·  v15_talking_to_other_81
+     clip          2.4 s turn · side talk 2.2 s, played while she answers                                                                             
+     user          "Find me a nearby coffee shop that's open now."                                                                                    
+     side talk     "Chris, your laptop's still on the table, man."                                                                                    
+     expected      keep talking (Resume)                                                                                                              
+     actual        stopped after 0.38 s, back 4.39 s after                                                                                            
+     verdict       ◐ paused, came back · content: judge                                                                                               
+
+ 38/40  v1.5 talking to others (clean)  ·  v15_talking_to_other_81
+     clip          2.4 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "Find me a nearby coffee shop that's open now."                                                                                    
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 4.30 s, spoke 3.5 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+
+ 39/40  v1 interruption  ·  v1_interrupt_39
+     clip          2.1 s question · cut-in played while she answers                                                                                   
+     user          "Is morning the best time to exercise?"                                                                                            
+     cut-in        "Actually, could we switch to diet tips instead?"                                                                                  
+     expected      stop, then answer the new request                                                                                                  
+     actual        stopped after 0.44 s, back 4.04 s after                                                                                            
+     verdict       ✓ yielded, 3.59 s                                                                                                                  
+
+ 40/40  v1 pause (synthetic)  ·  v1_pause_synth_30
+     clip          11.4 s clip · pause 2.1 s at 6.3 s                                                                                                 
+     user          "How do I make that soup? You mentioned first, you start with chopping all the vegetables. And while you're at it, make sure to    
+                   [UH] keep an eye on the heat. You don't want anything to burn."                                                                    
+     expected      stay silent through the pause                                                                                                      
+     actual        silent during clip                                                                                                                 
+     verdict       ✓ TOR 0                                                                                                                            
+Round 1/1 · trial 40/40 · elapsed 13 min 18 s · est. remaining 0 s · me3-local

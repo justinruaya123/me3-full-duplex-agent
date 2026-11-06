@@ -1,0 +1,84 @@
+{
+  "trial": "r01_stage_latency_phrase_v15_backchannel_34",
+  "group": "stage_latency",
+  "clip": "phrase_v15_backchannel_34",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 11.424,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.88
+    }
+  ],
+  "live_bot_starts": [
+    6.592
+  ],
+  "live_bot_ends": [
+    11.072
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "Outline sleep science clearly.",
+    "source": "v15_backchannel_34"
+  },
+  "mono": [
+    92497.665117916,
+    92509.082752208
+  ],
+  "bot_segments": [
+    [
+      6.562,
+      11.102
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.88
+  ],
+  "tor": 1,
+  "first_start": 6.562,
+  "spoke_s": 3.3179999999999987,
+  "user_end": 1.63,
+  "latency": 4.932,
+  "actual": "replied 4.93 s after speech end",
+  "verdict": "✓ 4.93 s",
+  "ok": true,
+  "marks": 16,
+  "final": {
+    "stages": {
+      "e2e_heard": 4.932,
+      "e2e": 4.4551,
+      "e2e_source": "marks",
+      "asr_final": 3.0608,
+      "llm_ttft": 0.0944,
+      "tts_ttfb": 0.8823,
+      "endpointing": 0.0923,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "outline sleep science clearly,",
+      "wer": {
+        "ref_words": 4,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 192,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Sleep science really boils down to how your brain cycles through different states."
+  },
+  "scored_at": "2026-11-07T02:32:55+08:00"
+}

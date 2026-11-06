@@ -1,0 +1,62 @@
+{
+  "trial": "r01_v15_interruption_v15_interruption_165_clean",
+  "group": "v15_interruption",
+  "clip": "v15_interruption_165",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 11.872,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.616
+    }
+  ],
+  "live_bot_starts": [
+    8.224
+  ],
+  "live_bot_ends": [
+    11.52
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "How can I train my dog to follow basic commands?",
+    "current_turn_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_duration": 3.62,
+    "overlap_window": [
+      7.275,
+      10.891
+    ],
+    "source_id": "165"
+  },
+  "mono": [
+    93071.867097833,
+    93083.812602208
+  ],
+  "bot_segments": [
+    [
+      8.194,
+      11.55
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.616
+  ],
+  "tor": 1,
+  "first_start": 8.194,
+  "spoke_s": 2.421999999999999,
+  "actual": "replied after 5.58 s, spoke 2.4 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 16,
+  "final": {
+    "transcript": "I can't train your dog for you, but I can suggest some tips."
+  },
+  "scored_at": "2026-11-07T02:33:22+08:00"
+}

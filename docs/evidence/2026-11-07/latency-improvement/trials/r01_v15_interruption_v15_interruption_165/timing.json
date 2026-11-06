@@ -1,0 +1,96 @@
+{
+  "trial": "r01_v15_interruption_v15_interruption_165",
+  "group": "v15_interruption",
+  "clip": "v15_interruption_165",
+  "variant": "main",
+  "expected": "stop, answer the new request (Respond)",
+  "duration": 21.856,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.616
+    },
+    {
+      "name": "overlap",
+      "t": 7.804,
+      "len": 3.616
+    }
+  ],
+  "live_bot_starts": [
+    6.304,
+    18.528
+  ],
+  "live_bot_ends": [
+    9.184,
+    21.504
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "How can I train my dog to follow basic commands?",
+    "current_turn_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_duration": 3.62,
+    "overlap_window": [
+      7.275,
+      10.891
+    ],
+    "source_id": "165"
+  },
+  "mono": [
+    93041.239945875,
+    93063.168980708
+  ],
+  "bot_segments": [
+    [
+      6.274,
+      9.214
+    ],
+    [
+      18.402,
+      21.534
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.616
+  ],
+  "overlap_played": true,
+  "t_stop": 1.0519999999999996,
+  "t_resp": 6.982000000000001,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    8.162,
+    11.42
+  ],
+  "tor": 1,
+  "first_start": 18.402,
+  "spoke_s": 1.0180000000000007,
+  "latency": 6.982000000000001,
+  "actual": "stopped after 1.05 s, back 6.98 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ replied · content: judge",
+  "ok": null,
+  "marks": 33,
+  "final": {
+    "t_stop": 1.0519999999999996,
+    "t_resp": 6.982000000000001,
+    "label": null,
+    "voice_delta": {
+      "wpm": -99.38420129684755,
+      "pitch_mean": -15.801425810417669,
+      "pitch_sd": 0.6206655555128151,
+      "intensity_mean": -1.278670526644273,
+      "intensity_sd": -0.07194657452463282,
+      "utmosv2": null
+    },
+    "transcript": "Start with short, clear commands and high value treats. I can't control your device, but you can try saying,"
+  },
+  "scored_at": "2026-11-07T02:33:20+08:00"
+}

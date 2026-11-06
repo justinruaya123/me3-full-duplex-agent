@@ -1,0 +1,46 @@
+{
+  "measured_agent": "03e1ff79de7e126c7fc6f2693fb1bfde8e2c00bd",
+  "full_suite": {
+    "tests": 141,
+    "passed": 141,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 4.475
+  },
+  "native_development_pairs": {
+    "pairs": 6,
+    "exact_word_fields": 6,
+    "encoder_evaluations_before": 3,
+    "after": 2
+  },
+  "http_real_checks": {
+    "passed": 6,
+    "failed": 0
+  },
+  "benchmark": {
+    "queue_items": 40,
+    "recordings": 44,
+    "transport_errors": 0,
+    "scoring_errors": 0
+  },
+  "unscored": [
+    "content relevance/judge",
+    "UTMOS"
+  ],
+  "unqualified": [
+    "physical acoustic p95",
+    "Raspberry Pi",
+    "busy-worker benchmark"
+  ],
+  "resumed_suite": {
+    "tests": 141,
+    "passed": 141,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 4.622
+  },
+  "resumed_service": {
+    "initial_probe": "connection error; recorded process absent",
+    "recovery": "owned guarded service restarted; exact-model authenticated catalog passed"
+  }
+}

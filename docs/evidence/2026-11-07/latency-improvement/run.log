@@ -1,0 +1,90 @@
+2026-11-07T02:16:43+08:00  fdbench 0.1.0 run start · 40 trials · 1 rounds · seed 231
+2026-11-07T02:16:43+08:00  trial r01_stage_latency_phrase_v15_background_91 start · phrase_v15_background_91 · "What day of the week is July 4th, 2026?" · expected: answer the phrase
+2026-11-07T02:16:54+08:00  trial r01_stage_latency_phrase_v15_background_91 end · actual: replied 4.23 s after speech end · verdict: ✓ 4.23 s
+2026-11-07T02:17:00+08:00  trial r01_stage_latency_phrase_v15_background_94 start · phrase_v15_background_94 · "Track my package from FedEx." · expected: answer the phrase
+2026-11-07T02:17:15+08:00  trial r01_stage_latency_phrase_v15_background_94 end · actual: replied 6.53 s after speech end · verdict: ✓ 6.53 s
+2026-11-07T02:17:21+08:00  trial r01_stage_latency_phrase_v1_interrupt_129 start · phrase_v1_interrupt_129 · "How do I get started with painting?" · expected: answer the phrase
+2026-11-07T02:17:33+08:00  trial r01_stage_latency_phrase_v1_interrupt_129 end · actual: replied 5.35 s after speech end · verdict: ✓ 5.35 s
+2026-11-07T02:17:39+08:00  trial r01_stage_latency_phrase_v15_backchannel_34 start · phrase_v15_backchannel_34 · "Outline sleep science clearly." · expected: answer the phrase
+2026-11-07T02:17:51+08:00  trial r01_stage_latency_phrase_v15_backchannel_34 end · actual: replied 4.93 s after speech end · verdict: ✓ 4.93 s
+2026-11-07T02:17:57+08:00  trial r01_stage_latency_phrase_v15_interruption_188 start · phrase_v15_interruption_188 · "I want to learn to play the guitar" · expected: answer the phrase
+2026-11-07T02:18:05+08:00  trial r01_stage_latency_phrase_v15_interruption_188 end · actual: replied 3.52 s after speech end · verdict: ✓ 3.52 s
+2026-11-07T02:18:11+08:00  trial r01_stage_latency_phrase_v15_interruption_35 start · phrase_v15_interruption_35 · "Could you tell me the rules of tennis?" · expected: answer the phrase
+2026-11-07T02:18:19+08:00  trial r01_stage_latency_phrase_v15_interruption_35 end · actual: replied 4.13 s after speech end · verdict: ✓ 4.13 s
+2026-11-07T02:18:25+08:00  trial r01_stage_latency_phrase_v1_interrupt_192 start · phrase_v1_interrupt_192 · "How do I get to the park?" · expected: answer the phrase
+2026-11-07T02:18:36+08:00  trial r01_stage_latency_phrase_v1_interrupt_192 end · actual: replied 4.87 s after speech end · verdict: ✓ 4.87 s
+2026-11-07T02:18:42+08:00  trial r01_stage_latency_phrase_v1_interrupt_73 start · phrase_v1_interrupt_73 · "How should I start saving for retirement?" · expected: answer the phrase
+2026-11-07T02:18:50+08:00  trial r01_stage_latency_phrase_v1_interrupt_73 end · actual: replied 3.72 s after speech end · verdict: ✓ 3.72 s
+2026-11-07T02:18:56+08:00  trial r01_stage_latency_phrase_v15_talking_to_other_31 start · phrase_v15_talking_to_other_31 · "What's the score of the Mariners game?" · expected: answer the phrase
+2026-11-07T02:19:10+08:00  trial r01_stage_latency_phrase_v15_talking_to_other_31 end · actual: replied 4.61 s after speech end · verdict: ✓ 4.61 s
+2026-11-07T02:19:16+08:00  trial r01_stage_latency_phrase_v1_interrupt_83 start · phrase_v1_interrupt_83 · "I'm thinking about changing my career path" · expected: answer the phrase
+2026-11-07T02:19:25+08:00  trial r01_stage_latency_phrase_v1_interrupt_83 end · actual: replied 3.17 s after speech end · verdict: ✓ 3.17 s
+2026-11-07T02:19:31+08:00  trial r02_stage_latency_phrase_v15_talking_to_other_31 start · phrase_v15_talking_to_other_31 · "What's the score of the Mariners game?" · expected: answer the phrase
+2026-11-07T02:19:44+08:00  trial r02_stage_latency_phrase_v15_talking_to_other_31 end · actual: replied 4.55 s after speech end · verdict: ✓ 4.55 s
+2026-11-07T02:19:50+08:00  trial r02_stage_latency_phrase_v15_background_91 start · phrase_v15_background_91 · "What day of the week is July 4th, 2026?" · expected: answer the phrase
+2026-11-07T02:20:00+08:00  trial r02_stage_latency_phrase_v15_background_91 end · actual: replied 3.14 s after speech end · verdict: ✓ 3.14 s
+2026-11-07T02:20:06+08:00  trial r02_stage_latency_phrase_v1_interrupt_73 start · phrase_v1_interrupt_73 · "How should I start saving for retirement?" · expected: answer the phrase
+2026-11-07T02:20:20+08:00  trial r02_stage_latency_phrase_v1_interrupt_73 end · actual: replied 5.67 s after speech end · verdict: ✓ 5.67 s
+2026-11-07T02:20:26+08:00  trial r02_stage_latency_phrase_v15_background_94 start · phrase_v15_background_94 · "Track my package from FedEx." · expected: answer the phrase
+2026-11-07T02:20:37+08:00  trial r02_stage_latency_phrase_v15_background_94 end · actual: replied 3.88 s after speech end · verdict: ✓ 3.88 s
+2026-11-07T02:20:43+08:00  trial r02_stage_latency_phrase_v15_backchannel_34 start · phrase_v15_backchannel_34 · "Outline sleep science clearly." · expected: answer the phrase
+2026-11-07T02:20:53+08:00  trial r02_stage_latency_phrase_v15_backchannel_34 end · actual: replied 3.97 s after speech end · verdict: ✓ 3.97 s
+2026-11-07T02:20:59+08:00  trial r02_stage_latency_phrase_v1_interrupt_83 start · phrase_v1_interrupt_83 · "I'm thinking about changing my career path" · expected: answer the phrase
+2026-11-07T02:21:10+08:00  trial r02_stage_latency_phrase_v1_interrupt_83 end · actual: replied 2.95 s after speech end · verdict: ✓ 2.95 s
+2026-11-07T02:21:16+08:00  trial r02_stage_latency_phrase_v15_interruption_188 start · phrase_v15_interruption_188 · "I want to learn to play the guitar" · expected: answer the phrase
+2026-11-07T02:21:23+08:00  trial r02_stage_latency_phrase_v15_interruption_188 end · actual: replied 3.24 s after speech end · verdict: ✓ 3.24 s
+2026-11-07T02:21:29+08:00  trial r02_stage_latency_phrase_v15_interruption_35 start · phrase_v15_interruption_35 · "Could you tell me the rules of tennis?" · expected: answer the phrase
+2026-11-07T02:21:45+08:00  trial r02_stage_latency_phrase_v15_interruption_35 end · actual: replied 4.64 s after speech end · verdict: ✓ 4.64 s
+2026-11-07T02:21:51+08:00  trial r02_stage_latency_phrase_v1_interrupt_192 start · phrase_v1_interrupt_192 · "How do I get to the park?" · expected: answer the phrase
+2026-11-07T02:22:00+08:00  trial r02_stage_latency_phrase_v1_interrupt_192 end · actual: replied 4.45 s after speech end · verdict: ✓ 4.45 s
+2026-11-07T02:22:06+08:00  trial r02_stage_latency_phrase_v1_interrupt_129 start · phrase_v1_interrupt_129 · "How do I get started with painting?" · expected: answer the phrase
+2026-11-07T02:22:16+08:00  trial r02_stage_latency_phrase_v1_interrupt_129 end · actual: replied 3.94 s after speech end · verdict: ✓ 3.94 s
+2026-11-07T02:22:22+08:00  trial r03_stage_latency_phrase_v1_interrupt_73 start · phrase_v1_interrupt_73 · "How should I start saving for retirement?" · expected: answer the phrase
+2026-11-07T02:22:31+08:00  trial r03_stage_latency_phrase_v1_interrupt_73 end · actual: replied 3.56 s after speech end · verdict: ✓ 3.56 s
+2026-11-07T02:22:37+08:00  trial r03_stage_latency_phrase_v15_interruption_35 start · phrase_v15_interruption_35 · "Could you tell me the rules of tennis?" · expected: answer the phrase
+2026-11-07T02:22:50+08:00  trial r03_stage_latency_phrase_v15_interruption_35 end · actual: replied 4.32 s after speech end · verdict: ✓ 4.32 s
+2026-11-07T02:22:56+08:00  trial r03_stage_latency_phrase_v1_interrupt_83 start · phrase_v1_interrupt_83 · "I'm thinking about changing my career path" · expected: answer the phrase
+2026-11-07T02:23:07+08:00  trial r03_stage_latency_phrase_v1_interrupt_83 end · actual: replied 2.88 s after speech end · verdict: ✓ 2.88 s
+2026-11-07T02:23:13+08:00  trial r03_stage_latency_phrase_v15_background_94 start · phrase_v15_background_94 · "Track my package from FedEx." · expected: answer the phrase
+2026-11-07T02:23:26+08:00  trial r03_stage_latency_phrase_v15_background_94 end · actual: replied 4.26 s after speech end · verdict: ✓ 4.26 s
+2026-11-07T02:23:32+08:00  trial r03_stage_latency_phrase_v15_interruption_188 start · phrase_v15_interruption_188 · "I want to learn to play the guitar" · expected: answer the phrase
+2026-11-07T02:23:40+08:00  trial r03_stage_latency_phrase_v15_interruption_188 end · actual: replied 3.24 s after speech end · verdict: ✓ 3.24 s
+2026-11-07T02:23:46+08:00  trial r03_stage_latency_phrase_v1_interrupt_192 start · phrase_v1_interrupt_192 · "How do I get to the park?" · expected: answer the phrase
+2026-11-07T02:23:58+08:00  trial r03_stage_latency_phrase_v1_interrupt_192 end · actual: replied 4.36 s after speech end · verdict: ✓ 4.36 s
+2026-11-07T02:24:04+08:00  trial r03_stage_latency_phrase_v15_background_91 start · phrase_v15_background_91 · "What day of the week is July 4th, 2026?" · expected: answer the phrase
+2026-11-07T02:24:17+08:00  trial r03_stage_latency_phrase_v15_background_91 end · actual: replied 4.58 s after speech end · verdict: ✓ 4.58 s
+2026-11-07T02:24:23+08:00  trial r03_stage_latency_phrase_v15_backchannel_34 start · phrase_v15_backchannel_34 · "Outline sleep science clearly." · expected: answer the phrase
+2026-11-07T02:24:32+08:00  trial r03_stage_latency_phrase_v15_backchannel_34 end · actual: replied 3.84 s after speech end · verdict: ✓ 3.84 s
+2026-11-07T02:24:38+08:00  trial r03_stage_latency_phrase_v1_interrupt_129 start · phrase_v1_interrupt_129 · "How do I get started with painting?" · expected: answer the phrase
+2026-11-07T02:24:48+08:00  trial r03_stage_latency_phrase_v1_interrupt_129 end · actual: replied 4.00 s after speech end · verdict: ✓ 4.00 s
+2026-11-07T02:24:54+08:00  trial r03_stage_latency_phrase_v15_talking_to_other_31 start · phrase_v15_talking_to_other_31 · "What's the score of the Mariners game?" · expected: answer the phrase
+2026-11-07T02:25:04+08:00  trial r03_stage_latency_phrase_v15_talking_to_other_31 end · actual: replied 4.00 s after speech end · verdict: ✓ 4.00 s
+2026-11-07T02:25:10+08:00  trial r01_v15_background_v15_background_27 start · v15_background_27 · "" · over her: "Your coffee's getting cold." 1.7 s · expected: keep talking (Resume)
+2026-11-07T02:25:25+08:00  trial r01_v15_background_v15_background_27 end · actual: stopped after 0.54 s, back 4.04 s after · verdict: ◐ paused, came back · content: judge
+2026-11-07T02:25:31+08:00  trial r01_v15_background_v15_background_27_clean start · v15_background_27 · clean twin (no overlap) · expected: answer the turn (reference for the judge)
+2026-11-07T02:25:41+08:00  trial r01_v15_background_v15_background_27_clean end · actual: replied after 3.72 s, spoke 2.7 s · verdict: ✓ answered
+2026-11-07T02:25:47+08:00  trial r01_false_tt_false_tv_radio_000 start · false_tv_radio_000 · TV / radio · 3.7 s · -15 dB · expected: stay silent
+2026-11-07T02:26:00+08:00  trial r01_false_tt_false_tv_radio_000 end · actual: spoke 3.3 s after +4.7 s · verdict: ✗ took turn
+2026-11-07T02:26:06+08:00  trial r01_false_tt_false_side_talk_004 start · false_side_talk_004 · side talk · 2.0 s · -8 dB · expected: stay silent
+2026-11-07T02:26:18+08:00  trial r01_false_tt_false_side_talk_004 end · actual: spoke 3.1 s after +4.9 s · verdict: ✗ took turn
+2026-11-07T02:26:24+08:00  trial r01_v1_turntaking_v1_turntaking_38 start · v1_turntaking_38 · turn ends 5.9 s · "…" · expected: reply within 8 s
+2026-11-07T02:26:37+08:00  trial r01_v1_turntaking_v1_turntaking_38 end · actual: replied after 4.95 s, spoke 0.9 s · verdict: ✗ too short?
+2026-11-07T02:26:43+08:00  trial r01_v15_interruption_v15_interruption_165 start · v15_interruption_165 · "Wait, can I switch my phone t…" · over her: "Wait, can I switch my phone…" 3.6 s · expected: stop, answer the new request (Respond)
+2026-11-07T02:27:07+08:00  trial r01_v15_interruption_v15_interruption_165 end · actual: stopped after 1.05 s, back 6.98 s after · verdict: ◐ replied · content: judge
+2026-11-07T02:27:13+08:00  trial r01_v15_interruption_v15_interruption_165_clean start · v15_interruption_165 · clean twin (no overlap) · expected: answer the turn (reference for the judge)
+2026-11-07T02:27:26+08:00  trial r01_v15_interruption_v15_interruption_165_clean end · actual: replied after 5.58 s, spoke 2.4 s · verdict: ✓ answered
+2026-11-07T02:27:32+08:00  trial r01_v15_backchannel_v15_backchannel_60 start · v15_backchannel_60 · "" · over her: "yes sure" 1.0 s · expected: keep talking (Resume)
+2026-11-07T02:27:49+08:00  trial r01_v15_backchannel_v15_backchannel_60 end · actual: was already silent, did not come back · verdict: ✗ stopped, silent
+2026-11-07T02:27:56+08:00  trial r01_v15_backchannel_v15_backchannel_60_clean start · v15_backchannel_60 · clean twin (no overlap) · expected: answer the turn (reference for the judge)
+2026-11-07T02:28:05+08:00  trial r01_v15_backchannel_v15_backchannel_60_clean end · actual: replied after 4.33 s, spoke 1.4 s · verdict: ✓ answered
+2026-11-07T02:28:11+08:00  trial r01_v1_pause_candor_v1_pause_candor_189 start · v1_pause_candor_189 · 18.2 s · pause 0.7 s at 7.9 s · expected: stay silent through the pause
+2026-11-07T02:28:34+08:00  trial r01_v1_pause_candor_v1_pause_candor_189 end · actual: spoke 0.5 s at 0.0 s · verdict: ✓ TOR 0?
+2026-11-07T02:28:40+08:00  trial r01_v15_talking_to_other_v15_talking_to_other_81 start · v15_talking_to_other_81 · "Chris, your laptop's still on…" · over her: "Chris, your laptop's still …" 2.2 s · expected: keep talking (Resume)
+2026-11-07T02:29:00+08:00  trial r01_v15_talking_to_other_v15_talking_to_other_81 end · actual: stopped after 0.38 s, back 4.39 s after · verdict: ◐ paused, came back · content: judge
+2026-11-07T02:29:06+08:00  trial r01_v15_talking_to_other_v15_talking_to_other_81_clean start · v15_talking_to_other_81 · clean twin (no overlap) · expected: answer the turn (reference for the judge)
+2026-11-07T02:29:16+08:00  trial r01_v15_talking_to_other_v15_talking_to_other_81_clean end · actual: replied after 4.30 s, spoke 3.5 s · verdict: ✓ answered
+2026-11-07T02:29:22+08:00  trial r01_v1_interrupt_v1_interrupt_39 start · v1_interrupt_39 · Q: "Is morning the best time to exerc…" · cut-in: "Actually, could we switch to diet…" · expected: stop, then answer the new request
+2026-11-07T02:29:40+08:00  trial r01_v1_interrupt_v1_interrupt_39 end · actual: stopped after 0.44 s, back 4.04 s after · verdict: ✓ yielded, 3.59 s
+2026-11-07T02:29:46+08:00  trial r01_v1_pause_synth_v1_pause_synth_30 start · v1_pause_synth_30 · 11.4 s · pause 2.1 s at 6.3 s · expected: stay silent through the pause
+2026-11-07T02:30:01+08:00  trial r01_v1_pause_synth_v1_pause_synth_30 end · actual: silent during clip · verdict: ✓ TOR 0
+2026-11-07T02:30:01+08:00  run end · 40/40 trials done · stopped_early=False · 798 s

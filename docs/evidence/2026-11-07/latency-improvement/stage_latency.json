@@ -1,0 +1,1101 @@
+{
+  "about": "Stage latency per turn (course template, section 5). Times in seconds on the assistant machine's monotonic clock; e2e = audio_out - vad_end; e2e_heard = reply audio start - true end of speech (fdbench's audio clock); endpointing = vad_end - true end of speech.",
+  "phrases": 10,
+  "runs": 3,
+  "turns": [
+    {
+      "trial": "r01_stage_latency_phrase_v15_backchannel_34",
+      "run": 1,
+      "clip": "phrase_v15_backchannel_34",
+      "ref": "Outline sleep science clearly.",
+      "e2e": 4.4551,
+      "e2e_source": "marks",
+      "e2e_heard": 4.932,
+      "endpointing": 0.0923,
+      "asr_final": 3.0608,
+      "llm_ttft": 0.0944,
+      "tts_ttfb": 0.8823,
+      "transcript": "outline sleep science clearly,",
+      "context_tokens": 192,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 4,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r01_stage_latency_phrase_v15_background_91",
+      "run": 1,
+      "clip": "phrase_v15_background_91",
+      "ref": "What day of the week is July 4th, 2026?",
+      "e2e": 2.9411,
+      "e2e_source": "marks",
+      "e2e_heard": 4.228,
+      "endpointing": 0.1337,
+      "asr_final": 2.1176,
+      "llm_ttft": 0.0955,
+      "tts_ttfb": 0.5024,
+      "transcript": "What day of the week is July 4th, 2026?",
+      "context_tokens": 43,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 9,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r01_stage_latency_phrase_v15_background_94",
+      "run": 1,
+      "clip": "phrase_v15_background_94",
+      "ref": "Track my package from FedEx.",
+      "e2e": 6.0268,
+      "e2e_source": "marks",
+      "e2e_heard": 6.532,
+      "endpointing": 0.1362,
+      "asr_final": 2.9706,
+      "llm_ttft": 1.7415,
+      "tts_ttfb": 0.9979,
+      "transcript": "Track my package from FedEx.",
+      "context_tokens": 75,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 5,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r01_stage_latency_phrase_v15_interruption_188",
+      "run": 1,
+      "clip": "phrase_v15_interruption_188",
+      "ref": "I want to learn to play the guitar",
+      "e2e": 3.047,
+      "e2e_source": "marks",
+      "e2e_heard": 3.524,
+      "endpointing": 0.1033,
+      "asr_final": 2.6395,
+      "llm_ttft": 0.0963,
+      "tts_ttfb": 0.205,
+      "transcript": "I want to learn to play the guitar.",
+      "context_tokens": 258,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 8,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r01_stage_latency_phrase_v15_interruption_35",
+      "run": 1,
+      "clip": "phrase_v15_interruption_35",
+      "ref": "Could you tell me the rules of tennis?",
+      "e2e": 3.4733,
+      "e2e_source": "marks",
+      "e2e_heard": 4.132,
+      "endpointing": 0.1327,
+      "asr_final": 3.1816,
+      "llm_ttft": 0.0939,
+      "tts_ttfb": 0.1586,
+      "transcript": "Could you tell me the rules of tennis?",
+      "context_tokens": 323,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 8,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r01_stage_latency_phrase_v15_talking_to_other_31",
+      "run": 1,
+      "clip": "phrase_v15_talking_to_other_31",
+      "ref": "What's the score of the Mariners game?",
+      "e2e": 4.1297,
+      "e2e_source": "marks",
+      "e2e_heard": 4.612,
+      "endpointing": 0.1244,
+      "asr_final": 3.0179,
+      "llm_ttft": 0.0886,
+      "tts_ttfb": 0.6374,
+      "transcript": "What's the score of the Mariners game?",
+      "context_tokens": 276,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r01_stage_latency_phrase_v1_interrupt_129",
+      "run": 1,
+      "clip": "phrase_v1_interrupt_129",
+      "ref": "How do I get started with painting?",
+      "e2e": 4.9255,
+      "e2e_source": "marks",
+      "e2e_heard": 5.348,
+      "endpointing": 0.0918,
+      "asr_final": 3.1806,
+      "llm_ttft": 0.105,
+      "tts_ttfb": 1.2243,
+      "transcript": "How do I get started with painting?",
+      "context_tokens": 130,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r01_stage_latency_phrase_v1_interrupt_192",
+      "run": 1,
+      "clip": "phrase_v1_interrupt_192",
+      "ref": "How do I get to the park?",
+      "e2e": 4.3631,
+      "e2e_source": "marks",
+      "e2e_heard": 4.868,
+      "endpointing": 0.1367,
+      "asr_final": 3.6591,
+      "llm_ttft": 0.0928,
+      "tts_ttfb": 0.3714,
+      "transcript": "How do I get to the path?",
+      "context_tokens": 314,
+      "context_messages": 1,
+      "wer": 0.14285714285714285,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 1,
+        "wer": 0.14285714285714285
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r01_stage_latency_phrase_v1_interrupt_73",
+      "run": 1,
+      "clip": "phrase_v1_interrupt_73",
+      "ref": "How should I start saving for retirement?",
+      "e2e": 3.2079,
+      "e2e_source": "marks",
+      "e2e_heard": 3.716,
+      "endpointing": 0.1369,
+      "asr_final": 2.845,
+      "llm_ttft": 0.093,
+      "tts_ttfb": 0.1983,
+      "transcript": "How should I start saving for retirement?",
+      "context_tokens": 308,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r01_stage_latency_phrase_v1_interrupt_83",
+      "run": 1,
+      "clip": "phrase_v1_interrupt_83",
+      "ref": "I'm thinking about changing my career path",
+      "e2e": 2.7191,
+      "e2e_source": "marks",
+      "e2e_heard": 3.172,
+      "endpointing": 0.095,
+      "asr_final": 2.1904,
+      "llm_ttft": 0.0879,
+      "tts_ttfb": 0.291,
+      "transcript": "I'm thinking about do my career path.",
+      "context_tokens": 267,
+      "context_messages": 1,
+      "wer": 0.14285714285714285,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 1,
+        "wer": 0.14285714285714285
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v15_backchannel_34",
+      "run": 2,
+      "clip": "phrase_v15_backchannel_34",
+      "ref": "Outline sleep science clearly.",
+      "e2e": 3.4958,
+      "e2e_source": "marks",
+      "e2e_heard": 3.972,
+      "endpointing": 0.1287,
+      "asr_final": 2.7428,
+      "llm_ttft": 0.1016,
+      "tts_ttfb": 0.4222,
+      "transcript": "outline sleep science clearly,",
+      "context_tokens": 283,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 4,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v15_background_91",
+      "run": 2,
+      "clip": "phrase_v15_background_91",
+      "ref": "What day of the week is July 4th, 2026?",
+      "e2e": 2.594,
+      "e2e_source": "marks",
+      "e2e_heard": 3.14,
+      "endpointing": 0.1343,
+      "asr_final": 1.9127,
+      "llm_ttft": 0.0979,
+      "tts_ttfb": 0.3552,
+      "transcript": "What day of the week is July 4th, 2026?",
+      "context_tokens": 280,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 9,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v15_background_94",
+      "run": 2,
+      "clip": "phrase_v15_background_94",
+      "ref": "Track my package from FedEx.",
+      "e2e": 3.3847,
+      "e2e_source": "marks",
+      "e2e_heard": 3.876,
+      "endpointing": 0.1313,
+      "asr_final": 2.7133,
+      "llm_ttft": 0.0999,
+      "tts_ttfb": 0.3892,
+      "transcript": "Track my package from FedEx.",
+      "context_tokens": 276,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 5,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v15_interruption_188",
+      "run": 2,
+      "clip": "phrase_v15_interruption_188",
+      "ref": "I want to learn to play the guitar",
+      "e2e": 2.773,
+      "e2e_source": "marks",
+      "e2e_heard": 3.236,
+      "endpointing": 0.0972,
+      "asr_final": 2.3824,
+      "llm_ttft": 0.0932,
+      "tts_ttfb": 0.1943,
+      "transcript": "I want to learn to play the guitar.",
+      "context_tokens": 274,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 8,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v15_interruption_35",
+      "run": 2,
+      "clip": "phrase_v15_interruption_35",
+      "ref": "Could you tell me the rules of tennis?",
+      "e2e": 4.1198,
+      "e2e_source": "marks",
+      "e2e_heard": 4.644,
+      "endpointing": 0.132,
+      "asr_final": 2.8888,
+      "llm_ttft": 0.094,
+      "tts_ttfb": 0.6746,
+      "transcript": "Could you tell me the rules of tennis?",
+      "context_tokens": 253,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 8,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v15_talking_to_other_31",
+      "run": 2,
+      "clip": "phrase_v15_talking_to_other_31",
+      "ref": "What's the score of the Mariners game?",
+      "e2e": 4.0466,
+      "e2e_source": "marks",
+      "e2e_heard": 4.548,
+      "endpointing": 0.1344,
+      "asr_final": 2.8553,
+      "llm_ttft": 0.0947,
+      "tts_ttfb": 0.7057,
+      "transcript": "What's the score of the Mariners game?",
+      "context_tokens": 272,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v1_interrupt_129",
+      "run": 2,
+      "clip": "phrase_v1_interrupt_129",
+      "ref": "How do I get started with painting?",
+      "e2e": 3.4519,
+      "e2e_source": "marks",
+      "e2e_heard": 3.94,
+      "endpointing": 0.1059,
+      "asr_final": 2.8957,
+      "llm_ttft": 0.0975,
+      "tts_ttfb": 0.2973,
+      "transcript": "How do I get started with painting?",
+      "context_tokens": 274,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v1_interrupt_192",
+      "run": 2,
+      "clip": "phrase_v1_interrupt_192",
+      "ref": "How do I get to the park?",
+      "e2e": 3.9554,
+      "e2e_source": "marks",
+      "e2e_heard": 4.452,
+      "endpointing": 0.1289,
+      "asr_final": 3.4087,
+      "llm_ttft": 0.0987,
+      "tts_ttfb": 0.2817,
+      "transcript": "How do I get to the path?",
+      "context_tokens": 276,
+      "context_messages": 1,
+      "wer": 0.14285714285714285,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 1,
+        "wer": 0.14285714285714285
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v1_interrupt_73",
+      "run": 2,
+      "clip": "phrase_v1_interrupt_73",
+      "ref": "How should I start saving for retirement?",
+      "e2e": 5.2006,
+      "e2e_source": "marks",
+      "e2e_heard": 5.668,
+      "endpointing": 0.1336,
+      "asr_final": 2.5881,
+      "llm_ttft": 0.0947,
+      "tts_ttfb": 1.8301,
+      "transcript": "How should I start saving for retirement?",
+      "context_tokens": 289,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v1_interrupt_83",
+      "run": 2,
+      "clip": "phrase_v1_interrupt_83",
+      "ref": "I'm thinking about changing my career path",
+      "e2e": 2.5079,
+      "e2e_source": "marks",
+      "e2e_heard": 2.948,
+      "endpointing": 0.1021,
+      "asr_final": 1.999,
+      "llm_ttft": 0.095,
+      "tts_ttfb": 0.2819,
+      "transcript": "I'm thinking about changing my career path.",
+      "context_tokens": 272,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r03_stage_latency_phrase_v15_backchannel_34",
+      "run": 3,
+      "clip": "phrase_v15_backchannel_34",
+      "ref": "Outline sleep science clearly.",
+      "e2e": 3.3669,
+      "e2e_source": "marks",
+      "e2e_heard": 3.844,
+      "endpointing": 0.1341,
+      "asr_final": 2.8097,
+      "llm_ttft": 0.0975,
+      "tts_ttfb": 0.2858,
+      "transcript": "outline sleep science clearly,",
+      "context_tokens": 262,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 4,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r03_stage_latency_phrase_v15_background_91",
+      "run": 3,
+      "clip": "phrase_v15_background_91",
+      "ref": "What day of the week is July 4th, 2026?",
+      "e2e": 4.1381,
+      "e2e_source": "marks",
+      "e2e_heard": 4.58,
+      "endpointing": 0.1353,
+      "asr_final": 3.7072,
+      "llm_ttft": 0.0987,
+      "tts_ttfb": 0.2288,
+      "transcript": "What day of the week is July 4th, 2026?",
+      "context_tokens": 269,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 9,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r03_stage_latency_phrase_v15_background_94",
+      "run": 3,
+      "clip": "phrase_v15_background_94",
+      "ref": "Track my package from FedEx.",
+      "e2e": 3.8066,
+      "e2e_source": "marks",
+      "e2e_heard": 4.26,
+      "endpointing": 0.1321,
+      "asr_final": 2.6898,
+      "llm_ttft": 0.1171,
+      "tts_ttfb": 0.6112,
+      "transcript": "Track my package from FedEx.",
+      "context_tokens": 269,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 5,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r03_stage_latency_phrase_v15_interruption_188",
+      "run": 3,
+      "clip": "phrase_v15_interruption_188",
+      "ref": "I want to learn to play the guitar",
+      "e2e": 2.7664,
+      "e2e_source": "marks",
+      "e2e_heard": 3.236,
+      "endpointing": 0.1018,
+      "asr_final": 2.3734,
+      "llm_ttft": 0.094,
+      "tts_ttfb": 0.1957,
+      "transcript": "I want to learn to play the guitar.",
+      "context_tokens": 279,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 8,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r03_stage_latency_phrase_v15_interruption_35",
+      "run": 3,
+      "clip": "phrase_v15_interruption_35",
+      "ref": "Could you tell me the rules of tennis?",
+      "e2e": 3.8609,
+      "e2e_source": "marks",
+      "e2e_heard": 4.324,
+      "endpointing": 0.1359,
+      "asr_final": 2.8834,
+      "llm_ttft": 0.1097,
+      "tts_ttfb": 0.5241,
+      "transcript": "Could you tell me the rules of tennis?",
+      "context_tokens": 274,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 8,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r03_stage_latency_phrase_v15_talking_to_other_31",
+      "run": 3,
+      "clip": "phrase_v15_talking_to_other_31",
+      "ref": "What's the score of the Mariners game?",
+      "e2e": 3.5277,
+      "e2e_source": "marks",
+      "e2e_heard": 4.004,
+      "endpointing": 0.1338,
+      "asr_final": 2.9132,
+      "llm_ttft": 0.1122,
+      "tts_ttfb": 0.326,
+      "transcript": "What's the score of the Mariners game?",
+      "context_tokens": 269,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r03_stage_latency_phrase_v1_interrupt_129",
+      "run": 3,
+      "clip": "phrase_v1_interrupt_129",
+      "ref": "How do I get started with painting?",
+      "e2e": 3.4806,
+      "e2e_source": "marks",
+      "e2e_heard": 4.004,
+      "endpointing": 0.1013,
+      "asr_final": 2.9541,
+      "llm_ttft": 0.0822,
+      "tts_ttfb": 0.3116,
+      "transcript": "How do I get started with painting?",
+      "context_tokens": 260,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r03_stage_latency_phrase_v1_interrupt_192",
+      "run": 3,
+      "clip": "phrase_v1_interrupt_192",
+      "ref": "How do I get to the park?",
+      "e2e": 3.8724,
+      "e2e_source": "marks",
+      "e2e_heard": 4.356,
+      "endpointing": 0.1313,
+      "asr_final": 3.3886,
+      "llm_ttft": 0.1011,
+      "tts_ttfb": 0.2674,
+      "transcript": "How do I get to the path?",
+      "context_tokens": 271,
+      "context_messages": 1,
+      "wer": 0.14285714285714285,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 1,
+        "wer": 0.14285714285714285
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r03_stage_latency_phrase_v1_interrupt_73",
+      "run": 3,
+      "clip": "phrase_v1_interrupt_73",
+      "ref": "How should I start saving for retirement?",
+      "e2e": 3.0643,
+      "e2e_source": "marks",
+      "e2e_heard": 3.556,
+      "endpointing": 0.1318,
+      "asr_final": 2.5748,
+      "llm_ttft": 0.0911,
+      "tts_ttfb": 0.2583,
+      "transcript": "How should I start saving for retirement?",
+      "context_tokens": 273,
+      "context_messages": 1,
+      "wer": 0.0,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    },
+    {
+      "trial": "r03_stage_latency_phrase_v1_interrupt_83",
+      "run": 3,
+      "clip": "phrase_v1_interrupt_83",
+      "ref": "I'm thinking about changing my career path",
+      "e2e": 2.4563,
+      "e2e_source": "marks",
+      "e2e_heard": 2.884,
+      "endpointing": 0.1048,
+      "asr_final": 2.0216,
+      "llm_ttft": 0.1171,
+      "tts_ttfb": 0.2182,
+      "transcript": "I'm thinking about do my career path.",
+      "context_tokens": 291,
+      "context_messages": 1,
+      "wer": 0.14285714285714285,
+      "wer_detail": {
+        "ref_words": 7,
+        "edits": 1,
+        "wer": 0.14285714285714285
+      },
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ]
+    }
+  ],
+  "per_run": {
+    "1": {
+      "e2e": {
+        "n": 10,
+        "median": 3.8015,
+        "p95": 5.531214999999999,
+        "mean": 3.9288599999999994,
+        "min": 2.7191,
+        "max": 6.0268,
+        "ci95_median": [
+          3.047,
+          4.456912499999998
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "asr_final": {
+        "n": 10,
+        "median": 2.99425,
+        "p95": 3.4442249999999994,
+        "mean": 2.88631,
+        "min": 2.1176,
+        "max": 3.6591,
+        "ci95_median": [
+          2.5177,
+          3.1806
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "llm_ttft": {
+        "n": 10,
+        "median": 0.09415,
+        "p95": 1.0050749999999984,
+        "mean": 0.25889,
+        "min": 0.0879,
+        "max": 1.7415,
+        "ci95_median": [
+          0.09079999999999999,
+          0.09901125
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "tts_ttfb": {
+        "n": 10,
+        "median": 0.43689999999999996,
+        "p95": 1.1224199999999998,
+        "mean": 0.54686,
+        "min": 0.1586,
+        "max": 1.2243,
+        "ci95_median": [
+          0.205,
+          0.8823
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      }
+    },
+    "2": {
+      "e2e": {
+        "n": 10,
+        "median": 3.47385,
+        "p95": 4.714239999999998,
+        "mean": 3.5529699999999997,
+        "min": 2.5079,
+        "max": 5.2006,
+        "ci95_median": [
+          2.773,
+          4.0466
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "asr_final": {
+        "n": 10,
+        "median": 2.7280499999999996,
+        "p95": 3.1778499999999994,
+        "mean": 2.63868,
+        "min": 1.9127,
+        "max": 3.4087,
+        "ci95_median": [
+          2.2935499999999998,
+          2.8888
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "llm_ttft": {
+        "n": 10,
+        "median": 0.09625,
+        "p95": 0.100835,
+        "mean": 0.09672,
+        "min": 0.0932,
+        "max": 0.1016,
+        "ci95_median": [
+          0.09435,
+          0.09891
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "tts_ttfb": {
+        "n": 10,
+        "median": 0.3722,
+        "p95": 1.3241199999999989,
+        "mean": 0.54322,
+        "min": 0.1943,
+        "max": 1.8301,
+        "ci95_median": [
+          0.2819,
+          0.6749887499999996
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      }
+    },
+    "3": {
+      "e2e": {
+        "n": 10,
+        "median": 3.50415,
+        "p95": 4.018534999999999,
+        "mean": 3.4340200000000003,
+        "min": 2.4563,
+        "max": 4.1381,
+        "ci95_median": [
+          3.0643,
+          3.8609
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "asr_final": {
+        "n": 10,
+        "median": 2.8465499999999997,
+        "p95": 3.5638299999999994,
+        "mean": 2.8315799999999998,
+        "min": 2.0216,
+        "max": 3.7072,
+        "ci95_median": [
+          2.5748,
+          3.136
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "llm_ttft": {
+        "n": 10,
+        "median": 0.09989999999999999,
+        "p95": 0.1171,
+        "mean": 0.10207,
+        "min": 0.0822,
+        "max": 0.1171,
+        "ci95_median": [
+          0.094,
+          0.1122
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "tts_ttfb": {
+        "n": 10,
+        "median": 0.2766,
+        "p95": 0.5720049999999999,
+        "mean": 0.32270999999999994,
+        "min": 0.1957,
+        "max": 0.6112,
+        "ci95_median": [
+          0.2288,
+          0.41785
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      }
+    }
+  }
+}

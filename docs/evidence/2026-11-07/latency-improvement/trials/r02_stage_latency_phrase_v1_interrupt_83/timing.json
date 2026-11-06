@@ -1,0 +1,96 @@
+{
+  "trial": "r02_stage_latency_phrase_v1_interrupt_83",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_83",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 10.912,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.4426875
+    }
+  ],
+  "live_bot_starts": [
+    0.128,
+    5.504,
+    8.608
+  ],
+  "live_bot_ends": [
+    0.448,
+    7.584,
+    10.56
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "I'm thinking about changing my career path",
+    "source": "v1_interrupt_83"
+  },
+  "mono": [
+    92697.211178791,
+    92708.118200166
+  ],
+  "bot_segments": [
+    [
+      0.002,
+      0.478
+    ],
+    [
+      5.474,
+      7.614
+    ],
+    [
+      8.578,
+      10.59
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.4426875
+  ],
+  "tor": 1,
+  "first_start": 5.474,
+  "spoke_s": 4.9686875,
+  "user_end": 2.526,
+  "latency": 2.9480000000000004,
+  "actual": "replied 2.95 s after speech end",
+  "verdict": "✓ 2.95 s",
+  "ok": true,
+  "marks": 27,
+  "final": {
+    "stages": {
+      "e2e_heard": 2.948,
+      "e2e": 2.5079,
+      "e2e_source": "marks",
+      "asr_final": 1.999,
+      "llm_ttft": 0.095,
+      "tts_ttfb": 0.2819,
+      "endpointing": 0.1021,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "I'm thinking about changing my career path.",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 272,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "deep sleep, that's a significant shift to consider. What draws you toward making that change?"
+  },
+  "scored_at": "2026-11-07T02:33:51+08:00"
+}

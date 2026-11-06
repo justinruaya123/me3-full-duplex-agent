@@ -1,0 +1,32 @@
+{"stage": "vad_start", "t": 93158.773881375, "pid": 36922, "src": "ws", "recv": 93158.777265791, "lt": 93158.77406054201, "tt": 0.3582}
+{"stage": "vad_start", "t": 93158.773928125, "pid": 36922, "src": "ws", "recv": 93158.777291291, "lt": 93158.774107292, "tt": 0.3583}
+{"stage": "vad_end", "t": 93160.653180166, "pid": 36922, "src": "ws", "recv": 93160.655315708, "lt": 93160.65335933301, "tt": 2.2375}
+{"stage": "vad_end", "t": 93160.653261958, "pid": 36922, "src": "ws", "recv": 93160.655484833, "lt": 93160.653441125, "tt": 2.2376}
+{"stage": "asr_partial", "t": 93161.490200875, "pid": 36922, "text": "Yeah, that way if the remote's not where you left it, you don't have to blame everyone else. You can just ask someone. That's my thing. Like when things get moved around that I don't know who moved it. I can't find it. It's made me crazy.", "src": "ws", "recv": 93161.491100041, "lt": 93161.49038004201, "tt": 3.0745}
+{"stage": "asr_final", "t": 93164.281531791, "pid": 36922, "text": "Yeah, that way if the remote's not where you left it, you don't have to blame everyone else. You can just ask someone. That's my thing. Like when things get moved around that I don't know who moved it. I can't find it. It's made me crazy. Nearby coffee shop that's open now.", "src": "ws", "recv": 93164.358333791, "lt": 93164.281710958, "tt": 5.8659}
+{"stage": "interrupted", "t": 93164.283810125, "pid": 36922, "src": "ws", "recv": 93164.359913166, "lt": 93164.283989292, "tt": 5.8681}
+{"stage": "interrupted", "t": 93164.283872208, "pid": 36922, "src": "ws", "recv": 93164.359956583, "lt": 93164.28405137501, "tt": 5.8682}
+{"stage": "llm_request", "t": 93164.356111875, "pid": 36922, "chars": 1327, "messages": 1, "est_tokens": 332, "src": "ws", "recv": 93164.359993791, "lt": 93164.356291042, "tt": 5.9404}
+{"stage": "llm_first_token", "t": 93164.4391225, "pid": 36922, "src": "ws", "recv": 93164.439885416, "lt": 93164.43930166701, "tt": 6.0235}
+{"stage": "tts_request", "t": 93164.7967085, "pid": 36922, "src": "ws", "recv": 93164.798525625, "lt": 93164.796887667, "tt": 6.381}
+{"stage": "tts_first_audio", "t": 93166.081044333, "pid": 36922, "src": "ws", "recv": 93166.082138791, "lt": 93166.0812235, "tt": 7.6654}
+{"stage": "audio_out", "t": 93166.102417125, "pid": 36922, "src": "ws", "recv": 93166.104374666, "lt": 93166.10259629201, "tt": 7.6867}
+{"stage": "audio_out", "t": 93166.102462208, "pid": 36922, "src": "ws", "recv": 93166.104398958, "lt": 93166.10264137501, "tt": 7.6868}
+{"stage": "vad_start", "t": 93168.342277583, "pid": 36922, "src": "ws", "recv": 93168.34454925, "lt": 93168.34245675, "tt": 9.9266}
+{"stage": "vad_start", "t": 93168.342305208, "pid": 36922, "src": "ws", "recv": 93168.344581375, "lt": 93168.34248437501, "tt": 9.9266}
+{"stage": "vad_end", "t": 93170.097006375, "pid": 36922, "src": "ws", "recv": 93170.097729208, "lt": 93170.097185542, "tt": 11.6813}
+{"stage": "vad_end", "t": 93170.09701425, "pid": 36922, "src": "ws", "recv": 93170.097754041, "lt": 93170.09719341701, "tt": 11.6813}
+{"stage": "asr_partial", "t": 93171.062973541, "pid": 36922, "text": "Chris, your laptop's...", "src": "ws", "recv": 93171.063206083, "lt": 93171.06315270801, "tt": 12.6473}
+{"stage": "bot_stopped", "t": 93171.337778125, "pid": 36922, "src": "ws", "recv": 93171.339292625, "lt": 93171.33795729201, "tt": 12.9221}
+{"stage": "bot_stopped", "t": 93171.337832541, "pid": 36922, "src": "ws", "recv": 93171.339347, "lt": 93171.33801170801, "tt": 12.9222}
+{"stage": "asr_final", "t": 93173.280140375, "pid": 36922, "text": "Chris, your laptop's still on the table, man.", "src": "ws", "recv": 93173.321218166, "lt": 93173.28031954201, "tt": 14.8645}
+{"stage": "interrupted", "t": 93173.281349833, "pid": 36922, "src": "ws", "recv": 93173.321848833, "lt": 93173.28152900001, "tt": 14.8657}
+{"stage": "interrupted", "t": 93173.281374875, "pid": 36922, "src": "ws", "recv": 93173.321867041, "lt": 93173.28155404201, "tt": 14.8657}
+{"stage": "llm_request", "t": 93173.320573583, "pid": 36922, "chars": 1354, "messages": 1, "est_tokens": 338, "src": "ws", "recv": 93173.32188175, "lt": 93173.32075275, "tt": 14.9049}
+{"stage": "llm_first_token", "t": 93173.394942708, "pid": 36922, "src": "ws", "recv": 93173.395415291, "lt": 93173.395121875, "tt": 14.9793}
+{"stage": "tts_request", "t": 93173.5674265, "pid": 36922, "src": "ws", "recv": 93173.568732583, "lt": 93173.567605667, "tt": 15.1518}
+{"stage": "tts_first_audio", "t": 93174.028417125, "pid": 36922, "src": "ws", "recv": 93174.028864333, "lt": 93174.028596292, "tt": 15.6127}
+{"stage": "audio_out", "t": 93174.049932833, "pid": 36922, "src": "ws", "recv": 93174.050488583, "lt": 93174.05011200001, "tt": 15.6343}
+{"stage": "audio_out", "t": 93174.049947041, "pid": 36922, "src": "ws", "recv": 93174.050498208, "lt": 93174.050126208, "tt": 15.6343}
+{"stage": "bot_stopped", "t": 93178.280883166, "pid": 36922, "src": "ws", "recv": 93178.281677541, "lt": 93178.281062333, "tt": 19.8652}
+{"stage": "bot_stopped", "t": 93178.280895208, "pid": 36922, "src": "ws", "recv": 93178.281697916, "lt": 93178.281074375, "tt": 19.8652}

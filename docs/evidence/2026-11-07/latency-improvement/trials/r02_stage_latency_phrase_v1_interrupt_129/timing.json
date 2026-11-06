@@ -1,0 +1,84 @@
+{
+  "trial": "r02_stage_latency_phrase_v1_interrupt_129",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_129",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 9.632,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.016
+    }
+  ],
+  "live_bot_starts": [
+    6.112
+  ],
+  "live_bot_ends": [
+    8.416
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "How do I get started with painting?",
+    "source": "v1_interrupt_129"
+  },
+  "mono": [
+    92764.904603125,
+    92774.517031666
+  ],
+  "bot_segments": [
+    [
+      6.082,
+      8.446
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.016
+  ],
+  "tor": 1,
+  "first_start": 6.082,
+  "spoke_s": 2.364,
+  "user_end": 2.142,
+  "latency": 3.94,
+  "actual": "replied 3.94 s after speech end",
+  "verdict": "✓ 3.94 s",
+  "ok": true,
+  "marks": 20,
+  "final": {
+    "stages": {
+      "e2e_heard": 3.94,
+      "e2e": 3.4519,
+      "e2e_source": "marks",
+      "asr_final": 2.8957,
+      "llm_ttft": 0.0975,
+      "tts_ttfb": 0.2973,
+      "endpointing": 0.1059,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "How do I get started with painting?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 274,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Painting is a great way to express yourself."
+  },
+  "scored_at": "2026-11-07T02:33:45+08:00"
+}

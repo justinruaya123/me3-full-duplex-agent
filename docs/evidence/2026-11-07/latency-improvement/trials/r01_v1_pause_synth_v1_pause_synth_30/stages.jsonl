@@ -1,0 +1,19 @@
+{"stage": "vad_start", "t": 93224.760135916, "pid": 36922, "src": "ws", "recv": 93224.761936041, "lt": 93224.76031508301, "tt": 0.388}
+{"stage": "vad_start", "t": 93224.760167666, "pid": 36922, "src": "ws", "recv": 93224.762029041, "lt": 93224.760346833, "tt": 0.388}
+{"stage": "vad_end", "t": 93227.380570291, "pid": 36922, "src": "ws", "recv": 93227.381891166, "lt": 93227.38074945801, "tt": 3.0084}
+{"stage": "vad_end", "t": 93227.380597875, "pid": 36922, "src": "ws", "recv": 93227.381965125, "lt": 93227.38077704201, "tt": 3.0085}
+{"stage": "asr_partial", "t": 93227.449742875, "pid": 36922, "text": "How do I make that sound?", "src": "ws", "recv": 93227.450006833, "lt": 93227.44992204201, "tt": 3.0776}
+{"stage": "vad_start", "t": 93227.767820541, "pid": 36922, "src": "ws", "recv": 93227.769267541, "lt": 93227.76799970801, "tt": 3.3957}
+{"stage": "vad_start", "t": 93227.76784875, "pid": 36922, "src": "ws", "recv": 93227.769368083, "lt": 93227.768027917, "tt": 3.3957}
+{"stage": "vad_end", "t": 93231.703926708, "pid": 36922, "src": "ws", "recv": 93231.7057925, "lt": 93231.704105875, "tt": 7.3318}
+{"stage": "vad_end", "t": 93231.70395475, "pid": 36922, "src": "ws", "recv": 93231.705877833, "lt": 93231.70413391701, "tt": 7.3318}
+{"stage": "asr_partial", "t": 93231.854402666, "pid": 36922, "text": "How do I make that soup you mentioned first? You start with", "src": "ws", "recv": 93231.8548265, "lt": 93231.854581833, "tt": 7.4823}
+{"stage": "vad_start", "t": 93233.111166541, "pid": 36922, "src": "ws", "recv": 93233.113132625, "lt": 93233.111345708, "tt": 8.739}
+{"stage": "vad_start", "t": 93233.111202, "pid": 36922, "src": "ws", "recv": 93233.113237041, "lt": 93233.11138116701, "tt": 8.7391}
+{"stage": "vad_end", "t": 93234.163014375, "pid": 36922, "src": "ws", "recv": 93234.163609833, "lt": 93234.163193542, "tt": 9.7909}
+{"stage": "vad_end", "t": 93234.163024458, "pid": 36922, "src": "ws", "recv": 93234.163699958, "lt": 93234.16320362501, "tt": 9.7909}
+{"stage": "vad_start", "t": 93234.582979625, "pid": 36922, "src": "ws", "recv": 93234.584829208, "lt": 93234.58315879201, "tt": 10.2108}
+{"stage": "vad_start", "t": 93234.583007541, "pid": 36922, "src": "ws", "recv": 93234.584946833, "lt": 93234.58318670801, "tt": 10.2109}
+{"stage": "vad_end", "t": 93235.9247135, "pid": 36922, "src": "ws", "recv": 93235.927165416, "lt": 93235.92489266701, "tt": 11.5526}
+{"stage": "vad_end", "t": 93235.924741791, "pid": 36922, "src": "ws", "recv": 93235.927304041, "lt": 93235.924920958, "tt": 11.5526}
+{"stage": "asr_partial", "t": 93238.905722791, "pid": 36922, "text": "How do I make that soup you mentioned first? You start with being all the vegetables. And while you're at it, make sure to an eye on the heat. Don't want anything to burn.", "src": "ws", "recv": 93238.905957791, "lt": 93238.905901958, "tt": 14.5336}

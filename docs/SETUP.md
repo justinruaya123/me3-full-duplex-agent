@@ -98,6 +98,15 @@ imports occur only in this process; the Pi runtime makes authenticated HTTP
 inference calls. LAN endpoints require keys. Deliberately select a LAN bind
 address if using a Pi; never expose this service as a public deployment.
 
+The November 7 optimized build reuses byte-identical Whisper encoder features
+within one native request, with request cleanup on success/failure. It preserves
+full context, automatic language detection, word timestamps and the selected
+weights. Capture can reuse an identical current-generation recognition while
+still requiring final turn approval. No new API settings or dependencies are
+needed. The real rerun reduced E2E mean 5.422s -> 3.639s and ASR final mean
+4.454s -> 2.786s; p95 and duplex qualification remain open. See
+[the measured comparison](evidence/2026-11-07/latency-improvement/README.md).
+
 Kokoro requires `misaki[en]`; this dependency is included. The first model use
 can download weights. Existing small Whisper weights do not satisfy the
 large-v3-turbo selection and are never used as fallback.
@@ -184,8 +193,8 @@ and reports that fact. Public deployment is not authorized by a preview request.
 The latest tested copy is `.local/fd-benchmark-20261107` at
 `57eaddbc188ce9a19b8fd002b575f703426956f4`. The older
 `.local/fd-benchmark` at `106ac8e543a5fd996e254a87e69fa101bfd27a42` is preserved.
-The scorer is unchanged. The November 7 real-model run completed 40 queue
-items / 44 recordings and was scored with real evaluation ASR and Praat.
+The scorer is unchanged. Both November 7 real-model runs completed 40 queue
+items / 44 recordings each, scored with real evaluation ASR and Praat.
 See [results and limits](BENCHMARK.md) and
 [the evidence](evidence/2026-11-07/course-benchmark/README.md).
 
@@ -229,7 +238,7 @@ cd .local/fd-benchmark-20261107
   --phrases 10 --runs 3 --seed 231 --connect direct --where local \
   --judge-provider none --no-score --yes --recordings r --no-live
 # Use the run directory printed above for a new measurement.
-.venv/bin/python -m fdbench score runs/me3-local/2026-11-07_01-34-42 \
+.venv/bin/python -m fdbench score runs/me3-local/2026-11-07_02-16-38 \
   --judge-provider none --no-utmos --asr-model small
 ```
 

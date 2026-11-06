@@ -1,0 +1,92 @@
+{
+  "trial": "r03_stage_latency_phrase_v15_interruption_35",
+  "group": "stage_latency",
+  "clip": "phrase_v15_interruption_35",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 12.736,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.808
+    }
+  ],
+  "live_bot_starts": [
+    0.032,
+    0.576,
+    6.912
+  ],
+  "live_bot_ends": [
+    0.224,
+    1.504,
+    12.384
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "Could you tell me the rules of tennis?",
+    "source": "v15_interruption_35"
+  },
+  "mono": [
+    92795.743366875,
+    92808.467372083
+  ],
+  "bot_segments": [
+    [
+      0.546,
+      1.534
+    ],
+    [
+      6.882,
+      12.414
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.808
+  ],
+  "tor": 1,
+  "first_start": 6.882,
+  "spoke_s": 3.926,
+  "user_end": 2.558,
+  "latency": 4.324,
+  "actual": "replied 4.32 s after speech end",
+  "verdict": "✓ 4.32 s",
+  "ok": true,
+  "marks": 18,
+  "final": {
+    "stages": {
+      "e2e_heard": 4.324,
+      "e2e": 3.8609,
+      "e2e_source": "marks",
+      "asr_final": 2.8834,
+      "llm_ttft": 0.1097,
+      "tts_ttfb": 0.5241,
+      "endpointing": 0.1359,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "Could you tell me the rules of tennis?",
+      "wer": {
+        "ref_words": 8,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 274,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "or consider opening the goal is to hit a ball over the net into your opponent's court before they fail to return it."
+  },
+  "scored_at": "2026-11-07T02:34:01+08:00"
+}

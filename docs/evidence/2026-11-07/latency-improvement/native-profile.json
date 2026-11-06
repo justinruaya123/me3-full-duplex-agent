@@ -1,0 +1,128 @@
+{
+  "passed": true,
+  "kind": "actual native GPU profile on generated development phrase",
+  "asr_model": "mlx-community/whisper-large-v3-turbo",
+  "tts_model": "mlx-community/Kokoro-82M-bf16",
+  "voice": "af_heart",
+  "metal_available": true,
+  "load_seconds": 1.1733597090060357,
+  "audio_seconds": 2.6,
+  "trials": [
+    {
+      "instrumented": false,
+      "seconds": 3.7007020830060355,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "word_count": 6,
+      "encoder": []
+    },
+    {
+      "instrumented": true,
+      "seconds": 2.872791749992757,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "word_count": 6,
+      "encoder": [
+        {
+          "shape": [
+            1,
+            3000,
+            128
+          ],
+          "mel_sha256": "8a1ed2b47dd8d991569ecd478f85256158d8875a228c52df10e03c535ae0fb15",
+          "seconds": 0.9224923750007292
+        },
+        {
+          "shape": [
+            1,
+            3000,
+            128
+          ],
+          "mel_sha256": "09cf788519a759af5840d2ae14cec401a3a66bf257797750a76a926e1c738dce",
+          "seconds": 0.8981841250060825
+        },
+        {
+          "shape": [
+            1,
+            3000,
+            128
+          ],
+          "mel_sha256": "09cf788519a759af5840d2ae14cec401a3a66bf257797750a76a926e1c738dce",
+          "seconds": 0.90883191699686
+        }
+      ]
+    },
+    {
+      "instrumented": true,
+      "seconds": 2.83008683299704,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "word_count": 6,
+      "encoder": [
+        {
+          "shape": [
+            1,
+            3000,
+            128
+          ],
+          "mel_sha256": "8a1ed2b47dd8d991569ecd478f85256158d8875a228c52df10e03c535ae0fb15",
+          "seconds": 0.9046303750074003
+        },
+        {
+          "shape": [
+            1,
+            3000,
+            128
+          ],
+          "mel_sha256": "09cf788519a759af5840d2ae14cec401a3a66bf257797750a76a926e1c738dce",
+          "seconds": 0.89661070900911
+        },
+        {
+          "shape": [
+            1,
+            3000,
+            128
+          ],
+          "mel_sha256": "09cf788519a759af5840d2ae14cec401a3a66bf257797750a76a926e1c738dce",
+          "seconds": 0.9017058750032447
+        }
+      ]
+    },
+    {
+      "instrumented": true,
+      "seconds": 2.8695019579899963,
+      "text": " Hello, the voice system is ready.",
+      "language": "en",
+      "word_count": 6,
+      "encoder": [
+        {
+          "shape": [
+            1,
+            3000,
+            128
+          ],
+          "mel_sha256": "8a1ed2b47dd8d991569ecd478f85256158d8875a228c52df10e03c535ae0fb15",
+          "seconds": 0.9042452079884242
+        },
+        {
+          "shape": [
+            1,
+            3000,
+            128
+          ],
+          "mel_sha256": "09cf788519a759af5840d2ae14cec401a3a66bf257797750a76a926e1c738dce",
+          "seconds": 0.9080950420029694
+        },
+        {
+          "shape": [
+            1,
+            3000,
+            128
+          ],
+          "mel_sha256": "09cf788519a759af5840d2ae14cec401a3a66bf257797750a76a926e1c738dce",
+          "seconds": 0.9022964169998886
+        }
+      ]
+    }
+  ]
+}

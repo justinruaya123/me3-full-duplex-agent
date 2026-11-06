@@ -81,6 +81,11 @@ and transport fixtures are labelled; they are not acoustic or provider tests.
 The unchanged course benchmark launcher/scorer is supported through
 `integrations/fdbench_entry.py`. Course runs globally bypass ownership; separate
 ownership runs keep it enabled. See [benchmark boundaries](docs/BENCHMARK.md).
+The latest real Mac run reduced E2E mean from 5.422s to 3.639s and ASR final
+mean from 4.454s to 2.786s with the same selected model IDs and local speech
+weights. The full latency and
+duplex gates remain unpassed; [the comparison](docs/evidence/2026-11-07/latency-improvement/README.md)
+includes p95, extra word errors, missing replies and slower interruption cases.
 
 Current evidence, counts, measured software/device probes and unpassed gates
 are in [DUPLEX_STATUS](docs/DUPLEX_STATUS.md). No GPT Live parity, p95 acoustic
