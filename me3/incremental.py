@@ -76,7 +76,7 @@ class PlaybackToken:
 
 
 class PlaybackLedger:
-    """Receipts must identify the exact submitted utterance, never the latest."""
+    """Receipts must identify the exact submitted utterance."""
 
     def __init__(self, session_id: str | None = None) -> None:
         self.session_id = session_id or uuid.uuid4().hex
@@ -116,7 +116,7 @@ class PlaybackLedger:
 
 
 class PCMBuffer:
-    """Bounded mono PCM16 queue; a provisional pause consumes no queued audio."""
+    """Bounded PCM16 queue; a provisional pause consumes no queued audio."""
 
     def __init__(self, *, max_bytes: int = 24000 * 2 * 30) -> None:
         if max_bytes < 2 or max_bytes % 2:
@@ -161,23 +161,56 @@ class PCMBuffer:
         self.paused = False
 
 
+# Finite English guard, not a general sentence tokenizer. A sentence-final
+# abbreviation conservatively waits for another confirmed boundary or EOF.
+_SPEECH_ABBREVIATIONS = frozenset({
+    "mr.", "mrs.", "ms.", "mx.", "dr.", "prof.", "sr.", "jr.", "st.",
+    "mt.", "vs.", "etc.", "e.g.", "i.e.", "approx.", "dept.", "no.",
+    "fig.", "inc.", "ltd.", "co.", "corp.", "ph.d.", "a.m.", "p.m.",
+    "jan.", "feb.", "mar.", "apr.", "jun.", "jul.", "aug.", "sep.",
+    "sept.", "oct.", "nov.", "dec.",
+})
+
+
+def _ends_abbreviation(text: str) -> bool:
+    """Conservatively retain listed abbreviations and dotted initials."""
+    if not text.endswith("."):
+        return False
+    word = text.rsplit(maxsplit=1)[-1].lstrip("\"'([{“‘").casefold()
+    return word in _SPEECH_ABBREVIATIONS or bool(
+        re.fullmatch(r"(?:[a-z]\.)+", word)
+    )
+
+
 async def clauses(stream: AsyncIterator[str]) -> AsyncIterator[str]:
-    """Bound buffering and synthesize completed clauses with backpressure."""
+    """Confirm boundaries with whitespace; never split source words."""
     pending = ""
     async for text in stream:
-        pending += text
-        while pending:
-            match = re.search(r"[.!?;](?:\s|$)|\n", pending)
-            if match:
-                end = match.end()
-            elif len(pending) > 240:
-                end = pending.rfind(" ", 0, 240)
-                if end < 1:
-                    end = 240
-            else:
-                break
-            chunk, pending = pending[:end].strip(), pending[end:].lstrip()
-            if chunk:
-                yield chunk
+        # Inspect characters in source order so delta sizes cannot change a
+        # boundary or bypass the 240-character buffering limit.
+        for character in text:
+            if not pending and character.isspace():
+                continue
+            pending += character
+            if character.isspace():
+                chunk = pending.rstrip()
+                if (
+                    character == "\n" or chunk.endswith((".", "!", "?", ";"))
+                ) and not _ends_abbreviation(chunk):
+                    pending = ""
+                    if chunk:
+                        yield chunk
+                    continue
+            if len(pending) > 240:
+                for end in range(240, 0, -1):
+                    if pending[end].isspace() and not _ends_abbreviation(
+                        pending[:end].rstrip()
+                    ):
+                        break
+                else:
+                    raise BufferError("Speech token exceeds clause buffer")
+                chunk, pending = pending[:end].strip(), pending[end:].lstrip()
+                if chunk:
+                    yield chunk
     if pending.strip():
         yield pending.strip()
