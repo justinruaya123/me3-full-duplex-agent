@@ -1,0 +1,12 @@
+{
+  "kind": "real Pi worker provider smoke",
+  "timestamp_utc": "20261106T121052Z",
+  "provider": "openai-codex",
+  "model": "gpt-6.1-sol",
+  "prompt": "Reply with exactly ME3_D1_PI_OK. Do not use tools.",
+  "exact_selection_verified_before_request": true,
+  "error_type": "RuntimeError",
+  "passed": false,
+  "constraint_or_protocol_error": "Pi rejected a protocol command",
+  "total_seconds": 1.070955
+}

@@ -1,4 +1,37 @@
-# November 4 implementation and qualification status
+# Implementation and qualification status
+
+## November 6: D1 live LLM verification
+
+The operator configured foreground `Qwen/Qwen3.8-27B` and selected Pi worker
+`openai-codex/gpt-6.1-sol`. These are explicit operator selections, not model
+fallbacks. The foreground endpoint and credentials remain in the ignored `.env`.
+
+- **Real foreground provider: 2/2 checks passed.** The exact marker and arithmetic
+  requests returned `ME3_D1_FOREGROUND_OK` and `42`. First content arrived in
+  0.181676 s and 0.080826 s; complete streamed requests took 0.291573 s and
+  0.113699 s. The production adapter verified the exact response model ID,
+  requested thinking disabled, and observed no reasoning or tool-call deltas.
+  These are two text samples, not p95 or acoustic benchmark measurements.
+- **Real controller with Qwen: 2/2 checks passed.** The actual runtime/controller
+  delivered `ACK`, then recalled `amber falcon` on the second turn. Turn totals
+  were 0.214655 s and 0.138173 s. Delivery was a text callback; no ASR, TTS,
+  microphone or acoustic playback was exercised.
+- **Pi provider inference: blocked, not passed.** Local RPC verified the exact
+  selected provider/model, but the prompt was rejected: `No API key found for
+  openai-codex.` The isolated Pi auth file has no entry for that provider and no
+  worker API-key forwarding is configured. The supported next step is operator
+  sign-in through `./scripts/me3.sh pi` and `/login`; no account, billing or model
+  setting was changed. No successful worker inference or real website job is
+  claimed.
+- **Fresh installed full suite: 120 passed, 0 failures, 0 skips**, in 5.357 s.
+  This is regression evidence, separate from the provider checks above.
+
+Source tested: `2d8b7d25aa0f13d5a0feb16bdf1a380cb8fb551b`. Sanitized receipts
+and the full suite log are in [evidence/2026-11-06/d1](evidence/2026-11-06/d1).
+D1 remains partial until a real authenticated Pi request succeeds. The separate
+Mac speech stalls and ownership/acoustic/hardware gates below remain unpassed.
+
+## November 4 implementation baseline
 
 The active branch is `feat/pi-full-duplex-v1`, descended from prototype
 `642cc73`. Pi.dev is the default worker; the controller remains harness-neutral.

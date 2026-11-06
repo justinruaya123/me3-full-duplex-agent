@@ -1,0 +1,37 @@
+{
+  "kind": "real foreground provider smoke",
+  "timestamp_utc": "20261106T121052Z",
+  "checks": [
+    {
+      "name": "marker",
+      "prompt": "Reply with exactly ME3_D1_FOREGROUND_OK. Do not use tools or provide reasoning.",
+      "expected": "ME3_D1_FOREGROUND_OK",
+      "first_text_seconds": 0.181676,
+      "passed": true,
+      "response": "ME3_D1_FOREGROUND_OK",
+      "chunks": 7,
+      "exact_response_model_verified": true,
+      "reasoning_deltas_observed": false,
+      "tool_calls_observed": false,
+      "thinking_disabled_in_request": true,
+      "total_seconds": 0.291573
+    },
+    {
+      "name": "short_answer",
+      "prompt": "What is 17 plus 25? Reply with exactly the number.",
+      "expected": "42",
+      "first_text_seconds": 0.080826,
+      "passed": true,
+      "response": "42",
+      "chunks": 2,
+      "exact_response_model_verified": true,
+      "reasoning_deltas_observed": false,
+      "tool_calls_observed": false,
+      "thinking_disabled_in_request": true,
+      "total_seconds": 0.113699
+    }
+  ],
+  "model": "Qwen/Qwen3.8-27B",
+  "profile": "qwen",
+  "passed": true
+}

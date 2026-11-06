@@ -1,0 +1,23 @@
+{
+  "kind": "real Qwen with actual controller/runtime; text delivery only; no ASR/TTS/audio",
+  "model": "Qwen/Qwen3.8-27B",
+  "checks": [
+    {
+      "name": "first_turn",
+      "decision": "turn",
+      "response": "ACK",
+      "passed": true,
+      "total_seconds": 0.214655
+    },
+    {
+      "name": "context_retention",
+      "decision": "turn",
+      "response": "amber falcon",
+      "passed": true,
+      "total_seconds": 0.138173
+    }
+  ],
+  "passed": true,
+  "user_history_entries": 2,
+  "assistant_history_entries": 2
+}

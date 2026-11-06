@@ -1,0 +1,9 @@
+{
+  "kind": "Pi authentication/protocol diagnostic",
+  "provider": "openai-codex",
+  "model": "gpt-6.1-sol",
+  "selected_provider_auth_entry_exists": false,
+  "explicit_worker_key_forwarding": false,
+  "prompt_accepted": false,
+  "sanitized_protocol_error": "No API key found for openai-codex."
+}
