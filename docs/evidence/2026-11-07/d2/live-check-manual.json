@@ -1,0 +1,43 @@
+{
+  "kind": "opted-in live microphone/headphone test; real models; no saved audio or transcript",
+  "profile": "course diagnostic; ownership unqualified",
+  "job_actions_disabled": true,
+  "listen_window_seconds": 30,
+  "single_turn_diagnostic": true,
+  "manual_start": true,
+  "question_numbers_recognized": true,
+  "correct_spoken_answer": true,
+  "completed_seconds": 27.217787708999822,
+  "passed": true,
+  "input_frames": 387200,
+  "peak_input_pcm16": 30801,
+  "output_bytes": 98880,
+  "first_output_seconds": 25.081963834003545,
+  "measurements": {
+    "asr": [
+      {
+        "input_seconds": 0.8,
+        "seconds": 2.897937665999052
+      },
+      {
+        "input_seconds": 2.0,
+        "seconds": 2.866810458988766
+      }
+    ],
+    "tts": [
+      {
+        "first_pcm_seconds": 0.3676420000119833,
+        "total_seconds": 2.485087332999683
+      }
+    ],
+    "foreground": [
+      {
+        "first_text_seconds": 0.4179982920031762,
+        "total_seconds": 3.002842709000106
+      }
+    ]
+  },
+  "microphone_audio_saved": false,
+  "operator_report": "Clear, complete answer of 42; latency too high",
+  "operator_heard_clear_complete": true
+}

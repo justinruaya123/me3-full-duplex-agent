@@ -1,0 +1,7 @@
+{
+  "kind": "actual configured Kokoro through current production adapter",
+  "returncode": 0,
+  "stdout": "TTS begin\nCreating new KokoroPipeline for language: a\nTTS chunk 124800 seconds 11.133198375013308\nTTS done 11.143846292005037\n",
+  "stderr": "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.\n  warnings.warn(\n",
+  "seconds": 11.596868291991996
+}

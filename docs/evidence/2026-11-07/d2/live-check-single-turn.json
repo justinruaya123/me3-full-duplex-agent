@@ -1,0 +1,19 @@
+{
+  "kind": "opted-in live microphone/headphone test; real models; no saved audio or transcript",
+  "profile": "course diagnostic; ownership unqualified",
+  "job_actions_disabled": true,
+  "listen_window_seconds": 30,
+  "single_turn_diagnostic": true,
+  "passed": false,
+  "error_type": "TimeoutError",
+  "input_frames": 480000,
+  "output_bytes": 0,
+  "first_output_seconds": null,
+  "measurements": {
+    "asr": [],
+    "tts": [],
+    "foreground": []
+  },
+  "microphone_audio_saved": false,
+  "operator_report": "Missed the new window"
+}

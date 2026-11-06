@@ -1,0 +1,7 @@
+{
+  "kind": "actual MLX GPU smoke",
+  "returncode": 0,
+  "stdout": "import mlx\ndevice Device(gpu, 0)\neval\nresult 523776 seconds 0.4262600000074599\n",
+  "stderr": "",
+  "seconds": 0.5360264999908395
+}

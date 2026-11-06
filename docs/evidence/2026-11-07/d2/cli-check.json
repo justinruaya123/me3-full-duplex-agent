@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "kind": "real model synthetic speech roundtrip, not acoustic",
+  "asr_model": "mlx-community/whisper-large-v3-turbo",
+  "tts_model": "mlx-community/Kokoro-82M-bf16",
+  "voice": "af_heart",
+  "text": "Hello. The voice system is ready.",
+  "transcript": "Hello, the voice system is ready.",
+  "sample_rate": 24000,
+  "audio_seconds": 2.6,
+  "first_pcm_seconds": 7.916615500012995,
+  "asr_seconds": 5.207453082999564,
+  "total_seconds": 13.13374129201111,
+  "sample_path": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/d2/voice-check.wav"
+}

@@ -1,0 +1,8 @@
+test_nonzero_exit_or_malformed_report_cannot_claim_success (test_speech_check_v1.BoundedCheckTests.test_nonzero_exit_or_malformed_report_cannot_claim_success) ... ok
+test_success_requires_the_exact_selected_models (test_speech_check_v1.BoundedCheckTests.test_success_requires_the_exact_selected_models) ... ok
+test_timeout_reaps_worker_even_after_it_printed_success (test_speech_check_v1.BoundedCheckTests.test_timeout_reaps_worker_even_after_it_printed_success) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.306s
+
+OK

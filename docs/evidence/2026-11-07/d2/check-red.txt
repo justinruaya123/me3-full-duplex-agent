@@ -1,0 +1,32 @@
+test_nonzero_exit_or_malformed_report_cannot_claim_success (test_speech_check_v1.BoundedCheckTests.test_nonzero_exit_or_malformed_report_cannot_claim_success) ... ERROR
+test_success_requires_the_exact_selected_models (test_speech_check_v1.BoundedCheckTests.test_success_requires_the_exact_selected_models) ... ERROR
+test_timeout_reaps_worker_even_after_it_printed_success (test_speech_check_v1.BoundedCheckTests.test_timeout_reaps_worker_even_after_it_printed_success) ... ERROR
+
+======================================================================
+ERROR: test_nonzero_exit_or_malformed_report_cannot_claim_success (test_speech_check_v1.BoundedCheckTests.test_nonzero_exit_or_malformed_report_cannot_claim_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_check_v1.py", line 13, in test_nonzero_exit_or_malformed_report_cannot_claim_success
+    from me3.speech_check import run_bounded_check
+ModuleNotFoundError: No module named 'me3.speech_check'
+
+======================================================================
+ERROR: test_success_requires_the_exact_selected_models (test_speech_check_v1.BoundedCheckTests.test_success_requires_the_exact_selected_models)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_check_v1.py", line 40, in test_success_requires_the_exact_selected_models
+    from me3.speech_check import run_bounded_check
+ModuleNotFoundError: No module named 'me3.speech_check'
+
+======================================================================
+ERROR: test_timeout_reaps_worker_even_after_it_printed_success (test_speech_check_v1.BoundedCheckTests.test_timeout_reaps_worker_even_after_it_printed_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_check_v1.py", line 26, in test_timeout_reaps_worker_even_after_it_printed_success
+    from me3.speech_check import run_bounded_check
+ModuleNotFoundError: No module named 'me3.speech_check'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (errors=3)

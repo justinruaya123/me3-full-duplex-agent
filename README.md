@@ -47,6 +47,7 @@ precise remaining acceptance gates.
 
 ```sh
 # Terminal 1: separate authenticated MLX Whisper/Kokoro service.
+./scripts/me3.sh speech --check --output .local/voice-check.wav
 ./scripts/me3.sh speech
 # Terminal 2: local runtime and trusted text console.
 ./scripts/me3.sh console

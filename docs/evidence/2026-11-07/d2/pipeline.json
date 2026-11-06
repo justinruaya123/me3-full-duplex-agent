@@ -1,0 +1,22 @@
+{
+  "kind": "real models and real Pipecat/VAD/SmartTurn; generated audio transport, not acoustic",
+  "profile": "course",
+  "input_text": "What is seventeen plus twenty five?",
+  "fixture_inference": false,
+  "passed": true,
+  "history": [
+    {
+      "role": "user",
+      "content": "What is 17 plus 25?"
+    },
+    {
+      "role": "assistant",
+      "content": "That's 42."
+    }
+  ],
+  "first_output_seconds": 30.419515540997963,
+  "completed_seconds": 32.355660040993826,
+  "output_bytes": 87600,
+  "output_audio_seconds": 1.825,
+  "input_frames_while_output_active": 91
+}

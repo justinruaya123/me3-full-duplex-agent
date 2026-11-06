@@ -1,0 +1,12 @@
+{
+  "speech_service_running": true,
+  "authenticated_http_status": 200,
+  "unauthenticated_http_status": 401,
+  "live_single_turn_passed": true,
+  "normal_voice_blockers": [
+    "wake phrase",
+    "speaker/overlap/addressee verification service"
+  ],
+  "operator_confirmed_clear_complete": true,
+  "latency_accepted": false
+}

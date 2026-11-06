@@ -1,5 +1,75 @@
 # Implementation and qualification status
 
+## November 7: speech models and service verified
+
+Whisper `mlx-community/whisper-large-v3-turbo` and Kokoro
+`mlx-community/Kokoro-82M-bf16` / `af_heart` pass actual native and authenticated
+HTTP inference. The earlier November 4 stalls did not reproduce in these bounded
+GPU runs; those failed receipts remain historical failures. No model substitution
+or provider/billing change was used.
+
+Changes in `2fdc48e` and `047c4ec`:
+
+- Startup generates and recognizes a known phrase before binding the HTTP
+  listener. Failed warm-up closes resources and cannot advertise readiness.
+- Empty or malformed first TTS audio is rejected before HTTP success. RED
+  regressions reproduced empty audio returning HTTP 200 and malformed framing.
+- `./scripts/me3.sh speech --check --output .local/voice-check.wav` performs a
+  real synthetic TTS-to-ASR check and saves an optional 24kHz WAV sample.
+- A parent owns the native speech process. Startup/self-check deadlines are
+  90 seconds with bounded process-group cleanup; shutdown kills/reaps stuck
+  native threads. Self-check output is capped at 64KiB while it is read.
+  Review reproduced and regressions now protect blocked native work, descendants
+  holding stdout and excessive output. Independent review found no remaining
+  Important/Critical issues in the fix pass.
+- A private local speech token and matching ASR/TTS client keys were configured
+  in ignored mode-0600 `.env`; foreground and Pi settings were preserved.
+
+| Verification track | Observed result |
+| --- | --- |
+| Actual native GPU and exact models | Final cold self-check recognized its 2.6s generated phrase; 13.134s total |
+| Actual authenticated HTTP speech | 6/6 checks passed, including unauthorized/model rejection, word timestamps and concurrent ASR/TTS |
+| Warm HTTP samples | TTS first PCM 0.290s / 0.501s; ASR 2.721s / 2.786s |
+| Concurrent HTTP sample | Both completed; TTS first PCM 2.003s, ASR 2.934s |
+| Actual Pipecat/VAD/SmartTurn/Whisper/Qwen/Kokoro | Generated question produced audio for “That's 42.”; 91 input frames continued during output |
+| Live 12s window | No speech detected; operator reported hearing the cue but missing the window; not passed |
+| Live 30s open-mic retry | Numbers recognized and audio sent to headset, but expected completed answer not confirmed; operator heard another/clipped reply; not passed |
+| Live single-turn retry | 480,000 frames in the 30s window but no detected speech/model response; operator reported missing that window; not passed |
+| Manual-start single-turn live test | **Passed**: question numbers recognized, complete 42 reply sent; operator confirmed a clear/complete answer and reported excessive latency |
+| Fresh installed full suite | **131 passed, 0 failures, 0 skips**, 5.601s |
+| Guarded service shutdown | Parent exited successfully; listener closed |
+
+A single-turn microphone diagnostic isolates model/device function from
+subsequent interruption events. A manual Start dialog solved the missed timing
+windows; it opens the microphone only after an explicit Start click. That run
+passed automatic checks and the operator confirmed clear/complete playback.
+Its two ASR calls took 2.898s and 2.867s; VAD stop to speech submission was
+5.083s, followed by 0.368s to first TTS PCM. The reported 25.082s from listening
+window opening to first output includes the operator's wait before speaking;
+it is not a model-response latency. The latency remains unacceptable to the
+operator and is the next active performance issue.
+Live diagnostics use
+explicit course preactivation with job actions disabled; they do not qualify
+ownership or natural duplex behavior. No microphone recordings or user
+transcripts are retained. The installed multipart spool threshold is 1MiB,
+above the enforced 600,000-byte request limit; uploads remain in memory.
+
+The generated-input pipeline took 32.356s in one run, including about 22.477s
+between committed transcript and speech submission. Separate real Qwen requests
+took 26.182s and 0.233s to first text. The cause of that variable provider wait
+is unverified. Slow samples are retained; none establishes the proposed 1s
+acoustic response target. No acoustic p95 or scored benchmark is claimed.
+
+Reproduction, pins, test logs and a synthetic voice sample are in
+[November 7 D2 evidence](evidence/2026-11-07/d2/README.md).
+D2's model/service and controlled single-turn headphone portions pass. Natural
+duplex interaction and performance remain unqualified. The operator requested
+the current upstream course benchmark to quantify the remaining gaps.
+Normal voice mode still requires D3 wake and real speaker/overlap/addressee
+verification. Cached backchannels, uncertainty handling, word-level playback
+accounting, long dictation, real website/browser checks, dataset scoring,
+acoustic targets and Raspberry Pi qualification remain open.
+
 ## November 6: D1 model access and runtime lifetime gate passed
 
 After the operator completed Pi sign-in, real inference succeeded with both
@@ -178,7 +248,7 @@ speakerphone test was run. Mac software/device smoke cannot qualify the Pi4.
 The standalone course rubric and second Markdown attachment were not available;
 the attached November 4 spec and the user's six stage names were used.
 
-## Next unpassed acceptance gate
+## November 4 unpassed acceptance gates (historical; see updates above)
 
 **Stable real Mac speech inference and pipeline qualification.** Resolve the
 recorded Kokoro/Whisper stalls, choose the speech service token in `.env`, and

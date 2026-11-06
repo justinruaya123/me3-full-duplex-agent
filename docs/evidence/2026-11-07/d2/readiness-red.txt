@@ -1,0 +1,138 @@
+test_readiness_accepts_recognized_phrase_with_asr_punctuation (test_speech_server_v1.SpeechCheckTests.test_readiness_accepts_recognized_phrase_with_asr_punctuation) ... ERROR
+test_readiness_rejects_silence_truncation_and_wrong_transcript (test_speech_server_v1.SpeechCheckTests.test_readiness_rejects_silence_truncation_and_wrong_transcript) ... ERROR
+test_auth_exact_models_and_raw_pcm_contract (test_speech_server_v1.SpeechServerTests.test_auth_exact_models_and_raw_pcm_contract) ... Executing <Task pending name='Task-2' coro=<SpeechServerTests.test_auth_exact_models_and_raw_pcm_contract() running at /Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py:74> cb=[_run_until_complete_cb() at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py:181] created at /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py:100> took 0.127 seconds
+ok
+test_cancelled_native_inference_remains_busy_until_thread_finishes (test_speech_server_v1.SpeechServerTests.test_cancelled_native_inference_remains_busy_until_thread_finishes) ... ok
+test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) ... Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/web_middlewares.py", line 117, in impl
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 125, in authenticate
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py", line 183, in synthesize
+    first = await anext(
+            ^^^^^^^^^^^^
+        stream
+        ^^^^^^
+    )  # Fail before HTTP 200 on model startup errors.
+    ^
+StopAsyncIteration
+
+  test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) (chunks=[]) ... FAIL
+  test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) (chunks=[b'']) ... FAIL
+  test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) (chunks=[b'\x01']) ... ERROR
+test_failed_warmup_prevents_listening_and_closes_models (test_speech_server_v1.SpeechServerTests.test_failed_warmup_prevents_listening_and_closes_models) ... FAIL
+test_partial_upload_reserves_single_role_capacity (test_speech_server_v1.SpeechServerTests.test_partial_upload_reserves_single_role_capacity) ... ok
+
+======================================================================
+ERROR: test_readiness_accepts_recognized_phrase_with_asr_punctuation (test_speech_server_v1.SpeechCheckTests.test_readiness_accepts_recognized_phrase_with_asr_punctuation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 232, in test_readiness_accepts_recognized_phrase_with_asr_punctuation
+    from me3.speech_server import validate_sample
+ImportError: cannot import name 'validate_sample' from 'me3.speech_server' (/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py)
+
+======================================================================
+ERROR: test_readiness_rejects_silence_truncation_and_wrong_transcript (test_speech_server_v1.SpeechCheckTests.test_readiness_rejects_silence_truncation_and_wrong_transcript)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 218, in test_readiness_rejects_silence_truncation_and_wrong_transcript
+    from me3.speech_server import CHECK_TEXT, validate_sample
+ImportError: cannot import name 'CHECK_TEXT' from 'me3.speech_server' (/Users/jus/Documents/Grad/AI231/ME3/me3/speech_server.py)
+
+======================================================================
+ERROR: test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) (chunks=[b'\x01'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/client_proto.py", line 359, in data_received
+    messages, upgraded, tail = self._parser.feed_data(data)
+                               ~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "aiohttp/_http_parser.pyx", line 723, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadHttpMessage: 400, message:
+  Invalid character in chunk size:
+
+    b'HTTP/1.1 400 Bad Request'
+      ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/client_reqrep.py", line 745, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/streams.py", line 716, in read
+    await self._waiter
+aiohttp.http_exceptions.HttpProcessingError: 400, message:
+  Invalid character in chunk size:
+
+    b'HTTP/1.1 400 Bad Request'
+      ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 48, in test_empty_or_invalid_first_pcm_cannot_return_success
+    response = await client.post(
+               ^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/test_utils.py", line 347, in _request
+    resp = await self._session.request(method, self.make_url(path), **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/client.py", line 878, in _connect_and_send_request
+    await resp.start(conn)
+  File "/Users/jus/Documents/Grad/AI231/ME3/.venv313/lib/python3.13/site-packages/aiohttp/client_reqrep.py", line 747, in start
+    raise ClientResponseError(
+    ...<5 lines>...
+    ) from exc
+aiohttp.client_exceptions.ClientResponseError: 400, message="Invalid character in chunk size:\n\n  b'HTTP/1.1 400 Bad Request'\n    ^", url='http://127.0.0.1:59287/v1/audio/speech'
+
+======================================================================
+FAIL: test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) (chunks=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 56, in test_empty_or_invalid_first_pcm_cannot_return_success
+    self.assertEqual(response.status, 502)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 500 != 502
+
+======================================================================
+FAIL: test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) (chunks=[b''])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 56, in test_empty_or_invalid_first_pcm_cannot_return_success
+    self.assertEqual(response.status, 502)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 200 != 502
+
+======================================================================
+FAIL: test_failed_warmup_prevents_listening_and_closes_models (test_speech_server_v1.SpeechServerTests.test_failed_warmup_prevents_listening_and_closes_models)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_server_v1.py", line 26, in test_failed_warmup_prevents_listening_and_closes_models
+    with self.assertRaisesRegex(RuntimeError, "native model"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: RuntimeError not raised
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.226s
+
+FAILED (failures=3, errors=3)

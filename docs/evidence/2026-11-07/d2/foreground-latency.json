@@ -1,0 +1,17 @@
+{
+  "kind": "real Qwen text latency diagnostics; not audio timing",
+  "trials": [
+    {
+      "name": "plain",
+      "first_text_seconds": 26.182083207997493,
+      "total_seconds": 26.33248216699576,
+      "text": "17 plus 25 equals 42."
+    },
+    {
+      "name": "controller_prompt",
+      "first_text_seconds": 0.23277783300727606,
+      "total_seconds": 0.3579444170027273,
+      "text": "It's 42."
+    }
+  ]
+}

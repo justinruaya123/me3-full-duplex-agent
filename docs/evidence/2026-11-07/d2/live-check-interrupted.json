@@ -1,0 +1,59 @@
+{
+  "kind": "opted-in live microphone/headphone test; real models; no saved audio or transcript",
+  "profile": "course diagnostic; ownership unqualified",
+  "job_actions_disabled": true,
+  "listen_window_seconds": 30,
+  "question_numbers_recognized": true,
+  "correct_spoken_answer": false,
+  "completed_seconds": 35.29609362498741,
+  "passed": false,
+  "input_frames": 477760,
+  "output_bytes": 169920,
+  "first_output_seconds": 9.989342666987795,
+  "measurements": {
+    "asr": [
+      {
+        "input_seconds": 0.8,
+        "seconds": 3.1737443750025705
+      },
+      {
+        "input_seconds": 2.12,
+        "seconds": 2.953122750011971
+      },
+      {
+        "input_seconds": 0.68,
+        "seconds": 3.0432349999900907
+      },
+      {
+        "input_seconds": 0.72,
+        "seconds": 3.010678624996217
+      },
+      {
+        "input_seconds": 0.74,
+        "seconds": 3.0249281249998603
+      },
+      {
+        "input_seconds": 0.8,
+        "seconds": 2.9247791670059087
+      },
+      {
+        "input_seconds": 0.98,
+        "seconds": 2.996556915997644
+      }
+    ],
+    "tts": [
+      {
+        "first_pcm_seconds": 0.244443332994706,
+        "total_seconds": 2.432037415986997
+      }
+    ],
+    "foreground": [
+      {
+        "first_text_seconds": 1.2970834170118906,
+        "total_seconds": 1.344431417004671
+      }
+    ]
+  },
+  "microphone_audio_saved": false,
+  "operator_report": "Heard another or clipped reply"
+}

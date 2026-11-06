@@ -1,0 +1,21 @@
+{
+  "python": "3.12.13",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "packages": {
+    "mlx": "0.32.4",
+    "mlx-whisper": "0.4.3",
+    "mlx-audio": "0.6.4",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "aiohttp": "3.14.5",
+    "misaki": "0.9.4"
+  },
+  "models": {
+    "mlx-community/whisper-large-v3-turbo": {
+      "cached_main_revision": "a4aaeec0636e6fef84abdcbe3544cb2bf7e9f6fb"
+    },
+    "mlx-community/Kokoro-82M-bf16": {
+      "cached_main_revision": "a71e4d38b236d968966a2002c4c895dbd12b1c3c"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+test_readiness_accepts_recognized_phrase_with_asr_punctuation (test_speech_server_v1.SpeechCheckTests.test_readiness_accepts_recognized_phrase_with_asr_punctuation) ... ok
+test_readiness_rejects_silence_truncation_and_wrong_transcript (test_speech_server_v1.SpeechCheckTests.test_readiness_rejects_silence_truncation_and_wrong_transcript) ... ok
+test_auth_exact_models_and_raw_pcm_contract (test_speech_server_v1.SpeechServerTests.test_auth_exact_models_and_raw_pcm_contract) ... ok
+test_cancelled_native_inference_remains_busy_until_thread_finishes (test_speech_server_v1.SpeechServerTests.test_cancelled_native_inference_remains_busy_until_thread_finishes) ... ok
+test_empty_or_invalid_first_pcm_cannot_return_success (test_speech_server_v1.SpeechServerTests.test_empty_or_invalid_first_pcm_cannot_return_success) ... ok
+test_failed_warmup_prevents_listening_and_closes_models (test_speech_server_v1.SpeechServerTests.test_failed_warmup_prevents_listening_and_closes_models) ... ok
+test_partial_upload_reserves_single_role_capacity (test_speech_server_v1.SpeechServerTests.test_partial_upload_reserves_single_role_capacity) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.171s
+
+OK

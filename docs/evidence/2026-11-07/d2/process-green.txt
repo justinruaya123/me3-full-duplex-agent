@@ -1,0 +1,12 @@
+test_nonzero_exit_or_malformed_report_cannot_claim_success (test_speech_check_v1.BoundedCheckTests.test_nonzero_exit_or_malformed_report_cannot_claim_success) ... ok
+test_oversized_output_is_stopped_before_the_time_deadline (test_speech_check_v1.BoundedCheckTests.test_oversized_output_is_stopped_before_the_time_deadline) ... ok
+test_success_requires_the_exact_selected_models (test_speech_check_v1.BoundedCheckTests.test_success_requires_the_exact_selected_models) ... ok
+test_timeout_cleans_descendants_that_keep_stdout_open (test_speech_check_v1.BoundedCheckTests.test_timeout_cleans_descendants_that_keep_stdout_open) ... ok
+test_timeout_reaps_worker_even_after_it_printed_success (test_speech_check_v1.BoundedCheckTests.test_timeout_reaps_worker_even_after_it_printed_success) ... ok
+test_service_shutdown_terminates_inflight_native_work (test_speech_check_v1.ServiceProcessTests.test_service_shutdown_terminates_inflight_native_work) ... ok
+test_startup_timeout_terminates_a_blocked_native_thread (test_speech_check_v1.ServiceProcessTests.test_startup_timeout_terminates_a_blocked_native_thread) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.174s
+
+OK

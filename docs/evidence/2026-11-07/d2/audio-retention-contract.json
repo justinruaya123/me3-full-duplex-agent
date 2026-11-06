@@ -1,0 +1,9 @@
+{
+  "kind": "installed multipart memory/retention contract inspection, not a live inference result",
+  "aiohttp_file_spool_threshold_bytes": 1048576,
+  "speech_request_limit_bytes": 600000,
+  "valid_asr_wav_max_bytes": 512044,
+  "uploads_below_memory_spool_threshold": true,
+  "request_cleanup_closes_uploads": true,
+  "microphone_recordings_retained": false
+}

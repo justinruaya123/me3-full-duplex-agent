@@ -1,0 +1,7 @@
+{
+  "kind": "actual production readiness check; synthetic audio",
+  "returncode": 0,
+  "stdout": "Creating new KokoroPipeline for language: a\n{\"trial\": 0, \"passed\": true, \"kind\": \"real model synthetic speech roundtrip, not acoustic\", \"asr_model\": \"mlx-community/whisper-large-v3-turbo\", \"tts_model\": \"mlx-community/Kokoro-82M-bf16\", \"voice\": \"af_heart\", \"text\": \"Hello. The voice system is ready.\", \"transcript\": \"Hello, the voice system is ready.\", \"sample_rate\": 24000, \"audio_seconds\": 2.6, \"first_pcm_seconds\": 5.461627708005835, \"asr_seconds\": 5.269764249998843, \"total_seconds\": 10.743029874996864}\n{\"trial\": 1, \"passed\": true, \"kind\": \"real model synthetic speech roundtrip, not acoustic\", \"asr_model\": \"mlx-community/whisper-large-v3-turbo\", \"tts_model\": \"mlx-community/Kokoro-82M-bf16\", \"voice\": \"af_heart\", \"text\": \"Hello. The voice system is ready.\", \"transcript\": \"Hello, the voice system is ready.\", \"sample_rate\": 24000, \"audio_seconds\": 2.6, \"first_pcm_seconds\": 0.549850499999593, \"asr_seconds\": 2.7961217500123894, \"total_seconds\": 3.3937380829884205}\n",
+  "stderr": "/Users/jus/Documents/Grad/AI231/ME3/.speech-venv312/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.\n  warnings.warn(\n",
+  "seconds": 15.695177375004278
+}

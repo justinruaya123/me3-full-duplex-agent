@@ -1,0 +1,7 @@
+{
+  "kind": "actual configured Whisper through current production adapter, Kokoro synthetic audio input",
+  "returncode": 0,
+  "stdout": "ASR begin 0\nDetected language: English\nASR result 0 ' Hello, the voice system is ready.' seconds 8.106020874998649\nASR begin 1\nDetected language: English\nASR result 1 ' Hello, the voice system is ready.' seconds 2.7891920000110986\n",
+  "stderr": "\n  0%|          | 0/260 [00:00<?, ?frames/s]\n100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 260/260 [00:03<00:00, 77.01frames/s]\n100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 260/260 [00:03<00:00, 77.01frames/s]\n\n  0%|          | 0/260 [00:00<?, ?frames/s]\n100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 260/260 [00:01<00:00, 138.84frames/s]\n100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 260/260 [00:01<00:00, 138.82frames/s]\n",
+  "seconds": 12.450982833994203
+}

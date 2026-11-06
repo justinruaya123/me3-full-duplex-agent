@@ -60,11 +60,35 @@ not qualify speech inference or the real website workflow.
 
 ## Separate speech service
 
-Set the exact ASR/TTS IDs and your token in `.env`, then:
+The November 7 checkout has the exact ASR/TTS IDs and matching private local
+speech keys configured in ignored `.env`. On a fresh installation choose one
+local token and set `ME3_SPEECH_SERVER_TOKEN`, `ME3_ASR_API_KEY` and
+`ME3_TTS_API_KEY` to that same value. These authenticate the local service;
+they are separate from foreground Qwen and Pi provider authentication.
+
+First run the bounded real-model check:
+
+```sh
+./scripts/me3.sh speech --check --output .local/voice-check.wav
+```
+
+It generates “Hello. The voice system is ready.” with the exact Kokoro model
+and voice, resamples the generated audio for Whisper, and requires the known
+transcript before reporting success. The optional output is synthetic mono
+PCM16 WAV at 24kHz. No microphone is opened. The check has a 90-second deadline,
+kills/reaps its process group on failure and caps its report at 64KiB.
+
+Then start the persistent service:
 
 ```sh
 ./scripts/me3.sh speech --host 127.0.0.1 --port 8002
 ```
+
+The service warms and checks both models before listening. Its parent process
+enforces a startup deadline and terminates the native model process on stop;
+Ctrl+C or SIGTERM also cleans up an in-flight native inference. Wait for the
+listening banner before connecting a voice client. A successful model catalog
+alone is not a scored speech/ownership/acoustic qualification.
 
 The service exposes authenticated `GET /v1/models`,
 `POST /v1/audio/transcriptions` (multipart WAV PCM16/16kHz mono, <=16s), and

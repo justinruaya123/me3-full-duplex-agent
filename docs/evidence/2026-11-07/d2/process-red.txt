@@ -1,0 +1,51 @@
+test_nonzero_exit_or_malformed_report_cannot_claim_success (test_speech_check_v1.BoundedCheckTests.test_nonzero_exit_or_malformed_report_cannot_claim_success) ... ok
+test_oversized_output_is_stopped_before_the_time_deadline (test_speech_check_v1.BoundedCheckTests.test_oversized_output_is_stopped_before_the_time_deadline) ... FAIL
+test_success_requires_the_exact_selected_models (test_speech_check_v1.BoundedCheckTests.test_success_requires_the_exact_selected_models) ... ok
+test_timeout_cleans_descendants_that_keep_stdout_open (test_speech_check_v1.BoundedCheckTests.test_timeout_cleans_descendants_that_keep_stdout_open) ... FAIL
+test_timeout_reaps_worker_even_after_it_printed_success (test_speech_check_v1.BoundedCheckTests.test_timeout_reaps_worker_even_after_it_printed_success) ... ok
+test_service_shutdown_terminates_inflight_native_work (test_speech_check_v1.ServiceProcessTests.test_service_shutdown_terminates_inflight_native_work) ... FAIL
+test_startup_timeout_terminates_a_blocked_native_thread (test_speech_check_v1.ServiceProcessTests.test_startup_timeout_terminates_a_blocked_native_thread) ... FAIL
+
+======================================================================
+FAIL: test_oversized_output_is_stopped_before_the_time_deadline (test_speech_check_v1.BoundedCheckTests.test_oversized_output_is_stopped_before_the_time_deadline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_check_v1.py", line 85, in test_oversized_output_is_stopped_before_the_time_deadline
+    self.assertEqual(result["error_type"], "OutputLimitError")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'TimeoutError' != 'OutputLimitError'
+- TimeoutError
++ OutputLimitError
+
+
+======================================================================
+FAIL: test_timeout_cleans_descendants_that_keep_stdout_open (test_speech_check_v1.BoundedCheckTests.test_timeout_cleans_descendants_that_keep_stdout_open)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_check_v1.py", line 73, in test_timeout_cleans_descendants_that_keep_stdout_open
+    self.assertLess(time.monotonic() - started, 0.8)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1.2633094170014374 not less than 0.8
+
+======================================================================
+FAIL: test_service_shutdown_terminates_inflight_native_work (test_speech_check_v1.ServiceProcessTests.test_service_shutdown_terminates_inflight_native_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_check_v1.py", line 135, in test_service_shutdown_terminates_inflight_native_work
+    self.assertTrue(pid_file.is_file())
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_startup_timeout_terminates_a_blocked_native_thread (test_speech_check_v1.ServiceProcessTests.test_startup_timeout_terminates_a_blocked_native_thread)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_speech_check_v1.py", line 107, in test_startup_timeout_terminates_a_blocked_native_thread
+    self.assertEqual(result.returncode, 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.178s
+
+FAILED (failures=4)
