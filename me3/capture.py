@@ -52,11 +52,13 @@ class RollingCapture:
         self._lock = asyncio.Lock()
         self._pending_snapshots = 0
         self._waiting_snapshots: dict[asyncio.Task, tuple[int, bool]] = {}
+        self._recognized: tuple[int, bytes, str] | None = None
 
     def begin(self) -> None:
         if self.closed:
             raise RuntimeError("Capture is closed")
         self.generation += 1
+        self._recognized = None
         if self.rolling is None or self.committed or self.invalid:
             self.turn += 1
             self.audio = bytearray(self.preroll)
@@ -79,6 +81,7 @@ class RollingCapture:
             self.audio.clear()
             self.invalid = True
             self.generation += 1
+            self._recognized = None
             raise BufferError("ASR turn exceeds 16s; fragment discarded")
         self.audio.extend(pcm)
         if len(self.audio) - self.last_snapshot >= self.interval and (
@@ -108,6 +111,7 @@ class RollingCapture:
         if self._pending_snapshots >= 2:
             self.invalid = True
             self.generation += 1
+            self._recognized = None
             raise BufferError(
                 "ASR snapshot queue full; pending authorization discarded"
             )
@@ -135,15 +139,18 @@ class RollingCapture:
             async with asyncio.timeout(30):
                 if final:
                     text, complete = await asyncio.gather(
-                        self.recognize(pcm),
+                        self._recognized_text(generation, pcm),
                         self.analyze(pcm),
                     )
                 else:
-                    text, complete = await self.recognize(pcm), False
+                    text, complete = (
+                        await self._recognized_text(generation, pcm), False
+                    )
             if generation != self.generation or self.closed:
                 return
             if not isinstance(text, str) or not text.strip():
                 return
+            self._recognized = (generation, pcm, text)
             gap = re.search(
                 r"\[(?:inaudible|unknown|unclear)\]|<unk>", text, re.I
             )
@@ -157,6 +164,12 @@ class RollingCapture:
             self.committed = committed
             await self.emit(event, pcm)
 
+    async def _recognized_text(self, generation: int, pcm: bytes) -> str:
+        previous = self._recognized
+        if previous is not None and previous[:2] == (generation, pcm):
+            return previous[2]
+        return await self.recognize(pcm)
+
     async def finish(self) -> None:
         self.active = False
         await self._snapshot(True)
@@ -166,6 +179,7 @@ class RollingCapture:
         self.generation += 1
         self.audio.clear()
         self.preroll = b""
+        self._recognized = None
         if self._partial:
             self._partial.cancel()
             await asyncio.gather(self._partial, return_exceptions=True)

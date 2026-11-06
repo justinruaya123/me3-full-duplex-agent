@@ -28,7 +28,7 @@ class _RequestEncoder:
 
 @contextmanager
 def request_encoder(model, *, key):
-    """Release audio/features and restore the model after success or failure."""
+    """Release request audio and restore the encoder on every exit."""
     original = model.encoder
     if isinstance(original, _RequestEncoder):
         raise RuntimeError("Encoder request is already active")

@@ -5,6 +5,78 @@ import unittest
 
 
 class CaptureTests(unittest.IsolatedAsyncioTestCase):
+    async def test_identical_final_reuses_text_only_after_turn_approval(self):
+        from me3.capture import RollingCapture
+
+        analyzing, approve = asyncio.Event(), asyncio.Event()
+        calls, events = [], []
+
+        async def recognize(pcm):
+            calls.append(pcm)
+            return "background task use the complete request"
+
+        async def analyze(pcm):
+            analyzing.set()
+            await approve.wait()
+            return True
+
+        async def emit(event, pcm):
+            events.append(event)
+
+        capture = RollingCapture("s", recognize, analyze, emit)
+        final = None
+        try:
+            capture.begin()
+            capture.feed(bytes(32000))
+            await capture._partial
+            self.assertFalse(any(event.committed for event in events))
+            final = asyncio.create_task(capture.finish())
+            await analyzing.wait()
+            self.assertFalse(any(event.committed for event in events))
+            approve.set()
+            await final
+            self.assertEqual(len(calls), 1)
+            self.assertEqual(sum(event.committed for event in events), 1)
+        finally:
+            approve.set()
+            if final:
+                await asyncio.gather(final, return_exceptions=True)
+            await capture.close()
+
+    async def test_changed_audio_and_new_generation_require_fresh_recognition(
+        self,
+    ):
+        from me3.capture import RollingCapture
+
+        calls, events = [], []
+
+        async def recognize(pcm):
+            calls.append(pcm)
+            return "recognized version " + str(len(calls))
+
+        async def analyze(pcm):
+            return False
+
+        async def emit(event, pcm):
+            events.append(event)
+
+        capture = RollingCapture("s", recognize, analyze, emit)
+        first, extra = bytes(32000), b"\x01\x00" * 320
+        try:
+            capture.begin()
+            capture.feed(first)
+            await capture._partial
+            capture.feed(extra)
+            await capture.finish()
+            # A resumed VAD generation must not reuse old text.
+            capture.begin()
+            await capture.finish()
+            self.assertEqual(calls, [first, first + extra, first + extra])
+            self.assertEqual(events[-1].text, "recognized version 3")
+            self.assertFalse(any(event.committed for event in events))
+        finally:
+            await capture.close()
+
     async def test_latest_final_replaces_waiting_partial_after_speech_resumes(
         self,
     ):
@@ -33,11 +105,13 @@ class CaptureTests(unittest.IsolatedAsyncioTestCase):
         capture = RollingCapture("s", recognize, analyze, emit)
         finals = []
         first = b"\x01\x00" * 16000
+        extra = b"\x03\x00" * 320
         correction = b"\x02\x00" * 16000
         try:
             capture.begin()
             capture.feed(first)
             await capture._partial
+            capture.feed(extra)  # The first final needs a newer snapshot.
             finals.append(asyncio.create_task(capture.finish()))
             await started.wait()  # Final ASR now owns the native slot.
             capture.begin()
@@ -51,10 +125,12 @@ class CaptureTests(unittest.IsolatedAsyncioTestCase):
             )
             self.assertIsNone(results[-1])
             self.assertFalse(cancelled)
-            self.assertEqual(calls, [first, first, first + correction])
+            self.assertEqual(
+                calls, [first, first + extra, first + extra + correction]
+            )
             committed = [(e, pcm) for e, pcm in events if e.committed]
             self.assertEqual(len(committed), 1)
-            self.assertEqual(committed[0][1], first + correction)
+            self.assertEqual(committed[0][1], first + extra + correction)
         finally:
             release.set()
             await asyncio.gather(*finals, return_exceptions=True)
