@@ -74,6 +74,7 @@ async def build(
     on_stage=None,
 ):
     from pipecat.audio.vad.silero import SileroVADAnalyzer
+    from pipecat.audio.vad.vad_analyzer import VADParams
     from pipecat.frames.frames import (
         ErrorFrame,
         InputAudioRawFrame,
@@ -425,11 +426,22 @@ async def build(
             await self.push_frame(frame, direction)
 
     bridge = Bridge()
+    # CPU development: 393 ms onset p95 over 135 synthetic speech variants.
+    # Speech-noise and physical echo remain unqualified. This accelerates
+    # provisional pause only; transcript/owner permission stays separate.
+    vad = SileroVADAnalyzer(
+        params=VADParams(
+            confidence=0.7,
+            start_secs=0.096,
+            stop_secs=0.2,
+            min_volume=0.5,
+        )
+    )
     pipeline = Pipeline(
         [
             transport.input(),
             EchoCleaner(),
-            VADProcessor(vad_analyzer=SileroVADAnalyzer()),
+            VADProcessor(vad_analyzer=vad),
             bridge,
             OutputFence(),
             transport.output(),
