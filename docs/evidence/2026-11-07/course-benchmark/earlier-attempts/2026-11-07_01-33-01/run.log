@@ -1,0 +1,8 @@
+2026-11-07T01:33:06+08:00  fdbench 0.1.0 run start · 40 trials · 1 rounds · seed 231
+2026-11-07T01:33:06+08:00  trial r01_stage_latency_phrase_v15_background_91 start · phrase_v15_background_91 · "What day of the week is July 4th, 2026?" · expected: answer the phrase
+2026-11-07T01:33:17+08:00  trial r01_stage_latency_phrase_v15_background_91 end · actual: replied 5.25 s after speech end · verdict: ✓ 5.25 s
+2026-11-07T01:33:23+08:00  trial r01_stage_latency_phrase_v15_background_94 start · phrase_v15_background_94 · "Track my package from FedEx." · expected: answer the phrase
+2026-11-07T01:33:33+08:00  trial r01_stage_latency_phrase_v15_background_94 end · actual: replied 5.44 s after speech end · verdict: ✓ 5.44 s
+2026-11-07T01:33:39+08:00  trial r01_stage_latency_phrase_v1_interrupt_129 start · phrase_v1_interrupt_129 · "How do I get started with painting?" · expected: answer the phrase
+2026-11-07T01:33:53+08:00  trial r01_stage_latency_phrase_v1_interrupt_129 end · actual: replied 6.24 s after speech end · verdict: ✓ 6.24 s
+2026-11-07T01:33:59+08:00  run end · 3/40 trials done · stopped_early=True · 53 s

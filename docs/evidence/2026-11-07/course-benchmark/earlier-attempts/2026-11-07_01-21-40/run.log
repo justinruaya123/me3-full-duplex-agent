@@ -1,0 +1,4 @@
+2026-11-07T01:21:45+08:00  fdbench 0.1.0 run start · 1 trials · 0 rounds · seed 231
+2026-11-07T01:21:45+08:00  trial r01_stage_latency_phrase_v15_interruption_188 start · phrase_v15_interruption_188 · "I want to learn to play the guitar" · expected: answer the phrase
+2026-11-07T01:22:12+08:00  trial r01_stage_latency_phrase_v15_interruption_188 end · actual: no reply · verdict: ✗ no reply
+2026-11-07T01:22:13+08:00  run end · 1/1 trials done · stopped_early=False · 27 s

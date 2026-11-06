@@ -1,0 +1,4 @@
+2026-11-07T01:27:00+08:00  fdbench 0.1.0 run start · 1 trials · 0 rounds · seed 231
+2026-11-07T01:27:00+08:00  trial r01_stage_latency_phrase_v15_interruption_188 start · phrase_v15_interruption_188 · "I want to learn to play the guitar" · expected: answer the phrase
+2026-11-07T01:27:10+08:00  trial r01_stage_latency_phrase_v15_interruption_188 end · actual: replied 6.53 s after speech end · verdict: ✓ 6.53 s
+2026-11-07T01:27:10+08:00  run end · 1/1 trials done · stopped_early=False · 11 s

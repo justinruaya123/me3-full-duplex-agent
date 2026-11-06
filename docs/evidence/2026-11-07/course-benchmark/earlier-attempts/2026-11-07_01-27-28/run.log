@@ -1,0 +1,50 @@
+2026-11-07T01:27:34+08:00  fdbench 0.1.0 run start · 40 trials · 1 rounds · seed 231
+2026-11-07T01:27:34+08:00  trial r01_stage_latency_phrase_v15_background_91 start · phrase_v15_background_91 · "What day of the week is July 4th, 2026?" · expected: answer the phrase
+2026-11-07T01:27:46+08:00  trial r01_stage_latency_phrase_v15_background_91 end · actual: replied 5.96 s after speech end · verdict: ✓ 5.96 s
+2026-11-07T01:27:52+08:00  trial r01_stage_latency_phrase_v15_background_94 start · phrase_v15_background_94 · "Track my package from FedEx." · expected: answer the phrase
+2026-11-07T01:28:05+08:00  trial r01_stage_latency_phrase_v15_background_94 end · actual: replied 6.66 s after speech end · verdict: ✓ 6.66 s
+2026-11-07T01:28:11+08:00  trial r01_stage_latency_phrase_v1_interrupt_129 start · phrase_v1_interrupt_129 · "How do I get started with painting?" · expected: answer the phrase
+2026-11-07T01:28:22+08:00  trial r01_stage_latency_phrase_v1_interrupt_129 end · actual: replied 6.60 s after speech end · verdict: ✓ 6.60 s
+2026-11-07T01:28:28+08:00  trial r01_stage_latency_phrase_v15_backchannel_34 start · phrase_v15_backchannel_34 · "Outline sleep science clearly." · expected: answer the phrase
+2026-11-07T01:28:39+08:00  trial r01_stage_latency_phrase_v15_backchannel_34 end · actual: replied 6.31 s after speech end · verdict: ✓ 6.31 s
+2026-11-07T01:28:45+08:00  trial r01_stage_latency_phrase_v15_interruption_188 start · phrase_v15_interruption_188 · "I want to learn to play the guitar" · expected: answer the phrase
+2026-11-07T01:28:54+08:00  trial r01_stage_latency_phrase_v15_interruption_188 end · actual: replied 5.25 s after speech end · verdict: ✓ 5.25 s
+2026-11-07T01:29:00+08:00  trial r01_stage_latency_phrase_v15_interruption_35 start · phrase_v15_interruption_35 · "Could you tell me the rules of tennis?" · expected: answer the phrase
+2026-11-07T01:29:12+08:00  trial r01_stage_latency_phrase_v15_interruption_35 end · actual: replied 6.76 s after speech end · verdict: ✓ 6.76 s
+2026-11-07T01:29:18+08:00  trial r01_stage_latency_phrase_v1_interrupt_192 start · phrase_v1_interrupt_192 · "How do I get to the park?" · expected: answer the phrase
+2026-11-07T01:29:29+08:00  trial r01_stage_latency_phrase_v1_interrupt_192 end · actual: replied 6.40 s after speech end · verdict: ✓ 6.40 s
+2026-11-07T01:29:35+08:00  trial r01_stage_latency_phrase_v1_interrupt_73 start · phrase_v1_interrupt_73 · "How should I start saving for retirement?" · expected: answer the phrase
+2026-11-07T01:29:55+08:00  trial r01_stage_latency_phrase_v1_interrupt_73 end · actual: replied 7.59 s after speech end · verdict: ✓ 7.59 s
+2026-11-07T01:30:01+08:00  trial r01_stage_latency_phrase_v15_talking_to_other_31 start · phrase_v15_talking_to_other_31 · "What's the score of the Mariners game?" · expected: answer the phrase
+2026-11-07T01:30:13+08:00  trial r01_stage_latency_phrase_v15_talking_to_other_31 end · actual: replied 6.08 s after speech end · verdict: ✓ 6.08 s
+2026-11-07T01:30:19+08:00  trial r01_stage_latency_phrase_v1_interrupt_83 start · phrase_v1_interrupt_83 · "I'm thinking about changing my career path" · expected: answer the phrase
+2026-11-07T01:30:30+08:00  trial r01_stage_latency_phrase_v1_interrupt_83 ERROR: assistant disconnected during the trial
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/fdbench/runner.py", line 195, in _run_trial
+    rec = self.rig.run(script)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/fdbench/rig/direct.py", line 218, in run
+    raise RuntimeError("assistant disconnected during the trial")
+RuntimeError: assistant disconnected during the trial
+
+2026-11-07T01:30:36+08:00  trial r02_stage_latency_phrase_v15_talking_to_other_31 start · phrase_v15_talking_to_other_31 · "What's the score of the Mariners game?" · expected: answer the phrase
+2026-11-07T01:31:06+08:00  trial r02_stage_latency_phrase_v15_talking_to_other_31 ERROR: assistant is not connected to ws://127.0.0.1:8791
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/fdbench/runner.py", line 195, in _run_trial
+    rec = self.rig.run(script)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/fdbench/rig/direct.py", line 205, in run
+    raise RuntimeError(f"assistant is not connected to {self.url}")
+RuntimeError: assistant is not connected to ws://127.0.0.1:8791
+
+2026-11-07T01:31:12+08:00  trial r02_stage_latency_phrase_v15_background_91 start · phrase_v15_background_91 · "What day of the week is July 4th, 2026?" · expected: answer the phrase
+2026-11-07T01:31:42+08:00  trial r02_stage_latency_phrase_v15_background_91 ERROR: assistant is not connected to ws://127.0.0.1:8791
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/fdbench/runner.py", line 195, in _run_trial
+    rec = self.rig.run(script)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/fdbench/rig/direct.py", line 205, in run
+    raise RuntimeError(f"assistant is not connected to {self.url}")
+RuntimeError: assistant is not connected to ws://127.0.0.1:8791
+
+2026-11-07T01:31:48+08:00  run end · 9/40 trials done · stopped_early=True · 254 s
