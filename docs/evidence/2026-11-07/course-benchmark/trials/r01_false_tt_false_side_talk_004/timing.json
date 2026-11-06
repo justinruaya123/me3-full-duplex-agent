@@ -1,0 +1,68 @@
+{
+  "trial": "r01_false_tt_false_side_talk_004",
+  "group": "false_tt",
+  "clip": "false_side_talk_004",
+  "variant": "main",
+  "expected": "stay silent",
+  "duration": 10.592,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.0429375
+    }
+  ],
+  "live_bot_starts": [
+    0.032,
+    7.552
+  ],
+  "live_bot_ends": [
+    0.512,
+    10.24
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "kind": "side_talk",
+    "kind_label": "side talk",
+    "level_db": -8,
+    "text": "Mateo, pick up the kids at three, yeah?",
+    "source": "v15_talking_to_other_20"
+  },
+  "mono": [
+    90510.751272875,
+    90521.33409625
+  ],
+  "bot_segments": [
+    [
+      0.002,
+      0.542
+    ],
+    [
+      7.522,
+      10.27
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.0429375
+  ],
+  "tor": 1,
+  "first_start": 0.002,
+  "spoke_s": 10.0409375,
+  "actual": "spoke 10.0 s after -2.0 s",
+  "verdict": "✗ took turn",
+  "ok": false,
+  "marks": 18,
+  "final": {
+    "tor": 1,
+    "words": 10,
+    "verdict": "✗ took turn",
+    "ok": false,
+    "transcript": "I'm not Matteo, so I can't arrange that for you."
+  },
+  "scored_at": "2026-11-07T01:49:15+08:00"
+}

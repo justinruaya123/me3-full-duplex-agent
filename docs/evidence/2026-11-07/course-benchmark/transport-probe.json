@@ -1,0 +1,10 @@
+{
+  "transport": "unchanged upstream WebSocket",
+  "inference": "fixture nonzero PCM, no ASR/LLM/TTS model calls",
+  "chunks": 25,
+  "bytes": 48000,
+  "peak": 1000,
+  "messages": [
+    "{\"event\": \"clear\"}"
+  ]
+}

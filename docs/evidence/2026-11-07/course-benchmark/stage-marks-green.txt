@@ -1,0 +1,8 @@
+test_llm_first_token_is_marked_once_for_valid_text (test_stage_marks_v1.StageMarksTests.test_llm_first_token_is_marked_once_for_valid_text) ... ok
+test_partial_and_stale_text_cannot_be_marked_as_new_final (test_stage_marks_v1.StageMarksTests.test_partial_and_stale_text_cannot_be_marked_as_new_final) ... ok
+test_wrong_model_cannot_publish_a_first_token_mark (test_stage_marks_v1.StageMarksTests.test_wrong_model_cannot_publish_a_first_token_mark) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.010s
+
+OK

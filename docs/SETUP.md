@@ -179,23 +179,68 @@ and reports that fact. Public deployment is not authorized by a preview request.
 ./scripts/me3.sh doctor --inference
 ```
 
-The unchanged benchmark is locally cloned under `.local/fd-benchmark` at
-`106ac8e543a5fd996e254a87e69fa101bfd27a42`:
+## Course benchmark
+
+The latest tested copy is `.local/fd-benchmark-20261107` at
+`57eaddbc188ce9a19b8fd002b575f703426956f4`. The older
+`.local/fd-benchmark` at `106ac8e543a5fd996e254a87e69fa101bfd27a42` is preserved.
+The scorer is unchanged. The November 7 real-model run completed 40 queue
+items / 44 recordings and was scored with real evaluation ASR and Praat.
+See [results and limits](BENCHMARK.md) and
+[the evidence](evidence/2026-11-07/course-benchmark/README.md).
+
+For a **fresh benchmark copy only**, from the project root (the current copy
+is already installed and has its verified dataset):
 
 ```sh
-export FDBENCH_PROJECT="$PWD"
-export FDBENCH_ENTRY="$PWD/integrations/fdbench_entry.py"
-export ME3_BENCHMARK_PROFILE=course
-.venv313/bin/python .local/fd-benchmark/launch_assistant.py --check
-# Launch the benchmark's own server/dataset using its documented environment.
-.venv313/bin/python .local/fd-benchmark/launch_assistant.py --url ws://BENCHMARK-HOST:8791 --once
+git clone https://github.com/trueshotjames/ai231-me3-full-duplex-benchmarking.git \
+  .local/fd-benchmark-20261107
+git -C .local/fd-benchmark-20261107 checkout --detach \
+  57eaddbc188ce9a19b8fd002b575f703426956f4
+.speech-venv312/bin/python -m venv .local/fd-benchmark-20261107/.venv
+.local/fd-benchmark-20261107/.venv/bin/python -m pip install \
+  -r .local/fd-benchmark-20261107/requirements.txt \
+  -r .local/fd-benchmark-20261107/requirements-score.txt psutil==7.2.2
+.venv313/bin/python -m pip install psutil==7.2.2
+.local/fd-benchmark-20261107/.venv/bin/python \
+  .local/fd-benchmark-20261107/tools/fetch_datasets.py
 ```
 
-The course profile globally bypasses ownership; `ownership` enables it. No
-scenario labels are read. A new build creates fresh controller/job state; restart
-with a fresh build/log directory per independent trial, never just insert silence.
-Raw dataset runs, scoring/judge pins and development threshold freezing have not
-been completed. The launcher `READY` result is only an import/rate contract check.
+The official fetch verifies the release checksum. Its scoring ASR is
+`Systran/faster-whisper-small`, CPU int8, separate from the agent's exact MLX
+Whisper model. The first score downloads those public evaluation weights;
+the measured run used the downloaded cache with `HF_HUB_OFFLINE=1`.
+No judge was selected and UTMOS was not installed; those are unscored gates.
+
+Start `./scripts/me3.sh speech` in one terminal and wait for its listening
+banner. In another terminal at the project root:
+
+```sh
+set -a
+. ./.env
+set +a
+export FDBENCH_PROJECT="$PWD"
+export FDBENCH_ENTRY="$PWD/integrations/fdbench_entry.py"
+export FDBENCH_ASSISTANT_PYTHON="$PWD/.venv313/bin/python"
+export ME3_BENCHMARK_PROFILE=course
+.venv313/bin/python .local/fd-benchmark-20261107/launch_assistant.py --check
+cd .local/fd-benchmark-20261107
+.venv/bin/python -m fdbench run --student me3-local --rounds 1 \
+  --phrases 10 --runs 3 --seed 231 --connect direct --where local \
+  --judge-provider none --no-score --yes --recordings r --no-live
+# Use the run directory printed above for a new measurement.
+.venv/bin/python -m fdbench score runs/me3-local/2026-11-07_01-34-42 \
+  --judge-provider none --no-utmos --asr-model small
+```
+
+Direct feed opens no microphone or speaker. The course profile globally
+bypasses ownership; `ownership` enables it. No scenario labels are read by the
+agent. Default six-second gaps leave conversation and incomplete capture state
+intact; the current run is a continuous-session diagnostic. Independent trials
+still require a fresh build/session through the upstream `--reset-cmd` hook;
+that integration is not implemented. One round is insufficient for reliable
+per-stratum rates/p95, and content labels need an explicitly configured judge.
+The launcher `READY` result alone is only an import/rate contract check.
 
 Pi deployment: use 64-bit Linux, Python >=3.11, Node, Pi CLI, PortAudio and the
 portable runtime dependencies; configure authenticated M2 speech endpoints.

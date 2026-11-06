@@ -1,0 +1,84 @@
+{
+  "trial": "r02_stage_latency_phrase_v1_interrupt_192",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_192",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 11.744,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.888
+    }
+  ],
+  "live_bot_starts": [
+    9.28
+  ],
+  "live_bot_ends": [
+    11.392
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "How do I get to the park?",
+    "source": "v1_interrupt_192"
+  },
+  "mono": [
+    90239.081967125,
+    90250.799626833
+  ],
+  "bot_segments": [
+    [
+      9.25,
+      11.422
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.888
+  ],
+  "tor": 0,
+  "first_start": 9.25,
+  "spoke_s": 0.6379999999999999,
+  "user_end": 1.918,
+  "latency": 7.332,
+  "actual": "replied 7.33 s after speech end",
+  "verdict": "✓ 7.33 s",
+  "ok": true,
+  "marks": 14,
+  "final": {
+    "stages": {
+      "e2e_heard": 7.332,
+      "e2e": 6.8451,
+      "e2e_source": "marks",
+      "asr_final": 5.2277,
+      "llm_ttft": 0.2262,
+      "tts_ttfb": 0.9426,
+      "endpointing": 0.1315,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "How do I get to the path?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 1,
+        "wer": 0.14285714285714285
+      },
+      "context_tokens": 231,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "I'm not sure what you mean by the path."
+  },
+  "scored_at": "2026-11-07T01:49:53+08:00"
+}

@@ -1,0 +1,13 @@
+{
+  "official_reports_identical_to_upstream_output": true,
+  "all_nine_external_score_hashes_unchanged": true,
+  "external_git_status": "clean",
+  "private_setting_scan": "passed; values not recorded",
+  "operator_env_mode": "0600",
+  "html_parser_and_svg_xml_parser": "passed; no visual/browser QA claimed",
+  "compileall": "passed",
+  "ruff_E_F_I_79": "passed on changed source and regressions",
+  "git_diff_check": "passed",
+  "demo": "passed, explicitly in-memory simulation",
+  "full_suite": "136 passed; 0 failures; 0 skips; 4.190 seconds"
+}

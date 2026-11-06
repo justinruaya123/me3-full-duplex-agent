@@ -1,0 +1,88 @@
+{
+  "trial": "r01_v15_backchannel_v15_backchannel_60",
+  "group": "v15_backchannel",
+  "clip": "v15_backchannel_60",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 14.208,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.848
+    },
+    {
+      "name": "overlap",
+      "t": 1.628,
+      "len": 1.022
+    }
+  ],
+  "live_bot_starts": [
+    0.128,
+    7.776
+  ],
+  "live_bot_ends": [
+    0.512,
+    13.856
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Explain astronomy in depth.",
+    "current_turn_text": "",
+    "overlap_text": "yes sure",
+    "overlap_duration": 1.02,
+    "overlap_window": [
+      5.579,
+      6.601
+    ],
+    "source_id": "60"
+  },
+  "mono": [
+    90592.392775458,
+    90606.581925041
+  ],
+  "bot_segments": [
+    [
+      0.002,
+      0.542
+    ],
+    [
+      7.746,
+      13.886
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.848
+  ],
+  "overlap_played": true,
+  "t_stop": null,
+  "t_resp": 5.096,
+  "bot_speaking_at_onset": false,
+  "spoke_through": false,
+  "overlap": [
+    1.628,
+    2.65
+  ],
+  "tor": 1,
+  "first_start": 7.746,
+  "spoke_s": 2.904,
+  "latency": 5.096,
+  "actual": "was already silent, back 5.10 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ paused, came back · content: judge",
+  "ok": null,
+  "marks": 19,
+  "final": {
+    "t_stop": null,
+    "t_resp": 5.096,
+    "label": null,
+    "transcript": "follow the same. Astronomy is the scientific study of celestial objects, space, and the universe as a whole."
+  },
+  "scored_at": "2026-11-07T01:49:29+08:00"
+}

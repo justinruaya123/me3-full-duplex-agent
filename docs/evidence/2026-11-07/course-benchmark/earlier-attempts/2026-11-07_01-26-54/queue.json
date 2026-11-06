@@ -1,0 +1,16 @@
+{
+  "seed": 231,
+  "rounds": 0,
+  "phrases": 1,
+  "runs": 1,
+  "items": [
+    {
+      "index": 0,
+      "round": 1,
+      "group": "stage_latency",
+      "clip_id": "phrase_v15_interruption_188",
+      "kind": null,
+      "status": "done"
+    }
+  ]
+}

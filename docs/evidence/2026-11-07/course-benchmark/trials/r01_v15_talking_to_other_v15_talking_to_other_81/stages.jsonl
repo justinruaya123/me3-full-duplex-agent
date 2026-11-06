@@ -1,0 +1,6 @@
+{"stage": "vad_start", "t": 90659.351023958, "pid": 34330, "src": "ws", "recv": 90659.353303708, "lt": 90659.351251791, "tt": 0.364}
+{"stage": "vad_start", "t": 90659.35105975, "pid": 34330, "src": "ws", "recv": 90659.353404583, "lt": 90659.35128758299, "tt": 0.364}
+{"stage": "vad_end", "t": 90661.283899875, "pid": 34330, "src": "ws", "recv": 90661.286993416, "lt": 90661.28412770799, "tt": 2.2969}
+{"stage": "vad_end", "t": 90661.283970541, "pid": 34330, "src": "ws", "recv": 90661.28711475, "lt": 90661.28419837399, "tt": 2.2969}
+{"stage": "asr_partial", "t": 90662.628219208, "pid": 34330, "text": "Yeah, that way if the remote's not where you left it, you don't have to blame everyone else. You can just ask someone. That's my thing. Like when things get moved around that I don't know who moved it. I can't find it. It just made me crazy.", "src": "ws", "recv": 90662.628612, "lt": 90662.62844704099, "tt": 3.6412}
+{"stage": "asr_partial", "t": 90665.917712333, "pid": 34330, "text": "Yeah, that way, if the remote's not where you left it, you don't have to blame everyone else. You can just ask someone. That's my thing. Like, when things get moved around that, you know, I don't know who moved it. I can't find it. It just made me crazy. Nearby coffee shop that's open now.", "src": "ws", "recv": 90665.917975833, "lt": 90665.917940166, "tt": 6.9307}

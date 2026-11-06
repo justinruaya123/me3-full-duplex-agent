@@ -1,0 +1,4 @@
+{"t": "2026-11-07T01:21:45+08:00", "event": "run_start", "total": 1, "rounds": 0, "seed": 231}
+{"t": "2026-11-07T01:21:45+08:00", "event": "trial_start", "trial": "r01_stage_latency_phrase_v15_interruption_188", "group": "stage_latency", "clip": "phrase_v15_interruption_188", "variant": "main"}
+{"t": "2026-11-07T01:22:12+08:00", "event": "trial_end", "trial": "r01_stage_latency_phrase_v15_interruption_188", "actual": "no reply", "verdict": "✗ no reply", "ok": false}
+{"t": "2026-11-07T01:22:13+08:00", "event": "run_end", "completed": 1, "total": 1, "stopped_early": false, "seconds": 27.404761332989438}

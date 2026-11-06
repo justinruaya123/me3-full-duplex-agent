@@ -1,0 +1,83 @@
+{
+  "trial": "r01_v1_interrupt_v1_interrupt_39",
+  "group": "v1_interrupt",
+  "clip": "v1_interrupt_39",
+  "variant": "main",
+  "expected": "stop, then answer the new request",
+  "duration": 20.192,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.08
+    },
+    {
+      "name": "overlap",
+      "t": 10.172,
+      "len": 2.656
+    }
+  ],
+  "live_bot_starts": [
+    8.672,
+    18.144
+  ],
+  "live_bot_ends": [
+    10.88,
+    18.976
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "Is morning the best time to exercise?",
+    "interrupt_text": "Actually, could we switch to diet tips instead?",
+    "source_id": "39"
+  },
+  "mono": [
+    90691.834554541,
+    90712.014236291
+  ],
+  "bot_segments": [
+    [
+      8.642,
+      10.91
+    ],
+    [
+      18.114,
+      19.006
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.08
+  ],
+  "overlap_played": true,
+  "t_stop": 0.3800000000000008,
+  "t_resp": 5.732000000000001,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    10.53,
+    12.382
+  ],
+  "tor": 0,
+  "first_start": 18.114,
+  "spoke_s": 0.8919999999999995,
+  "latency": 5.286,
+  "actual": "stopped after 0.38 s, back 5.73 s after",
+  "verdict": "✗ no answer",
+  "ok": false,
+  "marks": 36,
+  "final": {
+    "tor": 0,
+    "words": 2,
+    "latency": null,
+    "t_stop": 0.3800000000000008,
+    "verdict": "✗ no answer",
+    "ok": false,
+    "transcript": "It really depends on your personal schedule. Absolutely. What's..."
+  },
+  "scored_at": "2026-11-07T01:49:38+08:00"
+}

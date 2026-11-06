@@ -1,0 +1,90 @@
+{
+  "trial": "r03_stage_latency_phrase_v1_interrupt_83",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_83",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 11.84,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.4426875
+    }
+  ],
+  "live_bot_starts": [
+    7.264,
+    9.632
+  ],
+  "live_bot_ends": [
+    8.576,
+    11.488
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "I'm thinking about changing my career path",
+    "source": "v1_interrupt_83"
+  },
+  "mono": [
+    90312.690035625,
+    90324.524841041
+  ],
+  "bot_segments": [
+    [
+      7.234,
+      8.606
+    ],
+    [
+      9.602,
+      11.518
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.4426875
+  ],
+  "tor": 1,
+  "first_start": 7.234,
+  "spoke_s": 3.2086875,
+  "user_end": 2.526,
+  "latency": 4.708,
+  "actual": "replied 4.71 s after speech end",
+  "verdict": "✓ 4.71 s",
+  "ok": true,
+  "marks": 27,
+  "final": {
+    "stages": {
+      "e2e_heard": 4.708,
+      "e2e": 4.2488,
+      "e2e_source": "marks",
+      "asr_final": 3.8285,
+      "llm_ttft": 0.1059,
+      "tts_ttfb": 0.2134,
+      "endpointing": 0.0988,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "I'm thinking about changing my career path.",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 326,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "That's a big decision. What area are you looking to move into?"
+  },
+  "scored_at": "2026-11-07T01:50:10+08:00"
+}

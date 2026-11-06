@@ -1,5 +1,62 @@
 # Implementation and qualification status
 
+## November 7: real course benchmark completed; latency gate not passed
+
+The unchanged external benchmark at `57eaddbc188ce9a19b8fd002b575f703426956f4`
+ran actual Mac Whisper/Qwen/Kokoro inference on agent `1168478`. Seed 231,
+10 phrases x 3 runs and one duplex round completed all 40 queue items in
+807.262s: **44 recordings, zero transport errors and zero scoring errors**.
+Real `faster-whisper/small` CPU-int8 evaluation and Praat voice features ran.
+No microphone or physical speaker was opened. The older benchmark checkout
+and all failed attempts are preserved; nine external score hashes match.
+
+| Metric | Target | Mean | p95 | n | Upstream result |
+| --- | --- | --- | --- | --- | --- |
+| VAD end to output mark | 4.0s | 5.422s | 6.788s | 29 | Over |
+| ASR final | 0.8s | 4.454s | 5.231s | 30 | Over |
+| LLM first text | 1.5s | 0.335s | 0.890s | 29 | Met |
+| TTS first audio | 0.6s | 0.422s | 1.013s | 29 | p95 over |
+| Barge-in stop | 0.8s | 0.380s | 0.380s | 2 | Met on two samples |
+| Corpus WER | 15% | 1.932% | Not applicable | 30 | Met |
+
+Four edits / 207 reference words; two of 30 phrase trials had no recorded
+reply. Missing stage timings are excluded by the scorer, not passes. Actual
+recorded output speech onset was 5.836s mean / 6.982s p95 over 28 trials.
+These software/direct-feed clocks are separate from physical acoustics.
+
+The first full attempt crashed when a resumed turn filled the ASR queue behind
+native inference. Regressions reproduced two orderings. Commits `9c1064e` and
+`1168478` retire superseded queued finals/partials without cancelling the native
+lock holder, freeing capacity prematurely or weakening duplicate-final overflow
+protection. Both RED/GREEN traces are retained. The final actual run had no
+disconnections. Independent read-only review found no remaining
+Important/Critical issues in that fix. Commit `4ec8997` adds optional accepted
+ASR and validated LLM stage marks; partial/stale text cannot become final marks.
+Fresh installed full suite after the final run: **136 passed, 0 failures,
+0 skips**, 4.190s. Demo, compilation and lint are checked separately.
+
+**Remaining failures/limits:** false-turn speech occurred in 2/2 sampled
+side-talk/TV trials; v1 interruption TOR was 0/1; backchannel/background return
+gaps were 5.096s/6.020s. The course profile globally bypasses ownership and
+treats committed speech as addressed. Default six-second gaps carried earlier
+speech/incomplete capture into later trials; accumulated capture hit the 16s
+cap once and was discarded. This is a diagnostic continuous-session baseline,
+not independent per-clip ownership/turn qualification. Long dictation remains
+unimplemented. No relevance or v1.5 content judge was configured; UTMOS was not
+installed/scored. Voice-change statistics have one pair and no significance
+claim. Barge-in has only two samples. No physical Pi, acoustic p95 or busy-worker
+run is claimed. The upstream report's fixed Raspberry Pi title is a template;
+its measured device card is Darwin/16GB.
+
+**Next unpassed acceptance gate:** reduce accepted ASR final delay and repeat
+the pinned test to meet ASR <=0.8s and E2E <=4s at mean and p95, with TTS p95
+<=0.6s. Independent trials additionally need a hard session reset, qualified
+addressee/overlap handling, more rounds and a configured content judge. The
+spec's 1s/250ms acoustic targets and Raspberry Pi qualification remain unpassed.
+Reports, exact commands, source pins, failure receipts and test counts are in
+[course benchmark evidence](evidence/2026-11-07/course-benchmark/README.md) and
+[BENCHMARK](BENCHMARK.md).
+
 ## November 7: speech models and service verified
 
 Whisper `mlx-community/whisper-large-v3-turbo` and Kokoro

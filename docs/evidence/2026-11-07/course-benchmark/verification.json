@@ -1,0 +1,30 @@
+{
+  "source_commit": "11684782fd306f4f84dfaf0959f41c4076ca654e",
+  "full_suite": {
+    "tests": 136,
+    "passed": 136,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 4.19
+  },
+  "capture_regressions": {
+    "tests": 6,
+    "passed": 6,
+    "skipped": 0
+  },
+  "real_benchmark": {
+    "queue_items": 40,
+    "recordings": 44,
+    "transport_errors": 0,
+    "scoring_errors": 0
+  },
+  "unscored": [
+    "content judge/relevance",
+    "UTMOS"
+  ],
+  "not_run": [
+    "physical acoustic p95",
+    "Raspberry Pi qualification",
+    "busy-worker benchmark"
+  ]
+}

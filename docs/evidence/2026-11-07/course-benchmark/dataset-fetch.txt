@@ -1,0 +1,4 @@
+Downloading https://github.com/trueshotjames/ai231-me3-full-duplex-benchmarking/releases/download/datasets-v2/fdbench-datasets-v2.zip
+     1.0 / 29.9 MB     2.1 / 29.9 MB     3.1 / 29.9 MB     4.2 / 29.9 MB     5.2 / 29.9 MB     6.3 / 29.9 MB     7.3 / 29.9 MB     8.4 / 29.9 MB     9.4 / 29.9 MB    10.5 / 29.9 MB    11.5 / 29.9 MB    12.6 / 29.9 MB    13.6 / 29.9 MB    14.7 / 29.9 MB    15.7 / 29.9 MB    16.8 / 29.9 MB    17.8 / 29.9 MB    18.9 / 29.9 MB    19.9 / 29.9 MB    21.0 / 29.9 MB    22.0 / 29.9 MB    23.1 / 29.9 MB    24.1 / 29.9 MB    25.2 / 29.9 MB    26.2 / 29.9 MB    27.3 / 29.9 MB    28.3 / 29.9 MB    29.4 / 29.9 MB    29.9 / 29.9 MB
+datasets ready: 430 audio files in 9 groups → /Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/datasets
+Licences: datasets/DATA_LICENSES.md (Candor-derived clips are CC BY-NC 4.0: non-commercial, with credit).

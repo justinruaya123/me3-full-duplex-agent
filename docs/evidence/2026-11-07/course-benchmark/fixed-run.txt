@@ -1,0 +1,53 @@
+
+Pre-flight
+✓  Python 3.12.13                                                               
+✓  packages: core ok                                                            
+✓  scoring extras: ASR (faster-whisper), pitch/intensity (praat-parselmouth) ·  
+   not installed: UTMOSv2 quality                                               
+✓  Darwin 25.5.0 (arm64) · 16.0 GB RAM · 11.4 GB free                           
+✓  network: unknown                                                             
+✓  datasets: 430 clips in 10 groups                                             
+✓  dataset checksums ok (sampled)                                               
+✓  rig: direct feed on ws://127.0.0.1:8791 (no audio devices used)              
+✓  assistant project: /Users/jus/Documents/Grad/AI231/ME3                       
+✓  assistant python: /Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python    
+✓  judge: none (timing and turn-taking metrics only; judge later with `score`)  
+
+Starting her in benchmark mode: 
+/Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python 
+/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/launch_assistan
+t.py …
+her output goes to 
+/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/runs/me3-local/
+2026-11-07_01-33-01/assistant.log
+connected from 127.0.0.1:61318 · link round trip 0.3 ms
+giving her 5 s to settle
+
+Run folder: 
+/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/runs/me3-local/
+2026-11-07_01-33-01
+Planned: 40 trials: stage latency 10 phrases × 3 runs, then 1 round(s), about 15
+min 24 s. Press q to stop early; everything done so far is kept and scored.
+
+
+  1/40  stage latency (course)  ·  phrase_v15_background_91
+     clip          2.9 s phrase · stage timing + WER                                                                                                  
+     user          "What day of the week is July 4th, 2026?"                                                                                          
+     expected      answer the phrase                                                                                                                  
+     actual        replied 5.25 s after speech end                                                                                                    
+     verdict       ✓ 5.25 s                                                                                                                           
+
+  2/40  stage latency (course)  ·  phrase_v15_background_94
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Track my package from FedEx."                                                                                                     
+     expected      answer the phrase                                                                                                                  
+     actual        replied 5.44 s after speech end                                                                                                    
+     verdict       ✓ 5.44 s                                                                                                                           
+
+  3/40  stage latency (course)  ·  phrase_v1_interrupt_129
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get started with painting?"                                                                                              
+     expected      answer the phrase                                                                                                                  
+     actual        replied 6.24 s after speech end                                                                                                    
+     verdict       ✓ 6.24 s                                                                                                                           
+Round 1/1 · trial 3/40 · elapsed 53 s · est. remaining 0 s · me3-local

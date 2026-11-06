@@ -1,0 +1,96 @@
+{
+  "trial": "r01_v15_background_v15_background_27",
+  "group": "v15_background",
+  "clip": "v15_background_27",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 19.68,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.784
+    },
+    {
+      "name": "overlap",
+      "t": 8.828,
+      "len": 1.718
+    }
+  ],
+  "live_bot_starts": [
+    7.328,
+    16.448
+  ],
+  "live_bot_ends": [
+    9.408,
+    19.328
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "Define the word 'ephemeral'.",
+    "current_turn_text": "",
+    "overlap_text": "Your coffee's getting cold.",
+    "overlap_duration": 1.72,
+    "overlap_window": [
+      5.625,
+      7.343
+    ],
+    "source_id": "27"
+  },
+  "mono": [
+    90451.151136666,
+    90470.80244875
+  ],
+  "bot_segments": [
+    [
+      7.298,
+      9.438
+    ],
+    [
+      16.418,
+      19.358
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.784
+  ],
+  "overlap_played": true,
+  "t_stop": 0.5080000000000009,
+  "t_resp": 6.02,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    8.93,
+    10.398
+  ],
+  "tor": 1,
+  "first_start": 16.418,
+  "spoke_s": 2.128,
+  "latency": 5.872,
+  "actual": "stopped after 0.51 s, back 6.02 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ paused, came back · content: judge",
+  "ok": null,
+  "marks": 33,
+  "final": {
+    "t_stop": 0.5080000000000009,
+    "t_resp": 6.02,
+    "label": null,
+    "voice_delta": {
+      "wpm": -28.08860470427055,
+      "pitch_mean": -6.281244566847903,
+      "pitch_sd": 0.9946636181331883,
+      "intensity_mean": -2.3085935417036723,
+      "intensity_sd": 0.5283476814315087,
+      "utmosv2": null
+    },
+    "transcript": "It means lasting for a very short time. Ephemeral means lasting for only a very short time."
+  },
+  "scored_at": "2026-11-07T01:49:32+08:00"
+}

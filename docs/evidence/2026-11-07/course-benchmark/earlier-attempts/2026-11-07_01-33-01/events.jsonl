@@ -1,0 +1,8 @@
+{"t": "2026-11-07T01:33:06+08:00", "event": "run_start", "total": 40, "rounds": 1, "seed": 231}
+{"t": "2026-11-07T01:33:06+08:00", "event": "trial_start", "trial": "r01_stage_latency_phrase_v15_background_91", "group": "stage_latency", "clip": "phrase_v15_background_91", "variant": "main"}
+{"t": "2026-11-07T01:33:17+08:00", "event": "trial_end", "trial": "r01_stage_latency_phrase_v15_background_91", "actual": "replied 5.25 s after speech end", "verdict": "✓ 5.25 s", "ok": true}
+{"t": "2026-11-07T01:33:23+08:00", "event": "trial_start", "trial": "r01_stage_latency_phrase_v15_background_94", "group": "stage_latency", "clip": "phrase_v15_background_94", "variant": "main"}
+{"t": "2026-11-07T01:33:33+08:00", "event": "trial_end", "trial": "r01_stage_latency_phrase_v15_background_94", "actual": "replied 5.44 s after speech end", "verdict": "✓ 5.44 s", "ok": true}
+{"t": "2026-11-07T01:33:39+08:00", "event": "trial_start", "trial": "r01_stage_latency_phrase_v1_interrupt_129", "group": "stage_latency", "clip": "phrase_v1_interrupt_129", "variant": "main"}
+{"t": "2026-11-07T01:33:53+08:00", "event": "trial_end", "trial": "r01_stage_latency_phrase_v1_interrupt_129", "actual": "replied 6.24 s after speech end", "verdict": "✓ 6.24 s", "ok": true}
+{"t": "2026-11-07T01:33:59+08:00", "event": "run_end", "completed": 3, "total": 40, "stopped_early": true, "seconds": 52.6129384169908}

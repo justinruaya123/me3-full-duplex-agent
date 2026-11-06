@@ -1,0 +1,117 @@
+
+Pre-flight
+✓  Python 3.12.13                                                               
+✓  packages: core ok                                                            
+✓  scoring extras: ASR (faster-whisper), pitch/intensity (praat-parselmouth) ·  
+   not installed: UTMOSv2 quality                                               
+✓  Darwin 25.5.0 (arm64) · 16.0 GB RAM · 12.5 GB free                           
+✓  network: unknown                                                             
+✓  datasets: 430 clips in 10 groups                                             
+✓  dataset checksums ok (sampled)                                               
+✓  rig: direct feed on ws://127.0.0.1:8791 (no audio devices used)              
+✓  assistant project: /Users/jus/Documents/Grad/AI231/ME3                       
+✓  assistant python: /Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python    
+!  port 8791 is already in use  → close the other program or pass --port        
+✓  judge: none (timing and turn-taking metrics only; judge later with `score`)  
+
+Starting her in benchmark mode: 
+/Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python 
+/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/launch_assistan
+t.py …
+her output goes to 
+/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/runs/me3-local/
+2026-11-07_01-27-28/assistant.log
+connected from 127.0.0.1:61176 · link round trip 0.4 ms
+giving her 5 s to settle
+
+Run folder: 
+/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/runs/me3-local/
+2026-11-07_01-27-28
+Planned: 40 trials: stage latency 10 phrases × 3 runs, then 1 round(s), about 15
+min 24 s. Press q to stop early; everything done so far is kept and scored.
+
+
+  1/40  stage latency (course)  ·  phrase_v15_background_91
+     clip          2.9 s phrase · stage timing + WER                                                                                                  
+     user          "What day of the week is July 4th, 2026?"                                                                                          
+     expected      answer the phrase                                                                                                                  
+     actual        replied 5.96 s after speech end                                                                                                    
+     verdict       ✓ 5.96 s                                                                                                                           
+
+  2/40  stage latency (course)  ·  phrase_v15_background_94
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Track my package from FedEx."                                                                                                     
+     expected      answer the phrase                                                                                                                  
+     actual        replied 6.66 s after speech end                                                                                                    
+     verdict       ✓ 6.66 s                                                                                                                           
+
+  3/40  stage latency (course)  ·  phrase_v1_interrupt_129
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get started with painting?"                                                                                              
+     expected      answer the phrase                                                                                                                  
+     actual        replied 6.60 s after speech end                                                                                                    
+     verdict       ✓ 6.60 s                                                                                                                           
+
+  4/40  stage latency (course)  ·  phrase_v15_backchannel_34
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Outline sleep science clearly."                                                                                                   
+     expected      answer the phrase                                                                                                                  
+     actual        replied 6.31 s after speech end                                                                                                    
+     verdict       ✓ 6.31 s                                                                                                                           
+
+  5/40  stage latency (course)  ·  phrase_v15_interruption_188
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I want to learn to play the guitar"                                                                                               
+     expected      answer the phrase                                                                                                                  
+     actual        replied 5.25 s after speech end                                                                                                    
+     verdict       ✓ 5.25 s                                                                                                                           
+
+  6/40  stage latency (course)  ·  phrase_v15_interruption_35
+     clip          2.8 s phrase · stage timing + WER                                                                                                  
+     user          "Could you tell me the rules of tennis?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        replied 6.76 s after speech end                                                                                                    
+     verdict       ✓ 6.76 s                                                                                                                           
+
+  7/40  stage latency (course)  ·  phrase_v1_interrupt_192
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get to the park?"                                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 6.40 s after speech end                                                                                                    
+     verdict       ✓ 6.40 s                                                                                                                           
+
+  8/40  stage latency (course)  ·  phrase_v1_interrupt_73
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "How should I start saving for retirement?"                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 7.59 s after speech end                                                                                                    
+     verdict       ✓ 7.59 s                                                                                                                           
+
+  9/40  stage latency (course)  ·  phrase_v15_talking_to_other_31
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "What's the score of the Mariners game?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        replied 6.08 s after speech end                                                                                                    
+     verdict       ✓ 6.08 s                                                                                                                           
+
+ 10/40  stage latency (course)  ·  phrase_v1_interrupt_83
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I'm thinking about changing my career path"                                                                                       
+     expected      answer the phrase                                                                                                                  
+     actual        error: assistant disconnected during the trial                                                                                     
+     verdict       ✗ error                                                                                                                            
+
+ 11/40  stage latency (course)  ·  phrase_v15_talking_to_other_31
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "What's the score of the Mariners game?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        error: assistant is not connected to ws://127.0.0.1:8791                                                                           
+     verdict       ✗ error                                                                                                                            
+
+ 12/40  stage latency (course)  ·  phrase_v15_background_91
+     clip          2.9 s phrase · stage timing + WER                                                                                                  
+     user          "What day of the week is July 4th, 2026?"                                                                                          
+     expected      answer the phrase                                                                                                                  
+     actual        error: assistant is not connected to ws://127.0.0.1:8791                                                                           
+     verdict       ✗ error                                                                                                                            
+Round 1/1 · trial 12/40 · elapsed 4 min 14 s · est. remaining 0 s · me3-local

@@ -1,0 +1,96 @@
+{
+  "trial": "r01_v15_interruption_v15_interruption_165",
+  "group": "v15_interruption",
+  "clip": "v15_interruption_165",
+  "variant": "main",
+  "expected": "stop, answer the new request (Respond)",
+  "duration": 19.808,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.616
+    },
+    {
+      "name": "overlap",
+      "t": 9.5,
+      "len": 3.616
+    }
+  ],
+  "live_bot_starts": [
+    8.0,
+    17.664
+  ],
+  "live_bot_ends": [
+    10.848,
+    18.592
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "How can I train my dog to follow basic commands?",
+    "current_turn_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_duration": 3.62,
+    "overlap_window": [
+      7.275,
+      10.891
+    ],
+    "source_id": "165"
+  },
+  "mono": [
+    90547.041368583,
+    90566.838295166
+  ],
+  "bot_segments": [
+    [
+      7.97,
+      10.878
+    ],
+    [
+      17.634,
+      18.622
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.616
+  ],
+  "overlap_played": true,
+  "t_stop": 0.3800000000000008,
+  "t_resp": 4.518000000000001,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    10.498,
+    13.116
+  ],
+  "tor": 0,
+  "first_start": 17.634,
+  "spoke_s": 0.9879999999999995,
+  "latency": 4.518000000000001,
+  "actual": "stopped after 0.38 s, back 4.52 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ replied · content: judge",
+  "ok": null,
+  "marks": 39,
+  "final": {
+    "t_stop": 0.3800000000000008,
+    "t_resp": 4.518000000000001,
+    "label": null,
+    "voice_delta": {
+      "wpm": -122.5134141923017,
+      "pitch_mean": -8.811152332355334,
+      "pitch_sd": 7.907084095523658,
+      "intensity_mean": 2.639200025819221,
+      "intensity_sd": -1.2579017341671292,
+      "utmosv2": null
+    },
+    "transcript": "Start with short, clear cues and use high val - Yes, you can."
+  },
+  "scored_at": "2026-11-07T01:49:35+08:00"
+}

@@ -1,0 +1,131 @@
+{
+  "student": "me3-local",
+  "run_id": "2026-11-07_01-34-42",
+  "started": "2026-11-07T01:34:42+08:00",
+  "rounds": 1,
+  "seed": 231,
+  "fdbench": "0.1.0",
+  "rig": "direct",
+  "judge": null,
+  "machine": {
+    "os": "Darwin 25.5.0",
+    "machine": "arm64",
+    "pi_model": null,
+    "ram_gb": 16.0,
+    "python": "3.12.13",
+    "network": "unknown",
+    "pi_temp_c": null,
+    "pi_throttled": null,
+    "disk_free_gb": 11.4,
+    "hostname": "Justins-MacBook-Air-2.local",
+    "optional": {
+      "ASR (faster-whisper)": true,
+      "pitch/intensity (praat-parselmouth)": true,
+      "UTMOSv2 quality": false
+    },
+    "fdbench": "0.1.0"
+  },
+  "devices": {},
+  "warnings_overridden": [],
+  "dataset": "/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/datasets",
+  "dataset_counts": {
+    "v1_pause_synth": 30,
+    "v1_pause_candor": 30,
+    "v1_turntaking": 30,
+    "v1_interrupt": 30,
+    "v15_interruption": 30,
+    "v15_backchannel": 30,
+    "v15_talking_to_other": 30,
+    "v15_background": 30,
+    "false_tt": 40,
+    "stage_latency": 150
+  },
+  "stage_test": {
+    "phrases": 10,
+    "runs": 3,
+    "phrases_dir": null
+  },
+  "targets": {
+    "e2e": 4.0,
+    "asr_final": 0.8,
+    "llm_ttft": 1.5,
+    "tts_ttfb": 0.6,
+    "barge_in": 0.8,
+    "wer": 0.15
+  },
+  "where": "local",
+  "link": {
+    "peer": "127.0.0.1:61413",
+    "rtt_ms": 0.34987500112038106,
+    "host": "127.0.0.1",
+    "port": 8791,
+    "disconnects": 1
+  },
+  "machine_stats": {
+    "hello": {
+      "host": "Justins-MacBook-Air-2.local",
+      "os": "Darwin 25.5.0",
+      "machine": "arm64",
+      "pi_model": null,
+      "ncpu": 8,
+      "caps": {
+        "backend": "psutil",
+        "cpu": true,
+        "cores": true,
+        "memory": true,
+        "processes": true,
+        "temperature": false,
+        "clock": false,
+        "throttle": false
+      },
+      "slow_every": 2.0,
+      "patterns": {
+        "asr_mcp": "mcp_servers.asr",
+        "tts_mcp": "mcp_servers.tts",
+        "tools_mcp": "mcp_servers.tools"
+      },
+      "python": "3.13.6",
+      "ram_mb": 16384,
+      "network": null,
+      "link_network": "same machine",
+      "source": "remote"
+    },
+    "samples": 813,
+    "clock_offset": 0.004262540998752229
+  },
+  "marks": {
+    "stages_seen": {
+      "vad_start": 122,
+      "vad_end": 122,
+      "asr_partial": 44,
+      "asr_final": 43,
+      "interrupted": 86,
+      "llm_request": 43,
+      "llm_first_token": 43,
+      "tts_request": 67,
+      "tts_first_audio": 67,
+      "audio_out": 134,
+      "bot_stopped": 134
+    },
+    "n": 905,
+    "clock_offsets": {
+      "ws": 0.00022783299209550023
+    }
+  },
+  "models": {
+    "harness": "pipecat 1.15.1.dev12",
+    "ASR": "mlx-community/whisper-large-v3-turbo",
+    "LLM": "Qwen/Qwen3.8-27B",
+    "TTS": "mlx-community/Kokoro-82M-bf16",
+    "voice": "af_heart",
+    "VAD": "Silero",
+    "turn": "SmartTurn v3.2"
+  },
+  "finished": "2026-11-07T01:48:15+08:00",
+  "outcome": {
+    "completed": 40,
+    "total": 40,
+    "stopped_early": false,
+    "seconds": 807.2622658749897
+  }
+}

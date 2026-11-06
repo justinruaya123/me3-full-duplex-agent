@@ -1,0 +1,64 @@
+{
+  "trial": "r01_v1_pause_candor_v1_pause_candor_189",
+  "group": "v1_pause_candor",
+  "clip": "v1_pause_candor_189",
+  "variant": "main",
+  "expected": "stay silent through the pause",
+  "duration": 22.24,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 18.24
+    }
+  ],
+  "live_bot_starts": [
+    0.0
+  ],
+  "live_bot_ends": [
+    0.512
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 0
+  },
+  "clip_meta": {
+    "pause": [
+      7.919999999999959,
+      8.599999999999909
+    ],
+    "source_id": "189",
+    "text": "Yeah Like that way if the remote is not where you left it you don't have to blame everyone else You can just ask someone that was always my thing Like when things get moved around that you know And like I don't know who moved it I can't find it always made me crazy"
+  },
+  "mono": [
+    90630.6226935,
+    90652.853890916
+  ],
+  "bot_segments": [
+    [
+      0.0,
+      0.542
+    ]
+  ],
+  "play_first": [
+    0.0,
+    18.24
+  ],
+  "tor": 0,
+  "first_start": 0.0,
+  "spoke_s": 0.542,
+  "cut_in_during_pause": false,
+  "actual": "spoke 0.5 s at 0.0 s",
+  "verdict": "✓ TOR 0?",
+  "ok": true,
+  "marks": 28,
+  "final": {
+    "tor": 0,
+    "words": 3,
+    "verdict": "✓ TOR 0",
+    "ok": true,
+    "transcript": "and other selectors."
+  },
+  "scored_at": "2026-11-07T01:49:41+08:00"
+}

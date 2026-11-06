@@ -1,0 +1,84 @@
+{
+  "trial": "r01_stage_latency_phrase_v1_interrupt_73",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_73",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 13.664,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.4
+    }
+  ],
+  "live_bot_starts": [
+    9.088
+  ],
+  "live_bot_ends": [
+    13.312
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "How should I start saving for retirement?",
+    "source": "v1_interrupt_73"
+  },
+  "mono": [
+    90047.917384375,
+    90061.582991666
+  ],
+  "bot_segments": [
+    [
+      9.058,
+      13.342
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.4
+  ],
+  "tor": 1,
+  "first_start": 9.058,
+  "spoke_s": 1.3420000000000005,
+  "user_end": 2.43,
+  "latency": 6.628,
+  "actual": "replied 6.63 s after speech end",
+  "verdict": "✓ 6.63 s",
+  "ok": true,
+  "marks": 14,
+  "final": {
+    "stages": {
+      "e2e_heard": 6.628,
+      "e2e": 6.1051,
+      "e2e_source": "marks",
+      "asr_final": 4.4209,
+      "llm_ttft": 0.147,
+      "tts_ttfb": 1.0765,
+      "endpointing": 0.137,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "How should I start saving for retirement?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 277,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Start by contributing to an employer -sponsored plan like a 400 one."
+  },
+  "scored_at": "2026-11-07T01:49:26+08:00"
+}

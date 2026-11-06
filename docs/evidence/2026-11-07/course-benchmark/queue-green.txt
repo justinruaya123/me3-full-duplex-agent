@@ -1,0 +1,10 @@
+test_incomplete_acoustic_turn_only_emits_provisional_text (test_capture_v1.CaptureTests.test_incomplete_acoustic_turn_only_emits_provisional_text) ... ok
+test_overflow_and_transcript_gap_cannot_commit_fragment (test_capture_v1.CaptureTests.test_overflow_and_transcript_gap_cannot_commit_fragment) ... ok
+test_pending_snapshot_overflow_invalidates_inflight_authorization (test_capture_v1.CaptureTests.test_pending_snapshot_overflow_invalidates_inflight_authorization) ... ok
+test_resumed_audio_fences_late_final_hypothesis (test_capture_v1.CaptureTests.test_resumed_audio_fences_late_final_hypothesis) ... ok
+test_resumed_turn_replaces_stale_queued_final_with_fresh_audio (test_capture_v1.CaptureTests.test_resumed_turn_replaces_stale_queued_final_with_fresh_audio) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.017s
+
+OK

@@ -1,0 +1,62 @@
+{
+  "trial": "r01_v15_interruption_v15_interruption_165_clean",
+  "group": "v15_interruption",
+  "clip": "v15_interruption_165",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 13.28,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.616
+    }
+  ],
+  "live_bot_starts": [
+    7.84
+  ],
+  "live_bot_ends": [
+    12.928
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "How can I train my dog to follow basic commands?",
+    "current_turn_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_duration": 3.62,
+    "overlap_window": [
+      7.275,
+      10.891
+    ],
+    "source_id": "165"
+  },
+  "mono": [
+    90573.013565541,
+    90586.293653875
+  ],
+  "bot_segments": [
+    [
+      7.81,
+      12.958
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.616
+  ],
+  "tor": 1,
+  "first_start": 7.81,
+  "spoke_s": 2.806,
+  "actual": "replied after 5.19 s, spoke 2.8 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 22,
+  "final": {
+    "transcript": "Start with short commands and lots of positive reinforcement, like treats or praise."
+  },
+  "scored_at": "2026-11-07T01:49:36+08:00"
+}

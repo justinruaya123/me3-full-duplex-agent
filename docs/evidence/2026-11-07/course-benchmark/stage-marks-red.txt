@@ -1,0 +1,59 @@
+test_llm_first_token_is_marked_once_for_valid_text (test_stage_marks_v1.StageMarksTests.test_llm_first_token_is_marked_once_for_valid_text) ... ERROR
+test_partial_and_stale_text_cannot_be_marked_as_new_final (test_stage_marks_v1.StageMarksTests.test_partial_and_stale_text_cannot_be_marked_as_new_final) ... ERROR
+test_wrong_model_cannot_publish_a_first_token_mark (test_stage_marks_v1.StageMarksTests.test_wrong_model_cannot_publish_a_first_token_mark) ... ERROR
+
+======================================================================
+ERROR: test_llm_first_token_is_marked_once_for_valid_text (test_stage_marks_v1.StageMarksTests.test_llm_first_token_is_marked_once_for_valid_text)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_stage_marks_v1.py", line 67, in test_llm_first_token_is_marked_once_for_valid_text
+    backend = ForegroundBackend(
+        config, client=client,
+        on_stage=lambda name, **fields: events.append((name, fields)),
+    )
+TypeError: ForegroundBackend.__init__() got an unexpected keyword argument 'on_stage'
+
+======================================================================
+ERROR: test_partial_and_stale_text_cannot_be_marked_as_new_final (test_stage_marks_v1.StageMarksTests.test_partial_and_stale_text_cannot_be_marked_as_new_final)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_stage_marks_v1.py", line 29, in test_partial_and_stale_text_cannot_be_marked_as_new_final
+    controller = DuplexController(
+        jobs, Backend(), speak, stop,
+        on_transcript=observed.append,
+    )
+TypeError: DuplexController.__init__() got an unexpected keyword argument 'on_transcript'
+
+======================================================================
+ERROR: test_wrong_model_cannot_publish_a_first_token_mark (test_stage_marks_v1.StageMarksTests.test_wrong_model_cannot_publish_a_first_token_mark)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_stage_marks_v1.py", line 87, in test_wrong_model_cannot_publish_a_first_token_mark
+    backend = ForegroundBackend(
+        config, client=client,
+        on_stage=lambda name, **fields: events.append(name),
+    )
+TypeError: ForegroundBackend.__init__() got an unexpected keyword argument 'on_stage'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.008s
+
+FAILED (errors=3)

@@ -1,0 +1,84 @@
+{
+  "trial": "r02_stage_latency_phrase_v15_background_94",
+  "group": "stage_latency",
+  "clip": "phrase_v15_background_94",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 11.136,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.944
+    }
+  ],
+  "live_bot_starts": [
+    7.456
+  ],
+  "live_bot_ends": [
+    10.784
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "Track my package from FedEx.",
+    "source": "v15_background_94"
+  },
+  "mono": [
+    90155.469345208,
+    90166.581295333
+  ],
+  "bot_segments": [
+    [
+      7.426,
+      10.814
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.944
+  ],
+  "tor": 1,
+  "first_start": 7.426,
+  "spoke_s": 2.517999999999999,
+  "user_end": 1.694,
+  "latency": 5.732,
+  "actual": "replied 5.73 s after speech end",
+  "verdict": "✓ 5.73 s",
+  "ok": true,
+  "marks": 16,
+  "final": {
+    "stages": {
+      "e2e_heard": 5.732,
+      "e2e": 5.2678,
+      "e2e_source": "marks",
+      "asr_final": 4.5477,
+      "llm_ttft": 0.1864,
+      "tts_ttfb": 0.368,
+      "endpointing": 0.1333,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "Track my package from FedEx.",
+      "wer": {
+        "ref_words": 5,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 256,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "I can't track packages or perform external actions."
+  },
+  "scored_at": "2026-11-07T01:49:46+08:00"
+}

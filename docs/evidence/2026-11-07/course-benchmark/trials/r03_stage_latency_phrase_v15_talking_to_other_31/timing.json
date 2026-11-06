@@ -1,0 +1,84 @@
+{
+  "trial": "r03_stage_latency_phrase_v15_talking_to_other_31",
+  "group": "stage_latency",
+  "clip": "phrase_v15_talking_to_other_31",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 13.664,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.008
+    }
+  ],
+  "live_bot_starts": [
+    7.904
+  ],
+  "live_bot_ends": [
+    13.312
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "What's the score of the Mariners game?",
+    "source": "v15_talking_to_other_31"
+  },
+  "mono": [
+    90431.360348833,
+    90445.007410333
+  ],
+  "bot_segments": [
+    [
+      7.874,
+      13.342
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.008
+  ],
+  "tor": 1,
+  "first_start": 7.874,
+  "spoke_s": 2.1339999999999995,
+  "user_end": 1.758,
+  "latency": 6.116,
+  "actual": "replied 6.12 s after speech end",
+  "verdict": "✓ 6.12 s",
+  "ok": true,
+  "marks": 16,
+  "final": {
+    "stages": {
+      "e2e_heard": 6.116,
+      "e2e": 5.6342,
+      "e2e_source": "marks",
+      "asr_final": 4.5853,
+      "llm_ttft": 0.145,
+      "tts_ttfb": 0.5444,
+      "endpointing": 0.1279,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "What's the score of the Mariners game?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 244,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "I don't have access to real -time sports scores, so I can't tell you the result of that game."
+  },
+  "scored_at": "2026-11-07T01:50:05+08:00"
+}
