@@ -5,6 +5,61 @@ import unittest
 
 
 class CaptureTests(unittest.IsolatedAsyncioTestCase):
+    async def test_latest_final_replaces_waiting_partial_after_speech_resumes(
+        self,
+    ):
+        from me3.capture import RollingCapture
+
+        started, release, events = asyncio.Event(), asyncio.Event(), []
+        calls, cancelled = [], []
+
+        async def recognize(pcm):
+            calls.append(pcm)
+            if len(calls) == 2:
+                started.set()
+                try:
+                    await release.wait()
+                except asyncio.CancelledError:
+                    cancelled.append(pcm)
+                    raise
+            return "use the complete corrected request"
+
+        async def analyze(pcm):
+            return True
+
+        async def emit(event, pcm):
+            events.append((event, pcm))
+
+        capture = RollingCapture("s", recognize, analyze, emit)
+        finals = []
+        first = b"\x01\x00" * 16000
+        correction = b"\x02\x00" * 16000
+        try:
+            capture.begin()
+            capture.feed(first)
+            await capture._partial
+            finals.append(asyncio.create_task(capture.finish()))
+            await started.wait()  # Final ASR now owns the native slot.
+            capture.begin()
+            capture.feed(correction)
+            await asyncio.sleep(0)  # A new partial queues behind that final.
+            finals.append(asyncio.create_task(capture.finish()))
+            await asyncio.sleep(0)
+            release.set()
+            results = await asyncio.wait_for(
+                asyncio.gather(*finals, return_exceptions=True), 1
+            )
+            self.assertIsNone(results[-1])
+            self.assertFalse(cancelled)
+            self.assertEqual(calls, [first, first, first + correction])
+            committed = [(e, pcm) for e, pcm in events if e.committed]
+            self.assertEqual(len(committed), 1)
+            self.assertEqual(committed[0][1], first + correction)
+        finally:
+            release.set()
+            await asyncio.gather(*finals, return_exceptions=True)
+            await capture.close()
+
     async def test_resumed_turn_replaces_stale_queued_final_with_fresh_audio(
         self,
     ):

@@ -51,7 +51,7 @@ class RollingCapture:
         self._partial: asyncio.Task | None = None
         self._lock = asyncio.Lock()
         self._pending_snapshots = 0
-        self._waiting_snapshots: dict[asyncio.Task, int] = {}
+        self._waiting_snapshots: dict[asyncio.Task, tuple[int, bool]] = {}
 
     def begin(self) -> None:
         if self.closed:
@@ -90,11 +90,14 @@ class RollingCapture:
     async def _snapshot(self, final: bool) -> None:
         generation = self.generation
         # A pause can resume while native ASR still owns the lock. Retire only
-        # superseded waiters; cancelling the running request would not stop its
-        # native inference and must not free that capacity prematurely.
+        # superseded waiters, including a partial superseded by this final.
+        # Cancelling the running request would not stop its native inference
+        # and must not free that capacity prematurely.
         stale = [
-            task for task, revision in self._waiting_snapshots.items()
-            if revision != generation
+            task for task, (revision, committed) in (
+                self._waiting_snapshots.items()
+            )
+            if revision != generation or (final and not committed)
         ]
         for task in stale:
             task.cancel()
@@ -110,7 +113,7 @@ class RollingCapture:
             )
         self._pending_snapshots += 1
         task = asyncio.current_task()
-        self._waiting_snapshots[task] = generation
+        self._waiting_snapshots[task] = (generation, final)
         try:
             await self._transcribe_snapshot(final)
         finally:
