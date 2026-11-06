@@ -164,7 +164,7 @@ class SpeechServerTests(unittest.IsolatedAsyncioTestCase):
                 response = await first
                 await response.read()
 
-    async def test_cancelled_native_inference_remains_busy_until_thread_finishes(
+    async def test_cancelled_native_call_stays_busy_until_thread_finishes(
         self,
     ):
         import asyncio

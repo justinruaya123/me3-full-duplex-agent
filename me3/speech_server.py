@@ -1,4 +1,4 @@
-"""Separate authenticated M2 service: MLX Whisper and Kokoro, no orchestration."""
+"""Authenticated M2 inference service for MLX Whisper and Kokoro."""
 
 from __future__ import annotations
 
@@ -22,7 +22,7 @@ CHECK_AUDIO_LIMIT = 16 * 24000 * 2
 
 
 def validate_sample(pcm: bytes, transcript: str) -> None:
-    """A successful readiness check requires real audio and the known phrase."""
+    """Readiness requires non-silent audio and the recognized test phrase."""
     if (
         not isinstance(pcm, bytes)
         or not 0 < len(pcm) <= CHECK_AUDIO_LIMIT
@@ -57,7 +57,7 @@ class SpeechServerConfig:
 
 
 class MLXSpeechModels:
-    """One bounded executor per role; MLX never loads in the portable runtime."""
+    """One executor per role; MLX stays outside the portable runtime."""
 
     def __init__(self, config: SpeechServerConfig):
         self.config = config
@@ -77,7 +77,7 @@ class MLXSpeechModels:
         future = executor.submit(function, *args)
         self._native_futures[role] = future
         # Retain the concurrent future: cancelling an async HTTP waiter cannot
-        # stop a running GPU/thread call, and must not admit another queued call.
+        # stop a running GPU call or admit another queued call.
         return await asyncio.wrap_future(future)
 
     async def transcribe(self, pcm: bytes) -> dict:
@@ -310,6 +310,9 @@ def main():
     parser.add_argument(
         "--check-worker", action="store_true", help=argparse.SUPPRESS
     )
+    parser.add_argument(
+        "--serve-worker", action="store_true", help=argparse.SUPPRESS
+    )
     args = parser.parse_args()
     if args.output and not (args.check or args.check_worker):
         parser.error("--output requires --check")
@@ -341,11 +344,30 @@ def main():
             })
         print(json.dumps(report, indent=2))
         raise SystemExit(0 if report["passed"] else 2)
+    if not args.serve_worker:
+        from me3.speech_check import run_guarded_service
+
+        command = [
+            sys.executable, "-m", "me3.speech_server", "--serve-worker",
+            "--host", args.host, "--port", str(args.port),
+        ]
+        raise SystemExit(run_guarded_service(command))
+    ready_fd = int(os.environ.pop("ME3_SPEECH_READY_FD"))
+
+    def announce(message):
+        nonlocal ready_fd
+        print(message, flush=True)
+        if ready_fd is not None:
+            os.write(ready_fd, b"READY\n")
+            os.close(ready_fd)
+            ready_fd = None
+
     web.run_app(
         create_app(config, MLXSpeechModels(config)),
         host=args.host,
         port=args.port,
         access_log=None,
+        print=announce,
     )
 
 
