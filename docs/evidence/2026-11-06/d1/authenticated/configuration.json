@@ -1,0 +1,34 @@
+{
+  "ready": false,
+  "blockers": [
+    "wake phrase",
+    "speaker/overlap/addressee verification service"
+  ],
+  "foreground": {
+    "profile": "qwen",
+    "model": "Qwen/Qwen3.8-27B"
+  },
+  "worker": {
+    "provider": "openai-codex",
+    "model": "gpt-6.1-sol"
+  },
+  "speech": {
+    "asr_model": "mlx-community/whisper-large-v3-turbo",
+    "tts_model": "mlx-community/Kokoro-82M-bf16",
+    "tts_voice": "af_heart"
+  },
+  "versions": {
+    "me3-full-duplex-agent": "0.1.0",
+    "pipecat-ai": "1.15.1.dev12",
+    "mcp": "1.30.0",
+    "httpx": "0.28.1"
+  },
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "python": "3.13.6",
+  "pi_binary": "/Users/jus/.nvm/versions/node/v24.13.0/bin/pi",
+  "qualification": {
+    "acoustic": "not run",
+    "raspberry_pi": "not run",
+    "speakerphone_aec": "AEC3 implemented; physical qualification not run"
+  }
+}

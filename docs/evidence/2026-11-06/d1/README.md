@@ -1,5 +1,11 @@
 # D1 live LLM verification — November 6, 2026
 
+The later [authenticated run](authenticated/README.md) passed foreground and Pi
+inference and the real job/session lifetime check. It supersedes the Pi
+authentication blocker in this initial receipt. The original failure is retained.
+
+## Initial check before Pi sign-in
+
 Tested source: `2d8b7d25aa0f13d5a0feb16bdf1a380cb8fb551b`.
 Run started at `2026-11-06T12:10:52Z` (20:10:52 Asia/Manila).
 

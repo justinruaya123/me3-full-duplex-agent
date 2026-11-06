@@ -1,0 +1,28 @@
+{
+  "kind": "real Pi and Qwen with actual supervisor/controller session lifecycle; text delivery only",
+  "foreground_model": "Qwen/Qwen3.8-27B",
+  "worker_provider": "openai-codex",
+  "worker_model": "gpt-6.1-sol",
+  "checks": {
+    "real_pi_prompt_in_flight": true,
+    "foreground_answered_while_worker_running": true,
+    "session_end_left_job_running": true,
+    "job_completed_after_session_end": true,
+    "worker_result_matches": true,
+    "ended_session_received_no_completion": true,
+    "other_owner_cannot_retrieve": true,
+    "same_owner_can_retrieve_after_reconnect": true,
+    "explicit_result_delivered_in_new_session": true
+  },
+  "qualification": "No physical voice, ASR, TTS, acoustic measurements or Raspberry Pi hardware",
+  "job_id": "331377afd5c140ea8f89c2a0085d67dc",
+  "pi_process_id": 12354,
+  "foreground_while_worker_seconds": 0.249421,
+  "foreground_response": "42",
+  "status_before_session_end": "running",
+  "status_after_session_end": "running",
+  "final_job_status": "completed",
+  "job_result": "ME3_D1_JOB_OK",
+  "passed": true,
+  "total_seconds": 3.994019
+}

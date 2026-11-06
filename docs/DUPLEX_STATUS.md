@@ -1,6 +1,42 @@
 # Implementation and qualification status
 
-## November 6: D1 live LLM verification
+## November 6: D1 model access and runtime lifetime gate passed
+
+After the operator completed Pi sign-in, real inference succeeded with both
+explicit selections: foreground `Qwen/Qwen3.8-27B` and worker
+`openai-codex/gpt-6.1-sol`. No credentials, account settings, billing or models
+were changed by verification.
+
+- **Real foreground: 2/2 checks passed again.** Marker and arithmetic responses
+  matched. First text arrived in 0.185469 s and 0.088029 s; full request times
+  were 0.295845 s and 0.119244 s. The production adapter verified the exact
+  response model, requested thinking disabled, and observed no reasoning or
+  tool-call deltas.
+- **Real Pi inference: passed.** `ME3_D1_PI_OK` returned in 4.600206 s after
+  settlement. RPC selection matched before and after the request. The saved
+  assistant response metadata also reports `openai-codex/gpt-6.1-sol` and normal
+  `stop` termination, for both the smoke request and the job below. Worker
+  tools/extensions/context discovery remained disabled.
+- **Actual runtime with both real models: 9/9 checks passed.** A Pi prompt was
+  in flight and its durable job was running while Qwen answered `42` in
+  0.249421 s. `AgentRuntime.end_session` left that job running and the same Pi
+  process alive. The job completed afterward with `ME3_D1_JOB_OK`; the ended
+  session received no completion. Another owner could not retrieve it. The
+  original owner reconnected and explicitly retrieved/delivered the result.
+  This exercised trusted text sessions and the actual session-ending code;
+  no physical voice capture, ASR, TTS or acoustic delivery was used.
+- **Fresh installed full suite: 120 passed, 0 failures, 0 skips**, in 4.242 s.
+
+Tested source: `94a0eeb1af36ca1ee0105d770f89bbf25362790d`. Receipts and methods
+are in [the authenticated D1 evidence](evidence/2026-11-06/d1/authenticated/README.md).
+The earlier authentication failure below is retained. These few text timings
+are not p95 measurements or acoustic benchmark qualification. D1 is complete
+at the model-access/runtime boundary; the next deliverable is D2, stable real
+Mac Whisper/Kokoro inference and speech pipeline qualification. Real website
+build/revision/browser verification, ownership, acoustic and Pi hardware gates
+remain unpassed.
+
+## November 6: initial D1 check before Pi sign-in
 
 The operator configured foreground `Qwen/Qwen3.8-27B` and selected Pi worker
 `openai-codex/gpt-6.1-sol`. These are explicit operator selections, not model
@@ -28,8 +64,9 @@ fallbacks. The foreground endpoint and credentials remain in the ignored `.env`.
 
 Source tested: `2d8b7d25aa0f13d5a0feb16bdf1a380cb8fb551b`. Sanitized receipts
 and the full suite log are in [evidence/2026-11-06/d1](evidence/2026-11-06/d1).
-D1 remains partial until a real authenticated Pi request succeeds. The separate
-Mac speech stalls and ownership/acoustic/hardware gates below remain unpassed.
+At this point D1 remained partial pending a real authenticated Pi request; the
+later check above resolves that blocker. The separate Mac speech stalls and
+ownership/acoustic/hardware gates below remain unpassed.
 
 ## November 4 implementation baseline
 

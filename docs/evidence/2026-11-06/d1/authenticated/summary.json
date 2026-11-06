@@ -1,0 +1,7 @@
+{
+  "timestamp_utc": "20261106T132102Z",
+  "kind": "real provider smoke; no audio, acoustic benchmark or hardware qualification",
+  "foreground_passed": true,
+  "pi_passed": true,
+  "source_head": "94a0eeb1af36ca1ee0105d770f89bbf25362790d"
+}

@@ -1,0 +1,14 @@
+{
+  "kind": "real Pi worker provider smoke",
+  "timestamp_utc": "20261106T132102Z",
+  "provider": "openai-codex",
+  "model": "gpt-6.1-sol",
+  "prompt": "Reply with exactly ME3_D1_PI_OK. Do not use tools.",
+  "exact_selection_verified_before_request": true,
+  "passed": true,
+  "response": "ME3_D1_PI_OK",
+  "exact_selection_verified_after_request": true,
+  "tools_disabled": true,
+  "returned_after_agent_settled": true,
+  "total_seconds": 4.600206
+}

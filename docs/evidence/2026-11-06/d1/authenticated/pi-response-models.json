@@ -1,0 +1,26 @@
+{
+  "kind": "assistant response metadata from actual Pi session logs; no message bodies or credentials",
+  "checks": {
+    "smoke": {
+      "assistant_messages": [
+        {
+          "provider": "openai-codex",
+          "model": "gpt-6.1-sol",
+          "stopReason": "stop"
+        }
+      ],
+      "exact_response_selection": true
+    },
+    "lifetime": {
+      "assistant_messages": [
+        {
+          "provider": "openai-codex",
+          "model": "gpt-6.1-sol",
+          "stopReason": "stop"
+        }
+      ],
+      "exact_response_selection": true
+    }
+  },
+  "passed": true
+}

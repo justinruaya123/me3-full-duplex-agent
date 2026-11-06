@@ -27,7 +27,7 @@ local Pi protocol/model selection; `--inference` explicitly invokes models.
 
 | Role | Settings | Expected selection |
 | --- | --- | --- |
-| Worker | `ME3_HARNESS`, `ME3_PI_BIN`, `ME3_WORKER_PROVIDER`, `ME3_WORKER_MODEL` | Pi; explicit exact Sol ID. November 6 selection: `openai-codex`, `gpt-6.1-sol` (inference blocked by missing sign-in) |
+| Worker | `ME3_HARNESS`, `ME3_PI_BIN`, `ME3_WORKER_PROVIDER`, `ME3_WORKER_MODEL` | Pi; explicit exact Sol ID. November 6 selection: `openai-codex`, `gpt-6.1-sol` (real inference verified after sign-in) |
 | Worker auth | `PI_CODING_AGENT_DIR` and Pi `/login`; optional `ME3_WORKER_API_KEY_ENV` | ChatGPT sign-in or an explicitly chosen API provider; no implicit switch |
 | Foreground | `ME3_FOREGROUND_PROFILE`, `ME3_FOREGROUND_BASE_URL`, `ME3_FOREGROUND_MODEL`, `ME3_FOREGROUND_API_KEY` | One Qwen or Nemotron profile; exact served ID from that endpoint |
 | ASR | `ME3_ASR_BASE_URL`, `ME3_ASR_MODEL`, `ME3_ASR_API_KEY` | `mlx-community/whisper-large-v3-turbo` through the separate MLX service |
@@ -51,8 +51,12 @@ the ignored `.env`. ME3 sends `chat_template_kwargs.enable_thinking=false` and
 rejects reasoning content or a different/missing response model ID. The live
 checks observed no reasoning or tool-call deltas; this does not establish audio
 latency or benchmark qualification. The controller exposes no LLM-selected tool
-execution and adds no third model. Pi inference still requires sign-in in its
-isolated directory; foreground success does not authenticate the worker.
+execution and adds no third model. After separate Pi sign-in in its isolated
+directory, real Sol inference also passed, together with foreground conversation
+while a real job ran and retrieval after ending/reopening its session. See
+`docs/evidence/2026-11-06/d1/authenticated/`. Foreground and Pi authentication
+remain separate. These checks complete D1's model-access/runtime gate; they do
+not qualify speech inference or the real website workflow.
 
 ## Separate speech service
 
