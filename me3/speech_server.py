@@ -6,10 +6,40 @@ import argparse
 import asyncio
 import hmac
 import io
+import json
 import os
+import re
+import sys
+import time
 import wave
 from concurrent.futures import ThreadPoolExecutor
+from contextlib import aclosing, redirect_stdout
 from dataclasses import dataclass, field
+from pathlib import Path
+
+CHECK_TEXT = "Hello. The voice system is ready."
+CHECK_AUDIO_LIMIT = 16 * 24000 * 2
+
+
+def validate_sample(pcm: bytes, transcript: str) -> None:
+    """A successful readiness check requires real audio and the known phrase."""
+    if (
+        not isinstance(pcm, bytes)
+        or not 0 < len(pcm) <= CHECK_AUDIO_LIMIT
+        or len(pcm) % 2
+        or not any(pcm)
+    ):
+        raise ValueError("Speech check requires non-silent mono PCM16")
+    if not isinstance(transcript, str) or re.findall(
+        r"\w+", transcript.casefold()
+    ) != re.findall(r"\w+", CHECK_TEXT.casefold()):
+        raise ValueError("Speech check transcript does not match test phrase")
+
+
+@dataclass(frozen=True)
+class SpeechSample:
+    pcm: bytes = field(repr=False)
+    report: dict
 
 
 @dataclass(frozen=True)
@@ -60,7 +90,7 @@ class MLXSpeechModels:
                 audio,
                 path_or_hf_repo=self.config.asr_model,
                 word_timestamps=True,
-                verbose=False,
+                verbose=None,
             )
             return {
                 "text": result["text"],
@@ -105,6 +135,46 @@ class MLXSpeechModels:
             if pcm is None:
                 break
             yield pcm
+
+    async def warmup(self) -> SpeechSample:
+        """Run both exact models before accepting any conversational input."""
+        import numpy as np
+        from scipy.signal import resample_poly
+
+        started = time.monotonic()
+        chunks, size, first = [], 0, None
+        async with aclosing(self.synthesize(CHECK_TEXT)) as stream:
+            async for pcm in stream:
+                if first is None:
+                    first = time.monotonic() - started
+                size += len(pcm)
+                if size > CHECK_AUDIO_LIMIT:
+                    raise ValueError("Speech check audio exceeds 16 seconds")
+                chunks.append(pcm)
+        pcm = b"".join(chunks)
+        # Validate generated audio before decoding or accepting a transcript.
+        validate_sample(pcm, CHECK_TEXT)
+        audio = np.frombuffer(pcm, dtype="<i2").astype(np.float32)
+        resampled = resample_poly(audio, 2, 3)
+        query = np.clip(resampled, -32768, 32767).astype("<i2").tobytes()
+        asr_started = time.monotonic()
+        result = await self.transcribe(query)
+        transcript = result.get("text")
+        validate_sample(pcm, transcript)
+        return SpeechSample(pcm, {
+            "passed": True,
+            "kind": "real model synthetic speech roundtrip, not acoustic",
+            "asr_model": self.config.asr_model,
+            "tts_model": self.config.tts_model,
+            "voice": self.config.voice,
+            "text": CHECK_TEXT,
+            "transcript": transcript.strip(),
+            "sample_rate": 24000,
+            "audio_seconds": len(pcm) / 48000,
+            "first_pcm_seconds": first,
+            "asr_seconds": time.monotonic() - asr_started,
+            "total_seconds": time.monotonic() - started,
+        })
 
     async def close(self):
         self.asr_executor.shutdown(wait=False, cancel_futures=True)
@@ -180,10 +250,15 @@ def create_app(config: SpeechServerConfig, models):
                 }
             )
             stream = models.synthesize(text)
-            first = await anext(
-                stream
-            )  # Fail before HTTP 200 on model startup errors.
             try:
+                first = await anext(stream, None)
+                if (
+                    not isinstance(first, bytes)
+                    or not first
+                    or len(first) % 2
+                    or len(first) > 8_388_608
+                ):
+                    raise web.HTTPBadGateway(text="Invalid TTS audio")
                 await response.prepare(request)
                 total = 0
                 for_first = first
@@ -204,11 +279,17 @@ def create_app(config: SpeechServerConfig, models):
     app.router.add_post("/v1/audio/transcriptions", transcribe)
     app.router.add_post("/v1/audio/speech", synthesize)
 
-    async def cleanup(app):
-        if hasattr(models, "close"):
-            await models.close()
+    async def lifetime(app):
+        try:
+            if hasattr(models, "warmup"):
+                async with asyncio.timeout(90):
+                    await models.warmup()
+            yield
+        finally:
+            if hasattr(models, "close"):
+                await models.close()
 
-    app.on_cleanup.append(cleanup)
+    app.cleanup_ctx.append(lifetime)
     return app
 
 
@@ -218,7 +299,20 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8002)
+    parser.add_argument(
+        "--check", action="store_true",
+        help="Run a bounded real TTS-to-ASR self-check, then exit",
+    )
+    parser.add_argument(
+        "--output", type=Path,
+        help="Save the synthetic 24kHz WAV sample during --check",
+    )
+    parser.add_argument(
+        "--check-worker", action="store_true", help=argparse.SUPPRESS
+    )
     args = parser.parse_args()
+    if args.output and not (args.check or args.check_worker):
+        parser.error("--output requires --check")
     try:
         config = SpeechServerConfig(
             os.environ.get("ME3_ASR_MODEL", ""),
@@ -228,12 +322,51 @@ def main():
         )
     except ValueError as exc:
         parser.exit(2, str(exc) + "\n")
+    if args.check or args.check_worker:
+        if args.check_worker:
+            with redirect_stdout(sys.stderr):
+                report = asyncio.run(check_models(config, args.output))
+        else:
+            from me3.speech_check import run_bounded_check
+
+            command = [
+                sys.executable, "-m", "me3.speech_server", "--check-worker"
+            ]
+            if args.output:
+                command.extend(("--output", str(args.output)))
+            report = run_bounded_check(command, {
+                "asr_model": config.asr_model,
+                "tts_model": config.tts_model,
+                "voice": config.voice,
+            })
+        print(json.dumps(report, indent=2))
+        raise SystemExit(0 if report["passed"] else 2)
     web.run_app(
         create_app(config, MLXSpeechModels(config)),
         host=args.host,
         port=args.port,
         access_log=None,
     )
+
+
+async def check_models(
+    config: SpeechServerConfig, output: Path | None
+) -> dict:
+    models = MLXSpeechModels(config)
+    try:
+        sample = await models.warmup()
+        if output:
+            output = output.resolve()
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with wave.open(str(output), "wb") as stream:
+                stream.setnchannels(1)
+                stream.setsampwidth(2)
+                stream.setframerate(24000)
+                stream.writeframes(sample.pcm)
+            sample.report["sample_path"] = str(output)
+        return sample.report
+    finally:
+        await models.close()
 
 
 if __name__ == "__main__":
