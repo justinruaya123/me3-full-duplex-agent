@@ -82,16 +82,12 @@ class MLXSpeechModels:
 
     async def transcribe(self, pcm: bytes) -> dict:
         def infer():
-            import mlx_whisper
             import numpy as np
 
+            from me3.whisper_inference import transcribe_whisper
+
             audio = np.frombuffer(pcm, dtype="<i2").astype(np.float32) / 32768
-            result = mlx_whisper.transcribe(
-                audio,
-                path_or_hf_repo=self.config.asr_model,
-                word_timestamps=True,
-                verbose=None,
-            )
+            result = transcribe_whisper(audio, self.config.asr_model)
             return {
                 "text": result["text"],
                 "segments": result.get("segments", []),
