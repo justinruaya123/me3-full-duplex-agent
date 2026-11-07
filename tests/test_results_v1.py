@@ -150,6 +150,13 @@ class ResultTests(unittest.IsolatedAsyncioTestCase):
         b = self.session.jobs.submit("two")
         await self.runtime.supervisor.wait(a["id"])
         await self.runtime.supervisor.wait(b["id"])
+        for job in (a, b):
+            self.session.jobs.set_return_policy(
+                job["id"], "after_topic", expected_revision=job["revision"]
+            )
+        await self.session.accept("That settles it.")
+        await self.settle()
+        self.spoken.clear()
         self.assertTrue(self.session.poll())
         await self.settle()
         self.assertEqual(len(self.spoken), 1)

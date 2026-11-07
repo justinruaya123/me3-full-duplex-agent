@@ -27,6 +27,9 @@ class OwnedJobs:
             supervisor.db.execute("""CREATE TABLE IF NOT EXISTS job_requests (
                 owner TEXT NOT NULL, request_id TEXT NOT NULL,
                 job_id TEXT NOT NULL, PRIMARY KEY(owner, request_id))""")
+            supervisor.db.execute("""CREATE TABLE IF NOT EXISTS job_returns (
+                job_id TEXT PRIMARY KEY, policy TEXT NOT NULL
+                CHECK(policy IN ('ask_first','after_topic')))""")
 
     def _authorize(self) -> None:
         if not self.owner or not self.authorized():
@@ -76,12 +79,29 @@ class OwnedJobs:
 
     def get(self, job_id: str) -> dict:
         row = self.supervisor.db.execute(
-            "SELECT * FROM job_owners WHERE job_id=? AND owner=?",
+            "SELECT job_owners.*, COALESCE(job_returns.policy, 'ask_first') "
+            "AS return_policy FROM job_owners LEFT JOIN job_returns "
+            "USING(job_id) WHERE job_id=? AND owner=?",
             (job_id, self.owner),
         ).fetchone()
         if row is None:
             raise KeyError("Unknown job for this owner")
         return {**self.supervisor.get(job_id), **dict(row)}
+
+    def set_return_policy(
+        self, job_id: str, policy: str, *, expected_revision: int
+    ) -> None:
+        self._authorize()
+        self._revision(job_id, expected_revision)
+        if policy not in {"ask_first", "after_topic"}:
+            raise ValueError("Unknown result return policy")
+        with self.supervisor.db:
+            self.supervisor.db.execute(
+                "INSERT INTO job_returns VALUES (?,?) ON CONFLICT(job_id) "
+                "DO UPDATE SET policy=excluded.policy", (job_id, policy),
+            )
+        if self.changed:
+            self.changed(job_id)
 
     def list(self) -> list[dict]:
         return [

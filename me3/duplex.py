@@ -11,6 +11,7 @@ from contextlib import aclosing
 from pathlib import Path
 from typing import Awaitable, Callable, Protocol
 
+from me3.conversation import return_preference, wrapup
 from me3.incremental import TranscriptRevision, clauses, is_acknowledgment
 
 
@@ -133,6 +134,7 @@ class DuplexController:
         self._sources: set[str] = set()
         self._focus_stack: list[str | None] = []
         self._deferred: set[str] = set()
+        self._topic_closed = False
 
     @property
     def busy(self) -> bool:
@@ -289,6 +291,7 @@ class DuplexController:
         await self._interrupt()
         self.pending_question = False
         epoch = self.epoch
+        self._topic_closed = wrapup(text)
         self.history.append({"role": "user", "content": text})
         self.history = self.history[-12:]
         try:
@@ -354,6 +357,7 @@ class DuplexController:
         return (
             current["revision"] == job["revision"]
             and current["status"] == job["status"]
+            and current.get("return_policy") == job.get("return_policy")
             and current["status"] in {"completed", "failed", "interrupted"}
         )
 
@@ -363,20 +367,48 @@ class DuplexController:
         def say(message, *, job=None):
             self._spawn(self._deliver(message, epoch, notice=job))
 
+        site_text, return_policy = return_preference(text)
         site = re.match(
             r"^(?:/site\s+|(?:build|create) (?:me )?(?:a )?website\s+)(.+)$",
-            text,
+            site_text,
             re.I | re.S,
         )
         if site:
             job = self._submit(REQUEST_PREFIX + site.group(1))
+            self.jobs.set_return_policy(
+                job["id"], return_policy, expected_revision=job["revision"]
+            )
             say(
                 "I have queued the website. Job "
                 + job["id"]
-                + ". We can keep talking."
+                + ". We can keep talking. "
+                + (
+                    "I will wait until you ask for the result."
+                    if return_policy == "ask_first" else
+                    "I will offer an update after you wrap up the topic."
+                )
             )
             return "delegated"
         lower = text.casefold().strip(" .?!")
+        website_action = {
+            "show me the website": "result",
+            "let's look at the website": "result",
+            "how is the website doing": "status",
+            "how's the website doing": "status",
+            "is the website ready": "status",
+            "open the website": "preview",
+        }.get(lower)
+        if website_action:
+            websites = [j for j in self.jobs.list() if j.get("kind") == "website"]
+            selected = next(
+                (j for j in websites if j["id"] == self.focus), None
+            )
+            if selected is None and len(websites) == 1:
+                selected = websites[0]
+            if selected is None:
+                say("Which website job do you mean? Please give its ID.")
+                return "clarify"
+            text = "/" + website_action + " " + selected["id"]
         if lower in {"cancel that", "cancel it"}:
             say(
                 "Which job should I cancel? Use cancel job followed by its ID."
@@ -406,8 +438,8 @@ class DuplexController:
                 "/preview " if lower == "launch it" else "/result "
             ) + job_id
         match = re.match(
-            r"^(?:/(result|status|cancel|revise|focus|preview|defer)|"
-            r"(result|status|cancel|revise|focus|preview|defer) job)\s+"
+            r"^(?:/(result|status|cancel|revise|focus|preview|defer|notify)|"
+            r"(result|status|cancel|revise|focus|preview|defer|notify) job)\s+"
             r"([a-zA-Z0-9]+)(?:\s+(.+))?$",
             text,
             re.I | re.S,
@@ -428,8 +460,17 @@ class DuplexController:
                 self.focus = job_id
                 say("The selected job is now in focus.")
             elif action == "defer":
+                self.jobs.set_return_policy(
+                    job_id, "ask_first", expected_revision=job["revision"]
+                )
                 self._deferred.add(job_id)
                 say("I will hold that notice until you ask for the result.")
+            elif action == "notify":
+                self.jobs.set_return_policy(
+                    job_id, request, expected_revision=job["revision"]
+                )
+                self._deferred.discard(job_id)
+                say("Result return preference saved: " + request + ".")
             elif action == "status":
                 say("Job " + job_id + " is " + job["status"] + ".")
             elif action == "cancel":
@@ -590,6 +631,7 @@ class DuplexController:
             or self.busy
             or self.user_speaking
             or self.turn_open
+            or self.pending_question
             or self.clock() - self._last_activity < self.quiet_seconds
         ):
             return False
@@ -599,6 +641,13 @@ class DuplexController:
             if job["status"] in {"completed", "failed", "interrupted"}
             and not job["notified"]
             and job["id"] not in self._deferred
+            and (
+                job.get("return_policy") is None  # Legacy prototype adapter.
+                or (
+                    job["return_policy"] == "after_topic"
+                    and self._topic_closed
+                )
+            )
         ][:3]
         if not ready:
             return False

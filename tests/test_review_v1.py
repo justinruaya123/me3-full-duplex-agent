@@ -97,6 +97,11 @@ class ReviewTests(unittest.IsolatedAsyncioTestCase):
         self.runtime.supervisor.backend = Failed()
         job = self.session.jobs.submit("job")
         await self.runtime.supervisor.wait(job["id"])
+        self.session.jobs.set_return_policy(
+            job["id"], "after_topic", expected_revision=job["revision"]
+        )
+        await self.session.accept("That settles it.")
+        await self.settle()
         self.assertTrue(self.session.poll())
         await self.settle()
         self.assertIn("failed", " ".join(self.spoken).lower())
