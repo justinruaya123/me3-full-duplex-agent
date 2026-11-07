@@ -2,7 +2,8 @@
 
 ## November 7: published Turbo-constrained build and canonical ME3 validation
 
-The published branch is `hermes/benchmark-latency-v1`. The final measured build
+The published branch is `main`, including `hermes/benchmark-latency-v1` and its
+committed evidence without rewriting that history. The final measured build
 is `6bbbfd57d5e5c062ec3846762158118a7318b0db`; subsequent evidence/documentation
 commits retain its runtime code. Pi.dev remains the default local worker and the
 controller remains harness-neutral. The operator's exact Whisper Turbo constraint

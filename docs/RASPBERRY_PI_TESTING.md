@@ -14,18 +14,20 @@ may serve Whisper/Kokoro inference, and the configured foreground/worker
 providers may serve their selected models. Jobs, orchestration, artifacts,
 MCP and action execution remain on the Pi; workers never own speech output.
 
-## Pull the published feature branch without discarding work
+## Pull main without discarding work
 
 The repository is
 `https://github.com/justinruaya123/me3-full-duplex-agent.git`; use branch
-`hermes/benchmark-latency-v1`. The implementation base inspected for this guide
-was `c32163422abdcd9bff4537626a930739d6206fe8`. Pull the branch, including later
-documentation/results commits, and record the exact revision you actually test.
+`main`. It includes the implementation and evidence from
+`hermes/benchmark-latency-v1`. The final measured runtime build was
+`6bbbfd57d5e5c062ec3846762158118a7318b0db`; later commits retain its runtime code.
+Pull main, including its documentation/results commits, and record the exact
+revision you actually test.
 
 For a new checkout:
 
 ```sh
-git clone --branch hermes/benchmark-latency-v1 --single-branch \
+git clone --branch main --single-branch \
   https://github.com/justinruaya123/me3-full-duplex-agent.git me3
 cd me3
 ```
@@ -37,13 +39,12 @@ repository as `origin`; it does not reset files or rewrite history:
 
 ```sh
 git fetch origin
-if git show-ref --verify --quiet refs/heads/hermes/benchmark-latency-v1; then
-  git switch hermes/benchmark-latency-v1
+if git show-ref --verify --quiet refs/heads/main; then
+  git switch main
 else
-  git switch --track -c hermes/benchmark-latency-v1 \
-    origin/hermes/benchmark-latency-v1
+  git switch --track -c main origin/main
 fi
-git pull --ff-only origin hermes/benchmark-latency-v1
+git pull --ff-only origin main
 git rev-parse HEAD
 git status --short
 ```

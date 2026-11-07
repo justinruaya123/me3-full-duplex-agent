@@ -1,8 +1,8 @@
 # ME3: Pi-default full-duplex agent
 
 Continues `prototype/hermes-duplex-v1` at `642cc73` through
-`feat/pi-full-duplex-v1`; the published testing branch is
-`hermes/benchmark-latency-v1`. The [November 4 specification](docs/ME3_SPEC_2026-11-04.md)
+`feat/pi-full-duplex-v1` and `hermes/benchmark-latency-v1`; the published branch
+for setup and testing is `main`. The [November 4 specification](docs/ME3_SPEC_2026-11-04.md)
 supersedes the older Hermes-first default. The controller remains harness-neutral;
 Hermes and the older OnIt/ME2-related baseline remain available.
 
@@ -90,7 +90,7 @@ trials had no recorded reply. ASR final **1.470/2.036s** and TTS p95 **0.696s**
 still exceed their targets; small interruption samples and semantic failures
 remain unqualified. See [canonical metrics and limits](docs/BENCHMARK.md).
 
-The verified feature branch is `hermes/benchmark-latency-v1`. Follow the
+The verified implementation and its evidence are published on `main`. Follow the
 [planned Raspberry Pi pull/setup/testing procedure](docs/RASPBERRY_PI_TESTING.md)
 for a later target run. It keeps jobs/orchestration on the Pi and only inference
 offloaded. That procedure has not been executed on Raspberry Pi hardware here.
