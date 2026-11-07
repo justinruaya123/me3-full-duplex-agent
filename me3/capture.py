@@ -7,6 +7,7 @@ import io
 import re
 import wave
 
+from me3.hesitation import holds_turn
 from me3.incremental import (
     RollingTranscript,
     TranscriptRevision,
@@ -175,7 +176,9 @@ class RollingCapture:
             gap = re.search(
                 r"\[(?:inaudible|unknown|unclear)\]|<unk>", text, re.I
             )
-            committed = final and complete is True and not gap
+            committed = (
+                final and complete is True and not gap and not holds_turn(text)
+            )
             event = rolling.update(
                 text,
                 self.start_sample / 16000,
