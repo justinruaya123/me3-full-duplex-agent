@@ -1,0 +1,96 @@
+{
+  "trial": "r01_v15_interruption_v15_interruption_165",
+  "group": "v15_interruption",
+  "clip": "v15_interruption_165",
+  "variant": "main",
+  "expected": "stop, answer the new request (Respond)",
+  "duration": 20.768,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.616
+    },
+    {
+      "name": "overlap",
+      "t": 6.812,
+      "len": 3.616
+    }
+  ],
+  "live_bot_starts": [
+    5.312,
+    14.048
+  ],
+  "live_bot_ends": [
+    7.392,
+    20.416
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "How can I train my dog to follow basic commands?",
+    "current_turn_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_duration": 3.62,
+    "overlap_window": [
+      7.275,
+      10.891
+    ],
+    "source_id": "165"
+  },
+  "mono": [
+    26593.226678,
+    26613.979696541
+  ],
+  "bot_segments": [
+    [
+      5.282,
+      7.422
+    ],
+    [
+      14.018,
+      20.446
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.616
+  ],
+  "overlap_played": true,
+  "t_stop": 0.2519999999999998,
+  "t_resp": 3.59,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    7.17,
+    10.428
+  ],
+  "tor": 1,
+  "first_start": 14.018,
+  "spoke_s": 4.41,
+  "latency": 3.59,
+  "actual": "stopped after 0.25 s, back 3.59 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ replied · content: judge",
+  "ok": null,
+  "marks": 41,
+  "final": {
+    "t_stop": 0.2519999999999998,
+    "t_resp": 3.59,
+    "label": null,
+    "voice_delta": {
+      "wpm": -6.461202451010138,
+      "pitch_mean": 7.524511178683156,
+      "pitch_sd": -4.025921783336521,
+      "intensity_mean": -0.7616714377139431,
+      "intensity_sd": 0.8208304282398506,
+      "utmosv2": null
+    },
+    "transcript": "Start with short, positive sessions. For dog training, start with positive reinforcement using treats and clear, consistent verbal cues."
+  },
+  "scored_at": "2026-11-07T10:36:25+08:00"
+}

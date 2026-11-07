@@ -1,0 +1,10 @@
+{"event": "supervisor_started", "mono_ns": 28505095210750}
+{"event": "voice_profile", "mono_ns": 28505174543541, "profile": "course", "session_id": "c6daea3547c8493182c2acaa84dc93ad", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 28511443646500, "session_id": "c6daea3547c8493182c2acaa84dc93ad"}
+{"event": "transcript_revision", "mono_ns": 28512987164958, "session_id": "c6daea3547c8493182c2acaa84dc93ad", "revision": 1, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 28514040975916, "session_id": "c6daea3547c8493182c2acaa84dc93ad", "revision": 2, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 28514160113125, "session_id": "c6daea3547c8493182c2acaa84dc93ad"}
+{"event": "transcript_revision", "mono_ns": 28515114933458, "session_id": "c6daea3547c8493182c2acaa84dc93ad", "revision": 3, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 28516147659791, "session_id": "c6daea3547c8493182c2acaa84dc93ad", "revision": 4, "committed": true, "turn_id": "1", "capture_ended": true}
+{"event": "floor_decision", "mono_ns": 28516147938625, "session_id": "c6daea3547c8493182c2acaa84dc93ad", "decision": "turn", "addressee_known": true}
+{"event": "speech_cancelled", "mono_ns": 28516148321541, "session_id": "c6daea3547c8493182c2acaa84dc93ad", "epoch": 1}

@@ -1,0 +1,104 @@
+{
+  "text": "Start by contributing enough to your workplace 401k to get the full employer match.",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        5.87,
+        6.35
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        6.35,
+        6.59
+      ]
+    },
+    {
+      "text": "contributing",
+      "timestamp": [
+        6.59,
+        7.09
+      ]
+    },
+    {
+      "text": "enough",
+      "timestamp": [
+        7.09,
+        7.49
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        7.49,
+        7.71
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        7.71,
+        7.81
+      ]
+    },
+    {
+      "text": "workplace",
+      "timestamp": [
+        7.81,
+        8.13
+      ]
+    },
+    {
+      "text": "401k",
+      "timestamp": [
+        8.13,
+        9.73
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        9.73,
+        10.41
+      ]
+    },
+    {
+      "text": "get",
+      "timestamp": [
+        10.41,
+        10.55
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        10.55,
+        10.69
+      ]
+    },
+    {
+      "text": "full",
+      "timestamp": [
+        10.69,
+        11.03
+      ]
+    },
+    {
+      "text": "employer",
+      "timestamp": [
+        11.03,
+        11.53
+      ]
+    },
+    {
+      "text": "match.",
+      "timestamp": [
+        11.53,
+        11.91
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

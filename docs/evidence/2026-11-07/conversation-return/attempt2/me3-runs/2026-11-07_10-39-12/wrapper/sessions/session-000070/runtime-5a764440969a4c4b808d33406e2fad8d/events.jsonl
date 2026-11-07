@@ -1,0 +1,7 @@
+{"event": "supervisor_started", "mono_ns": 28862786841666}
+{"event": "voice_profile", "mono_ns": 28862890397916, "profile": "course", "session_id": "d72dcee41a6747f4be2e76ea91e9cf62", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 28871025607375, "session_id": "d72dcee41a6747f4be2e76ea91e9cf62"}
+{"event": "transcript_revision", "mono_ns": 28872582383166, "session_id": "d72dcee41a6747f4be2e76ea91e9cf62", "revision": 1, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 28873549861458, "session_id": "d72dcee41a6747f4be2e76ea91e9cf62"}
+{"event": "transcript_revision", "mono_ns": 28873608353333, "session_id": "d72dcee41a6747f4be2e76ea91e9cf62", "revision": 2, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 28874618758333, "session_id": "d72dcee41a6747f4be2e76ea91e9cf62", "revision": 3, "committed": false, "turn_id": "1", "capture_ended": true}

@@ -1,0 +1,14 @@
+
+Pre-flight
+✓  Python 3.12.13                                                               
+✓  packages: core ok                                                            
+✓  scoring extras: ASR (faster-whisper), pitch/intensity (praat-parselmouth) ·  
+   not installed: UTMOSv2 quality                                               
+✓  Darwin 25.5.0 (arm64) · 16.0 GB RAM · 17.9 GB free                           
+✓  network: unknown                                                             
+✓  datasets: 430 clips in 10 groups                                             
+✓  dataset checksums ok (sampled)                                               
+✓  rig: direct feed on ws://127.0.0.1:8791 (no audio devices used)              
+✓  assistant project: /Users/jus/Documents/Grad/AI231/ME3                       
+✓  assistant python: /Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python    
+✓  judge: none (timing and turn-taking metrics only; judge later with `score`)  

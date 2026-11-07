@@ -1,0 +1,446 @@
+{
+  "kind": "Read-only stage/runtime diagnosis of completed original trial outputs; no inference or custom scoring",
+  "run_id": "2026-11-07_10-13-32",
+  "phrase_case_count": 2,
+  "cases": [
+    {
+      "trial": "r02_stage_latency_phrase_v15_interruption_35",
+      "recorded_reply_present": false,
+      "recording_duration": 10.816,
+      "user_end": 2.558,
+      "official_stages": {
+        "e2e_heard": null,
+        "e2e": 8.0233,
+        "e2e_source": "marks",
+        "asr_final": 1.1063,
+        "llm_ttft": 6.7213,
+        "tts_ttfb": 0.1713,
+        "endpointing": 0.1379,
+        "found": [
+          "vad_end",
+          "asr_final",
+          "llm_request",
+          "llm_first_token",
+          "tts_request",
+          "tts_first_audio",
+          "audio_out"
+        ],
+        "transcript": "Could you tell me the rules of tennis?",
+        "wer": {
+          "ref_words": 8,
+          "edits": 0,
+          "wer": 0.0
+        },
+        "context_tokens": 43,
+        "context_source": "estimate",
+        "context_messages": 1
+      },
+      "stage_marks": [
+        {
+          "stage": "vad_start",
+          "t": 26294.746195208,
+          "pid": 36463,
+          "src": "ws",
+          "recv": 26294.748153416,
+          "lt": 26294.746409792002,
+          "tt": 1.2237
+        },
+        {
+          "stage": "vad_start",
+          "t": 26294.746231125,
+          "pid": 36463,
+          "src": "ws",
+          "recv": 26294.74821525,
+          "lt": 26294.746445709,
+          "tt": 1.2237
+        },
+        {
+          "stage": "vad_end",
+          "t": 26296.218368083,
+          "pid": 36463,
+          "src": "ws",
+          "recv": 26296.219646791,
+          "lt": 26296.218582667,
+          "tt": 2.6959
+        },
+        {
+          "stage": "vad_end",
+          "t": 26296.218396583,
+          "pid": 36463,
+          "src": "ws",
+          "recv": 26296.219754583,
+          "lt": 26296.218611167,
+          "tt": 2.6959
+        },
+        {
+          "stage": "asr_partial",
+          "t": 26296.309393375,
+          "pid": 36463,
+          "text": "Could you tell me the-",
+          "src": "ws",
+          "recv": 26296.309880625,
+          "lt": 26296.309607959,
+          "tt": 2.7869
+        },
+        {
+          "stage": "asr_final",
+          "t": 26297.324720833,
+          "pid": 36463,
+          "text": "Could you tell me the rules of tennis?",
+          "src": "ws",
+          "recv": 26297.348802875,
+          "lt": 26297.324935417,
+          "tt": 3.8022
+        },
+        {
+          "stage": "interrupted",
+          "t": 26297.326423333,
+          "pid": 36463,
+          "src": "ws",
+          "recv": 26297.349075125,
+          "lt": 26297.326637917,
+          "tt": 3.8039
+        },
+        {
+          "stage": "interrupted",
+          "t": 26297.326453125,
+          "pid": 36463,
+          "src": "ws",
+          "recv": 26297.349089583,
+          "lt": 26297.326667709,
+          "tt": 3.804
+        },
+        {
+          "stage": "llm_request",
+          "t": 26297.348309083,
+          "pid": 36463,
+          "chars": 171,
+          "messages": 1,
+          "est_tokens": 43,
+          "src": "ws",
+          "recv": 26297.349130833,
+          "lt": 26297.348523667002,
+          "tt": 3.8258
+        },
+        {
+          "stage": "llm_first_token",
+          "t": 26304.0460005,
+          "pid": 36463,
+          "src": "ws",
+          "recv": 26304.049087625,
+          "lt": 26304.046215084,
+          "tt": 10.5235
+        },
+        {
+          "stage": "tts_request",
+          "t": 26304.047715208,
+          "pid": 36463,
+          "src": "ws",
+          "recv": 26304.049571833,
+          "lt": 26304.047929792,
+          "tt": 10.5252
+        },
+        {
+          "stage": "tts_first_audio",
+          "t": 26304.219059875,
+          "pid": 36463,
+          "src": "ws",
+          "recv": 26304.219359625,
+          "lt": 26304.219274459,
+          "tt": 10.6966
+        },
+        {
+          "stage": "audio_out",
+          "t": 26304.241659541,
+          "pid": 36463,
+          "src": "ws",
+          "recv": 26304.242332708,
+          "lt": 26304.241874125,
+          "tt": 10.7192
+        },
+        {
+          "stage": "audio_out",
+          "t": 26304.241677375,
+          "pid": 36463,
+          "src": "ws",
+          "recv": 26304.242383333,
+          "lt": 26304.241891959,
+          "tt": 10.7192
+        }
+      ],
+      "scorer_transcript": "",
+      "diagnosis_limits": "A committed ASR turn, model text, TTS PCM and software output mark are recorded. First output is approximately 0.097s before recording close; no detected speech onset or completed transport utterance is recorded. This is a late software-output observation, not a successful audible reply.",
+      "matched_runtime_trace": "sessions/session-000018/runtime-5265c070829a434faa37a8d951827205/events.jsonl",
+      "first_vad_to_runtime_user_started_difference_seconds": 0.00020037499780301005,
+      "runtime_events": [
+        {
+          "event": "supervisor_started",
+          "mono_ns": 26287347252250
+        },
+        {
+          "event": "voice_profile",
+          "mono_ns": 26287425594291,
+          "profile": "course",
+          "session_id": "d24db0e761c946539e16e1eb6aafccc9",
+          "ownership_bypassed": true,
+          "audio_mode": "headphones"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 26294746395583,
+          "session_id": "d24db0e761c946539e16e1eb6aafccc9"
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 26296218477708,
+          "session_id": "d24db0e761c946539e16e1eb6aafccc9"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 26296308903916,
+          "session_id": "d24db0e761c946539e16e1eb6aafccc9",
+          "revision": 1,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 26297324339625,
+          "session_id": "d24db0e761c946539e16e1eb6aafccc9",
+          "revision": 2,
+          "committed": true,
+          "turn_id": "1",
+          "capture_ended": true
+        },
+        {
+          "event": "floor_decision",
+          "mono_ns": 26297324747833,
+          "session_id": "d24db0e761c946539e16e1eb6aafccc9",
+          "decision": "turn",
+          "addressee_known": true
+        },
+        {
+          "event": "speech_cancelled",
+          "mono_ns": 26297325474000,
+          "session_id": "d24db0e761c946539e16e1eb6aafccc9",
+          "epoch": 1
+        },
+        {
+          "event": "speech_submitted",
+          "mono_ns": 26304046189916,
+          "epoch": 1,
+          "utterance": "d24db0e761c946539e16e1eb6aafccc9:1:1",
+          "profile": "course"
+        }
+      ],
+      "first_output_to_recording_close_seconds": 0.0968,
+      "llm_request_to_recording_close_seconds": 6.990200000000001,
+      "runtime_commit_recorded": true,
+      "runtime_foreground_failure_event_recorded": false,
+      "runtime_transport_completion_recorded": false,
+      "smartturn_hold_explanation_supported": false
+    },
+    {
+      "trial": "r03_stage_latency_phrase_v15_background_94",
+      "recorded_reply_present": false,
+      "recording_duration": 9.952,
+      "user_end": 1.694,
+      "official_stages": {
+        "e2e_heard": null,
+        "e2e": null,
+        "e2e_source": null,
+        "asr_final": 1.9382,
+        "llm_ttft": null,
+        "tts_ttfb": null,
+        "endpointing": 0.1281,
+        "found": [
+          "vad_end",
+          "asr_final",
+          "llm_request"
+        ],
+        "transcript": "Track my package from FedEx.",
+        "wer": {
+          "ref_words": 5,
+          "edits": 0,
+          "wer": 0.0
+        },
+        "context_tokens": 40,
+        "context_source": "estimate",
+        "context_messages": 1
+      },
+      "stage_marks": [
+        {
+          "stage": "vad_start",
+          "t": 26388.955862666,
+          "pid": 36506,
+          "src": "ws",
+          "recv": 26388.957974541,
+          "lt": 26388.95607725,
+          "tt": 0.1915
+        },
+        {
+          "stage": "vad_start",
+          "t": 26388.955912125,
+          "pid": 36506,
+          "src": "ws",
+          "recv": 26388.958114458,
+          "lt": 26388.956126709,
+          "tt": 0.1915
+        },
+        {
+          "stage": "asr_partial",
+          "t": 26390.493522583,
+          "pid": 36506,
+          "text": "Track my pack.",
+          "src": "ws",
+          "recv": 26390.493939875,
+          "lt": 26390.493737167002,
+          "tt": 1.7291
+        },
+        {
+          "stage": "vad_end",
+          "t": 26390.586441,
+          "pid": 36506,
+          "src": "ws",
+          "recv": 26390.588002541,
+          "lt": 26390.586655584,
+          "tt": 1.8221
+        },
+        {
+          "stage": "vad_end",
+          "t": 26390.586472583,
+          "pid": 36506,
+          "src": "ws",
+          "recv": 26390.588035708,
+          "lt": 26390.586687167,
+          "tt": 1.8221
+        },
+        {
+          "stage": "asr_partial",
+          "t": 26391.525467375,
+          "pid": 36506,
+          "text": "Track my package from FedEx.",
+          "src": "ws",
+          "recv": 26391.525932916,
+          "lt": 26391.525681959,
+          "tt": 2.7611
+        },
+        {
+          "stage": "asr_final",
+          "t": 26392.524715083,
+          "pid": 36506,
+          "text": "Track my package from FedEx.",
+          "src": "ws",
+          "recv": 26392.54511225,
+          "lt": 26392.524929667,
+          "tt": 3.7603
+        },
+        {
+          "stage": "interrupted",
+          "t": 26392.525734833,
+          "pid": 36506,
+          "src": "ws",
+          "recv": 26392.545267333,
+          "lt": 26392.525949417002,
+          "tt": 3.7614
+        },
+        {
+          "stage": "interrupted",
+          "t": 26392.525744875,
+          "pid": 36506,
+          "src": "ws",
+          "recv": 26392.545274833,
+          "lt": 26392.525959459002,
+          "tt": 3.7614
+        },
+        {
+          "stage": "llm_request",
+          "t": 26392.544730833,
+          "pid": 36506,
+          "chars": 161,
+          "messages": 1,
+          "est_tokens": 40,
+          "src": "ws",
+          "recv": 26392.545282416,
+          "lt": 26392.544945417,
+          "tt": 3.7803
+        }
+      ],
+      "scorer_transcript": "",
+      "diagnosis_limits": "ASR committed and foreground request is recorded, but no first-token mark before recording close. This trace alone does not establish provider failure/deadline cause.",
+      "matched_runtime_trace": "sessions/session-000024/runtime-5a6c333ccb6f4afa9f1938e8399df5b3/events.jsonl",
+      "first_vad_to_runtime_user_started_difference_seconds": 0.00028570900030899793,
+      "runtime_events": [
+        {
+          "event": "supervisor_started",
+          "mono_ns": 26382588999916
+        },
+        {
+          "event": "voice_profile",
+          "mono_ns": 26382668177083,
+          "profile": "course",
+          "session_id": "af59e90aea714378bb2bc69d5c31d88b",
+          "ownership_bypassed": true,
+          "audio_mode": "headphones"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 26388956148375,
+          "session_id": "af59e90aea714378bb2bc69d5c31d88b"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 26390492957083,
+          "session_id": "af59e90aea714378bb2bc69d5c31d88b",
+          "revision": 1,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 26390586570958,
+          "session_id": "af59e90aea714378bb2bc69d5c31d88b"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 26391525062000,
+          "session_id": "af59e90aea714378bb2bc69d5c31d88b",
+          "revision": 2,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 26392524514208,
+          "session_id": "af59e90aea714378bb2bc69d5c31d88b",
+          "revision": 3,
+          "committed": true,
+          "turn_id": "1",
+          "capture_ended": true
+        },
+        {
+          "event": "floor_decision",
+          "mono_ns": 26392524733416,
+          "session_id": "af59e90aea714378bb2bc69d5c31d88b",
+          "decision": "turn",
+          "addressee_known": true
+        },
+        {
+          "event": "speech_cancelled",
+          "mono_ns": 26392525198833,
+          "session_id": "af59e90aea714378bb2bc69d5c31d88b",
+          "epoch": 1
+        }
+      ],
+      "first_output_to_recording_close_seconds": null,
+      "llm_request_to_recording_close_seconds": 6.1716999999999995,
+      "runtime_commit_recorded": true,
+      "runtime_foreground_failure_event_recorded": false,
+      "runtime_transport_completion_recorded": false,
+      "smartturn_hold_explanation_supported": false
+    }
+  ]
+}

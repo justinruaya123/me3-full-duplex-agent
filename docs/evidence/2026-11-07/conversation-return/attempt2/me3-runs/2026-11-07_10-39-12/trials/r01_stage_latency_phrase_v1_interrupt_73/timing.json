@@ -1,0 +1,84 @@
+{
+  "trial": "r01_stage_latency_phrase_v1_interrupt_73",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_73",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 11.2,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.4
+    }
+  ],
+  "live_bot_starts": [
+    7.552
+  ],
+  "live_bot_ends": [
+    10.848
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "How should I start saving for retirement?",
+    "source": "v1_interrupt_73"
+  },
+  "mono": [
+    27681.212816333,
+    27692.397507125
+  ],
+  "bot_segments": [
+    [
+      7.522,
+      10.878
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.4
+  ],
+  "tor": 1,
+  "first_start": 7.522,
+  "spoke_s": 2.878,
+  "user_end": 2.43,
+  "latency": 5.0920000000000005,
+  "actual": "replied 5.09 s after speech end",
+  "verdict": "✓ 5.09 s",
+  "ok": true,
+  "marks": 15,
+  "final": {
+    "stages": {
+      "e2e_heard": 5.092,
+      "e2e": 4.6024,
+      "e2e_source": "marks",
+      "asr_final": 1.7944,
+      "llm_ttft": 2.2672,
+      "tts_ttfb": 0.3824,
+      "endpointing": 0.1306,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "how should I start saving for retirement?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 44,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Honestly, start with your employer's 401k."
+  },
+  "scored_at": "2026-11-07T11:02:12+08:00"
+}

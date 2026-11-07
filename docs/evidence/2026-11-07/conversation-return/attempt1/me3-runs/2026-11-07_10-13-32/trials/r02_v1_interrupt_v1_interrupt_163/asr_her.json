@@ -1,0 +1,48 @@
+{
+  "text": "To me, it's all about balance.",
+  "chunks": [
+    {
+      "text": "To",
+      "timestamp": [
+        4.5,
+        4.96
+      ]
+    },
+    {
+      "text": "me,",
+      "timestamp": [
+        4.96,
+        5.18
+      ]
+    },
+    {
+      "text": "it's",
+      "timestamp": [
+        5.46,
+        5.66
+      ]
+    },
+    {
+      "text": "all",
+      "timestamp": [
+        5.66,
+        5.78
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        5.78,
+        5.96
+      ]
+    },
+    {
+      "text": "balance.",
+      "timestamp": [
+        5.96,
+        6.34
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,16 @@
+{"event": "supervisor_started", "mono_ns": 27815726911208}
+{"event": "voice_profile", "mono_ns": 27815806172541, "profile": "course", "session_id": "f819a80b17404d3c98d06087c8b12ce3", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 27822222730291, "session_id": "f819a80b17404d3c98d06087c8b12ce3"}
+{"event": "user_stopped_asr_pending", "mono_ns": 27823313255166, "session_id": "f819a80b17404d3c98d06087c8b12ce3"}
+{"event": "user_started", "mono_ns": 27823407594541, "session_id": "f819a80b17404d3c98d06087c8b12ce3"}
+{"event": "user_stopped_asr_pending", "mono_ns": 27824497409583, "session_id": "f819a80b17404d3c98d06087c8b12ce3"}
+{"event": "transcript_revision", "mono_ns": 27824794855958, "session_id": "f819a80b17404d3c98d06087c8b12ce3", "revision": 1, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 27825806336750, "session_id": "f819a80b17404d3c98d06087c8b12ce3", "revision": 2, "committed": true, "turn_id": "1", "capture_ended": true}
+{"event": "floor_decision", "mono_ns": 27825806767958, "session_id": "f819a80b17404d3c98d06087c8b12ce3", "decision": "turn", "addressee_known": true}
+{"event": "speech_cancelled", "mono_ns": 27825807377583, "session_id": "f819a80b17404d3c98d06087c8b12ce3", "epoch": 1}
+{"event": "speech_submitted", "mono_ns": 27826032131666, "epoch": 1, "utterance": "f819a80b17404d3c98d06087c8b12ce3:1:1", "profile": "course"}
+{"event": "transport_utterance_completed", "mono_ns": 27828072703208, "utterance": "f819a80b17404d3c98d06087c8b12ce3:1:1", "bytes": 84480, "profile": "course"}
+{"event": "playback_completed", "mono_ns": 27828074222791, "session_id": "f819a80b17404d3c98d06087c8b12ce3", "epoch": 1, "kind": "reply"}
+{"event": "speech_submitted", "mono_ns": 27828076829833, "epoch": 1, "utterance": "f819a80b17404d3c98d06087c8b12ce3:1:2", "profile": "course"}
+{"event": "transport_utterance_completed", "mono_ns": 27830573219708, "utterance": "f819a80b17404d3c98d06087c8b12ce3:1:2", "bytes": 103680, "profile": "course"}
+{"event": "playback_completed", "mono_ns": 27830574692750, "session_id": "f819a80b17404d3c98d06087c8b12ce3", "epoch": 1, "kind": "reply"}

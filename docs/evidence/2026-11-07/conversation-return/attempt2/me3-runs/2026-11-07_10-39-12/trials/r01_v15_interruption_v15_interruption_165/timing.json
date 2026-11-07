@@ -1,0 +1,88 @@
+{
+  "trial": "r01_v15_interruption_v15_interruption_165",
+  "group": "v15_interruption",
+  "clip": "v15_interruption_165",
+  "variant": "main",
+  "expected": "stop, answer the new request (Respond)",
+  "duration": 16.672,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.616
+    },
+    {
+      "name": "overlap",
+      "t": 6.812,
+      "len": 3.616
+    }
+  ],
+  "live_bot_starts": [
+    5.312,
+    13.952
+  ],
+  "live_bot_ends": [
+    6.656,
+    15.456
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "How can I train my dog to follow basic commands?",
+    "current_turn_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_text": "Wait, can I switch my phone to silent mode through voice command?",
+    "overlap_duration": 3.62,
+    "overlap_window": [
+      7.275,
+      10.891
+    ],
+    "source_id": "165"
+  },
+  "mono": [
+    28167.885830625,
+    28184.562322708
+  ],
+  "bot_segments": [
+    [
+      5.282,
+      6.686
+    ],
+    [
+      13.922,
+      15.486
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.616
+  ],
+  "overlap_played": true,
+  "t_stop": null,
+  "t_resp": 3.4939999999999998,
+  "bot_speaking_at_onset": false,
+  "spoke_through": false,
+  "overlap": [
+    7.17,
+    10.428
+  ],
+  "tor": 1,
+  "first_start": 13.922,
+  "spoke_s": 1.564,
+  "latency": 3.4939999999999998,
+  "actual": "was already silent, back 3.49 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ replied · content: judge",
+  "ok": null,
+  "marks": 45,
+  "final": {
+    "t_stop": null,
+    "t_resp": 3.4939999999999998,
+    "label": null,
+    "transcript": "Consistency is key. Oh, that's a handy feature."
+  },
+  "scored_at": "2026-11-07T11:02:21+08:00"
+}

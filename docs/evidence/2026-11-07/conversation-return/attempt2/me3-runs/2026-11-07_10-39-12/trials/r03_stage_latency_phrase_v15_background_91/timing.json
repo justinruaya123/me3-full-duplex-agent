@@ -1,0 +1,96 @@
+{
+  "trial": "r03_stage_latency_phrase_v15_background_91",
+  "group": "stage_latency",
+  "clip": "phrase_v15_background_91",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 11.232,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.904
+    }
+  ],
+  "live_bot_starts": [
+    4.672,
+    6.432,
+    9.408
+  ],
+  "live_bot_ends": [
+    5.472,
+    8.448,
+    10.88
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "What day of the week is July 4th, 2026?",
+    "source": "v15_background_91"
+  },
+  "mono": [
+    28006.851844333,
+    28018.061354458
+  ],
+  "bot_segments": [
+    [
+      4.642,
+      5.502
+    ],
+    [
+      6.402,
+      8.478
+    ],
+    [
+      9.378,
+      10.91
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.904
+  ],
+  "tor": 1,
+  "first_start": 4.642,
+  "spoke_s": 6.262,
+  "user_end": 2.654,
+  "latency": 1.9880000000000004,
+  "actual": "replied 1.99 s after speech end",
+  "verdict": "✓ 1.99 s",
+  "ok": true,
+  "marks": 29,
+  "final": {
+    "stages": {
+      "e2e_heard": 1.988,
+      "e2e": 1.4753,
+      "e2e_source": "marks",
+      "asr_final": 1.0787,
+      "llm_ttft": 0.1493,
+      "tts_ttfb": 0.1675,
+      "endpointing": 0.1323,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "What day of the week is July 4th, 2026?",
+      "wer": {
+        "ref_words": 9,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 43,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Let me think. July 4, 2026. That's going to be a Saturday."
+  },
+  "scored_at": "2026-11-07T11:02:56+08:00"
+}

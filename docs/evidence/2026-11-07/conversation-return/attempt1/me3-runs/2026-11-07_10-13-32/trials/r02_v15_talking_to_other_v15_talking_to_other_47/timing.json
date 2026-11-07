@@ -1,0 +1,98 @@
+{
+  "trial": "r02_v15_talking_to_other_v15_talking_to_other_47",
+  "group": "v15_talking_to_other",
+  "clip": "v15_talking_to_other_47",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 19.456,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 3.064
+    },
+    {
+      "name": "overlap",
+      "t": 9.02,
+      "len": 2.09
+    }
+  ],
+  "live_bot_starts": [
+    7.52,
+    14.208,
+    17.408
+  ],
+  "live_bot_ends": [
+    9.344,
+    17.024,
+    19.104
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "Set an alarm for 6:30 AM on weekdays.",
+    "current_turn_text": "Derek, traffic was insanity today.",
+    "overlap_text": "Derek, traffic was insanity today.",
+    "overlap_duration": 2.09,
+    "overlap_window": [
+      6.926,
+      9.016
+    ],
+    "source_id": "47"
+  },
+  "mono": [
+    26941.234100958,
+    26960.665015416
+  ],
+  "bot_segments": [
+    [
+      7.49,
+      9.374
+    ],
+    [
+      14.178,
+      19.134
+    ]
+  ],
+  "play_first": [
+    0.0,
+    3.064
+  ],
+  "overlap_played": true,
+  "t_stop": 0.34800000000000075,
+  "t_resp": 3.0680000000000014,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    9.026,
+    11.11
+  ],
+  "tor": 1,
+  "first_start": 14.178,
+  "spoke_s": 4.931999999999999,
+  "latency": 3.0680000000000014,
+  "actual": "stopped after 0.35 s, back 3.07 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ paused, came back · content: judge",
+  "ok": null,
+  "marks": 35,
+  "final": {
+    "t_stop": 0.34800000000000075,
+    "t_resp": 3.0680000000000014,
+    "label": null,
+    "voice_delta": {
+      "wpm": 27.42891590475236,
+      "pitch_mean": -10.07406526149768,
+      "pitch_sd": 3.284179107241968,
+      "intensity_mean": -3.2935812233468518,
+      "intensity_sd": 1.0969814502923363,
+      "utmosv2": null
+    },
+    "transcript": "I'm unable to set alarms or... I can't set alarms or check real -time traffic, but I imagine that was a rough one."
+  },
+  "scored_at": "2026-11-07T10:36:53+08:00"
+}

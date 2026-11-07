@@ -1,0 +1,15 @@
+{"event": "supervisor_started", "mono_ns": 27253869513833}
+{"event": "voice_profile", "mono_ns": 27253948046166, "profile": "course", "session_id": "c469897c15074fbe824b5737973de849", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 27260312778708, "session_id": "c469897c15074fbe824b5737973de849"}
+{"event": "transcript_revision", "mono_ns": 27261872524958, "session_id": "c469897c15074fbe824b5737973de849", "revision": 1, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 27262486567333, "session_id": "c469897c15074fbe824b5737973de849"}
+{"event": "transcript_revision", "mono_ns": 27262910219125, "session_id": "c469897c15074fbe824b5737973de849", "revision": 2, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 27263939885541, "session_id": "c469897c15074fbe824b5737973de849", "revision": 3, "committed": true, "turn_id": "1", "capture_ended": true}
+{"event": "floor_decision", "mono_ns": 27263940424250, "session_id": "c469897c15074fbe824b5737973de849", "decision": "turn", "addressee_known": true}
+{"event": "speech_cancelled", "mono_ns": 27263940753458, "session_id": "c469897c15074fbe824b5737973de849", "epoch": 1}
+{"event": "speech_submitted", "mono_ns": 27264468346333, "epoch": 1, "utterance": "c469897c15074fbe824b5737973de849:1:1", "profile": "course"}
+{"event": "transport_utterance_completed", "mono_ns": 27266726857041, "utterance": "c469897c15074fbe824b5737973de849:1:1", "bytes": 90240, "profile": "course"}
+{"event": "playback_completed", "mono_ns": 27266728465000, "session_id": "c469897c15074fbe824b5737973de849", "epoch": 1, "kind": "reply"}
+{"event": "speech_submitted", "mono_ns": 27266730980416, "epoch": 1, "utterance": "c469897c15074fbe824b5737973de849:1:2", "profile": "course"}
+{"event": "transport_utterance_completed", "mono_ns": 27268768521541, "utterance": "c469897c15074fbe824b5737973de849:1:2", "bytes": 82560, "profile": "course"}
+{"event": "playback_completed", "mono_ns": 27268770180541, "session_id": "c469897c15074fbe824b5737973de849", "epoch": 1, "kind": "reply"}

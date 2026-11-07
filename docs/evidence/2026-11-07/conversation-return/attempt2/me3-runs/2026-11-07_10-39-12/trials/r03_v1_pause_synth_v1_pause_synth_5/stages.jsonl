@@ -1,0 +1,16 @@
+{"stage": "vad_start", "t": 28695.087748625, "pid": 37764, "src": "ws", "recv": 28695.089767666, "lt": 28695.087890667, "tt": 0.9313}
+{"stage": "vad_start", "t": 28695.087790333, "pid": 37764, "src": "ws", "recv": 28695.089864875, "lt": 28695.087932375, "tt": 0.9313}
+{"stage": "asr_partial", "t": 28696.65494, "pid": 37764, "text": "I'm not sure what to do.", "src": "ws", "recv": 28696.655405166, "lt": 28696.655082042, "tt": 2.4985}
+{"stage": "asr_partial", "t": 28697.681666125, "pid": 37764, "text": "I'm not sure what to do this upcoming week.", "src": "ws", "recv": 28697.682391583, "lt": 28697.681808167003, "tt": 3.5252}
+{"stage": "asr_partial", "t": 28698.719817583, "pid": 37764, "text": "I'm not sure what to do this upcoming weekend, perhaps.", "src": "ws", "recv": 28698.72013075, "lt": 28698.719959625003, "tt": 4.5633}
+{"stage": "asr_partial", "t": 28699.821162125, "pid": 37764, "text": "I'm not sure what to do this upcoming weekend. Perhaps a hike would be fun.", "src": "ws", "recv": 28699.821553875, "lt": 28699.821304167002, "tt": 5.6647}
+{"stage": "vad_end", "t": 28699.822666083, "pid": 37764, "src": "ws", "recv": 28699.8233465, "lt": 28699.822808125, "tt": 5.6662}
+{"stage": "vad_end", "t": 28699.822673416, "pid": 37764, "src": "ws", "recv": 28699.823355583, "lt": 28699.822815458003, "tt": 5.6662}
+{"stage": "asr_partial", "t": 28700.916621125, "pid": 37764, "text": "I'm not sure what to do this upcoming weekend. Perhaps a hike would be fun or...", "src": "ws", "recv": 28700.91685125, "lt": 28700.916763167003, "tt": 6.7601}
+{"stage": "asr_partial", "t": 28700.977008041, "pid": 37764, "text": "I'm not sure what to do this upcoming weekend. Perhaps a hike would be fun or...", "src": "ws", "recv": 28700.977224666, "lt": 28700.977150083003, "tt": 6.8205}
+{"stage": "vad_start", "t": 28701.039761583, "pid": 37764, "src": "ws", "recv": 28701.040385125, "lt": 28701.039903625002, "tt": 6.8833}
+{"stage": "vad_start", "t": 28701.039769541, "pid": 37764, "src": "ws", "recv": 28701.040430458, "lt": 28701.039911583, "tt": 6.8833}
+{"stage": "vad_end", "t": 28702.9272255, "pid": 37764, "src": "ws", "recv": 28702.927928958, "lt": 28702.927367542, "tt": 8.7707}
+{"stage": "vad_end", "t": 28702.927236583, "pid": 37764, "src": "ws", "recv": 28702.927958791, "lt": 28702.927378625, "tt": 8.7708}
+{"stage": "asr_partial", "t": 28702.987776166, "pid": 37764, "text": "I'm not sure what to do this upcoming weekend. Perhaps a hike would be fun or maybe a visit.", "src": "ws", "recv": 28702.987985375, "lt": 28702.987918208, "tt": 8.8313}
+{"stage": "asr_partial", "t": 28704.122256333, "pid": 37764, "text": "I'm not sure what to do this upcoming weekend. Perhaps a hike would be fun or be a visit to the local museum.", "src": "ws", "recv": 28704.122479833, "lt": 28704.122398375002, "tt": 9.9658}

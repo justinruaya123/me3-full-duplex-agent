@@ -1,0 +1,56 @@
+{
+  "trial": "r02_v15_talking_to_other_v15_talking_to_other_47",
+  "group": "v15_talking_to_other",
+  "clip": "v15_talking_to_other_47",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 11.072,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 3.064
+    }
+  ],
+  "live_bot_starts": [],
+  "live_bot_ends": [],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Set an alarm for 6:30 AM on weekdays.",
+    "current_turn_text": "Derek, traffic was insanity today.",
+    "overlap_text": "Derek, traffic was insanity today.",
+    "overlap_duration": 2.09,
+    "overlap_window": [
+      6.926,
+      9.016
+    ],
+    "source_id": "47"
+  },
+  "mono": [
+    28511.212102708,
+    28522.289547791
+  ],
+  "bot_segments": [],
+  "play_first": [
+    0.0,
+    3.064
+  ],
+  "tor": 0,
+  "actual": "she never answered the first turn; overlap not played",
+  "verdict": "? no answer",
+  "ok": false,
+  "overlap_played": false,
+  "marks": 11,
+  "final": {
+    "label": "Unknown",
+    "verdict": "? no answer to first turn",
+    "ok": false,
+    "unknown": true,
+    "transcript": ""
+  },
+  "scored_at": "2026-11-07T11:02:45+08:00"
+}

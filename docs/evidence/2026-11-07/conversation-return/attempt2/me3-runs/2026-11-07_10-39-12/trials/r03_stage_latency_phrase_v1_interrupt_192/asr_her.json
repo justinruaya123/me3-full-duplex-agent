@@ -1,0 +1,97 @@
+{
+  "text": "I don't have your current location or the specific path you're referring to.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        5.97,
+        6.37
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        6.37,
+        6.59
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        6.59,
+        6.71
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        6.71,
+        6.85
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        6.85,
+        7.19
+      ]
+    },
+    {
+      "text": "location",
+      "timestamp": [
+        7.19,
+        7.75
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        7.75,
+        8.25
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.25,
+        8.37
+      ]
+    },
+    {
+      "text": "specific",
+      "timestamp": [
+        8.37,
+        8.71
+      ]
+    },
+    {
+      "text": "path",
+      "timestamp": [
+        8.71,
+        9.11
+      ]
+    },
+    {
+      "text": "you're",
+      "timestamp": [
+        9.11,
+        9.35
+      ]
+    },
+    {
+      "text": "referring",
+      "timestamp": [
+        9.35,
+        9.67
+      ]
+    },
+    {
+      "text": "to.",
+      "timestamp": [
+        9.67,
+        10.01
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

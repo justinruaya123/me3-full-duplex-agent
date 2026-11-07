@@ -1,0 +1,167 @@
+{
+  "text": "I can't check real -time package locations, but you can track it instantly using the tracking number on the FedEx website or app.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        5.55,
+        6.01
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        6.01,
+        6.37
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        6.37,
+        6.61
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        6.61,
+        6.93
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        6.93,
+        7.25
+      ]
+    },
+    {
+      "text": "package",
+      "timestamp": [
+        7.25,
+        7.65
+      ]
+    },
+    {
+      "text": "locations,",
+      "timestamp": [
+        7.65,
+        8.35
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        8.85,
+        9.05
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        9.05,
+        9.21
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        9.21,
+        9.37
+      ]
+    },
+    {
+      "text": "track",
+      "timestamp": [
+        9.37,
+        9.67
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        9.67,
+        9.85
+      ]
+    },
+    {
+      "text": "instantly",
+      "timestamp": [
+        9.85,
+        10.33
+      ]
+    },
+    {
+      "text": "using",
+      "timestamp": [
+        10.33,
+        10.77
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        10.77,
+        10.95
+      ]
+    },
+    {
+      "text": "tracking",
+      "timestamp": [
+        10.95,
+        11.27
+      ]
+    },
+    {
+      "text": "number",
+      "timestamp": [
+        11.27,
+        11.59
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        11.59,
+        11.97
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        11.97,
+        12.09
+      ]
+    },
+    {
+      "text": "FedEx",
+      "timestamp": [
+        12.09,
+        12.47
+      ]
+    },
+    {
+      "text": "website",
+      "timestamp": [
+        12.47,
+        12.95
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        12.95,
+        13.39
+      ]
+    },
+    {
+      "text": "app.",
+      "timestamp": [
+        13.39,
+        13.67
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

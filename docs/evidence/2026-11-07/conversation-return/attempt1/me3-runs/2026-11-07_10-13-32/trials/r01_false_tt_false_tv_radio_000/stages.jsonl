@@ -1,0 +1,22 @@
+{"stage": "vad_start", "t": 26539.709457875, "pid": 36578, "src": "ws", "recv": 26539.711623833, "lt": 26539.709665000002, "tt": 0.2604}
+{"stage": "vad_start", "t": 26539.709495125, "pid": 36578, "src": "ws", "recv": 26539.71166175, "lt": 26539.709702250002, "tt": 0.2605}
+{"stage": "asr_partial", "t": 26541.279934541, "pid": 36578, "text": "Actually, can you tell me?", "src": "ws", "recv": 26541.280243833, "lt": 26541.280141666, "tt": 1.8309}
+{"stage": "asr_partial", "t": 26542.33284725, "pid": 36578, "text": "Actually, can you tell me which apps are good?", "src": "ws", "recv": 26542.333067333, "lt": 26542.333054375, "tt": 2.8838}
+{"stage": "vad_end", "t": 26542.651818041, "pid": 36578, "src": "ws", "recv": 26542.653182958, "lt": 26542.652025166, "tt": 3.2028}
+{"stage": "vad_end", "t": 26542.651841791, "pid": 36578, "src": "ws", "recv": 26542.653294875, "lt": 26542.652048916003, "tt": 3.2028}
+{"stage": "asr_partial", "t": 26543.405908375, "pid": 36578, "text": "Actually, can you tell me which apps are good for language learning?", "src": "ws", "recv": 26543.406429166, "lt": 26543.4061155, "tt": 3.9569}
+{"stage": "asr_final", "t": 26544.461447625, "pid": 36578, "text": "Actually, can you tell me which apps are good for language learning?", "src": "ws", "recv": 26544.483220208, "lt": 26544.46165475, "tt": 5.0124}
+{"stage": "interrupted", "t": 26544.463540791, "pid": 36578, "src": "ws", "recv": 26544.48344175, "lt": 26544.463747916, "tt": 5.0145}
+{"stage": "interrupted", "t": 26544.4635685, "pid": 36578, "src": "ws", "recv": 26544.483453375, "lt": 26544.463775625, "tt": 5.0145}
+{"stage": "llm_request", "t": 26544.482802791, "pid": 36578, "chars": 201, "messages": 1, "est_tokens": 50, "src": "ws", "recv": 26544.48348925, "lt": 26544.483009916003, "tt": 5.0338}
+{"stage": "llm_first_token", "t": 26544.628009791, "pid": 36578, "src": "ws", "recv": 26544.628952916, "lt": 26544.628216916, "tt": 5.179}
+{"stage": "tts_request", "t": 26544.817539791, "pid": 36578, "src": "ws", "recv": 26544.818129708, "lt": 26544.817746916004, "tt": 5.3685}
+{"stage": "tts_first_audio", "t": 26545.120027458, "pid": 36578, "src": "ws", "recv": 26545.120248833, "lt": 26545.120234583002, "tt": 5.671}
+{"stage": "audio_out", "t": 26545.142677708, "pid": 36578, "src": "ws", "recv": 26545.143357125, "lt": 26545.142884833003, "tt": 5.6937}
+{"stage": "audio_out", "t": 26545.142698, "pid": 36578, "src": "ws", "recv": 26545.143408875, "lt": 26545.142905125, "tt": 5.6937}
+{"stage": "bot_stopped", "t": 26548.705277416, "pid": 36578, "src": "ws", "recv": 26548.707578, "lt": 26548.705484541002, "tt": 9.2563}
+{"stage": "bot_stopped", "t": 26548.705315708, "pid": 36578, "src": "ws", "recv": 26548.707665625, "lt": 26548.705522833003, "tt": 9.2563}
+{"stage": "tts_request", "t": 26548.710897916, "pid": 36578, "src": "ws", "recv": 26548.711910625, "lt": 26548.711105041002, "tt": 9.2619}
+{"stage": "tts_first_audio", "t": 26549.274101625, "pid": 36578, "src": "ws", "recv": 26549.274496, "lt": 26549.274308750002, "tt": 9.8251}
+{"stage": "audio_out", "t": 26549.295881666, "pid": 36578, "src": "ws", "recv": 26549.296552958, "lt": 26549.296088791, "tt": 9.8469}
+{"stage": "audio_out", "t": 26549.295901375, "pid": 36578, "src": "ws", "recv": 26549.296603, "lt": 26549.296108500002, "tt": 9.8469}

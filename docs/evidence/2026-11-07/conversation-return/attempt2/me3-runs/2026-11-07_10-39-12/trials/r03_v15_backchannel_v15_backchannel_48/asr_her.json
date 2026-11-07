@@ -1,0 +1,167 @@
+{
+  "text": "That's actually a massive topic that would take hours to explain completely, so I can't cover it all in a short spoken answer.",
+  "chunks": [
+    {
+      "text": "That's",
+      "timestamp": [
+        4.98,
+        5.68
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        5.68,
+        6.06
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.06,
+        6.26
+      ]
+    },
+    {
+      "text": "massive",
+      "timestamp": [
+        6.26,
+        6.62
+      ]
+    },
+    {
+      "text": "topic",
+      "timestamp": [
+        6.62,
+        7.1
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        10.58,
+        11.48
+      ]
+    },
+    {
+      "text": "would",
+      "timestamp": [
+        11.48,
+        11.76
+      ]
+    },
+    {
+      "text": "take",
+      "timestamp": [
+        11.76,
+        11.96
+      ]
+    },
+    {
+      "text": "hours",
+      "timestamp": [
+        11.96,
+        12.32
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        12.32,
+        12.6
+      ]
+    },
+    {
+      "text": "explain",
+      "timestamp": [
+        12.6,
+        13.12
+      ]
+    },
+    {
+      "text": "completely,",
+      "timestamp": [
+        13.12,
+        13.66
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        14.22,
+        14.4
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        14.4,
+        14.52
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        14.52,
+        14.84
+      ]
+    },
+    {
+      "text": "cover",
+      "timestamp": [
+        14.84,
+        15.1
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        15.1,
+        15.28
+      ]
+    },
+    {
+      "text": "all",
+      "timestamp": [
+        15.28,
+        15.44
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        15.44,
+        15.62
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        15.62,
+        15.72
+      ]
+    },
+    {
+      "text": "short",
+      "timestamp": [
+        15.72,
+        16.04
+      ]
+    },
+    {
+      "text": "spoken",
+      "timestamp": [
+        16.04,
+        16.42
+      ]
+    },
+    {
+      "text": "answer.",
+      "timestamp": [
+        16.42,
+        16.82
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

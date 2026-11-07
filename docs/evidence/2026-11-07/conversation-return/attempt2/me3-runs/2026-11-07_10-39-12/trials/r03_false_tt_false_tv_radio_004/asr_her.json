@@ -1,0 +1,188 @@
+{
+  "text": "Actually, since I can't see your specific training plan, I'd recommend starting with about 16 -20 ounces of water an hour before you hit the gym.",
+  "chunks": [
+    {
+      "text": "Actually,",
+      "timestamp": [
+        7.6,
+        8.18
+      ]
+    },
+    {
+      "text": "since",
+      "timestamp": [
+        8.46,
+        8.56
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        8.56,
+        8.76
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        8.76,
+        9.12
+      ]
+    },
+    {
+      "text": "see",
+      "timestamp": [
+        9.12,
+        9.28
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        9.28,
+        9.42
+      ]
+    },
+    {
+      "text": "specific",
+      "timestamp": [
+        9.42,
+        9.78
+      ]
+    },
+    {
+      "text": "training",
+      "timestamp": [
+        9.78,
+        10.22
+      ]
+    },
+    {
+      "text": "plan,",
+      "timestamp": [
+        10.22,
+        10.58
+      ]
+    },
+    {
+      "text": "I'd",
+      "timestamp": [
+        11.08,
+        11.4
+      ]
+    },
+    {
+      "text": "recommend",
+      "timestamp": [
+        11.4,
+        11.76
+      ]
+    },
+    {
+      "text": "starting",
+      "timestamp": [
+        11.76,
+        12.28
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        12.28,
+        12.62
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        12.62,
+        12.88
+      ]
+    },
+    {
+      "text": "16",
+      "timestamp": [
+        12.88,
+        13.3
+      ]
+    },
+    {
+      "text": "-20",
+      "timestamp": [
+        13.3,
+        13.78
+      ]
+    },
+    {
+      "text": "ounces",
+      "timestamp": [
+        13.78,
+        14.02
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        14.02,
+        14.34
+      ]
+    },
+    {
+      "text": "water",
+      "timestamp": [
+        14.34,
+        14.68
+      ]
+    },
+    {
+      "text": "an",
+      "timestamp": [
+        14.68,
+        15.0
+      ]
+    },
+    {
+      "text": "hour",
+      "timestamp": [
+        15.0,
+        15.32
+      ]
+    },
+    {
+      "text": "before",
+      "timestamp": [
+        15.32,
+        15.9
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        15.9,
+        16.14
+      ]
+    },
+    {
+      "text": "hit",
+      "timestamp": [
+        16.14,
+        16.32
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        16.32,
+        16.46
+      ]
+    },
+    {
+      "text": "gym.",
+      "timestamp": [
+        16.46,
+        16.68
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

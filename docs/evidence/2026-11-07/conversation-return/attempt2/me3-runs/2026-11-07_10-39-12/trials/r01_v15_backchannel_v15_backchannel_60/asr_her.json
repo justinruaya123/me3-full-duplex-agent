@@ -1,0 +1,167 @@
+{
+  "text": "Okay, so think of astronomy, not just as looking at stars, but really diving into the physics and chemistry of the entire cosmos.",
+  "chunks": [
+    {
+      "text": "Okay,",
+      "timestamp": [
+        3.95,
+        4.61
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        5.03,
+        5.19
+      ]
+    },
+    {
+      "text": "think",
+      "timestamp": [
+        5.19,
+        5.45
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        5.45,
+        5.59
+      ]
+    },
+    {
+      "text": "astronomy,",
+      "timestamp": [
+        5.59,
+        6.11
+      ]
+    },
+    {
+      "text": "not",
+      "timestamp": [
+        8.14,
+        9.1
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        9.1,
+        9.42
+      ]
+    },
+    {
+      "text": "as",
+      "timestamp": [
+        9.42,
+        9.62
+      ]
+    },
+    {
+      "text": "looking",
+      "timestamp": [
+        9.62,
+        9.84
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        9.84,
+        10.08
+      ]
+    },
+    {
+      "text": "stars,",
+      "timestamp": [
+        10.08,
+        10.44
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        11.1,
+        11.26
+      ]
+    },
+    {
+      "text": "really",
+      "timestamp": [
+        11.26,
+        11.6
+      ]
+    },
+    {
+      "text": "diving",
+      "timestamp": [
+        11.6,
+        12.0
+      ]
+    },
+    {
+      "text": "into",
+      "timestamp": [
+        12.0,
+        12.28
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        12.28,
+        12.42
+      ]
+    },
+    {
+      "text": "physics",
+      "timestamp": [
+        12.42,
+        12.82
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        12.82,
+        13.1
+      ]
+    },
+    {
+      "text": "chemistry",
+      "timestamp": [
+        13.1,
+        13.58
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        13.58,
+        14.04
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        14.04,
+        14.16
+      ]
+    },
+    {
+      "text": "entire",
+      "timestamp": [
+        14.16,
+        14.58
+      ]
+    },
+    {
+      "text": "cosmos.",
+      "timestamp": [
+        14.58,
+        15.1
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

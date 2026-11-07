@@ -1,0 +1,20 @@
+{
+  "text": "Start small.",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        4.08,
+        4.6
+      ]
+    },
+    {
+      "text": "small.",
+      "timestamp": [
+        4.6,
+        4.96
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

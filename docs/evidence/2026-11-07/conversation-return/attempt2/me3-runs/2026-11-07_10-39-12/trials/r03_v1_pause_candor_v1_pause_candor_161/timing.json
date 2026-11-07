@@ -1,0 +1,64 @@
+{
+  "trial": "r03_v1_pause_candor_v1_pause_candor_161",
+  "group": "v1_pause_candor",
+  "clip": "v1_pause_candor_161",
+  "variant": "main",
+  "expected": "stay silent through the pause",
+  "duration": 12.32,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 8.32
+    }
+  ],
+  "live_bot_starts": [
+    10.432
+  ],
+  "live_bot_ends": [
+    11.84
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "pause": [
+      6.319999999999936,
+      7.599999999999909
+    ],
+    "source_id": "161",
+    "text": "Well exactly And even if it's doing basic work doing some work sheet of multiplication I'm like how does that hurt You doesn't"
+  },
+  "mono": [
+    28887.938489916,
+    28900.241077041
+  ],
+  "bot_segments": [
+    [
+      10.402,
+      11.87
+    ]
+  ],
+  "play_first": [
+    0.0,
+    8.32
+  ],
+  "tor": 0,
+  "first_start": null,
+  "spoke_s": 0.0,
+  "cut_in_during_pause": false,
+  "actual": "silent during clip",
+  "verdict": "✓ TOR 0",
+  "ok": true,
+  "marks": 32,
+  "final": {
+    "tor": 0,
+    "words": 0,
+    "verdict": "✓ TOR 0",
+    "ok": true,
+    "transcript": "That's a really good point."
+  },
+  "scored_at": "2026-11-07T11:03:18+08:00"
+}

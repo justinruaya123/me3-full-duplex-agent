@@ -1,0 +1,111 @@
+{
+  "text": "I can't set alarms or control your device, so I can't do that for you.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        5.84,
+        6.3
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        6.3,
+        6.6
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        6.6,
+        6.7
+      ]
+    },
+    {
+      "text": "alarms",
+      "timestamp": [
+        6.7,
+        7.06
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        7.06,
+        7.4
+      ]
+    },
+    {
+      "text": "control",
+      "timestamp": [
+        7.4,
+        7.8
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        7.8,
+        7.98
+      ]
+    },
+    {
+      "text": "device,",
+      "timestamp": [
+        7.98,
+        8.34
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        8.74,
+        8.94
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        8.94,
+        9.08
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        9.08,
+        9.36
+      ]
+    },
+    {
+      "text": "do",
+      "timestamp": [
+        9.36,
+        9.46
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        9.46,
+        9.68
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        9.68,
+        9.86
+      ]
+    },
+    {
+      "text": "you.",
+      "timestamp": [
+        9.86,
+        10.04
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

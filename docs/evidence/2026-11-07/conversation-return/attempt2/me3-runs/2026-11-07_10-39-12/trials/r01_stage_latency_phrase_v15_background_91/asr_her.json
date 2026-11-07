@@ -1,0 +1,48 @@
+{
+  "text": "July 4th, 2026 is a Saturday.",
+  "chunks": [
+    {
+      "text": "July",
+      "timestamp": [
+        5.46,
+        6.02
+      ]
+    },
+    {
+      "text": "4th,",
+      "timestamp": [
+        6.02,
+        6.66
+      ]
+    },
+    {
+      "text": "2026",
+      "timestamp": [
+        6.66,
+        7.38
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        7.38,
+        7.76
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        7.76,
+        7.86
+      ]
+    },
+    {
+      "text": "Saturday.",
+      "timestamp": [
+        7.86,
+        8.24
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

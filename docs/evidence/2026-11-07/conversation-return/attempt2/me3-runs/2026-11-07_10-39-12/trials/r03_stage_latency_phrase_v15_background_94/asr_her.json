@@ -1,0 +1,104 @@
+{
+  "text": "I'm an AI, so I can't actually check the status of your FedEx package.",
+  "chunks": [
+    {
+      "text": "I'm",
+      "timestamp": [
+        4.72,
+        5.26
+      ]
+    },
+    {
+      "text": "an",
+      "timestamp": [
+        5.26,
+        5.36
+      ]
+    },
+    {
+      "text": "AI,",
+      "timestamp": [
+        5.36,
+        5.62
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        6.2,
+        6.32
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        6.32,
+        6.46
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        6.46,
+        6.76
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        6.76,
+        7.12
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        7.12,
+        7.46
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        7.46,
+        7.62
+      ]
+    },
+    {
+      "text": "status",
+      "timestamp": [
+        7.62,
+        7.96
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        7.96,
+        8.14
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        8.14,
+        8.24
+      ]
+    },
+    {
+      "text": "FedEx",
+      "timestamp": [
+        8.24,
+        8.66
+      ]
+    },
+    {
+      "text": "package.",
+      "timestamp": [
+        8.66,
+        9.06
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

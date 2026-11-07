@@ -1,0 +1,174 @@
+{
+  "text": "I can't check real -time local data. I can't browse live maps or verify current hours, but you can check your phone's map app.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        5.52,
+        6.0
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        6.0,
+        6.28
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        6.28,
+        6.48
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        6.48,
+        6.74
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        6.74,
+        7.02
+      ]
+    },
+    {
+      "text": "local",
+      "timestamp": [
+        7.02,
+        7.32
+      ]
+    },
+    {
+      "text": "data.",
+      "timestamp": [
+        7.32,
+        7.68
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        12.22,
+        12.68
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        12.68,
+        13.0
+      ]
+    },
+    {
+      "text": "browse",
+      "timestamp": [
+        13.0,
+        13.22
+      ]
+    },
+    {
+      "text": "live",
+      "timestamp": [
+        13.22,
+        13.54
+      ]
+    },
+    {
+      "text": "maps",
+      "timestamp": [
+        13.54,
+        13.94
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        13.94,
+        14.16
+      ]
+    },
+    {
+      "text": "verify",
+      "timestamp": [
+        14.16,
+        14.6
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        14.6,
+        14.94
+      ]
+    },
+    {
+      "text": "hours,",
+      "timestamp": [
+        14.94,
+        15.38
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        15.88,
+        16.02
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        16.02,
+        16.16
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        16.16,
+        16.32
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        16.32,
+        16.58
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        16.58,
+        16.74
+      ]
+    },
+    {
+      "text": "phone's",
+      "timestamp": [
+        16.74,
+        17.22
+      ]
+    },
+    {
+      "text": "map",
+      "timestamp": [
+        17.22,
+        17.44
+      ]
+    },
+    {
+      "text": "app.",
+      "timestamp": [
+        17.44,
+        17.68
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

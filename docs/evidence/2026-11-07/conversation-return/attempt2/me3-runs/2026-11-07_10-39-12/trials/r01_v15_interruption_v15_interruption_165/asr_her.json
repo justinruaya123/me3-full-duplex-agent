@@ -1,0 +1,62 @@
+{
+  "text": "Consistency is key. Oh, that's a handy feature.",
+  "chunks": [
+    {
+      "text": "Consistency",
+      "timestamp": [
+        4.94,
+        5.92
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        5.92,
+        6.18
+      ]
+    },
+    {
+      "text": "key.",
+      "timestamp": [
+        6.18,
+        6.44
+      ]
+    },
+    {
+      "text": "Oh,",
+      "timestamp": [
+        13.77,
+        14.09
+      ]
+    },
+    {
+      "text": "that's",
+      "timestamp": [
+        14.21,
+        14.49
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        14.49,
+        14.55
+      ]
+    },
+    {
+      "text": "handy",
+      "timestamp": [
+        14.55,
+        14.83
+      ]
+    },
+    {
+      "text": "feature.",
+      "timestamp": [
+        14.83,
+        15.19
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

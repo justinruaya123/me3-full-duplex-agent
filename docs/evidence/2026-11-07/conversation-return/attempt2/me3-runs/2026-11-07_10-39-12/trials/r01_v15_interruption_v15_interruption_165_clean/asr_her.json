@@ -1,0 +1,83 @@
+{
+  "text": "Pick one word for each command and use high -value treats.",
+  "chunks": [
+    {
+      "text": "Pick",
+      "timestamp": [
+        5.36,
+        5.82
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        5.82,
+        6.08
+      ]
+    },
+    {
+      "text": "word",
+      "timestamp": [
+        6.08,
+        6.34
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        6.34,
+        6.54
+      ]
+    },
+    {
+      "text": "each",
+      "timestamp": [
+        6.54,
+        6.76
+      ]
+    },
+    {
+      "text": "command",
+      "timestamp": [
+        6.76,
+        7.08
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        7.08,
+        7.72
+      ]
+    },
+    {
+      "text": "use",
+      "timestamp": [
+        7.72,
+        7.92
+      ]
+    },
+    {
+      "text": "high",
+      "timestamp": [
+        7.92,
+        8.18
+      ]
+    },
+    {
+      "text": "-value",
+      "timestamp": [
+        8.18,
+        8.44
+      ]
+    },
+    {
+      "text": "treats.",
+      "timestamp": [
+        8.44,
+        8.74
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,20 @@
+...F
+======================================================================
+FAIL: test_same_cue_reuses_exact_pcm_only_in_same_voice_instance (test_listening_cache_v1.ListeningCacheTests.test_same_cue_reuses_exact_pcm_only_in_same_voice_instance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_listening_cache_v1.py", line 29, in test_same_cue_reuses_exact_pcm_only_in_same_voice_instance
+    self.assertEqual(first.tts.calls, 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+FAILED (failures=1)

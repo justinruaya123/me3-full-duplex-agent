@@ -1,0 +1,16 @@
+{"stage": "vad_start", "t": 27241.532562416, "pid": 36971, "src": "ws", "recv": 27241.534718375, "lt": 27241.532735916, "tt": 0.3851}
+{"stage": "vad_start", "t": 27241.532603875, "pid": 36971, "src": "ws", "recv": 27241.534866375, "lt": 27241.532777375, "tt": 0.3851}
+{"stage": "asr_partial", "t": 27243.089383583, "pid": 36971, "text": "Hold on.", "src": "ws", "recv": 27243.089708166, "lt": 27243.089557083, "tt": 1.9419}
+{"stage": "asr_partial", "t": 27244.130987541, "pid": 36971, "text": "Hold on, do you also have tips for...", "src": "ws", "recv": 27244.131222958, "lt": 27244.131161041, "tt": 2.9835}
+{"stage": "vad_end", "t": 27245.117146916, "pid": 36971, "src": "ws", "recv": 27245.11809425, "lt": 27245.117320416, "tt": 3.9697}
+{"stage": "vad_end", "t": 27245.117164083, "pid": 36971, "src": "ws", "recv": 27245.118177791, "lt": 27245.117337583, "tt": 3.9697}
+{"stage": "asr_partial", "t": 27245.196282375, "pid": 36971, "text": "Hold on, do you also have tips for staying hydrated while...", "src": "ws", "recv": 27245.196623083, "lt": 27245.196455875, "tt": 4.0488}
+{"stage": "asr_final", "t": 27246.243101166, "pid": 36971, "text": "Hold on, do you also have tips for staying hydrated while working out?", "src": "ws", "recv": 27246.267207541, "lt": 27246.243274666, "tt": 5.0956}
+{"stage": "interrupted", "t": 27246.244893833, "pid": 36971, "src": "ws", "recv": 27246.267396291, "lt": 27246.245067333002, "tt": 5.0974}
+{"stage": "interrupted", "t": 27246.24490575, "pid": 36971, "src": "ws", "recv": 27246.26740875, "lt": 27246.245079250002, "tt": 5.0974}
+{"stage": "llm_request", "t": 27246.266812833, "pid": 36971, "chars": 203, "messages": 1, "est_tokens": 51, "src": "ws", "recv": 27246.267456625, "lt": 27246.266986333, "tt": 5.1193}
+{"stage": "llm_first_token", "t": 27252.904045333, "pid": 36971, "src": "ws", "recv": 27252.90499675, "lt": 27252.904218833002, "tt": 11.7565}
+{"stage": "tts_request", "t": 27252.9063965, "pid": 36971, "src": "ws", "recv": 27252.907697291, "lt": 27252.90657, "tt": 11.7589}
+{"stage": "tts_first_audio", "t": 27253.101537666, "pid": 36971, "src": "ws", "recv": 27253.108715708, "lt": 27253.101711166, "tt": 11.954}
+{"stage": "audio_out", "t": 27253.123357291, "pid": 36971, "src": "ws", "recv": 27253.12392325, "lt": 27253.123530791, "tt": 11.9759}
+{"stage": "audio_out", "t": 27253.123372666, "pid": 36971, "src": "ws", "recv": 27253.123973041, "lt": 27253.123546166, "tt": 11.9759}

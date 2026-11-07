@@ -1,0 +1,48 @@
+{
+  "text": "Think of entrepreneurship as a mindset.",
+  "chunks": [
+    {
+      "text": "Think",
+      "timestamp": [
+        4.62,
+        5.1
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        5.1,
+        5.24
+      ]
+    },
+    {
+      "text": "entrepreneurship",
+      "timestamp": [
+        5.24,
+        5.92
+      ]
+    },
+    {
+      "text": "as",
+      "timestamp": [
+        5.92,
+        6.36
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.36,
+        6.48
+      ]
+    },
+    {
+      "text": "mindset.",
+      "timestamp": [
+        6.48,
+        6.72
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

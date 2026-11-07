@@ -1,0 +1,48 @@
+{
+  "text": "I can't send messages or comments.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.98,
+        5.42
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        5.42,
+        5.76
+      ]
+    },
+    {
+      "text": "send",
+      "timestamp": [
+        5.76,
+        5.88
+      ]
+    },
+    {
+      "text": "messages",
+      "timestamp": [
+        5.88,
+        6.4
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        6.4,
+        6.92
+      ]
+    },
+    {
+      "text": "comments.",
+      "timestamp": [
+        6.92,
+        7.22
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,17 @@
+{
+  "checked_at_utc": "2026-11-07T03:03:33.575768+00:00",
+  "kind": "read-only post-run cleanup observation",
+  "historical_state_ready_byte": true,
+  "historical_state_warning": "Final state.json is a retained historical readiness snapshot, not current liveness.",
+  "generation": 72,
+  "last_child_pid": 37876,
+  "last_child_pid_exists": false,
+  "last_child_process_group_exists": false,
+  "remaining_control_files": [
+    "state.json"
+  ],
+  "control_socket_present": false,
+  "session_directories": 72,
+  "launcher_logs": 72,
+  "runtime_event_logs": 72
+}

@@ -1,0 +1,160 @@
+{
+  "text": "It describes something that lasts for a very long time. Think of it as fleeting or temporary, like your coffee getting cold.",
+  "chunks": [
+    {
+      "text": "It",
+      "timestamp": [
+        3.79,
+        4.25
+      ]
+    },
+    {
+      "text": "describes",
+      "timestamp": [
+        4.25,
+        4.55
+      ]
+    },
+    {
+      "text": "something",
+      "timestamp": [
+        4.55,
+        5.09
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        5.09,
+        5.35
+      ]
+    },
+    {
+      "text": "lasts",
+      "timestamp": [
+        5.35,
+        5.73
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        5.73,
+        5.99
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        5.99,
+        6.09
+      ]
+    },
+    {
+      "text": "very",
+      "timestamp": [
+        6.09,
+        6.23
+      ]
+    },
+    {
+      "text": "long",
+      "timestamp": [
+        6.23,
+        6.65
+      ]
+    },
+    {
+      "text": "time.",
+      "timestamp": [
+        9.44,
+        9.6
+      ]
+    },
+    {
+      "text": "Think",
+      "timestamp": [
+        9.6,
+        9.8
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        9.8,
+        9.94
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        9.94,
+        10.08
+      ]
+    },
+    {
+      "text": "as",
+      "timestamp": [
+        10.08,
+        10.28
+      ]
+    },
+    {
+      "text": "fleeting",
+      "timestamp": [
+        10.28,
+        10.66
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        10.66,
+        10.86
+      ]
+    },
+    {
+      "text": "temporary,",
+      "timestamp": [
+        10.86,
+        11.3
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        11.86,
+        12.04
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        12.04,
+        12.14
+      ]
+    },
+    {
+      "text": "coffee",
+      "timestamp": [
+        12.14,
+        12.48
+      ]
+    },
+    {
+      "text": "getting",
+      "timestamp": [
+        12.48,
+        12.8
+      ]
+    },
+    {
+      "text": "cold.",
+      "timestamp": [
+        12.8,
+        13.22
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

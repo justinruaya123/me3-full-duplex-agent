@@ -1,0 +1,18 @@
+{
+  "scope": "real authenticated Kokoro HTTP, exact-PCM cache reuse; no microphone/acoustics",
+  "model": "mlx-community/Kokoro-82M-bf16",
+  "voice": "af_heart",
+  "runs": [
+    {
+      "seconds": 0.34449754200250027,
+      "bytes": 62400,
+      "sha256": "f08646f4c97734fd357856ae32a8eec60bc91896b202f318ce94d2f052026ca0"
+    },
+    {
+      "seconds": 3.875000402331352e-06,
+      "bytes": 62400,
+      "sha256": "f08646f4c97734fd357856ae32a8eec60bc91896b202f318ce94d2f052026ca0"
+    }
+  ],
+  "passed": true
+}

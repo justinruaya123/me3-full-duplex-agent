@@ -2,7 +2,8 @@
 
 Continues `prototype/hermes-duplex-v1` at `642cc73` through
 `feat/pi-full-duplex-v1` and `hermes/benchmark-latency-v1`; the published branch
-for setup and testing is `main`. The [November 4 specification](docs/ME3_SPEC_2026-11-04.md)
+for the preceding baseline is `main`. The conversation-return increment is on
+`hermes/conversation-return-v1`. The [November 4 specification](docs/ME3_SPEC_2026-11-04.md)
 supersedes the older Hermes-first default. The controller remains harness-neutral;
 Hermes and the older OnIt/ME2-related baseline remain available.
 
@@ -66,6 +67,12 @@ be armed locally before a clean reference can establish ownership. `/mute`
 clears capture/reference state independently of inference. Use `/end` and
 `/voice` to open a fresh voice session after muting.
 
+Background results now wait until asked by default. `/notify ID after_topic`
+permits a brief offer after an explicit conversational wrap-up; `/defer ID`
+persistently restores waiting. See [result return and voice limits](docs/SETUP.md)
+for natural website commands, supported wrap-up phrases, conservative hesitation
+handling and neutral listening cues. Silence alone never authorizes a request.
+
 ## Verify
 
 ```sh
@@ -83,14 +90,23 @@ and transport fixtures are labelled; they are not acoustic or provider tests.
 The unchanged canonical ME3 benchmark is supported through
 `integrations/fdbench_entry.py`, with private fresh-session control through the
 official assistant/reset hooks. Course runs globally bypass ownership; separate
-ownership runs keep it enabled. The final real Mac run completed 60/60 items and
+ownership runs keep it enabled. The preceding Mac baseline completed 60/60 items and
 72 recordings using Whisper Turbo, Qwen and Kokoro. E2E mean/p95 was
 **2.552/3.711s**, over 29 timed replies; WER was **1.449%**. One of 30 phrase
 trials had no recorded reply. ASR final **1.470/2.036s** and TTS p95 **0.696s**
 still exceed their targets; small interruption samples and semantic failures
 remain unqualified. See [canonical metrics and limits](docs/BENCHMARK.md).
 
-The verified implementation and its evidence are published on `main`. Follow the
+The conversation-return candidate completed two more full canonical runs, but
+E2E p95 regressed to 4.241s and 6.702s, with 28/30 and 19/30 recorded phrase
+replies. Missed phrase traces reached committed ASR and foreground requests;
+they were not held by the new hesitation guard. Both failures are retained.
+Benchmark non-regression remains unpassed, so this candidate is published on
+`hermes/conversation-return-v1` while main keeps its preceding baseline.
+
+The preceding verified baseline and its evidence are published on `main`.
+To test the conversation-return increment, fetch and switch to
+`hermes/conversation-return-v1` before following the setup/testing steps in the
 [planned Raspberry Pi pull/setup/testing procedure](docs/RASPBERRY_PI_TESTING.md)
 for a later target run. It keeps jobs/orchestration on the Pi and only inference
 offloaded. That procedure has not been executed on Raspberry Pi hardware here.

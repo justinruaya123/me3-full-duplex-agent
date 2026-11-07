@@ -1,0 +1,62 @@
+{
+  "text": "That depends on where you are right now.",
+  "chunks": [
+    {
+      "text": "That",
+      "timestamp": [
+        4.27,
+        4.77
+      ]
+    },
+    {
+      "text": "depends",
+      "timestamp": [
+        4.77,
+        5.05
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        5.05,
+        5.47
+      ]
+    },
+    {
+      "text": "where",
+      "timestamp": [
+        5.47,
+        5.63
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        5.63,
+        5.77
+      ]
+    },
+    {
+      "text": "are",
+      "timestamp": [
+        5.77,
+        5.91
+      ]
+    },
+    {
+      "text": "right",
+      "timestamp": [
+        5.91,
+        6.11
+      ]
+    },
+    {
+      "text": "now.",
+      "timestamp": [
+        6.11,
+        6.37
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

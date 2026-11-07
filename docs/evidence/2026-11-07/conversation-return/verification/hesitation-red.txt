@@ -1,0 +1,250 @@
+test_completed_requests_keep_disfluency_verbatim_and_commit (test_hesitation_v1.HesitationTests.test_completed_requests_keep_disfluency_verbatim_and_commit) ... ok
+test_completed_text_still_requires_full_turn_readiness (test_hesitation_v1.HesitationTests.test_completed_text_still_requires_full_turn_readiness) ... ok
+test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) ... 
+  test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='Background task build a') ... FAIL
+  test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='Make it blue and') ... FAIL
+  test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='Send it to') ... FAIL
+  test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='I I') ... FAIL
+  test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='I want the the') ... FAIL
+  test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='Build a-a') ... FAIL
+  test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='Can you b-b-') ... FAIL
+  test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='I want to build—') ... FAIL
+test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) ... 
+  test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text='Give me a second.') ... FAIL
+  test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text='Background task build a site, give me a moment please.') ... FAIL
+  test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text='Let me think...') ... FAIL
+  test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text='Let me think about it.') ... FAIL
+  test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text='I lost my train of thought.') ... FAIL
+  test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text="I've lost my train of thought.") ... FAIL
+  test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text='I forgot what I was going to say.') ... FAIL
+test_filled_pause_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_filled_pause_at_tail_vetoes_acoustic_completion) ... 
+  test_filled_pause_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_filled_pause_at_tail_vetoes_acoustic_completion) (text='Background task build a site, um.') ... FAIL
+  test_filled_pause_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_filled_pause_at_tail_vetoes_acoustic_completion) (text='Send it to Alice, uh...') ... FAIL
+  test_filled_pause_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_filled_pause_at_tail_vetoes_acoustic_completion) (text='I want to, uhh') ... FAIL
+  test_filled_pause_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_filled_pause_at_tail_vetoes_acoustic_completion) (text='Erm.') ... FAIL
+  test_filled_pause_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_filled_pause_at_tail_vetoes_acoustic_completion) (text='Hmm...') ... FAIL
+test_held_fragment_resumes_full_pcm_without_action (test_hesitation_v1.HesitationTests.test_held_fragment_resumes_full_pcm_without_action) ... FAIL
+test_late_held_final_cannot_revise_resumed_complete_turn (test_hesitation_v1.HesitationTests.test_late_held_final_cannot_revise_resumed_complete_turn) ... ok
+test_resumed_hold_fences_stale_finish_generation (test_hesitation_v1.HesitationTests.test_resumed_hold_fences_stale_finish_generation) ... FAIL
+
+======================================================================
+FAIL: test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='Background task build a')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 75, in test_explicit_cutoff_and_narrow_unfinished_tails_hold
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='Make it blue and')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 75, in test_explicit_cutoff_and_narrow_unfinished_tails_hold
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='Send it to')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 75, in test_explicit_cutoff_and_narrow_unfinished_tails_hold
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='I I')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 75, in test_explicit_cutoff_and_narrow_unfinished_tails_hold
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='I want the the')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 75, in test_explicit_cutoff_and_narrow_unfinished_tails_hold
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='Build a-a')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 75, in test_explicit_cutoff_and_narrow_unfinished_tails_hold
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='Can you b-b-')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 75, in test_explicit_cutoff_and_narrow_unfinished_tails_hold
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) (text='I want to build—')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 75, in test_explicit_cutoff_and_narrow_unfinished_tails_hold
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text='Give me a second.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 50, in test_explicit_hold_at_tail_vetoes_acoustic_completion
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text='Background task build a site, give me a moment please.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 50, in test_explicit_hold_at_tail_vetoes_acoustic_completion
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text='Let me think...')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 50, in test_explicit_hold_at_tail_vetoes_acoustic_completion
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text='Let me think about it.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 50, in test_explicit_hold_at_tail_vetoes_acoustic_completion
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text='I lost my train of thought.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 50, in test_explicit_hold_at_tail_vetoes_acoustic_completion
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text="I've lost my train of thought.")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 50, in test_explicit_hold_at_tail_vetoes_acoustic_completion
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) (text='I forgot what I was going to say.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 50, in test_explicit_hold_at_tail_vetoes_acoustic_completion
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_filled_pause_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_filled_pause_at_tail_vetoes_acoustic_completion) (text='Background task build a site, um.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 61, in test_filled_pause_at_tail_vetoes_acoustic_completion
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_filled_pause_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_filled_pause_at_tail_vetoes_acoustic_completion) (text='Send it to Alice, uh...')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 61, in test_filled_pause_at_tail_vetoes_acoustic_completion
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_filled_pause_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_filled_pause_at_tail_vetoes_acoustic_completion) (text='I want to, uhh')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 61, in test_filled_pause_at_tail_vetoes_acoustic_completion
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_filled_pause_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_filled_pause_at_tail_vetoes_acoustic_completion) (text='Erm.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 61, in test_filled_pause_at_tail_vetoes_acoustic_completion
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_filled_pause_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_filled_pause_at_tail_vetoes_acoustic_completion) (text='Hmm...')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 61, in test_filled_pause_at_tail_vetoes_acoustic_completion
+    self.assertFalse((await self.final_event(text)).committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_held_fragment_resumes_full_pcm_without_action (test_hesitation_v1.HesitationTests.test_held_fragment_resumes_full_pcm_without_action)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 140, in test_held_fragment_resumes_full_pcm_without_action
+    self.assertEqual(decisions, ["hold"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['delegated'] != ['hold']
+
+First differing element 0:
+'delegated'
+'hold'
+
+- ['delegated']
++ ['hold']
+
+======================================================================
+FAIL: test_resumed_hold_fences_stale_finish_generation (test_hesitation_v1.HesitationTests.test_resumed_hold_fences_stale_finish_generation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_hesitation_v1.py", line 192, in test_resumed_hold_fences_stale_finish_generation
+    self.assertFalse(events[-1][0].committed)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.035s
+
+FAILED (failures=22)

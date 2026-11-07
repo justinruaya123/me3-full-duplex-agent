@@ -1,0 +1,125 @@
+{
+  "text": "Start by checking if your employer offers a 400 one, K with a match. That's free money.",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        7.09,
+        7.59
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        7.59,
+        7.85
+      ]
+    },
+    {
+      "text": "checking",
+      "timestamp": [
+        7.85,
+        8.17
+      ]
+    },
+    {
+      "text": "if",
+      "timestamp": [
+        8.17,
+        8.43
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        8.43,
+        8.55
+      ]
+    },
+    {
+      "text": "employer",
+      "timestamp": [
+        8.55,
+        8.91
+      ]
+    },
+    {
+      "text": "offers",
+      "timestamp": [
+        8.91,
+        9.33
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        9.33,
+        9.49
+      ]
+    },
+    {
+      "text": "400",
+      "timestamp": [
+        9.49,
+        9.99
+      ]
+    },
+    {
+      "text": "one,",
+      "timestamp": [
+        9.99,
+        10.29
+      ]
+    },
+    {
+      "text": "K",
+      "timestamp": [
+        10.83,
+        10.97
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        10.97,
+        11.43
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        11.43,
+        11.57
+      ]
+    },
+    {
+      "text": "match.",
+      "timestamp": [
+        11.57,
+        11.85
+      ]
+    },
+    {
+      "text": "That's",
+      "timestamp": [
+        12.29,
+        12.63
+      ]
+    },
+    {
+      "text": "free",
+      "timestamp": [
+        12.63,
+        12.81
+      ]
+    },
+    {
+      "text": "money.",
+      "timestamp": [
+        12.81,
+        13.09
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

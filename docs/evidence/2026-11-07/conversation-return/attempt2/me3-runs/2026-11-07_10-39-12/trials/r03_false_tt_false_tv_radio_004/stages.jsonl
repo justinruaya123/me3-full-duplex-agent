@@ -1,0 +1,17 @@
+{"stage": "vad_start", "t": 28791.95359875, "pid": 37814, "src": "ws", "recv": 28791.955821333, "lt": 28791.953740792, "tt": 0.2956}
+{"stage": "vad_start", "t": 28791.953636458, "pid": 37814, "src": "ws", "recv": 28791.955876041, "lt": 28791.953778500003, "tt": 0.2956}
+{"stage": "asr_partial", "t": 28793.490750208, "pid": 37814, "text": "Hold on.", "src": "ws", "recv": 28793.491504583, "lt": 28793.49089225, "tt": 1.8327}
+{"stage": "asr_partial", "t": 28794.535925791, "pid": 37814, "text": "Hold on, do you also have tips?", "src": "ws", "recv": 28794.536128041, "lt": 28794.536067833, "tt": 2.8779}
+{"stage": "asr_partial", "t": 28795.57514725, "pid": 37814, "text": "Hold on, do you also have tips for staying hydrated?", "src": "ws", "recv": 28795.575455, "lt": 28795.575289292003, "tt": 3.9171}
+{"stage": "vad_end", "t": 28795.633359083, "pid": 37814, "src": "ws", "recv": 28795.634757791, "lt": 28795.633501125, "tt": 3.9753}
+{"stage": "vad_end", "t": 28795.633384208, "pid": 37814, "src": "ws", "recv": 28795.634829375, "lt": 28795.63352625, "tt": 3.9753}
+{"stage": "asr_partial", "t": 28796.648655041, "pid": 37814, "text": "Hold on, do you also have tips for staying hydrated while working out?", "src": "ws", "recv": 28796.649005666, "lt": 28796.648797083002, "tt": 4.9906}
+{"stage": "asr_final", "t": 28797.699097833, "pid": 37814, "text": "Hold on, do you also have tips for staying hydrated while working out?", "src": "ws", "recv": 28797.71781625, "lt": 28797.699239875, "tt": 6.041}
+{"stage": "interrupted", "t": 28797.700264916, "pid": 37814, "src": "ws", "recv": 28797.71807025, "lt": 28797.700406958, "tt": 6.0422}
+{"stage": "interrupted", "t": 28797.700276625, "pid": 37814, "src": "ws", "recv": 28797.718118541, "lt": 28797.700418667002, "tt": 6.0422}
+{"stage": "llm_request", "t": 28797.717389375, "pid": 37814, "chars": 203, "messages": 1, "est_tokens": 51, "src": "ws", "recv": 28797.718149416, "lt": 28797.717531417, "tt": 6.0593}
+{"stage": "llm_first_token", "t": 28797.78765225, "pid": 37814, "src": "ws", "recv": 28797.787882458, "lt": 28797.787794292002, "tt": 6.1296}
+{"stage": "tts_request", "t": 28798.295516166, "pid": 37814, "src": "ws", "recv": 28798.29660125, "lt": 28798.295658208, "tt": 6.6375}
+{"stage": "tts_first_audio", "t": 28799.12821975, "pid": 37814, "src": "ws", "recv": 28799.128728958, "lt": 28799.128361792, "tt": 7.4702}
+{"stage": "audio_out", "t": 28799.149175291, "pid": 37814, "src": "ws", "recv": 28799.149896666, "lt": 28799.149317333, "tt": 7.4911}
+{"stage": "audio_out", "t": 28799.149187333, "pid": 37814, "src": "ws", "recv": 28799.149913458, "lt": 28799.149329375003, "tt": 7.4911}

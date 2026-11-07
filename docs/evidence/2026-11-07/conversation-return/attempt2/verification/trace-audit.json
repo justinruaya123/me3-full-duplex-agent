@@ -1,0 +1,2215 @@
+{
+  "kind": "Read-only stage/runtime diagnosis of completed original trial outputs; no inference or custom scoring",
+  "run_id": "2026-11-07_10-39-12",
+  "phrase_case_count": 11,
+  "cases": [
+    {
+      "trial": "r01_stage_latency_phrase_v15_backchannel_34",
+      "recorded_reply_present": false,
+      "recording_duration": 9.888,
+      "user_end": 1.63,
+      "official_stages": {
+        "e2e_heard": null,
+        "e2e": null,
+        "e2e_source": null,
+        "asr_final": 1.9193,
+        "llm_ttft": null,
+        "tts_ttfb": null,
+        "endpointing": 0.1339,
+        "found": [
+          "vad_end",
+          "asr_final",
+          "llm_request"
+        ],
+        "transcript": "outline sleep science clearly,",
+        "wer": {
+          "ref_words": 4,
+          "edits": 0,
+          "wer": 0.0
+        },
+        "context_tokens": 41,
+        "context_source": "estimate",
+        "context_messages": 1
+      },
+      "stage_marks": [
+        {
+          "stage": "vad_start",
+          "t": 27614.766373416,
+          "pid": 37176,
+          "src": "ws",
+          "recv": 27614.768769875,
+          "lt": 27614.766588208,
+          "tt": 0.1609
+        },
+        {
+          "stage": "vad_start",
+          "t": 27614.766428541,
+          "pid": 37176,
+          "src": "ws",
+          "recv": 27614.768890541,
+          "lt": 27614.766643332998,
+          "tt": 0.161
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27616.302860708,
+          "pid": 37176,
+          "text": "outline sleep",
+          "src": "ws",
+          "recv": 27616.303450625,
+          "lt": 27616.3030755,
+          "tt": 1.6974
+        },
+        {
+          "stage": "vad_end",
+          "t": 27616.369374666,
+          "pid": 37176,
+          "src": "ws",
+          "recv": 27616.370583708,
+          "lt": 27616.369589457998,
+          "tt": 1.7639
+        },
+        {
+          "stage": "vad_end",
+          "t": 27616.36939875,
+          "pid": 37176,
+          "src": "ws",
+          "recv": 27616.370670125,
+          "lt": 27616.369613542,
+          "tt": 1.7639
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27617.290431541,
+          "pid": 37176,
+          "text": "outline sleep science clearly,",
+          "src": "ws",
+          "recv": 27617.291223666,
+          "lt": 27617.290646333,
+          "tt": 2.685
+        },
+        {
+          "stage": "asr_final",
+          "t": 27618.288668,
+          "pid": 37176,
+          "text": "outline sleep science clearly,",
+          "src": "ws",
+          "recv": 27618.314241166,
+          "lt": 27618.288882792,
+          "tt": 3.6832
+        },
+        {
+          "stage": "interrupted",
+          "t": 27618.291091791,
+          "pid": 37176,
+          "src": "ws",
+          "recv": 27618.31447925,
+          "lt": 27618.291306583,
+          "tt": 3.6856
+        },
+        {
+          "stage": "interrupted",
+          "t": 27618.291122625,
+          "pid": 37176,
+          "src": "ws",
+          "recv": 27618.314487875,
+          "lt": 27618.291337417,
+          "tt": 3.6857
+        },
+        {
+          "stage": "llm_request",
+          "t": 27618.31361425,
+          "pid": 37176,
+          "chars": 163,
+          "messages": 1,
+          "est_tokens": 41,
+          "src": "ws",
+          "recv": 27618.314528166,
+          "lt": 27618.313829042,
+          "tt": 3.7082
+        }
+      ],
+      "scorer_transcript": "",
+      "diagnosis_limits": "ASR committed and foreground request is recorded, but no first-token mark before recording close. This trace alone does not establish provider failure/deadline cause.",
+      "matched_runtime_trace": "sessions/session-000004/runtime-5c52bcb75ae3462094ce07dc2f484d2c/events.jsonl",
+      "first_vad_to_runtime_user_started_difference_seconds": 0.0002698339994822163,
+      "runtime_events": [
+        {
+          "event": "supervisor_started",
+          "mono_ns": 27608424674500
+        },
+        {
+          "event": "voice_profile",
+          "mono_ns": 27608509978291,
+          "profile": "course",
+          "session_id": "6e34328876db4e12b976581a3197a6d0",
+          "ownership_bypassed": true,
+          "audio_mode": "headphones"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 27614766643250,
+          "session_id": "6e34328876db4e12b976581a3197a6d0"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27616301901208,
+          "session_id": "6e34328876db4e12b976581a3197a6d0",
+          "revision": 1,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 27616369473250,
+          "session_id": "6e34328876db4e12b976581a3197a6d0"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27617289315000,
+          "session_id": "6e34328876db4e12b976581a3197a6d0",
+          "revision": 2,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27618287902166,
+          "session_id": "6e34328876db4e12b976581a3197a6d0",
+          "revision": 3,
+          "committed": true,
+          "turn_id": "1",
+          "capture_ended": true
+        },
+        {
+          "event": "floor_decision",
+          "mono_ns": 27618288738875,
+          "session_id": "6e34328876db4e12b976581a3197a6d0",
+          "decision": "turn",
+          "addressee_known": true
+        },
+        {
+          "event": "speech_cancelled",
+          "mono_ns": 27618289356083,
+          "session_id": "6e34328876db4e12b976581a3197a6d0",
+          "epoch": 1
+        }
+      ],
+      "first_output_to_recording_close_seconds": null,
+      "llm_request_to_recording_close_seconds": 6.1798,
+      "runtime_commit_recorded": true,
+      "runtime_foreground_failure_event_recorded": false,
+      "runtime_transport_completion_recorded": false,
+      "smartturn_hold_explanation_supported": false
+    },
+    {
+      "trial": "r01_stage_latency_phrase_v15_interruption_188",
+      "recorded_reply_present": false,
+      "recording_duration": 10.432,
+      "user_end": 2.174,
+      "official_stages": {
+        "e2e_heard": null,
+        "e2e": null,
+        "e2e_source": null,
+        "asr_final": 1.6702,
+        "llm_ttft": null,
+        "tts_ttfb": null,
+        "endpointing": 0.0995,
+        "found": [
+          "vad_end",
+          "asr_final",
+          "llm_request"
+        ],
+        "transcript": "I want to learn to play the guitar.",
+        "wer": {
+          "ref_words": 8,
+          "edits": 0,
+          "wer": 0.0
+        },
+        "context_tokens": 42,
+        "context_source": "estimate",
+        "context_messages": 1
+      },
+      "stage_marks": [
+        {
+          "stage": "vad_start",
+          "t": 27631.443009625,
+          "pid": 37185,
+          "src": "ws",
+          "recv": 27631.444968708,
+          "lt": 27631.443224417,
+          "tt": 0.3254
+        },
+        {
+          "stage": "vad_start",
+          "t": 27631.443045583,
+          "pid": 37185,
+          "src": "ws",
+          "recv": 27631.445041083,
+          "lt": 27631.443260375,
+          "tt": 0.3255
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27632.98197275,
+          "pid": 37185,
+          "text": "I want to learn.",
+          "src": "ws",
+          "recv": 27632.982545166,
+          "lt": 27632.982187542,
+          "tt": 1.8644
+        },
+        {
+          "stage": "vad_end",
+          "t": 27633.391090083,
+          "pid": 37185,
+          "src": "ws",
+          "recv": 27633.39238675,
+          "lt": 27633.391304875,
+          "tt": 2.2735
+        },
+        {
+          "stage": "vad_end",
+          "t": 27633.391113416,
+          "pid": 37185,
+          "src": "ws",
+          "recv": 27633.392484208,
+          "lt": 27633.391328208,
+          "tt": 2.2735
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27634.053921416,
+          "pid": 37185,
+          "text": "I want to learn to play the guitar.",
+          "src": "ws",
+          "recv": 27634.054209333,
+          "lt": 27634.054136208,
+          "tt": 2.9363
+        },
+        {
+          "stage": "asr_final",
+          "t": 27635.061332666,
+          "pid": 37185,
+          "text": "I want to learn to play the guitar.",
+          "src": "ws",
+          "recv": 27635.082202541,
+          "lt": 27635.061547457997,
+          "tt": 3.9437
+        },
+        {
+          "stage": "interrupted",
+          "t": 27635.06313775,
+          "pid": 37185,
+          "src": "ws",
+          "recv": 27635.082431166,
+          "lt": 27635.063352541998,
+          "tt": 3.9455
+        },
+        {
+          "stage": "interrupted",
+          "t": 27635.063150625,
+          "pid": 37185,
+          "src": "ws",
+          "recv": 27635.082441583,
+          "lt": 27635.063365416998,
+          "tt": 3.9456
+        },
+        {
+          "stage": "llm_request",
+          "t": 27635.081768458,
+          "pid": 37185,
+          "chars": 168,
+          "messages": 1,
+          "est_tokens": 42,
+          "src": "ws",
+          "recv": 27635.082477625,
+          "lt": 27635.08198325,
+          "tt": 3.9642
+        }
+      ],
+      "scorer_transcript": "",
+      "diagnosis_limits": "ASR committed and foreground request is recorded, but no first-token mark before recording close. This trace alone does not establish provider failure/deadline cause.",
+      "matched_runtime_trace": "sessions/session-000005/runtime-4092397afb9d4271b6e2db799e56dada/events.jsonl",
+      "first_vad_to_runtime_user_started_difference_seconds": 0.00023720800163573585,
+      "runtime_events": [
+        {
+          "event": "supervisor_started",
+          "mono_ns": 27624936876666
+        },
+        {
+          "event": "voice_profile",
+          "mono_ns": 27625014443333,
+          "profile": "course",
+          "session_id": "d3f40ff1b99e46939354ec0866d2cf62",
+          "ownership_bypassed": true,
+          "audio_mode": "headphones"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 27631443246833,
+          "session_id": "d3f40ff1b99e46939354ec0866d2cf62"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27632980959916,
+          "session_id": "d3f40ff1b99e46939354ec0866d2cf62",
+          "revision": 1,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 27633391192833,
+          "session_id": "d3f40ff1b99e46939354ec0866d2cf62"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27634053189416,
+          "session_id": "d3f40ff1b99e46939354ec0866d2cf62",
+          "revision": 2,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27635060815625,
+          "session_id": "d3f40ff1b99e46939354ec0866d2cf62",
+          "revision": 3,
+          "committed": true,
+          "turn_id": "1",
+          "capture_ended": true
+        },
+        {
+          "event": "floor_decision",
+          "mono_ns": 27635061373083,
+          "session_id": "d3f40ff1b99e46939354ec0866d2cf62",
+          "decision": "turn",
+          "addressee_known": true
+        },
+        {
+          "event": "speech_cancelled",
+          "mono_ns": 27635062028875,
+          "session_id": "d3f40ff1b99e46939354ec0866d2cf62",
+          "epoch": 1
+        }
+      ],
+      "first_output_to_recording_close_seconds": null,
+      "llm_request_to_recording_close_seconds": 6.4678,
+      "runtime_commit_recorded": true,
+      "runtime_foreground_failure_event_recorded": false,
+      "runtime_transport_completion_recorded": false,
+      "smartturn_hold_explanation_supported": false
+    },
+    {
+      "trial": "r01_stage_latency_phrase_v15_talking_to_other_31",
+      "recorded_reply_present": false,
+      "recording_duration": 10.016,
+      "user_end": 1.758,
+      "official_stages": {
+        "e2e_heard": null,
+        "e2e": null,
+        "e2e_source": null,
+        "asr_final": 2.0047,
+        "llm_ttft": null,
+        "tts_ttfb": null,
+        "endpointing": 0.1014,
+        "found": [
+          "vad_end",
+          "asr_final",
+          "llm_request"
+        ],
+        "transcript": "What's the score of the Mariners game?",
+        "wer": {
+          "ref_words": 7,
+          "edits": 0,
+          "wer": 0.0
+        },
+        "context_tokens": 43,
+        "context_source": "estimate",
+        "context_messages": 1
+      },
+      "stage_marks": [
+        {
+          "stage": "vad_start",
+          "t": 27699.473283625,
+          "pid": 37229,
+          "src": "ws",
+          "recv": 27699.475545541,
+          "lt": 27699.473498417,
+          "tt": 0.2619
+        },
+        {
+          "stage": "vad_start",
+          "t": 27699.473333,
+          "pid": 37229,
+          "src": "ws",
+          "recv": 27699.475588416,
+          "lt": 27699.473547792,
+          "tt": 0.262
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27701.036371333,
+          "pid": 37229,
+          "text": "What's the score of the...",
+          "src": "ws",
+          "recv": 27701.03667925,
+          "lt": 27701.036586125,
+          "tt": 1.825
+        },
+        {
+          "stage": "vad_end",
+          "t": 27701.070750083,
+          "pid": 37229,
+          "src": "ws",
+          "recv": 27701.071706666,
+          "lt": 27701.070964874998,
+          "tt": 1.8594
+        },
+        {
+          "stage": "vad_end",
+          "t": 27701.070771125,
+          "pid": 37229,
+          "src": "ws",
+          "recv": 27701.071726333,
+          "lt": 27701.070985917,
+          "tt": 1.8594
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27702.060738916,
+          "pid": 37229,
+          "text": "What's the score of the Mariners game?",
+          "src": "ws",
+          "recv": 27702.061217416,
+          "lt": 27702.060953707998,
+          "tt": 2.8494
+        },
+        {
+          "stage": "asr_final",
+          "t": 27703.075457708,
+          "pid": 37229,
+          "text": "What's the score of the Mariners game?",
+          "src": "ws",
+          "recv": 27703.101791,
+          "lt": 27703.0756725,
+          "tt": 3.8641
+        },
+        {
+          "stage": "interrupted",
+          "t": 27703.077967625,
+          "pid": 37229,
+          "src": "ws",
+          "recv": 27703.10205825,
+          "lt": 27703.078182416997,
+          "tt": 3.8666
+        },
+        {
+          "stage": "interrupted",
+          "t": 27703.077998166,
+          "pid": 37229,
+          "src": "ws",
+          "recv": 27703.102069708,
+          "lt": 27703.078212958,
+          "tt": 3.8666
+        },
+        {
+          "stage": "llm_request",
+          "t": 27703.101296458,
+          "pid": 37229,
+          "chars": 171,
+          "messages": 1,
+          "est_tokens": 43,
+          "src": "ws",
+          "recv": 27703.102109208,
+          "lt": 27703.10151125,
+          "tt": 3.8899
+        }
+      ],
+      "scorer_transcript": "",
+      "diagnosis_limits": "ASR committed and foreground request is recorded, but no first-token mark before recording close. This trace alone does not establish provider failure/deadline cause.",
+      "matched_runtime_trace": "sessions/session-000009/runtime-2b46fadcb28a456ab06af94a4a1891d5/events.jsonl",
+      "first_vad_to_runtime_user_started_difference_seconds": 0.0002663329978531692,
+      "runtime_events": [
+        {
+          "event": "supervisor_started",
+          "mono_ns": 27693051657375
+        },
+        {
+          "event": "voice_profile",
+          "mono_ns": 27693152628541,
+          "profile": "course",
+          "session_id": "939c19c9044244f3a8c882a1f17f59bd",
+          "ownership_bypassed": true,
+          "audio_mode": "headphones"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 27699473549958,
+          "session_id": "939c19c9044244f3a8c882a1f17f59bd"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27701036051333,
+          "session_id": "939c19c9044244f3a8c882a1f17f59bd",
+          "revision": 1,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 27701070829458,
+          "session_id": "939c19c9044244f3a8c882a1f17f59bd"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27702060478208,
+          "session_id": "939c19c9044244f3a8c882a1f17f59bd",
+          "revision": 2,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27703074602500,
+          "session_id": "939c19c9044244f3a8c882a1f17f59bd",
+          "revision": 3,
+          "committed": true,
+          "turn_id": "1",
+          "capture_ended": true
+        },
+        {
+          "event": "floor_decision",
+          "mono_ns": 27703075525958,
+          "session_id": "939c19c9044244f3a8c882a1f17f59bd",
+          "decision": "turn",
+          "addressee_known": true
+        },
+        {
+          "event": "speech_cancelled",
+          "mono_ns": 27703076137458,
+          "session_id": "939c19c9044244f3a8c882a1f17f59bd",
+          "epoch": 1
+        }
+      ],
+      "first_output_to_recording_close_seconds": null,
+      "llm_request_to_recording_close_seconds": 6.1261,
+      "runtime_commit_recorded": true,
+      "runtime_foreground_failure_event_recorded": false,
+      "runtime_transport_completion_recorded": false,
+      "smartturn_hold_explanation_supported": false
+    },
+    {
+      "trial": "r01_stage_latency_phrase_v1_interrupt_129",
+      "recorded_reply_present": false,
+      "recording_duration": 10.016,
+      "user_end": 2.142,
+      "official_stages": {
+        "e2e_heard": null,
+        "e2e": null,
+        "e2e_source": null,
+        "asr_final": 1.0937,
+        "llm_ttft": null,
+        "tts_ttfb": null,
+        "endpointing": 0.1024,
+        "found": [
+          "vad_end",
+          "asr_final",
+          "llm_request"
+        ],
+        "transcript": "How do I get started with painting?",
+        "wer": {
+          "ref_words": 7,
+          "edits": 0,
+          "wer": 0.0
+        },
+        "context_tokens": 42,
+        "context_source": "estimate",
+        "context_messages": 1
+      },
+      "stage_marks": [
+        {
+          "stage": "vad_start",
+          "t": 27598.703295208,
+          "pid": 37170,
+          "src": "ws",
+          "recv": 27598.705202166,
+          "lt": 27598.70351,
+          "tt": 0.77
+        },
+        {
+          "stage": "vad_start",
+          "t": 27598.703332,
+          "pid": 37170,
+          "src": "ws",
+          "recv": 27598.705252166,
+          "lt": 27598.703546792,
+          "tt": 0.77
+        },
+        {
+          "stage": "vad_end",
+          "t": 27600.177682833,
+          "pid": 37170,
+          "src": "ws",
+          "recv": 27600.179208416,
+          "lt": 27600.177897625,
+          "tt": 2.2444
+        },
+        {
+          "stage": "vad_end",
+          "t": 27600.177719125,
+          "pid": 37170,
+          "src": "ws",
+          "recv": 27600.179241458,
+          "lt": 27600.177933917,
+          "tt": 2.2444
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27600.264739875,
+          "pid": 37170,
+          "text": "How do I get started?",
+          "src": "ws",
+          "recv": 27600.265273291,
+          "lt": 27600.264954667,
+          "tt": 2.3314
+        },
+        {
+          "stage": "asr_final",
+          "t": 27601.27139425,
+          "pid": 37170,
+          "text": "How do I get started with painting?",
+          "src": "ws",
+          "recv": 27601.295154333,
+          "lt": 27601.271609042,
+          "tt": 3.3381
+        },
+        {
+          "stage": "interrupted",
+          "t": 27601.273066625,
+          "pid": 37170,
+          "src": "ws",
+          "recv": 27601.295424958,
+          "lt": 27601.273281416998,
+          "tt": 3.3397
+        },
+        {
+          "stage": "interrupted",
+          "t": 27601.273078083,
+          "pid": 37170,
+          "src": "ws",
+          "recv": 27601.295438541,
+          "lt": 27601.273292874997,
+          "tt": 3.3398
+        },
+        {
+          "stage": "llm_request",
+          "t": 27601.294623666,
+          "pid": 37170,
+          "chars": 168,
+          "messages": 1,
+          "est_tokens": 42,
+          "src": "ws",
+          "recv": 27601.295479708,
+          "lt": 27601.294838457998,
+          "tt": 3.3613
+        }
+      ],
+      "scorer_transcript": "",
+      "diagnosis_limits": "ASR committed and foreground request is recorded, but no first-token mark before recording close. This trace alone does not establish provider failure/deadline cause.",
+      "matched_runtime_trace": "sessions/session-000003/runtime-e2290356fe334390b2cae82517d448c5/events.jsonl",
+      "first_vad_to_runtime_user_started_difference_seconds": 0.00021750000087195076,
+      "runtime_events": [
+        {
+          "event": "supervisor_started",
+          "mono_ns": 27591808559541
+        },
+        {
+          "event": "voice_profile",
+          "mono_ns": 27591887586916,
+          "profile": "course",
+          "session_id": "daad23efefb44ce99a27f8bfc1d00602",
+          "ownership_bypassed": true,
+          "audio_mode": "headphones"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 27598703512708,
+          "session_id": "daad23efefb44ce99a27f8bfc1d00602"
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 27600177819750,
+          "session_id": "daad23efefb44ce99a27f8bfc1d00602"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27600264307250,
+          "session_id": "daad23efefb44ce99a27f8bfc1d00602",
+          "revision": 1,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27601271087041,
+          "session_id": "daad23efefb44ce99a27f8bfc1d00602",
+          "revision": 2,
+          "committed": true,
+          "turn_id": "1",
+          "capture_ended": true
+        },
+        {
+          "event": "floor_decision",
+          "mono_ns": 27601271420083,
+          "session_id": "daad23efefb44ce99a27f8bfc1d00602",
+          "decision": "turn",
+          "addressee_known": true
+        },
+        {
+          "event": "speech_cancelled",
+          "mono_ns": 27601271913541,
+          "session_id": "daad23efefb44ce99a27f8bfc1d00602",
+          "epoch": 1
+        }
+      ],
+      "first_output_to_recording_close_seconds": null,
+      "llm_request_to_recording_close_seconds": 6.6547,
+      "runtime_commit_recorded": true,
+      "runtime_foreground_failure_event_recorded": false,
+      "runtime_transport_completion_recorded": false,
+      "smartturn_hold_explanation_supported": false
+    },
+    {
+      "trial": "r01_stage_latency_phrase_v1_interrupt_83",
+      "recorded_reply_present": false,
+      "recording_duration": 10.464,
+      "user_end": 2.526,
+      "official_stages": {
+        "e2e_heard": null,
+        "e2e": null,
+        "e2e_source": null,
+        "asr_final": 1.2248,
+        "llm_ttft": null,
+        "tts_ttfb": null,
+        "endpointing": 0.097,
+        "found": [
+          "vad_end",
+          "asr_final",
+          "llm_request"
+        ],
+        "transcript": "I'm thinking about changing my career path.",
+        "wer": {
+          "ref_words": 7,
+          "edits": 0,
+          "wer": 0.0
+        },
+        "context_tokens": 44,
+        "context_source": "estimate",
+        "context_messages": 1
+      },
+      "stage_marks": [
+        {
+          "stage": "vad_start",
+          "t": 27716.115154541,
+          "pid": 37251,
+          "src": "ws",
+          "recv": 27716.117524875,
+          "lt": 27716.115369332998,
+          "tt": 0.2603
+        },
+        {
+          "stage": "vad_start",
+          "t": 27716.115202916,
+          "pid": 37251,
+          "src": "ws",
+          "recv": 27716.11758625,
+          "lt": 27716.115417708,
+          "tt": 0.2603
+        },
+        {
+          "stage": "vad_end",
+          "t": 27717.294825875,
+          "pid": 37251,
+          "src": "ws",
+          "recv": 27717.296264833,
+          "lt": 27717.295040667,
+          "tt": 1.4399
+        },
+        {
+          "stage": "vad_end",
+          "t": 27717.294854125,
+          "pid": 37251,
+          "src": "ws",
+          "recv": 27717.296296541,
+          "lt": 27717.295068917,
+          "tt": 1.44
+        },
+        {
+          "stage": "vad_start",
+          "t": 27717.393587375,
+          "pid": 37251,
+          "src": "ws",
+          "recv": 27717.395386666,
+          "lt": 27717.393802167,
+          "tt": 1.5387
+        },
+        {
+          "stage": "vad_start",
+          "t": 27717.393622291,
+          "pid": 37251,
+          "src": "ws",
+          "recv": 27717.395426666,
+          "lt": 27717.393837083,
+          "tt": 1.5387
+        },
+        {
+          "stage": "vad_end",
+          "t": 27718.477812541,
+          "pid": 37251,
+          "src": "ws",
+          "recv": 27718.479274833,
+          "lt": 27718.478027333,
+          "tt": 2.6229
+        },
+        {
+          "stage": "vad_end",
+          "t": 27718.477842041,
+          "pid": 37251,
+          "src": "ws",
+          "recv": 27718.479381208,
+          "lt": 27718.478056833,
+          "tt": 2.623
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27718.691944541,
+          "pid": 37251,
+          "text": "I'm thinking about changing my mind.",
+          "src": "ws",
+          "recv": 27718.692270083,
+          "lt": 27718.692159332997,
+          "tt": 2.8371
+        },
+        {
+          "stage": "asr_final",
+          "t": 27719.702613041,
+          "pid": 37251,
+          "text": "I'm thinking about changing my career path.",
+          "src": "ws",
+          "recv": 27719.725762041,
+          "lt": 27719.702827833,
+          "tt": 3.8477
+        },
+        {
+          "stage": "interrupted",
+          "t": 27719.7044255,
+          "pid": 37251,
+          "src": "ws",
+          "recv": 27719.725975875,
+          "lt": 27719.704640292,
+          "tt": 3.8495
+        },
+        {
+          "stage": "interrupted",
+          "t": 27719.70445025,
+          "pid": 37251,
+          "src": "ws",
+          "recv": 27719.725984916,
+          "lt": 27719.704665041998,
+          "tt": 3.8496
+        },
+        {
+          "stage": "llm_request",
+          "t": 27719.725264,
+          "pid": 37251,
+          "chars": 176,
+          "messages": 1,
+          "est_tokens": 44,
+          "src": "ws",
+          "recv": 27719.726058083,
+          "lt": 27719.725478792,
+          "tt": 3.8704
+        }
+      ],
+      "scorer_transcript": "",
+      "diagnosis_limits": "ASR committed and foreground request is recorded, but no first-token mark before recording close. This trace alone does not establish provider failure/deadline cause.",
+      "matched_runtime_trace": "sessions/session-000010/runtime-6450472a550247ebaeb891a47f13deac/events.jsonl",
+      "first_vad_to_runtime_user_started_difference_seconds": 0.0003315840003779158,
+      "runtime_events": [
+        {
+          "event": "supervisor_started",
+          "mono_ns": 27709678053875
+        },
+        {
+          "event": "voice_profile",
+          "mono_ns": 27709756401708,
+          "profile": "course",
+          "session_id": "1a580ca231264c6eab9231cc629fcda1",
+          "ownership_bypassed": true,
+          "audio_mode": "headphones"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 27716115486125,
+          "session_id": "1a580ca231264c6eab9231cc629fcda1"
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 27717294944000,
+          "session_id": "1a580ca231264c6eab9231cc629fcda1"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 27717393743708,
+          "session_id": "1a580ca231264c6eab9231cc629fcda1"
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 27718477923791,
+          "session_id": "1a580ca231264c6eab9231cc629fcda1"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27718691672958,
+          "session_id": "1a580ca231264c6eab9231cc629fcda1",
+          "revision": 1,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27719702363791,
+          "session_id": "1a580ca231264c6eab9231cc629fcda1",
+          "revision": 2,
+          "committed": true,
+          "turn_id": "1",
+          "capture_ended": true
+        },
+        {
+          "event": "floor_decision",
+          "mono_ns": 27719702631250,
+          "session_id": "1a580ca231264c6eab9231cc629fcda1",
+          "decision": "turn",
+          "addressee_known": true
+        },
+        {
+          "event": "speech_cancelled",
+          "mono_ns": 27719703179041,
+          "session_id": "1a580ca231264c6eab9231cc629fcda1",
+          "epoch": 1
+        }
+      ],
+      "first_output_to_recording_close_seconds": null,
+      "llm_request_to_recording_close_seconds": 6.5936,
+      "runtime_commit_recorded": true,
+      "runtime_foreground_failure_event_recorded": false,
+      "runtime_transport_completion_recorded": false,
+      "smartturn_hold_explanation_supported": false
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v15_backchannel_34",
+      "recorded_reply_present": false,
+      "recording_duration": 9.888,
+      "user_end": 1.63,
+      "official_stages": {
+        "e2e_heard": null,
+        "e2e": null,
+        "e2e_source": null,
+        "asr_final": 1.9074,
+        "llm_ttft": null,
+        "tts_ttfb": null,
+        "endpointing": 0.1311,
+        "found": [
+          "vad_end",
+          "asr_final",
+          "llm_request"
+        ],
+        "transcript": "outline sleep science clearly,",
+        "wer": {
+          "ref_words": 4,
+          "edits": 0,
+          "wer": 0.0
+        },
+        "context_tokens": 41,
+        "context_source": "estimate",
+        "context_messages": 1
+      },
+      "stage_marks": [
+        {
+          "stage": "vad_start",
+          "t": 27805.553953666,
+          "pid": 37292,
+          "src": "ws",
+          "recv": 27805.555870125,
+          "lt": 27805.554158499002,
+          "tt": 0.1631
+        },
+        {
+          "stage": "vad_start",
+          "t": 27805.553985041,
+          "pid": 37292,
+          "src": "ws",
+          "recv": 27805.555928833,
+          "lt": 27805.554189874,
+          "tt": 0.1631
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27807.081344833,
+          "pid": 37292,
+          "text": "outline sleep",
+          "src": "ws",
+          "recv": 27807.081562208,
+          "lt": 27807.081549666003,
+          "tt": 1.6905
+        },
+        {
+          "stage": "vad_end",
+          "t": 27807.151991625,
+          "pid": 37292,
+          "src": "ws",
+          "recv": 27807.152526125,
+          "lt": 27807.152196458002,
+          "tt": 1.7611
+        },
+        {
+          "stage": "vad_end",
+          "t": 27807.151999333,
+          "pid": 37292,
+          "src": "ws",
+          "recv": 27807.152544625,
+          "lt": 27807.152204166003,
+          "tt": 1.7611
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27808.073876541,
+          "pid": 37292,
+          "text": "outline sleep science clearly,",
+          "src": "ws",
+          "recv": 27808.076696416,
+          "lt": 27808.074081374,
+          "tt": 2.683
+        },
+        {
+          "stage": "asr_final",
+          "t": 27809.059439625,
+          "pid": 37292,
+          "text": "outline sleep science clearly,",
+          "src": "ws",
+          "recv": 27809.077918375,
+          "lt": 27809.059644458004,
+          "tt": 3.6686
+        },
+        {
+          "stage": "interrupted",
+          "t": 27809.060721166,
+          "pid": 37292,
+          "src": "ws",
+          "recv": 27809.078183625,
+          "lt": 27809.060925999,
+          "tt": 3.6699
+        },
+        {
+          "stage": "interrupted",
+          "t": 27809.060752708,
+          "pid": 37292,
+          "src": "ws",
+          "recv": 27809.078198875,
+          "lt": 27809.060957541,
+          "tt": 3.6699
+        },
+        {
+          "stage": "llm_request",
+          "t": 27809.077401125,
+          "pid": 37292,
+          "chars": 163,
+          "messages": 1,
+          "est_tokens": 41,
+          "src": "ws",
+          "recv": 27809.0782405,
+          "lt": 27809.077605958002,
+          "tt": 3.6865
+        }
+      ],
+      "scorer_transcript": "",
+      "diagnosis_limits": "ASR committed and foreground request is recorded, but no first-token mark before recording close. This trace alone does not establish provider failure/deadline cause.",
+      "matched_runtime_trace": "sessions/session-000015/runtime-117455f3ed324241b207116759faa9ce/events.jsonl",
+      "first_vad_to_runtime_user_started_difference_seconds": 0.00020824999955948442,
+      "runtime_events": [
+        {
+          "event": "supervisor_started",
+          "mono_ns": 27799171360000
+        },
+        {
+          "event": "voice_profile",
+          "mono_ns": 27799275963250,
+          "profile": "course",
+          "session_id": "acaaf666c3884ecf97ca435c2b0bf596",
+          "ownership_bypassed": true,
+          "audio_mode": "headphones"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 27805554161916,
+          "session_id": "acaaf666c3884ecf97ca435c2b0bf596"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27807081111041,
+          "session_id": "acaaf666c3884ecf97ca435c2b0bf596",
+          "revision": 1,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 27807152022833,
+          "session_id": "acaaf666c3884ecf97ca435c2b0bf596"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27808073179791,
+          "session_id": "acaaf666c3884ecf97ca435c2b0bf596",
+          "revision": 2,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27809058950583,
+          "session_id": "acaaf666c3884ecf97ca435c2b0bf596",
+          "revision": 3,
+          "committed": true,
+          "turn_id": "1",
+          "capture_ended": true
+        },
+        {
+          "event": "floor_decision",
+          "mono_ns": 27809059495166,
+          "session_id": "acaaf666c3884ecf97ca435c2b0bf596",
+          "decision": "turn",
+          "addressee_known": true
+        },
+        {
+          "event": "speech_cancelled",
+          "mono_ns": 27809059872541,
+          "session_id": "acaaf666c3884ecf97ca435c2b0bf596",
+          "epoch": 1
+        }
+      ],
+      "first_output_to_recording_close_seconds": null,
+      "llm_request_to_recording_close_seconds": 6.201499999999999,
+      "runtime_commit_recorded": true,
+      "runtime_foreground_failure_event_recorded": false,
+      "runtime_transport_completion_recorded": false,
+      "smartturn_hold_explanation_supported": false
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v15_talking_to_other_31",
+      "recorded_reply_present": false,
+      "recording_duration": 10.016,
+      "user_end": 1.758,
+      "official_stages": {
+        "e2e_heard": null,
+        "e2e": null,
+        "e2e_source": null,
+        "asr_final": 1.077,
+        "llm_ttft": null,
+        "tts_ttfb": null,
+        "endpointing": 0.104,
+        "found": [
+          "vad_end",
+          "asr_final",
+          "llm_request"
+        ],
+        "transcript": "What's the score of the Mariners game?",
+        "wer": {
+          "ref_words": 7,
+          "edits": 0,
+          "wer": 0.0
+        },
+        "context_tokens": 43,
+        "context_source": "estimate",
+        "context_messages": 1
+      },
+      "stage_marks": [
+        {
+          "stage": "vad_start",
+          "t": 27733.197813791,
+          "pid": 37257,
+          "src": "ws",
+          "recv": 27733.199640708,
+          "lt": 27733.198028583,
+          "tt": 0.2571
+        },
+        {
+          "stage": "vad_start",
+          "t": 27733.197846916,
+          "pid": 37257,
+          "src": "ws",
+          "recv": 27733.199688958,
+          "lt": 27733.198061707997,
+          "tt": 0.2571
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27734.771446416,
+          "pid": 37257,
+          "text": "What's the score of the...",
+          "src": "ws",
+          "recv": 27734.771979166,
+          "lt": 27734.771661208,
+          "tt": 1.8307
+        },
+        {
+          "stage": "vad_end",
+          "t": 27734.802657625,
+          "pid": 37257,
+          "src": "ws",
+          "recv": 27734.804848083,
+          "lt": 27734.802872417,
+          "tt": 1.8619
+        },
+        {
+          "stage": "vad_end",
+          "t": 27734.802690541,
+          "pid": 37257,
+          "src": "ws",
+          "recv": 27734.80488675,
+          "lt": 27734.802905333,
+          "tt": 1.862
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27735.8203795,
+          "pid": 37257,
+          "text": "What's the score of the Mariners game?",
+          "src": "ws",
+          "recv": 27735.820681,
+          "lt": 27735.820594292,
+          "tt": 2.8797
+        },
+        {
+          "stage": "asr_final",
+          "t": 27735.879653666,
+          "pid": 37257,
+          "text": "What's the score of the Mariners game?",
+          "src": "ws",
+          "recv": 27735.892244333,
+          "lt": 27735.879868458,
+          "tt": 2.9389
+        },
+        {
+          "stage": "interrupted",
+          "t": 27735.88040125,
+          "pid": 37257,
+          "src": "ws",
+          "recv": 27735.892440333,
+          "lt": 27735.880616042,
+          "tt": 2.9397
+        },
+        {
+          "stage": "interrupted",
+          "t": 27735.880416958,
+          "pid": 37257,
+          "src": "ws",
+          "recv": 27735.892447916,
+          "lt": 27735.88063175,
+          "tt": 2.9397
+        },
+        {
+          "stage": "llm_request",
+          "t": 27735.891899458,
+          "pid": 37257,
+          "chars": 171,
+          "messages": 1,
+          "est_tokens": 43,
+          "src": "ws",
+          "recv": 27735.892455166,
+          "lt": 27735.89211425,
+          "tt": 2.9512
+        }
+      ],
+      "scorer_transcript": "",
+      "diagnosis_limits": "ASR committed and foreground request is recorded, but no first-token mark before recording close. This trace alone does not establish provider failure/deadline cause.",
+      "matched_runtime_trace": "sessions/session-000011/runtime-07d3cafc37c642d5916a58b01d4c16f2/events.jsonl",
+      "first_vad_to_runtime_user_started_difference_seconds": 0.00021412500063888729,
+      "runtime_events": [
+        {
+          "event": "supervisor_started",
+          "mono_ns": 27726779232416
+        },
+        {
+          "event": "voice_profile",
+          "mono_ns": 27726860685958,
+          "profile": "course",
+          "session_id": "6dfcd521f03b4b509628ca36bbcf614a",
+          "ownership_bypassed": true,
+          "audio_mode": "headphones"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 27733198027916,
+          "session_id": "6dfcd521f03b4b509628ca36bbcf614a"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27734770617500,
+          "session_id": "6dfcd521f03b4b509628ca36bbcf614a",
+          "revision": 1,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 27734802789625,
+          "session_id": "6dfcd521f03b4b509628ca36bbcf614a"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27735820161375,
+          "session_id": "6dfcd521f03b4b509628ca36bbcf614a",
+          "revision": 2,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27735879463250,
+          "session_id": "6dfcd521f03b4b509628ca36bbcf614a",
+          "revision": 3,
+          "committed": true,
+          "turn_id": "1",
+          "capture_ended": true
+        },
+        {
+          "event": "floor_decision",
+          "mono_ns": 27735879671250,
+          "session_id": "6dfcd521f03b4b509628ca36bbcf614a",
+          "decision": "turn",
+          "addressee_known": true
+        },
+        {
+          "event": "speech_cancelled",
+          "mono_ns": 27735879833583,
+          "session_id": "6dfcd521f03b4b509628ca36bbcf614a",
+          "epoch": 1
+        }
+      ],
+      "first_output_to_recording_close_seconds": null,
+      "llm_request_to_recording_close_seconds": 7.0648,
+      "runtime_commit_recorded": true,
+      "runtime_foreground_failure_event_recorded": false,
+      "runtime_transport_completion_recorded": false,
+      "smartturn_hold_explanation_supported": false
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v1_interrupt_129",
+      "recorded_reply_present": false,
+      "recording_duration": 10.016,
+      "user_end": 2.142,
+      "official_stages": {
+        "e2e_heard": null,
+        "e2e": null,
+        "e2e_source": null,
+        "asr_final": 1.0858,
+        "llm_ttft": null,
+        "tts_ttfb": null,
+        "endpointing": 0.0966,
+        "found": [
+          "vad_end",
+          "asr_final",
+          "llm_request"
+        ],
+        "transcript": "How do I get started with painting?",
+        "wer": {
+          "ref_words": 7,
+          "edits": 0,
+          "wer": 0.0
+        },
+        "context_tokens": 42,
+        "context_source": "estimate",
+        "context_messages": 1
+      },
+      "stage_marks": [
+        {
+          "stage": "vad_start",
+          "t": 27887.085505833,
+          "pid": 37332,
+          "src": "ws",
+          "recv": 27887.087761208,
+          "lt": 27887.085710666004,
+          "tt": 0.7675
+        },
+        {
+          "stage": "vad_start",
+          "t": 27887.085550083,
+          "pid": 37332,
+          "src": "ws",
+          "recv": 27887.087807958,
+          "lt": 27887.085754916003,
+          "tt": 0.7675
+        },
+        {
+          "stage": "vad_end",
+          "t": 27888.556604,
+          "pid": 37332,
+          "src": "ws",
+          "recv": 27888.557990708,
+          "lt": 27888.556808833004,
+          "tt": 2.2386
+        },
+        {
+          "stage": "vad_end",
+          "t": 27888.556637166,
+          "pid": 37332,
+          "src": "ws",
+          "recv": 27888.558021291,
+          "lt": 27888.556841999,
+          "tt": 2.2386
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27888.64109825,
+          "pid": 37332,
+          "text": "How do I get started?",
+          "src": "ws",
+          "recv": 27888.64172225,
+          "lt": 27888.641303083,
+          "tt": 2.3231
+        },
+        {
+          "stage": "asr_final",
+          "t": 27889.642467875,
+          "pid": 37332,
+          "text": "How do I get started with painting?",
+          "src": "ws",
+          "recv": 27889.660009375,
+          "lt": 27889.642672708003,
+          "tt": 3.3244
+        },
+        {
+          "stage": "interrupted",
+          "t": 27889.64418825,
+          "pid": 37332,
+          "src": "ws",
+          "recv": 27889.660257791,
+          "lt": 27889.644393083003,
+          "tt": 3.3262
+        },
+        {
+          "stage": "interrupted",
+          "t": 27889.644218291,
+          "pid": 37332,
+          "src": "ws",
+          "recv": 27889.660331541,
+          "lt": 27889.644423124002,
+          "tt": 3.3262
+        },
+        {
+          "stage": "llm_request",
+          "t": 27889.659595416,
+          "pid": 37332,
+          "chars": 168,
+          "messages": 1,
+          "est_tokens": 42,
+          "src": "ws",
+          "recv": 27889.660378833,
+          "lt": 27889.659800249003,
+          "tt": 3.3416
+        }
+      ],
+      "scorer_transcript": "",
+      "diagnosis_limits": "ASR committed and foreground request is recorded, but no first-token mark before recording close. This trace alone does not establish provider failure/deadline cause.",
+      "matched_runtime_trace": "sessions/session-000020/runtime-f96d4c2996c342bfa1dbdc47edabb563/events.jsonl",
+      "first_vad_to_runtime_user_started_difference_seconds": 0.0002525829986552708,
+      "runtime_events": [
+        {
+          "event": "supervisor_started",
+          "mono_ns": 27880171227000
+        },
+        {
+          "event": "voice_profile",
+          "mono_ns": 27880250034375,
+          "profile": "course",
+          "session_id": "6821cf627a8040a8a3beb917ea30cd35",
+          "ownership_bypassed": true,
+          "audio_mode": "headphones"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 27887085758416,
+          "session_id": "6821cf627a8040a8a3beb917ea30cd35"
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 27888556716250,
+          "session_id": "6821cf627a8040a8a3beb917ea30cd35"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27888640039416,
+          "session_id": "6821cf627a8040a8a3beb917ea30cd35",
+          "revision": 1,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27889642143500,
+          "session_id": "6821cf627a8040a8a3beb917ea30cd35",
+          "revision": 2,
+          "committed": true,
+          "turn_id": "1",
+          "capture_ended": true
+        },
+        {
+          "event": "floor_decision",
+          "mono_ns": 27889642496958,
+          "session_id": "6821cf627a8040a8a3beb917ea30cd35",
+          "decision": "turn",
+          "addressee_known": true
+        },
+        {
+          "event": "speech_cancelled",
+          "mono_ns": 27889643154791,
+          "session_id": "6821cf627a8040a8a3beb917ea30cd35",
+          "epoch": 1
+        }
+      ],
+      "first_output_to_recording_close_seconds": null,
+      "llm_request_to_recording_close_seconds": 6.6744,
+      "runtime_commit_recorded": true,
+      "runtime_foreground_failure_event_recorded": false,
+      "runtime_transport_completion_recorded": false,
+      "smartturn_hold_explanation_supported": false
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v1_interrupt_192",
+      "recorded_reply_present": false,
+      "recording_duration": 9.888,
+      "user_end": 1.918,
+      "official_stages": {
+        "e2e_heard": null,
+        "e2e": null,
+        "e2e_source": null,
+        "asr_final": 1.6039,
+        "llm_ttft": null,
+        "tts_ttfb": null,
+        "endpointing": 0.1318,
+        "found": [
+          "vad_end",
+          "asr_final",
+          "llm_request"
+        ],
+        "transcript": "How do I get to the path?",
+        "wer": {
+          "ref_words": 7,
+          "edits": 1,
+          "wer": 0.14285714285714285
+        },
+        "context_tokens": 40,
+        "context_source": "estimate",
+        "context_messages": 1
+      },
+      "stage_marks": [
+        {
+          "stage": "vad_start",
+          "t": 27870.928476625,
+          "pid": 37322,
+          "src": "ws",
+          "recv": 27870.930330166,
+          "lt": 27870.928681458,
+          "tt": 1.0923
+        },
+        {
+          "stage": "vad_start",
+          "t": 27870.92851575,
+          "pid": 37322,
+          "src": "ws",
+          "recv": 27870.93036575,
+          "lt": 27870.928720583004,
+          "tt": 1.0923
+        },
+        {
+          "stage": "vad_end",
+          "t": 27871.88600025,
+          "pid": 37322,
+          "src": "ws",
+          "recv": 27871.887435625,
+          "lt": 27871.886205083003,
+          "tt": 2.0498
+        },
+        {
+          "stage": "vad_end",
+          "t": 27871.886029416,
+          "pid": 37322,
+          "src": "ws",
+          "recv": 27871.887467375,
+          "lt": 27871.886234249003,
+          "tt": 2.0498
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27872.488028791,
+          "pid": 37322,
+          "text": "How do I get to the...",
+          "src": "ws",
+          "recv": 27872.488838875,
+          "lt": 27872.488233624,
+          "tt": 2.6518
+        },
+        {
+          "stage": "asr_final",
+          "t": 27873.489947708,
+          "pid": 37322,
+          "text": "How do I get to the path?",
+          "src": "ws",
+          "recv": 27873.509237875,
+          "lt": 27873.490152541002,
+          "tt": 3.6537
+        },
+        {
+          "stage": "interrupted",
+          "t": 27873.491723166,
+          "pid": 37322,
+          "src": "ws",
+          "recv": 27873.509551916,
+          "lt": 27873.491927999003,
+          "tt": 3.6555
+        },
+        {
+          "stage": "interrupted",
+          "t": 27873.491737958,
+          "pid": 37322,
+          "src": "ws",
+          "recv": 27873.509567333,
+          "lt": 27873.491942791003,
+          "tt": 3.6555
+        },
+        {
+          "stage": "llm_request",
+          "t": 27873.50876525,
+          "pid": 37322,
+          "chars": 158,
+          "messages": 1,
+          "est_tokens": 40,
+          "src": "ws",
+          "recv": 27873.509609666,
+          "lt": 27873.508970083003,
+          "tt": 3.6725
+        }
+      ],
+      "scorer_transcript": "",
+      "diagnosis_limits": "ASR committed and foreground request is recorded, but no first-token mark before recording close. This trace alone does not establish provider failure/deadline cause.",
+      "matched_runtime_trace": "sessions/session-000019/runtime-93e6db433bb84d23b5ca64cf63e2d5c9/events.jsonl",
+      "first_vad_to_runtime_user_started_difference_seconds": 0.0002614580007502809,
+      "runtime_events": [
+        {
+          "event": "supervisor_started",
+          "mono_ns": 27863697137708
+        },
+        {
+          "event": "voice_profile",
+          "mono_ns": 27863775333041,
+          "profile": "course",
+          "session_id": "0c3c5953f7894c8ebda4a9b184ec9e6d",
+          "ownership_bypassed": true,
+          "audio_mode": "headphones"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 27870928738083,
+          "session_id": "0c3c5953f7894c8ebda4a9b184ec9e6d"
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 27871886146583,
+          "session_id": "0c3c5953f7894c8ebda4a9b184ec9e6d"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27872487121041,
+          "session_id": "0c3c5953f7894c8ebda4a9b184ec9e6d",
+          "revision": 1,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27873489101625,
+          "session_id": "0c3c5953f7894c8ebda4a9b184ec9e6d",
+          "revision": 2,
+          "committed": true,
+          "turn_id": "1",
+          "capture_ended": true
+        },
+        {
+          "event": "floor_decision",
+          "mono_ns": 27873490011750,
+          "session_id": "0c3c5953f7894c8ebda4a9b184ec9e6d",
+          "decision": "turn",
+          "addressee_known": true
+        },
+        {
+          "event": "speech_cancelled",
+          "mono_ns": 27873490725875,
+          "session_id": "0c3c5953f7894c8ebda4a9b184ec9e6d",
+          "epoch": 1
+        }
+      ],
+      "first_output_to_recording_close_seconds": null,
+      "llm_request_to_recording_close_seconds": 6.2155000000000005,
+      "runtime_commit_recorded": true,
+      "runtime_foreground_failure_event_recorded": false,
+      "runtime_transport_completion_recorded": false,
+      "smartturn_hold_explanation_supported": false
+    },
+    {
+      "trial": "r02_stage_latency_phrase_v1_interrupt_73",
+      "recorded_reply_present": false,
+      "recording_duration": 10.4,
+      "user_end": 2.43,
+      "official_stages": {
+        "e2e_heard": null,
+        "e2e": null,
+        "e2e_source": null,
+        "asr_final": 1.7604,
+        "llm_ttft": null,
+        "tts_ttfb": null,
+        "endpointing": 0.1333,
+        "found": [
+          "vad_end",
+          "asr_final",
+          "llm_request"
+        ],
+        "transcript": "how should I start saving for retirement?",
+        "wer": {
+          "ref_words": 7,
+          "edits": 0,
+          "wer": 0.0
+        },
+        "context_tokens": 44,
+        "context_source": "estimate",
+        "context_messages": 1
+      },
+      "stage_marks": [
+        {
+          "stage": "vad_start",
+          "t": 27768.179101875,
+          "pid": 37272,
+          "src": "ws",
+          "recv": 27768.181406583,
+          "lt": 27768.179316667,
+          "tt": 0.775
+        },
+        {
+          "stage": "vad_start",
+          "t": 27768.17915475,
+          "pid": 37272,
+          "src": "ws",
+          "recv": 27768.181467708,
+          "lt": 27768.179369542,
+          "tt": 0.7751
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27769.720381,
+          "pid": 37272,
+          "text": "How should I start?",
+          "src": "ws",
+          "recv": 27769.720875291,
+          "lt": 27769.720595791998,
+          "tt": 2.3163
+        },
+        {
+          "stage": "vad_end",
+          "t": 27769.967356666,
+          "pid": 37272,
+          "src": "ws",
+          "recv": 27769.968576708,
+          "lt": 27769.967571457997,
+          "tt": 2.5633
+        },
+        {
+          "stage": "vad_end",
+          "t": 27769.967379,
+          "pid": 37272,
+          "src": "ws",
+          "recv": 27769.96867175,
+          "lt": 27769.967593792,
+          "tt": 2.5633
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27770.732561041,
+          "pid": 37272,
+          "text": "How should I start saving for retirement?",
+          "src": "ws",
+          "recv": 27770.733145916,
+          "lt": 27770.732775833,
+          "tt": 3.3285
+        },
+        {
+          "stage": "asr_final",
+          "t": 27771.727734208,
+          "pid": 37272,
+          "text": "how should I start saving for retirement?",
+          "src": "ws",
+          "recv": 27771.755802708,
+          "lt": 27771.727949,
+          "tt": 4.3236
+        },
+        {
+          "stage": "interrupted",
+          "t": 27771.730459541,
+          "pid": 37272,
+          "src": "ws",
+          "recv": 27771.756055458,
+          "lt": 27771.730674332997,
+          "tt": 4.3264
+        },
+        {
+          "stage": "interrupted",
+          "t": 27771.7304915,
+          "pid": 37272,
+          "src": "ws",
+          "recv": 27771.756067625,
+          "lt": 27771.730706291997,
+          "tt": 4.3264
+        },
+        {
+          "stage": "llm_request",
+          "t": 27771.755384416,
+          "pid": 37272,
+          "chars": 174,
+          "messages": 1,
+          "est_tokens": 44,
+          "src": "ws",
+          "recv": 27771.756119375,
+          "lt": 27771.755599207998,
+          "tt": 4.3513
+        }
+      ],
+      "scorer_transcript": "",
+      "diagnosis_limits": "ASR committed and foreground request is recorded, but no first-token mark before recording close. This trace alone does not establish provider failure/deadline cause.",
+      "matched_runtime_trace": "sessions/session-000013/runtime-28aaa451d0e5445fafb63c8ed8677c0a/events.jsonl",
+      "first_vad_to_runtime_user_started_difference_seconds": 0.00030791599783697166,
+      "runtime_events": [
+        {
+          "event": "supervisor_started",
+          "mono_ns": 27761217366791
+        },
+        {
+          "event": "voice_profile",
+          "mono_ns": 27761295318208,
+          "profile": "course",
+          "session_id": "2d9d0d2e7dc24d8db387e380e2a5c897",
+          "ownership_bypassed": true,
+          "audio_mode": "headphones"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 27768179409791,
+          "session_id": "2d9d0d2e7dc24d8db387e380e2a5c897"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27769719807750,
+          "session_id": "2d9d0d2e7dc24d8db387e380e2a5c897",
+          "revision": 1,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 27769967448208,
+          "session_id": "2d9d0d2e7dc24d8db387e380e2a5c897"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27770731602583,
+          "session_id": "2d9d0d2e7dc24d8db387e380e2a5c897",
+          "revision": 2,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27771726733458,
+          "session_id": "2d9d0d2e7dc24d8db387e380e2a5c897",
+          "revision": 3,
+          "committed": true,
+          "turn_id": "1",
+          "capture_ended": true
+        },
+        {
+          "event": "floor_decision",
+          "mono_ns": 27771727815708,
+          "session_id": "2d9d0d2e7dc24d8db387e380e2a5c897",
+          "decision": "turn",
+          "addressee_known": true
+        },
+        {
+          "event": "speech_cancelled",
+          "mono_ns": 27771728656541,
+          "session_id": "2d9d0d2e7dc24d8db387e380e2a5c897",
+          "epoch": 1
+        }
+      ],
+      "first_output_to_recording_close_seconds": null,
+      "llm_request_to_recording_close_seconds": 6.0487,
+      "runtime_commit_recorded": true,
+      "runtime_foreground_failure_event_recorded": false,
+      "runtime_transport_completion_recorded": false,
+      "smartturn_hold_explanation_supported": false
+    },
+    {
+      "trial": "r03_stage_latency_phrase_v1_interrupt_83",
+      "recorded_reply_present": false,
+      "recording_duration": 10.464,
+      "user_end": 2.526,
+      "official_stages": {
+        "e2e_heard": null,
+        "e2e": null,
+        "e2e_source": null,
+        "asr_final": 1.2638,
+        "llm_ttft": null,
+        "tts_ttfb": null,
+        "endpointing": 0.105,
+        "found": [
+          "vad_end",
+          "asr_final",
+          "llm_request"
+        ],
+        "transcript": "I'm thinking about changing my career path.",
+        "wer": {
+          "ref_words": 7,
+          "edits": 0,
+          "wer": 0.0
+        },
+        "context_tokens": 44,
+        "context_source": "estimate",
+        "context_messages": 1
+      },
+      "stage_marks": [
+        {
+          "stage": "vad_start",
+          "t": 27940.018495791,
+          "pid": 37361,
+          "src": "ws",
+          "recv": 27940.020847333,
+          "lt": 27940.018700624,
+          "tt": 0.3585
+        },
+        {
+          "stage": "vad_start",
+          "t": 27940.018534666,
+          "pid": 37361,
+          "src": "ws",
+          "recv": 27940.020894833,
+          "lt": 27940.018739499003,
+          "tt": 0.3585
+        },
+        {
+          "stage": "vad_end",
+          "t": 27941.106729,
+          "pid": 37361,
+          "src": "ws",
+          "recv": 27941.108664541,
+          "lt": 27941.106933833,
+          "tt": 1.4467
+        },
+        {
+          "stage": "vad_end",
+          "t": 27941.106761666,
+          "pid": 37361,
+          "src": "ws",
+          "recv": 27941.108764541,
+          "lt": 27941.106966499003,
+          "tt": 1.4467
+        },
+        {
+          "stage": "vad_start",
+          "t": 27941.202525125,
+          "pid": 37361,
+          "src": "ws",
+          "recv": 27941.20410225,
+          "lt": 27941.202729958004,
+          "tt": 1.5425
+        },
+        {
+          "stage": "vad_start",
+          "t": 27941.20255175,
+          "pid": 37361,
+          "src": "ws",
+          "recv": 27941.204204833,
+          "lt": 27941.202756583003,
+          "tt": 1.5425
+        },
+        {
+          "stage": "vad_end",
+          "t": 27942.290969583,
+          "pid": 37361,
+          "src": "ws",
+          "recv": 27942.292676708,
+          "lt": 27942.291174416,
+          "tt": 2.6309
+        },
+        {
+          "stage": "vad_end",
+          "t": 27942.290998708,
+          "pid": 37361,
+          "src": "ws",
+          "recv": 27942.29278525,
+          "lt": 27942.291203541,
+          "tt": 2.631
+        },
+        {
+          "stage": "asr_partial",
+          "t": 27942.544379458,
+          "pid": 37361,
+          "text": "I'm thinking about changing my.",
+          "src": "ws",
+          "recv": 27942.544590083,
+          "lt": 27942.544584291,
+          "tt": 2.8843
+        },
+        {
+          "stage": "asr_final",
+          "t": 27943.554834875,
+          "pid": 37361,
+          "text": "I'm thinking about changing my career path.",
+          "src": "ws",
+          "recv": 27943.574428541,
+          "lt": 27943.555039708004,
+          "tt": 3.8948
+        },
+        {
+          "stage": "interrupted",
+          "t": 27943.556365166,
+          "pid": 37361,
+          "src": "ws",
+          "recv": 27943.574683833,
+          "lt": 27943.556569999004,
+          "tt": 3.8963
+        },
+        {
+          "stage": "interrupted",
+          "t": 27943.556377125,
+          "pid": 37361,
+          "src": "ws",
+          "recv": 27943.574691708,
+          "lt": 27943.556581958004,
+          "tt": 3.8963
+        },
+        {
+          "stage": "llm_request",
+          "t": 27943.573957708,
+          "pid": 37361,
+          "chars": 176,
+          "messages": 1,
+          "est_tokens": 44,
+          "src": "ws",
+          "recv": 27943.574717541,
+          "lt": 27943.574162541,
+          "tt": 3.9139
+        }
+      ],
+      "scorer_transcript": "",
+      "diagnosis_limits": "ASR committed and foreground request is recorded, but no first-token mark before recording close. This trace alone does not establish provider failure/deadline cause.",
+      "matched_runtime_trace": "sessions/session-000023/runtime-d69cb2e58ff44f9aa748f6d99e084664/events.jsonl",
+      "first_vad_to_runtime_user_started_difference_seconds": 0.0002418750009383075,
+      "runtime_events": [
+        {
+          "event": "supervisor_started",
+          "mono_ns": 27933520658541
+        },
+        {
+          "event": "voice_profile",
+          "mono_ns": 27933599916083,
+          "profile": "course",
+          "session_id": "29bc253c64474943a156cdd07134d549",
+          "ownership_bypassed": true,
+          "audio_mode": "headphones"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 27940018737666,
+          "session_id": "29bc253c64474943a156cdd07134d549"
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 27941106858250,
+          "session_id": "29bc253c64474943a156cdd07134d549"
+        },
+        {
+          "event": "user_started",
+          "mono_ns": 27941202693583,
+          "session_id": "29bc253c64474943a156cdd07134d549"
+        },
+        {
+          "event": "user_stopped_asr_pending",
+          "mono_ns": 27942291082250,
+          "session_id": "29bc253c64474943a156cdd07134d549"
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27942544213458,
+          "session_id": "29bc253c64474943a156cdd07134d549",
+          "revision": 1,
+          "committed": false,
+          "turn_id": "1",
+          "capture_ended": false
+        },
+        {
+          "event": "transcript_revision",
+          "mono_ns": 27943554386000,
+          "session_id": "29bc253c64474943a156cdd07134d549",
+          "revision": 2,
+          "committed": true,
+          "turn_id": "1",
+          "capture_ended": true
+        },
+        {
+          "event": "floor_decision",
+          "mono_ns": 27943554863666,
+          "session_id": "29bc253c64474943a156cdd07134d549",
+          "decision": "turn",
+          "addressee_known": true
+        },
+        {
+          "event": "speech_cancelled",
+          "mono_ns": 27943555518791,
+          "session_id": "29bc253c64474943a156cdd07134d549",
+          "epoch": 1
+        }
+      ],
+      "first_output_to_recording_close_seconds": null,
+      "llm_request_to_recording_close_seconds": 6.5501000000000005,
+      "runtime_commit_recorded": true,
+      "runtime_foreground_failure_event_recorded": false,
+      "runtime_transport_completion_recorded": false,
+      "smartturn_hold_explanation_supported": false
+    }
+  ]
+}

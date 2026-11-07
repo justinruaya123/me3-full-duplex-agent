@@ -1,0 +1,62 @@
+{
+  "text": "Let me think through that step by step.",
+  "chunks": [
+    {
+      "text": "Let",
+      "timestamp": [
+        8.56,
+        9.02
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        9.02,
+        9.14
+      ]
+    },
+    {
+      "text": "think",
+      "timestamp": [
+        9.14,
+        9.36
+      ]
+    },
+    {
+      "text": "through",
+      "timestamp": [
+        9.36,
+        9.58
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        9.58,
+        9.82
+      ]
+    },
+    {
+      "text": "step",
+      "timestamp": [
+        9.82,
+        10.12
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        10.12,
+        10.32
+      ]
+    },
+    {
+      "text": "step.",
+      "timestamp": [
+        10.32,
+        10.6
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,118 @@
+{
+  "text": "Yeah, the rumors are all over the place, but I haven't seen any official details yet.",
+  "chunks": [
+    {
+      "text": "Yeah,",
+      "timestamp": [
+        6.29,
+        6.81
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        7.07,
+        7.13
+      ]
+    },
+    {
+      "text": "rumors",
+      "timestamp": [
+        7.13,
+        7.43
+      ]
+    },
+    {
+      "text": "are",
+      "timestamp": [
+        7.43,
+        7.75
+      ]
+    },
+    {
+      "text": "all",
+      "timestamp": [
+        7.75,
+        8.01
+      ]
+    },
+    {
+      "text": "over",
+      "timestamp": [
+        8.01,
+        8.21
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.21,
+        8.33
+      ]
+    },
+    {
+      "text": "place,",
+      "timestamp": [
+        8.33,
+        8.63
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        9.05,
+        9.27
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        9.27,
+        9.39
+      ]
+    },
+    {
+      "text": "haven't",
+      "timestamp": [
+        9.39,
+        9.73
+      ]
+    },
+    {
+      "text": "seen",
+      "timestamp": [
+        9.73,
+        9.87
+      ]
+    },
+    {
+      "text": "any",
+      "timestamp": [
+        9.87,
+        10.19
+      ]
+    },
+    {
+      "text": "official",
+      "timestamp": [
+        10.19,
+        10.53
+      ]
+    },
+    {
+      "text": "details",
+      "timestamp": [
+        10.53,
+        10.93
+      ]
+    },
+    {
+      "text": "yet.",
+      "timestamp": [
+        10.93,
+        11.33
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

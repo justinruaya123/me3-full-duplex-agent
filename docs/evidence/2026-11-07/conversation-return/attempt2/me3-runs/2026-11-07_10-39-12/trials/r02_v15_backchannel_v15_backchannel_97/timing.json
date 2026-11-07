@@ -1,0 +1,90 @@
+{
+  "trial": "r02_v15_backchannel_v15_backchannel_97",
+  "group": "v15_backchannel",
+  "clip": "v15_backchannel_97",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 16.128,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.232
+    },
+    {
+      "name": "overlap",
+      "t": 7.292,
+      "len": 0.836
+    }
+  ],
+  "live_bot_starts": [
+    5.792
+  ],
+  "live_bot_ends": [
+    7.552
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Present entrepreneurship thoroughly.",
+    "current_turn_text": "",
+    "overlap_text": "totally",
+    "overlap_duration": 0.84,
+    "overlap_window": [
+      6.183,
+      7.019
+    ],
+    "source_id": "97"
+  },
+  "mono": [
+    28423.376517875,
+    28439.505218333
+  ],
+  "bot_segments": [
+    [
+      5.762,
+      7.582
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.232
+  ],
+  "overlap_played": true,
+  "t_stop": 0.18799999999999972,
+  "t_resp": null,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    7.394,
+    8.128
+  ],
+  "tor": 0,
+  "first_start": null,
+  "spoke_s": 0.0,
+  "latency": null,
+  "actual": "stopped after 0.19 s, did not come back",
+  "overlap_class": "stopped",
+  "label_provisional": "Unknown",
+  "verdict": "✗ stopped, silent",
+  "ok": false,
+  "marks": 23,
+  "final": {
+    "t_stop": 0.18799999999999972,
+    "t_resp": null,
+    "label": "Unknown",
+    "voice_delta": {
+      "wpm": null,
+      "pitch_mean": null,
+      "pitch_sd": null,
+      "intensity_mean": null,
+      "intensity_sd": null,
+      "utmosv2": null
+    },
+    "transcript": "Entrepreneurship is fundamental."
+  },
+  "scored_at": "2026-11-07T11:02:37+08:00"
+}

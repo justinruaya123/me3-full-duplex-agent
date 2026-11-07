@@ -1,0 +1,111 @@
+{
+  "text": "Actually, astronomy isn't deep enough to just explain in depth in a short spoken answer.",
+  "chunks": [
+    {
+      "text": "Actually,",
+      "timestamp": [
+        3.89,
+        4.59
+      ]
+    },
+    {
+      "text": "astronomy",
+      "timestamp": [
+        4.89,
+        5.33
+      ]
+    },
+    {
+      "text": "isn't",
+      "timestamp": [
+        5.33,
+        5.89
+      ]
+    },
+    {
+      "text": "deep",
+      "timestamp": [
+        5.89,
+        6.03
+      ]
+    },
+    {
+      "text": "enough",
+      "timestamp": [
+        6.03,
+        6.27
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.27,
+        6.51
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        6.51,
+        6.77
+      ]
+    },
+    {
+      "text": "explain",
+      "timestamp": [
+        6.77,
+        7.45
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        7.45,
+        7.65
+      ]
+    },
+    {
+      "text": "depth",
+      "timestamp": [
+        7.65,
+        8.01
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        8.01,
+        8.53
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        8.53,
+        8.65
+      ]
+    },
+    {
+      "text": "short",
+      "timestamp": [
+        8.65,
+        8.91
+      ]
+    },
+    {
+      "text": "spoken",
+      "timestamp": [
+        8.91,
+        9.33
+      ]
+    },
+    {
+      "text": "answer.",
+      "timestamp": [
+        9.33,
+        9.75
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

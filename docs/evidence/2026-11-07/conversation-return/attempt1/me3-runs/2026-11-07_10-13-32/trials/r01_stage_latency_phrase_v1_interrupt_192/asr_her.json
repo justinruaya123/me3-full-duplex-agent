@@ -1,0 +1,69 @@
+{
+  "text": "I'd need a bit more context to help you.",
+  "chunks": [
+    {
+      "text": "I'd",
+      "timestamp": [
+        5.9,
+        6.42
+      ]
+    },
+    {
+      "text": "need",
+      "timestamp": [
+        6.42,
+        6.54
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.54,
+        6.68
+      ]
+    },
+    {
+      "text": "bit",
+      "timestamp": [
+        6.68,
+        6.76
+      ]
+    },
+    {
+      "text": "more",
+      "timestamp": [
+        6.76,
+        6.96
+      ]
+    },
+    {
+      "text": "context",
+      "timestamp": [
+        6.96,
+        7.46
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        7.46,
+        7.72
+      ]
+    },
+    {
+      "text": "help",
+      "timestamp": [
+        7.72,
+        7.9
+      ]
+    },
+    {
+      "text": "you.",
+      "timestamp": [
+        7.9,
+        8.14
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

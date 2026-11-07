@@ -1,0 +1,68 @@
+{
+  "trial": "r02_false_tt_false_background_009",
+  "group": "false_tt",
+  "clip": "false_background_009",
+  "variant": "main",
+  "expected": "stay silent",
+  "duration": 8.128,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.3469375
+    }
+  ],
+  "live_bot_starts": [
+    3.84,
+    6.144
+  ],
+  "live_bot_ends": [
+    5.152,
+    6.912
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "kind": "background",
+    "kind_label": "background speech",
+    "level_db": -15,
+    "text": "I'm going to take a nap.",
+    "source": "v15_background_17"
+  },
+  "mono": [
+    28574.381869458,
+    28582.511939291
+  ],
+  "bot_segments": [
+    [
+      3.81,
+      5.182
+    ],
+    [
+      6.114,
+      6.942
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.3469375
+  ],
+  "tor": 1,
+  "first_start": 3.81,
+  "spoke_s": 3.132,
+  "actual": "spoke 3.1 s after +2.5 s",
+  "verdict": "✗ took turn",
+  "ok": false,
+  "marks": 22,
+  "final": {
+    "tor": 1,
+    "words": 7,
+    "verdict": "✗ took turn",
+    "ok": false,
+    "transcript": "Sounds like a good plan. Rest well."
+  },
+  "scored_at": "2026-11-07T11:02:28+08:00"
+}

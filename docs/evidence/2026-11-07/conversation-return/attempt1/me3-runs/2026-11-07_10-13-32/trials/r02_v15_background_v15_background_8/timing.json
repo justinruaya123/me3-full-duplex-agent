@@ -1,0 +1,96 @@
+{
+  "trial": "r02_v15_background_v15_background_8",
+  "group": "v15_background",
+  "clip": "v15_background_8",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 16.448,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.528
+    },
+    {
+      "name": "overlap",
+      "t": 6.332,
+      "len": 2.09
+    }
+  ],
+  "live_bot_starts": [
+    4.832,
+    11.68
+  ],
+  "live_bot_ends": [
+    6.656,
+    16.064
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "What's my current heart rate?",
+    "current_turn_text": "",
+    "overlap_text": "I think we ran out of paper towels.",
+    "overlap_duration": 2.09,
+    "overlap_window": [
+      5.3,
+      7.39
+    ],
+    "source_id": "8"
+  },
+  "mono": [
+    27030.221988833,
+    27046.6511605
+  ],
+  "bot_segments": [
+    [
+      4.802,
+      6.686
+    ],
+    [
+      11.65,
+      16.094
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.528
+  ],
+  "overlap_played": true,
+  "t_stop": 0.31599999999999984,
+  "t_resp": 3.396000000000001,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    6.37,
+    8.254
+  ],
+  "tor": 1,
+  "first_start": 11.65,
+  "spoke_s": 4.444000000000001,
+  "latency": 3.2279999999999998,
+  "actual": "stopped after 0.32 s, back 3.40 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ paused, came back · content: judge",
+  "ok": null,
+  "marks": 34,
+  "final": {
+    "t_stop": 0.31599999999999984,
+    "t_resp": 3.396000000000001,
+    "label": null,
+    "voice_delta": {
+      "wpm": -16.07142857142864,
+      "pitch_mean": -15.405793885110825,
+      "pitch_sd": -6.350771638278594,
+      "intensity_mean": -0.8447645944785656,
+      "intensity_sd": 0.9032741700396194,
+      "utmosv2": null
+    },
+    "transcript": "I don't have access to your real time, I don't have access to your personal health data, so I can't tell you your heart rate."
+  },
+  "scored_at": "2026-11-07T10:36:47+08:00"
+}

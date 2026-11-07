@@ -1,5 +1,76 @@
 # Implementation and qualification status
 
+## November 7: conversation return, hesitation and listening cues
+
+Candidate source `ed6efa0dd9edaa6dceebf342392b54604bb43cbc` is on
+`hermes/conversation-return-v1`, based on published main `2dc3554`.
+It retains Pi.dev, the exact foreground/Whisper Turbo/Kokoro selections,
+host-owned actions and the unchanged external ME3 scorer.
+
+Owned jobs now persist `ask_first` by default. Completion remains quiet across
+session/runtime restart until explicit retrieval. An optional `after_topic`
+policy permits an offer only after a supported committed wrap-up; ordinary
+silence, unfinished ASR, active foreground and unanswered questions veto it.
+Preferences, revisions and owners fence scheduled offers; retrieval preserves
+focus. Bounded natural website status/result/preview commands clarify ambiguity.
+See [the exact commands and supported phrases](SETUP.md#website-demonstration).
+
+Pipecat SmartTurn remains the acoustic completion signal. A finite English tail
+veto retains explicit hesitation/lost-thought phrases, filled pauses and narrow
+unfinished/stutter tails without rewriting recognized text or discarding prior
+PCM. A complete continuation still needs acoustic readiness. Safe ended
+provisional speech may get a neutral, six-second-rate-limited listening cue
+through the same speaker, without semantic commitment/history/job authority.
+Resumed speech cancels and fences it. Number/name/code/task/approval/dictation
+guards, pending questions and existing output suppress cues. The same configured
+voice instance memoizes only complete neutral cue PCM, capped at 96,000 bytes.
+These are conservative control rules, not trained stutter/mental-state detection.
+
+Final installed verification on the candidate: **244 passed, zero failures and
+zero skips**, 12.291s; v1 subset **214 passed, zero failures/skips**, 10.515s.
+The demo, compileall and changed-Python E/F/I lint at 79 columns pass. Red/green
+regressions include actual Pipecat processors with fixture inference; those
+prove scheduling and fencing, not physical acoustics.
+
+Separate actual-provider verification passed **33/33 checks** in 46.003s:
+Pi/Sol built a cafe website while Qwen answered `42` in 1.225s. Ending the text
+session at 1.256s left the job running; it completed at 45.956s. Owner reconnect
+produced no unsolicited notice; explicit retrieval and loopback preview GET
+passed, including file hashes and cross-owner denial. This is trusted text,
+static host verification and HTTP evidence, not browser/acoustic qualification.
+Actual authenticated Kokoro produced 62,400 cue bytes in 0.344498s; the second
+request reused identical in-memory PCM. That single probe is not a latency p95.
+
+Canonical attempt `2026-11-07_10-13-32` completed **60/60 queue items and 72
+recordings**, zero transport/scoring errors. Its mean/p95 software E2E was
+**2.725/4.241s**, LLM first text **0.601/1.797s**, ASR **1.507/1.965s**,
+TTS **0.402/0.744s** and WER **1.449%**. **28/30** phrase trials had recorded
+speech despite 29 software output timings. Both missed replies had committed
+transcripts; one reached output only ~97ms before capture closed after a 6.721s
+first-text wait, and one had no first token before close. They were not blocked
+by the hesitation veto. This attempt regressed the E2E/LLM p95 gates and must
+not be described as non-regressing or replaced with only a better later result.
+No pre-answer output/cue credit was found in its phrase or full recording traces;
+the new listening-cue path was not exercised by this run.
+
+The identical full repeat `2026-11-07_10-39-12` completed another **60/60 items /
+72 recordings**, zero transport/scoring errors, but recorded only **19/30** phrase
+replies. All eleven misses had committed transcripts and foreground requests,
+with no first text before capture close. E2E mean/p95 was **3.433/6.702s**, LLM
+**1.296/5.435s**, ASR **1.476/1.924s**, TTS **0.405/0.783s**, WER **1.449%**.
+No pre-answer cue output was found. The repeat confirms an unresolved
+request-to-first-text tail, not its network/server root cause. No model, prompt,
+credential, billing or runtime change was made between attempts.
+
+Both original runs are retained in the
+[conversation-return evidence](evidence/2026-11-07/conversation-return/README.md).
+Together they completed 120 queue items / 144 recordings, with 47/60 recorded
+phrase replies. Do not pool these correlated repeats into a new acceptance
+score or select only the better attempt. **Benchmark non-regression remains
+unpassed; main remains at its preceding baseline.** Independent ownership,
+natural cue timing, general stutters/accents, the 16-second long-turn limit,
+physical acoustics/AEC, target Pi installation and the 30-minute soak remain open.
+
 ## November 7: published Turbo-constrained build and canonical ME3 validation
 
 The published branch is `main`, including `hermes/benchmark-latency-v1` and its

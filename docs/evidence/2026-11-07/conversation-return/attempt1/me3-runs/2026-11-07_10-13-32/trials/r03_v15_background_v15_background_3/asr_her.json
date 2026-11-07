@@ -1,0 +1,62 @@
+{
+  "text": "I don't have real -time access to the...",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        7.82,
+        8.2
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        8.2,
+        8.42
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        8.42,
+        8.54
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        8.54,
+        8.88
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        8.88,
+        9.18
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        9.18,
+        9.64
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        9.64,
+        9.88
+      ]
+    },
+    {
+      "text": "the...",
+      "timestamp": [
+        9.88,
+        10.12
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

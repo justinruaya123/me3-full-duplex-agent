@@ -1,0 +1,62 @@
+{
+  "text": "It means lasting for a very short time.",
+  "chunks": [
+    {
+      "text": "It",
+      "timestamp": [
+        4.91,
+        5.39
+      ]
+    },
+    {
+      "text": "means",
+      "timestamp": [
+        5.39,
+        5.59
+      ]
+    },
+    {
+      "text": "lasting",
+      "timestamp": [
+        5.59,
+        6.01
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        6.01,
+        6.27
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.27,
+        6.39
+      ]
+    },
+    {
+      "text": "very",
+      "timestamp": [
+        6.39,
+        6.55
+      ]
+    },
+    {
+      "text": "short",
+      "timestamp": [
+        6.55,
+        6.85
+      ]
+    },
+    {
+      "text": "time.",
+      "timestamp": [
+        6.85,
+        7.21
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,88 @@
+{
+  "trial": "r03_v15_backchannel_v15_backchannel_48",
+  "group": "v15_backchannel",
+  "clip": "v15_backchannel_48",
+  "variant": "main",
+  "expected": "keep talking (Resume)",
+  "duration": 16.512,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.296
+    },
+    {
+      "name": "overlap",
+      "t": 9.052,
+      "len": 0.697
+    }
+  ],
+  "live_bot_starts": [
+    7.552,
+    14.496
+  ],
+  "live_bot_ends": [
+    8.896,
+    15.296
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "Explain the periodic table completely.",
+    "current_turn_text": "",
+    "overlap_text": "yes yeah",
+    "overlap_duration": 0.7,
+    "overlap_window": [
+      6.043,
+      6.74
+    ],
+    "source_id": "48"
+  },
+  "mono": [
+    27276.204416333,
+    27292.701007833
+  ],
+  "bot_segments": [
+    [
+      7.522,
+      8.926
+    ],
+    [
+      14.466,
+      15.326
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.296
+  ],
+  "overlap_played": true,
+  "t_stop": null,
+  "t_resp": 4.7170000000000005,
+  "bot_speaking_at_onset": false,
+  "spoke_through": false,
+  "overlap": [
+    9.052,
+    9.748999999999999
+  ],
+  "tor": 0,
+  "first_start": 14.466,
+  "spoke_s": 0.8600000000000012,
+  "latency": 4.7170000000000005,
+  "actual": "was already silent, back 4.72 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ paused, came back · content: judge",
+  "ok": null,
+  "marks": 37,
+  "final": {
+    "t_stop": null,
+    "t_resp": 4.7170000000000005,
+    "label": null,
+    "transcript": "That's a massive ask. Yeah, I know."
+  },
+  "scored_at": "2026-11-07T10:37:13+08:00"
+}

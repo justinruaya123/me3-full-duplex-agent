@@ -1,0 +1,48 @@
+{
+  "text": "Honestly, the biggest shift right now.",
+  "chunks": [
+    {
+      "text": "Honestly,",
+      "timestamp": [
+        6.32,
+        7.06
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        7.42,
+        7.5
+      ]
+    },
+    {
+      "text": "biggest",
+      "timestamp": [
+        7.5,
+        7.7
+      ]
+    },
+    {
+      "text": "shift",
+      "timestamp": [
+        7.7,
+        8.04
+      ]
+    },
+    {
+      "text": "right",
+      "timestamp": [
+        8.04,
+        8.28
+      ]
+    },
+    {
+      "text": "now.",
+      "timestamp": [
+        8.28,
+        8.48
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

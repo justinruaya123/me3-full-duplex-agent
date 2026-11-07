@@ -1,0 +1,34 @@
+{
+  "text": "Sleep isn't just rest.",
+  "chunks": [
+    {
+      "text": "Sleep",
+      "timestamp": [
+        4.24,
+        4.78
+      ]
+    },
+    {
+      "text": "isn't",
+      "timestamp": [
+        4.78,
+        5.2
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        5.2,
+        5.34
+      ]
+    },
+    {
+      "text": "rest.",
+      "timestamp": [
+        5.34,
+        5.72
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

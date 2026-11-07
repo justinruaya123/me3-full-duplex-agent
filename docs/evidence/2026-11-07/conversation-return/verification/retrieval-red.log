@@ -1,0 +1,45 @@
+.F..F.....
+======================================================================
+FAIL: test_ambiguous_natural_website_request_asks_which_job (test_return_policy_v1.ReturnPolicyTests.test_ambiguous_natural_website_request_asks_which_job)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_return_policy_v1.py", line 138, in test_ambiguous_natural_website_request_asks_which_job
+    self.assertEqual(await self.session.accept("Show me the website."),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     "clarify")
+                     ^^^^^^^^^^
+AssertionError: 'turn' != 'clarify'
+- turn
++ clarify
+
+
+======================================================================
+FAIL: test_natural_website_retrieval_preserves_conversation_focus (test_return_policy_v1.ReturnPolicyTests.test_natural_website_retrieval_preserves_conversation_focus)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_return_policy_v1.py", line 128, in test_natural_website_retrieval_preserves_conversation_focus
+    self.assertEqual(await self.session.accept("Show me the website."),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     "result")
+                     ^^^^^^^^^
+AssertionError: 'turn' != 'result'
+- turn
++ result
+
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.120s
+
+FAILED (failures=2)

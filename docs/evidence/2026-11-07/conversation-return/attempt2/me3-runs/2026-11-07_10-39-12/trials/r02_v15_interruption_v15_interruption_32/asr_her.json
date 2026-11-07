@@ -1,0 +1,118 @@
+{
+  "text": "Oh really? Ha, that's a bit of a left turn. Which song are you referring to?",
+  "chunks": [
+    {
+      "text": "Oh",
+      "timestamp": [
+        8.59,
+        8.93
+      ]
+    },
+    {
+      "text": "really?",
+      "timestamp": [
+        8.93,
+        9.29
+      ]
+    },
+    {
+      "text": "Ha,",
+      "timestamp": [
+        15.72,
+        15.92
+      ]
+    },
+    {
+      "text": "that's",
+      "timestamp": [
+        16.06,
+        16.48
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        16.48,
+        16.56
+      ]
+    },
+    {
+      "text": "bit",
+      "timestamp": [
+        16.56,
+        16.62
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        16.62,
+        16.74
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        16.74,
+        16.84
+      ]
+    },
+    {
+      "text": "left",
+      "timestamp": [
+        16.84,
+        17.0
+      ]
+    },
+    {
+      "text": "turn.",
+      "timestamp": [
+        17.0,
+        17.34
+      ]
+    },
+    {
+      "text": "Which",
+      "timestamp": [
+        18.28,
+        18.64
+      ]
+    },
+    {
+      "text": "song",
+      "timestamp": [
+        18.64,
+        18.88
+      ]
+    },
+    {
+      "text": "are",
+      "timestamp": [
+        18.88,
+        19.02
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        19.02,
+        19.1
+      ]
+    },
+    {
+      "text": "referring",
+      "timestamp": [
+        19.1,
+        19.42
+      ]
+    },
+    {
+      "text": "to?",
+      "timestamp": [
+        19.42,
+        19.78
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

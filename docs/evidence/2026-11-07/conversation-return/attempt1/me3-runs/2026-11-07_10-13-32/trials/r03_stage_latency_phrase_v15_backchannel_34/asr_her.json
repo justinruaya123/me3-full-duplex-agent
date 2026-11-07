@@ -1,0 +1,167 @@
+{
+  "text": "Hey, look at sleep as a cycle. You rotate between light and deep non -REM stages, and REM sleep roughly every 90 minutes.",
+  "chunks": [
+    {
+      "text": "Hey,",
+      "timestamp": [
+        5.1,
+        5.64
+      ]
+    },
+    {
+      "text": "look",
+      "timestamp": [
+        5.88,
+        6.0
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        6.0,
+        6.12
+      ]
+    },
+    {
+      "text": "sleep",
+      "timestamp": [
+        6.12,
+        6.32
+      ]
+    },
+    {
+      "text": "as",
+      "timestamp": [
+        6.32,
+        6.52
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.52,
+        6.62
+      ]
+    },
+    {
+      "text": "cycle.",
+      "timestamp": [
+        6.62,
+        6.92
+      ]
+    },
+    {
+      "text": "You",
+      "timestamp": [
+        7.64,
+        7.72
+      ]
+    },
+    {
+      "text": "rotate",
+      "timestamp": [
+        7.72,
+        8.06
+      ]
+    },
+    {
+      "text": "between",
+      "timestamp": [
+        8.06,
+        8.42
+      ]
+    },
+    {
+      "text": "light",
+      "timestamp": [
+        8.42,
+        8.84
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        8.84,
+        9.14
+      ]
+    },
+    {
+      "text": "deep",
+      "timestamp": [
+        9.14,
+        9.42
+      ]
+    },
+    {
+      "text": "non",
+      "timestamp": [
+        9.42,
+        9.64
+      ]
+    },
+    {
+      "text": "-REM",
+      "timestamp": [
+        9.64,
+        9.92
+      ]
+    },
+    {
+      "text": "stages,",
+      "timestamp": [
+        9.92,
+        10.4
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        10.94,
+        11.0
+      ]
+    },
+    {
+      "text": "REM",
+      "timestamp": [
+        11.0,
+        11.26
+      ]
+    },
+    {
+      "text": "sleep",
+      "timestamp": [
+        11.26,
+        11.6
+      ]
+    },
+    {
+      "text": "roughly",
+      "timestamp": [
+        11.6,
+        12.06
+      ]
+    },
+    {
+      "text": "every",
+      "timestamp": [
+        12.06,
+        12.46
+      ]
+    },
+    {
+      "text": "90",
+      "timestamp": [
+        12.46,
+        12.84
+      ]
+    },
+    {
+      "text": "minutes.",
+      "timestamp": [
+        12.84,
+        13.2
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

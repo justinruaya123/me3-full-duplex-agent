@@ -1,0 +1,195 @@
+{
+  "text": "I can't track packages for you, but you can enter the tracking number on the FedEx website or use their mobile app to check the status yourself.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        5.23,
+        5.65
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        5.65,
+        6.01
+      ]
+    },
+    {
+      "text": "track",
+      "timestamp": [
+        6.01,
+        6.23
+      ]
+    },
+    {
+      "text": "packages",
+      "timestamp": [
+        6.23,
+        6.67
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        6.67,
+        7.01
+      ]
+    },
+    {
+      "text": "you,",
+      "timestamp": [
+        7.01,
+        7.19
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        7.65,
+        7.79
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        7.79,
+        7.95
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        7.95,
+        8.11
+      ]
+    },
+    {
+      "text": "enter",
+      "timestamp": [
+        8.11,
+        8.31
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.31,
+        8.47
+      ]
+    },
+    {
+      "text": "tracking",
+      "timestamp": [
+        8.47,
+        8.77
+      ]
+    },
+    {
+      "text": "number",
+      "timestamp": [
+        8.77,
+        9.11
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        9.11,
+        9.35
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        9.35,
+        9.45
+      ]
+    },
+    {
+      "text": "FedEx",
+      "timestamp": [
+        9.45,
+        9.85
+      ]
+    },
+    {
+      "text": "website",
+      "timestamp": [
+        9.85,
+        10.33
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        10.33,
+        10.91
+      ]
+    },
+    {
+      "text": "use",
+      "timestamp": [
+        10.91,
+        11.19
+      ]
+    },
+    {
+      "text": "their",
+      "timestamp": [
+        11.19,
+        11.39
+      ]
+    },
+    {
+      "text": "mobile",
+      "timestamp": [
+        11.39,
+        11.65
+      ]
+    },
+    {
+      "text": "app",
+      "timestamp": [
+        11.65,
+        12.03
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        12.03,
+        12.19
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        12.19,
+        12.45
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        12.45,
+        12.63
+      ]
+    },
+    {
+      "text": "status",
+      "timestamp": [
+        12.63,
+        12.97
+      ]
+    },
+    {
+      "text": "yourself.",
+      "timestamp": [
+        12.97,
+        13.41
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

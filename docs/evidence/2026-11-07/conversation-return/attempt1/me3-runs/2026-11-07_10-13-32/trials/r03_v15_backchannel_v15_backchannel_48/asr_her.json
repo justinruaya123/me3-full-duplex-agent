@@ -1,0 +1,55 @@
+{
+  "text": "That's a massive ask. Yeah, I know.",
+  "chunks": [
+    {
+      "text": "That's",
+      "timestamp": [
+        7.18,
+        7.86
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        7.86,
+        7.92
+      ]
+    },
+    {
+      "text": "massive",
+      "timestamp": [
+        7.92,
+        8.24
+      ]
+    },
+    {
+      "text": "ask.",
+      "timestamp": [
+        8.24,
+        8.7
+      ]
+    },
+    {
+      "text": "Yeah,",
+      "timestamp": [
+        14.26,
+        14.68
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        14.8,
+        14.9
+      ]
+    },
+    {
+      "text": "know.",
+      "timestamp": [
+        14.9,
+        15.12
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

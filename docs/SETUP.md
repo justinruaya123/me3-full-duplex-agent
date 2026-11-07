@@ -157,13 +157,54 @@ pending and currently delivered questions. It resumes retained PCM without a
 request, tool, approval, job cancellation or fabricated ASR-final mark. Unknown
 or non-acknowledgement hypotheses remain held. ASR uses bounded whole-turn windows, stable
 prefix reconciliation and SmartTurn readiness. Inputs longer than 16 seconds
-are explicitly discarded rather than executing a fragment. Cached autonomous
-Kokoro backchannels and long-dictation stitching remain unpassed requirements.
+are explicitly discarded rather than executing a fragment. A finite English
+tail veto also holds explicit "let me think" / lost-thought phrases, filled
+pauses and unfinished cutoffs even if acoustic readiness says complete. It never
+rewrites stutters or commits on a silence deadline; a complete continuation
+still requires SmartTurn approval. This is conservative policy, not a trained
+stutter or mental-state predictor, and recognition can omit those cues.
+
+Safe owner-addressed ended provisional speech can schedule a neutral "Mm-hm."
+at most once per six seconds, through the same speech authority. The user keeps
+the turn; the cue creates no history, approval or job action. Pending questions,
+existing output and finite English number/name/code/task/approval/dictation
+guards suppress it. Resumed speech cancels and fences old cue audio. The neutral
+clip is cached in memory only after complete synthesis, per configured speech
+instance, capped at 96,000 bytes; its first use still needs Kokoro inference.
+Natural placement, arbitrary names, accents and physical overlap remain
+unqualified. Long-dictation stitching remains unimplemented.
 Transport receipts are whole-clause software write receipts, not acoustic proof
 or word-aligned heard-prefix tracking. There is no claim that all specification
 acceptance criteria are finished.
 
 ## Website demonstration
+
+Owned jobs default to **wait until asked**. Completion saves the result without
+announcing it or changing focus; this preference survives session/runtime
+restart. Retrieve with `/result ID` or, for a unique/focused website,
+"Show me the website." "How is the website doing?" reports status and
+"Open the website" requests its verified local preview. Ambiguous references
+ask for an ID instead of selecting a job.
+
+For a brief optional offer after the conversation, use `/notify ID after_topic`.
+Only an exact committed wrap-up opens that window: "That settles it", "That
+answers my question", "We're done with that topic", or "Let's wrap up this
+topic". Ordinary silence, an unfinished turn, a busy foreground or an unanswered
+assistant question cannot release the notice. A new committed topic clears the
+old window. This explicit baseline does not infer arbitrary semantic closure.
+`/defer ID` or `/notify ID ask_first` persistently restores waiting until asked.
+
+An initial website request can include a separate final instruction:
+
+```text
+Create a website for a cafe; only tell me when I ask.
+Create a website for a cafe; tell me after we finish talking.
+```
+
+Those exact suffixes are removed before sending the design request to Pi.dev.
+The return policy remains separate from job completion, delivery and focus.
+An offer is acknowledged only after its playback receipt; interrupted offers
+remain retryable and superseded revisions/preferences are fenced.
 
 ```text
 /site build a responsive portfolio with an about section

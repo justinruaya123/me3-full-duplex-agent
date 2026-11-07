@@ -1,0 +1,157 @@
+{
+  "kind": "Provider-only timing diagnostic, not benchmark or acceptance evidence",
+  "selected_model": "Qwen/Qwen3.8-27B",
+  "selected_profile": "qwen",
+  "per_request_deadline_seconds": 15,
+  "request_limit": 2,
+  "payload_protocol": "Unchanged ForegroundBackend with the same neutral short prompt for both calls, thinking disabled, stream=true, max_tokens=512; no payload/model variations.",
+  "created_at_utc": "2026-11-07T03:05:22.890677+00:00",
+  "requests": [
+    {
+      "request": 1,
+      "events": [
+        {
+          "event": "foreground.llm_request",
+          "seconds": 0.04633095800090814
+        },
+        {
+          "event": "httpx.request_hook",
+          "seconds": 0.04646412500005681
+        },
+        {
+          "event": "connection.connect_tcp.started",
+          "seconds": 0.058681624999735504
+        },
+        {
+          "event": "connection.connect_tcp.complete",
+          "seconds": 0.06519450000268989
+        },
+        {
+          "event": "http11.send_request_headers.started",
+          "seconds": 0.0652736250012822
+        },
+        {
+          "event": "http11.send_request_headers.complete",
+          "seconds": 0.06539145799979451
+        },
+        {
+          "event": "http11.send_request_body.started",
+          "seconds": 0.06539408300159266
+        },
+        {
+          "event": "http11.send_request_body.complete",
+          "seconds": 0.06546241600153735
+        },
+        {
+          "event": "http11.receive_response_headers.started",
+          "seconds": 0.06546420800077613
+        },
+        {
+          "event": "http11.receive_response_headers.complete",
+          "seconds": 0.0768801660015015
+        },
+        {
+          "event": "httpx.response_headers_hook",
+          "seconds": 0.07707683300031931
+        },
+        {
+          "event": "http11.receive_response_body.started",
+          "seconds": 0.07713575000161654
+        },
+        {
+          "event": "foreground.llm_first_token",
+          "seconds": 0.1353982079999696
+        }
+      ],
+      "status": 200,
+      "completed": true,
+      "first_text_seconds": 0.13539879100062535,
+      "response_characters": 6,
+      "elapsed_seconds": 0.1690677910009981,
+      "last_observed_phase": "foreground.llm_first_token",
+      "safe_phase_summary": {
+        "tcp_connect_seconds": 0.006512875002954388,
+        "waiting_response_headers_seconds": 0.011415958000725368,
+        "headers_to_first_text_seconds": 0.05832195800030604,
+        "tls_trace_observed": false
+      }
+    },
+    {
+      "request": 2,
+      "events": [
+        {
+          "event": "foreground.llm_request",
+          "seconds": 0.01471829200090724
+        },
+        {
+          "event": "httpx.request_hook",
+          "seconds": 0.014845208002952859
+        },
+        {
+          "event": "connection.connect_tcp.started",
+          "seconds": 0.014943542002583854
+        },
+        {
+          "event": "http11.receive_response_body.failed",
+          "seconds": 0.01536770800157683
+        },
+        {
+          "event": "connection.connect_tcp.complete",
+          "seconds": 0.021106583000801038
+        },
+        {
+          "event": "http11.send_request_headers.started",
+          "seconds": 0.021182458000112092
+        },
+        {
+          "event": "http11.send_request_headers.complete",
+          "seconds": 0.021306833001290215
+        },
+        {
+          "event": "http11.send_request_body.started",
+          "seconds": 0.021310083000571467
+        },
+        {
+          "event": "http11.send_request_body.complete",
+          "seconds": 0.021388375000242377
+        },
+        {
+          "event": "http11.receive_response_headers.started",
+          "seconds": 0.02139112500299234
+        },
+        {
+          "event": "http11.receive_response_headers.complete",
+          "seconds": 0.03425329200035776
+        },
+        {
+          "event": "httpx.response_headers_hook",
+          "seconds": 0.03431841700148652
+        },
+        {
+          "event": "http11.receive_response_body.started",
+          "seconds": 0.034371208002994535
+        },
+        {
+          "event": "foreground.llm_first_token",
+          "seconds": 0.08120441700157244
+        }
+      ],
+      "status": 200,
+      "completed": true,
+      "first_text_seconds": 0.08120541700191097,
+      "response_characters": 6,
+      "elapsed_seconds": 0.11535729200113565,
+      "last_observed_phase": "foreground.llm_first_token",
+      "safe_phase_summary": {
+        "tcp_connect_seconds": 0.006163040998217184,
+        "waiting_response_headers_seconds": 0.01286216699736542,
+        "headers_to_first_text_seconds": 0.04688700000042445,
+        "tls_trace_observed": false
+      }
+    }
+  ],
+  "privacy": "No provider URL, credentials, prompt content, response content or raw httpcore info objects are recorded.",
+  "completed_requests": 2,
+  "interpretation_limits": "This later two-request diagnostic cannot retroactively establish the cause of the canonical missing first-text observations; no acceptance pass or provider availability guarantee follows.",
+  "trace_caveat": "One receive_response_body.failed callback appeared in request 2 before its TCP connection completed. It was deferred response-generator cleanup from the prior completed request and the initial diagnostic closure shared loop variables. Do not interpret that callback as request 2 provider failure. Original raw receipt is retained; no additional requests were made."
+}

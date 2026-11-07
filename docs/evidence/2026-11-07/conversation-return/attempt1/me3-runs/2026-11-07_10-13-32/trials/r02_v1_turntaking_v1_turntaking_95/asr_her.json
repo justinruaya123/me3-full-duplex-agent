@@ -1,0 +1,125 @@
+{
+  "text": "I see, so you're staying in the U .S. with your family, while your relatives are abroad.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        17.07,
+        17.39
+      ]
+    },
+    {
+      "text": "see,",
+      "timestamp": [
+        17.39,
+        17.59
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        17.91,
+        18.03
+      ]
+    },
+    {
+      "text": "you're",
+      "timestamp": [
+        18.03,
+        18.21
+      ]
+    },
+    {
+      "text": "staying",
+      "timestamp": [
+        18.21,
+        18.47
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        18.47,
+        18.69
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        18.69,
+        18.77
+      ]
+    },
+    {
+      "text": "U",
+      "timestamp": [
+        18.77,
+        19.01
+      ]
+    },
+    {
+      "text": ".S.",
+      "timestamp": [
+        19.01,
+        19.27
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        19.31,
+        19.43
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        19.43,
+        19.55
+      ]
+    },
+    {
+      "text": "family,",
+      "timestamp": [
+        19.55,
+        19.93
+      ]
+    },
+    {
+      "text": "while",
+      "timestamp": [
+        20.33,
+        20.55
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        20.55,
+        20.69
+      ]
+    },
+    {
+      "text": "relatives",
+      "timestamp": [
+        20.69,
+        21.13
+      ]
+    },
+    {
+      "text": "are",
+      "timestamp": [
+        21.13,
+        21.39
+      ]
+    },
+    {
+      "text": "abroad.",
+      "timestamp": [
+        21.39,
+        21.67
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,20 @@
+.....F......
+======================================================================
+FAIL: test_focused_job_preference_changes_are_acknowledged (test_return_policy_v1.ReturnPolicyTests.test_focused_job_preference_changes_are_acknowledged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_return_policy_v1.py", line 166, in test_focused_job_preference_changes_are_acknowledged
+    self.assertEqual(len(self.spoken), 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.133s
+
+FAILED (failures=1)

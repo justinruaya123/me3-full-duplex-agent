@@ -1,0 +1,84 @@
+{
+  "trial": "r01_stage_latency_phrase_v1_interrupt_129",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_129",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 6.624,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.016
+    }
+  ],
+  "live_bot_starts": [
+    4.704
+  ],
+  "live_bot_ends": [
+    5.408
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "How do I get started with painting?",
+    "source": "v1_interrupt_129"
+  },
+  "mono": [
+    26055.399309958,
+    26062.009523375
+  ],
+  "bot_segments": [
+    [
+      4.674,
+      5.438
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.016
+  ],
+  "tor": 0,
+  "first_start": 4.674,
+  "spoke_s": 0.7639999999999993,
+  "user_end": 2.142,
+  "latency": 2.5320000000000005,
+  "actual": "replied 2.53 s after speech end",
+  "verdict": "✓ 2.53 s",
+  "ok": true,
+  "marks": 20,
+  "final": {
+    "stages": {
+      "e2e_heard": 2.532,
+      "e2e": 1.9595,
+      "e2e_source": "marks",
+      "asr_final": 1.1019,
+      "llm_ttft": 0.6226,
+      "tts_ttfb": 0.1763,
+      "endpointing": 0.0982,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "How do I get started with painting?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 42,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Start small."
+  },
+  "scored_at": "2026-11-07T10:36:14+08:00"
+}

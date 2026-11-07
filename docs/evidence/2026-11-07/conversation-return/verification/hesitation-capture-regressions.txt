@@ -1,0 +1,13 @@
+test_changed_audio_and_new_generation_require_fresh_recognition (test_capture_v1.CaptureTests.test_changed_audio_and_new_generation_require_fresh_recognition) ... ok
+test_identical_final_reuses_text_only_after_turn_approval (test_capture_v1.CaptureTests.test_identical_final_reuses_text_only_after_turn_approval) ... ok
+test_incomplete_acoustic_turn_only_emits_provisional_text (test_capture_v1.CaptureTests.test_incomplete_acoustic_turn_only_emits_provisional_text) ... ok
+test_latest_final_replaces_waiting_partial_after_speech_resumes (test_capture_v1.CaptureTests.test_latest_final_replaces_waiting_partial_after_speech_resumes) ... ok
+test_overflow_and_transcript_gap_cannot_commit_fragment (test_capture_v1.CaptureTests.test_overflow_and_transcript_gap_cannot_commit_fragment) ... ok
+test_pending_snapshot_overflow_invalidates_authorization (test_capture_v1.CaptureTests.test_pending_snapshot_overflow_invalidates_authorization) ... ok
+test_resumed_audio_fences_late_final_hypothesis (test_capture_v1.CaptureTests.test_resumed_audio_fences_late_final_hypothesis) ... ok
+test_resumed_turn_replaces_stale_queued_final_with_fresh_audio (test_capture_v1.CaptureTests.test_resumed_turn_replaces_stale_queued_final_with_fresh_audio) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.022s
+
+OK

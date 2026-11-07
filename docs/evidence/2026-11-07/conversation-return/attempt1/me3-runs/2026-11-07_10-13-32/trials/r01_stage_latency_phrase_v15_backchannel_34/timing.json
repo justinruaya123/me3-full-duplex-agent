@@ -1,0 +1,84 @@
+{
+  "trial": "r01_stage_latency_phrase_v15_backchannel_34",
+  "group": "stage_latency",
+  "clip": "phrase_v15_backchannel_34",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 7.168,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.88
+    }
+  ],
+  "live_bot_starts": [
+    4.64
+  ],
+  "live_bot_ends": [
+    5.952
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "Outline sleep science clearly.",
+    "source": "v15_backchannel_34"
+  },
+  "mono": [
+    26068.77621625,
+    26075.928155541
+  ],
+  "bot_segments": [
+    [
+      4.61,
+      5.982
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.88
+  ],
+  "tor": 1,
+  "first_start": 4.61,
+  "spoke_s": 1.3719999999999999,
+  "user_end": 1.63,
+  "latency": 2.9800000000000004,
+  "actual": "replied 2.98 s after speech end",
+  "verdict": "✓ 2.98 s",
+  "ok": true,
+  "marks": 21,
+  "final": {
+    "stages": {
+      "e2e_heard": 2.98,
+      "e2e": 2.4473,
+      "e2e_source": "marks",
+      "asr_final": 1.9125,
+      "llm_ttft": 0.2045,
+      "tts_ttfb": 0.2052,
+      "endpointing": 0.1362,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "outline sleep science clearly,",
+      "wer": {
+        "ref_words": 4,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 41,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Sleep isn't just rest."
+  },
+  "scored_at": "2026-11-07T10:36:06+08:00"
+}

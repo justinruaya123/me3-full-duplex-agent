@@ -1,0 +1,48 @@
+{
+  "text": "Start by enabling two -factor authentication.",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        5.71,
+        6.19
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        6.19,
+        6.47
+      ]
+    },
+    {
+      "text": "enabling",
+      "timestamp": [
+        6.47,
+        6.89
+      ]
+    },
+    {
+      "text": "two",
+      "timestamp": [
+        6.89,
+        7.19
+      ]
+    },
+    {
+      "text": "-factor",
+      "timestamp": [
+        7.19,
+        7.57
+      ]
+    },
+    {
+      "text": "authentication.",
+      "timestamp": [
+        7.57,
+        8.19
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,10 @@
+{"stage": "vad_start", "t": 27299.64291575, "pid": 36993, "src": "ws", "recv": 27299.645049666, "lt": 27299.64308925, "tt": 0.2308}
+{"stage": "vad_start", "t": 27299.642952, "pid": 36993, "src": "ws", "recv": 27299.645110916, "lt": 27299.6431255, "tt": 0.2308}
+{"stage": "asr_partial", "t": 27301.175470416, "pid": 36993, "text": "Explain the period.", "src": "ws", "recv": 27301.176189833, "lt": 27301.175643916, "tt": 1.7633}
+{"stage": "vad_end", "t": 27301.594758666, "pid": 36993, "src": "ws", "recv": 27301.596242916, "lt": 27301.594932166, "tt": 2.1826}
+{"stage": "vad_end", "t": 27301.594796708, "pid": 36993, "src": "ws", "recv": 27301.596275833, "lt": 27301.594970208, "tt": 2.1826}
+{"stage": "asr_partial", "t": 27302.163469208, "pid": 36993, "text": "Explain the periodic table complete.", "src": "ws", "recv": 27302.164269958, "lt": 27302.163642708, "tt": 2.7513}
+{"stage": "asr_final", "t": 27303.16628975, "pid": 36993, "text": "Explain the periodic table completely.", "src": "ws", "recv": 27303.191192333, "lt": 27303.16646325, "tt": 3.7541}
+{"stage": "interrupted", "t": 27303.168364666, "pid": 36993, "src": "ws", "recv": 27303.191452541, "lt": 27303.168538166, "tt": 3.7562}
+{"stage": "interrupted", "t": 27303.168395083, "pid": 36993, "src": "ws", "recv": 27303.191466625, "lt": 27303.168568583, "tt": 3.7562}
+{"stage": "llm_request", "t": 27303.190681291, "pid": 36993, "chars": 171, "messages": 1, "est_tokens": 43, "src": "ws", "recv": 27303.191509291, "lt": 27303.190854791, "tt": 3.7785}

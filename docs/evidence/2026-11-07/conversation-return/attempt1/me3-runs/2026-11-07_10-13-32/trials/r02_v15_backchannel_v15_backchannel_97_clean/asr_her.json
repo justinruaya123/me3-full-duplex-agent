@@ -1,0 +1,83 @@
+{
+  "text": "Entrepreneurship is really about spotting a problem and building a solution.",
+  "chunks": [
+    {
+      "text": "Entrepreneurship",
+      "timestamp": [
+        8.02,
+        9.1
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        9.1,
+        9.34
+      ]
+    },
+    {
+      "text": "really",
+      "timestamp": [
+        9.34,
+        9.66
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        9.66,
+        9.92
+      ]
+    },
+    {
+      "text": "spotting",
+      "timestamp": [
+        9.92,
+        10.46
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        10.46,
+        10.54
+      ]
+    },
+    {
+      "text": "problem",
+      "timestamp": [
+        10.54,
+        10.9
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        10.9,
+        11.22
+      ]
+    },
+    {
+      "text": "building",
+      "timestamp": [
+        11.22,
+        11.5
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        11.5,
+        11.7
+      ]
+    },
+    {
+      "text": "solution.",
+      "timestamp": [
+        11.7,
+        12.06
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,111 @@
+{
+  "text": "That really depends on your specific goals, but Duolingo is great for building daily habits.",
+  "chunks": [
+    {
+      "text": "That",
+      "timestamp": [
+        8.46,
+        8.72
+      ]
+    },
+    {
+      "text": "really",
+      "timestamp": [
+        8.72,
+        9.02
+      ]
+    },
+    {
+      "text": "depends",
+      "timestamp": [
+        9.02,
+        9.34
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        9.34,
+        9.66
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        9.66,
+        9.74
+      ]
+    },
+    {
+      "text": "specific",
+      "timestamp": [
+        9.74,
+        10.1
+      ]
+    },
+    {
+      "text": "goals,",
+      "timestamp": [
+        10.1,
+        10.6
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        11.2,
+        11.28
+      ]
+    },
+    {
+      "text": "Duolingo",
+      "timestamp": [
+        11.28,
+        11.78
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        11.78,
+        12.1
+      ]
+    },
+    {
+      "text": "great",
+      "timestamp": [
+        12.1,
+        12.4
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        12.4,
+        12.66
+      ]
+    },
+    {
+      "text": "building",
+      "timestamp": [
+        12.66,
+        12.96
+      ]
+    },
+    {
+      "text": "daily",
+      "timestamp": [
+        12.96,
+        13.32
+      ]
+    },
+    {
+      "text": "habits.",
+      "timestamp": [
+        13.32,
+        13.78
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

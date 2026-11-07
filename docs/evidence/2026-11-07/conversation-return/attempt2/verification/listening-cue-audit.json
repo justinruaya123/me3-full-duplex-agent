@@ -1,0 +1,10 @@
+{
+  "kind": "Read-only original stage mark audit; no scorer changes",
+  "recordings_scheduled": 72,
+  "stage_files_available": 71,
+  "phrase_trials": 30,
+  "phrase_pre_answer_output_case_count": 0,
+  "all_recording_pre_answer_output_case_count": 0,
+  "cases": [],
+  "interpretation": "Any audio before ASR commit/first foreground text is a provisional cue, not a substantive-response latency pass. No observed cue does not exercise or qualify the listening-cue audio path. Content relevance remains unjudged."
+}

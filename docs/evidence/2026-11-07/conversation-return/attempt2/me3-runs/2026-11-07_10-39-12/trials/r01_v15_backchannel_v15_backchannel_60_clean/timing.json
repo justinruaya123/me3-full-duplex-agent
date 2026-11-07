@@ -1,0 +1,62 @@
+{
+  "trial": "r01_v15_backchannel_v15_backchannel_60_clean",
+  "group": "v15_backchannel",
+  "clip": "v15_backchannel_60",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 9.856,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.848
+    }
+  ],
+  "live_bot_starts": [
+    4.48
+  ],
+  "live_bot_ends": [
+    8.736
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Explain astronomy in depth.",
+    "current_turn_text": "",
+    "overlap_text": "yes sure",
+    "overlap_duration": 1.02,
+    "overlap_window": [
+      5.579,
+      6.601
+    ],
+    "source_id": "60"
+  },
+  "mono": [
+    28230.708869916,
+    28240.557477125
+  ],
+  "bot_segments": [
+    [
+      4.45,
+      8.766
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.848
+  ],
+  "tor": 1,
+  "first_start": 4.45,
+  "spoke_s": 4.316,
+  "actual": "replied after 2.60 s, spoke 4.3 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 17,
+  "final": {
+    "transcript": "Actually, I can't provide a deep dive explanation of astronomy right now."
+  },
+  "scored_at": "2026-11-07T11:02:17+08:00"
+}

@@ -1,0 +1,97 @@
+{
+  "text": "Smart Home Tech is moving toward more proactive AI that anticipates your needs.",
+  "chunks": [
+    {
+      "text": "Smart",
+      "timestamp": [
+        6.1,
+        6.6
+      ]
+    },
+    {
+      "text": "Home",
+      "timestamp": [
+        6.6,
+        6.94
+      ]
+    },
+    {
+      "text": "Tech",
+      "timestamp": [
+        6.94,
+        7.26
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        7.26,
+        7.66
+      ]
+    },
+    {
+      "text": "moving",
+      "timestamp": [
+        7.66,
+        7.96
+      ]
+    },
+    {
+      "text": "toward",
+      "timestamp": [
+        7.96,
+        8.3
+      ]
+    },
+    {
+      "text": "more",
+      "timestamp": [
+        8.3,
+        8.6
+      ]
+    },
+    {
+      "text": "proactive",
+      "timestamp": [
+        8.6,
+        9.16
+      ]
+    },
+    {
+      "text": "AI",
+      "timestamp": [
+        9.16,
+        9.56
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        9.56,
+        10.32
+      ]
+    },
+    {
+      "text": "anticipates",
+      "timestamp": [
+        10.32,
+        11.06
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        11.06,
+        11.18
+      ]
+    },
+    {
+      "text": "needs.",
+      "timestamp": [
+        11.18,
+        11.5
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

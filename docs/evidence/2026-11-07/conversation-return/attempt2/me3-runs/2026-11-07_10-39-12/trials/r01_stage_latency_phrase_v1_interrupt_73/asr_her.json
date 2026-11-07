@@ -1,0 +1,48 @@
+{
+  "text": "Honestly, start with your employer's 401k.",
+  "chunks": [
+    {
+      "text": "Honestly,",
+      "timestamp": [
+        7.18,
+        7.94
+      ]
+    },
+    {
+      "text": "start",
+      "timestamp": [
+        8.18,
+        8.44
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        8.44,
+        8.64
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        8.64,
+        8.74
+      ]
+    },
+    {
+      "text": "employer's",
+      "timestamp": [
+        8.74,
+        9.3
+      ]
+    },
+    {
+      "text": "401k.",
+      "timestamp": [
+        9.3,
+        10.56
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

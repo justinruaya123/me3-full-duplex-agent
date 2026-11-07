@@ -1,0 +1,55 @@
+{
+  "text": "July 4, 2026, falls on a Sunday.",
+  "chunks": [
+    {
+      "text": "July",
+      "timestamp": [
+        4.94,
+        5.48
+      ]
+    },
+    {
+      "text": "4,",
+      "timestamp": [
+        5.48,
+        5.9
+      ]
+    },
+    {
+      "text": "2026,",
+      "timestamp": [
+        6.18,
+        6.98
+      ]
+    },
+    {
+      "text": "falls",
+      "timestamp": [
+        7.44,
+        7.6
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        7.6,
+        7.8
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        7.8,
+        7.9
+      ]
+    },
+    {
+      "text": "Sunday.",
+      "timestamp": [
+        7.9,
+        8.22
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

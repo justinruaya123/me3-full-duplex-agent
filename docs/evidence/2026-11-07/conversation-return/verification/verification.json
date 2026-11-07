@@ -1,0 +1,36 @@
+{
+  "runtime_commit": "ed6efa0dd9edaa6dceebf342392b54604bb43cbc",
+  "full_suite": {
+    "command": ".venv313/bin/python -m unittest discover -s tests -v",
+    "tests": 244,
+    "failures": 0,
+    "skips": 0,
+    "seconds": 12.291,
+    "log": "full-final.log"
+  },
+  "v1_subset": {
+    "command": ".venv313/bin/python -m unittest discover -s tests -p '*v1.py' -v",
+    "tests": 214,
+    "failures": 0,
+    "skips": 0,
+    "seconds": 10.515,
+    "log": "v1-final.log"
+  },
+  "demo": {
+    "passed": true,
+    "scope": "control simulator, not acoustics",
+    "receipt": "demo-final.json"
+  },
+  "compileall": {
+    "command": ".venv313/bin/python -m compileall -q me3 tests integrations",
+    "exit_code": 0
+  },
+  "changed_python_lint": {
+    "rule_selection": "E,F,I",
+    "line_length": 79,
+    "exit_code": 0
+  },
+  "source_unchanged_after_benchmark": true,
+  "main_promotion_gate": "unpassed benchmark non-regression; feature branch only",
+  "target_hardware_and_acoustics": "not qualified"
+}

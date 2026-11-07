@@ -1,0 +1,68 @@
+{
+  "trial": "r03_false_tt_false_side_talk_005",
+  "group": "false_tt",
+  "clip": "false_side_talk_005",
+  "variant": "main",
+  "expected": "stay silent",
+  "duration": 9.536,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.415
+    }
+  ],
+  "live_bot_starts": [
+    5.12,
+    7.296
+  ],
+  "live_bot_ends": [
+    6.336,
+    8.32
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "kind": "side_talk",
+    "kind_label": "side talk",
+    "level_db": -8,
+    "text": "Dad, gimme a hand with this math real quick.",
+    "source": "v15_talking_to_other_40"
+  },
+  "mono": [
+    27260.036527916,
+    27269.566720958
+  ],
+  "bot_segments": [
+    [
+      5.09,
+      6.366
+    ],
+    [
+      7.266,
+      8.35
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.415
+  ],
+  "tor": 1,
+  "first_start": 5.09,
+  "spoke_s": 3.26,
+  "actual": "spoke 3.3 s after +2.7 s",
+  "verdict": "✗ took turn",
+  "ok": false,
+  "marks": 23,
+  "final": {
+    "tor": 1,
+    "words": 8,
+    "verdict": "✗ took turn",
+    "ok": false,
+    "transcript": "Sure thing, I'm all ears. What's the problem?"
+  },
+  "scored_at": "2026-11-07T10:36:59+08:00"
+}

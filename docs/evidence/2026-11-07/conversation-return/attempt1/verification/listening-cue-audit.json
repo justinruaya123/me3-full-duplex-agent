@@ -1,0 +1,10 @@
+{
+  "kind": "Read-only audit of original stage marks, no scorer changes",
+  "recordings_scheduled": 72,
+  "stage_files_available": 71,
+  "phrase_trials": 30,
+  "phrase_pre_answer_output_case_count": 0,
+  "all_recording_pre_answer_output_case_count": 0,
+  "cases": [],
+  "interpretation": "No audio_out mark in the available traces preceded the first ASR commit or first foreground text. The listening-cue audio path was not exercised by this canonical run; no substantive-latency benefit from it is claimed. Content relevance is unjudged."
+}

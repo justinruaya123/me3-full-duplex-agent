@@ -1,0 +1,104 @@
+{
+  "text": "I don't have access to live data, so I can't provide the current score.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.98,
+        5.42
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        5.42,
+        5.64
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        5.64,
+        5.76
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        5.76,
+        6.16
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.16,
+        6.38
+      ]
+    },
+    {
+      "text": "live",
+      "timestamp": [
+        6.38,
+        6.6
+      ]
+    },
+    {
+      "text": "data,",
+      "timestamp": [
+        6.6,
+        6.98
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        7.28,
+        7.48
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        7.48,
+        7.62
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        7.62,
+        7.94
+      ]
+    },
+    {
+      "text": "provide",
+      "timestamp": [
+        7.94,
+        8.2
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.2,
+        8.44
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        8.44,
+        8.72
+      ]
+    },
+    {
+      "text": "score.",
+      "timestamp": [
+        8.72,
+        9.06
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

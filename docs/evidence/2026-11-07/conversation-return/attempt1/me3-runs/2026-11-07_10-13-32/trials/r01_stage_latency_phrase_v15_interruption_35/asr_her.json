@@ -1,0 +1,13 @@
+{
+  "text": "Absolutely.",
+  "chunks": [
+    {
+      "text": "Absolutely.",
+      "timestamp": [
+        4.4,
+        5.16
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

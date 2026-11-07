@@ -1,0 +1,202 @@
+{
+  "text": "Smart homes are increasingly focused on the latest smart home trends, but I don't have access to your personal calendar to tell you the time of your meeting.",
+  "chunks": [
+    {
+      "text": "Smart",
+      "timestamp": [
+        6.58,
+        7.1
+      ]
+    },
+    {
+      "text": "homes",
+      "timestamp": [
+        7.1,
+        7.52
+      ]
+    },
+    {
+      "text": "are",
+      "timestamp": [
+        7.52,
+        7.8
+      ]
+    },
+    {
+      "text": "increasingly",
+      "timestamp": [
+        7.8,
+        8.38
+      ]
+    },
+    {
+      "text": "focused",
+      "timestamp": [
+        8.38,
+        8.84
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        8.84,
+        9.48
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        14.02,
+        14.18
+      ]
+    },
+    {
+      "text": "latest",
+      "timestamp": [
+        14.18,
+        15.88
+      ]
+    },
+    {
+      "text": "smart",
+      "timestamp": [
+        15.88,
+        16.56
+      ]
+    },
+    {
+      "text": "home",
+      "timestamp": [
+        16.56,
+        16.92
+      ]
+    },
+    {
+      "text": "trends,",
+      "timestamp": [
+        16.92,
+        17.32
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        17.82,
+        18.12
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        18.12,
+        18.24
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        18.24,
+        18.48
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        18.48,
+        18.64
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        18.64,
+        19.04
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        19.04,
+        19.32
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        19.32,
+        19.42
+      ]
+    },
+    {
+      "text": "personal",
+      "timestamp": [
+        19.42,
+        19.76
+      ]
+    },
+    {
+      "text": "calendar",
+      "timestamp": [
+        19.76,
+        20.32
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        20.32,
+        20.84
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        20.84,
+        21.06
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        21.06,
+        21.26
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        21.26,
+        21.36
+      ]
+    },
+    {
+      "text": "time",
+      "timestamp": [
+        21.36,
+        21.64
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        21.64,
+        21.76
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        21.76,
+        21.86
+      ]
+    },
+    {
+      "text": "meeting.",
+      "timestamp": [
+        21.86,
+        22.14
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

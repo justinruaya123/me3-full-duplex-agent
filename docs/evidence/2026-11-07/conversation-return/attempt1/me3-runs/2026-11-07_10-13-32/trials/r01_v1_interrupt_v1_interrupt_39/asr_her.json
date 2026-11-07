@@ -1,0 +1,83 @@
+{
+  "text": "There's no single best time. Absolutely happy to pivot to nutrition.",
+  "chunks": [
+    {
+      "text": "There's",
+      "timestamp": [
+        4.53,
+        5.09
+      ]
+    },
+    {
+      "text": "no",
+      "timestamp": [
+        5.09,
+        5.23
+      ]
+    },
+    {
+      "text": "single",
+      "timestamp": [
+        5.23,
+        5.55
+      ]
+    },
+    {
+      "text": "best",
+      "timestamp": [
+        5.55,
+        5.83
+      ]
+    },
+    {
+      "text": "time.",
+      "timestamp": [
+        5.83,
+        6.29
+      ]
+    },
+    {
+      "text": "Absolutely",
+      "timestamp": [
+        11.53,
+        12.05
+      ]
+    },
+    {
+      "text": "happy",
+      "timestamp": [
+        12.05,
+        12.79
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        12.79,
+        13.01
+      ]
+    },
+    {
+      "text": "pivot",
+      "timestamp": [
+        13.01,
+        13.27
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        13.27,
+        13.49
+      ]
+    },
+    {
+      "text": "nutrition.",
+      "timestamp": [
+        13.49,
+        13.89
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

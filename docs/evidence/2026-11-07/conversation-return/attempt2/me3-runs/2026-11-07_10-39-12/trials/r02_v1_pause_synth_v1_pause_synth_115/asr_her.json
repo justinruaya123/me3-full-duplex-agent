@@ -1,0 +1,90 @@
+{
+  "text": "Absolutely, it feels like things are moving at lightning speed, doesn't it?",
+  "chunks": [
+    {
+      "text": "Absolutely,",
+      "timestamp": [
+        10.48,
+        11.14
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        11.64,
+        11.76
+      ]
+    },
+    {
+      "text": "feels",
+      "timestamp": [
+        11.76,
+        12.06
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        12.06,
+        12.34
+      ]
+    },
+    {
+      "text": "things",
+      "timestamp": [
+        12.34,
+        12.62
+      ]
+    },
+    {
+      "text": "are",
+      "timestamp": [
+        12.62,
+        12.78
+      ]
+    },
+    {
+      "text": "moving",
+      "timestamp": [
+        12.78,
+        13.0
+      ]
+    },
+    {
+      "text": "at",
+      "timestamp": [
+        13.0,
+        13.22
+      ]
+    },
+    {
+      "text": "lightning",
+      "timestamp": [
+        13.22,
+        13.48
+      ]
+    },
+    {
+      "text": "speed,",
+      "timestamp": [
+        13.48,
+        13.94
+      ]
+    },
+    {
+      "text": "doesn't",
+      "timestamp": [
+        14.3,
+        14.52
+      ]
+    },
+    {
+      "text": "it?",
+      "timestamp": [
+        14.52,
+        14.68
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

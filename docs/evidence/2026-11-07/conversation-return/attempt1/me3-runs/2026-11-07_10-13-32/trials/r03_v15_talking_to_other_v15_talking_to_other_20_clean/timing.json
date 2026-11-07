@@ -1,0 +1,64 @@
+{
+  "trial": "r03_v15_talking_to_other_v15_talking_to_other_20_clean",
+  "group": "v15_talking_to_other",
+  "clip": "v15_talking_to_other_20",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 10.336,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.328
+    }
+  ],
+  "live_bot_starts": [
+    5.216,
+    7.232
+  ],
+  "live_bot_ends": [
+    6.88,
+    9.6
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Send a message to Alex saying I'll be late.",
+    "current_turn_text": "Mateo, pick up the kids at three, yeah?",
+    "overlap_text": "Mateo, pick up the kids at three, yeah?",
+    "overlap_duration": 2.04,
+    "overlap_window": [
+      6.09,
+      8.133
+    ],
+    "source_id": "20"
+  },
+  "mono": [
+    27113.144997833,
+    27123.452282583
+  ],
+  "bot_segments": [
+    [
+      5.186,
+      9.63
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.328
+  ],
+  "tor": 1,
+  "first_start": 5.186,
+  "spoke_s": 4.444000000000001,
+  "actual": "replied after 2.86 s, spoke 4.4 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 17,
+  "final": {
+    "transcript": "I can't send messages for you, but I can help you draft the text if you'd like."
+  },
+  "scored_at": "2026-11-07T10:37:21+08:00"
+}

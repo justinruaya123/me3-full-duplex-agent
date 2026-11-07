@@ -1,0 +1,71 @@
+{
+  "trial": "r03_stage_latency_phrase_v15_background_94",
+  "group": "stage_latency",
+  "clip": "phrase_v15_background_94",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 9.952,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.944
+    }
+  ],
+  "live_bot_starts": [],
+  "live_bot_ends": [],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "Track my package from FedEx.",
+    "source": "v15_background_94"
+  },
+  "mono": [
+    26388.741666666,
+    26398.680751791
+  ],
+  "bot_segments": [],
+  "play_first": [
+    0.0,
+    1.944
+  ],
+  "tor": 0,
+  "first_start": null,
+  "spoke_s": 0.0,
+  "user_end": 1.694,
+  "latency": null,
+  "actual": "no reply",
+  "verdict": "✗ no reply",
+  "ok": false,
+  "marks": 10,
+  "final": {
+    "stages": {
+      "e2e_heard": null,
+      "e2e": null,
+      "e2e_source": null,
+      "asr_final": 1.9382,
+      "llm_ttft": null,
+      "tts_ttfb": null,
+      "endpointing": 0.1281,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request"
+      ],
+      "transcript": "Track my package from FedEx.",
+      "wer": {
+        "ref_words": 5,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 40,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": ""
+  },
+  "scored_at": "2026-11-07T10:37:02+08:00"
+}

@@ -1,0 +1,111 @@
+{
+  "text": "I don't have access to real -time information, so I can't check the current score.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        5.01,
+        5.43
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        5.43,
+        5.65
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        5.65,
+        5.79
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        5.79,
+        6.21
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.21,
+        6.47
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        6.47,
+        6.69
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        6.69,
+        6.93
+      ]
+    },
+    {
+      "text": "information,",
+      "timestamp": [
+        6.93,
+        7.53
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        7.89,
+        8.13
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        8.13,
+        8.29
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        8.29,
+        8.63
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        8.63,
+        8.83
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.83,
+        9.01
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        9.01,
+        9.29
+      ]
+    },
+    {
+      "text": "score.",
+      "timestamp": [
+        9.29,
+        9.61
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

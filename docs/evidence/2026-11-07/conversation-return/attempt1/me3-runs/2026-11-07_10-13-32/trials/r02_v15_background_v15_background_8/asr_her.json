@@ -1,0 +1,181 @@
+{
+  "text": "I don't have access to your real time, I don't have access to your personal health data, so I can't tell you your heart rate.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.46,
+        4.88
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        4.88,
+        5.06
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        5.06,
+        5.16
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        5.16,
+        5.54
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        5.54,
+        5.9
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        5.9,
+        6.02
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        6.02,
+        6.24
+      ]
+    },
+    {
+      "text": "time,",
+      "timestamp": [
+        6.24,
+        6.56
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        11.04,
+        11.72
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        11.72,
+        11.96
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        11.96,
+        12.08
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        12.08,
+        12.46
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        12.46,
+        12.74
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        12.74,
+        12.84
+      ]
+    },
+    {
+      "text": "personal",
+      "timestamp": [
+        12.84,
+        13.16
+      ]
+    },
+    {
+      "text": "health",
+      "timestamp": [
+        13.16,
+        13.48
+      ]
+    },
+    {
+      "text": "data,",
+      "timestamp": [
+        13.48,
+        13.84
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        14.2,
+        14.42
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        14.42,
+        14.6
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        14.6,
+        15.0
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        15.0,
+        15.12
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        15.12,
+        15.3
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        15.3,
+        15.4
+      ]
+    },
+    {
+      "text": "heart",
+      "timestamp": [
+        15.4,
+        15.58
+      ]
+    },
+    {
+      "text": "rate.",
+      "timestamp": [
+        15.58,
+        15.84
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}
