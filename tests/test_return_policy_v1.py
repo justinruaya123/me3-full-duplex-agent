@@ -1,4 +1,4 @@
-"""Durable result timing; fixtures exercise the real local job/controller state."""
+"""Durable result timing with real local job/controller state."""
 
 import unittest
 
@@ -120,7 +120,9 @@ class ReturnPolicyTests(unittest.IsolatedAsyncioTestCase):
         await self.settle()
         self.assertFalse(self.session.poll())
 
-    async def test_natural_website_retrieval_preserves_conversation_focus(self):
+    async def test_natural_website_retrieval_preserves_conversation_focus(
+        self,
+    ):
         await self.session.accept("Create a website for a cafe.")
         job = self.session.jobs.list()[0]
         await self.runtime.supervisor.wait(job["id"])
@@ -152,3 +154,13 @@ class ReturnPolicyTests(unittest.IsolatedAsyncioTestCase):
         await self.settle()
         self.assertFalse(self.spoken)
         self.assertFalse(self.session.jobs.get(job["id"])["notified"])
+
+    async def test_focused_job_preference_changes_are_acknowledged(self):
+        job = await self.ready()
+        self.session.focus = job["id"]
+        for command in ("/notify " + job["id"] + " after_topic",
+                        "/defer " + job["id"]):
+            self.spoken.clear()
+            await self.session.accept(command)
+            await self.settle()
+            self.assertEqual(len(self.spoken), 1)

@@ -1,4 +1,4 @@
-"""Durable owner bindings and revision-checked commands over the legacy store."""
+"""Durable owner bindings and revision-checked job commands."""
 
 from __future__ import annotations
 
@@ -40,7 +40,8 @@ class OwnedJobs:
         prompt = checked_prompt(prompt)
         if request_id:
             row = self.supervisor.db.execute(
-                "SELECT job_id FROM job_requests WHERE owner=? AND request_id=?",
+                "SELECT job_id FROM job_requests "
+                "WHERE owner=? AND request_id=?",
                 (self.owner, request_id),
             ).fetchone()
             if row:
@@ -92,9 +93,11 @@ class OwnedJobs:
         self, job_id: str, policy: str, *, expected_revision: int
     ) -> None:
         self._authorize()
-        self._revision(job_id, expected_revision)
+        previous = self._revision(job_id, expected_revision)
         if policy not in {"ask_first", "after_topic"}:
             raise ValueError("Unknown result return policy")
+        if previous["return_policy"] == policy:
+            return
         with self.supervisor.db:
             self.supervisor.db.execute(
                 "INSERT INTO job_returns VALUES (?,?) ON CONFLICT(job_id) "

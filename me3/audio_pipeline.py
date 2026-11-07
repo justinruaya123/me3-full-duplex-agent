@@ -35,6 +35,7 @@ class ConfiguredSpeech:
                 )
             )
         self.clients = clients
+        self._listening_clip: bytes | None = None
         args = (
             config["asr_base_url"].rstrip("/") + "/audio/transcriptions",
             config["tts_base_url"].rstrip("/") + "/audio/speech",
@@ -54,10 +55,23 @@ class ConfiguredSpeech:
         return await self.asr.transcribe(audio)
 
     async def synthesize(self, text: str):
+        clip = self._listening_clip
+        if text == "Mm-hm." and clip is not None:
+            yield clip
+            return
+        cached = bytearray() if text == "Mm-hm." else None
         async for pcm in self.tts.synthesize(text):
+            if cached is not None:
+                if len(cached) + len(pcm) <= 96000:
+                    cached.extend(pcm)
+                else:
+                    cached = None
             yield pcm
+        if cached:
+            self._listening_clip = bytes(cached)
 
     async def close(self) -> None:
+        self._listening_clip = None
         await asyncio.gather(*(client.aclose() for client in self.clients))
 
 
@@ -291,6 +305,9 @@ async def build(
                 resumed.set()
             elif outcome == "backchannel":
                 resume_backchannel(event, generation)
+            elif outcome == "listening":
+                pcm_buffer.resume()
+                resumed.set()
             return
         if gate.owner is None:
             if enrollment_owner and event.committed:
@@ -334,6 +351,9 @@ async def build(
             resumed.set()
         elif outcome == "backchannel":
             resume_backchannel(event, generation)
+        elif outcome == "listening":
+            pcm_buffer.resume()
+            resumed.set()
 
     capture = RollingCapture(
         session_id,

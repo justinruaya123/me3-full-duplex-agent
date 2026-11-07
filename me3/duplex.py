@@ -11,7 +11,7 @@ from contextlib import aclosing
 from pathlib import Path
 from typing import Awaitable, Callable, Protocol
 
-from me3.conversation import return_preference, wrapup
+from me3.conversation import listening_safe, return_preference, wrapup
 from me3.incremental import TranscriptRevision, clauses, is_acknowledgment
 
 
@@ -135,12 +135,29 @@ class DuplexController:
         self._focus_stack: list[str | None] = []
         self._deferred: set[str] = set()
         self._topic_closed = False
+        self._listening = False
 
     @property
     def busy(self) -> bool:
         return self._active is not None and not self._active.done()
 
     def user_started(self) -> None:
+        if self._listening:
+            self._listening = False
+            self.epoch += 1
+            epoch = self.epoch
+            if self._active and not self._active.done():
+                self._active.cancel()
+            self._active = None
+            self._speaking = False
+
+            async def flush_cue():
+                if self.epoch == epoch:
+                    await self.stop()
+
+            task = asyncio.create_task(flush_cue())
+            self._tasks.add(task)
+            task.add_done_callback(self._tasks.discard)
         self.user_speaking = True
         self.turn_open = True
         self._idle.clear()
@@ -161,6 +178,7 @@ class DuplexController:
         task.add_done_callback(self._tasks.discard)
 
     async def _interrupt(self) -> None:
+        self._listening = False
         self.epoch += 1
         self._question_epoch = None
         old = self._active
@@ -225,6 +243,21 @@ class DuplexController:
                 return "backchannel"
             self.turn_open = True
             self._turn_final.clear()
+            if (
+                event.capture_ended is True
+                and evidence.get("addressed") is True
+                and not self.user_speaking and not self.pending_question
+                and self._question_epoch != self.epoch
+                and not self.busy and not self._speaking
+                and not (self.is_playing and self.is_playing())
+                and self.delivery_authorized()
+                and self.clock() - self._last_backchannel >= 6
+                and listening_safe(event.text)
+            ):
+                self._last_backchannel = self.clock()
+                self._listening = True
+                self._spawn(self._deliver("Mm-hm.", self.epoch, record=False))
+                return "listening"
             return "hold"
         self._request_id = event.session_id + ":" + event.turn_id
         try:
@@ -378,6 +411,7 @@ class DuplexController:
             self.jobs.set_return_policy(
                 job["id"], return_policy, expected_revision=job["revision"]
             )
+            epoch = self.epoch
             say(
                 "I have queued the website. Job "
                 + job["id"]
@@ -399,7 +433,9 @@ class DuplexController:
             "open the website": "preview",
         }.get(lower)
         if website_action:
-            websites = [j for j in self.jobs.list() if j.get("kind") == "website"]
+            websites = [
+                j for j in self.jobs.list() if j.get("kind") == "website"
+            ]
             selected = next(
                 (j for j in websites if j["id"] == self.focus), None
             )
@@ -463,12 +499,14 @@ class DuplexController:
                 self.jobs.set_return_policy(
                     job_id, "ask_first", expected_revision=job["revision"]
                 )
+                epoch = self.epoch
                 self._deferred.add(job_id)
                 say("I will hold that notice until you ask for the result.")
             elif action == "notify":
                 self.jobs.set_return_policy(
                     job_id, request, expected_revision=job["revision"]
                 )
+                epoch = self.epoch
                 self._deferred.discard(job_id)
                 say("Result return preference saved: " + request + ".")
             elif action == "status":
@@ -621,6 +659,7 @@ class DuplexController:
                 self._question_epoch = None
             if epoch == self.epoch:
                 self._speaking = False
+                self._listening = False
                 self._last_activity = self.clock()
 
     def poll(self) -> bool:
