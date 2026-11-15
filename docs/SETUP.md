@@ -35,6 +35,7 @@ local Pi protocol/model selection; `--inference` explicitly invokes models.
 | Speech service | `ME3_SPEECH_SERVER_TOKEN` | Choose your own token; set ASR/TTS keys to match when using the included service |
 | Voice identity | `ME3_WAKE_PHRASE`, `ME3_SPEAKER_BASE_URL`, `ME3_SPEAKER_API_KEY` | Explicit phrase and independent authenticated verification service |
 | Persistence | `ME3_STATE_DIR` | Stable local directory; single supervisor lock |
+| Personal memory (opt-in) | `ME3_MEMORY_ENABLED=1` | Private owner-scoped SQLite text memory; default off; course sessions opt out |
 
 The installed Pi provider documentation supports `/login` for ChatGPT Plus/Pro
 under OpenAI Codex, and API-key providers via their own configuration. Run
@@ -57,6 +58,61 @@ while a real job ran and retrieval after ending/reopening its session. See
 `docs/evidence/2026-11-06/d1/authenticated/`. Foreground and Pi authentication
 remain separate. These checks complete D1's model-access/runtime gate; they do
 not qualify speech inference or the real website workflow.
+
+## Explicit Pi-only LLM demo profile (November 7)
+
+Operator-selected `pi-fast` replaces Qwen/Nemotron foreground inference for a
+Pi-agent-only LLM demo. It does not move ASR/TTS onto the Raspberry Pi. Microphone,
+speaker, foreground control, durable jobs and both Pi harness processes remain
+local; the Mac still serves speech inference. Provider LLM inference still uses
+the selected account, not local Raspberry Pi model weights.
+
+```sh
+# In ignored .env, using an exact model available to your own account:
+export ME3_FOREGROUND_PROFILE=pi-fast
+export ME3_FOREGROUND_PROVIDER=openai-codex
+export ME3_FOREGROUND_MODEL=gpt-6.1-sol
+# Existing worker provider/model remain independently configured.
+./scripts/me3.sh pi          # /login in the configured isolated auth directory
+./scripts/me3.sh doctor --inference
+./scripts/me3.sh console     # Trusted local text demo
+./scripts/me3.sh voice       # Requires speech auth and normal ownership settings
+```
+
+On Linux the launcher selects installed `.venv-pi`; Mac runtime and separate
+speech environments are retained. Foreground uses a separate warm, tool-disabled
+RPC process with in-memory history. The host sends confirmed context each turn,
+resets the Pi session, requests `off`, and checks both available thinking levels
+and actual state before prompting. Unsupported/clamped `off`, observed reasoning,
+model changes, tools, provider errors, timeouts and cancellation fail explicitly.
+Background Pi jobs are unaffected by foreground cancellation. An optional
+`ME3_FOREGROUND_API_KEY_ENV` explicitly forwards a named provider key variable;
+otherwise Pi uses the configured `PI_CODING_AGENT_DIR` login. Worker credentials
+are not automatically forwarded. Returning to `qwen`/`nemotron` requires its
+existing endpoint/model settings; there is no automatic fallback.
+
+Streaming and reasoning-off are configuration features, **not a realtime latency
+guarantee**. Current hardware/provider smoke is blocked by an empty isolated auth
+store. The separately configured Mac speech token was rejected with HTTP 401.
+Normal voice also requires wake and independent speaker-verifier configuration;
+this profile does not bypass ownership or qualify physical audio/AEC.
+
+## Local personalized memory
+
+Set `ME3_MEMORY_ENABLED=1` in the private `.env` and retain the same
+`ME3_STATE_DIR` and trusted owner label across launches. Conversations then
+survive ordinary session end/restart; explicit facts and project notes can
+personalize foreground answers and relevant worker requests. Memory commands
+include `/remember KEY = VALUE`, `/project NAME = DETAILS`, `/recall QUERY`,
+`/forget KEY`, and `/memory on`/`off`/`clear`. Voice supports “remember that …”
+and “what do you remember about me?” after ownership verification.
+
+This adds no dependencies, inference role or worker permissions. It retains
+bounded text, not audio; course benchmark sessions opt out. The database is
+local, but retrieved text can be sent to the configured inference provider.
+See [MEMORY.md](MEMORY.md) for limits, owner binding, single-session task examples,
+provider-independent commands and the scope of deletion. Normal voice still
+requires the existing speech authentication and ownership gates below.
 
 ## Separate speech service
 

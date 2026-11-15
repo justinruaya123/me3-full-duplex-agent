@@ -94,9 +94,8 @@ async def build(
         FrameProcessor,
     )
 
-    from me3.configuration import ForegroundConfig
     from me3.duplex_voice import settings
-    from me3.foreground import ForegroundBackend
+    from me3.foreground import configured_foreground
     from me3.harnesses import configured_backend
     from me3.runtime import AgentRuntime
 
@@ -118,9 +117,7 @@ async def build(
         runtime = AgentRuntime(
             Path(log_dir) / ("runtime-" + uuid.uuid4().hex),
             configured_backend(),
-            ForegroundBackend(
-                ForegroundConfig.from_env(os.environ), on_stage=on_stage
-            ),
+            configured_foreground(on_stage=on_stage),
         )
     owns_speech = speech is None
     speech = speech or ConfiguredSpeech(config)
@@ -218,6 +215,7 @@ async def build(
         speak,
         stop,
         owner="course-benchmark" if profile == "course" else None,
+        remember=profile != "course",
         on_transcript=observe_transcript,
         is_playing=lambda: (
             # TTSStarted may precede PCM; require a software transport receipt.

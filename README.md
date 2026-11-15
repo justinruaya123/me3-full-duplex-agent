@@ -66,6 +66,20 @@ be armed locally before a clean reference can establish ownership. `/mute`
 clears capture/reference state independently of inference. Use `/end` and
 `/voice` to open a fresh voice session after muting.
 
+## Personalized memory (optional)
+
+Set `ME3_MEMORY_ENABLED=1` in your private `.env` to retain owner-scoped text
+conversations across sessions/restarts in `.local/runtime/memory.sqlite3`.
+Say “remember that I prefer concise answers,” ask about earlier conversations,
+or save named projects with `/project NAME = DETAILS`. Relevant saved notes can
+personalize explicit worker requests while you keep talking. No extra model,
+vector database or service is needed. `/memory`, `/forget KEY`, and
+`/memory off`/`clear` provide inspection and privacy controls.
+
+Memory is bounded, requires renewed ownership, never authorizes actions and is
+disabled for course benchmark sessions. Retrieved context may reach your selected
+inference provider. See [memory setup, examples and deletion limits](docs/MEMORY.md).
+
 ## Verify
 
 ```sh

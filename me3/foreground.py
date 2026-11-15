@@ -9,6 +9,39 @@ from typing import AsyncIterator, Callable
 from me3.configuration import ForegroundConfig
 
 
+def configured_foreground(*, on_stage=None):
+    """Explicit operator profile; never substitute the worker implicitly."""
+    import os
+    import shutil
+
+    config = ForegroundConfig.from_env(os.environ)
+    if config.profile != "pi-fast":
+        return ForegroundBackend(config, on_stage=on_stage)
+    from me3.pi_foreground import PiForegroundBackend
+
+    binary = os.environ.get("ME3_PI_BIN") or shutil.which("pi")
+    if not binary or not Path(binary).is_file():
+        raise ValueError("Set ME3_PI_BIN to the installed Pi CLI")
+    command = (
+        str(Path(binary).resolve()), "--mode", "rpc", "--no-tools",
+        "--no-extensions", "--no-skills", "--no-prompt-templates",
+        "--no-context-files", "--provider", config.provider,
+        "--model", config.model,
+        "--system-prompt", "You are a concise voice assistant. Reply directly "
+        "in one or two short spoken sentences. No tools, markdown or reasoning.",
+    )
+    extra = {}
+    key_name = os.environ.get("ME3_FOREGROUND_API_KEY_ENV")
+    if key_name:
+        if not key_name.isidentifier() or not os.environ.get(key_name):
+            raise ValueError("Configured foreground API key variable is missing")
+        extra[key_name] = os.environ[key_name]
+    return PiForegroundBackend(
+        command, model=config.model, provider=config.provider,
+        env=extra, timeout=60, on_stage=on_stage,
+    )
+
+
 class ForegroundBackend:
     def __init__(
         self, config: ForegroundConfig, *, client=None,

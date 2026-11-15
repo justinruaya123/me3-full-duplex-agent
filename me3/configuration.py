@@ -29,16 +29,28 @@ class ForegroundConfig:
     base_url: str
     model: str
     api_key: str = field(repr=False)
+    provider: str = ""
 
     def __post_init__(self) -> None:
-        if self.profile not in {"qwen", "nemotron"}:
-            raise ValueError("ME3_FOREGROUND_PROFILE must be qwen or nemotron")
-        http_url(self.base_url)
+        if self.profile not in {"qwen", "nemotron", "pi-fast"}:
+            raise ValueError(
+                "ME3_FOREGROUND_PROFILE must be qwen, nemotron or pi-fast"
+            )
+        if self.profile == "pi-fast":
+            if not self.provider.strip():
+                raise ValueError("Set ME3_FOREGROUND_PROVIDER for pi-fast")
+        else:
+            http_url(self.base_url)
         if not self.model or self.model != self.model.strip():
             raise ValueError("Set ME3_FOREGROUND_MODEL to the exact served ID")
 
     @classmethod
     def from_env(cls, env: Mapping[str, str]) -> ForegroundConfig:
+        if env.get("ME3_FOREGROUND_PROFILE") == "pi-fast":
+            return cls(
+                "pi-fast", "", env.get("ME3_FOREGROUND_MODEL", ""), "",
+                env.get("ME3_FOREGROUND_PROVIDER", ""),
+            )
         required = ("PROFILE", "BASE_URL", "MODEL")
         if any(not env.get("ME3_FOREGROUND_" + name) for name in required):
             raise ValueError("Set ME3_FOREGROUND_PROFILE, BASE_URL and MODEL")

@@ -1,5 +1,107 @@
 # Implementation and qualification status
 
+## November 15: lightweight owner-scoped text memory
+
+Added opt-in runtime memory, separate from the coding assistant's Pi memory.
+`ME3_MEMORY_ENABLED=1` uses a private mode-0600 SQLite file under the existing
+state directory, with no new dependencies, embedding service or third model.
+This checkout's ignored `.env` enables it for the next normal launch; provider,
+speech, account and ownership settings were not changed. No personal facts or
+old coding-agent conversations were imported.
+
+Accepted committed owner turns and software-receipt-confirmed assistant clauses
+are retained across session end/restart. Partial/stale/unverified input and
+unknown/cancelled playback are excluded. Facts/projects require explicit owner
+commands; the model cannot write its own beliefs into memory. Retrieval is
+bounded keyword/recency data, not instructions, action approval or job truth.
+Foreground context includes live owner-filtered task status; workers receive
+only relevant saved notes, not the conversation archive. Static website
+validation and job revisions remain unchanged.
+
+Per-owner bounds are 64 notes, 32 sessions and 256 messages, with 4,000-character
+message excerpts. Foreground/worker memory context caps are 7,500/2,500 JSON
+characters. `/memory`, `/remember`, `/project`, `/recall`, `/forget` and
+`/memory on`/`off`/`clear` expose inspection, correction and privacy controls.
+Forgetting also removes literal repetitions and fences that owner's active
+foreground context, without cancelling jobs. Whole-memory deletion pauses
+retention but does not erase job artifacts, harness sessions, backups or text
+already sent to a provider. Course and explicitly opted-out sessions neither
+use memory nor receive memory-change interruptions.
+
+RED tests preceded implementation and reproduced storage-error misreporting,
+opted-out-session interference, failed-startup lock leakage, shutdown blocking
+and persistence failures undoing playback receipts. Those regressions are fixed.
+Final verification in the installed `.venv-pi` checkout:
+
+- **20/20 memory tests**, zero failures/skips, 0.289s.
+- **211/211 v1 tests**, zero failures/skips, 14.324s.
+- **241/241 full-suite tests**, zero failures/skips, 16.484s.
+- Final test logs contain no unclosed-resource or unawaited-coroutine warnings;
+  memory tests explicitly enable ResourceWarning reporting.
+- `python -m me3.duplex_demo` and compilation of `me3`, `tests` and
+  `integrations` passed; `git diff --check` passed separately.
+
+These are local SQLite/control tests, fixture inference, actual static syntax
+checks and a Pipecat in-process transport regression. No successful live
+provider call, microphone test, acoustic latency/AEC measurement, new benchmark
+score or target-hardware qualification is claimed. Existing speech auth and
+normal ownership prerequisites remain unresolved here. Details and deletion
+limits are in [MEMORY.md](MEMORY.md); earlier implementation evidence follows.
+
+## November 7: explicit Pi-fast foreground demo profile
+
+At operator request, `ME3_FOREGROUND_PROFILE=pi-fast` now selects a separate
+local Pi agent for conversational inference instead of Qwen/Nemotron. Worker
+jobs retain their independent Pi sessions. Mic/speaker and orchestration remain
+on the Pi; Mac ASR/TTS settings are unchanged. This is an explicit alternative
+to the November 4 foreground selection, not a fallback or third LLM role.
+
+The warm foreground subprocess has tools/resources disabled, an in-memory
+session and independent cancellation. Each turn resets context, checks the exact
+provider/model, requests thinking `off`, checks supported levels and effective
+state, then streams text deltas. Reasoning/tool events, mismatched final text,
+provider errors, unsettled/aborted runs, deadlines and early stream closure fail
+explicitly and reap only that foreground child. Runtime shutdown closes it.
+No realtime/provider latency guarantee follows from these settings.
+
+RED fixtures preceded implementation. Final installed verification: **191/191 v1
+and 221/221 full tests**, zero failures/skips; simulator and compilation passed.
+Ten new foreground tests use subprocess fixtures, not real inference. Additional
+fixture variants initially failed due to incorrect test-string substitutions;
+those fixtures were corrected and rerun. Final runs have no resource warnings.
+The earlier 218-test run predates the three additional failure-path regressions.
+
+Ignored `.env` explicitly selects `pi-fast`, `openai-codex/gpt-6.1-sol` for the
+foreground and is mode 0600. Real inference was attempted twice but rejected for
+missing credentials in the isolated `.local/pi` auth store. Protocol preparation
+accepted and reported thinking off before the prompt; no actual successful model
+response or inference latency is claimed. The unrelated default Pi login was
+not copied, reinterpreted or substituted. Mac speech auth and normal ownership
+settings remain blocked as recorded below. No demo server has been left running.
+See [setup](SETUP.md#explicit-pi-only-llm-demo-profile-november-7).
+
+## November 7: Raspberry Pi local launcher check
+
+`scripts/me3.sh` now selects the installed `.venv-pi` on Linux for doctor,
+console and local microphone/speaker voice mode; the separate Mac speech
+interpreter is unchanged. Plain `.env` assignments are exported to children.
+Pi worker orchestration and the fast Qwen foreground controller remain local;
+only configured inference requests leave the host.
+
+Launcher regressions first reproduced missing Mac interpreter failures for all
+three Pi modes. Installed verification after the fix: **181/181 v1 tests** and
+**211/211 full-suite tests**, zero failures/skips. These include three launcher
+fixture tests, not provider or acoustic tests. Control simulator and compilation
+also passed. Logs are local under `.local/demo-check/`.
+
+Live launch was attempted and exited explicitly with missing foreground
+BASE_URL/model configuration; no runtime was left running. The Qwen profile is
+selected but endpoint/model/key are empty. The configured Mac speech listener
+at port 8002 was reachable but returned HTTP 401 with the configured ASR token.
+Wake phrase and independent speaker-verifier settings are also absent. No live
+voice, speech inference, physical AEC or end-to-end hardware acceptance is
+claimed by these checks.
+
 ## November 7: published Turbo-constrained build and canonical ME3 validation
 
 The published branch is `main`, including `hermes/benchmark-latency-v1` and its

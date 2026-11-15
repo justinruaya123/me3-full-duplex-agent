@@ -20,6 +20,7 @@ class OwnedJobs:
         self.session_id, self.root = session_id, supervisor.root
         self.previews, self.changed = previews, changed
         self.authorized = lambda: True
+        self.submitted = None
         with supervisor.db:
             supervisor.db.execute("""CREATE TABLE IF NOT EXISTS job_owners (
                 job_id TEXT PRIMARY KEY, owner TEXT NOT NULL,
@@ -72,6 +73,8 @@ class OwnedJobs:
                     "INSERT INTO job_requests VALUES (?,?,?)",
                     (self.owner, request_id, job["id"]),
                 )
+        if self.submitted:
+            self.submitted(job["id"])
         return self.get(job["id"])
 
     def get(self, job_id: str) -> dict:
@@ -124,6 +127,8 @@ class OwnedJobs:
             return job
         result = self.supervisor.update(job_id, prompt)
         self._invalidate(job_id)
+        if self.submitted:
+            self.submitted(job_id)
         return {**result, **{key: job[key] for key in ("owner", "kind")}}
 
     def cancel(self, job_id: str, *, expected_revision: int) -> dict:

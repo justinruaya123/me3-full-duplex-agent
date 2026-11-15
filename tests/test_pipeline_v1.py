@@ -74,7 +74,9 @@ class PipelineTests(unittest.IsolatedAsyncioTestCase):
             "tts_key": "",
         }
         with tempfile.TemporaryDirectory() as directory:
-            runtime = AgentRuntime(Path(directory), Backend(), Backend())
+            runtime = AgentRuntime(
+                Path(directory), Backend(), Backend(), memory_enabled=True
+            )
             run_task = None
             try:
                 run, control = await build(
@@ -86,6 +88,8 @@ class PipelineTests(unittest.IsolatedAsyncioTestCase):
                     turn_analyzer=Turn(),
                     config=config,
                 )
+                # Even an opted-in runtime must not remember course trials.
+                self.assertIsNone(control.controller.memory)
                 run_task = asyncio.create_task(run)
                 await asyncio.wait_for(ready.wait(), 5)
                 await control.controller.accept("question")
@@ -112,6 +116,9 @@ class PipelineTests(unittest.IsolatedAsyncioTestCase):
                 await control()
                 await asyncio.wait_for(run_task, 5)
                 self.assertFalse(runtime.closed)
+                self.assertFalse(runtime.memory.recall(
+                    "course-benchmark", ""
+                )["messages"])
             finally:
                 release.set()
                 if run_task and not run_task.done():

@@ -95,15 +95,19 @@ async def pi_rpc_probe() -> dict:
 
 
 async def provider_probe() -> dict:
-    from me3.foreground import ForegroundBackend
+    from me3.foreground import configured_foreground
     from me3.harnesses import configured_backend
 
     config = ForegroundConfig.from_env(os.environ)
-    foreground = ForegroundBackend(config)
+    foreground = configured_foreground()
     started = time.monotonic()
-    text = await foreground.run(
-        "Reply with ME3 ready.", Path("."), foreground=True
-    )
+    try:
+        text = await foreground.run(
+            "Reply with ME3 ready.", Path("."), foreground=True
+        )
+    finally:
+        if hasattr(foreground, "close"):
+            await foreground.close()
     result = {
         "foreground": {
             "passed": bool(text.strip()),

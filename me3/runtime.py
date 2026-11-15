@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import os
 import uuid
 from pathlib import Path
 
@@ -14,21 +15,46 @@ from me3.website import WebsiteWorker, prepare_website
 
 
 class AgentRuntime:
-    def __init__(self, root: Path, worker, foreground) -> None:
-        self.worker = WebsiteWorker(worker)
+    def __init__(
+        self, root: Path, worker, foreground, *,
+        memory_enabled: bool | None = None,
+    ) -> None:
+        from me3.memory import MemoryStore
+
+        if memory_enabled is None:
+            value = os.environ.get("ME3_MEMORY_ENABLED", "0")
+            if value not in {"0", "1"}:
+                raise ValueError("ME3_MEMORY_ENABLED must be 0 or 1")
+            memory_enabled = value == "1"
+        self.memory = None
+        self._memory_jobs: dict[str, str] = {}
+        self.worker = WebsiteWorker(
+            worker, memory_context=self._worker_context
+        )
         self.supervisor = Supervisor(
             root,
             self.worker,
             timeout=600,
             prepare_result=prepare_website,
         )
+        if memory_enabled:
+            try:
+                self.memory = MemoryStore(
+                    self.supervisor.root / "memory.sqlite3"
+                )
+            except Exception:
+                # Initialization is synchronous: no job tasks exist yet.
+                self.supervisor.db.close()
+                self.supervisor._lock.close()
+                self.supervisor.closed = True
+                raise
         self.foreground = foreground
         self.sessions: set[DuplexController] = set()
         self.previews = PreviewManager()
         self.closed = False
 
     def open_session(
-        self, speak, stop, *, owner=None, **options
+        self, speak, stop, *, owner=None, remember=True, **options
     ) -> DuplexController:
         if self.closed:
             raise RuntimeError("Runtime is closed")
@@ -46,10 +72,48 @@ class AgentRuntime:
             **options,
         )
         session.jobs.authorized = lambda: not session._closed
+        if self.memory is not None and remember:
+            from me3.memory import SessionMemory
+
+            session.memory = SessionMemory(
+                self.memory, session.jobs,
+                lambda: (
+                    not session._closed and session.jobs.authorized()
+                    and session.delivery_authorized()
+                ),
+                self._memory_changed,
+            )
+            session.jobs.submitted = lambda job_id: self._remember_job(
+                session, job_id
+            )
         self.sessions.add(session)
         return session
 
+    def _remember_job(self, session, job_id: str) -> None:
+        memory = session.memory
+        owner = session.jobs.owner
+        if (
+            owner and memory.authorized()
+            and memory.owner in {None, owner}
+        ):
+            self._memory_jobs[job_id] = owner
+
+    def _worker_context(self, prompt: str, workspace: Path) -> str:
+        owner = self._memory_jobs.pop(workspace.parent.name, None)
+        if self.memory is None or owner is None:
+            return ""
+        return self.memory.context(owner, prompt, worker=True)
+
+    def _memory_changed(self, owner: str) -> None:
+        for session in self.sessions:
+            if (
+                session.memory is not None and session.jobs.owner == owner
+                and not session._closed
+            ):
+                session.invalidate_memory()
+
     def _job_changed(self, job_id: str) -> None:
+        self._memory_jobs.pop(job_id, None)
         for session in self.sessions:
             session.invalidate_job(job_id)
 
@@ -68,20 +132,23 @@ class AgentRuntime:
         await self.previews.close()
         await self.supervisor.close()
         await self.worker.close()
+        if hasattr(self.foreground, "close"):
+            await self.foreground.close()
+        if self.memory is not None:
+            self.memory.close()
+        self._memory_jobs.clear()
 
 
 async def _console(args) -> None:
-    import os
     import sys
 
-    from me3.configuration import ForegroundConfig
-    from me3.foreground import ForegroundBackend
+    from me3.foreground import configured_foreground
     from me3.harnesses import configured_backend
 
     runtime = AgentRuntime(
         Path(args.state).expanduser(),
         configured_backend(),
-        ForegroundBackend(ForegroundConfig.from_env(os.environ)),
+        configured_foreground(),
     )
     voice_task = control = None
 
@@ -123,7 +190,9 @@ async def _console(args) -> None:
             "ME3 runtime: Pi jobs persist across /end. /quit shuts down runtime.\n"
             "/site REQUEST | /jobs | /status ID | /result ID | /revise ID REQUEST\n"
             "/cancel ID | /preview ID | /focus ID | go back | /voice | /end\n"
-            "/enroll OWNER (after wake) | /mute | /start OWNER",
+            "/enroll OWNER (after wake) | /mute | /start OWNER\n"
+            "/memory [on|off|clear] | /remember KEY = VALUE\n"
+            "/project NAME = DETAILS | /forget KEY | /recall QUERY",
             flush=True,
         )
         reader = asyncio.StreamReader()
@@ -225,7 +294,6 @@ async def _console(args) -> None:
 
 def main() -> None:
     import argparse
-    import os
 
     parser = argparse.ArgumentParser(
         description="Persistent ME3 runtime; explicit Pi/foreground roles"
