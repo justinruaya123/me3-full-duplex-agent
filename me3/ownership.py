@@ -122,6 +122,10 @@ class HTTPVoiceVerifier:
                 "Speaker service requires explicit authentication"
             )
         self.base_url, self.api_key = http_url(base_url), api_key
+        from urllib.parse import urlsplit
+
+        if urlsplit(self.base_url).hostname not in {"localhost", "::1", "127.0.0.1"}:
+            raise ValueError("Speaker verification must run on the client loopback")
         self.client = client
         self.reference: bytes | None = None
 
@@ -129,7 +133,7 @@ class HTTPVoiceVerifier:
         import httpx
 
         if self.client is None:
-            async with httpx.AsyncClient(timeout=20) as client:
+            async with httpx.AsyncClient(timeout=20, trust_env=False) as client:
                 return await self._request(client, action, payload)
         return await self._request(self.client, action, payload)
 

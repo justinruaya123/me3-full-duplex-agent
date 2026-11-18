@@ -1,4 +1,4 @@
-"""Explicit Pi foreground profile: warm, tool-free, reasoning-off RPC."""
+"""Explicit Pi foreground profile: warm, tool-free RPC with explicit reasoning policy."""
 
 from __future__ import annotations
 
@@ -15,9 +15,10 @@ from me3.pi_worker import PersistentPiBackend
 class PiForegroundBackend(PersistentPiBackend):
     """Separate from workers; host supplies all confirmed dialogue context."""
 
-    def __init__(self, *args, on_stage=None, **kwargs):
+    def __init__(self, *args, on_stage=None, allow_reasoning=False, **kwargs):
         super().__init__(*args, **kwargs)
         self.on_stage = on_stage
+        self.allow_reasoning = allow_reasoning
         self.directory = None
         self.read_bytes = 0
 
@@ -73,9 +74,13 @@ class PiForegroundBackend(PersistentPiBackend):
         if data.get("cancelled"):
             raise RuntimeError("Pi foreground context reset rejected")
         levels = await self._request("get_available_thinking_levels")
-        if "off" not in levels.get("levels", []):
+        choices = ("off", "minimal", "low", "medium", "high") if self.allow_reasoning else ("off",)
+        level = next((v for v in choices if v in levels.get("levels", [])), None)
+        if level is None:
+            if self.allow_reasoning:
+                raise ValueError("Pi foreground returned no supported reasoning level")
             raise ValueError("Pi foreground model cannot disable reasoning")
-        await self._request("set_thinking_level", level="off")
+        await self._request("set_thinking_level", level=level)
         await self._request("set_auto_retry", enabled=False)
         state = await self._request("get_state")
         model = state.get("model") or {}
@@ -83,8 +88,8 @@ class PiForegroundBackend(PersistentPiBackend):
             self.model, self.provider
         ):
             raise ValueError("Pi foreground model/provider changed")
-        if state.get("thinkingLevel") != "off":
-            raise ValueError("Pi foreground reasoning is not off")
+        if state.get("thinkingLevel") != level:
+            raise ValueError("Pi foreground reasoning level differs from the request")
         if state.get("isStreaming") or state.get("isCompacting"):
             raise RuntimeError("Pi foreground has unsettled work")
 
@@ -124,8 +129,8 @@ class PiForegroundBackend(PersistentPiBackend):
                                     "Pi foreground prompt rejected"
                                 )
                             if record.get("id") == turn_id:
-                                data = record.get("data", {})
-                                if data.get("disposition") != "started":
+                                data = record.get("data") or {}
+                                if data.get("disposition") not in {None, "started"}:
                                     raise RuntimeError(
                                         "Pi foreground did not start"
                                     )
@@ -133,6 +138,8 @@ class PiForegroundBackend(PersistentPiBackend):
                         elif kind == "message_update":
                             event = record.get("assistantMessageEvent", {})
                             event_type = event.get("type", "")
+                            if self.allow_reasoning and event_type.startswith("thinking_"):
+                                continue
                             if event_type.startswith(
                                 ("thinking_", "toolcall_")
                             ):
@@ -169,6 +176,8 @@ class PiForegroundBackend(PersistentPiBackend):
                                     "Pi foreground response model changed"
                                 )
                             content = message.get("content", [])
+                            if self.allow_reasoning:
+                                content = [block for block in content if block.get("type") != "thinking"]
                             if any(
                                 block.get("type") != "text"
                                 for block in content

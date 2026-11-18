@@ -20,10 +20,12 @@ class HTTPSpeech:
     """
 
     def __init__(
-        self, asr_url: str, tts_url: str, asr_model: str, tts_model: str,
+        self, asr_url: str | None, tts_url: str | None, asr_model: str, tts_model: str,
         *, voice: str = "alloy", client=None,
     ) -> None:
         for endpoint in (asr_url, tts_url):
+            if endpoint is None:
+                continue
             parsed = urlsplit(endpoint)
             if parsed.scheme not in {"http", "https"} or not parsed.hostname:
                 raise ValueError(

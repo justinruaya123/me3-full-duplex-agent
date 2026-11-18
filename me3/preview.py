@@ -39,6 +39,12 @@ class PreviewManager:
         receipt = json.loads((workspace / "verification.json").read_text())
         site = workspace / "site"
         hashes = receipt.get("sha256", {})
+        browser = receipt.get("browser", {})
+        if ("desktop" not in browser.get("viewports", ())
+                or "mobile" not in browser.get("viewports", ())
+                or receipt.get("job_id") != job["id"]
+                or receipt.get("revision") != job["revision"]):
+            raise ValueError("Preview requires a browser-verified receipt for this job revision")
         if (
             receipt.get("passed") is not True
             or not hashes

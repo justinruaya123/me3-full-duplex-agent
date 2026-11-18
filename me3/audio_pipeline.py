@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+from contextlib import aclosing
 import os
 import uuid
 from pathlib import Path
@@ -23,41 +24,44 @@ class ConfiguredSpeech:
 
         from me3.speech import HTTPSpeech
 
-        clients = []
-        for key in ("asr_key", "tts_key"):
-            token = config[key]
-            clients.append(
-                httpx.AsyncClient(
-                    timeout=45,
-                    headers=(
-                        {"Authorization": "Bearer " + token} if token else {}
-                    ),
-                )
+        def client(token):
+            return httpx.AsyncClient(
+                timeout=45,
+                headers={"Authorization": "Bearer " + token} if token else {},
             )
-        self.clients = clients
-        args = (
+
+        self.local = None
+        self.clients = [client(config["asr_key"])]
+        self.asr = HTTPSpeech(
             config["asr_base_url"].rstrip("/") + "/audio/transcriptions",
-            config["tts_base_url"].rstrip("/") + "/audio/speech",
-            config["asr_model"],
-            config["tts_model"],
+            None, config["asr_model"], "", client=self.clients[0],
         )
-        self.asr, self.tts = [
-            HTTPSpeech(
-                *args,
-                voice=config["tts_voice"],
-                client=client,
+        if config["tts_backend"] == "local":
+            from me3.local_tts import LocalKokoro
+
+            self.local = LocalKokoro(Path(config["tts_model_dir"]))
+            self.tts = self.local
+        else:
+            self.clients.append(client(config["tts_key"]))
+            self.tts = HTTPSpeech(
+                None, config["tts_base_url"].rstrip("/") + "/audio/speech",
+                "", config["tts_model"], voice=config["tts_voice"],
+                client=self.clients[-1],
             )
-            for client in clients
-        ]
+
+    async def start(self):
+        if self.local:
+            await self.local.start()
 
     async def transcribe(self, audio: bytes) -> str:
         return await self.asr.transcribe(audio)
 
-    async def synthesize(self, text: str):
-        async for pcm in self.tts.synthesize(text):
-            yield pcm
+    def synthesize(self, text: str):
+        return self.tts.synthesize(text)
 
     async def close(self) -> None:
+        if self.local:
+            await self.local.close()
         await asyncio.gather(*(client.aclose() for client in self.clients))
 
 
@@ -100,7 +104,7 @@ async def build(
     from me3.runtime import AgentRuntime
 
     config = settings() if config is None else config
-    profile = profile or os.environ.get("ME3_OWNERSHIP_PROFILE", "ownership")
+    profile = profile or "ownership"
     if profile not in {"ownership", "course"}:
         raise ValueError("Ownership profile must be ownership or course")
     wake = os.environ.get("ME3_WAKE_PHRASE", "")
@@ -174,8 +178,8 @@ async def build(
         )
         try:
             await bridge.push_frame(TTSStartedFrame(context_id=context))
-            async with asyncio.timeout(90):
-                async for pcm in speech.synthesize(text):
+            async with asyncio.timeout(90), aclosing(speech.synthesize(text)) as stream:
+                async for pcm in stream:
                     if ledger.active != token or closed or muted:
                         return False
                     pcm_buffer.append(pcm)
@@ -225,6 +229,8 @@ async def build(
             and not ledger.did_complete
         ),
     )
+    controller.web_enabled = profile != "course"
+    controller.companion = lambda text: print(text, flush=True)
     session_id = controller.jobs.session_id
     ledger = PlaybackLedger(session_id)
     gate = OwnershipGate(session_id, wake or "course-profile")
@@ -373,12 +379,12 @@ async def build(
                     isinstance(frame, VADUserStoppedSpeakingFrame)
                     and not muted
                 ):
-                    controller.user_stopped()
-                    task = asyncio.create_task(
-                        capture.finish(generation=capture.generation)
-                    )
-                    final_tasks.add(task)
-                    task.add_done_callback(fail)
+                    final = capture.end_vad_segment()
+                    if final is not None:
+                        controller.user_stopped()
+                        task = asyncio.create_task(final)
+                        final_tasks.add(task)
+                        task.add_done_callback(fail)
                 elif isinstance(frame, InputAudioRawFrame):
                     if frame.sample_rate != 16000 or frame.num_channels != 1:
                         raise ValueError("Runtime capture must be 16kHz mono")
@@ -527,6 +533,8 @@ async def build(
     async def run():
         pipeline_task = monitor_task = None
         try:
+            if owns_speech:
+                await speech.start()
             await runner.add_workers(worker)
             pipeline_task = asyncio.create_task(runner.run())
             monitor_task = asyncio.create_task(monitor())

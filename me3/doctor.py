@@ -13,7 +13,7 @@ import time
 from pathlib import Path
 from typing import Mapping
 
-from me3.configuration import ForegroundConfig
+from me3.configuration import ForegroundConfig, worker_pin
 from me3.duplex_voice import settings
 
 
@@ -23,28 +23,55 @@ def configuration_report(env: Mapping[str, str]) -> dict:
     try:
         config = ForegroundConfig.from_env(env)
         foreground = {"profile": config.profile, "model": config.model}
+        if config.profile in {"openrouter", "pi-fast", "pi-chat"}:
+            foreground["provider"] = config.provider
+        if config.profile == "openrouter":
+            foreground["serving_name"] = config.provider_name or "Google AI Studio"
+        if config.profile in {"pi-fast", "pi-chat"}:
+            from me3.foreground import configured_foreground
+            configured_foreground(env=env)
     except ValueError:
         blockers.append("foreground")
     try:
         speech = settings(env)
         speech_models = {
-            key: speech[key] for key in ("asr_model", "tts_model", "tts_voice")
+            key: speech[key] for key in ("asr_model", "tts_backend", "tts_model", "tts_voice")
         }
+        if speech["tts_backend"] == "local":
+            from me3.local_tts import verify_assets
+            try:
+                importlib.metadata.version("sherpa-onnx")
+                verify_assets(Path(speech["tts_model_dir"]))
+            except (OSError, ValueError, importlib.metadata.PackageNotFoundError):
+                blockers.append("local Kokoro runtime or pinned model assets")
     except ValueError:
         speech_models = None
         blockers.append("speech")
     worker = {
+        "harness": env.get("ME3_HARNESS", "pi"),
         "provider": env.get("ME3_WORKER_PROVIDER") or None,
         "model": env.get("ME3_WORKER_MODEL") or None,
     }
-    if not worker["model"] or not worker["provider"]:
+    from me3.harnesses import configured_backend
+    try:
+        backend = configured_backend(env)  # No subprocess or network request.
+        if getattr(backend, "provider", None) == "openrouter":
+            worker.update(routing_provider=backend.routing_provider,
+                          serving_name=backend.serving_name)
+    except ValueError:
         blockers.append("worker model/provider")
     if not env.get("ME3_WAKE_PHRASE"):
         blockers.append("wake phrase")
-    if not env.get("ME3_SPEAKER_BASE_URL") or not env.get(
-        "ME3_SPEAKER_API_KEY"
-    ):
+    from me3.ownership import HTTPVoiceVerifier
+    try:
+        HTTPVoiceVerifier(
+            env.get("ME3_SPEAKER_BASE_URL", ""), env.get("ME3_SPEAKER_API_KEY", "")
+        )
+    except ValueError:
         blockers.append("speaker/overlap/addressee verification service")
+    search_configured = bool(env.get("BRAVE_SEARCH_API_KEY", "").strip())
+    if env.get("ME3_FOREGROUND_PROFILE") == "openrouter" and not search_configured:
+        blockers.append("Brave lookup credential")
     versions = {}
     for package in ("me3-full-duplex-agent", "pipecat-ai", "mcp", "httpx"):
         try:
@@ -56,6 +83,7 @@ def configuration_report(env: Mapping[str, str]) -> dict:
         "blockers": blockers,
         "foreground": foreground,
         "worker": worker,
+        "web_lookup": {"provider": "Brave", "key_configured": search_configured},
         "speech": speech_models,
         "versions": versions,
         "platform": platform.platform(),
@@ -105,17 +133,27 @@ async def provider_probe() -> dict:
         text = await foreground.run(
             "Reply with ME3 ready.", Path("."), foreground=True
         )
+        result = {
+            "foreground": {
+                "passed": bool(text.strip()),
+                "seconds": time.monotonic() - started,
+                "model": config.model,
+                "profile": config.profile,
+                "reasoning_request": ("provider default; no reasoning deltas observed"
+                                      if config.profile == "compatible"
+                                      else "disabled; no reasoning deltas observed"),
+            }
+        }
+        if config.profile == "openrouter":
+            result["foreground"]["verified_provider"] = foreground.verified_provider
+            proposal = await foreground.propose("Please look up weather")
+            supported = bool(proposal and proposal.kind == "lookup"
+                             and proposal.argument == "weather")
+            result["foreground"]["lookup_tool_supported"] = supported
+            result["foreground"]["passed"] &= supported
     finally:
         if hasattr(foreground, "close"):
             await foreground.close()
-    result = {
-        "foreground": {
-            "passed": bool(text.strip()),
-            "seconds": time.monotonic() - started,
-            "model": config.model,
-            "reasoning_request": "disabled; no reasoning deltas observed",
-        }
-    }
     worker = configured_backend()
     try:
         started = time.monotonic()
@@ -127,9 +165,18 @@ async def provider_probe() -> dict:
             "Reply with ME3 ready. Do not use tools.", root
         )
         result["worker"] = {
+            "harness": os.environ.get("ME3_HARNESS", "pi"),
+            "provider": getattr(worker, "provider", None),
+            "model": getattr(worker, "model", None),
             "passed": bool(text.strip()),
             "seconds": time.monotonic() - started,
         }
+        if getattr(worker, "provider", None) == "openrouter":
+            result["worker"].update(model=worker.model,
+                                    verified_provider=worker.verified_provider,
+                                    reasoning_request="medium")
+            _, expected_serving_name = worker_pin(os.environ, worker.model)
+            result["worker"]["passed"] &= worker.verified_provider == expected_serving_name
     finally:
         if hasattr(worker, "close"):
             await worker.close()

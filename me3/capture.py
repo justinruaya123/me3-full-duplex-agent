@@ -6,6 +6,7 @@ import asyncio
 import io
 import re
 import wave
+from collections.abc import Coroutine
 
 from me3.incremental import (
     RollingTranscript,
@@ -208,6 +209,13 @@ class RollingCapture:
         self.audio.clear()
         if self.on_empty is not None:
             self.on_empty(self.generation)
+
+    def end_vad_segment(self) -> Coroutine[None, None, None] | None:
+        """Claim this onset's final before scheduling inference on the event loop."""
+        if self.closed or not self.active:
+            return None
+        self.active = False
+        return self.finish(generation=self.generation)
 
     async def finish(self, *, generation: int | None = None) -> None:
         if generation is not None and generation != self.generation:

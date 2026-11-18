@@ -16,7 +16,7 @@ def is_acknowledgment(text: str) -> bool:
     authority. Any other word, including negation or a command, rejects it.
     """
     words = " ".join(re.sub(r"[^\w\s]", " ", text.casefold()).split())
-    unit = r"(?:mm hmm|mmhmm|mhm|uh huh|yeah|yes|right|okay|ok|sure)"
+    unit = r"(?:mm hmm|mm hum|mmhmm|mhm|uh huh|yeah|yes|right|okay|ok|sure)"
     return re.fullmatch(unit + r"(?: " + unit + r"){0,2}", words) is not None
 
 
@@ -200,8 +200,10 @@ def _ends_abbreviation(text: str) -> bool:
     )
 
 
-async def clauses(stream: AsyncIterator[str]) -> AsyncIterator[str]:
-    """Confirm boundaries with whitespace; never split source words."""
+async def clauses(
+    stream: AsyncIterator[str], *, split_long_tokens: bool = False
+) -> AsyncIterator[str]:
+    """Emit bounded clauses; saved artifacts can include long identifiers."""
     pending = ""
     async for text in stream:
         # Inspect characters in source order so delta sizes cannot change a
@@ -226,7 +228,9 @@ async def clauses(stream: AsyncIterator[str]) -> AsyncIterator[str]:
                     ):
                         break
                 else:
-                    raise BufferError("Speech token exceeds clause buffer")
+                    if not split_long_tokens:
+                        raise BufferError("Speech token exceeds clause buffer")
+                    end = 240
                 chunk, pending = pending[:end].strip(), pending[end:].lstrip()
                 if chunk:
                     yield chunk
