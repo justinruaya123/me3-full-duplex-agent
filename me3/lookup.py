@@ -135,6 +135,7 @@ class LookupResult:
     support: str = ""
     subject: str = ""
     source_dates: tuple[dict, ...] = ()
+    items: tuple[dict, ...] = ()
 
     def terminal_text(self, mode: str) -> str:
         sources = self.companion
@@ -170,7 +171,7 @@ def source(record: dict):
 
 def result(records: list, answer: str, cached: bool) -> LookupResult:
     lines, excerpts, spans, urls, support = [], [], [], [], []
-    dates = []
+    dates, items = [], []
     for record in records[:5]:
         title, host, snippet, url, published = source(record)
         if not snippet:
@@ -190,6 +191,7 @@ def result(records: list, answer: str, cached: bool) -> LookupResult:
                     support.append(detail)
         if url not in urls:
             urls.append(url)
+            items.append({"title": title, "snippet": snippet, "url": url})
             # Preserve the provider's date separately from its relative age label.
             date_value = record.get("published_at")
             dates.append({"url": url, "published_at": speech_text(str(date_value)) if date_value else None,
@@ -222,7 +224,7 @@ def result(records: list, answer: str, cached: bool) -> LookupResult:
         "\n".join([label + "Retrieved " + stamp, *lines]),
         tuple(urls),
         "\n".join([*paragraphs, *support]),
-        source_dates=tuple(dates),
+        source_dates=tuple(dates), items=tuple(items),
     )
 
 

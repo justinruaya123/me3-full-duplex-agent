@@ -170,6 +170,12 @@ async def main(original_faces=False):
                         "The latest view could not be displayed."
                     ).wait_for()
                     await page.get_by_text("Room 105").wait_for()
+                    panel("canvas", {"board": {"title": "Brave search results", "rows": [
+                        {"kind": "note", "label": "Observatory guide", "detail": "A sourced excerpt.",
+                         "href": "https://example.org/guide"}]}, "done": True})
+                    link = page.get_by_role("link", name="Observatory guide")
+                    await expect(link).to_have_attribute("href", "https://example.org/guide")
+                    await expect(link).to_have_attribute("rel", "noopener noreferrer")
                     process = await asyncio.create_subprocess_exec(
                         "node",
                         "--input-type=module",

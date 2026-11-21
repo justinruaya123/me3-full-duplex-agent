@@ -17,9 +17,17 @@ OpenRouter for conversation and jobs, and local Piper for speech. The optional
 Parakeet profile requires `ME3_ASR_BACKEND=parakeet`, `ME3_PARAKEET_URL`
 and `ME3_ASR_TOKEN`. The older course launcher is available through `start.py`.
 
+A follow-up continues the current chat. Ask an uncertain public factual question
+for a short spoken answer. Say “search for” to browse linked Brave results in
+IntelligentUI. When the account lacks Brave Answers, Pi summarizes the Brave Web
+excerpts. For an edit to an existing assignment, refer to it by name. Pi sends
+the change to the same job at its next revision.
+
 Setup creates a project Python environment (3.11 through 3.13), installs the locked
 Pi CLI and Brave plugin, and prepares the bundled extensions, Superpowers skills,
-renderer, Chromium, the original BMO face frames and the BMO voice. To install or repair just the thirteen face PNGs, run `python3 -m integrations.voicechat.face_assets` from the checkout. It uses a compatible Node on PATH or downloads
+renderer, Chromium, the original BMO face frames and the BMO voice. To repair
+the thirteen face PNGs, run `python3 -m integrations.voicechat.face_assets`
+from the checkout. The installer uses a compatible Node on PATH or downloads
 a checksum-verified Node under `.local/node`. The project Pi profile and trust
 store live under `.local/pi`. Trust is specific to the checkout. For a previously
 denied folder, use `bash integrations/voicechat/start.sh --trust-project` after

@@ -1,5 +1,41 @@
 # Implementation and qualification status
 
+## November 21 · Current chat, Brave results and edits to ongoing work
+
+The Pi extension previously inserted three old chat excerpts beside a new
+message even when none matched. During an active conversation, the ordinary
+follow-up now uses the current branch. Explicit cross-chat recall and the
+private owner profile are available. Recent Brave excerpts can support a related
+follow-up without another confirmation. The old requirement to quote a full
+source sentence verbatim on a recheck was removed.
+
+A seven-turn typed Mac session used the project Pi, live OpenRouter, live Brave
+and a real local worker. It delegated a packing checklist, answered a question
+about Mars, expanded the answer and displayed five linked results for the
+requested mission page. A spoken-style edit to the checklist advanced the same
+job from revision 1 to 2. A separate arithmetic question returned 13 without
+tools. The status tool then read the completed revision containing the headlamp
+edit. No turn asked the operator to restate the subject. An independent public
+sports question triggered Brave without an explicit request for a search.
+Brave Answers returned an entitlement refusal on the configured account. Brave
+Web supplied five sources and Pi produced the summary.
+
+The original three input WAVs passed all five digital routing checks again.
+On this Mac replay, local VAD end to the first task-specific speaker callback
+was 4.260 s for the accepted checklist, 2.207 s for “12” and 2.814 s for the
+status of the same completed job. The worker saved a three-step checklist under
+60 words. These are individual digital measurements. Target-device and physical
+microphone timing remain open.
+
+Chromium exercised an actual result anchor in the companion panel and both
+display themes. The 13 original frames passed their pinned hashes. Without
+the optional pack, captions and status still work. The active catalog contains
+12 BMO speech clips, including the single listening cue “I'm listening.”
+
+Installed Mac verification passed all 494 Python tests, including the 464
+versioned tests, and all 101 JavaScript tests. Both suites had zero skips.
+The five duplex simulation checks and Python compilation passed.
+
 ## November 21 · Three-turn spoken routing on the Mac
 
 The same three input WAVs that previously scored 0/4 were replayed byte for

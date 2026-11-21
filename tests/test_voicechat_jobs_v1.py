@@ -18,6 +18,35 @@ class VoiceJobsTests(unittest.IsolatedAsyncioTestCase):
             finally:
                 await jobs.close()
 
+    async def test_steering_revises_only_the_named_job_and_preserves_follow_up(self):
+        class Worker:
+            async def run(self, prompt, workspace, *, foreground=False):
+                return prompt
+
+        with tempfile.TemporaryDirectory() as folder:
+            events = []
+            jobs = VoiceJobs(Path(folder), Worker(), events.append)
+            try:
+                draft = jobs.submit("draft", "Write a packing list", "a", follow_up=True)
+                other = jobs.submit("draft", "Draft a letter", "b")
+                await asyncio.sleep(0)
+                updated = jobs.revise(draft["id"], 1, "Add a raincoat")
+                self.assertEqual((updated["id"], updated["revision"]), (draft["id"], 2))
+                self.assertTrue(updated["follow_up"])
+                self.assertEqual(jobs.revise(draft["id"], 1, "Add a raincoat")["revision"], 2)
+                with self.assertRaisesRegex(ValueError, "revision"):
+                    jobs.revise(draft["id"], 1, "Replace the list")
+                await jobs.supervisor.wait(draft["id"])
+                await jobs.supervisor.wait(other["id"])
+                await asyncio.wait_for(asyncio.gather(*jobs.watches.values()), 3)
+                self.assertIn("packing list", jobs.status(draft["id"])["text"])
+                self.assertIn("raincoat", jobs.status(draft["id"])["text"])
+                self.assertEqual(jobs.status(other["id"])["revision"], 1)
+                self.assertTrue(any(e["id"] == draft["id"] and e["revision"] == 2
+                                    and e["status"] == "completed" for e in events))
+            finally:
+                await jobs.close()
+
     async def test_submitted_work_is_independent_and_survives_reopening(self):
         ready = asyncio.Event()
         events = []

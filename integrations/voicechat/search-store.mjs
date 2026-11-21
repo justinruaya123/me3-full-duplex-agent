@@ -79,7 +79,7 @@ export function withSearchEvidence(message, store) {
   const entries = refs.map(id => store.byId(id)).filter(Boolean);
   if (!entries.length) return {...message, content:[{type:"text",text:"The search evidence expired with its session."}]};
   return {...message, details:{...entries[0], ...message.details},
-    content:[{type:"text",text:JSON.stringify({origin:message.details.origin, results:entries.map(e => ({
+    content:[{type:"text",text:JSON.stringify({origin:message.details.origin, display:message.details.display, results:entries.map(e => ({
       ref:e.id, query:e.query, excerpts:e.brief, sources:e.sources, source_dates:e.source_dates, retrieved_at:e.retrieved_at, retrieved_local_date:e.retrieved_local_date}))})}]};
 }
 
@@ -102,4 +102,10 @@ export function recentSearchContext(messages, store) {
     }
   }
   return {messages:hydrated, receipts};
+}
+
+export function resultsBoard(evidence) {
+  return {title:"Brave search results", rows:evidence.items.slice(0,5).map(hit => ({
+    kind:"note", label:hit.title.slice(0,80), detail:hit.snippet.slice(0,140), href:hit.url,
+  }))};
 }

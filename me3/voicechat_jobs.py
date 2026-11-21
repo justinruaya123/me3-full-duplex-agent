@@ -54,6 +54,21 @@ class VoiceJobs:
         if kind == "portfolio":
             prompt = REQUEST_PREFIX + PORTFOLIO_PREFIX + brief
         job = self.jobs.submit(prompt, request_id=kind + "/" + key)
+        return self._track(job, follow_up)
+
+    def revise(self, job_id, revision, instruction):
+        current = self.jobs.get(job_id)
+        instruction = checked_prompt(instruction)
+        if current["prompt"].startswith(REQUEST_PREFIX + PORTFOLIO_PREFIX):
+            raise ValueError("Portfolio content changes require a new public fact selection")
+        if (type(revision) is int and current["revision"] in {revision, revision + 1}
+                and current["prompt"].endswith("\nOwner change:\n" + instruction)):
+            return self.status(job_id)
+        follow_up = self.status(job_id)["follow_up"]
+        job = self.jobs.revise(job_id, instruction, expected_revision=revision)
+        return self._track(job, follow_up)
+
+    def _track(self, job, follow_up):
         job_id = job["id"]
         with self.supervisor.db as db:
             db.execute("""INSERT INTO voice_receipts(job,revision,follow_up) VALUES (?,?,?)
@@ -83,19 +98,17 @@ class VoiceJobs:
         return [self.status(row[0]) for row in rows]
 
     async def _watch(self, job_id):
-        wait = asyncio.create_task(self.supervisor.wait(job_id))
         previous = None
         try:
-            while not wait.done():
+            while True:
                 snapshot = self.status(job_id, for_display=True)
-                if snapshot != previous and snapshot["status"] in {"queued", "running"}:
+                if snapshot != previous:
                     self.notify(snapshot)
                     previous = snapshot
-                await asyncio.wait({wait}, timeout=1.0)
-            self.notify(self.status(job_id))
+                if snapshot["status"] not in {"queued", "running", "cancelling"}:
+                    return
+                await asyncio.sleep(.5)
         finally:
-            wait.cancel()
-            await asyncio.gather(wait, return_exceptions=True)
             self.watches.pop(job_id, None)
 
     def status(self, job_id=None, *, for_display=False):
@@ -108,7 +121,7 @@ class VoiceJobs:
         result = {k: job[k] for k in ("id", "status", "kind", "revision")}
         if job["kind"] == "draft" and job["prompt"].startswith(SUBAGENT_PREFIX):
             try:
-                assignment = json.loads(job["prompt"][len(SUBAGENT_PREFIX):])
+                assignment = json.loads(job["prompt"][len(SUBAGENT_PREFIX):].partition("\nOwner change:\n")[0])
                 if isinstance(assignment, dict) and assignment.get("agent") in {"planner", "reviewer", "writer"}:
                     result["agent"] = assignment["agent"]
             except ValueError:
@@ -173,6 +186,8 @@ async def run(session, replay_dir=None):
                 if req["op"] == "submit":
                     result = jobs.submit(req["kind"], req["brief"], req["key"],
                                          follow_up=req.get("follow_up") is True)
+                elif req["op"] == "revise":
+                    result = jobs.revise(req["job"], req["revision"], req["instruction"])
                 elif req["op"] == "claim_cue":
                     result = jobs.claim_cue(req["job"], req["revision"])
                 elif req["op"] == "notices":

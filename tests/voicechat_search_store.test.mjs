@@ -84,3 +84,15 @@ test("a follow-up can select source evidence across a conversational turn on its
     assert.equal(recentSearchContext([user,answer,user],store).receipts.size,0);
   } finally {store.close(); other.close();}
 });
+
+test("search results use the titles, excerpts and links from the receipt", async () => {
+  const {resultsBoard} = await import("../integrations/voicechat/search-store.mjs");
+  const {validBoard} = await import("../integrations/voicechat/theme/display.mjs");
+  const hit = {title:"A public guide", snippet:"The sourced excerpt.", url:"https://example.org/guide"};
+  const board = resultsBoard({items:[hit]});
+  assert.equal(board.rows[0].href,hit.url);
+  assert.equal(board.rows[0].label,hit.title);
+  assert.equal(board.rows[0].detail,hit.snippet);
+  assert.ok(validBoard(board));
+  assert.equal(validBoard({...board,rows:[{...board.rows[0],href:"javascript:alert(0)"}]}),false);
+});

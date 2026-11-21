@@ -386,7 +386,7 @@ class DuplexController:
                 and self.clock() - self._last_backchannel >= 6
             ):
                 self._last_backchannel = self.clock()
-                self._spawn(self._deliver("Take your time.", self.epoch, record=False))
+                self._spawn(self._deliver("I'm listening.", self.epoch, record=False))
             return "hold"
         text = (self._pending + " " + text).strip()
         self._pending = ""

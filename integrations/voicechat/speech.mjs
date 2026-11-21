@@ -54,6 +54,7 @@ export function recheckRequest(source) {
 }
 
 export function searchFallback(turn) {
+  if (turn?.lookupRejected) return;
   if ((turn?.requiresSearch && !turn.liveEvidence) ||
       ((turn?.lookup || turn?.searchAttempted || turn?.publicLookup) && !turn?.searchSupport))
     return "I couldn’t verify that with a source this time.";
@@ -62,20 +63,6 @@ export function searchFallback(turn) {
 // Candidate only. The host still validates the whole public utterance locally.
 export function publicFactCheck(source) {
   return /\b(?:when (?:did|was|were|will)|who (?:won|wins|leads)|latest|currently|recent(?:ly)?|as of (?:now|today)|this (?:week|month|year)|verify|fact.check)\b/i.test(source);
-}
-
-// A second look is often inconclusive. An older snippet cannot justify a
-// model's added claim that no newer event exists.
-export function checkedRecheck(reply, evidence) {
-  const sentence = spokenReply(reply).replace(/^["“]|["”]$/g, "").trim();
-  if (sentence && sentence.length <= 320) {
-    for (const line of evidence.split("\n")) {
-      for (const {segment} of sentences.segment(line)) {
-        if (spokenReply(segment) === sentence) return sentence;
-      }
-    }
-  }
-  return "I checked again, but I couldn’t confirm that from the sources I found.";
 }
 
 export function spokenToolReply(value) {

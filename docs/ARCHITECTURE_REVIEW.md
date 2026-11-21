@@ -42,3 +42,25 @@ controller checks it again before playback. Revising the job starts a new
 delivery record. The earlier candidate and benchmark notes below describe the
 behavior at their dated revisions.
 
+
+### D3 · Continue the conversation or steer a job
+
+```mermaid
+flowchart LR
+  turn[Committed turn] --> thread[Current Pi conversation]
+  memory[Private cross-chat memory] -->|Fresh chat or explicit recall| thread
+  thread -->|Question about active work| status[Local job status]
+  thread -->|Requested edit and job revision| job[Local supervisor]
+  thread -->|Uncertain public fact| answer[Brave Answers]
+  answer -->|Answers unavailable on plan| web[Brave Web Search]
+  thread -->|Request to browse results| web
+  web -->|Requested links| ui[IntelligentUI]
+  answer --> speech[Short spoken answer]
+  web --> speech
+```
+
+Pi can use public evidence from the current and preceding two exchanges. Older
+chats supply context on request. A normal follow-up uses the conversation already
+on the current branch. Edits carry the existing job ID and expected revision.
+A new revision retains outstanding notification intent and runs under the same
+supervisor. Selected portfolio facts still use the publication review flow.

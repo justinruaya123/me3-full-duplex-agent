@@ -7,7 +7,9 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from me3.lookup import AnswersNotInPlan, BraveLookup, LOCAL_CONTEXT, NEWS_REQUEST, lookup_intent, lookup_token
+from me3.lookup import (
+    AnswersNotInPlan, BraveLookup, LOCAL_CONTEXT, NEWS_REQUEST, QUESTION, lookup_intent, lookup_token,
+)
 
 
 SELF_LOOKUP = re.compile(
@@ -242,7 +244,7 @@ async def fetch_evidence(query, mode, freshness, env, on_start=None):
         return {"provider": "Brave", "mode": mode, "source_dates": result.source_dates,
                 "retrieved_at": datetime.now(timezone.utc).isoformat(timespec="milliseconds"), "brief": result.speech,
                 "subject": result.subject or query,
-                "sources": note + result.companion, "urls": result.urls, "support": result.support}
+                "sources": note + result.companion, "urls": result.urls, "support": result.support, "items": result.items}
     except httpx.HTTPStatusError as exc:
         return {"error": f"Brave {mode} returned HTTP {exc.response.status_code}."}
     except (httpx.RequestError, TimeoutError):
@@ -251,9 +253,36 @@ async def fetch_evidence(query, mode, freshness, env, on_start=None):
         return {"error": str(exc)[:180]}
 
 
-async def lookup(source, topic, env, *, on_start=None, resolve_only=False, **context):
+async def lookup(source, topic, env, *, on_start=None, resolve_only=False, show_results=None, **context):
     try:
-        plan = resolve_request(source, topic, env, **context)
+        request = re.sub(r"^(?:(?:hey )?bmo[, ]+)?(?:(?:can|could|would) you )?(?:please )?",
+                         "", source.strip(), flags=re.I)
+        speech_only = re.search(r"\b(?:just (?:tell me|answer)|no (?:links|screen|results))\b", request, re.I)
+        results = not speech_only and (show_results is True or re.match(
+            r"^(?:search\b|(?:show|give) me (?:the )?(?:search )?results\b|"
+            r"(?:show|give|find|gather) (?:me )?(?:some )?(?:links|sources|articles)\b)", request, re.I))
+        if NO_SEARCH.search(source):
+            raise ValueError("The current request excludes a web search.")
+        # Display instructions stay on the client. A self-contained public
+        # search can go straight to Brave without another scope negotiation.
+        search = re.sub(r"(?:,|\band)\s+(?:please )?(?:show|give) me (?:the |some )?"
+                        r"(?:links|results|sources)[.!?]*$", "", request, flags=re.I) if results else request
+        standalone = lookup_intent(search) if results else None
+        if standalone:
+            query, _, freshness = standalone
+            if context.get("continuation_query") and (context.get("continuation_selected") or
+                                                       re.match(r"^(?:the |its |their )", query, re.I)):
+                query = refine_public_query(query, topic or context.get("propose_scope") or "",
+                                            context["continuation_query"] + " " + context.get("previous_evidence", ""))
+            plan = {"query": query, "freshness": freshness, "force_live": True}
+        else:
+            plan = resolve_request(search if results else source, topic, env, **context)
+        if "query" in plan:
+            if results:
+                plan.update(mode="web", show_results=True)
+            elif (not plan["freshness"] and (speech_only or QUESTION.match(request))
+                  and not context.get("awaiting_name") and not SELF_LOOKUP.match(source)):
+                plan["mode"] = "answers"
         if resolve_only or "query" not in plan:
             return plan
         return await fetch_evidence(plan["query"], plan["mode"], plan["freshness"], env, on_start)
@@ -268,7 +297,7 @@ if __name__ == "__main__":
     else:
         evidence = asyncio.run(lookup(
             data["source"], data.get("topic"), os.environ, resolve_only=data.get("op") == "resolve", one_story=data.get("one_story"),
-            previous_subject=data.get("previous_subject"), previous_evidence=data.get("previous_evidence", ""),
+            show_results=data.get("show_results"), previous_subject=data.get("previous_subject"), previous_evidence=data.get("previous_evidence", ""),
             recheck_query=data.get("recheck_query") or "", continuation_query=data.get("continuation_query") or "",
             continuation_selected=data.get("continuation_selected") is True,
             propose_scope=data.get("propose_scope"), confirmed_scope=data.get("confirmed_scope"),

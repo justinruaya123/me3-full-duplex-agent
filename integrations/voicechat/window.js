@@ -204,6 +204,13 @@ function renderCanvas(value, force = false) {
     for (const row of value.board.rows) {
       const marker = row.kind === "task" ? (row.marked ? "☑ " : "☐ ") : row.kind === "option" ? (row.marked ? "● " : "○ ") : "";
       const article = el("article", marker + row.label);
+      if (row.href) {
+        const link = el("a",row.label);
+        link.href = row.href;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        article.replaceChildren(link);
+      }
       if (row.detail) article.append(el("p",row.detail));
       board.append(article);
     }

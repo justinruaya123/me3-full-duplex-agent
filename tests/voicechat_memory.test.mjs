@@ -100,3 +100,16 @@ test("a full profile rejects a save without losing existing entries", async t =>
     assert.equal(readFileSync(path,"utf8"), original);
   } finally {store.close();}
 });
+
+test("the current thread wins over a matching older chat until the user asks for it", t => {
+  const dir = mkdtempSync(join(tmpdir(),"me3-recent-"));
+  t.after(() => rmSync(dir,{recursive:true,force:true}));
+  const store = openChatMemory({profile:dir,sessionFile:"saved"});
+  try {
+    store.record("old","one","The harbor schedule was delayed.");
+    for (const query of ["Tell me more about that.", "What about the harbor schedule?","Where were we?"])
+      assert.equal(store.recall("now",query,{activeThread:true}),"");
+    assert.equal(store.recall("fresh","What's a nebula?"),"");
+    assert.match(store.recall("now","From our previous chat, what was the harbor schedule?",{activeThread:true}),/was delayed/);
+  } finally {store.close();}
+});

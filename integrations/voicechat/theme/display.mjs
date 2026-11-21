@@ -16,6 +16,8 @@ export function validBoard(board) {
   return typeof board?.title === "string" && board.title.length <= 72 &&
     Array.isArray(board.rows) && board.rows.length <= 8 && board.rows.every(row =>
       row && ["note","task","option"].includes(row.kind) && typeof row.label === "string" &&
+      (row.href === undefined || typeof row.href === "string" && row.href.length <= 2048 &&
+        URL.canParse(row.href) && ["https:","http:"].includes(new URL(row.href).protocol)) &&
       row.label.length <= 80 && (row.detail === undefined || typeof row.detail === "string" && row.detail.length <= 140));
 }
 

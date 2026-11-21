@@ -52,14 +52,11 @@ test("the pass after a lookup can answer from evidence without issuing the same 
   assert.equal(request.tools.length,2);
 });
 
-test("a fresh challenge cannot turn an older report into a claim that nothing happened later", async () => {
-  const {checkedRecheck} = await import("../integrations/voicechat/speech.mjs");
-  const excerpt = "The bridge reopened in October after repairs.";
-  assert.equal(checkedRecheck(excerpt, excerpt), excerpt);
-  for (const claim of ["No further closures occurred.", excerpt + " There were no later closures.",
-    "You probably mean the other bridge.", "The bridge reopened"]) {
-    assert.match(checkedRecheck(claim, excerpt), /couldn’t confirm/i);
-  }
+test("a recheck can speak a sourced paraphrase and a rejected query leaves room for local context", async () => {
+  const {checkSearchReply,searchFallback} = await import("../integrations/voicechat/speech.mjs");
+  const reply = "Repairs finished in October and the bridge reopened.";
+  assert.equal(checkSearchReply(reply,"The bridge reopened in October after repairs."),reply);
+  assert.equal(searchFallback({lookupRejected:true,searchAttempted:true}),undefined);
 });
 
 test("read simple TeX, preserve prices, leave advanced notation on screen", () => {

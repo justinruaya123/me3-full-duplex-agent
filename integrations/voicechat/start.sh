@@ -82,7 +82,7 @@ case "$ME3_VOICE_TTS" in
     kokoro) ;;
     *) boot_error setup "Choose ME3_VOICE_TTS=bmo, lessac, or kokoro." ;;
 esac
-session_tools+=",subagent,web_lookup,recall_web_search,portfolio_research,show_dashboard,update_dashboard,remember_detail"
+session_tools+=",subagent,revise_delegated_task,web_lookup,recall_web_search,portfolio_research,show_dashboard,update_dashboard,remember_detail"
 export ME3_VOICE_PROMPT_DIR="${ME3_VOICE_PROMPT_DIR:-$PWD/.local/voice-prompts}"
 # Seed optional editing guides on first launch and preserve operator edits.
 (

@@ -104,7 +104,9 @@ export function openChatMemory({profile, sessionFile, enabled = "1", fixture = f
       reply(session, turn, text) {
         if (text.trim()) answer.run(text.trim().slice(0, 1000), session, turn);
       },
-      recall(session, query) {
+      recall(session, query, {activeThread = false} = {}) {
+        const earlier = /\b(?:previous|earlier|last|prior|another|other|past) (?:chats?|sessions?|conversations?)\b|\b(?:we discussed|we decided|we talked about) (?:yesterday|last|before)\b/i.test(query);
+        if (activeThread && !earlier) return "";
         const wanted = terms(query);
         let rows = past.all(session);
         // A request to pick the thread back up needs neighboring turns from one chat.
@@ -115,9 +117,9 @@ export function openChatMemory({profile, sessionFile, enabled = "1", fixture = f
           const score = [...wanted].filter(word => words.has(word)).length;
           return {row, score};
         });
-        // Recency breaks ties and supplies context for a generic follow-up.
+        // Only an explicit return to an earlier chat can use recency alone.
         const excerpts = [];
-        for (const {row} of ranked.sort((a,b) => b.score - a.score).slice(0, 3)) {
+        for (const {row} of ranked.filter(m => m.score || resume || earlier).sort((a,b) => b.score - a.score).slice(0, 3)) {
           const entry = {date:new Date(row.created).toISOString(), user:row.asked, assistant:row.answered};
           if (JSON.stringify([...excerpts, entry]).length <= 7500) excerpts.push(entry);
         }

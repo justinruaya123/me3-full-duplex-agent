@@ -56,7 +56,7 @@ class ConversationPromptTests(unittest.TestCase):
         self.assertNotIn("sample private preference", result.stdout.decode())
         self.assertEqual(args[0], str(Path(folder).resolve() / ".local/pi"))
         self.assertEqual(Path(args[args.index("--extension") + 1]).resolve(), plugin.resolve() / "pi.mjs")
-        self.assertEqual(args[args.index("--tools") + 1], "read_trial_brief,create_website,delegate_task,delegated_task_status,subagent,web_lookup,recall_web_search,portfolio_research,show_dashboard,update_dashboard,remember_detail")
+        self.assertEqual(args[args.index("--tools") + 1], "read_trial_brief,create_website,delegate_task,delegated_task_status,subagent,revise_delegated_task,web_lookup,recall_web_search,portfolio_research,show_dashboard,update_dashboard,remember_detail")
 
     def test_live_human_launcher_shares_owner_profile_and_honors_memory_opt_out(self):
         with tempfile.TemporaryDirectory() as folder:

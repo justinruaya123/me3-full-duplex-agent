@@ -262,12 +262,12 @@ class ControllerTests(unittest.IsolatedAsyncioTestCase):
             "I would like to explain the problem because", complete=False,
         ), "hold")
         await self.settle()
-        self.assertEqual(self.spoken, ["Take your time."])
+        self.assertEqual(self.spoken, ["I'm listening."])
         await self.controller.accept(
             "and there is another part", complete=False,
         )
         await self.settle()
-        self.assertEqual(self.spoken, ["Take your time."])
+        self.assertEqual(self.spoken, ["I'm listening."])
         self.assertFalse(self.controller.poll())
 
     async def test_provider_failure_does_not_fake_success(self):

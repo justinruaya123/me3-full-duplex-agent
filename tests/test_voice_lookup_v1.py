@@ -37,6 +37,31 @@ class VoiceSearchTests(unittest.TestCase):
 
 
 class PlanRoutingTests(unittest.IsolatedAsyncioTestCase):
+    async def test_voice_question_and_explicit_results_use_different_presentations(self):
+        from integrations.voicechat.lookup import lookup
+        for source, mode, show in [
+            ("What causes blue icebergs?", "answers", False),
+            ("Could you search for blue icebergs?", "web", True),
+            ("Show me links about blue icebergs.", "web", True),
+            ("Which studies describe blue icebergs?", "answers", False),
+            ("Search for blue icebergs, just tell me the answer.", "answers", False),
+        ]:
+            with self.subTest(source=source):
+                plan = await lookup(source, "blue icebergs", {}, resolve_only=True)
+                self.assertEqual((plan["mode"], plan.get("show_results", False)), (mode, show))
+        self.assertNotIn("query", await lookup("How is my current project going?", None, {}, resolve_only=True))
+
+    async def test_results_request_can_name_a_subject_from_its_public_receipt(self):
+        from integrations.voicechat.lookup import lookup
+        plan = await lookup("Search for the expedition's official page and show me the links.",
+                            "Endurance expedition official page", {}, resolve_only=True,
+                            continuation_query="Which expedition sailed to Antarctica?",
+                            previous_evidence="The Endurance expedition sailed to Antarctica.")
+        self.assertTrue(plan.get("show_results"))
+        self.assertIn("Endurance", plan["query"])
+        self.assertIn("official page", plan["query"])
+        self.assertNotIn("show me", plan["query"])
+
     def test_follow_up_uses_the_selected_public_receipt_and_only_grounded_refinements(self):
         from integrations.voicechat.lookup import resolve_request
         for followup in ("Walk me through that part.", "Can you tell me more about that?"):
