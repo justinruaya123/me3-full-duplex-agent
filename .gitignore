@@ -228,3 +228,10 @@ __marimo__/
 .speech-venv/
 
 .speech-venv312/
+
+/integrations/voicechat/node_modules/
+
+/integrations/openintelligentui/node_modules/
+
+# Operator-installed reference artwork. The public display has its own instrument face.
+/integrations/voicechat/faces/*.png

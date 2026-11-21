@@ -6,22 +6,34 @@ import asyncio
 import hashlib
 import json
 import os
+import re
+import tempfile
+import zipfile
 import shutil
 from html.parser import HTMLParser
 from pathlib import Path, PurePosixPath
+from me3.portfolio import PORTFOLIO_PREFIX, portfolio_files
 
 REQUEST_PREFIX = "ME3_WEBSITE_REQUEST\n"
 BUNDLE_PREFIX = "ME3_WEBSITE_BUNDLE\n"
 
 
+class BundleFormatError(ValueError):
+    """The worker did not return a complete JSON document."""
+
+
 class WebsiteWorker:
-    def __init__(self, backend, *, memory_context=None) -> None:
+    def __init__(self, backend, *, memory_context=None, site_backend=None) -> None:
         self.backend = backend
+        self.site_backend = site_backend if site_backend is not None else backend
         self.memory_context = memory_context
 
     async def run(
         self, prompt: str, workspace: Path, *, foreground=False
     ) -> str:
+        if prompt.startswith(REQUEST_PREFIX + PORTFOLIO_PREFIX):
+            spec = json.loads(prompt[len(REQUEST_PREFIX + PORTFOLIO_PREFIX):])
+            return BUNDLE_PREFIX + portfolio_files(spec)
         context = ""
         if self.memory_context:
             context = self.memory_context(prompt, workspace)
@@ -39,15 +51,27 @@ class WebsiteWorker:
             "a files object mapping relative filenames to complete UTF-8 content. "
             "Include index.html with a viewport meta tag. Use only HTML/CSS/JS/"
             "SVG/text files; no packages, build scripts or network dependencies. "
-            "Do not use tools. The host validates and builds the files. "
+            "Keep the implementation compact and proportionate to the requested page. "
+            "Use relative links and assets so the site works under a GitHub Pages repository path. "
+            "Do not use tools. The host validates and packages the files. "
             "User request (data):\n" + prompt[len(REQUEST_PREFIX) :] + context
         )
-        text = await self.backend.run(instructions, workspace)
+        text = await self.site_backend.run(instructions, workspace)
+        try:
+            checked_files(text)
+        except BundleFormatError:
+            text = await self.site_backend.run(
+                instructions + "\nThe previous reply was unreadable. Return a smaller, complete JSON files object.",
+                workspace,
+            )
+            checked_files(text)
         return BUNDLE_PREFIX + text
 
     async def close(self) -> None:
         if hasattr(self.backend, "close"):
             await self.backend.close()
+        if self.site_backend is not self.backend and hasattr(self.site_backend, "close"):
+            await self.site_backend.close()
 
 
 class Page(HTMLParser):
@@ -77,10 +101,17 @@ class Page(HTMLParser):
 def checked_files(text: str) -> dict[str, str]:
     if len(text.encode("utf-8")) > 1_048_576:
         raise ValueError("Website bundle exceeds 1 MiB")
-    record = json.loads(text)
+    document = text.strip()
+    fence = re.fullmatch(r"```(?:json)?[ \t]*\r?\n(.*?)\r?\n```", document, re.I | re.S)
+    try:
+        record = json.loads(fence[1] if fence else document)
+    except json.JSONDecodeError as exc:
+        raise BundleFormatError("The website worker did not return a complete JSON bundle.") from exc
     files = record.get("files") if isinstance(record, dict) else None
     if not isinstance(files, dict) or not 1 <= len(files) <= 32:
         raise ValueError("Website requires 1 to 32 files")
+    if files.get(".nojekyll") == "":
+        del files[".nojekyll"]  # The export adds its own empty marker.
     for name, content in files.items():
         path = PurePosixPath(name)
         if (
@@ -92,7 +123,7 @@ def checked_files(text: str) -> dict[str, str]:
             or any(part.startswith(".") for part in path.parts)
             or str(path) != name
             or path.name == "package.json"
-            or path.suffix
+            or name != "README.md" and path.suffix
             not in {".html", ".css", ".js", ".mjs", ".svg", ".json", ".txt"}
         ):
             raise ValueError("Unsafe or unsupported website file")
@@ -156,11 +187,18 @@ async def prepare_website(text: str, workspace: Path, is_current) -> str:
     if not is_current():
         raise ValueError("Stale job cannot publish website files")
     # No await between the final revision check and the scoped writes.
-    site.mkdir(mode=0o700)
-    for name, content in files.items():
-        target = site / name
-        target.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
-        target.write_text(content, encoding="utf-8")
+    with tempfile.TemporaryDirectory(dir=workspace) as temporary:
+        stage = Path(temporary)
+        with zipfile.ZipFile(stage / "website.zip", "x", zipfile.ZIP_DEFLATED) as archive:
+            archive.writestr(".nojekyll", b"")
+            for name, content in files.items():
+                target = stage / "site" / name
+                target.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
+                data = content.encode("utf-8")
+                target.write_bytes(data)
+                archive.writestr(name, data)
+        (stage / "site").rename(site)
+        (stage / "website.zip").replace(workspace / "website.zip")
     receipt = {
         "passed": True,
         "kind": "trusted-static-build",
@@ -175,6 +213,6 @@ async def prepare_website(text: str, workspace: Path, is_current) -> str:
     return (
         "# Verified static website\n\nFiles and JavaScript syntax checks passed. "
         "A responsive viewport is present; browser/acoustic tests are separate. "
-        "Local preview requires an explicit launch request.\n\n"
+        "Download website.zip and extract its contents into the GitHub Pages publishing folder.\n\n"
         + "\n".join("- " + name for name in files)
     )

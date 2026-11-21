@@ -8,7 +8,7 @@ import unittest
 
 
 class LauncherTests(unittest.TestCase):
-    def launch(self, mode, environments):
+    def launch(self, mode, environments, *, platform=None):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             script = root / "scripts" / "me3.sh"
@@ -21,10 +21,16 @@ class LauncherTests(unittest.TestCase):
                     '#!/bin/sh\nprintf "%s\\n" "$0" "$@"\n'
                 )
                 python.chmod(0o755)
+            path = os.environ["PATH"]
+            if platform:
+                uname = root / "uname"
+                uname.write_text(f"#!/bin/sh\necho {platform}\n")
+                uname.chmod(0o755)
+                path = str(root) + os.pathsep + path
             return subprocess.run(
                 ["bash", str(script), mode],
                 capture_output=True, text=True, timeout=5,
-                env={"PATH": os.environ["PATH"]},
+                env={"PATH": path},
             )
 
     def test_pi_runtime_modes_use_pi_environment(self):
@@ -32,7 +38,7 @@ class LauncherTests(unittest.TestCase):
                              ("console", "me3.runtime"),
                              ("voice", "me3.runtime")):
             with self.subTest(mode=mode):
-                result = self.launch(mode, [".venv-pi"])
+                result = self.launch(mode, [".venv-pi"], platform="Linux")
                 self.assertEqual(result.returncode, 0, result.stderr)
                 self.assertIn(".venv-pi/bin/python", result.stdout)
                 self.assertIn(module, result.stdout)

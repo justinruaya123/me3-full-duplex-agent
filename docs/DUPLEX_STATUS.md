@@ -1,5 +1,19 @@
 # Implementation and qualification status
 
+## November 21 · Project-local Pi portfolio research and export
+
+A typed Mac Pi replay of “make me a portfolio website and look up my work” invoked the separate research worker. Its only tool was the pinned pi-web-search Brave search. The first personal query included several work-related keywords and returned no usable evidence. A fresh run using the approved public name returned three sourced candidates. The operator selected two. The local website job created a ZIP containing those two facts, their links, the stylesheet and a GitHub Pages marker. The archive passed CRC and file-hash checks. Isolated Chromium loaded the export under a repository subpath at 1280 × 800 and 390 × 844 with external requests blocked. Both sizes showed the selected facts without horizontal overflow or page errors. The run exercised live OpenRouter and Brave, the Pi extension, fact selection, the supervisor and static export. Microphone capture and GitHub deployment were outside this replay.
+
+The installed Mac Python suite passed 314 tests, including 284 versioned tests. All 71 JavaScript tests passed. Both suites had zero skips. The duplex control demo and Python compile check also passed.
+
+## November 21 · Fresh verification after a spoken correction
+
+The Sri Lanka microphone trace recorded six lookup tool attempts and zero Brave responses. The foreground inserted a year the speaker had not supplied. The local resolver repeatedly asked the speaker to confirm that guess. On the next turn BMO answered from memory.
+
+In a fresh, isolated Mac Pi session, replaying the two committed transcripts as text produced two live Brave Web receipts, five sources each. Neither turn explicitly asked for search. The second query used the public question from the first receipt and requested recent developments. The final reply was “I checked again, but I couldn’t confirm that from the sources I found.” An intermediate build had claimed that no newer event occurred. The final version accepts a complete source sentence for that kind of recheck or reports the uncertainty. This test covered the Pi foreground, OpenRouter and Brave Web. Microphone capture, physical playback and Brave Answers were outside this replay.
+
+Installed Mac verification passed 313 Python tests including 283 versioned tests, plus 65 JavaScript tests, with zero skips. The duplex control simulation and Python compile check passed.
+
 ## November 15: lightweight owner-scoped text memory
 
 Added opt-in runtime memory, separate from the coding assistant's Pi memory.

@@ -14,6 +14,8 @@ website files, runs trusted syntax checks, and starts read-only loopback preview
 only on request. Foreground inference uses a separately configured Qwen or
 Nemotron endpoint, with reasoning disabled and exact response model checks.
 
+The project-local Pi voice launcher can look up public work with Brave, present source-backed facts for approval, and export a static portfolio ZIP. [Portfolio setup and voice flow](docs/SETUP.md#researching-a-personal-portfolio-in-the-project-pi-launcher)
+
 ## Set up and configure
 
 Python 3.13 and Node are required for the Mac setup. Pi `0.84.2` is already

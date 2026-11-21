@@ -5,8 +5,11 @@ python_bin="${ME3_PYTHON:-python3.13}"
 "$python_bin" -m venv .venv313
 .venv313/bin/python -m pip install -e '.[test,mcp]'
 .venv313/bin/python -m pip install -r requirements-duplex.txt
-if ! command -v pi >/dev/null; then
-  npm install --prefix .local/pi-cli @earendil-works/pi-coding-agent@0.84.2
+if [[ "${ME3_VOICE_TTS:-bmo}" == bmo ]]; then
+  VOICECHAT_PYTHON="$PWD/.venv313/bin/python" bash scripts/setup-bmo.sh
+fi
+if [[ ! -x integrations/voicechat/node_modules/.bin/pi ]]; then
+  npm install --prefix integrations/voicechat --no-audit --no-fund --no-package-lock
 fi
 if [[ ! -f .env ]]; then
   cp .env.example .env
