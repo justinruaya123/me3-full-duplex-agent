@@ -138,6 +138,15 @@ export default function voicechat(pi) {
       ctx?.ui.notify("Job notification unavailable: " + clip(error.message), "error");
     } finally { checking = false; }
   }
+  async function stopCurrentTask(context) {
+    try {
+      const job = await jobs(context).call("cancel_current", {});
+      context.ui.notify(job.status === "empty" ? "No active task in this chat." :
+        "Cancellation requested for task " + job.id + ".", "info");
+    } catch (error) {
+      context.ui.notify("Could not stop the current task: " + clip(error.message), "error");
+    }
+  }
   function delivered(job, revision) {
     bridge?.call("delivered", {job,revision}).catch(error =>
       ctx?.ui.notify("Could not record spoken delivery: " + clip(error.message), "error"));
@@ -289,12 +298,21 @@ export default function voicechat(pi) {
           status(asr + " · " + clip(e.reason) + " · listening"); break;
         case "commit":
           if (gate.commit(e.id, e.text) && e.epoch > epoch) {
-            listening = false; quietSince = Date.now(); ownerTurn = true;
+            listening = false; quietSince = Date.now();
             clearOutput();
             wait.end();
             epoch = e.epoch;
             pendingReply = undefined;
             awaitingAnswer = protectedPrompt = false;
+            if (e.control === "stop_speech" || e.control === "stop_current_task") {
+              ownerTurn = false; // Re-open spoken notices on the next conversational turn.
+              approval.close();
+              updateListener();
+              status(asr + " · listening");
+              if (e.control === "stop_current_task" && liveMic) void stopCurrentTask(ctx);
+              break;
+            }
+            ownerTurn = true;
             const outcome = approval.answer(e.id, e.text);
             updateListener();
             if (outcome) {

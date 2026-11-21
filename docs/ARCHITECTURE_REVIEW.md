@@ -8,7 +8,9 @@ flowchart LR
   asr -->|Revisions, settled words and endpoint time| turn[Local turn controller]
   mic --> local[Silero VAD and SmartTurn]
   local --> turn
-  turn -->|Matching final and local commit| pi[Project Pi session]
+  local -->|Speech onset pauses playback| tts
+  turn -->|Finalized stop clears buffered audio| tts
+  turn -->|Committed conversational turn| pi[Project Pi session]
   pi <--> model[OpenRouter]
   pi --> tts[Local BMO Piper and speaker]
   pi --> jobs[Local job supervisor and workers]
@@ -47,10 +49,12 @@ behavior at their dated revisions.
 
 ```mermaid
 flowchart LR
-  turn[Committed turn] --> thread[Current Pi conversation]
+  turn[Committed turn] -->|Conversation| thread[Current Pi conversation]
+  turn -->|Live Deepgram stop current task| cancel[Local host checks mic and active utterance]
+  cancel -->|Current job ID and revision| job[Local supervisor]
   memory[Private cross-chat memory] -->|Fresh chat or explicit recall| thread
   thread -->|Question about active work| status[Local job status]
-  thread -->|Requested edit and job revision| job[Local supervisor]
+  thread -->|Requested edit and job revision| job
   thread -->|Uncertain public fact| answer[Brave Answers]
   answer -->|Answers unavailable on plan| web[Brave Web Search]
   thread -->|Request to browse results| web
@@ -64,3 +68,14 @@ chats supply context on request. A normal follow-up uses the conversation alread
 on the current branch. Edits carry the existing job ID and expected revision.
 A new revision retains outstanding notification intent and runs under the same
 supervisor. Selected portfolio facts still use the publication review flow.
+
+**R1 · Spoken stop controls (November 21, based on `main@be89121`).** D1 pauses
+audio at speech onset. A finalized standalone “stop” clears buffered audio and
+invalidates old speech requests, even when the word is too short to confirm
+speech over the speaker.
+Both stop commands end silently. D3 accepts “stop current task” for cancellation
+only from the live Deepgram microphone path after near-end speech, a matching
+final and a local commit. The supervisor selects this chat’s running job, or
+its first queued job if none has started, and checks its revision. A completed
+job keeps its result. Interim words, model output and replay audio have no
+cancellation authority. [Verification](DUPLEX_STATUS.md)
