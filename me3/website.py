@@ -116,7 +116,8 @@ class WebsiteWorker:
         instructions = (
             "Build a responsive static website. Return ONLY a JSON object with "
             "a files object mapping relative filenames to complete UTF-8 content. "
-            "Include index.html with a viewport meta tag. Use only HTML/CSS/JS/"
+            "Write index.html first with a viewport meta tag. Prefer inline CSS for a portable "
+            "single-file page. Use only HTML/CSS/JS/"
             "SVG/text files; no packages, build scripts or network dependencies. "
             "Use relative bundle files or inline styles and scripts. The offline "
             "preview blocks data URLs, remote assets, frames and network requests. "

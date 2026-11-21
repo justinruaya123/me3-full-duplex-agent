@@ -33,6 +33,6 @@ me3 = "me3.cli:main"
 include = ["me3*", "integrations"]
 
 [tool.setuptools.package-data]
-me3 = ["pi_luna_voice.mjs", "pi_extension.mjs", "pi_voice_view.mjs", "pi_voice_mode.mjs",
+me3 = ["portfolio.html", "pi_luna_voice.mjs", "pi_extension.mjs", "pi_voice_view.mjs", "pi_voice_mode.mjs",
        "pi_github.mjs", "pi_prototype.mjs", "skills/github/SKILL.md"]
 integrations = ["openintelligentui/*"]

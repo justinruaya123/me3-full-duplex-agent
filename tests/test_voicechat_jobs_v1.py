@@ -111,6 +111,7 @@ class VoiceJobsTests(unittest.IsolatedAsyncioTestCase):
         class Worker:
             async def run(self, prompt, workspace, *, foreground=False):
                 (workspace / "worker-preview.txt").write_text("drafted header")
+                (workspace / "website-preview.html").write_text("<h1>Draft</h1>")
                 written.set()
                 await finish.wait()
                 return "{}"
@@ -122,6 +123,8 @@ class VoiceJobsTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual(jobs.submit("website", "Make a local page", "voice-turn")["id"], job["id"])
                 await asyncio.wait_for(written.wait(), 3)
                 self.assertNotIn("preview", jobs.status(job["id"]))
+                self.assertNotIn("draft_html", jobs.status(job["id"]))
+                self.assertEqual(jobs.status(job["id"], for_display=True)["draft_html"], "<h1>Draft</h1>")
                 self.assertEqual(jobs.status(job["id"], for_display=True)["preview"],
                                  "drafted header")
             finally:
@@ -142,6 +145,8 @@ class VoiceJobsTests(unittest.IsolatedAsyncioTestCase):
                 await jobs.supervisor.wait(job["id"])
                 with zipfile.ZipFile(jobs.status(job["id"])["archive"]) as archive:
                     page = archive.read("index.html").decode()
+                    self.assertIn("<style>", page)
+                    self.assertNotIn('rel="stylesheet"', page)
                     self.assertIn("Ada &amp; Co", page)
                     self.assertIn("Built the bridge &lt;prototype&gt;.", page)
                     self.assertIn("https://example.org/bridge", page)

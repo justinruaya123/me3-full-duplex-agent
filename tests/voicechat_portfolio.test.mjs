@@ -3,7 +3,8 @@ import assert from "node:assert/strict";
 import {researchRequest, chosenFacts, verifiedFacts} from "../integrations/voicechat/portfolio.mjs";
 
 test("research needs both a site and an explicit public self-lookup", () => {
-  for (const text of ["Make me a portfolio website and look up my work", "Research me online and build a site about me"])
+  for (const text of ["Make me a portfolio website and look up my work", "Research me online and build a site about me",
+                      "Search more about me and build a portfolio website on the canvas"])
     assert.ok(researchRequest(text));
   for (const text of ["Make me a portfolio website", "Don't look up my work for my website", "Research a website about trees"])
     assert.equal(researchRequest(text), false);
@@ -53,4 +54,35 @@ test("interrupting a review releases the turn while the research can finish", as
   await assert.rejects(review,/interrupted/);
   worker.resolve("completed research");
   assert.equal(await waitForResearch(worker.promise,new AbortController().signal),"completed research");
+});
+
+test("an operator without a profile can supply a search name by voice", async t => {
+  const {mkdtemp, rm} = await import("node:fs/promises");
+  const {tmpdir} = await import("node:os");
+  const {join} = await import("node:path");
+  const {newPortfolioReview, spokenSearchName} = await import("../integrations/voicechat/portfolio.mjs");
+  const dir = await mkdtemp(join(tmpdir(), "bmo-name-"));
+  t.after(() => rm(dir,{recursive:true,force:true}));
+  assert.match((await newPortfolioReview(dir,true)).nameQuestion, /search for/i);
+  assert.equal(spokenSearchName("Search for Ada Lovelace."), "Ada Lovelace");
+  assert.equal(spokenSearchName("My name is José Vega."), "José Vega");
+  assert.equal(spokenSearchName("What's the weather?"), undefined);
+});
+
+test("Pi retries an empty review from its existing Brave receipt before returning facts", async () => {
+  const {reviewPortfolioFacts} = await import("../integrations/voicechat/portfolio.mjs");
+  const row = {url:"https://example.org/art",title:"The June show",snippet:"Ada exhibited in June."};
+  const fact = {text:row.snippet,quote:row.snippet,url:row.url};
+  let retries = 0;
+  const session = {
+    state:{messages:[{role:"assistant",stopReason:"stop"}]},
+    getLastAssistantText:() => retries ? JSON.stringify([fact]) : "",
+    async prompt() { retries++; },
+    async waitForIdle() {},
+  };
+  assert.deepEqual(await reviewPortfolioFacts(session,[row]), [{text:row.snippet,url:row.url}]);
+  assert.equal(retries,1);
+  session.getLastAssistantText = () => "unfinished JSON";
+  assert.deepEqual(await reviewPortfolioFacts(session,[row]), []);
+  assert.equal(retries,2);
 });

@@ -1,5 +1,24 @@
 # Implementation and qualification status
 
+## November 21 · Pi website canvas and GitHub Pages
+
+In an installed Mac checkout, three typed turns in a real Pi session researched
+Grace Hopper with Brave, selected one sourced fact for a portfolio, and opened
+the approval dialog for a specific GitHub Pages repository. The test declined
+publication at the dialog. The Node suite exercised approved creation, updates
+and retry against a simulated GitHub API.
+
+A separate live Pi website build emitted four distinct HTML drafts before the
+verified archive became available. A Chromium browser received two injected
+draft revisions through
+OpenIntelligentUI, then loaded the verified site in the canvas. The HTML
+download matched the archived `index.html` byte for byte. The portfolio passed
+desktop and mobile browser checks, and the Python wheel included its template.
+The clean checkout passed all 495 Python tests (465 in the v1 subset) and all
+106 Node tests, with zero skips. The duplex control demo and compile check
+passed. Physical microphone capture, Raspberry Pi hardware and a public
+Pages deployment were outside this run.
+
 ## November 21 · Current chat, Brave results and edits to ongoing work
 
 The Pi extension previously inserted three old chat excerpts beside a new

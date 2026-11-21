@@ -175,11 +175,44 @@ function renderJobs() {
   download.hidden = !(job?.kind === "website" && job.status === "completed" && job.archive);
   if (download.hidden) download.removeAttribute("href");
   else download.href = "website-" + job.id + "-" + job.revision + ".zip";
+  const htmlDownload = byId("job-html");
+  htmlDownload.hidden = download.hidden;
+  if (htmlDownload.hidden) htmlDownload.removeAttribute("href");
+  else htmlDownload.href = `site/${job.id}/${job.revision}/index.html?download=1`;
+  if (currentCanvas?.site) renderSite(currentCanvas);
   output.textContent = job?.text || job?.preview || job?.error || job?.index || "";
   if (job?.status === "running" && atEnd) pane.scrollTop = pane.scrollHeight;
 }
 byId("ready-count").onclick = () => show("agents");
+function renderSite({site, revision}) {
+  const frame = document.querySelector("iframe");
+  const job = jobs.find(entry => entry.id === site && entry.revision === revision && entry.kind === "website");
+  const ready = job?.status === "completed" && !!job.archive;
+  const preview = job?.status === "running" && job.previewHtml;
+  byId("board").replaceChildren();
+  const hint = byId("hint");
+  hint.textContent = ready ? "" : job?.error || (preview ? "Building website…" : "Waiting for website preview…");
+  if (job && ["cancelled","interrupted"].includes(job.status)) hint.textContent = "Website build " + job.status + ".";
+  hint.hidden = ready;
+  frame.hidden = !(ready || preview);
+  frame.inert = !ready;
+  frame.title = "Website preview";
+  if (ready) {
+    const src = `site/${site}/${revision}/index.html`;
+    if (frame.getAttribute("src") !== src) frame.setAttribute("src",src);
+    frame.removeAttribute("srcdoc");
+  } else {
+    frame.removeAttribute("src");
+    if (preview && frame.getAttribute("srcdoc") !== preview) frame.srcdoc = preview;
+    if (!preview) frame.removeAttribute("srcdoc");
+  }
+}
 function renderCanvas(value, force = false) {
+  if (/^[a-f0-9]{32}$/.test(value?.site || "") && Number.isSafeInteger(value.revision) && value.revision > 0) {
+    currentCanvas = value;
+    renderSite(value);
+    return;
+  }
   const iframe = document.querySelector("iframe"), board = byId("board");
   if (!value || typeof value.done !== "boolean" ||
       (value.board === undefined && value.html === undefined) ||
@@ -190,7 +223,9 @@ function renderCanvas(value, force = false) {
     byId("hint").textContent = "The latest view could not be displayed.";
     return;
   }
-  if (!force && currentCanvas?.done && value.done === false) return;
+  if (!force && !currentCanvas?.site && currentCanvas?.done && value.done === false) return;
+  iframe.removeAttribute("src");
+  iframe.title = "IntelligentUI visual";
   currentCanvas = value;
   byId("hint").textContent = "Your dashboard will appear here.";
   byId("hint").hidden = !!(value.board || value.html);

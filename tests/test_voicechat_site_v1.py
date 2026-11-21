@@ -40,6 +40,32 @@ class VoiceSiteTests(unittest.IsolatedAsyncioTestCase):
                 (root / "agents.json").write_text(json.dumps([record]))
                 self.assertEqual(website_download(name, root, root / "chats"), expected)
 
+    def test_embedded_html_and_assets_use_only_the_current_finished_archive(self):
+        import json
+        from zipfile import ZipFile
+        from integrations.voicechat.window import website_asset
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            job_id = "b" * 32
+            archive = root / "chats" / "demo" / "jobs" / job_id / "revision-2" / "website.zip"
+            archive.parent.mkdir(parents=True)
+            with ZipFile(archive, "w") as bundle:
+                bundle.writestr("index.html", "<h1>Approved</h1>")
+                bundle.writestr("assets/main.css", "h1{color:navy}")
+            job = {"id": job_id, "revision": 2, "kind": "website",
+                   "status": "completed", "archive": str(archive)}
+            (root / "agents.json").write_text(json.dumps([job]))
+            url = f"site/{job_id}/2/"
+            asset = lambda path: website_asset(path, root, root / "chats")
+            self.assertEqual(asset(url + "index.html"), b"<h1>Approved</h1>")
+            self.assertEqual(asset(url + "assets/main.css"), b"h1{color:navy}")
+            for path in ["../website.zip", "/etc/hosts", "private.txt", ".nojekyll"]:
+                self.assertIsNone(asset(url + path))
+            self.assertIsNone(asset(url.replace("/2/", "/1/") + "index.html"))
+            (root / "agents.json").write_text("[]")
+            self.assertIsNone(asset(url + "index.html"))
+
     def test_only_specific_decoder_capacity_failure_is_retryable(self):
         error = {"code":"inference_error", "message":"LLMBackbone: llama_decode (batched step) failed with code 1"}
         self.assertTrue(decoder_capacity_error(error))

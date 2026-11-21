@@ -11,6 +11,8 @@ import { JobBridge, workerEnv } from "./jobs.mjs";
 import { WindowVoice } from "./face.mjs";
 import { cuePicker, isWakeGreeting, listenerMode, VoiceWait, voiceFailure, finishVoiceText } from "./behavior.mjs";
 import {subagentRequest, roleNames, workflows} from "./subagents.mjs";
+import {loadRenderer as loadSiteRenderer} from "../../me3/pi_prototype.mjs";
+import {publishPages} from "./pages.mjs";
 import { TurnGate } from "./turn-gate.mjs";
 import { composeVoicePrompt } from "./prompts.mjs";
 import { afterLookup, checkSearchReply, lastPublicClarification, previousSearchReceipt, publicFactCheck, recheckRequest, searchFallback, jobNotice, spokenReply, spokenToolReply } from "./speech.mjs";
@@ -19,7 +21,7 @@ import { presentCanvas, registerVisual, windowUpdate } from "./visual.mjs";
 import { dashboard } from "./dashboard.mjs";
 import { LiveBenchmark } from "./live-benchmark.mjs";
 import { directMemoryDetail, openChatMemory } from "./memory.mjs";
-import {researchRequest, chosenFacts, searchName, researchPortfolio, waitForResearch} from "./portfolio.mjs";
+import {researchRequest, chosenFacts, newPortfolioReview, spokenSearchName, confirmSearchName, researchPortfolio, waitForResearch} from "./portfolio.mjs";
 
 const root = fileURLToPath(new URL("../../", import.meta.url));
 const clip = text => String(text || "").replace(/[\x00-\x1f\x7f-\x9f]/g, " ").slice(0, 4000);
@@ -28,7 +30,7 @@ const sayText = msg => (msg.content || []).filter(b => b.type === "text").map(b 
 export default function voicechat(pi) {
   const recovery = new VoiceRecovery();
   const approval = new SpokenApproval();
-  let bridge, searchStore;
+  let bridge, searchStore, renderSite;
   const updates = new Map();
   const face = process.env.ME3_WINDOW_DIR ? new WindowVoice(process.env.ME3_WAKE_PHRASE) : undefined;
   let faceTimer;
@@ -48,7 +50,9 @@ export default function voicechat(pi) {
         context.sessionManager.getSessionId(), workerEnv(process.env, process.env.ME3_CLIENT_HOME), job => {
           if (job.follow_up && ["completed","failed","interrupted"].includes(job.status)) noticeDue = true;
           if (process.env.ME3_WINDOW_DIR) {
-            updates.set(job.id, job);
+            const {draft_html, ...display} = job;
+          if (draft_html && renderSite) display.previewHtml = renderSite(draft_html);
+          updates.set(job.id, display);
             if (updates.size > 8) updates.delete(updates.keys().next().value);
             windowUpdate("agents", [...updates.values()]);
             return;
@@ -85,9 +89,17 @@ export default function voicechat(pi) {
     cueWait?.finish(false);
     notice = undefined;
   }
+  function showSite(turn, job, signal) {
+    if (job.kind === "website" && process.env.ME3_WINDOW_DIR && !signal.aborted &&
+        currentTurn() === turn.id) {
+      windowUpdate("canvas", {site:job.id, revision:job.revision, done:true});
+      presentCanvas(turn.id);
+    }
+  }
   async function submission(turn, fields, signal, context) {
     const host = jobs(context);
     let job = await host.call("submit", fields);
+    showSite(turn, job, signal);
     const current = () => !signal.aborted && (liveMic || replayMic) && active === turn && currentTurn() === turn.id;
     if (bmo && current() && ["running","queued"].includes(job.status) &&
         await host.call("claim_cue", {job:job.id, revision:job.revision}) && current()) {
@@ -431,7 +443,8 @@ export default function voicechat(pi) {
       else {recovery.reset(); start();}
     }
   });
-  pi.on("session_start", (_event, context) => {
+  pi.on("session_start", async (_event, context) => {
+    if (process.env.ME3_WINDOW_DIR) renderSite = await loadSiteRenderer();
     ctx = context;
     searchStore = openSearchStore();
     bench = benchmarking ? new LiveBenchmark(process.env.ME3_BENCH_LOG_DIR || root + ".local/live-bench") : undefined;
@@ -448,7 +461,7 @@ export default function voicechat(pi) {
     status(asr + " · /me3 duplex");
     if (pi.getFlag("voicechat-duplex")) start();
   });
-  pi.on("session_shutdown", async () => {portfolio?.controller.abort(); portfolio = undefined; await stop(); clearTimeout(faceTimer); faceTimer = undefined; await bridge?.close(); bridge = undefined; updates.clear(); searchStore?.close(); memory?.close(); memory = undefined; queued.clear(); ctx = active = final = undefined;});
+  pi.on("session_shutdown", async () => {portfolio?.controller.abort(); portfolio = undefined; await stop(); clearTimeout(faceTimer); faceTimer = undefined; await bridge?.close(); bridge = undefined; updates.clear(); windowUpdate("agents", []); windowUpdate("canvas", {html:"",done:true}); searchStore?.close(); memory?.close(); memory = undefined; queued.clear(); ctx = active = final = undefined;});
   pi.on("before_provider_request", async ({payload}) => {
     if (active?.portfolioAction && payload?.tools?.some(t => (t.function?.name ?? t.name) === "portfolio_research")) {
       const tools = payload.tools.filter(t => !active.portfolioHandled && (t.function?.name ?? t.name) === "portfolio_research");
@@ -497,7 +510,8 @@ export default function voicechat(pi) {
       else if (portfolio?.nameQuestion) {
         const last = ctx.sessionManager.getBranch().filter(e => e.type === "message" && e.message.role === "assistant").at(-1);
         if (last && sayText(last.message) === portfolio.nameQuestion) {
-          if (/^(?:yes|yes please|go ahead|use that name)[.!]?$/i.test(source.trim())) active.portfolioAction = "confirmName";
+          if (!portfolio.name && (active.suppliedName = spokenSearchName(source))) active.portfolioAction = "supplyName";
+          if (portfolio.name && /^(?:yes|yes please|go ahead|use that name)[.!]?$/i.test(source.trim())) active.portfolioAction = "confirmName";
           if (/^(?:no|no thanks|skip it)[.!]?$/i.test(source.trim())) active.portfolioAction = "cancel";
         }
       }
@@ -664,19 +678,22 @@ export default function voicechat(pi) {
           const job = await submission(turn,{kind:"portfolio",brief:JSON.stringify({name:review.name,facts}),
             key:review.id,follow_up:true},signal,context);
           if (portfolio === review) portfolio = undefined;
-          turn.portfolioReply = job.details.archive ? "Your portfolio ZIP is ready in Agents." :
-            "I submitted your approved facts for the portfolio ZIP.";
+          turn.portfolioReply = job.details.archive ? "Your portfolio page is ready." :
+            "I submitted the facts you chose for your portfolio page.";
           return job;
         } else {
           if (!portfolio) {
-            const identity = await searchName(process.env.ME3_VOICE_PROMPT_DIR || root+".local/voice-prompts");
-            if (!identity) throw Error("I need a public search name in the project profile to look up your work.");
+            const review = await newPortfolioReview(process.env.ME3_VOICE_PROMPT_DIR || root+".local/voice-prompts",
+              turn.portfolioAction === "research");
             if (!current()) throw Error("Portfolio request changed.");
-            portfolio = {name:identity.name,id:randomUUID(),controller:new AbortController(),
-              nameQuestion:identity.approved ? undefined : "May I search Brave for "+identity.name+" and use the configured model to review the public work I find?"};
+            portfolio = review;
           }
           const review = portfolio;
-          if (turn.portfolioAction === "confirmName") review.nameQuestion = undefined;
+          if (turn.portfolioAction === "supplyName") {
+            review.name = turn.suppliedName;
+            review.nameQuestion = confirmSearchName(review.name);
+          }
+          if (turn.portfolioAction === "confirmName" && review.name) review.nameQuestion = undefined;
           if (review.nameQuestion) {
             turn.portfolioReply = review.nameQuestion;
             return toolResult({question:review.nameQuestion});
@@ -726,9 +743,34 @@ export default function voicechat(pi) {
     },
   });
 
+  if (!benchmarking && !process.env.ME3_FDBENCH_URL && !pi.getFlag("voicechat-fixture")) pi.registerTool({
+    name:"publish_github_pages", label:"Publish verified site to GitHub Pages",
+    description:"Publish a completed website from this chat to the requested GitHub OWNER/REPO. Use the job ID and revision from its status. The operator approves the public destination and files in Pi.",
+    parameters:Type.Object({
+      repo:Type.String({maxLength:140}), job:Type.String({pattern:"^[a-f0-9]{32}$"}),
+      revision:Type.Integer({minimum:1}),
+    }),
+    async execute(_call, args, signal, _progress, context) {
+      const turn = active;
+      const current = () => !!turn && currentTurn() === turn.id && !signal.aborted &&
+        (!turn.session || liveMic) && context.sessionManager.getSessionId() === turn.chat;
+      if (!current() || !context.hasUI) throw Error("Publication requires a current operator turn and interactive Pi approval.");
+      const text = await publishPages(args, {
+        request:turn.prompt.replace(/^Microphone transcript: /,""), current, signal,
+        getJob:job => jobs(context).call("status", {job}),
+        confirm:detail => {
+          if (turn.pagesAsked) throw Error("Publication was already requested on this turn.");
+          turn.pagesAsked = true;
+          windowUpdate("focus",{panel:"console",request:turn.id+"/publish"});
+          return context.ui.confirm("Publish to GitHub Pages?", detail, {signal, timeout:60000});
+        },
+      });
+      return {content:[{type:"text",text}],details:{repo:args.repo,job:args.job,revision:args.revision}};
+    },
+  });
   pi.registerTool({
     name:"delegate_task", label:"Delegate to ME3 Pi",
-    description:"Submit a text draft, comparison or analysis to the private ME3 worker. Send the task and relevant context. The job continues while conversation proceeds. Website builds use create_website.",
+    description:"Hand off a clear task that you cannot finish yourself to the local Pi.dev worker for a draft, comparison or analysis. Send the task and relevant context. The job continues while conversation proceeds. Website builds use create_website.",
     parameters:Type.Object({brief:Type.String({minLength:1,maxLength:12000}),
       follow_up:Type.Optional(Type.Boolean({description:"Set true only when the user asks to hear back when this work finishes."}))}),
     async execute(_call, {brief, follow_up = false}, signal, _progress, context) {
@@ -782,6 +824,7 @@ export default function voicechat(pi) {
       if (!current()) throw Error("The request changed");
       turn.hasTool = true;
       const job = await host.call("revise",fields);
+      showSite(turn,job,signal);
       return toolResult({...job, ...(job.status !== "completed" && {receipt:"Edit accepted. The updated artifact is still pending."})});
     }
   });

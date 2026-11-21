@@ -83,6 +83,9 @@ case "$ME3_VOICE_TTS" in
     *) boot_error setup "Choose ME3_VOICE_TTS=bmo, lessac, or kokoro." ;;
 esac
 session_tools+=",subagent,revise_delegated_task,web_lookup,recall_web_search,portfolio_research,show_dashboard,update_dashboard,remember_detail"
+if [[ "${ME3_LIVE_BENCHMARK:-0}" != 1 && -z "${ME3_FDBENCH_URL:-}" && " $* " != *" --voicechat-fixture"* ]]; then
+    session_tools+=",publish_github_pages"
+fi
 export ME3_VOICE_PROMPT_DIR="${ME3_VOICE_PROMPT_DIR:-$PWD/.local/voice-prompts}"
 # Seed optional editing guides on first launch and preserve operator edits.
 (

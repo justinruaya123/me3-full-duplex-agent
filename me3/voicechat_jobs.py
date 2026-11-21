@@ -12,7 +12,10 @@ from me3.core import Supervisor, checked_prompt
 from me3.harnesses import JsonProcessBackend
 from me3.jobs import OwnedJobs
 from me3.portfolio import PORTFOLIO_PREFIX
-from me3.website import REQUEST_PREFIX, WebsiteWorker, prepare_website
+from me3.website import (
+    BUNDLE_PREFIX, REQUEST_PREFIX, WebsiteWorker,
+    checked_files, prepare_website,
+)
 
 
 SUBAGENT_PREFIX = "ME3_SUBAGENT_V1\n"
@@ -35,6 +38,11 @@ class VoiceJobs:
 
     async def prepare(self, text, workspace, current):
         if self.jobs.get(workspace.parent.name)["kind"] == "website":
+            if text.startswith(BUNDLE_PREFIX) and current():
+                html = checked_files(text[len(BUNDLE_PREFIX):])["index.html"]
+                draft = workspace / "website-preview.tmp"
+                draft.write_text(html[:65536], encoding="utf-8")
+                draft.replace(workspace / "website-preview.html")
             return await prepare_website(text, workspace, current)
         return text
 
@@ -137,6 +145,12 @@ class VoiceJobs:
                 result["preview"] = (revision / "worker-preview.txt").read_text()[-limit:]
             except FileNotFoundError:
                 pass
+            if for_display and job["kind"] == "website":
+                try:
+                    with (revision / "website-preview.html").open(encoding="utf-8") as draft:
+                        result["draft_html"] = draft.read(65536)
+                except FileNotFoundError:
+                    pass
         if job["status"] == "failed":
             result["error"] = job["error"]
         if job["status"] == "completed":

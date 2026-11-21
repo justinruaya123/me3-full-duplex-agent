@@ -64,3 +64,27 @@ chats supply context on request. A normal follow-up uses the conversation alread
 on the current branch. Edits carry the existing job ID and expected revision.
 A new revision retains outstanding notification intent and runs under the same
 supervisor. Selected portfolio facts still use the publication review flow.
+
+### D3 / R10 · Implemented Pi handoff and GitHub Pages publication
+
+On the BMO working tree based on `6b6bf3c`, a completed website has a local ZIP.
+R10 adds a public destination for an explicitly selected revision.
+
+```mermaid
+flowchart LR
+  request[Current request] -->|Work beyond the foreground| worker[Local Pi.dev worker]
+  worker --> verify[Verified website revision]
+  verify -->|Explicit Pages request| approval[Operator confirms site and destination in Pi]
+  approval -->|Approved| github[Client uploads to bmo-pages and configures Pages]
+```
+
+### D3 / R11 · Implemented live website canvas
+
+```mermaid
+flowchart LR
+  voice[Portfolio research request] --> pi[Pi research worker with Brave]
+  pi --> review[Operator selects sourced facts] --> site[Website job and revision]
+  site -->|Draft HTML| renderer[OpenIntelligentUI] --> embed[Sandboxed canvas iframe]
+  site -->|Verified site bundle| embed
+  site -->|Same approved revision| pages[R10 GitHub Pages publication]
+```

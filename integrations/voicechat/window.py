@@ -2,6 +2,7 @@
 import asyncio
 import fcntl
 import json
+import mimetypes
 import os
 from pathlib import Path
 import re
@@ -16,6 +17,7 @@ import sys
 import tempfile
 import termios
 import webbrowser
+import zipfile
 
 from aiohttp import WSMsgType, web
 
@@ -52,6 +54,26 @@ def website_download(name, folder, chats):
         if (relative.parts[1:] == ("jobs", match[1], "revision-" + match[2], "website.zip")
                 and archive.resolve() == chats.resolve() / relative and archive.is_file()):
             return archive
+    return None
+
+
+def website_asset(name, folder, chats):
+    """Serve members from the same completed revision offered for download."""
+    match = re.fullmatch(r"site/([a-f0-9]{32})/([1-9][0-9]*)/(.{1,128})", name)
+    if not match:
+        return None
+    member = match[3]
+    if "\\" in member or any(not p or p.startswith(".") for p in member.split("/")):
+        return None
+    archive = website_download(f"website-{match[1]}-{match[2]}.zip", folder, chats)
+    if archive:
+        try:
+            with zipfile.ZipFile(archive) as bundle:
+                info = bundle.getinfo(member)
+                if not info.is_dir() and info.file_size <= 2_097_152:
+                    return bundle.read(info)
+        except (OSError, KeyError, zipfile.BadZipFile):
+            pass
     return None
 
 
@@ -97,6 +119,18 @@ async def serve(argv, folder, lock):
         if req.host != host:
             raise web.HTTPNotFound()
         name = req.match_info.get("name", "")
+        if name.startswith("site/"):
+            body = website_asset(name, folder, LOCAL / "voice-worker/chats")
+            if body is None:
+                raise web.HTTPNotFound()
+            security = {**headers, "X-Frame-Options": "SAMEORIGIN",
+                        "Content-Security-Policy": "sandbox; default-src 'none'; "
+                        "style-src 'self' 'unsafe-inline'; img-src 'self'; "
+                        "base-uri 'none'; form-action 'none'; frame-ancestors 'self'"}
+            if req.query.get("download") == "1" and name.endswith("/index.html"):
+                security["Content-Disposition"] = 'attachment; filename="index.html"'
+            return web.Response(body=body, headers=security,
+                                content_type=mimetypes.guess_type(name)[0] or "application/octet-stream")
         if name.startswith("website-"):
             archive = website_download(name, folder, LOCAL / "voice-worker/chats")
             if archive is None:
@@ -190,6 +224,7 @@ async def serve(argv, folder, lock):
 
     app = web.Application()
     app.router.add_get(prefix, handle)
+    app.router.add_get(prefix + "{name:site/.+}", handle)
     app.router.add_get(prefix + "{name}", handle)
     runner = web.AppRunner(app, access_log=None)
     await runner.setup()

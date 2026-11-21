@@ -42,6 +42,33 @@ fresh template. Edit the private `.env` to select foreground and worker models.
 Run `python3 setup.py check` with the keys configured and audio devices attached
 to check the local installation. This exercises SmartTurn with synthetic silence.
 
+## Publish a BMO website to GitHub Pages
+
+Launch `python3 setup.py run --window` for the updating IntelligentUI canvas.
+Enable the microphone with `/me3 duplex`. Say **“Hey BMO, search more about me
+and build a portfolio website on the canvas.”** Pi searches Brave using your
+public search name and offers up to three sourced facts. Say **“Use the first
+and third”** or **“Approve all.”** If BMO asks for a name, say **“Search for YOUR NAME”**
+and confirm the name BMO reads back. Set **Public search name** in the private
+`USER.md` under `.local/voice-prompts` to use that identity immediately.
+
+The canvas embeds the draft as the website builds, then loads the verified
+`index.html` and its local assets. The researched portfolio includes its CSS
+inside the HTML. In **Agents**, **Download HTML** saves the portfolio as a
+standalone page. **Download GitHub Pages ZIP** includes all assets for a
+multi-file site. To publish the verified revision,
+say or type “Push this site to GitHub Pages for octo/harbor.” Replace
+`octo/harbor` with your initialized GitHub repository. Install GitHub CLI on
+the BMO host and sign in with `gh auth login` using an account that can write
+repository contents and manage Pages.
+
+The Pi terminal (also available inside the BMO window) shows the website job,
+revision, destination and file list. Approval uploads that snapshot to the
+dedicated `bmo-pages` branch and sets the Pages source to its root. Republishing
+replaces the branch contents. GitHub builds the site asynchronously. The tool
+reports the Git commit and source configuration. Check the deployment in the
+repository’s Pages settings. [GitHub Pages API](https://docs.github.com/en/rest/pages/pages)
+
 ## Move settings and private prompts
 
 On the source checkout:

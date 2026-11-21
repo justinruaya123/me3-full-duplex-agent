@@ -1,3 +1,4 @@
+import {randomUUID} from "node:crypto";
 import {execFile} from "node:child_process";
 import {mkdtemp, mkdir, readFile, rm} from "node:fs/promises";
 import {tmpdir} from "node:os";
@@ -8,7 +9,7 @@ import {workerEnv} from "./jobs.mjs";
 export function researchRequest(text) {
   return /\b(?:website|portfolio|site|homepage|personal page)\b/i.test(text) &&
     /\b(?:build|create|design|make|prepare|put together)\b/i.test(text) &&
-    /\b(?:research|look up|search(?: the web)?(?: for)?|find(?: public)? (?:information|info)(?: about| on)?)\s+(?:about\s+)?(?:me|myself|my (?:public |professional )?(?:work|projects|background))\b/i.test(text) &&
+    /\b(?:research|look up|search(?: the web)?(?: for)?(?: more)?|find(?: public)? (?:information|info)(?: about| on)?)\s+(?:about\s+)?(?:me|myself|my (?:public |professional )?(?:work|projects|background))\b/i.test(text) &&
     !/\b(?:never|without|do not|don['’]t|skip|avoid)\b/i.test(text);
 }
 
@@ -49,6 +50,30 @@ export function verifiedFacts(items, rows) {
   return result;
 }
 
+export async function reviewPortfolioFacts(session, rows) {
+  function readReview() {
+    const text = session.getLastAssistantText()?.trim() || "";
+    try {
+      const items = JSON.parse(text.replace(/^`{3}(?:json)?\s*|\s*`{3}$/g,""));
+      if (Array.isArray(items)) return verifiedFacts(items, rows);
+    } catch (error) {
+      if (!(error instanceof SyntaxError)) throw error;
+    }
+  }
+  const facts = readReview();
+  if (facts) return facts;
+  await session.prompt(
+    "The search is complete. Use the Brave results already in this conversation. " +
+    "Give your final answer now as a JSON array, with a short text, exact url, and verbatim " +
+    "supporting quote for each candidate. Omit contact details. Return [] if none qualify.",
+    {expandPromptTemplates:false},
+  );
+  await session.waitForIdle();
+  const last = session.state.messages.at(-1);
+  if (last?.role !== "assistant" || last.stopReason !== "stop") throw Error("Pi could not finish reviewing the search results.");
+  return readReview() || [];
+}
+
 export async function searchName(profile) {
   let body;
   try { body = await readFile(join(profile,"USER.md"), "utf8"); }
@@ -60,6 +85,23 @@ export async function searchName(profile) {
     if (matches.length === 1 && /^[\p{L}\p{N}][\p{L}\p{M}\p{N} .’'_-]{0,95}$/u.test(matches[0]))
       return {name:matches[0],approved:label === "Public search name"};
   }
+}
+
+export function spokenSearchName(text) {
+  return /^(?:please search for|search for|my name is) ([\p{L}\p{N}][\p{L}\p{M}\p{N} .’'_-]{0,95}?)\s*[.!?]?$/iu.exec(text.trim())?.[1].trim();
+}
+
+export function confirmSearchName(name) {
+  return "May I search Brave for "+name+" and use the configured model to review the public work I find?";
+}
+
+export async function newPortfolioReview(profile, explicitLookup) {
+  const identity = await searchName(profile);
+  if (!identity) return {id:randomUUID(), controller:new AbortController(),
+    nameQuestion:"Which name should Pi look up? Say search for, followed by your name."};
+  const nameQuestion = explicitLookup && identity.approved ? undefined :
+    confirmSearchName(identity.name);
+  return {name:identity.name, id:randomUUID(), controller:new AbortController(), nameQuestion};
 }
 
 export async function researchPortfolio(name, signal) {
