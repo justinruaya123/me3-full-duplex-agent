@@ -446,7 +446,9 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
                 if quiet == 0:
                     vad_end = playback.device.capture_time if playback.device else time.monotonic()
                 quiet += 1
-                if quiet == 1 and not speaking_before and u.frames >= 80:
+                # Let Nova see the pause. An immediate forced final can omit
+                # punctuation or settle only the first sentence of a request.
+                if quiet == 45 and getattr(u, "finalized_frames", 0) < u.frames - quiet - 11:
                     flush = getattr(stream, "flush_words", None)
                     if flush:
                         await flush()
@@ -464,12 +466,27 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
                 # Silero stop delay. Parakeet supplies only transcript revisions.
                 speech_end = u.frames - quiet - 10
                 words_pending = getattr(u, "finalized_frames", speech_end) < speech_end - 1
+                # A segment final only settles words. After a sustained gap it
+                # can corroborate a closed sentence that SmartTurn missed.
+                settled = getattr(u, "settled_text", "")
+                provider_end = getattr(u, "endpoint_frames", 0) >= max(1, speech_end - 1)
+                sentence_end = (settled.endswith((".", "?", "!")) and not settled.endswith("..."))
+                settled_request = (bool(settled) and partial == settled and not words_pending
+                                   and not (thinking or open_clause)
+                                   and (sentence_end or (provider_end and settled[-1].isalnum())))
+                corroborated = quiet >= 50 and near.clear and settled_request
                 hold = not speaking_before and (
                     (words_pending and u.frames >= 80 and quiet < 55)
+                    # Allow a speaker to add a qualifier after a sentence break.
+                    or (hasattr(u, "settled_text") and quiet < 32)
                     or ((thinking or open_clause) and quiet < 100)
                 )
-                if complete and not hold:
+                if (complete and not hold) or corroborated:
                     final = await stream.finish()
+                    if not complete and final != settled:
+                        playback.hold(False)
+                        emit("discard", id=u.id, reason="ASR changed at finalization")
+                        continue
                     listener_only = final and (
                         HESITATION.fullmatch(final)
                         or (not getattr(playback, "awaiting_answer", False) and is_listening_receipt(final))
@@ -479,13 +496,14 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
                     if final and near.clear and not listener_only:
                         await playback.cut()
                         emit("commit", id=u.id, text=final, epoch=playback.epoch,
+                             endpoint="smart_turn" if complete else "settled_sentence",
                              vad_end=vad_end, final_at=time.monotonic())
                     else:
                         playback.hold(False)
                         reason = "overlap unconfirmed" if not near.clear else "empty or backchannel"
                         emit("discard", id=u.id, reason=reason)
                     continue
-                if (not speaking_before and near.clear and playback.device and quiet <= 60
+                if (not speaking_before and near.clear and playback.device and quiet <= 60 and not settled_request
                         and (not complete or open_clause)):
                     playback.acknowledge(u, "turn_incomplete", pause_frames)
             quiet_limit = 500 if not speaking_before and near.clear and getattr(u, "text", "") else 150

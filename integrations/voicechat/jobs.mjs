@@ -19,8 +19,10 @@ export function workerEnv(env, project) {
 }
 
 export class JobBridge {
-  constructor(python, cwd, session, env, notify) {
-    const child = spawn(python, ["-m","me3.voicechat_jobs",session], {cwd, env, stdio:"pipe"});
+  constructor(python, cwd, session, env, notify, replayDir) {
+    const args = ["-m","me3.voicechat_jobs",session];
+    if (replayDir) args.push("--replay-drafts", replayDir);
+    const child = spawn(python, args, {cwd, env, stdio:"pipe"});
     this.child = child;
     this.pending = new Map();
     child.stderr.resume();

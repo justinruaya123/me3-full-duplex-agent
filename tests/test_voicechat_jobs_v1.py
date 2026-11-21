@@ -7,6 +7,17 @@ from me3.voicechat_jobs import VoiceJobs
 
 
 class VoiceJobsTests(unittest.IsolatedAsyncioTestCase):
+    async def test_replay_job_store_accepts_only_plain_drafts(self):
+        with tempfile.TemporaryDirectory() as folder:
+            jobs = VoiceJobs(Path(folder), object(), lambda _: None, draft_only=True)
+            try:
+                for kind in ("website", "subagent", "portfolio"):
+                    with self.assertRaisesRegex(ValueError, "draft"):
+                        jobs.submit(kind, "make it", "request")
+                self.assertEqual(jobs.status(), {"status": "empty"})
+            finally:
+                await jobs.close()
+
     async def test_submitted_work_is_independent_and_survives_reopening(self):
         ready = asyncio.Event()
         events = []

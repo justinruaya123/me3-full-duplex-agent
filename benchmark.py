@@ -228,6 +228,7 @@ def main():
     p.add_argument("--fdbench", type=Path, default=ROOT / ".local/fd-benchmark-20261107")
     p.add_argument("--env-file", type=Path, default=ROOT / ".local/benchmark.env")
     p.add_argument("--output", type=Path, help="new report directory, defaults under .local/benchmarks/")
+    p.add_argument("--replay-inputs", type=Path, help="use the three input WAVs from an earlier spoken-routing run")
     p.add_argument("--port", type=int, default=18391, help="two adjacent loopback ports for course audio and marks")
     p.add_argument("--thinking", choices=["off", "low"], default="off",
                    help="off matches the current Pi launcher; low is a separate provider comparison")
@@ -235,6 +236,8 @@ def main():
     p.add_argument("--phrases", type=int, default=10)
     p.add_argument("--runs", type=int, default=3)
     a = p.parse_args()
+    if a.replay_inputs and a.suite != "spoken-routing":
+        p.error("--replay-inputs requires spoken-routing")
     if not 1 <= a.port < 65535 or min(a.rounds, a.phrases, a.runs) < 0:
         p.error("Invalid port or negative trial count")
     if a.suite in ("all", "course") and not (a.rounds or a.phrases * a.runs):
@@ -278,7 +281,8 @@ def main():
                 rig = DirectRig(port=a.port)
                 rig.open()
                 try:
-                    asyncio.run(evaluate(ROOT, folder, a.env_file, a.thinking, rig=rig, fdbench=bench))
+                    asyncio.run(evaluate(ROOT, folder, a.env_file, a.thinking, rig=rig,
+                                         fdbench=bench, replay_inputs=a.replay_inputs))
                 finally:
                     rig.close()
                 continue

@@ -27,6 +27,7 @@ class DeepgramTransportTests(unittest.IsolatedAsyncioTestCase):
         async def listen(request):
             self.assertEqual(request.headers["Authorization"], "Token test-only")
             self.assertEqual(request.query["model"], "nova-3")
+            self.assertEqual(request.query["endpointing"], "600")
             ws = web.WebSocketResponse()
             await ws.prepare(request)
             async for msg in ws:
@@ -35,9 +36,12 @@ class DeepgramTransportTests(unittest.IsolatedAsyncioTestCase):
                     await ws.send_json({"type": "Results", "is_final": False,
                                         "channel": {"alternatives": [{"transcript": "tentative"}]}})
                 elif msg.json()["type"] == "Finalize":
-                    await ws.send_json({"type": "Results", "is_final": True, "start": 0.,
+                    await ws.send_json({"type": "Results", "is_final": True, "speech_final": True, "start": 0.,
                                         "duration": .02, "channel": {"alternatives": [
                                             {"transcript": "settled"}]}})
+                    await ws.send_json({"type": "Results", "is_final": True, "speech_final": True,
+                                        "start": .02, "duration": 5.,
+                                        "channel": {"alternatives": [{"transcript": ""}]}})
                 else:
                     self.assertEqual(msg.json()["type"], "CloseStream")
                     await ws.send_json({"type": "Results", "is_final": True,
@@ -63,6 +67,8 @@ class DeepgramTransportTests(unittest.IsolatedAsyncioTestCase):
                 self.assertFalse(turn.done.done())
                 self.assertEqual(await stream.finish(), "settled final words")
                 self.assertEqual(turn.finalized_frames, 1)
+                self.assertEqual(turn.endpoint_frames, 1)
+                self.assertEqual(turn.settled_text, "settled")
                 self.assertEqual([e["id"] for k, e in events if k == "final"], [turn.id])
             finally:
                 await stream.close()

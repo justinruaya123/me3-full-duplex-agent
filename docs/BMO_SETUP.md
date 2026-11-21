@@ -72,3 +72,16 @@ the same Python environment that runs `benchmark.py`. On macOS use
 `.venv313/bin/python -m pip install -e '.[benchmark-audio]'`. On Linux use
 `.venv-pi/bin/python`. The class rig uses SciPy to convert 24 kHz speaker
 output to its 16 kHz measurement clock.
+
+To replay the same three inputs, pass their previous output directory to
+`--replay-inputs`. The command uses the live providers and creates a fresh
+Pi chat and private draft worker. Set the paths to your class checkout and
+private benchmark environment.
+
+```sh
+.venv313/bin/python benchmark.py spoken-routing --replay-inputs /path/to/previous-run \
+  --fdbench /path/to/class-benchmark --env-file /path/to/benchmark.env
+```
+
+The output directory contains the recordings, the worker's saved `draft.md`
+and `routing.json` with per-turn tool receipts and first reply-audio times.

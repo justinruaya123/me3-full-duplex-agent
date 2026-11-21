@@ -22,6 +22,89 @@ class ListeningCueTests(unittest.TestCase):
 
 
 class ConversationalFloorTests(unittest.IsolatedAsyncioTestCase):
+    async def test_completed_first_sentence_can_receive_a_spoken_qualifier(self):
+        import asyncio
+        from types import SimpleNamespace
+        from unittest.mock import AsyncMock, Mock, patch
+        from pipecat.audio.vad.vad_analyzer import VADState
+        from me3.parakeet import FRAME
+        from me3.parakeet_voice import local_turns
+
+        first = "Plan a walking route."
+        full = first + " Start at the park."
+        states = ([VADState.SPEAKING] * 60 + [VADState.QUIET] * 28
+                  + [VADState.SPEAKING] * 35 + [VADState.QUIET] * 55)
+        wire = SimpleNamespace(current=None)
+        async def begin():
+            wire.current = SimpleNamespace(id=str(index), frames=0, text="", settled_text="")
+            return wire.current
+        async def audio(_):
+            u = wire.current
+            u.frames += 1
+            u.text = u.settled_text = first if index < 88 else full
+            u.finalized_frames = u.frames
+        async def finish():
+            text = wire.current.text
+            wire.current = None
+            return text
+        async def frames():
+            nonlocal index
+            for index in range(len(states)):
+                yield bytes(FRAME)
+                await asyncio.sleep(0)
+        index = 0
+        wire.begin, wire.audio, wire.finish = begin, audio, finish
+        playback = Mock(device=None, task=None, epoch=1, cut=AsyncMock(), allow_cue=False)
+        with patch("me3.parakeet_voice.emit") as emit:
+            await local_turns(wire, frames(), Mock(analyze_audio=AsyncMock(side_effect=states)),
+                              AsyncMock(return_value=True), playback)
+        self.assertEqual([c.kwargs["text"] for c in emit.call_args_list if c.args == ("commit",)], [full])
+
+    async def test_settled_sentence_can_recover_an_acoustic_miss(self):
+        import asyncio
+        from types import SimpleNamespace
+        from unittest.mock import AsyncMock, Mock, patch
+        from pipecat.audio.vad.vad_analyzer import VADState
+        from me3.parakeet import FRAME
+        from me3.parakeet_voice import local_turns
+
+        sentence = "Please bring the blue folder."
+        plain = sentence.rstrip(".")
+        for settled, partial, coverage, endpoint, final, expected in [
+            (sentence, sentence, 90, 0, sentence, [sentence]),
+            (plain, plain, 90, 90, plain, [plain]),
+            (plain, plain, 90, 40, plain, []),
+            (sentence, sentence, 10, 0, sentence, []),
+            ("", sentence, 90, 90, sentence, []),
+            (sentence, sentence + " And", 90, 0, sentence, []),
+            (sentence, sentence, 90, 0, "Please bring", []),
+            ("We still need the.", "We still need the.", 90, 90, "We still need the.", []),
+        ]:
+            with self.subTest(settled=settled, partial=partial, coverage=coverage, final=final):
+                item = SimpleNamespace(id="x", frames=0, settled_text=settled,
+                                       text=partial, finalized_frames=coverage, endpoint_frames=endpoint)
+                stream = SimpleNamespace(current=None)
+                async def begin():
+                    stream.current = item
+                    return item
+                async def audio(_):
+                    item.frames += 1
+                async def finish(*, cancel=False):
+                    stream.current = None
+                    return None if cancel else final
+                stream.begin, stream.audio, stream.finish = begin, audio, finish
+                states = [VADState.SPEAKING] * 100 + [VADState.QUIET] * 90
+                async def frames():
+                    for _ in states:
+                        yield bytes(FRAME)
+                        await asyncio.sleep(0)
+                playback = Mock(device=None, overlap=False, task=None, allow_cue=False,
+                                awaiting_answer=False, epoch=1, cut=AsyncMock())
+                with patch("me3.parakeet_voice.emit") as emit:
+                    await local_turns(stream, frames(), Mock(analyze_audio=AsyncMock(side_effect=states)),
+                                      AsyncMock(return_value=False), playback)
+                self.assertEqual([c.kwargs["text"] for c in emit.call_args_list if c.args == ("commit",)], expected)
+
     async def test_one_turn_across_a_thinking_pause(self):
         import asyncio
         from types import SimpleNamespace

@@ -5,12 +5,24 @@
 ```mermaid
 flowchart LR
   mic[Mic] --> asr[Deepgram]
-  asr --> turn[Local turn controller]
-  turn --> pi[Project Pi session]
+  asr -->|Revisions, settled words and endpoint time| turn[Local turn controller]
+  mic --> local[Silero VAD and SmartTurn]
+  local --> turn
+  turn -->|Matching final and local commit| pi[Project Pi session]
   pi <--> model[OpenRouter]
   pi --> tts[Local BMO Piper and speaker]
   pi --> jobs[Local job supervisor and workers]
 ```
+
+During a Deepgram turn the controller allows a short gap for a second clause.
+If SmartTurn holds the floor, a full second of local quiet can corroborate a
+settled sentence. The settled words must cover the last speech and match the
+current transcript. A closed sentence has terminal punctuation or a matching
+provider endpoint with a non-dangling word ending. Resumed speech restarts the
+quiet interval. A late change to the final prevents dispatch on this path.
+The loopback routing test uses a fresh draft-only supervisor store. Live mic
+authorization, spoken approvals and ordinary course playback retain their
+existing gates.
 
 ### D2 · Integrated result-return policy
 

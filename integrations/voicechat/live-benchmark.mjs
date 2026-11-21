@@ -17,7 +17,7 @@ export class LiveBenchmark {
   command(id, event) {
     this.last = id;
     this.turns.set(id, {vadEnd:event.vad_end, deviceCommit:event.final_at, commit:performance.now()});
-    this.log("command", {id, transcript:event.text, vadToCommitMs:Math.round(1000*(event.final_at-event.vad_end))});
+    this.log("command", {id, transcript:event.text, endpoint:event.endpoint, vadToCommitMs:Math.round(1000*(event.final_at-event.vad_end))});
   }
   firstText(id) {
     const turn = this.turns.get(id);
@@ -30,6 +30,11 @@ export class LiveBenchmark {
     if (!turn || turn.feedback || !Number.isFinite(timestamp)) return;
     turn.feedback = source;
     this.log("first_feedback", {id, source, commitToFeedbackMs:Math.round(1000*(timestamp-turn.deviceCommit))});
+  }
+  jobCue(id, job, text, firstOutput) {
+    const turn = this.turns.get(id);
+    this.log("job_cue_played", {id, job:job.id, revision:job.revision, text,
+      ...(turn && Number.isFinite(firstOutput) && {vadEndToCueMs:Math.round(1000*(firstOutput-turn.vadEnd))})});
   }
   output(event) {
     const turn = this.turns.get(event.receipt);

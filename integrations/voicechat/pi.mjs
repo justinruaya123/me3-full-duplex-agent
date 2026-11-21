@@ -60,7 +60,7 @@ export default function voicechat(pi) {
           else if (job.preview) lines.push(clip(job.preview));
           else if (job.error) lines.push(clip(job.error));
           context.ui.setWidget("voice-worker", lines);
-        });
+        }, replayDirectory());
     }
     return bridge;
   }
@@ -72,6 +72,8 @@ export default function voicechat(pi) {
   let memory, memoryError, pendingReply, bench;
   let portfolio;
   const benchmarking = process.env.ME3_LIVE_BENCHMARK === "1";
+  const replayDirectory = () => benchmarking && process.env.ME3_FDBENCH_URL &&
+    process.env.ME3_MEMORY_ENABLED === "0" && pi.getFlag("voicechat-replay-drafts");
   const asr = benchmarking || process.env.ME3_ASR_BACKEND === "deepgram" ? "Deepgram" : "Parakeet";
   const bmo = process.env.ME3_VOICE_TTS === "bmo";
   const tts = bmo ? "BMO Piper" : (process.env.ME3_VOICE_TTS || (benchmarking ? "lessac" : "kokoro"));
@@ -86,7 +88,7 @@ export default function voicechat(pi) {
   async function submission(turn, fields, signal, context) {
     const host = jobs(context);
     let job = await host.call("submit", fields);
-    const current = () => !signal.aborted && liveMic && active === turn && currentTurn() === turn.id;
+    const current = () => !signal.aborted && (liveMic || replayMic) && active === turn && currentTurn() === turn.id;
     if (bmo && current() && ["running","queued"].includes(job.status) &&
         await host.call("claim_cue", {job:job.id, revision:job.revision}) && current()) {
       const text = pick(job.follow_up ? "follow_up" : "accepted");
@@ -107,7 +109,7 @@ export default function voicechat(pi) {
       });
       if (played && current()) {
         turn.jobCue = text;
-        bench?.log("job_cue_played", {id:turn.id, job:job.id, revision:job.revision, text});
+        bench?.jobCue(turn.id, job, text, played.firstOutput);
       }
       job = await host.call("status", {job:job.id});
     }
@@ -154,7 +156,7 @@ export default function voicechat(pi) {
     (active.session === session && active.epoch === epoch)) ? active.id : undefined;
   const canvas = dashboard(pi, currentTurn);
   if (process.env.ME3_WINDOW_DIR) registerVisual(pi, currentTurn);
-  let liveMic = false, awaitingAnswer = false;
+  let liveMic = false, replayMic = false, awaitingAnswer = false;
   let overlap = false;
   let protectedPrompt = false;
   function updateListener() {
@@ -253,6 +255,7 @@ export default function voicechat(pi) {
         case "ready":
           device({op:"overlap", enabled:overlap});
           liveMic = !e.fixture && !e.digital;
+          replayMic = !e.fixture && e.digital && !!replayDirectory();
           updateListener();
           status(asr + " + Pi + " + tts + " · " + (e.digital ? "fdbench" : e.fixture ? "fixture" : "live mic")); break;
         case "standby": status(asr + " · mic armed; reconnects on speech"); break;
@@ -312,12 +315,13 @@ export default function voicechat(pi) {
           break;
         case "deferred":
           if (notice?.receipt === e.receipt) notice = undefined;
-          if (cueWait?.receipt === e.receipt) cueWait.finish(false);
+          if (cueWait && cueWait.receipt === e.receipt) cueWait.finish(false);
           if (pendingReply?.id === e.receipt) pendingReply = undefined;
           break;
         case "played":
           quietSince = Date.now();
-          if (cueWait?.receipt === e.receipt) cueWait.finish(e.signal_frames > 0);
+          if (cueWait && cueWait.receipt === e.receipt)
+            cueWait.finish(e.signal_frames > 0 && {firstOutput:cueWait.firstOutput});
           if (notice && notice.receipt === e.receipt) {
             if (e.signal_frames > 0) {
               lastNoticeAt = Date.now();
@@ -341,6 +345,7 @@ export default function voicechat(pi) {
           bench?.log("wait_cue_output", {id:e.receipt, cue:"waiting", commitToCueOutputMs:e.commit_to_output_ms});
           break;
         case "playing": {
+          if (cueWait && cueWait.receipt === e.receipt) cueWait.firstOutput = e.first_output;
           if (active && (cueWait?.receipt === e.receipt || e.receipt === "searching/" + active.id))
             bench?.feedback(active.id, "tool", e.first_output);
           if (active?.committedAt && ["waiting/", "searching/"].some(prefix => e.receipt === prefix + active.id))
@@ -360,7 +365,7 @@ export default function voicechat(pi) {
       wait.end();
       faceAudio({kind:code ? "error" : "off"});
       clearInterval(noticeTimer); clearOutput();
-      liveMic = false;
+      liveMic = replayMic = false;
       pendingReply = undefined;
       approval.close();
       proc = undefined;
@@ -375,7 +380,7 @@ export default function voicechat(pi) {
     wait.end();
     clearInterval(noticeTimer); clearOutput();
     pendingReply = undefined;
-    liveMic = false;
+    liveMic = replayMic = false;
     approval.close();
     recovery.reset();
     faceAudio({kind:"off"});
@@ -391,6 +396,7 @@ export default function voicechat(pi) {
   }
 
   pi.registerFlag("voicechat-duplex", {type:"boolean",description:"Start this Pi session with the microphone enabled"});
+  pi.registerFlag("voicechat-replay-drafts", {type:"string",description:"Fresh draft-only job directory for the isolated loopback routing benchmark"});
   pi.registerFlag("voicechat-fixture", {type:"string",description:"Use a synthetic mono PCM16 WAV for voice input"});
   pi.registerCommand("me3", {
     description:"Toggle voice with /me3 duplex, pilot listening cues with /me3 overlap on|off, or check /me3 memory",
@@ -570,6 +576,10 @@ export default function voicechat(pi) {
     }
   });
   pi.on("tool_execution_start", ({toolCallId}) => wait.tool(currentTurn(), toolCallId, true));
+  pi.on("tool_call", ({toolName}) => {
+    if (replayDirectory() && !["delegate_task", "delegated_task_status"].includes(toolName))
+      return {block:true, reason:"Spoken routing replay supports only text drafts and their status."};
+  });
   pi.on("tool_execution_end", ({toolName, toolCallId, isError}) => {
     wait.tool(currentTurn(), toolCallId, false);
     if (active && toolName === "web_lookup") active.searchAttempted = true;
@@ -724,7 +734,7 @@ export default function voicechat(pi) {
       follow_up:Type.Optional(Type.Boolean({description:"Set true only when the user asks to hear back when this work finishes."}))}),
     async execute(_call, {brief, follow_up = false}, signal, _progress, context) {
       if (!active || signal.aborted || (active.session &&
-          (!liveMic || active.session !== session || active.epoch !== epoch))) {
+          ((!liveMic && !replayMic) || active.session !== session || active.epoch !== epoch))) {
         throw Error("No current committed request");
       }
       active.hasTool = true;

@@ -45,6 +45,32 @@ class VoiceBenchmarkTests(unittest.TestCase):
         self.assertEqual(assess(turns), dict(delegated_once=True, direct_answer=True, same_job=False))
         receipt["revision"] = 1
         self.assertTrue(assess(turns)["same_job"])
+        receipt["failed"] = True
+        self.assertFalse(assess(turns)["same_job"])
+
+    def test_replayed_audio_requires_the_committed_turns_own_reply(self):
+        from integrations.pi_routing_benchmark import attach_spoken_receipts
+        rows = [{"transcripts":["Please bring the book."], "recorded_speech":True}]
+        events = [{"event":"command", "id":"a", "transcript":"Please bring the book."},
+                  {"event":"wait_cue_output", "id":"a"},
+                  {"event":"first_output", "id":"old", "vadEndToOutputMs":230}]
+        self.assertFalse(attach_spoken_receipts(rows, events))
+        events.extend([{"event":"answer", "id":"a", "text":"Here it is."},
+                       {"event":"first_output", "id":"a", "vadEndToOutputMs":560}])
+        self.assertTrue(attach_spoken_receipts(rows, events))
+        self.assertEqual(rows[0]["spoken_reply"], "Here it is.")
+
+    def test_durable_acceptance_audio_can_be_the_entire_delegation_reply(self):
+        from integrations.pi_routing_benchmark import attach_spoken_receipts
+        row = {"transcripts":["Write a note."], "recorded_speech":True, "tools":[
+            {"name":"delegate_task", "id":"new", "revision":1, "failed":False}]}
+        cue = {"event":"job_cue_played", "id":"turn", "job":"other",
+               "revision":1, "text":"On it.", "vadEndToCueMs":1400}
+        events = [{"event":"command", "id":"turn", "transcript":"Write a note."}, cue]
+        self.assertFalse(attach_spoken_receipts([row], events))
+        cue["job"] = "new"
+        self.assertTrue(attach_spoken_receipts([row], events))
+        self.assertEqual(row["job_acknowledgment"], "On it.")
 
     def test_waiting_cue_is_excluded_from_answer_audio(self):
         from benchmark import stage_answer_audio

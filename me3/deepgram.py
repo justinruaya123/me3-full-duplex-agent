@@ -34,7 +34,7 @@ class DeepgramStream(Stream):
                     self.url, headers={"Authorization": "Token " + self.token},
                     params={"model": "nova-3", "language": "en-US", "encoding": "linear16",
                             "sample_rate": "16000", "channels": "1", "interim_results": "true",
-                            "punctuate": "true", "endpointing": "false"},
+                            "punctuate": "true", "endpointing": "600"},
                     max_msg_size=262144, heartbeat=15)
         except aiohttp.WSServerHandshakeError as exc:
             if exc.status in (401, 403):
@@ -56,8 +56,12 @@ class DeepgramStream(Stream):
                     text = result.update(event)
                     # A provider segment final settles words. The local controller
                     # still owns the end of the conversational turn.
-                    if event["is_final"] and "start" in event and "duration" in event:
+                    segment = event["channel"]["alternatives"][0]["transcript"].strip()
+                    if event["is_final"] and segment and "start" in event and "duration" in event:
                         turn.finalized_frames = round((event["start"] + event["duration"]) / .020)
+                        turn.settled_text = result.final
+                        if event.get("speech_final") and not event.get("from_finalize"):
+                            turn.endpoint_frames = turn.finalized_frames
                     turn.accept(dict(type="partial", id=turn.id, revision=turn.revision+1, text=text))
                 elif event.get("type") == "Metadata" and turn and turn.expect == "final":
                     turn.accept(dict(type="final", id=turn.id, revision=turn.revision+1, text=result.final))
@@ -85,6 +89,8 @@ class DeepgramStream(Stream):
             await self.connect()
         self.current = Utterance(self.notify)
         self.current.finalized_frames = 0
+        self.current.settled_text = ""
+        self.current.endpoint_frames = 0
         return self.current
 
     async def flush_words(self):

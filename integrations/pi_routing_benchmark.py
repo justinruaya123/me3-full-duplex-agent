@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import sys
 import tempfile
 import time
@@ -21,17 +22,45 @@ def assess(turns):
     jobs = submitted["tools"]
     receipts = returned["tools"]
     delegated = (len(jobs) == 1 and jobs[0].get("name") == "delegate_task"
-                 and bool(jobs[0].get("id")) and jobs[0].get("revision") == 1
+                 and not jobs[0].get("failed") and bool(jobs[0].get("id")) and jobs[0].get("revision") == 1
                  and jobs[0].get("status") in {"queued", "running", "completed"})
     return dict(
         delegated_once=delegated,
         direct_answer=not answer["tools"] and bool(re.fullmatch(
             r"(12|twelve)[.!]?", answer["text"].strip(), flags=re.IGNORECASE)),
         same_job=delegated and len(receipts) == 1 and receipts[0].get("name") == "delegated_task_status"
-        and receipts[0].get("id") == jobs[0]["id"]
+        and not receipts[0].get("failed") and receipts[0].get("id") == jobs[0]["id"]
         and receipts[0].get("revision") == jobs[0]["revision"]
         and receipts[0].get("status") in {"queued", "running", "completed"},
     )
+
+
+def attach_spoken_receipts(rows, events):
+    commands = [e for e in events if e["event"] == "command"]
+    if len(commands) != len(rows):
+        return False
+    for row, command in zip(rows, commands):
+        if row["transcripts"] != [command["transcript"]]:
+            return False
+        for event in events:
+            if event.get("id") != command["id"]:
+                continue
+            if event["event"] == "answer":
+                row["spoken_reply"] = event["text"]
+            elif event["event"] == "first_output":
+                row["vad_to_reply_audio_ms"] = event["vadEndToOutputMs"]
+            elif event["event"] == "job_cue_played" and any(
+                tool["name"] == "delegate_task" and not tool.get("failed")
+                and (tool.get("id"), tool.get("revision")) == (event["job"], event["revision"])
+                for tool in row["tools"]
+            ):
+                row["job_acknowledgment"] = event["text"]
+                row["vad_to_job_ack_ms"] = event.get("vadEndToCueMs")
+        row["endpoint"] = command.get("endpoint")
+    return all(r.get("recorded_speech") and not (r.get("error") or r.get("device_error")) and (
+        (r.get("spoken_reply") and r.get("vad_to_reply_audio_ms") is not None)
+        or (r.get("job_acknowledgment") and r.get("vad_to_job_ack_ms") is not None)
+    ) for r in rows)
 
 
 def microphone_transcript(event):
@@ -95,10 +124,18 @@ async def start_device(pi):
     await pi.stdin.drain()
 
 
-async def evaluate(root, output, env_file, thinking, *, rig=None, fdbench=None):
+async def evaluate(root, output, env_file, thinking, *, rig=None, fdbench=None, replay_inputs=None):
     report = {"kind": "live Pi.dev typed routing, isolated chat, microphone closed", "turns": []}
     clips = []
-    if rig:
+    if rig and replay_inputs:
+        import soundfile as sf
+        for i in range(len(PROMPTS)):
+            path = replay_inputs / f"turn-{i+1}-input.wav"
+            info = sf.info(path)
+            if (info.channels, info.samplerate, info.subtype) != (1, 16000, "PCM_16") or not 0 < info.duration <= 20:
+                raise ValueError(f"Expected up to 20 seconds of 16 kHz mono PCM16 in {path.name}")
+            clips.append(sf.read(path, dtype="float32")[0])
+    elif rig:
         import numpy as np
         import soxr
         from me3 import bmo
@@ -109,6 +146,7 @@ async def evaluate(root, output, env_file, thinking, *, rig=None, fdbench=None):
         for prompt in PROMPTS:
             pcm = np.frombuffer(render(prompt), dtype="<i2").astype(np.float32) / 32768
             clips.append(soxr.resample(pcm, 24000, 16000))
+    if rig:
         report["kind"] = "live Pi.dev routing with synthesized speech over the class digital audio rig"
     with tempfile.TemporaryDirectory(prefix="me3-routing-") as client:
         env = dict(os.environ, ME3_CLIENT_HOME=client, VOICECHAT_PYTHON=sys.executable,
@@ -122,6 +160,7 @@ async def evaluate(root, output, env_file, thinking, *, rig=None, fdbench=None):
             pi = await asyncio.create_subprocess_exec(
                 "bash", "integrations/voicechat/start.sh", "--live-benchmark", "--terminal",
                 "--mode", "rpc", "--no-session", "--tools", "delegate_task,delegated_task_status",
+                *(["--voicechat-replay-drafts", str(Path(client) / "jobs")] if rig else []),
                 cwd=root, env=env, stdin=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE,
                 stderr=log, limit=1024 * 1024)
             reader = None
@@ -162,9 +201,25 @@ async def evaluate(root, output, env_file, thinking, *, rig=None, fdbench=None):
                             await turn(pi, prompt, row)
                 report["checks"] = assess(report["turns"])
                 if rig:
-                    report["checks"]["three_spoken_turns"] = all(
-                        len(r["transcripts"]) == 1 and r.get("recorded_speech") and not r.get("error")
-                        for r in report["turns"])
+                    events = [json.loads(line) for log in sorted((output / "pi").glob("*.jsonl"))
+                              for line in log.read_text().splitlines()]
+                    report["checks"]["three_spoken_turns"] = attach_spoken_receipts(report["turns"], events)
+                    spoken = report["turns"][1].get("spoken_reply", "")
+                    report["checks"]["direct_answer"] &= bool(re.fullmatch(r"(12|twelve)[.!]?", spoken.strip(), re.I))
+                    saved = False
+                    if report["checks"]["same_job"]:
+                        job = report["turns"][0]["tools"][0]
+                        # Read the host's atomically published draft from this replay's private store.
+                        if re.fullmatch(r"[a-f0-9]{32}", job["id"]):
+                            pattern = f"*/jobs/{job['id']}/revision-{job['revision']}/result.md"
+                            for _ in range(60):
+                                files = list((Path(client) / "jobs/chats").glob(pattern))
+                                if len(files) == 1 and files[0].stat().st_size:
+                                    shutil.copyfile(files[0], output / "draft.md")
+                                    saved = True
+                                    break
+                                await asyncio.sleep(.5)
+                    report["checks"]["saved_draft"] = saved
                 if not all(report["checks"].values()):
                     raise ValueError("Live Pi routing checks failed")
             finally:

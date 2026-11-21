@@ -1,5 +1,6 @@
 """Pi voice plugin's session-scoped stdio bridge to the ME3 job supervisor."""
 
+import argparse
 import asyncio
 import hashlib
 import json
@@ -18,7 +19,8 @@ SUBAGENT_PREFIX = "ME3_SUBAGENT_V1\n"
 
 
 class VoiceJobs:
-    def __init__(self, root, backend, notify, *, site_backend=None):
+    def __init__(self, root, backend, notify, *, site_backend=None, draft_only=False):
+        self.draft_only = draft_only
         self.supervisor = Supervisor(
             root, WebsiteWorker(backend, site_backend=site_backend), workers=1, max_pending=5, timeout=600,
             prepare_result=self.prepare,
@@ -38,6 +40,8 @@ class VoiceJobs:
 
     def submit(self, kind, brief, key, *, follow_up=False):
         brief = checked_prompt(brief)
+        if self.draft_only and kind != "draft":
+            raise ValueError("Spoken replay accepts only text drafts")
         if kind not in {"website", "portfolio", "draft", "subagent"} or not key or brief.startswith((REQUEST_PREFIX, PORTFOLIO_PREFIX)):
             raise ValueError("Invalid delegated task")
         if (kind == "subagent") != brief.startswith(SUBAGENT_PREFIX):
@@ -145,10 +149,10 @@ def emit(record):
     print(json.dumps(record), flush=True)
 
 
-async def run(session):
+async def run(session, replay_dir=None):
     root = Path(__file__).resolve().parents[1]
-    state = root / ".local/voice-worker"
-    state.mkdir(mode=0o700, parents=True, exist_ok=True)
+    state = replay_dir if replay_dir is not None else root / ".local/voice-worker"
+    state.mkdir(mode=0o700, parents=True, exist_ok=replay_dir is None)
     agent = state / "agent"
     agent.mkdir(mode=0o700, parents=True, exist_ok=True)
     def backend(*args):
@@ -159,7 +163,7 @@ async def run(session):
 
     chat = hashlib.sha256(session.encode()).hexdigest()
     jobs = VoiceJobs(state / "chats" / chat, backend(), lambda job: emit({"event": job}),
-                     site_backend=backend("--website"))
+                     site_backend=backend("--website"), draft_only=replay_dir is not None)
     try:
         while line := await asyncio.to_thread(sys.stdin.buffer.readline, 131073):
             if len(line) > 131072:
@@ -187,4 +191,8 @@ async def run(session):
 
 
 if __name__ == "__main__":
-    asyncio.run(run(sys.argv[1]))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("session")
+    parser.add_argument("--replay-drafts", type=Path)
+    args = parser.parse_args()
+    asyncio.run(run(args.session, args.replay_drafts))

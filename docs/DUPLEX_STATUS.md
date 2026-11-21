@@ -1,5 +1,32 @@
 # Implementation and qualification status
 
+## November 21 · Three-turn spoken routing on the Mac
+
+The same three input WAVs that previously scored 0/4 were replayed byte for
+byte through the class digital transport, live Deepgram, the project Pi
+foreground on OpenRouter, a real local Pi worker and local BMO Piper.
+The local controller committed each request once. The worker saved a three-step
+checklist under sixty words. The arithmetic reply was “12” with zero tool
+calls. The status tool returned the original job ID at revision one, completed.
+All five checks passed, including a reply playback receipt for each turn and
+the saved draft. This is a digital transport run on a Mac.
+
+| Turn | Time from local VAD end to the first task-specific speaker callback |
+| --- | --- |
+| Draft accepted, “On it.” | 3.427 s |
+| Arithmetic answer | 2.430 s |
+| Completed checklist status | 4.096 s |
+
+The earlier acoustic classifier could hold a finished request until timeout.
+Forcing Deepgram to finalize at the first quiet frame could also lose a
+sentence-ending marker. An intermediate repair submitted a second job from a
+trailing qualifier. The controller now preserves short sentence gaps, considers
+settled words and provider endpoint timing, and checks the final before dispatch.
+The installed Mac suite passed 489 Python tests and 98 JavaScript tests with
+zero skips. The versioned Python subset passed 459 tests. The duplex control
+simulation and compile checks passed. Physical microphone timing and Raspberry
+Pi performance require separate measurements.
+
 ## Consolidated side-chat integration
 
 A live three-prompt typed Pi smoke test submitted one draft, answered the
