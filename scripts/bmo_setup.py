@@ -169,7 +169,11 @@ def install(root, system_deps=False):
     if system_deps and platform.system() == "Linux":
         run(python, "-m", "playwright", "install-deps", "chromium")
     run(python, "-m", "playwright", "install", "chromium")
-    run("npm", "ci", "--prefix", "integrations/voicechat", "--no-audit", "--no-fund")
+    helpers = root / ".local/pi/helpers"
+    subprocess.run(["npm", "ci", "--prefix", "integrations/voicechat", "--no-audit", "--no-fund"],
+                   cwd=root, check=True, env=dict(os.environ,
+                   PI_COMPUTER_USE_HELPER_APP_PATH=str(helpers / "pi-computer-use.app"),
+                   PI_COMPUTER_USE_LINUX_HELPER_PATH=str(helpers / "linux-bridge")))
     run("bash", "scripts/setup-openintelligentui.sh")
     run(python, "-m", "integrations.voicechat.face_assets")
     run(python, "-m", "me3.bmo", "--root", str(root / ".local/models/bmo-v1.0-voice"))
@@ -187,7 +191,9 @@ def main():
         if name == "install-bmo":
             command.add_argument("--system-deps", action="store_true", help="install OS audio and browser prerequisites")
         command.add_argument("--no-prompt", action="store_true", default=argparse.SUPPRESS)
-    commands.add_parser("run").add_argument("--window", action="store_true")
+    launch = commands.add_parser("run")
+    launch.add_argument("--window", action="store_true")
+    launch.add_argument("--computer-use", action="store_true", help="enable local desktop tools for this Pi session")
     commands.add_parser("check")
     exporter = commands.add_parser("export-config")
     exporter.add_argument("file", type=Path)
@@ -205,7 +211,8 @@ def main():
         elif args.command in {"run", "check"}:
             flag = "--sanity" if args.command == "check" else "--window" if args.window else "--terminal"
             os.chdir(ROOT)
-            os.execvpe("bash", ["bash", "integrations/voicechat/start.sh", flag], {"ME3_ASR_BACKEND": "deepgram", **os.environ, "ME3_CLIENT_HOME": str(ROOT)})
+            flags = ["--computer-use", flag] if getattr(args, "computer_use", False) else [flag]
+            os.execvpe("bash", ["bash", "integrations/voicechat/start.sh", *flags], {"ME3_ASR_BACKEND": "deepgram", **os.environ, "ME3_CLIENT_HOME": str(ROOT)})
         else:
             configure(ROOT, args.no_prompt)
             if args.command != "configure":

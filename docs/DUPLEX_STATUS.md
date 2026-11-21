@@ -1,5 +1,175 @@
 # Implementation and qualification status
 
+## November 21 · Account-owned Git push (R10, current)
+
+An explicit `/me3 push REPO` or `/me3 publish REPO` uses the active `gh`
+account; it no longer opens a second approval prompt. The host verifies
+ownership, write permission, the current job revision and manifest. It runs
+a real non-force Git push to `bmo-pages` from a temporary worktree. Only a
+publish/Pages request also configures Pages. This supersedes the earlier
+approval-popup behavior described below.
+
+A live read-only `gh api user` identified the active account. A real Git
+transport test against a temporary bare repository covered initial push,
+unchanged retry, fast-forward update and removal of an obsolete asset.
+GitHub ownership, permission denial and Pages configuration paths used stubbed
+API responses. No remote repository was modified in these checks. Installed
+verification passed 515 Python tests (485 versioned) and 113 JavaScript
+tests, zero skips, plus the five duplex simulation checks and compilation.
+
+## November 21 · Direct native GitHub Pages approval (R10, historical)
+
+`/me3 publish OWNER/REPO` now selects the newest website in the current Pi
+chat without model inference. It refuses an unfinished site or a web-stream
+session and uses Pi's native confirmation. Existing revision, file hash and
+explicit approval gates are shared with conversational publication.
+
+A real project Pi process in a PTY resumed the current chat, resolved its
+completed website, displayed the native confirmation for a test destination,
+and accepted Escape to cancel. This was a local approval-path smoke test;
+no GitHub API calls or live deployment were made during the smoke. Installed
+checks passed: 515 full-suite Python tests, 113 JavaScript tests, five duplex
+simulator checks and Python compilation, with zero test skips.
+
+## November 21 · Timely website research and explicit GitHub push (D3 / R10)
+
+Recent Pi errors rejected “push it to GitHub” before they opened an approval
+prompt. A push request can now name the exact repository in the same turn
+without saying “GitHub Pages.” Missing or mismatched destinations,
+negated requests, and conversational approval still cannot reach GitHub. A
+matching request presents the verified files and destination for interactive
+approval; the real Pi terminal continues to use its native prompt.
+
+For recognized website requests needing current public information, the
+client sends the scoped public subject to Brave before it submits the build.
+The worker receives bounded source material. Named local pages can use
+verbatim copy from the current request; browser verification checks that
+supplied copy is present and that unrelated personal claims are not added.
+A name-only request with no further authorized copy remains a starter.
+
+A live Brave smoke on a synthetic website request returned five URLs.
+Publisher regression tests used a stub GitHub API and verified zero API calls
+before approval. `gh auth status` succeeded; no live upload or deployment
+was attempted. The named-page test used fixture inference and real offline
+browser verification. Installed checks passed: 515 Python tests (485
+versioned), 112 JavaScript tests, five duplex simulation checks and Python
+compilation, with zero test skips. No microphone or acoustic checks were
+performed.
+
+## November 21 · GitHub Pages approval in the BMO window (R10)
+
+The companion window presents a native Publish / Cancel dialog over the
+current view instead of relying on the streamed Pi terminal. Terminal-only
+sessions still use Pi's prompt. The local client binds the decision to the
+pending request, checks expiry, and rechecks the turn and verified revision
+before calling GitHub.
+
+A headless Chromium test on the Pi exercised the actual loopback WebSocket,
+including reconnect with an unanswered prompt, Escape to cancel, and Publish.
+Additional tests used fixture decisions and a stubbed GitHub API. No live
+GitHub upload, deployment, or acoustic test was run for this change. Installed
+verification passed 513 Python tests (483 versioned), 111 JavaScript tests,
+five duplex simulation checks and Python compilation, with zero test skips.
+
+## November 21 · BMO questions and Pi requests on Raspberry Pi 5 (D3)
+
+BMO no longer forces a lookup just because a question contains words that are
+absent from the chat. Pi judges ordinary stable facts; explicit freshness and
+rechecks retain the public-query gate. The host schedules the cached “Searching.”
+only at live fetch, not for a cache hit or an ordinary Pi task. A commitment tone
+no longer suppresses that cue. User speech or an available answer can preempt it.
+
+Four fresh typed Pi sessions on the board used the configured live foreground,
+with memory off and an empty operator profile. A capital question and a polite
+rephrasing request used zero tools. A release-version question and a request for
+a periodical’s exact issue number each called `web_lookup` once. Both replies
+reported what they could not verify. These observations test routing, not general
+confidence calibration or the accuracy of every statement. The Piper clip was
+generated locally; post-tone playback was tested with a digital callback, not
+through the physical microphone and Bluetooth speaker. On the Pi, 511 Python
+tests passed (481 in the versioned suite) and 105 JavaScript tests passed, with
+zero skips. All five duplex simulation checks and Python compilation passed.
+
+## November 21 · Wake latency and end-of-turn feedback
+
+Five mic wake attempts were transcribed as variants of the name and went to
+Pi for a conversational answer. The three cached greetings also started with
+344–600 ms of quiet. Confirmed wake-only turns now play a trimmed local clip.
+A finished request can receive one 85 ms acknowledgment sound while Pi
+answers. An ordinary pause, a stutter and a wake embedded in a request have
+separate regression cases.
+
+The Mac replay used newly synthesized input, the class digital rig, live
+Deepgram Nova-3 and OpenRouter, and local BMO Piper. Each run used the same
+three phrases and an empty private profile. The times below start at the local
+VAD end and stop at the first output callback containing the indicated audio.
+
+| Input and measured output | Before | Updated replay 1 | Updated replay 2 |
+| --- | ---: | ---: | ---: |
+| “Hey BMO” → spoken greeting | 2,498 ms | 499 ms | 440 ms |
+| “What is seven plus five?” → first sound of the spoken answer | 3,159 ms | 1,240 ms | 1,102 ms |
+| Same question → acknowledgment sound | — | 703 ms | 622 ms |
+| “Um” → dispatched turns / output clips | 0 / 0 | 0 / 0 | 0 / 0 |
+
+Both updated answers were “Twelve.” The acknowledgment began 160 and 161 ms
+after the controller committed the request. Counting instead from the last
+voiced input sample to the first returned sound on the rig clock, the wake
+took 1,653 and 1,873 ms, and the question took 921 and 841 ms to its tone.
+A third session repeated the wake after the question and hesitation. On
+the rig clock, the first greeting took 1,493 ms and the repeat took 755 ms.
+On the local VAD clock these took 382 ms and 538 ms. “Twelve” started
+1,080 ms after VAD end and “Um” again produced no output.
+
+Before the standby connection change, a digital run lost its second turn to
+a two-second capture overrun. The Mac mic also overran when a final flush
+took 707 ms and the next handshake blocked capture for a further 1,884 ms.
+The client now starts one standby handshake during speech. A regression
+holds the old final open and verifies that the new connection cannot take
+its audio or transcript. Both tabulated runs completed all three inputs
+with this change. In two minutes on the physical Mac mic, eleven utterances
+opened and the device reported zero overruns. The longest wait for an ASR
+connection at speech onset was 1,015 ms. This observation counts audio activity without grading the
+speaker's words or replies. The samples do not establish a p95 or physical
+microphone-to-speaker latency. [Current voice path (D1)](ARCHITECTURE_REVIEW.md)
+
+## November 21 · Public questions and foreground computer use
+
+The Mac mic transcript contained a complete question about a person. Pi
+offered to look them up, then the local resolver rejected both a confirmation
+after a wake turn and a spoken spelling correction before contacting Brave.
+An unanswered public question now initiates a lookup. A follow-up can carry
+a recently supplied public name, and the current transcript supplies a corrected spelling.
+
+In a fresh project Pi session with an empty owner profile and live OpenRouter,
+“Who is Tim Berners-Lee?” returned five Brave Web sources in 6.19 s. After the
+name Fe del Mundo was introduced, “Where did she study medicine?” returned
+five sources in 3.40 s. “What was her name again?” used the chat in 0.54 s
+with zero tool calls. These are individual typed turns measured through the
+final reply. The configured route used Brave Web with Pi summarization.
+
+A fresh Mac operator session loaded eight desktop tools from the pinned Pi
+computer-use extension. The local arm64 helper responded on protocol 6.
+Both Accessibility and Screen Recording were off during preflight. No native
+desktop observation or input was exercised. Raspberry Pi hardware is untested.
+
+## November 21 · Name-only website in project Pi
+
+The Mac microphone transcript captured “Can I create a website about myself?”
+The original session asked for details, then reported an empty search after a
+local tool rejection. Brave received no request from that tool. Pi now uses
+the current conversation and private profile to supply a design brief and
+display name. A proposed public lookup can ask permission using the known
+name. The local worker owns layout and the host verifies the archive.
+
+Two fresh typed replays through the configured OpenRouter foreground and Pi
+worker used a fictional profile. The original question and “Make a website
+about my name” each produced one website submission, zero searches and a
+downloadable ZIP verified at 1280×800 and 390×844. Earlier prompt iterations
+asked a follow-up and earlier builds failed verification. A keyboard-focus
+regression covered the generated skip link. The queued acknowledgments
+described planned copy that the verified name-only pages omitted. These
+replays did not measure acoustic turnaround.
+
 ## November 21 · Current chat, Brave results and edits to ongoing work
 
 The Pi extension previously inserted three old chat excerpts beside a new

@@ -37,6 +37,24 @@ class VoiceSearchTests(unittest.TestCase):
 
 
 class PlanRoutingTests(unittest.IsolatedAsyncioTestCase):
+    async def test_current_website_uses_only_its_public_research_subject(self):
+        from integrations.voicechat.lookup import lookup
+        for source in (
+            "Build a website about the latest Python releases.",
+            "Look up the latest Python releases and build a website about them.",
+            "Build a website using my private notes. Search for the latest Python releases.",
+        ):
+            with self.subTest(source=source):
+                plan = await lookup(
+                    source, "private employer and guessed details", {}, resolve_only=True)
+                self.assertEqual(plan.get("query"), "latest Python releases")
+                self.assertTrue(plan.get("site_research"))
+                self.assertTrue(plan["force_live"])
+        for source in ("Build a website about my latest projects.",
+                       "Build a website about the latest Python releases. Don't browse."):
+            plan = await lookup(source, None, {}, resolve_only=True)
+            self.assertNotIn("query", plan)
+
     async def test_voice_question_and_explicit_results_use_different_presentations(self):
         from integrations.voicechat.lookup import lookup
         for source, mode, show in [
@@ -50,6 +68,14 @@ class PlanRoutingTests(unittest.IsolatedAsyncioTestCase):
                 plan = await lookup(source, "blue icebergs", {}, resolve_only=True)
                 self.assertEqual((plan["mode"], plan.get("show_results", False)), (mode, show))
         self.assertNotIn("query", await lookup("How is my current project going?", None, {}, resolve_only=True))
+
+    async def test_pi_action_cannot_become_a_search_via_model_topic_or_previous_receipt(self):
+        from integrations.voicechat.lookup import lookup
+        plan = await lookup("Can you draft a checklist about penguins?", "penguins", {},
+                            resolve_only=True, continuation_query="Antarctic wildlife",
+                            continuation_selected=True)
+        self.assertNotIn("query", plan)
+        self.assertIn("error", plan)
 
     async def test_results_request_can_name_a_subject_from_its_public_receipt(self):
         from integrations.voicechat.lookup import lookup
@@ -188,6 +214,34 @@ class PlanRoutingTests(unittest.IsolatedAsyncioTestCase):
                          recent_turns=["Different topic: the Louvre museum in Paris. What is it known for?"])
             self.assertIn("the Louvre museum in Paris", brave.await_args.args[0])
             self.assertIn("Mondays", brave.await_args.args[0])
+
+    async def test_person_named_in_the_previous_turn_is_enough_for_a_public_question(self):
+        from integrations.voicechat.lookup import lookup
+        for introduction in ["Ada Lovelace.", "I meant Ada Lovelace."]:
+            with self.subTest(introduction=introduction):
+                result = await lookup("What is she known for?", None, {}, resolve_only=True,
+                                      recent_mention="Ada Lovelace", recent_turns=[introduction])
+                self.assertEqual(result["mode"], "answers")
+                self.assertIn("Ada Lovelace", result["query"])
+                self.assertIn("known for", result["query"])
+
+    async def test_yes_after_a_wake_word_reuses_the_spoken_public_subject(self):
+        from integrations.voicechat.lookup import lookup
+        result = await lookup("Yes.", "Nadia Reed", {}, resolve_only=True,
+                              confirmed_scope="Nadia Reed", scope_source="Hey BMO?",
+                              recent_turns=["Who is Nadia Reed?", "Hey BMO?"])
+        self.assertEqual(result["query"], "Nadia Reed")
+        self.assertEqual(result["mode"], "answers")
+
+    async def test_spoken_spelling_correction_wins_after_a_lookup(self):
+        from integrations.voicechat.lookup import lookup
+        for correction in ["Nadiya Reid.", "Actually, I meant Nadiya Reid."]:
+            with self.subTest(correction=correction):
+                result = await lookup(correction, "Nadia Reed", {}, resolve_only=True, previous_lookup=True)
+                self.assertEqual(result["query"], "Nadiya Reid")
+                self.assertEqual(result["mode"], "answers")
+        private = await lookup("My project.", "Nadia Reed", {}, resolve_only=True, previous_lookup=True)
+        self.assertIn("error", private)
 
     async def test_same_turn_topic_switch_keeps_the_named_subject(self):
         from unittest.mock import AsyncMock, patch

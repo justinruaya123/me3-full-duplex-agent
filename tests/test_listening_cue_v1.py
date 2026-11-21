@@ -2,6 +2,17 @@ import unittest
 
 
 class ListeningCueTests(unittest.TestCase):
+    def test_standalone_wake_and_operator_override(self):
+        from me3.bmo import wake_greeting
+        for phrase in ["Hey BMO!", "Hey, Bimo.", "Hey Bee Mo", "BMO?", "ABMO?", "A b mo", "Abemo"]:
+            self.assertTrue(wake_greeting(phrase, ""), phrase)
+        for phrase in ["Hey BMO, find my note.", "Write down hey BMO.", "“Hey BMO”", "a memo"]:
+            self.assertFalse(wake_greeting(phrase, ""), phrase)
+        self.assertTrue(wake_greeting("Hey Mira.", "Hey Mira"))
+        self.assertFalse(wake_greeting("BMO?", "Hey Mira"))
+        self.assertFalse(wake_greeting("BMO.", bare=False))
+        self.assertTrue(wake_greeting("Hey, BMO.", "   ", bare=False))
+
     def test_once_per_unfinished_turn_and_spaced_across_turns(self):
         from me3.parakeet_voice import ListeningCue
         cue = ListeningCue()
@@ -20,8 +31,51 @@ class ListeningCueTests(unittest.TestCase):
             self.assertFalse(cue.offer("a", text, 180, now=100))
         self.assertFalse(cue.offer("a", "I want to tell you about it", 30, now=100))
 
+    def test_dangling_disfluency_does_not_close_a_request(self):
+        from me3.parakeet_voice import unfinished_clause
+        for partial in ["Please put this in the, um.", "Please add the th-", "What I wanted was…"]:
+            self.assertTrue(unfinished_clause(partial))
+        self.assertFalse(unfinished_clause("I, I meant the other folder."))
+
 
 class ConversationalFloorTests(unittest.IsolatedAsyncioTestCase):
+    async def test_short_resumed_speech_after_wake_needs_a_new_provider_final(self):
+        import asyncio
+        from types import SimpleNamespace
+        from unittest.mock import AsyncMock, Mock, patch
+        from pipecat.audio.vad.vad_analyzer import VADState
+        from me3.deepgram import DeepgramStream
+        from me3.parakeet import FRAME
+        from me3.parakeet_voice import local_turns
+
+        wake, request = "Hey, Beemo.", "Hey, Beemo. Stop."
+        states = ([VADState.SPEAKING] * 30 + [VADState.QUIET] * 3
+                  + [VADState.SPEAKING] * 5 + [VADState.QUIET] * 45)
+        stream = Mock(spec=DeepgramStream, current=None)
+        turn = SimpleNamespace(id="u", frames=0, text=wake, settled_text=wake,
+                               finalized_frames=30, endpoint_frames=30)
+        async def begin():
+            stream.current = turn
+            return turn
+        async def audio(_):
+            turn.frames += 1
+        def finish(text):
+            stream.current = None
+            return text
+        stream.begin, stream.audio = begin, audio
+        stream.finish_endpoint.side_effect = lambda: finish(wake)
+        stream.finish = AsyncMock(side_effect=lambda: finish(request))
+        async def frames():
+            for _ in states:
+                yield bytes(FRAME)
+                await asyncio.sleep(0)
+        playback = Mock(device=None, overlap=False, task=None, awaiting_answer=False,
+                        allow_cue=False, epoch=1, cut=AsyncMock())
+        with patch("me3.parakeet_voice.emit") as emit:
+            await local_turns(stream, frames(), Mock(analyze_audio=AsyncMock(side_effect=states)),
+                              AsyncMock(return_value=True), playback)
+        self.assertEqual([c.kwargs["text"] for c in emit.call_args_list if c.args == ("commit",)], [request])
+
     async def test_completed_first_sentence_can_receive_a_spoken_qualifier(self):
         import asyncio
         from types import SimpleNamespace
@@ -120,7 +174,7 @@ class ConversationalFloorTests(unittest.IsolatedAsyncioTestCase):
         wire = SimpleNamespace(current=None)
 
         async def begin():
-            wire.current = SimpleNamespace(id="u", frames=0, text="")
+            wire.current = SimpleNamespace(id="u", frames=0, text="", revision=0)
             return wire.current
 
         async def audio(_):
@@ -142,7 +196,7 @@ class ConversationalFloorTests(unittest.IsolatedAsyncioTestCase):
                 await asyncio.sleep(0)
 
         wire.begin, wire.audio, wire.finish = begin, audio, finish
-        playback = Mock(task=None, epoch=1, cut=AsyncMock(), allow_cue=True, last_reply_end=0.)
+        playback = Mock(task=None, epoch=1, cut=AsyncMock(), allow_cue=True, overlap=True, last_reply_end=0.)
         playback.device.last_audible = playback.device.capture_time = 0.
         with patch("me3.parakeet_voice.emit") as emit:
             await local_turns(wire, frames(), Mock(analyze_audio=AsyncMock(side_effect=states)),
@@ -184,7 +238,7 @@ class ConversationalFloorTests(unittest.IsolatedAsyncioTestCase):
         states = [VADState.SPEAKING] * 135 + [VADState.STOPPING] * 8 + [VADState.SPEAKING] * 5
         wire = SimpleNamespace(current=None)
         async def begin():
-            wire.current = SimpleNamespace(id="u", frames=0, text="", finalized_frames=0)
+            wire.current = SimpleNamespace(id="u", frames=0, text="", finalized_frames=0, revision=0)
             return wire.current
         async def audio(_):
             wire.current.frames += 1
@@ -194,7 +248,7 @@ class ConversationalFloorTests(unittest.IsolatedAsyncioTestCase):
                 yield bytes(FRAME)
                 await asyncio.sleep(0)
         wire.begin, wire.audio, wire.finish = begin, audio, AsyncMock()
-        playback = Mock(task=None, epoch=1, allow_cue=True, last_reply_end=0.)
+        playback = Mock(task=None, epoch=1, allow_cue=True, overlap=True, last_reply_end=0.)
         playback.device.last_audible = playback.device.capture_time = 0.
         smart = AsyncMock(return_value=False)
         with patch("me3.parakeet_voice.emit") as emit:
@@ -206,9 +260,9 @@ class ConversationalFloorTests(unittest.IsolatedAsyncioTestCase):
 
     def test_cached_listener_skips_silent_lead_in_but_keeps_the_attack(self):
         from array import array
-        from me3.parakeet_voice import trim_cue_lead
+        from me3.bmo import trim_lead
         quiet = array("h", [0]) * 12000
         speech = array("h", [-500, 600]) * 2400
-        result = trim_cue_lead((quiet + speech).tobytes())
+        result = trim_lead((quiet + speech).tobytes())
         self.assertEqual(result, quiet[:480].tobytes() + speech.tobytes())
-        self.assertEqual(trim_cue_lead(speech.tobytes()), speech.tobytes())
+        self.assertEqual(trim_lead(speech.tobytes()), speech.tobytes())

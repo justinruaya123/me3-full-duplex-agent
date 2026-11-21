@@ -20,6 +20,9 @@ def install_fixture_bootstrap(plugin):
     search = plugin / "node_modules/@arcanemachine/pi-web-search/index.ts"
     search.parent.mkdir(parents=True)
     search.touch()
+    desktop = plugin / "node_modules/@injaneity/pi-computer-use/extensions/computer-use.ts"
+    desktop.parent.mkdir(parents=True)
+    desktop.touch()
 
 
 class ConversationPromptTests(unittest.TestCase):
@@ -50,13 +53,25 @@ class ConversationPromptTests(unittest.TestCase):
             user.write_text("sample private preference")
             result = subprocess.run(command, env=env, capture_output=True, check=True)
             self.assertEqual(user.read_text(), "sample private preference")
+            desktop = subprocess.run([*command, "--computer-use", "--terminal"], env=env,
+                                     capture_output=True, check=True).stdout.decode().split("\0")
+            extensions = [Path(desktop[i + 1]).resolve() for i, arg in enumerate(desktop) if arg == "--extension"]
+            self.assertIn(plugin.resolve() / "node_modules/@injaneity/pi-computer-use/extensions/computer-use.ts", extensions)
+            desktop_tools = set(desktop[desktop.index("--tools") + 1].split(","))
+            normal = result.stdout.decode().split("\0")
+            regular_tools = set(normal[normal.index("--tools") + 1].split(","))
+            self.assertEqual(desktop_tools - regular_tools, {"find_roots", "observe_ui", "search_ui",
+                             "expand_ui", "inspect_ui", "act_ui", "read_text", "wait_for"})
+            replay = subprocess.run([*command, "--computer-use", "--live-benchmark"], env=env,
+                                    capture_output=True)
+            self.assertNotEqual(replay.returncode, 0)
         args = result.stdout.decode().split("\0")
         self.assertEqual(args[args.index("--thinking") + 1], "low")
         self.assertIn("web_lookup", args[args.index("--tools") + 1].split(","))
         self.assertNotIn("sample private preference", result.stdout.decode())
         self.assertEqual(args[0], str(Path(folder).resolve() / ".local/pi"))
         self.assertEqual(Path(args[args.index("--extension") + 1]).resolve(), plugin.resolve() / "pi.mjs")
-        self.assertEqual(args[args.index("--tools") + 1], "read_trial_brief,create_website,delegate_task,delegated_task_status,subagent,revise_delegated_task,web_lookup,recall_web_search,portfolio_research,show_dashboard,update_dashboard,remember_detail")
+        self.assertEqual(args[args.index("--tools") + 1], "read_trial_brief,create_website,delegate_task,delegated_task_status,subagent,revise_delegated_task,web_lookup,recall_web_search,portfolio_research,show_dashboard,update_dashboard,remember_detail,publish_github_pages")
 
     def test_live_human_launcher_shares_owner_profile_and_honors_memory_opt_out(self):
         with tempfile.TemporaryDirectory() as folder:

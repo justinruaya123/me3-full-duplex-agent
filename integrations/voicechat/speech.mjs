@@ -12,7 +12,7 @@ function spokenMath(formula) {
 }
 
 // Pi retains the original formatted answer. Normalize only its spoken rendition.
-export function spokenReply(value) {
+export function spokenReply(value, {screenFallback = true} = {}) {
   const text = value.replace(/\r\n?/g, "\n");
   const hasCode = /^ {0,3}(`{3,}|~{3,})/m.test(text);
   const hasLink = /(?:https?:\/\/|www\.)/i.test(text);
@@ -39,6 +39,7 @@ export function spokenReply(value) {
     .replace(/\s+([,.;!?])/g, "$1")
     .trim();
   if (/[\p{L}\p{N}]/u.test(prose)) return prose.slice(0,4000).trimEnd();
+  if (!screenFallback) return "";
   if (hasCode) return "The code is in Pi.";
   if (hasLink) return "The link is in Pi.";
   return prose;
@@ -62,20 +63,29 @@ export function searchFallback(turn) {
 
 // Candidate only. The host still validates the whole public utterance locally.
 export function publicFactCheck(source) {
-  return /\b(?:when (?:did|was|were|will)|who (?:won|wins|leads)|latest|currently|recent(?:ly)?|as of (?:now|today)|this (?:week|month|year)|verify|fact.check)\b/i.test(source);
+  // New vocabulary does not imply uncertainty. Pi chooses whether a stable
+  // fact needs evidence. Only force a check for explicitly time-sensitive questions.
+  const question = source.trim().replace(/^(?:so|hey[, ]+bmo)[, ]+/i, "");
+  return /^(?:who|which|what|when|where|why|how|is|are|was|were|do|does|did|has|have)\b/i.test(question) &&
+    /\b(?:latest|current(?:ly)?|today|right now|recent(?:ly)?|as of (?:now|today)|this (?:week|month|year))\b/i.test(question);
 }
 
-export function spokenToolReply(value) {
-  const clean = spokenReply(value);
-  if (!clean) return "";
+export function spokenToolReply(value, {search = false} = {}) {
+  if (!value.trim()) return "";
+  const clean = spokenReply(value, {screenFallback:!search});
+  if (!clean && !search) return "";
   const selected = [];
   for (const {segment} of sentences.segment(clean)) {
     const line = segment.trim();
-    if ([...selected, line].join(" ").split(/\s+/).length > 45) break;
+    if (/^the full (?:response|answer) is in pi[.!]?$/i.test(line)) continue;
+    // The search model writes the summary. Don't discard its lead because it
+    // exceeded the soft word budget; still leave any extra detail on screen.
+    if ((!search || selected.length) && [...selected, line].join(" ").split(/\s+/).length > 45) break;
     selected.push(line);
     if (selected.length === 2) break;
   }
-  return selected.join(" ") || "The full response is in Pi.";
+  return selected.join(" ") || (search ? "I couldn’t summarize what I found this time." :
+    "I couldn’t put that into a short reply.");
 }
 
 export function jobNotice(job) {
@@ -117,8 +127,10 @@ export function previousSearchReceipt(messages) {
   if (current < 1 || messages[current - 1]?.stopReason !== "stop") return;
   for (let i = current - 2; i >= 0 && messages[i].role !== "user"; i--) {
     const message = messages[i];
-    if (message.role === "toolResult")
-      return message.toolName === "web_lookup" && !message.isError ? message.details : undefined;
+    if (message.role === "toolResult") {
+      if (message.toolName !== "web_lookup") return;
+      return message.isError ? {failed:true} : message.details;
+    }
   }
 }
 

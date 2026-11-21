@@ -28,3 +28,15 @@ test("subagents receive the named role and selected repository workflow", async 
   assert.ok(brief.includes("Check this proposed approach."));
   await assert.rejects(subagentBrief("reviewer","Review it","../../private"));
 });
+
+test("development assignments default to systematic debugging only when no workflow was selected", async () => {
+  const {subagentRequest, subagentBrief, subagentPrefix} = await import("../integrations/voicechat/subagents.mjs");
+  const assignment = (task, skill, development) => JSON.parse(
+    subagentRequest("reviewer", task, skill, {development}).slice(subagentPrefix.length));
+  const selected = assignment("Deepgram crashed after the second turn.", undefined, true);
+  assert.equal(selected.skill, "systematic-debugging");
+  assert.match(await subagentBrief(selected.agent, selected.task, selected.skill), /Root Cause Investigation/i);
+  assert.equal(assignment("Review this packing checklist.").skill, undefined);
+  assert.equal(assignment("Plan a migration.", "writing-plans", true).skill, "writing-plans");
+  assert.throws(() => assignment("Review it", "../../private", true), /Unknown/);
+});

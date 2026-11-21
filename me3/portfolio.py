@@ -26,13 +26,6 @@ def portfolio_files(spec):
         entries.append(f'<li><p>{escape(text)}</p><a href="{escape(url)}">'
                        f'{escape(parsed.hostname.removeprefix("www."))} &#8599;</a></li>')
     name = escape(name)
-    html = f"""<!doctype html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{name} · Selected work</title><link rel="stylesheet" href="./style.css"></head>
-<body><main><header><p>Portfolio</p><h1>{name}</h1></header>
-<section aria-labelledby="work"><h2 id="work">Selected work</h2>
-<ul>{''.join(entries)}</ul></section></main></body></html>"""
     css = """
 :root { color-scheme:light; color:#192e2c; background:#f7f6ef; font-family:system-ui,sans-serif }
 * { box-sizing:border-box } body { margin:0 } main { max-width:68rem; margin:auto; padding:clamp(1.4rem,6vw,5rem) }
@@ -47,5 +40,12 @@ a { color:#1c5d4c; text-underline-offset:.24rem; overflow-wrap:anywhere }
 a:focus-visible { outline:3px solid #18664e; outline-offset:4px }
 @media(max-width:40rem) { section { display:block } h2 { margin:1.4rem 0 0 } }
 """
-    return json.dumps({"files": {"index.html": html, "style.css": css},
+    html = f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{name} · Selected work</title><style>{css}</style></head>
+<body><main><header><p>Portfolio</p><h1>{name}</h1></header>
+<section aria-labelledby="work"><h2 id="work">Selected work</h2>
+<ul>{''.join(entries)}</ul></section></main></body></html>"""
+    return json.dumps({"files": {"index.html": html},
                        "source_links": [fact["url"] for fact in facts]})

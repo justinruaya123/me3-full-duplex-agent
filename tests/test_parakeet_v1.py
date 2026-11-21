@@ -130,6 +130,8 @@ class LocalPolicyTests(unittest.IsolatedAsyncioTestCase):
             (True, "I see.", False, False, False), (True, "Ahh.", False, True, False),
             (True, "Got it.", False, True, True), (True, "Ah?", False, True, True),
             (True, "I see a problem.", True, False, True),
+            (True, "I, I, I.", False, False, False), (True, "Um, uh.", False, False, False),
+            (True, "I, I mean Tuesday.", False, False, True),
             (True, "No, Tuesday.", True, False, True),
         ]:
             with self.subTest(complete=complete, result=result, talking=talking):

@@ -3,10 +3,12 @@
 import asyncio
 import base64
 import json
+import math
 import os
 import queue
 import threading
 import time
+from array import array
 from dataclasses import dataclass
 
 RATE, FRAMES = 24000, 1920
@@ -34,6 +36,14 @@ class WaitClip:
     offset: int = 0
     first_output: float | None = None
     reported: bool = False
+
+
+def turn_acknowledgment():
+    """A soft 85 ms earcon with a smooth attack and decay."""
+    count = RATE * 85 // 1000
+    return array("h", (round(2300 * math.sin(math.pi * i / count) ** 2
+                             * math.sin(2 * math.pi * 660 * i / RATE))
+                       for i in range(count))).tobytes()
 
 
 def render_output(device, count, timestamp):
@@ -77,7 +87,7 @@ def signal_present(pcm):
 
 
 class Devices:
-    def __init__(self, *, frames=FRAMES, queue_frames=8, input_index=None, output_index=None):
+    def __init__(self, *, frames=FRAMES, queue_frames=8, input_index=None, output_index=None, start=True):
         import pyaudio
         import numpy as np
         from pywebrtc_audio import AudioProcessor
@@ -122,7 +132,7 @@ class Devices:
             self.stream = self.pa.open(format=pyaudio.paInt16, channels=1,
                                        rate=RATE, input=True, output=True,
                                        input_device_index=input_index, output_device_index=output_index,
-                                       frames_per_buffer=frames, stream_callback=callback)
+                                       frames_per_buffer=frames, stream_callback=callback, start=start)
         except BaseException:
             self.pa.terminate()
             raise

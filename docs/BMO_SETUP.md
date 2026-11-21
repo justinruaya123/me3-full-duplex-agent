@@ -17,10 +17,24 @@ OpenRouter for conversation and jobs, and local Piper for speech. The optional
 Parakeet profile requires `ME3_ASR_BACKEND=parakeet`, `ME3_PARAKEET_URL`
 and `ME3_ASR_TOKEN`. The older course launcher is available through `start.py`.
 
-A follow-up continues the current chat. Ask an uncertain public factual question
-for a short spoken answer. Say “search for” to browse linked Brave results in
+With the microphone on, say “Hey BMO” and pause for a short local greeting.
+Say “Hey BMO, what is seven plus five?” in one breath to go straight to the
+answer. When a completed request needs more time, a soft tone acknowledges
+it once. A hesitation or unfinished thought normally stays quiet. For spoken
+listening cues during longer explanations, use `/me3 overlap on`.
+The default delay for the end-of-turn tone is 160 ms after commitment.
+Set `ME3_WAIT_CUE_MS` to tune it for your device.
+
+A follow-up continues the current chat. Ask a public factual question for a
+short spoken answer. BMO answers confidently known stable facts directly. When a public fact is uncertain
+or time-sensitive and a live lookup starts, the idle voice says “Searching.”
+“Can you make a checklist?” is a Pi request, not a search. “Can you search for…”
+explicitly requests a lookup. Personal questions stay in Pi. A recently named person can be referred
+to as “he” or “she” on the next turn. Say “search for” to browse linked Brave results in
 IntelligentUI. When the account lacks Brave Answers, Pi summarizes the Brave Web
-excerpts. For an edit to an existing assignment, refer to it by name. Pi sends
+excerpts. BMO speaks the main finding in one or two sentences, even when you
+ask to see links. URLs and longer details stay on screen. For an edit to an
+existing assignment, refer to it by name. Pi sends
 the change to the same job at its next revision.
 
 Setup creates a project Python environment (3.11 through 3.13), installs the locked
@@ -33,6 +47,14 @@ store live under `.local/pi`. Trust is specific to the checkout. For a previousl
 denied folder, use `bash integrations/voicechat/start.sh --trust-project` after
 reviewing the folder. System Pi settings are independent.
 
+**Computer use.** Start a fresh terminal session with `python3 setup.py run --computer-use`.
+The foreground Pi can find an app, read its controls and text, and request
+approval to click or type. In duplex mode, answer the approval aloud. For a
+read-only demo, open Calculator and say “What does Calculator display?”
+On macOS, enable Accessibility and Screen & System Audio Recording for
+`.local/pi/helpers/pi-computer-use.app` in System Settings → Privacy & Security.
+The helper is installed inside the checkout. Desktop tools require a graphical session.
+
 **Keys.** The wizard asks for OpenRouter and Deepgram for voice, Brave Search for
 web lookups, and an optional separate Brave Answers key. Press Enter to preserve
 a saved value or skip a service. To provision without a terminal, use
@@ -41,6 +63,51 @@ a saved value or skip a service. To provision without a terminal, use
 fresh template. Edit the private `.env` to select foreground and worker models.
 Run `python3 setup.py check` with the keys configured and audio devices attached
 to check the local installation. This exercises SmartTurn with synthetic silence.
+
+## Build a site with current sources or supplied copy
+
+For example, ask “Build a website about the latest Python releases.” BMO
+looks up the public topic first and sends the results to the website worker
+for a sourced draft. If current evidence cannot be verified, it should say so
+rather than publish guesses. For a personal page, include text you want on it
+in the request, e.g. “Build a site for Ana Diaz. Include this introduction:
+I build small wooden boats.” A name alone is enough for a starter, not a bio.
+
+## Publish a BMO website to GitHub Pages
+
+Launch `python3 setup.py run --window` for the updating IntelligentUI canvas.
+Enable the microphone with `/me3 duplex`. Say **“Hey BMO, search more about me
+and build a portfolio website on the canvas.”** Pi searches Brave using your
+public search name and offers up to three sourced facts. Say **“Use the first
+and third”** or **“Approve all.”** If BMO asks for a name, say **“Search for YOUR NAME”**
+and confirm the name BMO reads back. Set **Public search name** in the private
+`USER.md` under `.local/voice-prompts` to use that identity immediately.
+
+The canvas embeds the draft as the website builds, then loads the verified
+`index.html` and its local assets. The researched portfolio includes its CSS
+inside the HTML. In **Agents**, **Download HTML** saves the portfolio as a
+standalone page. **Download GitHub Pages ZIP** includes all assets for a
+multi-file site.
+
+Install `git` and `gh` on the BMO host. Sign in with `gh auth login` and check
+`gh api user --jq .login` to see which account will be used. In the native
+ME3 Pi terminal, resume the chat containing the completed website. Replace
+`REPO` with an existing repository owned by the signed-in user:
+
+- `/me3 push REPO` — commit the verified snapshot and run `git push` to
+  `bmo-pages`, without changing Pages settings.
+- `/me3 publish REPO` — do the same push, then configure GitHub Pages to
+  serve the root of `bmo-pages`. A deployment is not necessarily live yet.
+
+The command itself authorizes the push: **no second popup**. Both commands
+also accept `OWNER/REPO`. In conversation, say “Push this site to GitHub for
+OWNER/REPO” or “Publish this site to GitHub Pages for OWNER/REPO.” Never put
+tokens in the request. The host checks the actual account, repository, write
+access, job revision and file hashes. An unfinished site, another owner's repo
+or a bare “push it” is not enough. The standalone branch is a full snapshot:
+files no longer in the site are removed from that branch; other branches and
+your project checkout are not modified. An existing Pages setup watching this
+branch can automatically deploy even on a plain push.
 
 ## Move settings and private prompts
 

@@ -47,7 +47,7 @@ NEWS_REQUEST = re.compile(
 # A question that needs local/private context stays with the foreground.
 LOCAL_CONTEXT = re.compile(
     r"\b(?:i|me|my|mine|our|ours|we|you|your|yours|it|its|that|this|these|those|"
-    r"they|them|he|she|here|earlier|above|previous|again|private|personal|"
+    r"they|them|their|he|she|him|her|his|here|earlier|above|previous|again|private|personal|"
     r"passwords?|credentials?|secrets?|api keys?|tokens?|profile|memory|"
     r"files?|folders?|workspace|repo(?:sitory)?|prototypes?|branch(?:es)?|"
     r"commits?|merge|patch|the build|the result|"

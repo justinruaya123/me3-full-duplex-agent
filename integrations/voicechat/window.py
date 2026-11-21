@@ -1,7 +1,8 @@
-"""One local window around the project's real Pi TUI, with read-only side panels."""
+"""Local window for the Pi TUI, side panels and explicit operator controls."""
 import asyncio
 import fcntl
 import json
+import mimetypes
 import os
 from pathlib import Path
 import re
@@ -16,6 +17,7 @@ import sys
 import tempfile
 import termios
 import webbrowser
+import zipfile
 
 from aiohttp import WSMsgType, web
 
@@ -55,6 +57,26 @@ def website_download(name, folder, chats):
     return None
 
 
+def website_asset(name, folder, chats):
+    """Serve members from the same completed revision offered for download."""
+    match = re.fullmatch(r"site/([a-f0-9]{32})/([1-9][0-9]*)/(.{1,128})", name)
+    if not match:
+        return None
+    member = match[3]
+    if "\\" in member or any(not p or p.startswith(".") for p in member.split("/")):
+        return None
+    archive = website_download(f"website-{match[1]}-{match[2]}.zip", folder, chats)
+    if archive:
+        try:
+            with zipfile.ZipFile(archive) as bundle:
+                info = bundle.getinfo(member)
+                if not info.is_dir() and info.file_size <= 2_097_152:
+                    return bundle.read(info)
+        except (OSError, KeyError, zipfile.BadZipFile):
+            pass
+    return None
+
+
 def open_window(url, profile):
     chrome = Path("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
     browser = str(chrome) if sys.platform == "darwin" and chrome.is_file() else (
@@ -66,6 +88,32 @@ def open_window(url, profile):
                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
     elif not webbrowser.open(url):
         print("Open the Pi window at " + url, flush=True)
+
+
+def publication_response(folder, decision):
+    """Accept one exact decision for the currently displayed Pi request."""
+    if not isinstance(decision, dict):
+        return
+    request_id = decision.get("id")
+    approved = decision.get("approved")
+    if not isinstance(request_id, str) or type(approved) is not bool:
+        return
+    response = folder / "publication-response.json"
+    try:
+        pending = json.loads((folder / "publication.json").read_bytes())
+        if not pending or pending["id"] != request_id:
+            return
+        try:
+            prior = json.loads(response.read_bytes())
+            if prior.get("id") == request_id:
+                return
+        except FileNotFoundError:
+            pass
+        temp = response.with_suffix(".tmp")
+        temp.write_text(json.dumps({"id": request_id, "approved": approved}))
+        temp.replace(response)
+    except FileNotFoundError:
+        pass
 
 
 async def serve(argv, folder, lock):
@@ -97,6 +145,18 @@ async def serve(argv, folder, lock):
         if req.host != host:
             raise web.HTTPNotFound()
         name = req.match_info.get("name", "")
+        if name.startswith("site/"):
+            body = website_asset(name, folder, LOCAL / "voice-worker/chats")
+            if body is None:
+                raise web.HTTPNotFound()
+            security = {**headers, "X-Frame-Options": "SAMEORIGIN",
+                        "Content-Security-Policy": "sandbox; default-src 'none'; "
+                        "style-src 'self' 'unsafe-inline'; img-src 'self'; "
+                        "base-uri 'none'; form-action 'none'; frame-ancestors 'self'"}
+            if req.query.get("download") == "1" and name.endswith("/index.html"):
+                security["Content-Disposition"] = 'attachment; filename="index.html"'
+            return web.Response(body=body, headers=security,
+                                content_type=mimetypes.guess_type(name)[0] or "application/octet-stream")
         if name.startswith("website-"):
             archive = website_download(name, folder, LOCAL / "voice-worker/chats")
             if archive is None:
@@ -136,7 +196,7 @@ async def serve(argv, folder, lock):
                     history.extend(chunk)
                     del history[:-65536]
                     await ws.send_bytes(chunk)
-                for panel in ("voice", "canvas", "agents", "focus"):
+                for panel in ("voice", "canvas", "agents", "focus", "publication"):
                     path = folder / (panel + ".json")
                     try:
                         version = path.stat().st_mtime_ns
@@ -161,6 +221,9 @@ async def serve(argv, folder, lock):
                             await asyncio.sleep(.01)
                 elif msg.type == WSMsgType.TEXT:
                     size = json.loads(msg.data)
+                    if isinstance(size, dict) and "publication" in size:
+                        publication_response(folder, size["publication"])
+                        continue
                     if isinstance(size, dict) and "appearance" in size:
                         try:
                             prefs = appearance(size["appearance"])
@@ -190,6 +253,7 @@ async def serve(argv, folder, lock):
 
     app = web.Application()
     app.router.add_get(prefix, handle)
+    app.router.add_get(prefix + "{name:site/.+}", handle)
     app.router.add_get(prefix + "{name}", handle)
     runner = web.AppRunner(app, access_log=None)
     await runner.setup()

@@ -1,25 +1,11 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {isWakeGreeting} from "../integrations/voicechat/behavior.mjs";
 
 test("a played ordinary question and a statement both admit a listener; approval protects the floor", async () => {
   const {listenerMode} = await import("../integrations/voicechat/behavior.mjs");
   assert.deepEqual(listenerMode(false, false), {op:"listener", enabled:true, awaiting_answer:false});
   assert.deepEqual(listenerMode(true, false), {op:"listener", enabled:true, awaiting_answer:true});
   assert.deepEqual(listenerMode(false, true), {op:"listener", enabled:false, awaiting_answer:true});
-});
-
-test("only a standalone direct address gets a greeting", () => {
-  for (const text of ["Hey BMO!", "Hey, Beemo.", "Hey Bee Mo"]) assert.ok(isWakeGreeting(text));
-  for (const text of ["Hey BMO, find my note.", "Write down hey BMO.", '“Hey BMO”', "I'm here."])
-    assert.equal(isWakeGreeting(text), false);
-});
-
-test("an empty operator setting uses the visible BMO wake phrase", () => {
-  assert.ok(isWakeGreeting("Hey, BMO.", ""));
-  assert.ok(isWakeGreeting("Hey, BMO.", "  "));
-  assert.ok(isWakeGreeting("Hey Mira", "Hey Mira"));
-  assert.equal(isWakeGreeting("Hey BMO", "Hey Mira"), false);
 });
 
 test("a session cycles each purpose independently", async () => {
@@ -55,12 +41,11 @@ test("slow voice turns get one cue and a bounded stall; progress or a supersedin
 });
 
 test("a truncated or failed voice turn explains the failure; interruptions stay quiet", async () => {
-  const {voiceFailure,isWakeGreeting} = await import("../integrations/voicechat/behavior.mjs");
+  const {voiceFailure} = await import("../integrations/voicechat/behavior.mjs");
   assert.ok(voiceFailure("length"));
   assert.ok(voiceFailure("error"));
   assert.equal(voiceFailure("aborted"), "");
   assert.equal(voiceFailure("stop"), "");
-  assert.ok(isWakeGreeting("Hey, Bimo."));
 });
 
 test("a listening sound cannot satisfy a delegated task acknowledgment", async () => {
@@ -73,7 +58,8 @@ test("a listening sound cannot satisfy a delegated task acknowledgment", async (
 test("search and waiting cues use speakable words, and tool dispatch silences the generic timer", async t => {
   const {VoiceWait, phrases} = await import("../integrations/voicechat/behavior.mjs");
   assert.doesNotMatch(Object.values(phrases).flat().join(" "), /\b[hm]+[- ]+[hm]+\b/i);
-  assert.ok(phrases.searching.length && phrases.waiting.length);
+  assert.deepEqual(phrases.searching, ["Searching."]);
+  assert.ok(phrases.waiting.length);
   t.mock.timers.enable({apis:["setTimeout"]});
   const cues = [], wait = new VoiceWait(id => cues.push(id), () => {});
   wait.start("a");

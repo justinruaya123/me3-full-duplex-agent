@@ -16,12 +16,18 @@ test("a scoped freshness correction requires fresh evidence before speaking", as
   assert.equal(searchFallback({}), undefined);
 });
 
-test("BMO initiates verification for dates and changing facts without an explicit search command", async () => {
+test("only freshness forces the lookup; Pi judges ordinary questions and handles requests", async () => {
   const {publicFactCheck} = await import("../integrations/voicechat/speech.mjs");
-  assert.ok(publicFactCheck("So who... When did Sri Lanka got the bad, overthrowing of government?"));
+  assert.equal(publicFactCheck("What is the capital of France?"), false);
+  assert.equal(publicFactCheck("Can you draft a checklist for the latest release?"), false);
+  assert.equal(publicFactCheck("Draft the latest release notes."), false);
   assert.ok(publicFactCheck("What is the latest stable release of Blender?"));
-  assert.ok(publicFactCheck("Who won the championship?"));
+  assert.equal(publicFactCheck("Who won the championship?"), false);
   assert.equal(publicFactCheck("Write a website about a bridge."), false);
+  assert.equal(publicFactCheck("Who is Mira Sol?", "We were discussing a music player."), false);
+  assert.equal(publicFactCheck("Why do leaves change color?", "The draft is ready."), false);
+  assert.equal(publicFactCheck("Who is Mira Sol?", "Mira Sol leads our design team."), false);
+  assert.equal(publicFactCheck("What color was the folder?", "The folder was green."), false);
 });
 
 test("speak the label and takeaway, leave link destinations, citations and styling in Pi", () => {
@@ -73,6 +79,23 @@ test("long tool summaries stop on a sentence boundary, normal conversation can c
   const text="Python 3.14.2 is available. **The Linux build is delayed.** More background follows. Here are previous versions.";
   assert.equal(spokenToolReply(text),"Python 3.14.2 is available. The Linux build is delayed.");
   assert.ok(spokenReply(text).endsWith("Here are previous versions."));
+});
+
+test("search speech keeps a sourced lead even when it exceeds the tool word budget", async () => {
+  const {spokenToolReply} = await import("../integrations/voicechat/speech.mjs");
+  const lead = "The North Pier ferry will resume weekday service in October after the port finishes repairing the boarding ramp that was damaged during the spring storms, according to the harbor authority, which says that the weekend timetable will remain unchanged until the winter schedule is published later this year.";
+  assert.equal(spokenToolReply(`${lead} More detail follows.`, {search:true}), lead);
+  assert.doesNotMatch(spokenToolReply(lead), /full response is in Pi/i);
+});
+
+test("search speech gives the findings, not a handoff, and leaves sources on screen", async () => {
+  const {spokenToolReply} = await import("../integrations/voicechat/speech.mjs");
+  const answer = "The full response is in Pi. **The bridge reopened**, per [the port](https://example.com/bridge). [1] Repairs finished on Friday. More background follows.\n\nSources:\n- [Port bulletin](https://example.com/bridge)";
+  assert.equal(spokenToolReply(answer, {search:true}), "The bridge reopened, per the port. Repairs finished on Friday.");
+  assert.equal(spokenToolReply("Sources:\n- [Port bulletin](https://example.com/bridge)", {search:true}),
+    "I couldn’t summarize what I found this time.");
+  assert.equal(spokenToolReply("I couldn’t verify the reopening.", {search:true}), "I couldn’t verify the reopening.");
+  assert.equal(spokenToolReply("", {search:true}), "");
 });
 
 test("a background notice speaks only a completed draft's labeled takeaway", async () => {

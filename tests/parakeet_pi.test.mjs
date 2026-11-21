@@ -2,6 +2,16 @@ import {test} from "node:test";
 import assert from "node:assert/strict";
 import {TurnGate} from "../integrations/voicechat/turn-gate.mjs";
 
+test("desktop input needs an affirmative answer for the same live request", async () => {
+  const {approveDesktopInput} = await import("../integrations/voicechat/approval.mjs");
+  let current = true;
+  const actions = [{action:"press",ref:"@e2"}];
+  assert.equal(await approveDesktopInput(actions, () => current, async () => true), true);
+  assert.equal(await approveDesktopInput(actions, () => current, async () => false), false);
+  assert.equal(await approveDesktopInput(actions, () => current, async () => { current=false; return true; }), false);
+  assert.equal(await approveDesktopInput(actions, () => current, () => assert.fail("expired turn")), false);
+});
+
 test("only a local commitment matching the active mic item and final enters Pi", () => {
   const gate = new TurnGate();
   gate.onset("a");
@@ -34,6 +44,10 @@ test("only an explicit answer begun after the spoken approval prompt can approve
   a.played("next");
   a.onset("new"); assert.equal(a.answer("new","yes, but change the title"), "unclear");
   assert.equal(await denied, false);
+  const desktop = a.ask("desktop", new AbortController().signal, "act_ui");
+  a.played("desktop"); a.onset("reply");
+  assert.equal(a.answer("reply", "Build it."), "unclear");
+  assert.equal(await desktop, false);
 });
 
 test("natural spoken preferences and aborts resolve only their own question", async () => {

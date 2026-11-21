@@ -12,7 +12,8 @@ const roles = new Map([
 export const roleNames = [...roles.keys()];
 export const subagentPrefix = "ME3_SUBAGENT_V1\n";
 
-export function subagentRequest(agent, task, skill) {
+export function subagentRequest(agent, task, skill, {development = false} = {}) {
+  if (skill === undefined && development) skill = "systematic-debugging";
   if (!roles.has(agent) || (skill !== undefined && !workflows.includes(skill)))
     throw Error("Unknown ME3 subagent or workflow.");
   if (typeof task !== "string" || !task.trim() || task.length > 12000)

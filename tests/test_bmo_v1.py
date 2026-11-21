@@ -30,6 +30,21 @@ class BmoCacheTests(unittest.TestCase):
 
 
 class BmoPlaybackTests(unittest.IsolatedAsyncioTestCase):
+    async def test_trimmed_live_reply_yields_only_nonempty_audio(self):
+        import asyncio
+        import struct
+        from unittest.mock import AsyncMock, Mock
+        from me3.local_tts import LocalBmo
+
+        pcm = bytes(24000) + struct.pack("<h", 1000) * 2400
+        pipe = asyncio.StreamReader()
+        pipe.feed_data(struct.pack(">I", len(pcm)) + pcm)
+        engine = LocalBmo(Path("."))
+        engine.process = Mock(stdout=pipe, stdin=Mock(drain=AsyncMock()))
+        chunks = [chunk async for chunk in engine.synthesize("Hey.")]
+        self.assertTrue(all(chunks))
+        self.assertEqual(b"".join(chunks), pcm[-5760:])
+
     async def test_cached_clip_uses_device_and_does_not_load_synthesizer(self):
         from threading import Lock
         from types import SimpleNamespace

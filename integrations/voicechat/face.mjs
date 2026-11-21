@@ -42,7 +42,7 @@ export class WindowVoice {
       case "commit": case "discard":
         if (this.item !== e.id || !e.id) return false;
         this.item = undefined;
-        s.wakeUntil = e.kind === "commit" && words(s.asr) === this.phrase ? Date.now() + 8000 : 0;
+        s.wakeUntil = e.kind === "commit" && (e.wake ?? (words(s.asr) === this.phrase)) ? Date.now() + 8000 : 0;
         s.listening = false;
         s.speaking = e.kind === "discard" && !!this.pausedSpeech;
         this.pausedSpeech = false;

@@ -15,10 +15,11 @@ from pathlib import Path
 
 from me3 import bmo
 from me3.capture import SmartTurn
+from me3.deepgram import DeepgramStream
 from me3.incremental import is_acknowledgment, is_listening_receipt
 from me3.local_tts import DEFAULT_DIR, LocalBmo, LocalKokoro, LocalPiper
 from me3.parakeet import FRAME, Stream, TransientASRError, credential
-from me3.pi_audio_device import Devices, WaitClip, emit
+from me3.pi_audio_device import Devices, WaitClip, emit, turn_acknowledgment
 
 
 async def frames(device, fixture):
@@ -73,7 +74,8 @@ class NearEndSpeech:
 
 
 # The ASR hypothesis can buy a little listening time; only the final can dispatch.
-HESITATION = re.compile(r"(?:a+h+|u+h+|u+m+|e+rm+)[.,!…]*", re.I)
+HESITATION = re.compile(r"(?:(?:a+h+|u+h+|u+m+|e+rm+)[\s.,!…-]*)+|"
+                        r"(i|we|the)(?:[\s,.-]+\1)+[.!…]*", re.I)
 OPEN_END = re.compile(
     r"\b(?:and|or|but|because|that|the|a|an|to|my|our|your|if|we|they|i|is|was)\W*$",
     re.I,
@@ -85,7 +87,11 @@ DICTATION = re.compile(
 
 
 def unfinished_clause(text):
-    return len(text.split()) > 1 and not text.endswith("?") and OPEN_END.search(text)
+    words = text.split()
+    if len(words) < 2 or text.endswith("?"):
+        return False
+    return bool(OPEN_END.search(text) or HESITATION.fullmatch(words[-1])
+                or text.endswith(("…", "...", "-")))
 
 
 class SpeechDip:
@@ -134,14 +140,6 @@ class ListeningCue:
         return True
 
 
-def trim_cue_lead(pcm):
-    """Keep 20 ms of attack before the first audible sample in a 24 kHz cached clip."""
-    for index, sample in enumerate(memoryview(pcm).cast("h")):
-        if abs(sample) >= 250:
-            return pcm[2 * max(0, index - 480):]
-    return pcm
-
-
 class Playback:
     def __init__(self, device):
         self.device = device
@@ -163,9 +161,9 @@ class Playback:
                 for group in catalog.values():
                     for text in group:
                         pcm = bmo.read_clip(root / "clips", text)
-                        self.clips[text] = trim_cue_lead(pcm) if text in self.listen_phrases else pcm
-                self.wait_pcm = memoryview(trim_cue_lead(self.clips[catalog["waiting"][0]]))
-                self.wait_ms = int(os.environ.get("ME3_WAIT_CUE_MS", "1000"))
+                        self.clips[text] = bmo.trim_lead(pcm)
+                self.wait_pcm = memoryview(turn_acknowledgment())
+                self.wait_ms = int(os.environ.get("ME3_WAIT_CUE_MS", "160"))
                 if not 1 <= self.wait_ms <= 30000:
                     raise ValueError("ME3_WAIT_CUE_MS must be between 1 and 30000")
         elif profile == "lessac":
@@ -213,7 +211,7 @@ class Playback:
 
     def acknowledge(self, u, trigger="turn_incomplete", pause_frames=0):
         now = time.monotonic()
-        if (self.device and self.allow_cue and self.held and not self.listener_receipt
+        if (self.overlap and self.device and self.allow_cue and self.held and not self.listener_receipt
                 and not (self.task and not self.task.done())
                 and self.cues.eligible(u.id, u.text, u.frames, now=now)):
             if self.clips:
@@ -340,9 +338,10 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
     probed_item = probe_gap = None
     complete = None
     near = NearEndSpeech()
+    wake_phrase = os.environ.get("ME3_WAKE_PHRASE", "")
     pause_onset = None
     pause_id = None
-    quiet = ticks = pause_frames = 0
+    quiet = ticks = pause_frames = last_voiced_frame = 0
     attempted = speaking_before = False
     dip = None
     try:
@@ -388,6 +387,7 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
                     evidence.append(frame)
                     await stream.audio(frame)
                 preroll.clear()
+                last_voiced_frame = u.frames
                 quiet = pause_frames = 0
                 attempted = False
                 complete = None
@@ -401,6 +401,8 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
             # acoustic gap plus an unfinished interim can cue the listener while
             # Deepgram is still revising words. Endpoints retain their own clock.
             in_pause = state in (VADState.STOPPING, VADState.QUIET)
+            if not in_pause:
+                last_voiced_frame = u.frames
             if (playback.overlap is True and state == VADState.SPEAKING and not speaking_before
                     and near.clear and playback.allow_cue and playback.device):
                 if dip is None:
@@ -418,7 +420,7 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
                 probe = None
                 if probe_gap == u.id and pause_frames <= 20 and not predicted_end:
                     playback.acknowledge(u, "early_smart_turn", pause_frames)
-            if (3 <= pause_frames <= 20 and not speaking_before and near.clear and playback.device
+            if (playback.overlap is True and 3 <= pause_frames <= 20 and not speaking_before and near.clear and playback.device
                     and playback.allow_cue):
                 partial = getattr(u, "text", "").strip()
                 if unfinished_clause(partial):
@@ -474,16 +476,26 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
                 settled_request = (bool(settled) and partial == settled and not words_pending
                                    and not (thinking or open_clause)
                                    and (sentence_end or (provider_end and settled[-1].isalnum())))
+                natural_endpoint = (near.clear and settled_request and provider_end
+                                    and u.endpoint_frames >= last_voiced_frame - 1
+                                    and u.endpoint_frames == u.finalized_frames)
+                wake_endpoint = (quiet >= 12 and natural_endpoint
+                                 and bmo.wake_greeting(settled, wake_phrase, bare=not playback.awaiting_answer))
                 corroborated = quiet >= 50 and near.clear and settled_request
-                hold = not speaking_before and (
+                hold = open_clause or (not speaking_before and (
                     (words_pending and u.frames >= 80 and quiet < 55)
                     # Allow a speaker to add a qualifier after a sentence break.
-                    or (hasattr(u, "settled_text") and quiet < 32)
-                    or ((thinking or open_clause) and quiet < 100)
-                )
-                if (complete and not hold) or corroborated:
-                    final = await stream.finish()
-                    if not complete and final != settled:
+                    or (hasattr(u, "settled_text") and quiet < 32
+                        and not (natural_endpoint and settled.endswith("?") and quiet >= 20))
+                    or (thinking and quiet < 100)
+                ))
+                if wake_endpoint or (complete and not hold) or corroborated:
+                    use_endpoint = natural_endpoint and (wake_endpoint or complete) and isinstance(stream, DeepgramStream)
+                    if use_endpoint:
+                        final = stream.finish_endpoint()
+                    else:
+                        final = await stream.finish()
+                    if (wake_endpoint or not complete) and final != settled:
                         playback.hold(False)
                         emit("discard", id=u.id, reason="ASR changed at finalization")
                         continue
@@ -496,14 +508,16 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
                     if final and near.clear and not listener_only:
                         await playback.cut()
                         emit("commit", id=u.id, text=final, epoch=playback.epoch,
-                             endpoint="smart_turn" if complete else "settled_sentence",
+                             wake=bmo.wake_greeting(final, wake_phrase, bare=not playback.awaiting_answer),
+                             endpoint=("wake_endpoint" if wake_endpoint else "smart_turn_endpoint" if use_endpoint
+                                       else "smart_turn" if complete else "settled_sentence"),
                              vad_end=vad_end, final_at=time.monotonic())
                     else:
                         playback.hold(False)
                         reason = "overlap unconfirmed" if not near.clear else "empty or backchannel"
                         emit("discard", id=u.id, reason=reason)
                     continue
-                if (not speaking_before and near.clear and playback.device and quiet <= 60 and not settled_request
+                if (playback.overlap is True and not speaking_before and near.clear and playback.device and quiet <= 60 and not settled_request
                         and (not complete or open_clause)):
                     playback.acknowledge(u, "turn_incomplete", pause_frames)
             quiet_limit = 500 if not speaking_before and near.clear and getattr(u, "text", "") else 150
@@ -538,10 +552,9 @@ async def commands(playback):
                     playback.arm_feedback(c["receipt"], c["committed"])
                 elif c.get("op") == "cancel_feedback":
                     playback.cancel_wait()
-                elif (c.get("op") == "say" and c.get("search_cue") and playback.wait_feedback
-                      and playback.wait_feedback.first_output is not None):
-                    emit("deferred", receipt=c.get("receipt"))
-                    continue
+                elif c.get("op") == "say" and c.get("search_cue"):
+                    # A commit tone acknowledges the turn, not the live lookup.
+                    playback.cancel_wait()
             if c.get("op") == "listener":
                 playback.allow_cue = c.get("enabled") is True
                 playback.awaiting_answer = c.get("awaiting_answer") is True
@@ -580,7 +593,6 @@ async def run(fixture=None, after_gap=False):
     import aiohttp
     factory = Stream
     if os.environ.get("ME3_LIVE_BENCHMARK") == "1" or os.environ.get("ME3_ASR_BACKEND") == "deepgram":
-        from me3.deepgram import DeepgramStream
         factory = DeepgramStream
         token = os.environ.get("DEEPGRAM_API_KEY", "").strip()
         if not token:
@@ -609,8 +621,12 @@ async def run(fixture=None, after_gap=False):
                 indices = [os.environ.get(name) for name in
                            ("ME3_MIC_DEVICE_INDEX", "ME3_SPEAKER_DEVICE_INDEX")]
                 mic, speaker = [int(index) if index else None for index in indices]
-                device = Devices(frames=480, queue_frames=100, input_index=mic, output_index=speaker)
+                device = Devices(frames=480, queue_frames=100, input_index=mic, output_index=speaker, start=False)
             playback = Playback(device)
+            if device and isinstance(playback.engine, LocalBmo):
+                await playback.engine.start()
+            if isinstance(device, Devices):
+                device.stream.start_stream()
             if digital_url:
                 ws = await client.ws_connect(loopback_audio_url(digital_url), max_msg_size=65536)
             emit("ready", fixture=bool(fixture), digital=bool(digital_url))

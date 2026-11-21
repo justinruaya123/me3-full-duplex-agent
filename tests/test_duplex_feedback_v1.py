@@ -9,6 +9,16 @@ from me3.parakeet_voice import Playback
 
 
 class FeedbackTests(unittest.IsolatedAsyncioTestCase):
+    def test_committed_turn_has_a_short_nonverbal_receipt(self):
+        self.assertLessEqual(len(self.playback.wait_pcm), 24000 * 2 * .15)
+        self.assertNotEqual(bytes(self.playback.wait_pcm), self.cue)
+
+    def test_unfinished_turn_is_quiet_in_normal_duplex(self):
+        from types import SimpleNamespace
+        self.playback.held = self.playback.allow_cue = True
+        self.playback.acknowledge(SimpleNamespace(id="a", text="I was going to tell you about the", frames=150))
+        self.assertFalse(self.device.listening_cue)
+
     def setUp(self):
         self.cue = b"\x01\x03" * 2400
         self.word = b"\x32\x05" * 480
@@ -29,7 +39,7 @@ class FeedbackTests(unittest.IsolatedAsyncioTestCase):
             self.playback.arm_feedback("r", time.monotonic() - 1.1)
             reply = asyncio.create_task(self.playback.speak("real reply", receipt="r"))
             await asyncio.sleep(0)
-            self.assertEqual(self.device.render(480), self.cue[:960])
+            self.assertEqual(self.device.render(480), bytes(self.playback.wait_pcm[:960]))
             self.assertIsNone(self.device.first_reply_signal)
             ready.set()
             await asyncio.sleep(0)
@@ -40,6 +50,25 @@ class FeedbackTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(kinds.count("wait_cue_output"), 1)
         self.assertEqual(kinds.count("playing"), 1)
         self.assertEqual(events.call_args.kwargs["signal_frames"], 480)
+
+    async def test_search_cue_after_commit_tone_is_still_scheduled(self):
+        from me3.parakeet_voice import commands
+        from types import SimpleNamespace
+
+        self.playback.arm_feedback("r", time.monotonic() - 2)
+        self.device.render(480)
+        self.assertIsNotNone(self.playback.wait_feedback.first_output)
+        read_fd, write_fd = os.pipe()
+        with os.fdopen(read_fd, "rb") as stream, os.fdopen(write_fd, "wb") as sender:
+            sender.write(b'{"op":"say","text":"Searching.","epoch":0,"idle_only":true,'
+                         b'"search_cue":true,"cached":true}\n{"op":"close"}\n')
+            sender.flush()
+            with patch("me3.parakeet_voice.sys.stdin", SimpleNamespace(buffer=stream)):
+                await asyncio.wait_for(commands(self.playback), 2)
+        self.assertIsNotNone(self.playback.task)
+        await asyncio.sleep(0)  # Let the scheduled speaker enqueue its cached PCM.
+        self.assertEqual(self.device.render(480), self.cue[:960])
+        await self.playback.cut()
 
     async def test_fast_pcm_tool_audio_and_user_resumption_retire_wait(self):
         for source in ("answer", "tool", "user"):

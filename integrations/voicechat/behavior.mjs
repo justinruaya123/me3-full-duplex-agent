@@ -1,13 +1,6 @@
 import {readFileSync} from "node:fs";
 
 export const phrases = JSON.parse(readFileSync(new URL("./behavior/phrases.json", import.meta.url)));
-const words = text => text.toLowerCase().replace(/[.,!?]/g, " ").trim()
-  .replace(/\s+/g, " ").replace(/\b(?:bmo|bimo|bee mo|be mo)\b/g, "beemo");
-
-export function isWakeGreeting(text, phrase = "Hey BMO") {
-  return words(text) === (words(phrase) || "hey beemo");
-}
-
 export function cuePicker() {
   const next = new Map();
   return kind => {

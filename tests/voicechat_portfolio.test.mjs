@@ -3,10 +3,22 @@ import assert from "node:assert/strict";
 import {researchRequest, chosenFacts, verifiedFacts} from "../integrations/voicechat/portfolio.mjs";
 
 test("research needs both a site and an explicit public self-lookup", () => {
-  for (const text of ["Make me a portfolio website and look up my work", "Research me online and build a site about me"])
+  for (const text of ["Make me a portfolio website and look up my work", "Research me online and build a site about me",
+                      "Search more about me and build a portfolio website on the canvas"])
     assert.ok(researchRequest(text));
   for (const text of ["Make me a portfolio website", "Don't look up my work for my website", "Research a website about trees"])
     assert.equal(researchRequest(text), false);
+});
+test("Pi can propose research in a follow-up and the host asks about the known name before any search", async t => {
+  const {mkdtemp, writeFile, rm} = await import("node:fs/promises");
+  const {tmpdir} = await import("node:os");
+  const {join} = await import("node:path");
+  const dir = await mkdtemp(join(tmpdir(),"bmo-proposal-"));
+  t.after(() => rm(dir,{recursive:true,force:true}));
+  await writeFile(join(dir,"USER.md"),"- Public search name: Vega Sol\n");
+  const {newPortfolioReview} = await import("../integrations/voicechat/portfolio.mjs");
+  assert.match((await newPortfolioReview(dir,false)).nameQuestion,/May I search Brave for Vega Sol/);
+  assert.equal((await newPortfolioReview(dir,true)).nameQuestion,undefined);
 });
 test("only an explicit, in-range choice approves exactly the presented facts", () => {
   const facts = [{text:"One"},{text:"Two"},{text:"Three"}];
@@ -53,4 +65,17 @@ test("interrupting a review releases the turn while the research can finish", as
   await assert.rejects(review,/interrupted/);
   worker.resolve("completed research");
   assert.equal(await waitForResearch(worker.promise,new AbortController().signal),"completed research");
+});
+
+test("an operator without a profile can supply a search name by voice", async t => {
+  const {mkdtemp, rm} = await import("node:fs/promises");
+  const {tmpdir} = await import("node:os");
+  const {join} = await import("node:path");
+  const {newPortfolioReview, spokenSearchName} = await import("../integrations/voicechat/portfolio.mjs");
+  const dir = await mkdtemp(join(tmpdir(), "bmo-name-"));
+  t.after(() => rm(dir,{recursive:true,force:true}));
+  assert.match((await newPortfolioReview(dir,true)).nameQuestion, /search for/i);
+  assert.equal(spokenSearchName("Search for Ada Lovelace."), "Ada Lovelace");
+  assert.equal(spokenSearchName("My name is José Vega."), "José Vega");
+  assert.equal(spokenSearchName("What's the weather?"), undefined);
 });

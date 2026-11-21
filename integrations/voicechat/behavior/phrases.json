@@ -3,7 +3,7 @@
   "listening": ["I'm listening."],
   "setup": ["Check the terminal to finish setting me up.", "To trust this folder, follow the steps in the terminal."],
   "waiting": ["One moment."],
-  "searching": ["Let me look that up.", "I’ll check that."],
+  "searching": ["Searching."],
   "accepted": ["On it.", "I'll get started."],
   "follow_up": ["I'll let you know when it's ready."]
 }

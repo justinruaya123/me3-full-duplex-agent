@@ -1,9 +1,17 @@
+export async function approveDesktopInput(actions, current, ask) {
+  if (!current() || !Array.isArray(actions) || !actions.length) return false;
+  const labels = {typeText:"type text", setText:"replace text", keypress:"press keys", moveMouse:"move the pointer"};
+  const steps = actions.map(step => labels[step.action] || step.action);
+  return await ask("May I " + steps.join(", then ") + " in the selected app?") === true && current();
+}
+
 // Each promise belongs to one local tool invocation. Only input begun after
 // this question's speaker receipt can answer it.
 export class SpokenApproval {
-  ask(id, signal) {
+  ask(id, signal, tool = "create_website") {
     if (this.pending || signal.aborted) return Promise.resolve(false);
     this.id = id;
+    this.tool = tool;
     this.heard = false;
     this.item = undefined;
     return new Promise(resolve => {
@@ -31,8 +39,8 @@ export class SpokenApproval {
     const preference = words.replace(/^(?:i'd rather|i would rather) /, "");
     const assent = /^(?:yes|yeah|yep)(?: please)?$/.test(words);
     const action = preference.replace(/^(?:yes|yeah|yep) /, "").replace(/^please /, "");
-    const yes = assent || /^(?:go ahead(?: and (?:build|create) it)?|(?:build|create) it)$/.test(action)
-      || words === "please do";
+    const yes = assent || action === "go ahead" || words === "please do"
+      || (this.tool === "create_website" && /^(?:go ahead and )?(?:build|create) it$/.test(action));
     const no = /^(?:no(?: thanks| thank you)?|nope)$/.test(words)
       || /^(?:skip it|cancel(?: it)?|don't (?:build|create) it)$/.test(preference.replace(/^no /, ""));
     this.close(yes);
@@ -40,7 +48,7 @@ export class SpokenApproval {
   }
   close(approved = false) {
     const resolve = this.pending;
-    this.pending = this.item = this.id = undefined;
+    this.pending = this.item = this.id = this.tool = undefined;
     this.heard = false;
     resolve?.(approved);
   }

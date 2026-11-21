@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 
 from me3.core import checked_prompt
-from me3.website import REQUEST_PREFIX
+from me3.website import NAMED_SITE_PREFIX, REQUEST_PREFIX
 
 
 class OwnedJobs:
@@ -65,7 +65,8 @@ class OwnedJobs:
 
         raw = checked_prompt(instruction.removeprefix(REQUEST_PREFIX))
         new = REQUEST_PREFIX + raw
-        if personal_site(new) or (previous and personal_site(previous)):
+        named = (previous or new).startswith(NAMED_SITE_PREFIX)
+        if not named and (personal_site(new) or (previous and personal_site(previous))):
             # Personal checkpoints contain design terms alone. Approved values
             # are selected again under the current owner's privacy settings.
             context = (

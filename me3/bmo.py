@@ -5,6 +5,7 @@ import fcntl
 import hashlib
 import json
 import os
+import re
 import subprocess
 import tempfile
 import wave
@@ -20,6 +21,33 @@ PINS = {
 BASE = "https://github.com/brenpoly/be-more-agent/releases/download/v1.0-voice/"
 RECIPE = "piper-1.4.2/default-speaker/default-scales/bee-mo/soxr-24k-mono-s16-v1"
 MAX_FRAMES = 24000 * 5
+
+
+def wake_greeting(text, phrase="", *, bare=True):
+    def words(value):
+        return " ".join(re.sub(r"[.,!?]", " ", value.casefold()).split())
+
+    configured = words(phrase) or "hey bmo"
+    spoken = words(text)
+    if configured.replace(" ", "") not in {"heybmo", "heybeemo", "bmo", "beemo"}:
+        return spoken == configured
+    # The name alone is an address except when it could answer BMO's question.
+    name = spoken.replace(" ", "")
+    if name.startswith("hey"):
+        name = name[3:]
+    elif bare:
+        name = name.removeprefix("a")
+    else:
+        return False
+    return name in {"bmo", "bemo", "beemo", "bimo"}
+
+
+def trim_lead(pcm):
+    """Keep 20 ms before the first audible sample of a 24 kHz BMO phrase."""
+    for index, sample in enumerate(memoryview(pcm).cast("h")):
+        if abs(sample) >= 250:
+            return pcm[2 * max(0, index - 480):]
+    return pcm
 
 
 def phrases():
@@ -40,7 +68,6 @@ def verify(path):
 
 def renderer(root):
     from importlib.metadata import version
-    import re
     import numpy as np
     import soxr
     from piper import PiperVoice

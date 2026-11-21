@@ -111,6 +111,7 @@ class VoiceJobsTests(unittest.IsolatedAsyncioTestCase):
         class Worker:
             async def run(self, prompt, workspace, *, foreground=False):
                 (workspace / "worker-preview.txt").write_text("drafted header")
+                (workspace / "website-preview.html").write_text("<h1>Draft</h1>")
                 written.set()
                 await finish.wait()
                 return "{}"
@@ -122,6 +123,8 @@ class VoiceJobsTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual(jobs.submit("website", "Make a local page", "voice-turn")["id"], job["id"])
                 await asyncio.wait_for(written.wait(), 3)
                 self.assertNotIn("preview", jobs.status(job["id"]))
+                self.assertNotIn("draft_html", jobs.status(job["id"]))
+                self.assertEqual(jobs.status(job["id"], for_display=True)["draft_html"], "<h1>Draft</h1>")
                 self.assertEqual(jobs.status(job["id"], for_display=True)["preview"],
                                  "drafted header")
             finally:
@@ -142,9 +145,67 @@ class VoiceJobsTests(unittest.IsolatedAsyncioTestCase):
                 await jobs.supervisor.wait(job["id"])
                 with zipfile.ZipFile(jobs.status(job["id"])["archive"]) as archive:
                     page = archive.read("index.html").decode()
+                    self.assertIn("<style>", page)
+                    self.assertNotIn('rel="stylesheet"', page)
                     self.assertIn("Ada &amp; Co", page)
                     self.assertIn("Built the bridge &lt;prototype&gt;.", page)
                     self.assertIn("https://example.org/bridge", page)
                     self.assertIn(".nojekyll", archive.namelist())
+            finally:
+                await jobs.close()
+
+    async def test_named_website_includes_supplied_copy_in_verification(self):
+        import json
+
+        copy = "I build small wooden boats."
+
+        class Worker:
+            async def run(self, prompt, workspace, **kwargs):
+                html = ('<!doctype html><meta name="viewport" content="width=device-width">'
+                        '<h1>Ana Diaz</h1><h2>Work</h2><p>' + copy + '</p>')
+                return json.dumps({"files": {"index.html": html}})
+
+        with tempfile.TemporaryDirectory() as folder:
+            jobs = VoiceJobs(Path(folder), Worker(), lambda _: None)
+            try:
+                job = jobs.submit("website", "Include my supplied introduction", "turn",
+                                  site_name="Ana Diaz", site_copy=[copy])
+                await jobs.supervisor.wait(job["id"])
+                result = jobs.status(job["id"])
+                self.assertEqual(result["status"], "completed", result)
+                self.assertIn(copy, Path(result["index"]).read_text())
+            finally:
+                await jobs.close()
+
+    async def test_named_local_site_only_uses_its_scoped_identity_across_revisions(self):
+        import json
+        import zipfile
+
+        prompts = []
+        class Worker:
+            async def run(self, prompt, workspace, **kwargs):
+                prompts.append(prompt)
+                html = ('<!doctype html><html><head><meta name="viewport" '
+                        'content="width=device-width"><title>Ana Diaz</title></head>'
+                        '<body><main><h1>Ana Diaz</h1></main></body></html>')
+                return json.dumps({"files": {"index.html": html}})
+
+        with tempfile.TemporaryDirectory() as folder:
+            jobs = VoiceJobs(Path(folder), Worker(), lambda _: None)
+            try:
+                job = jobs.submit("website", "Make a blue website about myself", "turn", site_name="Ana Diaz")
+                await jobs.supervisor.wait(job["id"])
+                result = jobs.status(job["id"])
+                self.assertEqual(result["status"], "completed", result)
+                with zipfile.ZipFile(result["archive"]) as archive:
+                    self.assertIn(b"Ana Diaz", archive.read("index.html"))
+                jobs.revise(job["id"], 1, "use a dark theme")
+                await jobs.supervisor.wait(job["id"])
+                self.assertEqual(jobs.status(job["id"])["revision"], 2)
+                for prompt in prompts:
+                    self.assertIn('{"name": "Ana Diaz"}', prompt)
+                self.assertIn("dark", prompts[-1])
+                with self.assertRaises(ValueError):
+                    jobs.submit("draft", "Write a memo", "other", site_name="Ana Diaz")
             finally:
                 await jobs.close()

@@ -17,19 +17,108 @@ class DeepgramTests(unittest.TestCase):
 
 
 class DeepgramTransportTests(unittest.IsolatedAsyncioTestCase):
-    async def test_close_stream_flushes_only_matching_utterance_and_cancel_isolated(self):
+    async def test_failed_standby_does_not_interrupt_the_current_turn(self):
+        import asyncio
+        from unittest.mock import AsyncMock, Mock
+        from me3.deepgram import DeepgramStream
+        from me3.parakeet import TransientASRError, Utterance
+
+        stream = DeepgramStream(None, Mock(), "test")
+        stream.current = Utterance(Mock())
+        stream.ws = Mock()
+        stream.open_socket = AsyncMock(side_effect=TransientASRError("offline"))
+        stream.released = asyncio.Event()
+        stream.prepare_next(stream.released)
+        async def final(_):
+            await asyncio.sleep(.01)
+            turn = stream.current
+            turn.accept(dict(type="final", id=turn.id, revision=1, text="first turn"))
+        stream.ws.send_json = final
+        self.assertEqual(await stream.finish(), "first turn")
+        self.assertFalse(stream.fault.done())
+        with self.assertRaisesRegex(TransientASRError, "offline"):
+            await stream.begin()
+
+    async def test_next_handshake_overlaps_final_without_reusing_its_transcript(self):
+        import asyncio
         import aiohttp
         from aiohttp import web
         from aiohttp.test_utils import TestServer
         from me3.deepgram import DeepgramStream
         from me3.parakeet import FRAME
 
+        connections = []
+        close_requested, release = asyncio.Event(), asyncio.Event()
+        async def listen(request):
+            ws = web.WebSocketResponse()
+            await ws.prepare(request)
+            connections.append(ws)
+            async for msg in ws:
+                if msg.type == aiohttp.WSMsgType.TEXT and msg.json()["type"] == "CloseStream":
+                    close_requested.set()
+                    await release.wait()
+                    await ws.send_json({"type":"Results", "is_final":True, "channel":{
+                        "alternatives":[{"transcript":"first turn"}]}})
+                    await ws.send_json({"type":"Metadata"})
+                    break
+            return ws
+
+        app = web.Application()
+        app.router.add_get("/", listen)
+        async with TestServer(app) as server, aiohttp.ClientSession() as client:
+            stream = DeepgramStream(client, lambda *args, **fields: None, "test")
+            stream.url = str(server.make_url("/")).replace("http:", "ws:")
+            await stream.connect()
+            first = await stream.begin()
+            await stream.audio(bytes(FRAME))
+            try:
+                # A slow handshake gets the whole first turn to complete.
+                async with asyncio.timeout(.5):
+                    while len(connections) < 2:
+                        await asyncio.sleep(.005)
+            except BaseException:
+                await stream.close()
+                raise
+            final = asyncio.create_task(stream.finish())
+            try:
+                await asyncio.wait_for(close_requested.wait(), 1)
+                self.assertIs(stream.current, first)
+                release.set()
+                self.assertEqual(await final, "first turn")
+                self.assertEqual((await stream.begin()).text, "")
+            finally:
+                release.set()
+                await asyncio.gather(final, return_exceptions=True)
+                await stream.close()
+
+    async def test_open_timeout_names_the_provider_and_can_be_retried(self):
+        from unittest.mock import AsyncMock, Mock
+        from me3.deepgram import DeepgramStream
+        from me3.parakeet import TransientASRError
+
+        client = Mock(ws_connect=AsyncMock(side_effect=TimeoutError))
+        stream = DeepgramStream(client, Mock(), "test")
+        with self.assertRaisesRegex(TransientASRError, "Deepgram connection timed out"):
+            await stream.connect()
+
+    async def test_close_stream_flushes_only_matching_utterance_and_cancel_isolated(self):
+        import asyncio
+        import aiohttp
+        from aiohttp import web
+        from aiohttp.test_utils import TestServer
+        from me3.deepgram import DeepgramStream
+        from me3.parakeet import FRAME
+
+        connected = asyncio.Queue()
+
         async def listen(request):
             self.assertEqual(request.headers["Authorization"], "Token test-only")
             self.assertEqual(request.query["model"], "nova-3")
-            self.assertEqual(request.query["endpointing"], "600")
+            self.assertEqual(request.query["endpointing"], "250")
+            self.assertIn("keyterm", request.query)
             ws = web.WebSocketResponse()
             await ws.prepare(request)
+            connected.put_nowait(True)
             async for msg in ws:
                 if msg.type == aiohttp.WSMsgType.BINARY:
                     self.assertEqual(len(msg.data), FRAME)
@@ -58,10 +147,12 @@ class DeepgramTransportTests(unittest.IsolatedAsyncioTestCase):
             stream.url = str(server.make_url("/listen")).replace("http:", "ws:")
             try:
                 await stream.connect()
+                await connected.get()
                 await stream.begin()
                 await stream.audio(bytes(FRAME))
                 self.assertIsNone(await stream.finish(cancel=True))
                 turn = await stream.begin()
+                await connected.get()
                 await stream.audio(bytes(FRAME))
                 await stream.flush_words()
                 self.assertFalse(turn.done.done())
@@ -70,6 +161,19 @@ class DeepgramTransportTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual(turn.endpoint_frames, 1)
                 self.assertEqual(turn.settled_text, "settled")
                 self.assertEqual([e["id"] for k, e in events if k == "final"], [turn.id])
+                await asyncio.wait_for(connected.get(), 1)
+                next_turn = await stream.begin()
+                await stream.flush_words()
+                async with asyncio.timeout(1):
+                    while not next_turn.endpoint_frames:
+                        await asyncio.sleep(.005)
+                next_turn.text = "settled and one more word"
+                with self.assertRaisesRegex(RuntimeError, "matching"):
+                    stream.finish_endpoint()
+                next_turn.text = next_turn.settled_text
+                self.assertEqual(stream.finish_endpoint(), "settled")
+                await asyncio.wait_for(connected.get(), 1)
+                self.assertTrue(next_turn.done.done())
             finally:
                 await stream.close()
 

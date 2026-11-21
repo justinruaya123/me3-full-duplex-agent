@@ -41,3 +41,9 @@ p {margin:6px 0}
 pre {white-space:pre-wrap;overflow-wrap:anywhere;font:15px/1.55 ui-monospace,monospace}
 @media (max-height:390px) {.caption {font-size:12px;line-height:15px}#asr,#output{max-height:30px}}
 .presence-head .activity{height:100%}
+#publication {width:min(36rem,94vw);max-width:none}
+#publish-detail {max-height:48vh;overflow:auto}
+.dialog-actions {display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.5rem}
+.dialog-actions button {border:1px solid currentColor;border-radius:.45rem}
+#publish-confirm {background:#183c2c;color:#fff}
+.dialog-actions button:disabled {opacity:.55;cursor:default}

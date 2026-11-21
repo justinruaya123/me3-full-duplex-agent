@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -eu
 cd "$(dirname "$0")/../.."
+desktop=0
+if [[ "${1:-}" == --computer-use ]]; then desktop=1; shift; fi
 if [[ -x "$PWD/.local/node/bin/node" ]]; then export PATH="$PWD/.local/node/bin:$PATH"; fi
 # Use the ME3 installation shared by linked worktrees, or this checkout after transfer.
 client="${ME3_CLIENT_HOME:-$PWD}"
@@ -27,9 +29,15 @@ if [[ -f "$client/.env" ]]; then
     set +a
 fi
 export ME3_MEMORY_ENABLED="${memory_override:-${ME3_MEMORY_ENABLED:-1}}"
+export PI_COMPUTER_USE_HELPER_APP_PATH="$client/.local/pi/helpers/pi-computer-use.app"
+export PI_COMPUTER_USE_LINUX_HELPER_PATH="$client/.local/pi/helpers/linux-bridge"
+desktop_extension="$PWD/integrations/voicechat/node_modules/@injaneity/pi-computer-use/extensions/computer-use.ts"
+if [[ "$desktop" == 1 && ( "${ME3_LIVE_BENCHMARK:-0}" == 1 || -n "${ME3_FDBENCH_URL:-}" || " $* " == *" --live-benchmark "* || " $* " == *" --voicechat-fixture"* ) ]]; then
+    boot_error setup "Computer use requires an operator session."
+fi
 cli="$PWD/integrations/voicechat/node_modules/.bin/pi"
 if ! command -v node >/dev/null; then boot_error setup "Install Node and npm for this device."; fi
-if [[ ! -x "$cli" || ! -r "$PWD/integrations/voicechat/node_modules/@arcanemachine/pi-web-search/index.ts" ]]; then
+if [[ ! -x "$cli" || ! -r "$PWD/integrations/voicechat/node_modules/@arcanemachine/pi-web-search/index.ts" || ( "$desktop" == 1 && ! -r "$desktop_extension" ) ]]; then
     [[ -r "$PWD/integrations/voicechat/package.json" ]] || boot_error setup "Missing project Pi package manifest."
     npm ci --prefix "$PWD/integrations/voicechat" --no-audit --no-fund >&2 || boot_error setup "Install Node and npm, then rerun the project launcher."
 fi
@@ -83,6 +91,9 @@ case "$ME3_VOICE_TTS" in
     *) boot_error setup "Choose ME3_VOICE_TTS=bmo, lessac, or kokoro." ;;
 esac
 session_tools+=",subagent,revise_delegated_task,web_lookup,recall_web_search,portfolio_research,show_dashboard,update_dashboard,remember_detail"
+if [[ "${ME3_LIVE_BENCHMARK:-0}" != 1 && -z "${ME3_FDBENCH_URL:-}" && " $* " != *" --voicechat-fixture"* ]]; then
+    session_tools+=",publish_github_pages"
+fi
 export ME3_VOICE_PROMPT_DIR="${ME3_VOICE_PROMPT_DIR:-$PWD/.local/voice-prompts}"
 # Seed optional editing guides on first launch and preserve operator edits.
 (
@@ -132,6 +143,10 @@ if [[ "$window" == 1 ]]; then
     session_tools+=",show_visual,focus_panel"
 fi
 extensions=(--extension "$PWD/integrations/voicechat/pi.mjs")
+if [[ "$desktop" == 1 ]]; then
+    session_tools+=",find_roots,observe_ui,search_ui,expand_ui,inspect_ui,act_ui,read_text,wait_for"
+    extensions+=(--extension "$desktop_extension")
+fi
 if [[ "${ME3_LIVE_BENCHMARK:-0}" == 1 || "$provider/$model" == openrouter/deepseek/deepseek-v4.1-flash ]]; then
     extensions+=(--extension "$PWD/integrations/voicechat/nitro.mjs")
 elif [[ "$provider/$model" == openai-codex/gpt-6-luna && "$thinking" == off ]]; then

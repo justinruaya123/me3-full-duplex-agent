@@ -26,6 +26,15 @@ def bundle(files=None):
 
 
 class WebsiteTests(unittest.IsolatedAsyncioTestCase):
+    async def test_keyboard_skip_link_reveals_its_target_on_focus(self):
+        from me3.site_browser import verify_browser
+
+        html = HTML.replace('<script src="app.js"></script>', '''
+            <style>a {position:absolute;left:-9999px} a:focus {left:0}</style>
+            <a href="#content">Skip to content</a><main id="content">Welcome</main>''')
+        result = await verify_browser({"index.html": html}, [], None)
+        self.assertEqual(result["viewports"], ["desktop", "mobile"])
+
     async def test_build_writes_files_and_records_real_syntax_receipt(self):
         from me3.website import prepare_website
 

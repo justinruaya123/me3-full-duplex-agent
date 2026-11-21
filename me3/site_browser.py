@@ -167,6 +167,7 @@ async def check_viewport(ctx, files, required, personal_keys, source_links):
         await page.goto(f"{ORIGIN}/{source_page}", wait_until="load", timeout=5000)
         link = page.locator("a[href]").nth(index)
         if await link.is_visible():
+            await link.focus()  # Keyboard navigation reveals focus-only skip links.
             await link.click(timeout=1500)
             await page.wait_for_url(
                 lambda actual: actual == href, timeout=1500, wait_until="commit"

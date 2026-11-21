@@ -51,6 +51,44 @@ def mentions_subject(text, subject):
 NO_SEARCH = re.compile(
     r"\b(?:do not|don['’]t|never|without)\s+(?:search|research|look|browse|googl|us(?:e|ing) Brave)", re.I,
 )
+CORRECTION_LEAD = re.compile(r"^(?:actually[, ]+)?(?:I (?:mean|meant)\s+)", re.I)
+SITE_ACTION = re.compile(
+    r"\b(?:build|create|make|design|draft|update|revise)\s+(?:me\s+)?"
+    r"(?:(?:a|an|the|my|our|this)\s+)?(?:website|site|web\s*page)\b", re.I,
+)
+SITE_SEARCH = re.compile(
+    r"^(?:please\s+)?(?:look up|search (?:online )?for|research|"
+    r"check online for|find sources (?:on|for))\s+(?:the\s+)?(.+)$", re.I,
+)
+CURRENT = re.compile(
+    r"\b(?:latest|current(?:ly)?|recent(?:ly)?|today(?:['’]s)?|news|"
+    r"right now|as of (?:now|today)|this (?:week|month|year))\b", re.I,
+)
+
+
+def site_research(request):
+    """Authorize only the public research span, never the whole site brief."""
+    if not SITE_ACTION.search(request):
+        return None
+    clauses = re.split(r"(?<=[.!?;])\s+|\s+(?:and|then|and then)\s+", request)
+    for clause in clauses:
+        explicit = SITE_SEARCH.match(clause.strip())
+        if not explicit:
+            continue
+        intent = lookup_intent("Search for " + explicit[1].rstrip(".!?"))
+        if intent:
+            return intent
+    for clause in clauses:
+        site = SITE_ACTION.search(clause)
+        if not site:
+            continue
+        subject = re.match(r"\s+(?:about|on|covering|with)\s+(?:the\s+)?(.+)",
+                           clause[site.end():], re.I)
+        if subject and CURRENT.search(subject[1]):
+            intent = lookup_intent("Search for " + subject[1].rstrip(".!?"))
+            if intent:
+                return intent
+    return None
 
 
 def refine_public_query(query, topic, evidence, *, source="", limit=400):
@@ -91,7 +129,8 @@ def public_request(source, topic=None, *, one_story=None, previous_subject=None,
     # Replace references before running the ordinary standalone/privacy checks.
     if (not intent and previous_subject and len(question) <= 140
             and re.match(r"^(?:what|which|when|where|why|how|who)\b", source, re.I)):
-        rest, references = re.subn(r"\b(?:that|this|it|they|them|those)\b", "the subject", question, flags=re.I)
+        rest, references = re.subn(r"\b(?:that|this|it|its|they|them|their|those|he|she|him|her|his)\b",
+                                   "the subject", question, flags=re.I)
         if references and lookup_intent(rest, model_selected=True):
             # Add only model-selected words already present in public evidence.
             subject = refine_public_query(previous_subject[:200], topic, previous_evidence,
@@ -120,7 +159,7 @@ def public_request(source, topic=None, *, one_story=None, previous_subject=None,
 def resolve_request(source, topic, env, *, one_story=None, previous_subject=None, recheck_query="",
                     previous_evidence="", continuation_query="", continuation_selected=False,
                     propose_scope=None, confirmed_scope=None, scope_source="", awaiting_name=False,
-                    pending_receipt=False, recent_turns=(), recent_mention=""):
+                    pending_receipt=False, recent_turns=(), recent_mention="", previous_lookup=False):
     if NO_SEARCH.search(source):
         raise ValueError("The current request excludes a web search.")
     affirmative = re.fullmatch(
@@ -132,7 +171,7 @@ def resolve_request(source, topic, env, *, one_story=None, previous_subject=None
                    flags=re.I).strip(" .?!")
     mentions = [clause for turn in recent_turns[-2:] if isinstance(turn, str) and len(turn) <= 400
                 for clause in re.split(r"(?<=[.!?])\s+", turn)
-                if not LOCAL_CONTEXT.search(clause) and not re.search(
+                if not LOCAL_CONTEXT.search(CORRECTION_LEAD.sub("", clause)) and not re.search(
                     r"\b(?:not|never|without|don['’]t)\b", turn, re.I)]
     if (recent_mention and 1 < len(recent_mention) <= 120
             and lookup_intent("Look up " + recent_mention)
@@ -144,7 +183,13 @@ def resolve_request(source, topic, env, *, one_story=None, previous_subject=None
         if re.search(r"\b(?:newer|later|recent|modern|latest)\b", source, re.I):
             query = "Most recent developments: " + query
         return {"query": query[:400], "mode": "web", "freshness": None, "force_live": True}
-    if affirmative and confirmed_scope and (pending_receipt or lookup_intent(scope_source, model_selected=True)):
+    name = CORRECTION_LEAD.sub("", source.strip()).rstrip(".!?").strip()
+    name_only = re.fullmatch(r"[^\W\d_]+(?:[ '’-][^\W\d_]+){0,6}", name)
+    self_name = awaiting_name and SELF_LOOKUP.match(scope_source)
+    corrected_name = (previous_lookup and topic and name_only and not QUESTION.match(name)
+                      and not lookup_intent(name, model_selected=True) and not references_public_result(name, False))
+    if affirmative and confirmed_scope and (pending_receipt or lookup_intent(scope_source, model_selected=True)
+                                           or any(mentions_subject(clause, confirmed_scope) for clause in mentions)):
         query, mode, freshness = public_request("Look up " + confirmed_scope)
         if lookup_intent(scope_source, model_selected=True) and len(scope_source) + len(query) < 390:
             query = scope_source.strip() + " — " + query
@@ -153,13 +198,12 @@ def resolve_request(source, topic, env, *, one_story=None, previous_subject=None
                 query, mode, freshness = public_request(scope_source, previous_subject=query)
             except ValueError:
                 pass  # Only the confirmed public subject may leave the client.
-    elif awaiting_name and SELF_LOOKUP.match(scope_source):
-        name = source.strip().rstrip(".!?").strip()
-        if (not re.fullmatch(r"[^\W\d_]+(?:[ '’-][^\W\d_]+){0,6}", name)
+    elif self_name or corrected_name:
+        if (not name_only
                 or re.match(r"(?:no|yes|stop|cancel|never|don't|skip|thanks|thank you)\b", name, re.I)
                 or not lookup_intent("Look up " + name)):
             raise ValueError("The current turn did not supply a public search name.")
-        query, mode, freshness = name, "web", None
+        query, mode, freshness = name, "web" if self_name else "answers", None
     elif SELF_LOOKUP.match(source.strip()) and not re.search(
             r"\b(?:not|never|without|don['’]t|except)\b", source, re.I):
         query = profile_field(env.get("ME3_VOICE_PROMPT_DIR"), "Public search name")
@@ -263,6 +307,20 @@ async def lookup(source, topic, env, *, on_start=None, resolve_only=False, show_
             r"(?:show|give|find|gather) (?:me )?(?:some )?(?:links|sources|articles)\b)", request, re.I))
         if NO_SEARCH.search(source):
             raise ValueError("The current request excludes a web search.")
+        site = site_research(request)
+        if site:
+            query, mode, freshness = site
+            if resolve_only:
+                return {"query": query, "mode": mode, "freshness": freshness,
+                        "force_live": True, "site_research": True}
+            return await fetch_evidence(query, mode, freshness, env, on_start)
+        # A suggested topic or old receipt cannot turn a request for local work
+        # into authorization to send its subject to Brave.
+        if (re.match(r"^(?:draft|write|rewrite|rephrase|build|create|edit|revise|open|"
+                     r"make\s+(?:me\s+)?(?:a|an|the|my|our))\b", request, re.I)
+                and not re.search(r"\b(?:search (?:for|online|the web)|look up|use Brave|"
+                                  r"research (?:on|about)|find (?:sources|links))\b", request, re.I)):
+            raise ValueError("This is a request for Pi, not a public lookup.")
         # Display instructions stay on the client. A self-contained public
         # search can go straight to Brave without another scope negotiation.
         search = re.sub(r"(?:,|\band)\s+(?:please )?(?:show|give) me (?:the |some )?"
@@ -302,7 +360,7 @@ if __name__ == "__main__":
             continuation_selected=data.get("continuation_selected") is True,
             propose_scope=data.get("propose_scope"), confirmed_scope=data.get("confirmed_scope"),
             scope_source=data.get("scope_source") or "", awaiting_name=data.get("awaiting_name") is True,
-            pending_receipt=data.get("pending_receipt") is True,
+            pending_receipt=data.get("pending_receipt") is True, previous_lookup=data.get("previous_lookup") is True,
             recent_turns=data.get("recent_turns") or [], recent_mention=data.get("recent_mention") or "",
             on_start=lambda: print("search_started", file=sys.stderr, flush=True),
         ))

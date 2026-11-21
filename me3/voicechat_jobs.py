@@ -12,7 +12,10 @@ from me3.core import Supervisor, checked_prompt
 from me3.harnesses import JsonProcessBackend
 from me3.jobs import OwnedJobs
 from me3.portfolio import PORTFOLIO_PREFIX
-from me3.website import REQUEST_PREFIX, WebsiteWorker, prepare_website
+from me3.website import (
+    BUNDLE_PREFIX, NAMED_SITE_PREFIX, REQUEST_PREFIX, WebsiteWorker,
+    checked_files, prepare_website,
+)
 
 
 SUBAGENT_PREFIX = "ME3_SUBAGENT_V1\n"
@@ -35,14 +38,21 @@ class VoiceJobs:
 
     async def prepare(self, text, workspace, current):
         if self.jobs.get(workspace.parent.name)["kind"] == "website":
+            if text.startswith(BUNDLE_PREFIX) and current():
+                html = checked_files(text[len(BUNDLE_PREFIX):])["index.html"]
+                draft = workspace / "website-preview.tmp"
+                draft.write_text(html[:65536], encoding="utf-8")
+                draft.replace(workspace / "website-preview.html")
             return await prepare_website(text, workspace, current)
         return text
 
-    def submit(self, kind, brief, key, *, follow_up=False):
+    def submit(self, kind, brief, key, *, follow_up=False, site_name=None,
+               site_copy=None):
         brief = checked_prompt(brief)
         if self.draft_only and kind != "draft":
             raise ValueError("Spoken replay accepts only text drafts")
-        if kind not in {"website", "portfolio", "draft", "subagent"} or not key or brief.startswith((REQUEST_PREFIX, PORTFOLIO_PREFIX)):
+        reserved = (REQUEST_PREFIX, PORTFOLIO_PREFIX, NAMED_SITE_PREFIX.removeprefix(REQUEST_PREFIX))
+        if kind not in {"website", "portfolio", "draft", "subagent"} or not key or brief.startswith(reserved):
             raise ValueError("Invalid delegated task")
         if (kind == "subagent") != brief.startswith(SUBAGENT_PREFIX):
             raise ValueError("Invalid subagent brief")
@@ -51,6 +61,21 @@ class VoiceJobs:
             if not isinstance(assignment, dict) or assignment.get("agent") not in {"planner", "reviewer", "writer"}:
                 raise ValueError("Unknown subagent role")
         prompt = REQUEST_PREFIX + brief if kind == "website" else brief
+        if site_name is not None:
+            if (kind != "website" or not isinstance(site_name, str)
+                    or not 1 <= len(site_name.strip()) <= 96 or not site_name.isprintable()):
+                raise ValueError("Expected one display name for the local website")
+            identity = site_name.strip()
+            if site_copy is not None:
+                if (not isinstance(site_copy, list) or not 1 <= len(site_copy) <= 6
+                        or any(not isinstance(s, str) or not 8 <= len(s) <= 450
+                               or not s.isprintable() or s != s.strip()
+                               for s in site_copy)):
+                    raise ValueError("Expected up to six supplied passages of site copy")
+                identity = "ME3_COPY " + json.dumps([identity, *site_copy])
+            prompt = NAMED_SITE_PREFIX + identity + "\n" + brief
+        elif site_copy is not None:
+            raise ValueError("Supplied personal copy requires a named website")
         if kind == "portfolio":
             prompt = REQUEST_PREFIX + PORTFOLIO_PREFIX + brief
         job = self.jobs.submit(prompt, request_id=kind + "/" + key)
@@ -111,6 +136,12 @@ class VoiceJobs:
         finally:
             self.watches.pop(job_id, None)
 
+    def latest_website(self):
+        for job in reversed(self.jobs.list()):
+            if job["kind"] == "website":
+                return self.status(job["id"])
+        return {"status": "empty"}
+
     def status(self, job_id=None, *, for_display=False):
         if not job_id:
             recent = self.jobs.list()
@@ -137,6 +168,12 @@ class VoiceJobs:
                 result["preview"] = (revision / "worker-preview.txt").read_text()[-limit:]
             except FileNotFoundError:
                 pass
+            if for_display and job["kind"] == "website":
+                try:
+                    with (revision / "website-preview.html").open(encoding="utf-8") as draft:
+                        result["draft_html"] = draft.read(65536)
+                except FileNotFoundError:
+                    pass
         if job["status"] == "failed":
             result["error"] = job["error"]
         if job["status"] == "completed":
@@ -185,6 +222,8 @@ async def run(session, replay_dir=None):
             try:
                 if req["op"] == "submit":
                     result = jobs.submit(req["kind"], req["brief"], req["key"],
+                                         site_name=req.get("site_name"),
+                                         site_copy=req.get("site_copy"),
                                          follow_up=req.get("follow_up") is True)
                 elif req["op"] == "revise":
                     result = jobs.revise(req["job"], req["revision"], req["instruction"])
@@ -196,6 +235,8 @@ async def run(session, replay_dir=None):
                     result = jobs.jobs.acknowledge(req["job"], req["revision"])
                 elif req["op"] == "status":
                     result = jobs.status(req.get("job"))
+                elif req["op"] == "latest_website":
+                    result = jobs.latest_website()
                 else:
                     raise ValueError("Unknown job operation")
                 emit({"id": req["id"], "result": result})

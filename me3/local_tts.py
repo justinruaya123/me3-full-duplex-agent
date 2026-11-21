@@ -182,11 +182,15 @@ class LocalSpeechProcess:
                         await process.stdin.drain()
                         header = await self._read(process.stdout.readexactly(4))
                         (size,) = struct.unpack(">I", header)
+                        first_clause = total == 0
                         total += size
                         if not size or size % 2 or total > MAX_PCM:
                             raise ValueError("Invalid local synthesis response length")
                         pcm = await self._read(process.stdout.readexactly(size))
-                    for offset in range(0, size, 4800):
+                    if first_clause and self.voice == "bmo":
+                        from me3.bmo import trim_lead
+                        pcm = trim_lead(pcm)
+                    for offset in range(0, len(pcm), 4800):
                         if self.closed:
                             raise RuntimeError("Local synthesis is closed")
                         yield pcm[offset : offset + 4800]

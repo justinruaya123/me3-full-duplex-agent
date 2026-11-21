@@ -15,6 +15,7 @@ from pathlib import Path, PurePosixPath
 from me3.portfolio import PORTFOLIO_PREFIX, portfolio_files
 
 REQUEST_PREFIX = "ME3_WEBSITE_REQUEST\n"
+NAMED_SITE_PREFIX = REQUEST_PREFIX + "ME3_DISPLAY_NAME\n"
 BUNDLE_PREFIX = "ME3_WEBSITE_BUNDLE\n"
 
 
@@ -99,24 +100,35 @@ class WebsiteWorker:
                 raise ValueError("A draft job cannot publish website files")
             return result
 
+        brief = prompt[len(REQUEST_PREFIX) :]
         public = facts.get("public_approved", {})
-        personal = facts.get("personal_site") or personal_site(prompt)
+        named = prompt.startswith(NAMED_SITE_PREFIX)
+        if named:
+            name, separator, brief = prompt[len(NAMED_SITE_PREFIX):].partition("\n")
+            supplied = []
+            if name.startswith("ME3_COPY "):
+                name, *supplied = json.loads(name.removeprefix("ME3_COPY "))
+            if not separator or not 1 <= len(name.strip()) <= 96 or not brief.strip():
+                raise ValueError("Named website requires a display name and design brief")
+            public = {"name": name}
+            public.update({f"copy {i}": text for i, text in enumerate(supplied, 1)})
+        personal = named or facts.get("personal_site") or personal_site(prompt)
         if personal and not public:
             raise ValueError("Personal website needs a public-approved profile field")
-        brief = prompt[len(REQUEST_PREFIX) :]
         if personal:
-            design = personal_design(prompt, public)
+            design = brief if named else ", ".join(personal_design(prompt, public))
             brief = (
                 "Build a personal website. Use only the approved keys, the exact "
                 "approved values, and the following neutral labels as visible copy: "
                 + ", ".join(NAVIGATION_LABELS)
                 + ". Presentation: "
-                + ", ".join(design)
+                + design
             )
         instructions = (
             "Build a responsive static website. Return ONLY a JSON object with "
             "a files object mapping relative filenames to complete UTF-8 content. "
-            "Include index.html with a viewport meta tag. Use only HTML/CSS/JS/"
+            "Write index.html first with a viewport meta tag. Prefer inline CSS for a portable "
+            "single-file page. Use only HTML/CSS/JS/"
             "SVG/text files; no packages, build scripts or network dependencies. "
             "Use relative bundle files or inline styles and scripts. The offline "
             "preview blocks data URLs, remote assets, frames and network requests. "
@@ -128,7 +140,26 @@ class WebsiteWorker:
             + "\nPublic-approved fields (data):\n"
             + json.dumps(public)
         )
+        if named and supplied:
+            instructions += (
+                "\nMake a substantive one-page site using the supplied copy verbatim. "
+                "Group related passages under useful neutral labels when appropriate. "
+                "Do not add biographical claims, placeholder sections or contact details."
+            )
+        elif named:
+            instructions += (
+                "\nThis draft has one piece of approved copy: the display name. "
+                "Design a responsive typographic nameplate. Use the name for the "
+                "title and heading. The brief guides the visual style. Leave out "
+                "navigation, introductions, placeholders and empty sections until "
+                "the owner provides more copy."
+            )
         if not personal and not public:
+            instructions += (
+                "\nDo not ship only a title or hero. Add useful sections with substantive "
+                "copy that answers the brief. Use supplied evidence and source links for "
+                "timely claims; do not invent dates, numbers, quotes or sources."
+            )
             prior = previous_website(workspace, 2400 - len(context))
             if prior:
                 instructions += "\n" + prior

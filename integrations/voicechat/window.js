@@ -10,7 +10,28 @@ term.open(byId("terminal"));
 let ws, reconnectTimer, lost = false;
 let prefs = {theme:"classic",large:false,still:false}, tokens, pack = {}, currentCanvas;
 const readable = () => prefs.theme === "bmo-readable" && tokens;
-const dialog = byId("preferences");
+const dialog = byId("preferences"), publishDialog = byId("publication");
+let publication;
+function showPublication(value) {
+  publication = value;
+  if (!value) {
+    publishDialog.close();
+    return;
+  }
+  byId("publish-title").textContent = value.title;
+  byId("publish-detail").textContent = value.detail;
+  for (const id of ["publish-cancel", "publish-confirm"]) byId(id).disabled = false;
+  if (!publishDialog.open) publishDialog.showModal();
+  byId("publish-cancel").focus();
+}
+function decidePublication(approved) {
+  if (!publication || ws?.readyState !== WebSocket.OPEN || byId("publish-cancel").disabled) return;
+  ws.send(JSON.stringify({publication:{id:publication.id,approved}}));
+  for (const id of ["publish-cancel", "publish-confirm"]) byId(id).disabled = true;
+}
+byId("publish-cancel").onclick = () => decidePublication(false);
+byId("publish-confirm").onclick = () => decidePublication(true);
+publishDialog.oncancel = event => {event.preventDefault(); decidePublication(false);};
 const encoder = new TextEncoder();
 function input(text) {
   if (ws?.readyState !== WebSocket.OPEN) return;
@@ -81,6 +102,7 @@ function disconnected() {
 
   term.writeln("\r\nPi window disconnected.");
   lost = true; lastFace = undefined;
+  showPublication(null);
   captions(); renderJobs(); paintFace();
   byId("duplex").disabled = true;
   clearTimeout(reconnectTimer); reconnectTimer = setTimeout(connect, 1000);
@@ -115,7 +137,7 @@ byId("fullscreen").onclick = () => {
   if (!document.fullscreenElement) document.documentElement.requestFullscreen?.().catch(() => {});
 };
 addEventListener("keydown", event => {
-  if (event.key === "Escape" && !dialog.open && panel !== "face" && panel !== "console") show("face");
+  if (event.key === "Escape" && !dialog.open && !publishDialog.open && panel !== "face" && panel !== "console") show("face");
 });
 function caption(id, text) {
   const line = byId(id);
@@ -175,11 +197,44 @@ function renderJobs() {
   download.hidden = !(job?.kind === "website" && job.status === "completed" && job.archive);
   if (download.hidden) download.removeAttribute("href");
   else download.href = "website-" + job.id + "-" + job.revision + ".zip";
+  const htmlDownload = byId("job-html");
+  htmlDownload.hidden = download.hidden;
+  if (htmlDownload.hidden) htmlDownload.removeAttribute("href");
+  else htmlDownload.href = `site/${job.id}/${job.revision}/index.html?download=1`;
+  if (currentCanvas?.site) renderSite(currentCanvas);
   output.textContent = job?.text || job?.preview || job?.error || job?.index || "";
   if (job?.status === "running" && atEnd) pane.scrollTop = pane.scrollHeight;
 }
 byId("ready-count").onclick = () => show("agents");
+function renderSite({site, revision}) {
+  const frame = document.querySelector("iframe");
+  const job = jobs.find(entry => entry.id === site && entry.revision === revision && entry.kind === "website");
+  const ready = job?.status === "completed" && !!job.archive;
+  const preview = job?.status === "running" && job.previewHtml;
+  byId("board").replaceChildren();
+  const hint = byId("hint");
+  hint.textContent = ready ? "" : job?.error || (preview ? "Building website…" : "Waiting for website preview…");
+  if (job && ["cancelled","interrupted"].includes(job.status)) hint.textContent = "Website build " + job.status + ".";
+  hint.hidden = ready;
+  frame.hidden = !(ready || preview);
+  frame.inert = !ready;
+  frame.title = "Website preview";
+  if (ready) {
+    const src = `site/${site}/${revision}/index.html`;
+    if (frame.getAttribute("src") !== src) frame.setAttribute("src",src);
+    frame.removeAttribute("srcdoc");
+  } else {
+    frame.removeAttribute("src");
+    if (preview && frame.getAttribute("srcdoc") !== preview) frame.srcdoc = preview;
+    if (!preview) frame.removeAttribute("srcdoc");
+  }
+}
 function renderCanvas(value, force = false) {
+  if (/^[a-f0-9]{32}$/.test(value?.site || "") && Number.isSafeInteger(value.revision) && value.revision > 0) {
+    currentCanvas = value;
+    renderSite(value);
+    return;
+  }
   const iframe = document.querySelector("iframe"), board = byId("board");
   if (!value || typeof value.done !== "boolean" ||
       (value.board === undefined && value.html === undefined) ||
@@ -190,7 +245,9 @@ function renderCanvas(value, force = false) {
     byId("hint").textContent = "The latest view could not be displayed.";
     return;
   }
-  if (!force && currentCanvas?.done && value.done === false) return;
+  if (!force && !currentCanvas?.site && currentCanvas?.done && value.done === false) return;
+  iframe.removeAttribute("src");
+  iframe.title = "IntelligentUI visual";
   currentCanvas = value;
   byId("hint").textContent = "Your dashboard will appear here.";
   byId("hint").hidden = !!(value.board || value.html);
@@ -235,6 +292,7 @@ function receive({data}) {
     }
     case "agents": jobs = value; renderJobs(); paintFace(); break;
     case "canvas": renderCanvas(value); break;
+    case "publication": showPublication(value); break;
     case "focus":
       if (value.request && sessionStorage.getItem("presentation") === value.request) break;
       if (value.request) sessionStorage.setItem("presentation",value.request);

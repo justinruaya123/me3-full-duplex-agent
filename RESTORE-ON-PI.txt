@@ -1,0 +1,29 @@
+Extract ME3/ into a private directory on 64-bit Raspberry Pi OS on a Pi 5.
+This private archive includes credentials, conversations and session data.
+
+From inside the extracted ME3 directory, with Python 3.11 through 3.13 available:
+
+    python3 setup.py install-bmo --system-deps --no-prompt
+    python3 setup.py check
+    python3 setup.py run
+
+Attach a microphone and speaker before check. Enter /me3 duplex to enable voice.
+The installer installs the Linux Python and Node dependencies. The included
+.venv313 is the original macOS environment. The .local/bmo-computer-use.command
+launcher records the old Mac paths. Use the setup.py commands on the Pi.
+
+The root .env reproduces the active BMO launch profile and provider keys.
+The original shared ME3 .env is in .local/instance-backup/shared-client/.env.
+The original benchmark provider file is in .local/benchmark.env.
+The active Pi profile is .local/pi. The four private prompts and conversation
+memory are in .local/voice-prompts. Job data is in .local/voice-worker.
+The older shared project profile, jobs and conversation memory are kept
+separately under .local/instance-backup/shared-client/.local.
+Pi chat folders retain their Mac workspace names. Historical trust records,
+browser keychain data and absolute paths may need device-specific setup.
+
+This is a snapshot of the running Mac installation, including working-tree
+changes and installed files. The .git directory carries its committed source
+base and the published benchmark main revision. See the private snapshot
+metadata under .local/instance-backup. The Raspberry Pi hardware restore
+has not been tested.

@@ -3,6 +3,7 @@ import { mkdir, realpath } from "node:fs/promises";
 import { renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import {fileURLToPath} from "node:url";
+import {parseStreamingJson} from "@earendil-works/pi-ai";
 import {verifiedFacts} from "./portfolio.mjs";
 import {
   createAgentSession, DefaultResourceLoader, ModelRuntime, SessionManager, SettingsManager,
@@ -79,6 +80,15 @@ async function run() {
     nextUpdate = Date.now() + 700;
     writeFileSync(join(cwd,"worker-preview.tmp"), preview, {mode:0o600});
     renameSync(join(cwd,"worker-preview.tmp"), join(cwd,"worker-preview.txt"));
+    if (website) {
+      const text = change.partial?.content?.[change.contentIndex]?.text || "";
+      const files = parseStreamingJson(text.slice(0, 131072).replace(/^`{3}(?:json)?\s*/i,""))?.files;
+      const html = files?.["index.html"];
+      if (typeof html === "string" && html) {
+        writeFileSync(join(cwd,"website-preview.tmp"), html.slice(0,65536), {mode:0o600});
+        renameSync(join(cwd,"website-preview.tmp"), join(cwd,"website-preview.html"));
+      }
+    }
   });
   try {
     if (session.getActiveToolNames().join(",") !== (research ? "search_web" : ""))

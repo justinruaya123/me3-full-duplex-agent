@@ -31,7 +31,7 @@ async function readSection(dir, name, optional) {
   }
 }
 
-export async function composeVoicePrompt(base, dir = process.env.ME3_VOICE_PROMPT_DIR || local, {includeRemembered = true} = {}) {
+export async function composeVoicePrompt(base, dir = process.env.ME3_VOICE_PROMPT_DIR || local, {includeRemembered = true, onOwnerContext} = {}) {
   const sections = await Promise.all(files.map(async name => {
     // Older profiles may provide TOOLS.md. Pi supplies the tool descriptions.
     const shipped = ["SYSTEM.md", "SOUL.md"].includes(name) ? await readSection(defaults, name, false) : "";
@@ -42,6 +42,7 @@ export async function composeVoicePrompt(base, dir = process.env.ME3_VOICE_PROMP
     const content = [shipped, extra].filter(Boolean).join("\n\n");
     return content && `## ${name}\n\n${content}`;
   }));
+  onOwnerContext?.(sections.filter((_, i) => ["USER.md", "USERS.md"].includes(files[i])).join("\n"));
   return [base, ...sections].filter(Boolean).join("\n\n");
 }
 

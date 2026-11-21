@@ -73,11 +73,10 @@ def score_windows(run, windows, model):
     import soxr
 
     from me3 import bmo
-    from me3.parakeet_voice import trim_cue_lead
 
     references = []
     for phrase in bmo.phrases()["listening"]:
-        pcm = trim_cue_lead(bmo.read_clip(model / "clips", phrase))
+        pcm = bmo.trim_lead(bmo.read_clip(model / "clips", phrase))
         raw = np.frombuffer(pcm, dtype="<i2").astype(float) / 32768
         samples = soxr.resample(raw, 24000, SR)
         active = np.flatnonzero(abs(samples) > .005)
