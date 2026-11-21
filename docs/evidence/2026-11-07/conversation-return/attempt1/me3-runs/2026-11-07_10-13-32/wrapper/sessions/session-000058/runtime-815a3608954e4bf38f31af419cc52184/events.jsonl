@@ -1,0 +1,17 @@
+{"event": "supervisor_started", "mono_ns": 27065201721208}
+{"event": "voice_profile", "mono_ns": 27065305045250, "profile": "course", "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 27071736057250, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba"}
+{"event": "transcript_revision", "mono_ns": 27073271695166, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba", "revision": 1, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 27073849249958, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba"}
+{"event": "user_started", "mono_ns": 27074074043666, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba"}
+{"event": "transcript_revision", "mono_ns": 27075300027666, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba", "revision": 2, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 27076367086958, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba", "revision": 3, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 27076630944166, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba"}
+{"event": "user_started", "mono_ns": 27076791533041, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba"}
+{"event": "user_stopped_asr_pending", "mono_ns": 27077400334333, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba"}
+{"event": "user_started", "mono_ns": 27078296201166, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba"}
+{"event": "user_stopped_asr_pending", "mono_ns": 27079162592833, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba"}
+{"event": "transcript_revision", "mono_ns": 27079588819041, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba", "revision": 4, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 27080699932708, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba", "revision": 5, "committed": true, "turn_id": "1", "capture_ended": true}
+{"event": "floor_decision", "mono_ns": 27080700200708, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba", "decision": "turn", "addressee_known": true}
+{"event": "speech_cancelled", "mono_ns": 27080700705208, "session_id": "c0bf3b30cedc4fe69130847ea1c9a0ba", "epoch": 1}

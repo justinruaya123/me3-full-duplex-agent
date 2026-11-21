@@ -1,0 +1,86 @@
+{
+  "trial": "r02_stage_latency_phrase_v1_interrupt_73",
+  "group": "stage_latency",
+  "clip": "phrase_v1_interrupt_73",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 13.6,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.4
+    }
+  ],
+  "live_bot_starts": [
+    6.432,
+    9.856
+  ],
+  "live_bot_ends": [
+    9.504,
+    13.248
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "How should I start saving for retirement?",
+    "source": "v1_interrupt_73"
+  },
+  "mono": [
+    26207.676526333,
+    26221.27145875
+  ],
+  "bot_segments": [
+    [
+      6.402,
+      13.278
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.4
+  ],
+  "tor": 1,
+  "first_start": 6.402,
+  "spoke_s": 3.998,
+  "user_end": 2.43,
+  "latency": 3.972,
+  "actual": "replied 3.97 s after speech end",
+  "verdict": "✓ 3.97 s",
+  "ok": true,
+  "marks": 18,
+  "final": {
+    "stages": {
+      "e2e_heard": 3.972,
+      "e2e": 3.4851,
+      "e2e_source": "marks",
+      "asr_final": 1.7911,
+      "llm_ttft": 0.3946,
+      "tts_ttfb": 0.6538,
+      "endpointing": 0.133,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "how should I start saving for retirement?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 44,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "First, check if your employer offers a 400 one. K, match, and contribute enough to get that free money."
+  },
+  "scored_at": "2026-11-07T10:36:42+08:00"
+}

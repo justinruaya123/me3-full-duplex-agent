@@ -1,0 +1,41 @@
+{
+  "text": "Honestly, it's all about freshness.",
+  "chunks": [
+    {
+      "text": "Honestly,",
+      "timestamp": [
+        5.1,
+        5.9
+      ]
+    },
+    {
+      "text": "it's",
+      "timestamp": [
+        6.2,
+        6.36
+      ]
+    },
+    {
+      "text": "all",
+      "timestamp": [
+        6.36,
+        6.48
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        6.48,
+        6.66
+      ]
+    },
+    {
+      "text": "freshness.",
+      "timestamp": [
+        6.66,
+        7.26
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

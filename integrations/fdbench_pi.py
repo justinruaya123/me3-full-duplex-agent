@@ -5,7 +5,7 @@ import time
 from urllib.parse import urlsplit
 
 from me3.parakeet import FRAME
-from me3.pi_audio_device import Devices
+from me3.pi_audio_device import Devices, render_output
 
 
 def loopback_audio_url(url):
@@ -24,6 +24,9 @@ class DigitalDevice:
     def __init__(self):
         self.playing = bytearray()
         self.listening_cue = bytearray()
+        self.listener_signal_frames = 0
+        self.first_listener_signal = None
+        self.wait_clip = None
         self.lock = threading.Lock()
         self.paused = False
         self.flush = False
@@ -33,6 +36,7 @@ class DigitalDevice:
         self.input = asyncio.Queue(maxsize=100)
 
     def clear(self):
+        self.wait_clip = None
         self.playing.clear()
         self.listening_cue.clear()
         self.flush = True
@@ -41,16 +45,7 @@ class DigitalDevice:
         self.clear()
 
     def render(self, count):
-        source = self.listening_cue if self.paused else self.playing
-        pcm = bytes(source[:count * 2])
-        del source[:len(pcm)]
-        self.delivered += len(pcm)
-        if pcm and max(memoryview(pcm).cast("h")) > 64:
-            self.last_audible = time.monotonic()
-            self.signal_frames += len(pcm) // 2
-            if source is self.playing and self.first_reply_signal is None:
-                self.first_reply_signal = self.last_audible
-        return pcm
+        return render_output(self, count, time.monotonic())
 
     async def receive(self, ws):
         import aiohttp

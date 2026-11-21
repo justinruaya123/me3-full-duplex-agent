@@ -45,6 +45,7 @@ class BmoPlaybackTests(unittest.IsolatedAsyncioTestCase):
         device.enqueue = AsyncMock(side_effect=enqueue)
         playback.device = device
         playback.listener_receipt = None
+        playback.wait_feedback = None
         playback.clips = {"Hey.": bytes.fromhex("0800") * 3000}
         playback.engine = Mock()
         with patch("me3.parakeet_voice.emit") as emit:
@@ -58,16 +59,19 @@ class BmoPlaybackTests(unittest.IsolatedAsyncioTestCase):
         from threading import Lock
         from types import SimpleNamespace
         from unittest.mock import patch
-        from me3.parakeet_voice import Playback
+        from me3.parakeet_voice import ListenerReceipt, ListeningCue, Playback
 
         playback = Playback.__new__(Playback)
-        playback.device = SimpleNamespace(lock=Lock(), listening_cue=bytearray(32), signal_frames=10)
-        playback.listener_receipt = ("turn", "Mm-hm.", 0)
+        playback.cues = ListeningCue()
+        playback.device = SimpleNamespace(lock=Lock(), listening_cue=bytearray(32),
+                                          first_listener_signal=2., listener_signal_frames=10)
+        playback.listener_receipt = ListenerReceipt("turn", 1, "I'm listening.", 0, 1., False)
         with patch("me3.parakeet_voice.emit") as emit:
             playback.quiet_cue()
             playback.observe_listener()
-            emit.assert_not_called()
+            self.assertEqual([c.args[0] for c in emit.call_args_list], ["listener_output", "listener_cancelled"])
+            self.assertEqual(playback.cues.last_id, "turn")
             self.assertFalse(playback.device.listening_cue)
-            playback.listener_receipt = ("next", "I'm listening.", 3)
+            playback.listener_receipt = ListenerReceipt("next", 2, "I'm listening.", 3, 1., False)
             playback.observe_listener()
-            emit.assert_called_once_with("listener_played", id="next", text="I'm listening.")
+            emit.assert_called_with("listener_played", id="next", cue=2, text="I'm listening.", signal_frames=7)

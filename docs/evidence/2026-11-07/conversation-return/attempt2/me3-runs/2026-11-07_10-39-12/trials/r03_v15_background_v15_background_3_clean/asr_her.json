@@ -1,0 +1,139 @@
+{
+  "text": "I don't have access to real -time data, so I can't tell you the exact current time in Tokyo.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        5.97,
+        6.41
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        6.41,
+        6.59
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        6.59,
+        6.71
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        6.71,
+        7.11
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        7.11,
+        7.37
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        7.37,
+        7.59
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        7.59,
+        7.83
+      ]
+    },
+    {
+      "text": "data,",
+      "timestamp": [
+        7.83,
+        8.17
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        8.49,
+        8.75
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        8.75,
+        8.89
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        8.89,
+        9.23
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        9.23,
+        9.37
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        9.37,
+        9.55
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        9.55,
+        9.71
+      ]
+    },
+    {
+      "text": "exact",
+      "timestamp": [
+        9.71,
+        10.09
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        10.09,
+        10.49
+      ]
+    },
+    {
+      "text": "time",
+      "timestamp": [
+        10.49,
+        10.83
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        10.83,
+        11.03
+      ]
+    },
+    {
+      "text": "Tokyo.",
+      "timestamp": [
+        11.03,
+        11.29
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

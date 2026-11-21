@@ -235,3 +235,9 @@ __marimo__/
 
 # Operator-installed reference artwork. The public display has its own instrument face.
 /integrations/voicechat/faces/*.png
+
+!.env.speech.example
+!.env.bmo.example
+.venv-pi/
+bmo-config.json
+.DS_Store

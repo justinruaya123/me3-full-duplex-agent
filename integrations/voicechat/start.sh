@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 cd "$(dirname "$0")/../.."
+if [[ -x "$PWD/.local/node/bin/node" ]]; then export PATH="$PWD/.local/node/bin:$PATH"; fi
 # Use the ME3 installation shared by linked worktrees, or this checkout after transfer.
 client="${ME3_CLIENT_HOME:-$PWD}"
 if [[ -z "${ME3_CLIENT_HOME:-}" && "$(git rev-parse --show-toplevel 2>/dev/null || true)" == "$(pwd -P)" ]]; then
@@ -30,7 +31,7 @@ cli="$PWD/integrations/voicechat/node_modules/.bin/pi"
 if ! command -v node >/dev/null; then boot_error setup "Install Node and npm for this device."; fi
 if [[ ! -x "$cli" || ! -r "$PWD/integrations/voicechat/node_modules/@arcanemachine/pi-web-search/index.ts" ]]; then
     [[ -r "$PWD/integrations/voicechat/package.json" ]] || boot_error setup "Missing project Pi package manifest."
-    npm install --prefix "$PWD/integrations/voicechat" --no-audit --no-fund --no-package-lock >&2 || boot_error setup "Install Node and npm, then rerun the project launcher."
+    npm ci --prefix "$PWD/integrations/voicechat" --no-audit --no-fund >&2 || boot_error setup "Install Node and npm, then rerun the project launcher."
 fi
 runtime_python="$client/.venv313/bin/python"
 if [[ "$(uname -s)" == Linux ]]; then runtime_python="$client/.venv-pi/bin/python"; fi
@@ -62,9 +63,13 @@ node integrations/voicechat/project.mjs "${1:-}" ||
     boot_error trust "Check access to this project's .local/pi. An explicit denial can be changed with --trust-project."
 if [[ "${1:-}" == --trust-project ]]; then exit 0; fi
 if [[ ! -x "$VOICECHAT_PYTHON" ]]; then boot_error setup "Install the project Python environment or set VOICECHAT_PYTHON."; fi
-if [[ "${ME3_LIVE_BENCHMARK:-0}" == 1 ]]; then
-    [[ -n "${OPENROUTER_API_KEY:-}" ]] || boot_error setup "Set OPENROUTER_API_KEY in the private project environment."
-    [[ -n "${DEEPGRAM_API_KEY:-}" ]] || boot_error setup "Set DEEPGRAM_API_KEY in the private project environment."
+if [[ "${1:-}" != --sanity ]]; then
+    if [[ "${ME3_FOREGROUND_PROVIDER:-}" == openrouter || "${ME3_WORKER_PROVIDER:-}" == openrouter ]]; then
+        [[ -n "${OPENROUTER_API_KEY:-}" ]] || boot_error setup "Set OPENROUTER_API_KEY in the private project environment."
+    fi
+    if [[ "${ME3_ASR_BACKEND:-}" == deepgram || "${ME3_LIVE_BENCHMARK:-0}" == 1 ]]; then
+        [[ -n "${DEEPGRAM_API_KEY:-}" ]] || boot_error setup "Set DEEPGRAM_API_KEY in the private project environment."
+    fi
 fi
 export ME3_VOICE_TTS="${ME3_VOICE_TTS:-bmo}"
 case "$ME3_VOICE_TTS" in
@@ -112,6 +117,8 @@ PYTHON
     node --input-type=module -e 'import {workflows,roleNames} from "./integrations/voicechat/subagents.mjs"; console.log("Superpowers:", workflows.length, "workflows; subagents:", roleNames.join(", "))'
     echo "Foreground $provider/$model · voice $ME3_VOICE_TTS"
     if [[ -n "${BRAVE_SEARCH_API_KEY:-}" ]]; then echo "Brave key configured"; else echo "Brave lookup unavailable: set BRAVE_SEARCH_API_KEY"; fi
+    if [[ "${ME3_ASR_BACKEND:-}" == deepgram && -z "${DEEPGRAM_API_KEY:-}" ]]; then echo "Deepgram key missing. Run python3 setup.py configure." >&2; exit 1; fi
+    if [[ "$provider" == openrouter && -z "${OPENROUTER_API_KEY:-}" ]]; then echo "OpenRouter key missing. Run python3 setup.py configure." >&2; exit 1; fi
     exit 0
 fi
 window=0
@@ -125,7 +132,7 @@ if [[ "$window" == 1 ]]; then
     session_tools+=",show_visual,focus_panel"
 fi
 extensions=(--extension "$PWD/integrations/voicechat/pi.mjs")
-if [[ "${ME3_LIVE_BENCHMARK:-0}" == 1 ]]; then
+if [[ "${ME3_LIVE_BENCHMARK:-0}" == 1 || "$provider/$model" == openrouter/deepseek/deepseek-v4.1-flash ]]; then
     extensions+=(--extension "$PWD/integrations/voicechat/nitro.mjs")
 elif [[ "$provider/$model" == openai-codex/gpt-6-luna && "$thinking" == off ]]; then
     extensions+=(--extension "$PWD/integrations/voicechat/luna.mjs")

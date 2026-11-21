@@ -1,0 +1,18 @@
+{"stage": "vad_start", "t": 28490.766885708, "pid": 37658, "src": "ws", "recv": 28490.769570375, "lt": 28490.76702775, "tt": 0.1957}
+{"stage": "vad_start", "t": 28490.766932666, "pid": 37658, "src": "ws", "recv": 28490.769631708, "lt": 28490.767074708, "tt": 0.1958}
+{"stage": "vad_end", "t": 28491.21783475, "pid": 37658, "src": "ws", "recv": 28491.219594583, "lt": 28491.217976792002, "tt": 0.6467}
+{"stage": "vad_end", "t": 28491.217867416, "pid": 37658, "src": "ws", "recv": 28491.219628625, "lt": 28491.218009458, "tt": 0.6467}
+{"stage": "vad_start", "t": 28491.312883041, "pid": 37658, "src": "ws", "recv": 28491.31379075, "lt": 28491.313025083, "tt": 0.7417}
+{"stage": "vad_start", "t": 28491.312907125, "pid": 37658, "src": "ws", "recv": 28491.313803916, "lt": 28491.313049167, "tt": 0.7418}
+{"stage": "asr_partial", "t": 28494.991671125, "pid": 37658, "text": "Yeah.", "src": "ws", "recv": 28494.992201333, "lt": 28494.991813167002, "tt": 4.4205}
+{"stage": "asr_partial", "t": 28496.089468541, "pid": 37658, "text": "yeah Oregon's a funny state actually in a lot of ways I really miss it a lot I love their", "src": "ws", "recv": 28496.08969, "lt": 28496.089610583, "tt": 5.5183}
+{"stage": "vad_end", "t": 28496.497898291, "pid": 37658, "src": "ws", "recv": 28496.499182541, "lt": 28496.498040333, "tt": 5.9268}
+{"stage": "vad_end", "t": 28496.497923, "pid": 37658, "src": "ws", "recv": 28496.499316083, "lt": 28496.498065042, "tt": 5.9268}
+{"stage": "asr_partial", "t": 28497.250542125, "pid": 37658, "text": "Yeah, Oregon's a funny state actually in a lot of ways. I really miss it a lot. I lived there for six years.", "src": "ws", "recv": 28497.250933083, "lt": 28497.250684167, "tt": 6.6794}
+{"stage": "vad_start", "t": 28497.263250208, "pid": 37658, "src": "ws", "recv": 28497.263868125, "lt": 28497.263392250003, "tt": 6.6921}
+{"stage": "vad_start", "t": 28497.263265125, "pid": 37658, "src": "ws", "recv": 28497.263878041, "lt": 28497.263407167, "tt": 6.6921}
+{"stage": "asr_partial", "t": 28499.516951166, "pid": 37658, "text": "Yeah, Oregon's a funny state actually in a lot of ways. I really miss it a lot. I lived there for six years and I really", "src": "ws", "recv": 28499.517093208, "lt": 28499.517093208, "tt": 8.9458}
+{"stage": "vad_end", "t": 28500.751808291, "pid": 37658, "src": "ws", "recv": 28500.752915166, "lt": 28500.751950333, "tt": 10.1807}
+{"stage": "vad_end", "t": 28500.751817833, "pid": 37658, "src": "ws", "recv": 28500.752929208, "lt": 28500.751959875, "tt": 10.1807}
+{"stage": "asr_partial", "t": 28500.770831291, "pid": 37658, "text": "Yeah, Oregon's a funny state, actually, in a lot of ways. I really miss it a lot. I lived there for six years, and I really love it there, but it's also a really fun place.", "src": "ws", "recv": 28500.771161333, "lt": 28500.770973333, "tt": 10.1997}
+{"stage": "asr_partial", "t": 28502.009751625, "pid": 37658, "text": "Yeah, Oregon's a funny state, actually, in a lot of ways. I really miss it a lot. I lived there for six years, and I really love it there, but it's also a really funny state.", "src": "ws", "recv": 28502.009966625, "lt": 28502.009893667, "tt": 11.4386}

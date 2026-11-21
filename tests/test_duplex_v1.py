@@ -102,6 +102,29 @@ class ControllerTests(unittest.IsolatedAsyncioTestCase):
         for _ in range(10):
             await asyncio.sleep(0)
 
+    async def test_course_onset_closes_foreground_during_playback_and_preserves_job(self):
+        closed = asyncio.Event()
+
+        class Streaming:
+            async def stream(self, prompt):
+                try:
+                    yield "First sentence. "
+                    await asyncio.Event().wait()
+                finally:
+                    closed.set()
+
+        self.controller.backend = Streaming()
+        self.block_speech = True
+        job = self.jobs.submit("Build an independent artifact")
+        await self.controller.accept("Explain a topic")
+        await asyncio.wait_for(self.started.wait(), 2)
+        stops = self.stops
+        await self.controller.course_barge_in()
+        await asyncio.wait_for(closed.wait(), 2)
+        self.assertGreater(self.stops, stops)
+        self.assertEqual(self.jobs.get(job["id"])["status"], "running")
+        self.assertFalse(any(m["role"] == "assistant" for m in self.controller.history))
+
     async def test_reply_is_recorded_only_after_delivery(self):
         self.block_speech = True
         await self.controller.accept("Explain attention")
@@ -126,6 +149,15 @@ class ControllerTests(unittest.IsolatedAsyncioTestCase):
         job = self.jobs.submit("Long draft")
         await self.controller.accept("stop talking")
         self.assertEqual(self.jobs.get(job["id"])["status"], "running")
+
+    async def test_whisper_punctuation_after_delegation_prefix(self):
+        for mark in (",", ":"):
+            result = await self.controller.accept(f"Background task{mark} write a poem about winter.")
+            self.assertEqual(result, "delegated")
+        self.assertEqual(len(self.jobs.list()), 2)
+        result = await self.controller.accept("What is a background task, exactly?")
+        self.assertNotEqual(result, "delegated")
+        self.assertEqual(len(self.jobs.list()), 2)
 
     async def test_delegate_returns_before_completion(self):
         result = await self.controller.accept("background task write a draft")
@@ -230,12 +262,12 @@ class ControllerTests(unittest.IsolatedAsyncioTestCase):
             "I would like to explain the problem because", complete=False,
         ), "hold")
         await self.settle()
-        self.assertEqual(self.spoken, ["Mm-hm."])
+        self.assertEqual(self.spoken, ["Take your time."])
         await self.controller.accept(
             "and there is another part", complete=False,
         )
         await self.settle()
-        self.assertEqual(self.spoken, ["Mm-hm."])
+        self.assertEqual(self.spoken, ["Take your time."])
         self.assertFalse(self.controller.poll())
 
     async def test_provider_failure_does_not_fake_success(self):

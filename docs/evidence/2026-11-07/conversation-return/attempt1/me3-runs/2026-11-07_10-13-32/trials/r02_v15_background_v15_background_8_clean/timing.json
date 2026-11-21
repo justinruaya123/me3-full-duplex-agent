@@ -1,0 +1,62 @@
+{
+  "trial": "r02_v15_background_v15_background_8_clean",
+  "group": "v15_background",
+  "clip": "v15_background_8",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 11.264,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.528
+    }
+  ],
+  "live_bot_starts": [
+    5.376
+  ],
+  "live_bot_ends": [
+    10.912
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "What's my current heart rate?",
+    "current_turn_text": "",
+    "overlap_text": "I think we ran out of paper towels.",
+    "overlap_duration": 2.09,
+    "overlap_window": [
+      5.3,
+      7.39
+    ],
+    "source_id": "8"
+  },
+  "mono": [
+    27053.383845125,
+    27064.634378541
+  ],
+  "bot_segments": [
+    [
+      5.346,
+      10.942
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.528
+  ],
+  "tor": 1,
+  "first_start": 5.346,
+  "spoke_s": 4.182,
+  "actual": "replied after 3.82 s, spoke 4.2 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 16,
+  "final": {
+    "transcript": "I don't have access to your health data or wearable devices, so I can't see your current heart rate."
+  },
+  "scored_at": "2026-11-07T10:36:49+08:00"
+}

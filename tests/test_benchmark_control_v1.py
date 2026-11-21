@@ -232,10 +232,13 @@ class BenchmarkControlTests(unittest.TestCase):
 
     def test_start_timeout_reaps_child_and_removes_socket(self):
         process = self.launch(mode="no-ready", start_timeout=0.15)
-        fixture_path = self.logs / "session-000001" / "fixture.json"
-        wait_until(fixture_path.exists)
-        pid = json.loads(fixture_path.read_text())["pid"]
-        self.assertNotEqual(process.wait(timeout=3), 0)
+        self.assertNotEqual(process.wait(timeout=5), 0)
+        # The parent records its child before waiting for readiness. A short
+        # timeout can expire before the child's own Python imports complete.
+        state = json.loads((self.control / "state.json").read_text())
+        self.assertFalse(state["ready"])
+        pid = state["pid"]
+        self.assertIsInstance(pid, int)
         self.assertFalse(is_running(pid))
         self.assertFalse((self.control / "control.sock").exists())
 

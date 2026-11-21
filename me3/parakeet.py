@@ -6,7 +6,7 @@ import time
 import uuid
 from pathlib import Path
 
-URL = os.environ.get("ME3_PARAKEET_URL", "")
+URL = ""  # Loopback transport fixture override.
 MODEL = "nvidia/parakeet-unified-en-0.6b"
 FRAME = 640
 
@@ -80,14 +80,15 @@ class Stream:
         self.fault = asyncio.get_running_loop().create_future()
 
     async def connect(self):
+        url = URL or os.environ.get("ME3_PARAKEET_URL", "")
+        if not URL and not url.startswith("wss://"):
+            raise ValueError("Set ME3_PARAKEET_URL to the authenticated wss:// endpoint")
         import aiohttp
 
-        if not URL:
-            raise ValueError("Configure ME3_PARAKEET_URL with the speech server WebSocket URL.")
         try:
             async with asyncio.timeout(12):
                 self.ws = await self.client.ws_connect(
-                    URL, headers={"Authorization": "Bearer " + self.token},
+                    url, headers={"Authorization": "Bearer " + self.token},
                     max_msg_size=65536, heartbeat=15, ssl=True)
                 ready = await self.ws.receive_json()
         except aiohttp.WSServerHandshakeError as exc:

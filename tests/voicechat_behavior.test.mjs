@@ -2,6 +2,13 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {isWakeGreeting} from "../integrations/voicechat/behavior.mjs";
 
+test("a played ordinary question and a statement both admit a listener; approval protects the floor", async () => {
+  const {listenerMode} = await import("../integrations/voicechat/behavior.mjs");
+  assert.deepEqual(listenerMode(false, false), {op:"listener", enabled:true, awaiting_answer:false});
+  assert.deepEqual(listenerMode(true, false), {op:"listener", enabled:true, awaiting_answer:true});
+  assert.deepEqual(listenerMode(false, true), {op:"listener", enabled:false, awaiting_answer:true});
+});
+
 test("only a standalone direct address gets a greeting", () => {
   for (const text of ["Hey BMO!", "Hey, Beemo.", "Hey Bee Mo"]) assert.ok(isWakeGreeting(text));
   for (const text of ["Hey BMO, find my note.", "Write down hey BMO.", '“Hey BMO”', "I'm here."])

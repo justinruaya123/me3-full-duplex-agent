@@ -9,7 +9,7 @@ import {openSearchStore, runSearch, searchReceipt, withSearchEvidence} from "./s
 import { VoiceRecovery } from "./recovery.mjs";
 import { JobBridge, workerEnv } from "./jobs.mjs";
 import { WindowVoice } from "./face.mjs";
-import { cuePicker, isWakeGreeting, VoiceWait, voiceFailure, finishVoiceText } from "./behavior.mjs";
+import { cuePicker, isWakeGreeting, listenerMode, VoiceWait, voiceFailure, finishVoiceText } from "./behavior.mjs";
 import {subagentRequest, roleNames, workflows} from "./subagents.mjs";
 import { TurnGate } from "./turn-gate.mjs";
 import { composeVoicePrompt } from "./prompts.mjs";
@@ -72,7 +72,7 @@ export default function voicechat(pi) {
   let memory, memoryError, pendingReply, bench;
   let portfolio;
   const benchmarking = process.env.ME3_LIVE_BENCHMARK === "1";
-  const asr = benchmarking ? "Deepgram" : "Parakeet";
+  const asr = benchmarking || process.env.ME3_ASR_BACKEND === "deepgram" ? "Deepgram" : "Parakeet";
   const bmo = process.env.ME3_VOICE_TTS === "bmo";
   const tts = bmo ? "BMO Piper" : (process.env.ME3_VOICE_TTS || (benchmarking ? "lessac" : "kokoro"));
   const pick = cuePicker();
@@ -155,6 +155,11 @@ export default function voicechat(pi) {
   const canvas = dashboard(pi, currentTurn);
   if (process.env.ME3_WINDOW_DIR) registerVisual(pi, currentTurn);
   let liveMic = false, awaitingAnswer = false;
+  let overlap = false;
+  let protectedPrompt = false;
+  function updateListener() {
+    device(listenerMode(awaitingAnswer, protectedPrompt || !!approval.pending));
+  }
   const device = message => {
     if (face && message.op === "say") {
       face.state.output = clip(message.text);
@@ -164,12 +169,15 @@ export default function voicechat(pi) {
   };
   let lastListeningCue = -Infinity;
   function progressCue(id, kind) {
+    // BMO's cached wait is armed on the sidecar's commit clock and survives model settlement.
+    if (bmo && kind === "waiting") return;
     if (!id || currentTurn() !== id || active.committedAt === undefined || listening ||
         awaitingAnswer || approval.pending || cueWait || notice || active.jobCue || active.progressCue) return;
     if (kind === "waiting" && Date.now() - lastListeningCue < 12000) return;
     active.progressCue = kind;
     lastListeningCue = Date.now();
-    device({op:"say", text:pick(kind), cached:bmo, idle_only:true, epoch, receipt:kind + "/" + id});
+    device({op:"say", text:pick(kind), cached:bmo, idle_only:true, search_cue:kind === "searching",
+      epoch, receipt:kind + "/" + id});
   }
   const wait = new VoiceWait(id => progressCue(id, "waiting"), id => {
     if (currentTurn() !== id) return;
@@ -178,6 +186,7 @@ export default function voicechat(pi) {
     ctx.abort();
   });
   function reportFailure(turn, reason, text) {
+    device({op:"cancel_feedback", epoch:turn.epoch});
     bench?.log("foreground_failure", {id:turn.id, reason});
     ctx.ui.notify(text, "warning");
     if (!listening && proc?.stdin.writable)
@@ -188,7 +197,7 @@ export default function voicechat(pi) {
       return Promise.resolve(false);
     const id = randomUUID();
     const answer = approval.ask(id, signal);
-    device({op:"listener", enabled:false, awaiting_answer:true});
+    updateListener();
     const text = "Would you like me to build the local website now, or skip it?";
     ctx.ui.setWidget("voice-question", [text]);
     if (bench) bench.log("question", {id:turn.id, text});
@@ -197,7 +206,7 @@ export default function voicechat(pi) {
   }
   const status = text => ctx?.ui.setStatus("voicechat", text);
 
-  function dispatch(text, id) {
+  function dispatch(text, id, committed) {
     if ([...queued.values()].reduce((n, turns) => n + turns.length, 0) >= 4) {
       ctx.ui.notify("Pi already has four waiting turns", "warning");
       return;
@@ -206,12 +215,14 @@ export default function voicechat(pi) {
     const turns = queued.get(prompt) || [];
     turns.push({id:session + "/" + id, session, epoch, committedAt:performance.now()});
     queued.set(prompt, turns);
+    if (bmo) device({op:"feedback", epoch, receipt:session + "/" + id, committed});
     pi.sendUserMessage(prompt, {deliverAs:"followUp"});
   }
 
   function start(afterGap = false) {
     if (proc) return;
     session = randomUUID();
+    awaitingAnswer = protectedPrompt = false;
     epoch = 0;
     ownerTurn = listening = false; noticeDue = true;
     clearInterval(noticeTimer);
@@ -240,15 +251,21 @@ export default function voicechat(pi) {
       faceAudio(e);
       switch (e.kind) {
         case "ready":
+          device({op:"overlap", enabled:overlap});
           liveMic = !e.fixture && !e.digital;
-          device({op:"listener", enabled:!approval.pending && !awaitingAnswer, awaiting_answer:!!approval.pending || awaitingAnswer});
+          updateListener();
           status(asr + " + Pi + " + tts + " · " + (e.digital ? "fdbench" : e.fixture ? "fixture" : "live mic")); break;
         case "standby": status(asr + " · mic armed; reconnects on speech"); break;
         case "level": peak = e.peak; meter(); break;
         case "pause_timing": bench?.log("pause_callback", {item:e.id, detectedOnsetToPausedCallbackMs:e.ms}); break;
         case "onset": listening = true; gate.onset(e.id); approval.onset(e.id); partial = ""; status(asr + " · listening"); break;
-        case "listener_played": bench?.log("listener_played",{item:e.id,text:e.text}); break;
-        case "listening_cue": lastListeningCue = Date.now(); bench?.log("listening_cue", {item:e.id, text:e.text, trigger:e.trigger, detectedGapMs:e.detected_gap_ms}); status(tts + " · listening acknowledgment"); break;
+        case "listener_output":
+          lastListeningCue = Date.now();
+          bench?.log("listener_output", {item:e.id, cue:e.cue, queueToOutputMs:e.queue_to_output_ms});
+          break;
+        case "listener_cancelled":
+        case "listener_played": bench?.log(e.kind,{item:e.id,cue:e.cue,text:e.text,signalFrames:e.signal_frames}); break;
+        case "listening_cue": bench?.log("listening_cue", {item:e.id, cue:e.cue, text:e.text, trigger:e.trigger, detectedGapMs:e.detected_gap_ms}); status(tts + " · listening acknowledgment"); break;
         case "partial":
           if (gate.id === e.id) {partial = clip(e.text); meter();}
           if (gate.id === e.id && Number.isFinite(e.first_partial_ms))
@@ -274,7 +291,9 @@ export default function voicechat(pi) {
             wait.end();
             epoch = e.epoch;
             pendingReply = undefined;
+            awaitingAnswer = protectedPrompt = false;
             const outcome = approval.answer(e.id, e.text);
+            updateListener();
             if (outcome) {
               pi.appendEntry("voice-approval",{item:e.id, outcome, tool:"create_website"});
               if (outcome === "unheard") approval.close();
@@ -287,7 +306,7 @@ export default function voicechat(pi) {
                 const text = pick("wake");
                 device({op:"say", cached:true, text, epoch, receipt:session + "/" + e.id});
                 bench?.log("wake", {item:e.id, text});
-              } else dispatch(e.text, e.id);
+              } else dispatch(e.text, e.id, e.final_at);
             }
           }
           break;
@@ -309,12 +328,21 @@ export default function voicechat(pi) {
           }
           if (e.question && e.signal_frames > 0) approval.played(e.question);
           if (pendingReply && e.receipt === pendingReply.id && e.signal_frames > 0) {
+            awaitingAnswer = pendingReply.text.endsWith("?") || pendingReply.protectedPrompt;
+            protectedPrompt = pendingReply.protectedPrompt;
+            updateListener();
             if (pendingReply.result) delivered(pendingReply.result.id, pendingReply.result.revision);
             useMemory(store => store.reply(pendingReply.chat, pendingReply.id, pendingReply.text));
             pendingReply = undefined;
           }
           status(tts + " · played " + (e.frames/24000).toFixed(1) + " s"); break;
+        case "wait_cue_output":
+          bench?.feedback(e.receipt, "waiting", e.first_output);
+          bench?.log("wait_cue_output", {id:e.receipt, cue:"waiting", commitToCueOutputMs:e.commit_to_output_ms});
+          break;
         case "playing": {
+          if (active && (cueWait?.receipt === e.receipt || e.receipt === "searching/" + active.id))
+            bench?.feedback(active.id, "tool", e.first_output);
           if (active?.committedAt && ["waiting/", "searching/"].some(prefix => e.receipt === prefix + active.id))
             bench?.log("wait_cue_output", {id:active.id, cue:active.progressCue,
               commitToCueEventMs:Math.round(performance.now() - active.committedAt)});
@@ -365,7 +393,7 @@ export default function voicechat(pi) {
   pi.registerFlag("voicechat-duplex", {type:"boolean",description:"Start this Pi session with the microphone enabled"});
   pi.registerFlag("voicechat-fixture", {type:"string",description:"Use a synthetic mono PCM16 WAV for voice input"});
   pi.registerCommand("me3", {
-    description:"Toggle voice with /me3 duplex or check recall with /me3 memory",
+    description:"Toggle voice with /me3 duplex, pilot listening cues with /me3 overlap on|off, or check /me3 memory",
     async handler(args) {
       if (bench && args.trim() === "results") {
         ctx.ui.notify(bench.summary(), "info"); return;
@@ -378,6 +406,16 @@ export default function voicechat(pi) {
         ctx.ui.notify(memory ? "Cross-chat memory is on for this profile." :
           memoryError ? "Conversation memory unavailable: " + memoryError : "Cross-chat memory is off for this session.",
           memoryError ? "error" : "info");
+        return;
+      }
+      if (/^overlap(?: (on|off))?$/.test(args.trim())) {
+        if (!bmo) {ctx.ui.notify("Overlap requires the BMO voice profile.", "info"); return;}
+        if (args.trim() !== "overlap") {
+          overlap = args.trim() === "overlap on";
+          device({op:"overlap", enabled:overlap});
+          bench?.log("overlap_mode", {enabled:overlap});
+        }
+        ctx.ui.notify("Within-turn overlap is " + (overlap ? "on." : "off."), "info");
         return;
       }
       if (!["duplex","kokoro"].includes(args.trim())) {
@@ -437,7 +475,7 @@ export default function voicechat(pi) {
     approval.close();
     active = records?.shift() || {id:randomUUID(), ...(liveMic ? {session,epoch} : {})};
     if (active.committedAt !== undefined && currentTurn() === active.id) wait.start(active.id);
-    device({op:"listener",enabled:!awaitingAnswer, awaiting_answer:awaitingAnswer});
+    updateListener();
     if (face) {
       face.state.foreground = true;
       face.state.output = "";
@@ -567,18 +605,19 @@ export default function voicechat(pi) {
       face.state.output = currentTurn() ? clip(text) : "";
       paintVoice();
     }
-    awaitingAnswer = text.endsWith("?");
-    device({op:"listener",enabled:!awaitingAnswer, awaiting_answer:awaitingAnswer});
     if (active && final?.stopReason === "stop") {
       if (text && proc?.stdin.writable && active.session === session && active.epoch === epoch) {
         if (bench) bench.log("answer", {id:active.id, text});
-        pendingReply = {chat:active.chat, id:active.id, text, result:active.result};
+        pendingReply = {chat:active.chat, id:active.id, text, result:active.result,
+          protectedPrompt:!!active.portfolioReply && [portfolio?.nameQuestion, portfolio?.review].includes(active.portfolioReply)};
         device({op:"say", text, epoch, receipt:active.id});
       } else if (text && !active.session) {
         useMemory(store => store.reply(active.chat, active.id, clip(original)));
       }
     }
     const failure = voiceFailure(final?.stopReason);
+    if (active?.session === session && active?.epoch === epoch && pendingReply?.id !== active.id)
+      device({op:"cancel_feedback", epoch});
     if (failure && active?.committedAt !== undefined && currentTurn() === active.id && !active.timedOut)
       reportFailure(active, final.stopReason, failure);
     active = final = undefined;

@@ -14,6 +14,7 @@ class SettingsTests(unittest.TestCase):
     def test_explicit_local_providers(self):
         env = {
             "ME3_ASR_BASE_URL": "http://localhost:8000/v1",
+            "ME3_ASR_API_KEY": "fixture",
             "ME3_ASR_MODEL": "whisper-local",
             "ME3_TTS_BASE_URL": "http://localhost:8880/v1",
             "ME3_TTS_MODEL": "kokoro",

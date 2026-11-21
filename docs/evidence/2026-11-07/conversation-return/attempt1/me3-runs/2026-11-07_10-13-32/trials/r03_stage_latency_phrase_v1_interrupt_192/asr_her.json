@@ -1,0 +1,125 @@
+{
+  "text": "I can't see where you are right now, so I don't know which path you're looking for.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.94,
+        5.4
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        5.4,
+        5.74
+      ]
+    },
+    {
+      "text": "see",
+      "timestamp": [
+        5.74,
+        5.88
+      ]
+    },
+    {
+      "text": "where",
+      "timestamp": [
+        5.88,
+        6.06
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        6.06,
+        6.18
+      ]
+    },
+    {
+      "text": "are",
+      "timestamp": [
+        6.18,
+        6.28
+      ]
+    },
+    {
+      "text": "right",
+      "timestamp": [
+        6.28,
+        6.48
+      ]
+    },
+    {
+      "text": "now,",
+      "timestamp": [
+        6.48,
+        6.78
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        7.14,
+        7.4
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        7.4,
+        7.56
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        7.56,
+        7.76
+      ]
+    },
+    {
+      "text": "know",
+      "timestamp": [
+        7.76,
+        7.86
+      ]
+    },
+    {
+      "text": "which",
+      "timestamp": [
+        7.86,
+        8.08
+      ]
+    },
+    {
+      "text": "path",
+      "timestamp": [
+        8.08,
+        8.34
+      ]
+    },
+    {
+      "text": "you're",
+      "timestamp": [
+        8.34,
+        8.56
+      ]
+    },
+    {
+      "text": "looking",
+      "timestamp": [
+        8.56,
+        8.78
+      ]
+    },
+    {
+      "text": "for.",
+      "timestamp": [
+        8.78,
+        9.12
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

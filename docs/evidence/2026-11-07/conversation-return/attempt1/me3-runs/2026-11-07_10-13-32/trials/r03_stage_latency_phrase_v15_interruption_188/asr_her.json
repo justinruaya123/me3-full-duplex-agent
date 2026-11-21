@@ -1,0 +1,34 @@
+{
+  "text": "That's a fantastic goal.",
+  "chunks": [
+    {
+      "text": "That's",
+      "timestamp": [
+        4.4,
+        5.08
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        5.08,
+        5.12
+      ]
+    },
+    {
+      "text": "fantastic",
+      "timestamp": [
+        5.12,
+        5.58
+      ]
+    },
+    {
+      "text": "goal.",
+      "timestamp": [
+        5.58,
+        6.08
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

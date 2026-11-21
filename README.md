@@ -1,5 +1,12 @@
 # ME3: Pi-default full-duplex agent
 
+## Run BMO from a fresh checkout
+
+Run `python3 setup.py install-bmo --system-deps` and then `python3 setup.py run`.
+Toggle the microphone with `/me3 duplex`. Entering a blank API key preserves
+the saved value. [Project-local installation and config transfer](docs/BMO_SETUP.md).
+
+
 Continues `prototype/hermes-duplex-v1` at `642cc73` through
 `feat/pi-full-duplex-v1` and `hermes/benchmark-latency-v1`; the published branch
 for setup and testing is `main`. The [November 4 specification](docs/ME3_SPEC_2026-11-04.md)

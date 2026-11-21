@@ -527,7 +527,7 @@ class PausedBackchannelPipelineTests(unittest.IsolatedAsyncioTestCase):
         release_asr, asr_returned = asyncio.Event(), asyncio.Event()
         job_started, release_job = asyncio.Event(), asyncio.Event()
         job_cancelled = asyncio.Event()
-        output, stages, contexts = [], [], []
+        output, stages, contexts, voice = [], [], [], []
         first_pcm = b"\x01\x00" * 480
         retained_pcm = b"\x02\x00" * 480
         recognition_task = None
@@ -622,6 +622,7 @@ class PausedBackchannelPipelineTests(unittest.IsolatedAsyncioTestCase):
                         transport, root, runtime=runtime, profile="course",
                         speech=Speech(), turn_analyzer=Turn(), config=config,
                         on_stage=lambda stage, **_: stages.append(stage),
+                        on_voice=lambda kind, **fields: voice.append((kind, fields)),
                     )
                 run_task = asyncio.create_task(run)
                 await asyncio.wait_for(ready.wait(), 5)
@@ -656,12 +657,14 @@ class PausedBackchannelPipelineTests(unittest.IsolatedAsyncioTestCase):
                     else [first_pcm],
                 )
                 await transport.source.push_frame(InputAudioRawFrame(
-                    b"\0" * 640, sample_rate=16000, num_channels=1,
+                    b"\x00\xc0" + b"\0" * 638, sample_rate=16000, num_channels=1,
                 ))
                 await transport.source.push_frame(
                     VADUserStoppedSpeakingFrame(),
                 )
                 await asyncio.wait_for(asr_started.wait(), 1)
+                levels = [f["peak"] for kind, f in voice if kind == "mic_level"]
+                self.assertIn(16384, levels)
                 if operation == "new_generation":
                     await transport.source.push_frame(
                         VADUserStartedSpeakingFrame(),
@@ -697,6 +700,16 @@ class PausedBackchannelPipelineTests(unittest.IsolatedAsyncioTestCase):
                     self.assertEqual(contexts, [contexts[0], contexts[0]])
                     self.assertEqual(control.controller.epoch, epoch)
                     self.assertEqual(stages, ["asr_partial"])
+                    kinds = [kind for kind, _ in voice]
+                    self.assertLess(kinds.index("speech_audio"), kinds.index("asr_partial"))
+                    script = next(f for k, f in voice if k == "speech_script")
+                    self.assertEqual(script["utterance"], contexts[0])
+                    self.assertEqual(script["text"], "An independent development explanation.")
+                    partial = next(f for k, f in voice if k == "asr_partial")
+                    self.assertEqual(partial["text"], "right okay")
+                    self.assertGreaterEqual(partial["revision"], 1)
+                    self.assertTrue(partial["turn_id"])
+                    self.assertIn("asr_backchannel", kinds)
                 else:
                     if operation == "close":
                         await asyncio.wait_for(run_task, 5)

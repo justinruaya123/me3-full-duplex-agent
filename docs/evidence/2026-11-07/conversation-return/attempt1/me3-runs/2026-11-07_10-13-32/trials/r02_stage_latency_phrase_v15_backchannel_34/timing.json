@@ -1,0 +1,90 @@
+{
+  "trial": "r02_stage_latency_phrase_v15_backchannel_34",
+  "group": "stage_latency",
+  "clip": "phrase_v15_backchannel_34",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 10.464,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.88
+    }
+  ],
+  "live_bot_starts": [
+    5.344,
+    8.832
+  ],
+  "live_bot_ends": [
+    7.904,
+    10.112
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "Outline sleep science clearly.",
+    "source": "v15_backchannel_34"
+  },
+  "mono": [
+    26244.890000458,
+    26255.351308375
+  ],
+  "bot_segments": [
+    [
+      5.314,
+      7.934
+    ],
+    [
+      8.802,
+      10.142
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.88
+  ],
+  "tor": 1,
+  "first_start": 5.314,
+  "spoke_s": 4.565999999999999,
+  "user_end": 1.63,
+  "latency": 3.684,
+  "actual": "replied 3.68 s after speech end",
+  "verdict": "✓ 3.68 s",
+  "ok": true,
+  "marks": 24,
+  "final": {
+    "stages": {
+      "e2e_heard": 3.684,
+      "e2e": 3.2117,
+      "e2e_source": "marks",
+      "asr_final": 1.9525,
+      "llm_ttft": 0.2665,
+      "tts_ttfb": 0.7606,
+      "endpointing": 0.1285,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "outline sleep science clearly,",
+      "wer": {
+        "ref_words": 4,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 41,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Here's the quick gist. Sleep isn't just rest. It's active maintenance."
+  },
+  "scored_at": "2026-11-07T10:36:32+08:00"
+}

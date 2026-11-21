@@ -1,0 +1,15 @@
+{"event": "supervisor_started", "mono_ns": 28785530693041}
+{"event": "voice_profile", "mono_ns": 28785609883208, "profile": "course", "session_id": "b6749f3659ee44ed91d02a05439b63df", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 28791953801208, "session_id": "b6749f3659ee44ed91d02a05439b63df"}
+{"event": "transcript_revision", "mono_ns": 28793489861041, "session_id": "b6749f3659ee44ed91d02a05439b63df", "revision": 1, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 28794535733958, "session_id": "b6749f3659ee44ed91d02a05439b63df", "revision": 2, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 28795574879500, "session_id": "b6749f3659ee44ed91d02a05439b63df", "revision": 3, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 28795633448291, "session_id": "b6749f3659ee44ed91d02a05439b63df"}
+{"event": "transcript_revision", "mono_ns": 28796648275041, "session_id": "b6749f3659ee44ed91d02a05439b63df", "revision": 4, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 28797698843958, "session_id": "b6749f3659ee44ed91d02a05439b63df", "revision": 5, "committed": true, "turn_id": "1", "capture_ended": true}
+{"event": "floor_decision", "mono_ns": 28797699138666, "session_id": "b6749f3659ee44ed91d02a05439b63df", "decision": "turn", "addressee_known": true}
+{"event": "speech_cancelled", "mono_ns": 28797699583750, "session_id": "b6749f3659ee44ed91d02a05439b63df", "epoch": 1}
+{"event": "speech_submitted", "mono_ns": 28798293724083, "epoch": 1, "utterance": "b6749f3659ee44ed91d02a05439b63df:1:1", "profile": "course"}
+{"event": "transport_utterance_completed", "mono_ns": 28808982563708, "utterance": "b6749f3659ee44ed91d02a05439b63df:1:1", "bytes": 445440, "profile": "course"}
+{"event": "playback_completed", "mono_ns": 28808982909375, "session_id": "b6749f3659ee44ed91d02a05439b63df", "epoch": 1, "kind": "reply"}
+{"event": "speech_submitted", "mono_ns": 28808983546458, "epoch": 1, "utterance": "b6749f3659ee44ed91d02a05439b63df:1:2", "profile": "course"}

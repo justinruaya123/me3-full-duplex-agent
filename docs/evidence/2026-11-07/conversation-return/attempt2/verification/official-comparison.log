@@ -1,0 +1,125 @@
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                         ┃ me3-local ·             ┃ me3-local ·              ┃
+┃ metric                  ┃ 2026-11-07_06-10-46     ┃ 2026-11-07_10-39-12      ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ E2E latency (VAD end →  │ 2.55/3.71 s             │ 3.43/6.70 s              │
+│ audio out, assistant    │                         │                          │
+│ clock) (lower)          │                         │                          │
+│ E2E heard (true end of  │ 3.07/4.16 s             │ 3.96/7.23 s              │
+│ speech → reply audio)   │                         │                          │
+│ (lower)                 │                         │                          │
+│ VAD endpointing delay   │ 0.12/0.13 s             │ 0.12/0.14 s              │
+│ (true end of speech →   │                         │                          │
+│ VAD end) (lower)        │                         │                          │
+│ ASR final (VAD end →    │ 1.47/2.04 s             │ 1.48/1.92 s              │
+│ transcript) (lower)     │                         │                          │
+│ LLM TTFT (transcript →  │ 0.40/0.74 s             │ 1.30/5.44 s              │
+│ first token) (lower)    │                         │                          │
+│ TTS TTFB (text → first  │ 0.42/0.70 s             │ 0.40/0.78 s              │
+│ audio chunk) (lower)    │                         │                          │
+│ Barge-in (speech →      │ 0.34/0.41 s             │ 0.23/0.34 s              │
+│ playback stopped)       │                         │                          │
+│ (lower)                 │                         │                          │
+│ MCP / tool call         │ —                       │ —                        │
+│ duration (lower)        │                         │                          │
+│ WER, assistant's ASR vs │ 1.4%                    │ 1.4%                     │
+│ reference (lower)       │                         │                          │
+│ Context size, prompt    │ 43                      │ 43                       │
+│ tokens per LLM call     │                         │                          │
+│ TOR, pause handling     │ 0% (0/3)                │ 0% (0/3)                 │
+│ (synthetic) (lower)     │                         │                          │
+│ TOR, pause handling     │ 0% (0/3)                │ 0% (0/3)                 │
+│ (Candor) (lower)        │                         │                          │
+│ TOR, turn-taking        │ 33% (1/3)               │ 33% (1/3)                │
+│ (Candor, col 6)         │                         │                          │
+│ (higher)                │                         │                          │
+│ Missed turn-taking rate │ 67% (2/3)               │ 67% (2/3)                │
+│ (lower)                 │                         │                          │
+│ False turn-taking rate  │ 33% (2/6)               │ 67% (4/6)                │
+│ (lower)                 │                         │                          │
+│ False turn-taking rate  │ 50% (1/2)               │ 50% (1/2)                │
+│ · side talk (lower)     │                         │                          │
+│ False turn-taking rate  │ 50% (1/2)               │ 100% (2/2)               │
+│ · TV / radio (lower)    │                         │                          │
+│ False turn-taking rate  │ 0% (0/1)                │ 100% (1/1)               │
+│ · background speech     │                         │                          │
+│ (lower)                 │                         │                          │
+│ False turn-taking rate  │ 0% (0/1)                │ 0% (0/1)                 │
+│ · noise (lower)         │                         │                          │
+│ Latency, turn-taking    │ 4.07/4.07 s             │ 4.42/4.42 s              │
+│ (lower)                 │                         │                          │
+│ TOR, interruption       │ 67% (2/3)               │ 33% (1/3)                │
+│ (higher)                │                         │                          │
+│ Judge score,            │ —                       │ —                        │
+│ interruption (0–5)      │                         │                          │
+│ (higher)                │                         │                          │
+│ Latency, interruption   │ 3.53/3.54 s             │ 3.20/3.20 s              │
+│ (lower)                 │                         │                          │
+│ interruption · Respond  │ —                       │ —                        │
+│ (higher)                │                         │                          │
+│ interruption · Resume   │ —                       │ —                        │
+│ (lower)                 │                         │                          │
+│ interruption ·          │ —                       │ —                        │
+│ Uncertain               │                         │                          │
+│ interruption · Unknown  │ —                       │ —                        │
+│ interruption · stop     │ 0.25/0.25 s             │ 0.22/0.22 s              │
+│ latency (lower)         │                         │                          │
+│ interruption · response │ 3.56/5.66 s             │ 2.98/3.44 s              │
+│ latency (lower)         │                         │                          │
+│ backchannel · Respond   │ —                       │ —                        │
+│ (lower)                 │                         │                          │
+│ backchannel · Resume    │ —                       │ —                        │
+│ (higher)                │                         │                          │
+│ backchannel · Uncertain │ —                       │ —                        │
+│ backchannel · Unknown   │ —                       │ —                        │
+│ backchannel · stop      │ 0.26/0.31 s             │ 0.32/0.35 s              │
+│ latency (lower)         │                         │                          │
+│ backchannel · response  │ 3.07/4.18 s             │ 2.81/3.78 s              │
+│ latency (lower)         │                         │                          │
+│ talking to others ·     │ —                       │ —                        │
+│ Respond (lower)         │                         │                          │
+│ talking to others ·     │ —                       │ —                        │
+│ Resume (higher)         │                         │                          │
+│ talking to others ·     │ —                       │ —                        │
+│ Uncertain               │                         │                          │
+│ talking to others ·     │ —                       │ —                        │
+│ Unknown                 │                         │                          │
+│ talking to others ·     │ 0.32/0.34 s             │ 0.30/0.34 s              │
+│ stop latency (lower)    │                         │                          │
+│ talking to others ·     │ 3.39/3.86 s             │ 3.14/3.14 s              │
+│ response latency        │                         │                          │
+│ (lower)                 │                         │                          │
+│ background speech ·     │ —                       │ —                        │
+│ Respond (lower)         │                         │                          │
+│ background speech ·     │ —                       │ —                        │
+│ Resume (higher)         │                         │                          │
+│ background speech ·     │ —                       │ —                        │
+│ Uncertain               │                         │                          │
+│ background speech ·     │ —                       │ —                        │
+│ Unknown                 │                         │                          │
+│ background speech ·     │ 0.38/0.41 s             │ 0.38/0.38 s              │
+│ stop latency (lower)    │                         │                          │
+│ background speech ·     │ 3.22/3.35 s             │ 2.79/3.13 s              │
+│ response latency        │                         │                          │
+│ (lower)                 │                         │                          │
+│ Δ wpm                   │ +65.09                  │ —                        │
+│ Δ pitch_mean            │ -22.25                  │ —                        │
+│ Δ pitch_sd              │ +5.84                   │ —                        │
+│ Δ intensity_mean        │ -0.65                   │ —                        │
+│ Δ intensity_sd          │ -1.38                   │ —                        │
+│ Δ utmosv2               │ —                       │ —                        │
+│ Peak temperature        │ —                       │ —                        │
+│ (lower)                 │                         │                          │
+│ Time throttled or       │ —                       │ —                        │
+│ capped (lower)          │                         │                          │
+│ CPU median, all cores   │ 20 %                    │ 18 %                     │
+│ (lower)                 │                         │                          │
+│ CPU p95, all cores      │ 27 %                    │ 29 %                     │
+│ (lower)                 │                         │                          │
+│ Busiest core p95        │ 46 %                    │ 50 %                     │
+│ (lower)                 │                         │                          │
+│ Lowest ARM clock        │ —                       │ —                        │
+│ (higher)                │                         │                          │
+│ Lowest free RAM         │ 1686 MB                 │ 2216 MB                  │
+│ (higher)                │                         │                          │
+└─────────────────────────┴─────────────────────────┴──────────────────────────┘

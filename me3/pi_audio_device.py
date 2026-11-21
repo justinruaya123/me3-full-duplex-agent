@@ -7,6 +7,7 @@ import os
 import queue
 import threading
 import time
+from dataclasses import dataclass
 
 RATE, FRAMES = 24000, 1920
 
@@ -24,6 +25,57 @@ def emit(kind, **fields):
     print(json.dumps({"kind": kind, **fields}), flush=True)
 
 
+@dataclass
+class WaitClip:
+    turn: str
+    committed: float
+    due: float
+    pcm: memoryview
+    offset: int = 0
+    first_output: float | None = None
+    reported: bool = False
+
+
+def render_output(device, count, timestamp):
+    """Select one source at the callback boundary. Caller owns the device lock."""
+    source = device.listening_cue if device.paused else device.playing
+    size = count * 2
+    wait = device.wait_clip
+    if wait is not None:
+        if device.paused or source:
+            device.wait_clip = None
+        elif timestamp >= wait.due:
+            pcm = bytes(wait.pcm[wait.offset:wait.offset + size])
+            wait.offset += len(pcm)
+            if wait.offset >= len(wait.pcm):
+                device.wait_clip = None
+            if pcm and signal_present(pcm):
+                device.last_audible = timestamp
+                if wait.first_output is None:
+                    wait.first_output = timestamp
+            return pcm
+    pcm = bytes(source[:size])
+    del source[:len(pcm)]
+    if source is device.playing:
+        device.delivered += len(pcm)
+    if pcm and signal_present(pcm):
+        device.last_audible = timestamp
+        if source is device.playing:
+            device.signal_frames += len(pcm) // 2
+            if device.first_reply_signal is None:
+                device.first_reply_signal = timestamp
+        else:
+            device.listener_signal_frames += len(pcm) // 2
+            if device.first_listener_signal is None:
+                device.first_listener_signal = timestamp
+    return pcm
+
+
+def signal_present(pcm):
+    samples = memoryview(pcm).cast("h")
+    return max(samples) > 64 or min(samples) < -64
+
+
 class Devices:
     def __init__(self, *, frames=FRAMES, queue_frames=8, input_index=None, output_index=None):
         import pyaudio
@@ -39,6 +91,9 @@ class Devices:
         self.paused = False
         self.playing = bytearray()
         self.listening_cue = bytearray()
+        self.listener_signal_frames = 0
+        self.first_listener_signal = None
+        self.wait_clip = None
         self.lock = threading.Lock()
         self.overrun = False
         self.delivered = 0
@@ -55,15 +110,7 @@ class Devices:
                 if self.pause_requested and self.paused:
                     self.pause_callback = timestamp
                     self.pause_requested = False
-                source = self.listening_cue if self.paused else self.playing
-                out = source[:size]
-                del source[:len(out)]
-                self.delivered += len(out)
-                if out and max(memoryview(out).cast("h")) > 64:
-                    self.signal_frames += len(out) // 2
-                    self.last_audible = timestamp
-                    if source is self.playing and self.first_reply_signal is None:
-                        self.first_reply_signal = timestamp
+                out = render_output(self, count, timestamp)
             reference = bytes(out).ljust(size, b"\0")
             try:
                 self.mic.put_nowait((data, reference, timestamp))
@@ -87,6 +134,7 @@ class Devices:
 
     def clear(self):
         with self.lock:
+            self.wait_clip = None
             self.playing.clear()
             if hasattr(self, "listening_cue"):
                 self.listening_cue.clear()

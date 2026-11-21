@@ -1,0 +1,13 @@
+test_completed_requests_keep_disfluency_verbatim_and_commit (test_hesitation_v1.HesitationTests.test_completed_requests_keep_disfluency_verbatim_and_commit) ... ok
+test_completed_text_still_requires_full_turn_readiness (test_hesitation_v1.HesitationTests.test_completed_text_still_requires_full_turn_readiness) ... ok
+test_explicit_cutoff_and_narrow_unfinished_tails_hold (test_hesitation_v1.HesitationTests.test_explicit_cutoff_and_narrow_unfinished_tails_hold) ... ok
+test_explicit_hold_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_explicit_hold_at_tail_vetoes_acoustic_completion) ... ok
+test_filled_pause_at_tail_vetoes_acoustic_completion (test_hesitation_v1.HesitationTests.test_filled_pause_at_tail_vetoes_acoustic_completion) ... ok
+test_held_fragment_resumes_full_pcm_without_action (test_hesitation_v1.HesitationTests.test_held_fragment_resumes_full_pcm_without_action) ... ok
+test_late_held_final_cannot_revise_resumed_complete_turn (test_hesitation_v1.HesitationTests.test_late_held_final_cannot_revise_resumed_complete_turn) ... ok
+test_resumed_hold_fences_stale_finish_generation (test_hesitation_v1.HesitationTests.test_resumed_hold_fences_stale_finish_generation) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.036s
+
+OK

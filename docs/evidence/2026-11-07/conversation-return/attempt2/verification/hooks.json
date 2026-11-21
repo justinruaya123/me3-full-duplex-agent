@@ -1,0 +1,6 @@
+{
+  "ME3_VERIFICATION_INSTANCE": "me3-conversation-20261107T023910-37127",
+  "ME3_VERIFICATION_CONTROL": "/tmp/me3-conversation-20261107T023910-37127",
+  "ME3_VERIFICATION_ASSISTANT_CMD": "/Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python /Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py serve --control-dir /tmp/me3-conversation-20261107T023910-37127 --instance me3-conversation-20261107T023910-37127 --project /Users/jus/Documents/Grad/AI231/ME3 --launcher /Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/launch_assistant.py --python /Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python --log-root /Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T023910-37127/sessions",
+  "ME3_VERIFICATION_RESET_CMD": "/Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python /Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py reset --control-dir /tmp/me3-conversation-20261107T023910-37127 --instance me3-conversation-20261107T023910-37127"
+}

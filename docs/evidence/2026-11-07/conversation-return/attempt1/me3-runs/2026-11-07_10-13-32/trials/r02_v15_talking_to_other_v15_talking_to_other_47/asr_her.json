@@ -1,0 +1,167 @@
+{
+  "text": "I'm unable to set alarms or... I can't set alarms or check real -time traffic, but I imagine that was a rough one.",
+  "chunks": [
+    {
+      "text": "I'm",
+      "timestamp": [
+        7.18,
+        7.66
+      ]
+    },
+    {
+      "text": "unable",
+      "timestamp": [
+        7.66,
+        8.04
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        8.04,
+        8.26
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        8.26,
+        8.46
+      ]
+    },
+    {
+      "text": "alarms",
+      "timestamp": [
+        8.46,
+        8.9
+      ]
+    },
+    {
+      "text": "or...",
+      "timestamp": [
+        8.9,
+        9.4
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        13.56,
+        14.26
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        14.26,
+        14.6
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        14.6,
+        14.74
+      ]
+    },
+    {
+      "text": "alarms",
+      "timestamp": [
+        14.74,
+        15.2
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        15.2,
+        15.5
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        15.5,
+        15.78
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        15.78,
+        16.06
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        16.06,
+        16.3
+      ]
+    },
+    {
+      "text": "traffic,",
+      "timestamp": [
+        16.3,
+        16.78
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        17.24,
+        17.46
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        17.46,
+        17.58
+      ]
+    },
+    {
+      "text": "imagine",
+      "timestamp": [
+        17.58,
+        17.98
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        17.98,
+        18.26
+      ]
+    },
+    {
+      "text": "was",
+      "timestamp": [
+        18.26,
+        18.4
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        18.4,
+        18.5
+      ]
+    },
+    {
+      "text": "rough",
+      "timestamp": [
+        18.5,
+        18.72
+      ]
+    },
+    {
+      "text": "one.",
+      "timestamp": [
+        18.72,
+        18.94
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

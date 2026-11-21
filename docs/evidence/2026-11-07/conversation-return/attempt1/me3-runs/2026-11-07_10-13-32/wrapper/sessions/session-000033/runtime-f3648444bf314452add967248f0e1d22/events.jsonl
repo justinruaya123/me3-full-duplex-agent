@@ -1,0 +1,14 @@
+{"event": "supervisor_started", "mono_ns": 26533275588416}
+{"event": "voice_profile", "mono_ns": 26533378121958, "profile": "course", "session_id": "9c5d8eaad8904c2b9a3b6c4d656494de", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 26539709707083, "session_id": "9c5d8eaad8904c2b9a3b6c4d656494de"}
+{"event": "transcript_revision", "mono_ns": 26541279433625, "session_id": "9c5d8eaad8904c2b9a3b6c4d656494de", "revision": 1, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 26542332610291, "session_id": "9c5d8eaad8904c2b9a3b6c4d656494de", "revision": 2, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 26542651936708, "session_id": "9c5d8eaad8904c2b9a3b6c4d656494de"}
+{"event": "transcript_revision", "mono_ns": 26543405109125, "session_id": "9c5d8eaad8904c2b9a3b6c4d656494de", "revision": 3, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 26544460972625, "session_id": "9c5d8eaad8904c2b9a3b6c4d656494de", "revision": 4, "committed": true, "turn_id": "1", "capture_ended": true}
+{"event": "floor_decision", "mono_ns": 26544461483708, "session_id": "9c5d8eaad8904c2b9a3b6c4d656494de", "decision": "turn", "addressee_known": true}
+{"event": "speech_cancelled", "mono_ns": 26544462179583, "session_id": "9c5d8eaad8904c2b9a3b6c4d656494de", "epoch": 1}
+{"event": "speech_submitted", "mono_ns": 26544817031541, "epoch": 1, "utterance": "9c5d8eaad8904c2b9a3b6c4d656494de:1:1", "profile": "course"}
+{"event": "transport_utterance_completed", "mono_ns": 26548706290041, "utterance": "9c5d8eaad8904c2b9a3b6c4d656494de:1:1", "bytes": 159360, "profile": "course"}
+{"event": "playback_completed", "mono_ns": 26548707661791, "session_id": "9c5d8eaad8904c2b9a3b6c4d656494de", "epoch": 1, "kind": "reply"}
+{"event": "speech_submitted", "mono_ns": 26548709663833, "epoch": 1, "utterance": "9c5d8eaad8904c2b9a3b6c4d656494de:1:2", "profile": "course"}

@@ -1,0 +1,118 @@
+{
+  "text": "I can't track external packages or perform live lookups. I'm just here to chat with you.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.66,
+        5.1
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        5.1,
+        5.4
+      ]
+    },
+    {
+      "text": "track",
+      "timestamp": [
+        5.4,
+        5.62
+      ]
+    },
+    {
+      "text": "external",
+      "timestamp": [
+        5.62,
+        6.04
+      ]
+    },
+    {
+      "text": "packages",
+      "timestamp": [
+        6.04,
+        6.6
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        6.6,
+        7.12
+      ]
+    },
+    {
+      "text": "perform",
+      "timestamp": [
+        7.12,
+        7.48
+      ]
+    },
+    {
+      "text": "live",
+      "timestamp": [
+        7.48,
+        7.78
+      ]
+    },
+    {
+      "text": "lookups.",
+      "timestamp": [
+        7.78,
+        8.24
+      ]
+    },
+    {
+      "text": "I'm",
+      "timestamp": [
+        9.22,
+        9.6
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        9.6,
+        9.78
+      ]
+    },
+    {
+      "text": "here",
+      "timestamp": [
+        9.78,
+        10.02
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        10.02,
+        10.14
+      ]
+    },
+    {
+      "text": "chat",
+      "timestamp": [
+        10.14,
+        10.34
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        10.34,
+        10.58
+      ]
+    },
+    {
+      "text": "you.",
+      "timestamp": [
+        10.58,
+        10.74
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

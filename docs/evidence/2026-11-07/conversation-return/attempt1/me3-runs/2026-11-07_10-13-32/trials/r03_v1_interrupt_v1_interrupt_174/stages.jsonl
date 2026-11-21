@@ -1,0 +1,10 @@
+{"stage": "vad_start", "t": 27355.06775, "pid": 37017, "src": "ws", "recv": 27355.069946958, "lt": 27355.0679235, "tt": 0.6128}
+{"stage": "vad_start", "t": 27355.067793833, "pid": 37017, "src": "ws", "recv": 27355.070028166, "lt": 27355.067967333, "tt": 0.6128}
+{"stage": "asr_partial", "t": 27356.619687666, "pid": 37017, "text": "How can I protect you?", "src": "ws", "recv": 27356.620157833, "lt": 27356.619861166, "tt": 2.1647}
+{"stage": "vad_end", "t": 27357.1144295, "pid": 37017, "src": "ws", "recv": 27357.115866416, "lt": 27357.114603, "tt": 2.6594}
+{"stage": "vad_end", "t": 27357.11445625, "pid": 37017, "src": "ws", "recv": 27357.115962333, "lt": 27357.11462975, "tt": 2.6595}
+{"stage": "asr_partial", "t": 27357.639652291, "pid": 37017, "text": "How can I protect my online account?", "src": "ws", "recv": 27357.640168375, "lt": 27357.639825791, "tt": 3.1847}
+{"stage": "asr_final", "t": 27358.648731041, "pid": 37017, "text": "How can I protect my online account?", "src": "ws", "recv": 27358.67150475, "lt": 27358.648904541, "tt": 4.1937}
+{"stage": "interrupted", "t": 27358.649722125, "pid": 37017, "src": "ws", "recv": 27358.671715708, "lt": 27358.649895625, "tt": 4.1947}
+{"stage": "interrupted", "t": 27358.649732958, "pid": 37017, "src": "ws", "recv": 27358.671758958, "lt": 27358.649906458002, "tt": 4.1947}
+{"stage": "llm_request", "t": 27358.671043541, "pid": 37017, "chars": 169, "messages": 1, "est_tokens": 42, "src": "ws", "recv": 27358.6717935, "lt": 27358.671217041, "tt": 4.2161}

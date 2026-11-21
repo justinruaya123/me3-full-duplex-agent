@@ -1,0 +1,27 @@
+{
+  "text": "Entrepreneurship is fundamental.",
+  "chunks": [
+    {
+      "text": "Entrepreneurship",
+      "timestamp": [
+        5.42,
+        6.6
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        6.6,
+        6.94
+      ]
+    },
+    {
+      "text": "fundamental.",
+      "timestamp": [
+        6.94,
+        7.38
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

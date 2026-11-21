@@ -1,0 +1,55 @@
+{
+  "text": "I can't send messages to other people.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.98,
+        5.44
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        5.44,
+        5.82
+      ]
+    },
+    {
+      "text": "send",
+      "timestamp": [
+        5.82,
+        5.96
+      ]
+    },
+    {
+      "text": "messages",
+      "timestamp": [
+        5.96,
+        6.46
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.46,
+        6.7
+      ]
+    },
+    {
+      "text": "other",
+      "timestamp": [
+        6.7,
+        6.94
+      ]
+    },
+    {
+      "text": "people.",
+      "timestamp": [
+        6.94,
+        7.18
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,41 @@
+{
+  "text": "Sure, tennis is pretty straightforward.",
+  "chunks": [
+    {
+      "text": "Sure,",
+      "timestamp": [
+        5.26,
+        5.82
+      ]
+    },
+    {
+      "text": "tennis",
+      "timestamp": [
+        6.0,
+        6.18
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        6.18,
+        6.46
+      ]
+    },
+    {
+      "text": "pretty",
+      "timestamp": [
+        6.46,
+        6.68
+      ]
+    },
+    {
+      "text": "straightforward.",
+      "timestamp": [
+        6.68,
+        7.32
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

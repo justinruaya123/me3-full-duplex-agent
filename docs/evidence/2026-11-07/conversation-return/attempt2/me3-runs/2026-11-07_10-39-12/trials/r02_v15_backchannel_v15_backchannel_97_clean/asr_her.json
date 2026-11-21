@@ -1,0 +1,125 @@
+{
+  "text": "All right, think of entrepreneurship as the engine of innovation. It's not just about starting a business.",
+  "chunks": [
+    {
+      "text": "All",
+      "timestamp": [
+        4.59,
+        5.11
+      ]
+    },
+    {
+      "text": "right,",
+      "timestamp": [
+        5.11,
+        5.31
+      ]
+    },
+    {
+      "text": "think",
+      "timestamp": [
+        5.71,
+        5.79
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        5.79,
+        5.93
+      ]
+    },
+    {
+      "text": "entrepreneurship",
+      "timestamp": [
+        5.93,
+        6.61
+      ]
+    },
+    {
+      "text": "as",
+      "timestamp": [
+        6.61,
+        7.27
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        7.27,
+        7.41
+      ]
+    },
+    {
+      "text": "engine",
+      "timestamp": [
+        7.41,
+        7.75
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        7.75,
+        7.99
+      ]
+    },
+    {
+      "text": "innovation.",
+      "timestamp": [
+        7.99,
+        8.51
+      ]
+    },
+    {
+      "text": "It's",
+      "timestamp": [
+        9.39,
+        10.03
+      ]
+    },
+    {
+      "text": "not",
+      "timestamp": [
+        10.03,
+        10.23
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        10.23,
+        10.45
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        10.45,
+        10.71
+      ]
+    },
+    {
+      "text": "starting",
+      "timestamp": [
+        10.71,
+        11.17
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        11.17,
+        11.35
+      ]
+    },
+    {
+      "text": "business.",
+      "timestamp": [
+        11.35,
+        11.65
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

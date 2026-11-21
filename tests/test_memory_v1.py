@@ -153,6 +153,36 @@ class MemoryTests(unittest.IsolatedAsyncioTestCase):
         self.assertNotIn("bystander-secret", recalled)
         self.assertNotIn("Fixture answer", recalled)
 
+    async def test_conversation_recall_uses_current_and_two_closed_owner_sessions(self):
+        await self.ask("remember that my preferred format is braille")
+        for topic in ("amber", "indigo", "violet"):
+            await self.ask("The project colour was " + topic)
+            await self.runtime.end_session(self.session)
+            self.session = self.open()
+        concurrent = self.open()
+        await self.ask("The project colour was saffron", concurrent)
+        bob = self.open("bob")
+        await self.ask("The project colour was magenta", bob)
+        await self.runtime.end_session(bob)
+
+        # A recall command can be the very first turn of a new session.
+        await self.ask("/recall project colour")
+        listing = self.spoken[-1]
+        await self.ask("The project colour today is green")
+        prompt = self.foreground.prompts[-1]
+        self.assertIn("green", prompt)
+        for result in (listing, prompt):
+            for visible in ("indigo", "violet", "braille"):
+                self.assertIn(visible, result)
+            for excluded in ("amber", "saffron", "magenta"):
+                self.assertNotIn(excluded, result)
+
+        for number in range(8):
+            await self.ask(f"Today's agenda item {number}")
+        await self.ask("What did we talk about in our past two sessions?")
+        for topic in ("indigo", "violet"):
+            self.assertIn(topic, self.foreground.prompts[-1])
+
     async def test_memory_is_owner_gated_even_with_late_enrollment(self):
         voice = self.open(None)
         with self.assertRaises(PermissionError):
@@ -217,29 +247,31 @@ class MemoryTests(unittest.IsolatedAsyncioTestCase):
             "jasmine", json.dumps(self.runtime.memory.recall("alice", ""))
         )
 
-    async def test_workers_get_relevant_notes_not_conversations(self):
-        await self.ask("/project orchid = Use a purple palette")
+    async def test_workers_get_scoped_decisions_not_private_notes_or_conversations(self):
+        await self.ask("/decision project/orchid palette = Use a purple palette")
         await self.ask("/remember unrelated = private unrelated detail")
         await self.ask("a conversation-only secret")
-        job = self.session.jobs.submit("draft orchid design")
+        job = self.session.jobs.submit("draft project/orchid design")
         await self.runtime.supervisor.wait(job["id"])
         prompt = self.worker.prompts[-1]
         self.assertIn("purple palette", prompt)
         self.assertNotIn("private unrelated detail", prompt)
         self.assertNotIn("conversation-only secret", prompt)
         self.assertEqual(
-            self.session.jobs.get(job["id"])["prompt"], "draft orchid design"
+            self.session.jobs.get(job["id"])["prompt"], "draft project/orchid design"
         )
 
     async def test_personalized_website_keeps_build_and_revision_checks(self):
         from test_website_v1 import bundle
 
         await self.ask("/project orchid = Use a purple palette")
+        await self.ask("/profile public orchid = Site")
         self.worker.response = bundle().split("\n", 1)[1]
         await self.ask("/site orchid portfolio")
         job = self.session.jobs.list()[0]
         await self.runtime.supervisor.wait(job["id"])
-        self.assertIn("purple palette", self.worker.prompts[-1])
+        self.assertNotIn("purple palette", self.worker.prompts[-1])
+        self.assertIn('"orchid": "Site"', self.worker.prompts[-1])
         self.assertIn("ONLY a JSON object", self.worker.prompts[-1])
         self.assertEqual(
             self.session.jobs.get(job["id"])["status"], "completed"
@@ -248,8 +280,22 @@ class MemoryTests(unittest.IsolatedAsyncioTestCase):
             job["id"], "orchid revision", expected_revision=1
         )
         await self.runtime.supervisor.wait(job["id"])
-        self.assertIn("purple palette", self.worker.prompts[-1])
+        self.assertNotIn("purple palette", self.worker.prompts[-1])
+        self.assertIn('"orchid": "Site"', self.worker.prompts[-1])
         self.assertEqual(self.session.jobs.get(job["id"])["revision"], 2)
+
+    async def test_corrected_worker_dependencies_fenced_after_restart(self):
+        await self.ask("/decision project/orchid palette = purple")
+        job = self.session.jobs.submit("draft project/orchid design")
+        await self.runtime.supervisor.wait(job["id"])
+        await self.runtime.close()
+        self.runtime = AgentRuntime(self.root, self.worker, self.foreground, memory_enabled=True)
+        self.session = self.open()
+        await self.ask("/decision project/lily palette = pink")
+        self.assertEqual(self.session.jobs.get(job["id"])["status"], "completed")
+        await self.ask("/decision project/orchid palette = gold")
+        updated = self.session.jobs.get(job["id"])
+        self.assertEqual((updated["status"], updated["revision"]), ("interrupted", 2))
 
     async def test_memory_clear_does_not_cancel_running_work(self):
         self.worker.release = asyncio.Event()
@@ -393,9 +439,13 @@ class MemoryTests(unittest.IsolatedAsyncioTestCase):
         )
         self.assertIsNone(self.runtime.memory)
 
-    async def test_disabled_by_default_and_explicitly_disabled_sessions(self):
+    async def test_enabled_by_default_and_explicitly_disabled_sessions(self):
         await self.runtime.close()
         with patch.dict(os.environ, {}, clear=True):
+            self.runtime = AgentRuntime(self.root, self.worker, self.foreground)
+        self.assertIsNotNone(self.runtime.memory)
+        await self.runtime.close()
+        with patch.dict(os.environ, {"ME3_MEMORY_ENABLED": "0"}, clear=True):
             self.runtime = AgentRuntime(
                 self.root / "disabled", self.worker, self.foreground
             )

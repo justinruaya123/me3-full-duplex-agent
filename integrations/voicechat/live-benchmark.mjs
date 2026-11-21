@@ -16,7 +16,7 @@ export class LiveBenchmark {
   }
   command(id, event) {
     this.last = id;
-    this.turns.set(id, {vadEnd:event.vad_end, commit:performance.now()});
+    this.turns.set(id, {vadEnd:event.vad_end, deviceCommit:event.final_at, commit:performance.now()});
     this.log("command", {id, transcript:event.text, vadToCommitMs:Math.round(1000*(event.final_at-event.vad_end))});
   }
   firstText(id) {
@@ -25,12 +25,20 @@ export class LiveBenchmark {
     turn.firstTextMs = Math.round(performance.now() - turn.commit);
     this.log("first_model_text", {id, commitToFirstTextMs:turn.firstTextMs});
   }
+  feedback(id, source, timestamp) {
+    const turn = this.turns.get(id);
+    if (!turn || turn.feedback || !Number.isFinite(timestamp)) return;
+    turn.feedback = source;
+    this.log("first_feedback", {id, source, commitToFeedbackMs:Math.round(1000*(timestamp-turn.deviceCommit))});
+  }
   output(event) {
     const turn = this.turns.get(event.receipt);
     if (!turn || turn.ms !== undefined || !Number.isFinite(event.first_output)) return;
+    this.feedback(event.receipt, "reply", event.first_output);
     turn.ms = Math.round(1000*(event.first_output-turn.vadEnd));
     const ttsMs = Math.round(1000*(event.first_output-event.tts_start));
-    this.log("first_output", {id:event.receipt, vadEndToOutputMs:turn.ms, ttsToOutputMs:ttsMs});
+    this.log("first_output", {id:event.receipt, vadEndToOutputMs:turn.ms, ttsToOutputMs:ttsMs,
+      commitToOutputMs:Math.round(1000*(event.first_output-turn.deviceCommit))});
     return `First speaker callback ${turn.ms} ms · TTS ${ttsMs} ms`;
   }
   rate(score, note) {

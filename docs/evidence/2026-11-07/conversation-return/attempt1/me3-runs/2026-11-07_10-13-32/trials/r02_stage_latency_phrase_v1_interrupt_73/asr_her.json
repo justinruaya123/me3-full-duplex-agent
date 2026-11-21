@@ -1,0 +1,139 @@
+{
+  "text": "First, check if your employer offers a 400 one. K, match, and contribute enough to get that free money.",
+  "chunks": [
+    {
+      "text": "First,",
+      "timestamp": [
+        6.06,
+        6.58
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        6.94,
+        7.1
+      ]
+    },
+    {
+      "text": "if",
+      "timestamp": [
+        7.1,
+        7.32
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        7.32,
+        7.42
+      ]
+    },
+    {
+      "text": "employer",
+      "timestamp": [
+        7.42,
+        7.84
+      ]
+    },
+    {
+      "text": "offers",
+      "timestamp": [
+        7.84,
+        8.3
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        8.3,
+        8.46
+      ]
+    },
+    {
+      "text": "400",
+      "timestamp": [
+        8.46,
+        9.0
+      ]
+    },
+    {
+      "text": "one.",
+      "timestamp": [
+        9.0,
+        9.3
+      ]
+    },
+    {
+      "text": "K,",
+      "timestamp": [
+        9.8,
+        10.02
+      ]
+    },
+    {
+      "text": "match,",
+      "timestamp": [
+        10.42,
+        10.82
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        11.12,
+        11.18
+      ]
+    },
+    {
+      "text": "contribute",
+      "timestamp": [
+        11.18,
+        11.6
+      ]
+    },
+    {
+      "text": "enough",
+      "timestamp": [
+        11.6,
+        11.92
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        11.92,
+        12.14
+      ]
+    },
+    {
+      "text": "get",
+      "timestamp": [
+        12.14,
+        12.28
+      ]
+    },
+    {
+      "text": "that",
+      "timestamp": [
+        12.28,
+        12.48
+      ]
+    },
+    {
+      "text": "free",
+      "timestamp": [
+        12.48,
+        12.76
+      ]
+    },
+    {
+      "text": "money.",
+      "timestamp": [
+        12.76,
+        13.04
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

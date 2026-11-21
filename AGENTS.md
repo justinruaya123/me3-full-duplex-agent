@@ -4,12 +4,31 @@ Read README.md, docs/DUPLEX_ARCHITECTURE.md, docs/DUPLEX_STATUS.md and
 .agents/skills/duplex-invariants/SKILL.md before changing behavior.
 
 ## Current authority
+The approved November 18 deployment profile in docs/DEPLOYMENT_2026-11-18.md
+selects server Whisper, client Kokoro by default and explicit server TTS.
+The client owns authorized Brave lookups and all orchestration.
 The 2026-11-04 specification supersedes older Hermes-first/OnIt-only defaults.
 Pi.dev is the default worker; foreground inference is separately configured.
 The controller stays harness-neutral. Read docs/ME3_SPEC_2026-11-04.md and
 docs/SETUP.md for the current implementation and unpassed acceptance gates.
 Keep the previous OnIt modules and prototype baseline. Do not change the ME2
 smart-speaker VCM, its grammar, model constraints or acceptance tests.
+
+## Architecture review workflow
+Use [the architecture review](docs/ARCHITECTURE_REVIEW.md) as the shared review
+surface. Keep diagrams in repository Markdown/Mermaid and discuss them in chat.
+The user focuses on architecture, boundaries and intended behavior; the agent
+owns investigation, implementation, tests and keeping documentation accurate.
+
+For changes to architecture or externally visible behavior, lead with a short
+proposal and the affected diagrams before implementing. Use stable diagram and
+decision IDs so natural-language comments can refer to a specific part. Clearly
+separate current implementation, proposed changes and measured evidence. Record
+agreed decisions and proceed within that scope without repeated confirmation.
+Resolve routine implementation details independently. Clarify material ambiguity
+and state plainly when a request conflicts with the project's philosophy.
+Keep reviews small; do not require a new design round for routine work already
+covered by an agreed decision. Update affected diagrams with the implementation.
 
 ## Invariants
 - The local host owns orchestration, jobs, artifacts, MCP and action execution.

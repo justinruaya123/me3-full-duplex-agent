@@ -1,0 +1,84 @@
+{
+  "trial": "r02_stage_latency_phrase_v15_background_91",
+  "group": "stage_latency",
+  "clip": "phrase_v15_background_91",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 11.168,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.904
+    }
+  ],
+  "live_bot_starts": [
+    8.928
+  ],
+  "live_bot_ends": [
+    10.816
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "What day of the week is July 4th, 2026?",
+    "source": "v15_background_91"
+  },
+  "mono": [
+    27749.543122041,
+    27760.687329083
+  ],
+  "bot_segments": [
+    [
+      8.898,
+      10.846
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.904
+  ],
+  "tor": 1,
+  "first_start": 8.898,
+  "spoke_s": 1.9480000000000004,
+  "user_end": 2.654,
+  "latency": 6.244,
+  "actual": "replied 6.24 s after speech end",
+  "verdict": "✓ 6.24 s",
+  "ok": true,
+  "marks": 18,
+  "final": {
+    "stages": {
+      "e2e_heard": 6.244,
+      "e2e": 5.7734,
+      "e2e_source": "marks",
+      "asr_final": 1.0491,
+      "llm_ttft": 4.3142,
+      "tts_ttfb": 0.2555,
+      "endpointing": 0.132,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "What day of the week is July 4th, 2026?",
+      "wer": {
+        "ref_words": 9,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 43,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "Let me think through that step by step."
+  },
+  "scored_at": "2026-11-07T11:02:30+08:00"
+}

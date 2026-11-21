@@ -47,4 +47,5 @@ a { color:#1c5d4c; text-underline-offset:.24rem; overflow-wrap:anywhere }
 a:focus-visible { outline:3px solid #18664e; outline-offset:4px }
 @media(max-width:40rem) { section { display:block } h2 { margin:1.4rem 0 0 } }
 """
-    return json.dumps({"files": {"index.html": html, "style.css": css}})
+    return json.dumps({"files": {"index.html": html, "style.css": css},
+                       "source_links": [fact["url"] for fact in facts]})

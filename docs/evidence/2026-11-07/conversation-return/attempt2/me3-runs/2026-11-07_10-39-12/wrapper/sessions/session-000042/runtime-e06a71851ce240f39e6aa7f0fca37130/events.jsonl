@@ -1,0 +1,10 @@
+{"event": "supervisor_started", "mono_ns": 28294895481666}
+{"event": "voice_profile", "mono_ns": 28294975299833, "profile": "course", "session_id": "81507889236449fc86c49ad1c9c6f749", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 28301295681916, "session_id": "81507889236449fc86c49ad1c9c6f749"}
+{"event": "transcript_revision", "mono_ns": 28302848568208, "session_id": "81507889236449fc86c49ad1c9c6f749", "revision": 1, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 28303312044291, "session_id": "81507889236449fc86c49ad1c9c6f749"}
+{"event": "transcript_revision", "mono_ns": 28304763464916, "session_id": "81507889236449fc86c49ad1c9c6f749", "revision": 2, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 28305789130625, "session_id": "81507889236449fc86c49ad1c9c6f749", "revision": 3, "committed": true, "turn_id": "1", "capture_ended": true}
+{"event": "floor_decision", "mono_ns": 28305789536416, "session_id": "81507889236449fc86c49ad1c9c6f749", "decision": "turn", "addressee_known": true}
+{"event": "speech_cancelled", "mono_ns": 28305790418416, "session_id": "81507889236449fc86c49ad1c9c6f749", "epoch": 1}
+{"event": "speech_submitted", "mono_ns": 28306280494083, "epoch": 1, "utterance": "81507889236449fc86c49ad1c9c6f749:1:1", "profile": "course"}

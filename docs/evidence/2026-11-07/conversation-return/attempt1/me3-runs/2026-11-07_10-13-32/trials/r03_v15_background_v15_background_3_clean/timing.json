@@ -1,0 +1,62 @@
+{
+  "trial": "r03_v15_background_v15_background_3_clean",
+  "group": "v15_background",
+  "clip": "v15_background_3",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 11.456,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.752
+    }
+  ],
+  "live_bot_starts": [
+    6.048
+  ],
+  "live_bot_ends": [
+    11.104
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "What's the time in Tokyo?",
+    "current_turn_text": "",
+    "overlap_text": "Do we have any milk left?",
+    "overlap_duration": 1.44,
+    "overlap_window": [
+      5.532,
+      6.9719999999999995
+    ],
+    "source_id": "3"
+  },
+  "mono": [
+    27175.081579291,
+    27186.526882833
+  ],
+  "bot_segments": [
+    [
+      5.954,
+      11.134
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.752
+  ],
+  "tor": 1,
+  "first_start": 5.954,
+  "spoke_s": 3.798000000000001,
+  "actual": "replied after 4.20 s, spoke 3.8 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 14,
+  "final": {
+    "transcript": "I don't have access to real -time data, so I can't tell you the current time in Tokyo."
+  },
+  "scored_at": "2026-11-07T10:37:16+08:00"
+}

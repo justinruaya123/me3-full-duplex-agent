@@ -1,0 +1,28 @@
+{
+  "name": "me3-pi",
+  "version": "0.1.0",
+  "private": true,
+  "keywords": [
+    "pi-package"
+  ],
+  "pi": {
+    "extensions": [
+      "./me3/pi_extension.mjs"
+    ]
+  },
+  "files": [
+    "me3/**/*.py",
+    "me3/pi_extension.mjs",
+    "me3/pi_luna_voice.mjs",
+    "me3/pi_voice_view.mjs",
+    "me3/pi_voice_mode.mjs",
+    "scripts/me3.sh",
+    "scripts/ME3 Voice Demo.command",
+    "pyproject.toml",
+    "me3/pi_github.mjs",
+    "me3/pi_prototype.mjs",
+    "me3/skills/github/SKILL.md",
+    "scripts/setup-openintelligentui.sh",
+    "integrations/openintelligentui"
+  ]
+}

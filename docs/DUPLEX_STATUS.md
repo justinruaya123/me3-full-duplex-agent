@@ -1,5 +1,15 @@
 # Implementation and qualification status
 
+## Consolidated side-chat integration
+
+A live three-prompt typed Pi smoke test submitted one draft, answered the
+unrelated arithmetic turn without tools and retrieved the same job.
+The digital spoken-routing run failed. The assistant disconnected during
+two trials and the status query found no delegated job. The control simulation
+preserved a running job across speech interruption. Physical microphone timing
+and Raspberry Pi qualification remain open.
+
+
 ## November 21 · Project-local Pi portfolio research and export
 
 A typed Mac Pi replay of “make me a portfolio website and look up my work” invoked the separate research worker. Its only tool was the pinned pi-web-search Brave search. The first personal query included several work-related keywords and returned no usable evidence. A fresh run using the approved public name returned three sourced candidates. The operator selected two. The local website job created a ZIP containing those two facts, their links, the stylesheet and a GitHub Pages marker. The archive passed CRC and file-hash checks. Isolated Chromium loaded the export under a repository subpath at 1280 × 800 and 390 × 844 with external requests blocked. Both sizes showed the selected facts without horizontal overflow or page errors. The run exercised live OpenRouter and Brave, the Pi extension, fact selection, the supervisor and static export. Microphone capture and GitHub deployment were outside this replay.

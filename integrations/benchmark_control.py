@@ -122,7 +122,8 @@ class OwnedLauncher:
     """One local process group and its bounded readiness/output observation."""
 
     def __init__(self, command: list[str], project: Path, log_dir: Path,
-                 url: str):
+                 url: str, graceful=False):
+        self.graceful = graceful
         self.ready = threading.Event()
         self.disconnected = threading.Event()
         self.stopped = False
@@ -172,21 +173,45 @@ class OwnedLauncher:
             return True
         except ProcessLookupError:
             return False
+        except PermissionError:
+            # Darwin can deny group probes while only unreaped zombies remain.
+            # Preserve real permission errors and never target another group.
+            if sys.platform != "darwin" or self.process.poll() is None:
+                raise
+            listing = subprocess.check_output(["ps", "-axo", "pgid=,stat="], text=True)
+            for row in listing.splitlines():
+                group, state = row.split()
+                if group == str(self.process.pid) and not state.startswith("Z"):
+                    raise
+            return False
 
     def stop(self, timeout: float) -> None:
         if self.stopped:
             return
         self.stopped = True
+        if self.graceful and self.process.poll() is None:
+            self.process.terminate()
+            try:
+                self.process.wait(timeout=timeout)
+            except subprocess.TimeoutExpired:
+                pass
         self._signal_group(signal.SIGTERM)
         deadline = time.monotonic() + timeout
         # Descendants can outlive a launcher that obeyed SIGTERM. Continue to
         # own the entire group instead of treating leader exit as cleanup.
         while time.monotonic() < deadline:
             self.process.poll()
-            if not self._signal_group(0):
-                break
+            try:
+                if not self._signal_group(0):
+                    break
+            except PermissionError:
+                # Darwin can return EPERM while a signalled child is exiting.
+                # Keep polling and reaping. A persistent denial still fails
+                # when the deadline requires an actual group signal.
+                pass
             time.sleep(0.01)
-        self._signal_group(signal.SIGKILL)
+        else:
+            self._signal_group(signal.SIGKILL)
         try:
             self.process.wait(timeout=timeout)
         except subprocess.TimeoutExpired as exc:
@@ -231,6 +256,7 @@ class BenchmarkServer:
                    "--log-dir", str(log_dir)]
         self.child = OwnedLauncher(
             command, self.args.project, log_dir, self.args.url,
+            graceful=self.args.graceful,
         )
         self.save_state(ready=False)
         deadline = time.monotonic() + self.args.start_timeout
@@ -354,6 +380,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--control-dir", type=Path, required=True)
     parser.add_argument("--instance", required=True)
     parser.add_argument("--project", type=Path)
+    parser.add_argument("--graceful", action="store_true", help="let a Pi RPC session close its device before group cleanup")
     parser.add_argument("--launcher", type=Path)
     parser.add_argument("--python", default=sys.executable)
     parser.add_argument("--url", default="ws://127.0.0.1:8791")
@@ -395,6 +422,9 @@ def main(argv: list[str] | None = None) -> int:
         BenchmarkServer(args).serve()
         return 0
     except (ControlError, OSError, ValueError) as exc:
+        if isinstance(exc, OSError) and args.operation == "serve":
+            import traceback
+            traceback.print_exc()
         print(f"benchmark-control: {exc}", file=sys.stderr)
         return 1
 

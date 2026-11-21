@@ -10,6 +10,8 @@ import signal
 from pathlib import Path
 from typing import Mapping
 
+from me3.configuration import worker_pin
+
 HERMES_REVISION = "2b31d7b283191b8069311fd3514ee89419f76516"
 PI_SOURCE_REVISION = "3e0eec29f50e7861e9db91f2d12723267411b4f3"
 
@@ -187,25 +189,24 @@ def hermes_backend(env: Mapping[str, str] | None = None) -> JsonProcessBackend:
     )
 
 
-def configured_backend():
-    name = os.environ.get("ME3_HARNESS", "pi")
+def configured_backend(env: Mapping[str, str] | None = None):
+    values = os.environ if env is None else env
+    name = values.get("ME3_HARNESS", "pi")
+    if name == "direct":
+        from me3.direct_worker import DirectWorker
+
+        return DirectWorker.from_env(values)
     if name == "hermes":
-        return hermes_backend()
+        return hermes_backend(values)
     if name == "pi":
-        executable = os.environ.get("ME3_PI_BIN") or shutil.which("pi")
+        executable = values.get("ME3_PI_BIN") or shutil.which("pi")
         binary = Path(executable or "").expanduser().resolve()
-        model = os.environ.get("ME3_WORKER_MODEL")
-        provider = os.environ.get("ME3_WORKER_PROVIDER", "")
-        if model and "/" in model:
-            selected_provider, exact_model = model.split("/", 1)
-            if provider and provider != selected_provider:
-                raise ValueError("Worker provider/model selection disagrees")
-            provider = selected_provider
-        else:
-            exact_model = model
+        model = values.get("ME3_WORKER_MODEL")
+        provider = values.get("ME3_WORKER_PROVIDER", "")
         if not provider:
             raise ValueError("Set ME3_WORKER_PROVIDER and ME3_WORKER_MODEL")
-        if not binary.is_file() or not model:
+        if (not binary.is_file() or not os.access(binary, os.X_OK)
+                or not model or model != model.strip()):
             raise ValueError(
                 "Set ME3_PI_BIN to pi's path and ME3_WORKER_MODEL"
             )
@@ -218,6 +219,10 @@ def configured_backend():
             "--no-skills",
             "--no-prompt-templates",
             "--no-context-files",
+            "--system-prompt",
+            "You are the delegated worker. The host has already assigned this job to you. "
+            "Return the requested deliverable directly, following any required output format. "
+            "The host saves and verifies your output. Do not claim external actions.",
             "--model",
             model,
             "--provider",
@@ -226,19 +231,31 @@ def configured_backend():
         from me3.pi_worker import PersistentPiBackend
 
         extra = {}
-        key_name = os.environ.get("ME3_WORKER_API_KEY_ENV")
+        routing_provider = serving_name = ""
+        if provider == "openrouter":
+            routing_provider, serving_name = worker_pin(values, model)
+            key = values.get("OPENROUTER_API_KEY", "")
+            if not key.strip():
+                raise ValueError("Set OPENROUTER_API_KEY")
+            extra["OPENROUTER_API_KEY"] = key
+            command += ("--offline", "--thinking", "medium")
+        key_name = values.get("ME3_WORKER_API_KEY_ENV")
         if key_name:
-            if not key_name.isidentifier() or not os.environ.get(key_name):
+            if provider == "openrouter" and key_name != "OPENROUTER_API_KEY":
+                raise ValueError("OpenRouter worker requires OPENROUTER_API_KEY")
+            if not key_name.isidentifier() or not values.get(key_name):
                 raise ValueError(
                     "Configured worker API key variable is missing"
                 )
-            extra[key_name] = os.environ[key_name]
+            extra[key_name] = values[key_name]
         return PersistentPiBackend(
             command,
-            model=exact_model,
+            model=model,
             provider=provider,
+            routing_provider=routing_provider,
+            serving_name=serving_name,
             env=extra,
             timeout=600,
             max_bytes=2_097_152,
         )
-    raise ValueError("ME3_HARNESS must be hermes or pi; no implicit mocks")
+    raise ValueError("ME3_HARNESS must be pi, direct or hermes")

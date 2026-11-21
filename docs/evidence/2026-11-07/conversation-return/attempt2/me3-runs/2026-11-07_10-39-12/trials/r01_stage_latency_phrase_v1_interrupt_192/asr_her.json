@@ -1,0 +1,104 @@
+{
+  "text": "I don't have access to your current location or context to provide specific directions.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.85,
+        5.29
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        5.29,
+        5.57
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        5.57,
+        5.71
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        5.71,
+        6.13
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.13,
+        6.39
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        6.39,
+        6.49
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        6.49,
+        6.75
+      ]
+    },
+    {
+      "text": "location",
+      "timestamp": [
+        6.75,
+        7.31
+      ]
+    },
+    {
+      "text": "or",
+      "timestamp": [
+        7.31,
+        7.67
+      ]
+    },
+    {
+      "text": "context",
+      "timestamp": [
+        7.67,
+        8.21
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        8.21,
+        8.85
+      ]
+    },
+    {
+      "text": "provide",
+      "timestamp": [
+        8.85,
+        9.19
+      ]
+    },
+    {
+      "text": "specific",
+      "timestamp": [
+        9.19,
+        9.67
+      ]
+    },
+    {
+      "text": "directions.",
+      "timestamp": [
+        9.67,
+        10.27
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

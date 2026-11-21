@@ -1,0 +1,62 @@
+{
+  "trial": "r01_false_tt_false_tv_radio_000",
+  "group": "false_tt",
+  "clip": "false_tv_radio_000",
+  "variant": "main",
+  "expected": "stay silent",
+  "duration": 10.08,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 3.6586875
+    }
+  ],
+  "live_bot_starts": [
+    6.08
+  ],
+  "live_bot_ends": [
+    8.864
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "kind": "tv_radio",
+    "kind_label": "TV / radio",
+    "level_db": -15,
+    "text": "Actually, can you tell me which apps are good for language learning?",
+    "source": "v1_interrupt_140"
+  },
+  "mono": [
+    26539.426177166,
+    26549.494195208
+  ],
+  "bot_segments": [
+    [
+      6.05,
+      8.894
+    ]
+  ],
+  "play_first": [
+    0.0,
+    3.6586875
+  ],
+  "tor": 1,
+  "first_start": 6.05,
+  "spoke_s": 2.8440000000000003,
+  "actual": "spoke 2.8 s after +2.4 s",
+  "verdict": "✗ took turn",
+  "ok": false,
+  "marks": 22,
+  "final": {
+    "tor": 1,
+    "words": 9,
+    "verdict": "✗ took turn",
+    "ok": false,
+    "transcript": "Honestly, it depends on what you're trying to achieve."
+  },
+  "scored_at": "2026-11-07T10:36:05+08:00"
+}

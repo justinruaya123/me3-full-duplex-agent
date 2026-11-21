@@ -1,0 +1,10 @@
+{"stage": "vad_start", "t": 27699.473283625, "pid": 37229, "src": "ws", "recv": 27699.475545541, "lt": 27699.473498417, "tt": 0.2619}
+{"stage": "vad_start", "t": 27699.473333, "pid": 37229, "src": "ws", "recv": 27699.475588416, "lt": 27699.473547792, "tt": 0.262}
+{"stage": "asr_partial", "t": 27701.036371333, "pid": 37229, "text": "What's the score of the...", "src": "ws", "recv": 27701.03667925, "lt": 27701.036586125, "tt": 1.825}
+{"stage": "vad_end", "t": 27701.070750083, "pid": 37229, "src": "ws", "recv": 27701.071706666, "lt": 27701.070964874998, "tt": 1.8594}
+{"stage": "vad_end", "t": 27701.070771125, "pid": 37229, "src": "ws", "recv": 27701.071726333, "lt": 27701.070985917, "tt": 1.8594}
+{"stage": "asr_partial", "t": 27702.060738916, "pid": 37229, "text": "What's the score of the Mariners game?", "src": "ws", "recv": 27702.061217416, "lt": 27702.060953707998, "tt": 2.8494}
+{"stage": "asr_final", "t": 27703.075457708, "pid": 37229, "text": "What's the score of the Mariners game?", "src": "ws", "recv": 27703.101791, "lt": 27703.0756725, "tt": 3.8641}
+{"stage": "interrupted", "t": 27703.077967625, "pid": 37229, "src": "ws", "recv": 27703.10205825, "lt": 27703.078182416997, "tt": 3.8666}
+{"stage": "interrupted", "t": 27703.077998166, "pid": 37229, "src": "ws", "recv": 27703.102069708, "lt": 27703.078212958, "tt": 3.8666}
+{"stage": "llm_request", "t": 27703.101296458, "pid": 37229, "chars": 171, "messages": 1, "est_tokens": 43, "src": "ws", "recv": 27703.102109208, "lt": 27703.10151125, "tt": 3.8899}

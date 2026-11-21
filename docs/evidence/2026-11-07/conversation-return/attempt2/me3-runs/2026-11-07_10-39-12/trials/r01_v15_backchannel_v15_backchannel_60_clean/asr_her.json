@@ -1,0 +1,90 @@
+{
+  "text": "Actually, I can't provide a deep dive explanation of astronomy right now.",
+  "chunks": [
+    {
+      "text": "Actually,",
+      "timestamp": [
+        4.24,
+        4.82
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        5.16,
+        5.3
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        5.3,
+        5.6
+      ]
+    },
+    {
+      "text": "provide",
+      "timestamp": [
+        5.6,
+        5.82
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        5.82,
+        6.1
+      ]
+    },
+    {
+      "text": "deep",
+      "timestamp": [
+        6.1,
+        6.32
+      ]
+    },
+    {
+      "text": "dive",
+      "timestamp": [
+        6.32,
+        6.56
+      ]
+    },
+    {
+      "text": "explanation",
+      "timestamp": [
+        6.56,
+        7.1
+      ]
+    },
+    {
+      "text": "of",
+      "timestamp": [
+        7.1,
+        7.6
+      ]
+    },
+    {
+      "text": "astronomy",
+      "timestamp": [
+        7.6,
+        8.02
+      ]
+    },
+    {
+      "text": "right",
+      "timestamp": [
+        8.02,
+        8.32
+      ]
+    },
+    {
+      "text": "now.",
+      "timestamp": [
+        8.32,
+        8.58
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

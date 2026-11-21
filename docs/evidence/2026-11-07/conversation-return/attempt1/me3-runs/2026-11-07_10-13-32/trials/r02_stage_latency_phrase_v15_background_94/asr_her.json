@@ -1,0 +1,132 @@
+{
+  "text": "I can't actually track your package for you, but I can guide you on how to do it.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.75,
+        5.17
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        5.17,
+        5.53
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        5.53,
+        5.85
+      ]
+    },
+    {
+      "text": "track",
+      "timestamp": [
+        5.85,
+        6.17
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        6.17,
+        6.33
+      ]
+    },
+    {
+      "text": "package",
+      "timestamp": [
+        6.33,
+        6.65
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        6.65,
+        6.93
+      ]
+    },
+    {
+      "text": "you,",
+      "timestamp": [
+        6.93,
+        7.11
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        7.47,
+        7.61
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        7.61,
+        7.75
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        7.75,
+        7.91
+      ]
+    },
+    {
+      "text": "guide",
+      "timestamp": [
+        7.91,
+        8.21
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        8.21,
+        8.41
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        8.41,
+        8.57
+      ]
+    },
+    {
+      "text": "how",
+      "timestamp": [
+        8.57,
+        8.71
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        8.71,
+        8.83
+      ]
+    },
+    {
+      "text": "do",
+      "timestamp": [
+        8.83,
+        8.97
+      ]
+    },
+    {
+      "text": "it.",
+      "timestamp": [
+        8.97,
+        9.15
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -10,6 +10,7 @@ import sys
 import time
 import wave
 from collections import deque
+from dataclasses import dataclass
 from pathlib import Path
 
 from me3 import bmo
@@ -17,7 +18,7 @@ from me3.capture import SmartTurn
 from me3.incremental import is_acknowledgment, is_listening_receipt
 from me3.local_tts import DEFAULT_DIR, LocalBmo, LocalKokoro, LocalPiper
 from me3.parakeet import FRAME, Stream, TransientASRError, credential
-from me3.pi_audio_device import Devices, emit
+from me3.pi_audio_device import Devices, WaitClip, emit
 
 
 async def frames(device, fixture):
@@ -87,13 +88,43 @@ def unfinished_clause(text):
     return len(text.split()) > 1 and not text.endswith("?") and OPEN_END.search(text)
 
 
+class SpeechDip:
+    """Experimental 60 ms level dip during speech; resetting VAD gaps resets the baseline."""
+
+    def __init__(self):
+        self.level = 0.
+        self.low_frames = 0
+        self.revision = None
+        self.updated = 0
+
+    def observe(self, frame, peak, revision):
+        if revision != self.revision:
+            self.revision, self.updated = revision, frame
+        low = self.level > 0 and 64 < peak < .45 * self.level
+        self.low_frames = self.low_frames + 1 if low else 0
+        self.level = .95 * self.level + .05 * peak
+        return frame >= 300 and self.low_frames == 3 and frame - self.updated <= 50
+
+
+@dataclass
+class ListenerReceipt:
+    item: str
+    cue: int
+    text: str | None
+    before: int
+    queued: float
+    overlap: bool
+    started: bool = False
+
+
 class ListeningCue:
     def __init__(self):
         self.last_id = None
         self.last_time = float("-inf")
+        self.cooldown = 12
 
     def eligible(self, item, text, frames, *, now):
-        return (item != self.last_id and now - self.last_time >= 12 and frames >= 100
+        return (item != self.last_id and now - self.last_time >= self.cooldown and frames >= 100
                 and len(text.split()) >= 5 and not DICTATION.search(text))
 
     def offer(self, item, text, frames, *, now):
@@ -119,6 +150,10 @@ class Playback:
         self.clips = {}
         self.listen_index = 0
         self.listener_receipt = None
+        self.cue_number = 0
+        self.overlap = False
+        self.wait_feedback = None
+        self.wait_pcm = None
         if profile == "bmo":
             root = Path(os.environ.get("ME3_BMO_DIR", bmo.ROOT))
             self.engine = LocalBmo(root)
@@ -129,6 +164,10 @@ class Playback:
                     for text in group:
                         pcm = bmo.read_clip(root / "clips", text)
                         self.clips[text] = trim_cue_lead(pcm) if text in self.listen_phrases else pcm
+                self.wait_pcm = memoryview(trim_cue_lead(self.clips[catalog["waiting"][0]]))
+                self.wait_ms = int(os.environ.get("ME3_WAIT_CUE_MS", "1000"))
+                if not 1 <= self.wait_ms <= 30000:
+                    raise ValueError("ME3_WAIT_CUE_MS must be between 1 and 30000")
         elif profile == "lessac":
             self.engine = LocalPiper(Path(os.environ["ME3_PIPER_DIR"]))
         elif profile == "kokoro":
@@ -149,26 +188,34 @@ class Playback:
             with wave.open(str(path)) as wav:
                 self.cue_pcm = wav.readframes(wav.getnframes())
 
-    def observe_listener(self):
+    def observe_listener(self, *, cancel=False):
         if not self.listener_receipt:
             return
-        item, text, before = self.listener_receipt
+        receipt = self.listener_receipt
         with self.device.lock:
-            complete = not self.device.listening_cue and self.device.signal_frames > before
-        if complete:
+            first = self.device.first_listener_signal
+            frames = self.device.listener_signal_frames - receipt.before
+            drained = not self.device.listening_cue
+            if cancel:
+                self.device.listening_cue.clear()
+        if frames and not receipt.started:
+            receipt.started = True
+            self.cues.last_id, self.cues.last_time = receipt.item, first
+            emit("listener_output", id=receipt.item, cue=receipt.cue, first_output=first,
+                 queue_to_output_ms=round(1000 * (first - receipt.queued)))
+        if drained or cancel:
             self.listener_receipt = None
-            emit("listener_played", id=item, text=text)
+            kind = "listener_played" if frames and drained else "listener_cancelled"
+            emit(kind, id=receipt.item, cue=receipt.cue, text=receipt.text, signal_frames=frames)
 
     def quiet_cue(self):
-        if self.device:
-            self.observe_listener()
-            self.listener_receipt = None
-            with self.device.lock:
-                self.device.listening_cue.clear()
+        self.observe_listener(cancel=True)
 
     def acknowledge(self, u, trigger="turn_incomplete", pause_frames=0):
-        if (self.device and self.allow_cue and self.held and not (self.task and not self.task.done())
-                and self.cues.offer(u.id, u.text, u.frames, now=time.monotonic())):
+        now = time.monotonic()
+        if (self.device and self.allow_cue and self.held and not self.listener_receipt
+                and not (self.task and not self.task.done())
+                and self.cues.eligible(u.id, u.text, u.frames, now=now)):
             if self.clips:
                 text = self.listen_phrases[self.listen_index]
                 self.listen_index = (self.listen_index + 1) % len(self.listen_phrases)
@@ -176,13 +223,37 @@ class Playback:
             else:
                 text, pcm = None, self.cue_pcm
             with self.device.lock:
-                if text:
-                    self.listener_receipt = (u.id, text, self.device.signal_frames)
+                self.cue_number += 1
+                self.listener_receipt = ListenerReceipt(u.id, self.cue_number, text,
+                    self.device.listener_signal_frames, now, trigger == "speech_dip")
+                self.device.first_listener_signal = None
                 self.device.listening_cue[:] = pcm
-            emit("listening_cue", id=u.id, text=text, trigger=trigger, detected_gap_ms=pause_frames * 20)
+            emit("listening_cue", id=u.id, cue=self.cue_number, text=text, trigger=trigger,
+                 detected_gap_ms=pause_frames * 20)
+
+    def arm_feedback(self, turn, committed):
+        if self.wait_pcm is None or self.held or self.wait_feedback is not None:
+            return
+        wait = WaitClip(turn, committed, committed + self.wait_ms / 1000, self.wait_pcm)
+        with self.device.lock:
+            self.device.wait_clip = self.wait_feedback = wait
+
+    def observe_wait(self):
+        wait = self.wait_feedback
+        if wait and wait.first_output is not None and not wait.reported:
+            wait.reported = True
+            emit("wait_cue_output", receipt=wait.turn, first_output=wait.first_output,
+                 commit_to_output_ms=round(1000 * (wait.first_output - wait.committed)))
+
+    def cancel_wait(self):
+        if self.wait_feedback:
+            with self.device.lock:
+                self.device.wait_clip = None
+            self.observe_wait()
 
     def observe_output(self):
         self.observe_listener()
+        self.observe_wait()
         if (self.device and self.output_baseline is not None
                 and self.device.first_reply_signal is not None):
             self.output_baseline = None
@@ -190,6 +261,8 @@ class Playback:
                  tts_start=self.tts_start)
 
     def hold(self, value):
+        if value:
+            self.cancel_wait()
         self.quiet_cue()
         self.held = value
         if self.device:
@@ -199,6 +272,8 @@ class Playback:
                 emit("paused")
 
     async def cut(self):
+        self.cancel_wait()
+        self.wait_feedback = None
         self.quiet_cue()
         self.epoch += 1
         if self.device:
@@ -249,6 +324,7 @@ class Playback:
                  signal_frames=self.device.signal_frames - signal_before,
                  question=question, receipt=receipt)
         except Exception as exc:
+            self.cancel_wait()
             emit("error", message=f"Speech playback failed: {exc}")
         finally:
             self.output_baseline = None
@@ -268,6 +344,7 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
     pause_id = None
     quiet = ticks = pause_frames = 0
     attempted = speaking_before = False
+    dip = None
     try:
         async for pcm in source:
             ticks += 1
@@ -324,6 +401,15 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
             # acoustic gap plus an unfinished interim can cue the listener while
             # Deepgram is still revising words. Endpoints retain their own clock.
             in_pause = state in (VADState.STOPPING, VADState.QUIET)
+            if (playback.overlap is True and state == VADState.SPEAKING and not speaking_before
+                    and near.clear and playback.allow_cue and playback.device):
+                if dip is None:
+                    dip = SpeechDip()
+                samples = memoryview(pcm).cast("h")
+                if dip.observe(u.frames, max(max(samples), -min(samples)), u.revision):
+                    playback.acknowledge(u, "speech_dip")
+            else:
+                dip = None
             pause_frames = pause_frames + 1 if in_pause else 0
             if not in_pause:
                 probe_gap = None
@@ -345,7 +431,10 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
                     probe = asyncio.create_task(smart(b"".join(evidence)))
             if state != VADState.QUIET:
                 if playback.device and not in_pause:
-                    playback.quiet_cue()
+                    keep = (playback.overlap is True and playback.listener_receipt
+                            and playback.listener_receipt.overlap and not DICTATION.search(u.text))
+                    if not keep:
+                        playback.quiet_cue()
                 quiet = 0
                 attempted = False
                 complete = None
@@ -384,7 +473,8 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
                     listener_only = final and (
                         HESITATION.fullmatch(final)
                         or (not getattr(playback, "awaiting_answer", False) and is_listening_receipt(final))
-                        or ((speaking_before or recent_reply) and is_acknowledgment(final))
+                        or (not playback.awaiting_answer and (speaking_before or recent_reply)
+                            and is_acknowledgment(final))
                     )
                     if final and near.clear and not listener_only:
                         await playback.cut()
@@ -425,10 +515,24 @@ async def commands(playback):
             c = json.loads(line)
             if c.get("op") == "close":
                 return
+            if c.get("epoch") == playback.epoch:
+                if c.get("op") == "feedback":
+                    playback.arm_feedback(c["receipt"], c["committed"])
+                elif c.get("op") == "cancel_feedback":
+                    playback.cancel_wait()
+                elif (c.get("op") == "say" and c.get("search_cue") and playback.wait_feedback
+                      and playback.wait_feedback.first_output is not None):
+                    emit("deferred", receipt=c.get("receipt"))
+                    continue
             if c.get("op") == "listener":
                 playback.allow_cue = c.get("enabled") is True
                 playback.awaiting_answer = c.get("awaiting_answer") is True
                 if not playback.allow_cue:
+                    playback.quiet_cue()
+            if c.get("op") == "overlap":
+                playback.overlap = c.get("enabled") is True and playback.wait_pcm is not None
+                playback.cues.cooldown = 20 if playback.overlap else 12
+                if not playback.overlap:
                     playback.quiet_cue()
             if c.get("op") == "say" and c.get("idle_only") and (
                     playback.held or (playback.task and not playback.task.done())):
@@ -457,7 +561,7 @@ async def commands(playback):
 async def run(fixture=None, after_gap=False):
     import aiohttp
     factory = Stream
-    if os.environ.get("ME3_LIVE_BENCHMARK") == "1":
+    if os.environ.get("ME3_LIVE_BENCHMARK") == "1" or os.environ.get("ME3_ASR_BACKEND") == "deepgram":
         from me3.deepgram import DeepgramStream
         factory = DeepgramStream
         token = os.environ.get("DEEPGRAM_API_KEY", "").strip()

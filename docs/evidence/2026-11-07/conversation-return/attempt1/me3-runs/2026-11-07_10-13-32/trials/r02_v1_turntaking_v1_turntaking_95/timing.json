@@ -1,0 +1,63 @@
+{
+  "trial": "r02_v1_turntaking_v1_turntaking_95",
+  "group": "v1_turntaking",
+  "clip": "v1_turntaking_95",
+  "variant": "main",
+  "expected": "reply within 8 s",
+  "duration": 22.624,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 14.9199375
+    }
+  ],
+  "live_bot_starts": [
+    17.28
+  ],
+  "live_bot_ends": [
+    21.984
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "turn_end": 14.61999999999989,
+    "last_words": "",
+    "source_id": "95"
+  },
+  "mono": [
+    26985.026737958,
+    27007.638222708
+  ],
+  "bot_segments": [
+    [
+      17.25,
+      22.014
+    ]
+  ],
+  "play_first": [
+    0.0,
+    14.9199375
+  ],
+  "tor": 1,
+  "first_start": 17.25,
+  "spoke_s": 4.763999999999999,
+  "latency": 2.630000000000109,
+  "turn_end": 14.61999999999989,
+  "actual": "replied after 2.63 s, spoke 4.8 s",
+  "verdict": "✓ 2.63 s",
+  "ok": true,
+  "marks": 37,
+  "final": {
+    "tor": 1,
+    "words": 17,
+    "latency": 2.630000000000109,
+    "verdict": "✓ 2.63 s",
+    "ok": true,
+    "transcript": "I see, so you're staying in the U .S. with your family, while your relatives are abroad."
+  },
+  "scored_at": "2026-11-07T10:36:57+08:00"
+}

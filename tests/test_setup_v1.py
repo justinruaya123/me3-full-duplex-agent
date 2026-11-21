@@ -14,6 +14,7 @@ class SetupTests(unittest.TestCase):
             os.environ,
             {
                 "ME3_PI_BIN": sys.executable,
+                "ME3_WORKER_PROVIDER": "catalog",
                 "ME3_WORKER_MODEL": "operator/exact-model",
             },
             clear=True,
@@ -91,7 +92,7 @@ class ConfigurationTests(unittest.TestCase):
         env = {
             "ME3_FOREGROUND_PROFILE": "qwen",
             "ME3_FOREGROUND_MODEL": "exact-id",
-            "ME3_FOREGROUND_BASE_URL": "https://secret@example.com/v1",
+            "ME3_FOREGROUND_BASE_URL": "https://example-user@api.example.invalid/v1",
         }
         with self.assertRaises(ValueError):
             ForegroundConfig.from_env(env)

@@ -1,0 +1,146 @@
+{
+  "text": "I don't have access to your biometric... I can't check your heart rate, but you're right about the paper towels.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        5.62,
+        6.04
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        6.04,
+        6.26
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        6.26,
+        6.36
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        6.36,
+        6.8
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.8,
+        7.04
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        7.04,
+        7.14
+      ]
+    },
+    {
+      "text": "biometric...",
+      "timestamp": [
+        7.14,
+        8.06
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        12.18,
+        12.68
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        12.68,
+        13.04
+      ]
+    },
+    {
+      "text": "check",
+      "timestamp": [
+        13.04,
+        13.18
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        13.18,
+        13.4
+      ]
+    },
+    {
+      "text": "heart",
+      "timestamp": [
+        13.4,
+        13.6
+      ]
+    },
+    {
+      "text": "rate,",
+      "timestamp": [
+        13.6,
+        13.9
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        14.16,
+        14.34
+      ]
+    },
+    {
+      "text": "you're",
+      "timestamp": [
+        14.34,
+        14.54
+      ]
+    },
+    {
+      "text": "right",
+      "timestamp": [
+        14.54,
+        14.7
+      ]
+    },
+    {
+      "text": "about",
+      "timestamp": [
+        14.7,
+        14.86
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        14.86,
+        15.02
+      ]
+    },
+    {
+      "text": "paper",
+      "timestamp": [
+        15.02,
+        15.26
+      ]
+    },
+    {
+      "text": "towels.",
+      "timestamp": [
+        15.26,
+        15.62
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

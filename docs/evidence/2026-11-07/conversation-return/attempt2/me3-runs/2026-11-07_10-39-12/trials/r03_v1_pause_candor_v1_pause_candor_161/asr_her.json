@@ -1,0 +1,41 @@
+{
+  "text": "That's a really good point.",
+  "chunks": [
+    {
+      "text": "That's",
+      "timestamp": [
+        10.06,
+        10.7
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        10.7,
+        10.78
+      ]
+    },
+    {
+      "text": "really",
+      "timestamp": [
+        10.78,
+        11.0
+      ]
+    },
+    {
+      "text": "good",
+      "timestamp": [
+        11.0,
+        11.26
+      ]
+    },
+    {
+      "text": "point.",
+      "timestamp": [
+        11.26,
+        11.52
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

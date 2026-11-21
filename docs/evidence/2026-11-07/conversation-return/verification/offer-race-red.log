@@ -1,0 +1,20 @@
+..F........
+======================================================================
+FAIL: test_changed_policy_fences_already_scheduled_offer (test_return_policy_v1.ReturnPolicyTests.test_changed_policy_fences_already_scheduled_offer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_return_policy_v1.py", line 153, in test_changed_policy_fences_already_scheduled_offer
+    self.assertFalse(self.spoken)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+AssertionError: ['By the way, a background task is ready. Its result has been saved.'] is not false
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.128s
+
+FAILED (failures=1)

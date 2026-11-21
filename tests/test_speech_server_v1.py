@@ -74,6 +74,10 @@ class SpeechServerTests(unittest.IsolatedAsyncioTestCase):
         async with TestClient(
             TestServer(create_app(config, Models()))
         ) as client:
+            for url in ("/", "/v1", "/v1/", "/v1/models"):
+                page = await client.get(url, headers={"Accept": "text/html"})
+                self.assertEqual(page.status, 200)
+                self.assertIn("ME3 speech server is online", await page.text())
             response = await client.get("/v1/models")
             self.assertEqual(response.status, 401)
             response = await client.get(
@@ -240,3 +244,20 @@ class SpeechCheckTests(unittest.TestCase):
             b"\x01\x00" * 24000,
             " Hello, the voice system is ready. ",
         )
+
+class ListenAddressTests(unittest.TestCase):
+    def test_supervisor_preserves_both_explicit_interfaces(self):
+        from unittest.mock import patch
+        from me3.speech_server import main
+        import os
+
+        env = {"ME3_ASR_MODEL": "mlx-community/whisper-large-v3-turbo",
+               "ME3_TTS_MODEL": "mlx-community/Kokoro-82M-bf16",
+               "ME3_TTS_VOICE": "af_heart", "ME3_SPEECH_SERVER_TOKEN": "test-local"}
+        args = ["speech", "--host", "127.0.0.1", "--host", "192.0.2.20"]
+        with patch.dict(os.environ, env), patch("sys.argv", args), patch(
+            "me3.speech_check.run_guarded_service", return_value=0
+        ) as run, self.assertRaises(SystemExit):
+            main()
+        cmd = run.call_args.args[0]
+        self.assertEqual([cmd[i+1] for i, arg in enumerate(cmd) if arg == "--host"], args[2::2])

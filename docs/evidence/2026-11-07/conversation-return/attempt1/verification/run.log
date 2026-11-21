@@ -1,0 +1,631 @@
+
+Pre-flight
+✓  Python 3.12.13                                                               
+✓  packages: core ok                                                            
+✓  scoring extras: ASR (faster-whisper), pitch/intensity (praat-parselmouth) ·  
+   not installed: UTMOSv2 quality                                               
+✓  Darwin 25.5.0 (arm64) · 16.0 GB RAM · 17.9 GB free                           
+✓  network: unknown                                                             
+✓  datasets: 430 clips in 10 groups                                             
+✓  dataset checksums ok (sampled)                                               
+✓  rig: direct feed on ws://127.0.0.1:8791 (no audio devices used)              
+✓  assistant project: /Users/jus/Documents/Grad/AI231/ME3                       
+✓  assistant python: /Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python    
+✓  judge: none (timing and turn-taking metrics only; judge later with `score`)  
+
+Starting her in benchmark mode: 
+/Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python 
+/Users/jus/Documents/Grad/AI231/ME3/integrations/benchmark_control.py …
+her output goes to 
+/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/runs/me3-local/
+2026-11-07_10-13-32/assistant.log
+connected from 127.0.0.1:56799 · link round trip 0.3 ms
+giving her 5 s to settle
+
+Run folder: 
+/Users/jus/Documents/Grad/AI231/ME3/.local/fd-benchmark-20261107/runs/me3-local/
+2026-11-07_10-13-32
+Planned: 60 trials: stage latency 10 phrases × 3 runs, then 3 round(s), about 28
+min 12 s. Press q to stop early; everything done so far is kept and scored.
+
+
+  1/60  stage latency (course)  ·  phrase_v15_background_91
+     clip          2.9 s phrase · stage timing + WER                                                                                                  
+     user          "What day of the week is July 4th, 2026?"                                                                                          
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.36 s after speech end                                                                                                    
+     verdict       ✓ 3.36 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 2, "ready": true, "pid": 36283, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000002"}
+
+  2/60  stage latency (course)  ·  phrase_v15_background_94
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Track my package from FedEx."                                                                                                     
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.30 s after speech end                                                                                                    
+     verdict       ✓ 3.30 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 3, "ready": true, "pid": 36298, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000003"}
+
+  3/60  stage latency (course)  ·  phrase_v1_interrupt_129
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get started with painting?"                                                                                              
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.53 s after speech end                                                                                                    
+     verdict       ✓ 2.53 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 4, "ready": true, "pid": 36304, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000004"}
+
+  4/60  stage latency (course)  ·  phrase_v15_backchannel_34
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Outline sleep science clearly."                                                                                                   
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.98 s after speech end                                                                                                    
+     verdict       ✓ 2.98 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 5, "ready": true, "pid": 36312, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000005"}
+
+  5/60  stage latency (course)  ·  phrase_v15_interruption_188
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I want to learn to play the guitar"                                                                                               
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.60 s after speech end                                                                                                    
+     verdict       ✓ 2.60 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 6, "ready": true, "pid": 36320, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000006"}
+
+  6/60  stage latency (course)  ·  phrase_v15_interruption_35
+     clip          2.8 s phrase · stage timing + WER                                                                                                  
+     user          "Could you tell me the rules of tennis?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.08 s after speech end                                                                                                    
+     verdict       ✓ 2.08 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 7, "ready": true, "pid": 36330, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000007"}
+
+  7/60  stage latency (course)  ·  phrase_v1_interrupt_192
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get to the park?"                                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 4.32 s after speech end                                                                                                    
+     verdict       ✓ 4.32 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 8, "ready": true, "pid": 36340, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000008"}
+
+  8/60  stage latency (course)  ·  phrase_v1_interrupt_73
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "How should I start saving for retirement?"                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 5.03 s after speech end                                                                                                    
+     verdict       ✓ 5.03 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 9, "ready": true, "pid": 36358, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000009"}
+
+  9/60  stage latency (course)  ·  phrase_v15_talking_to_other_31
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "What's the score of the Mariners game?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.59 s after speech end                                                                                                    
+     verdict       ✓ 3.59 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 10, "ready": true, "pid": 36368, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000010"}
+
+ 10/60  stage latency (course)  ·  phrase_v1_interrupt_83
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I'm thinking about changing my career path"                                                                                       
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.50 s after speech end                                                                                                    
+     verdict       ✓ 2.50 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 11, "ready": true, "pid": 36375, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000011"}
+
+ 11/60  stage latency (course)  ·  phrase_v15_talking_to_other_31
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "What's the score of the Mariners game?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.59 s after speech end                                                                                                    
+     verdict       ✓ 3.59 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 12, "ready": true, "pid": 36399, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000012"}
+
+ 12/60  stage latency (course)  ·  phrase_v15_background_91
+     clip          2.9 s phrase · stage timing + WER                                                                                                  
+     user          "What day of the week is July 4th, 2026?"                                                                                          
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.21 s after speech end                                                                                                    
+     verdict       ✓ 2.21 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 13, "ready": true, "pid": 36417, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000013"}
+
+ 13/60  stage latency (course)  ·  phrase_v1_interrupt_73
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "How should I start saving for retirement?"                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.97 s after speech end                                                                                                    
+     verdict       ✓ 3.97 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 14, "ready": true, "pid": 36428, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000014"}
+
+ 14/60  stage latency (course)  ·  phrase_v15_background_94
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Track my package from FedEx."                                                                                                     
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.40 s after speech end                                                                                                    
+     verdict       ✓ 3.40 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 15, "ready": true, "pid": 36434, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000015"}
+
+ 15/60  stage latency (course)  ·  phrase_v15_backchannel_34
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Outline sleep science clearly."                                                                                                   
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.68 s after speech end                                                                                                    
+     verdict       ✓ 3.68 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 16, "ready": true, "pid": 36441, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000016"}
+
+ 16/60  stage latency (course)  ·  phrase_v1_interrupt_83
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I'm thinking about changing my career path"                                                                                       
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.15 s after speech end                                                                                                    
+     verdict       ✓ 2.15 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 17, "ready": true, "pid": 36457, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000017"}
+
+ 17/60  stage latency (course)  ·  phrase_v15_interruption_188
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I want to learn to play the guitar"                                                                                               
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.27 s after speech end                                                                                                    
+     verdict       ✓ 3.27 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 18, "ready": true, "pid": 36463, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000018"}
+
+ 18/60  stage latency (course)  ·  phrase_v15_interruption_35
+     clip          2.8 s phrase · stage timing + WER                                                                                                  
+     user          "Could you tell me the rules of tennis?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        no reply                                                                                                                           
+     verdict       ✗ no reply                                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 19, "ready": true, "pid": 36471, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000019"}
+
+ 19/60  stage latency (course)  ·  phrase_v1_interrupt_192
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get to the park?"                                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.72 s after speech end                                                                                                    
+     verdict       ✓ 2.72 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 20, "ready": true, "pid": 36476, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000020"}
+
+ 20/60  stage latency (course)  ·  phrase_v1_interrupt_129
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get started with painting?"                                                                                              
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.08 s after speech end                                                                                                    
+     verdict       ✓ 2.08 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 21, "ready": true, "pid": 36484, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000021"}
+
+ 21/60  stage latency (course)  ·  phrase_v1_interrupt_73
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "How should I start saving for retirement?"                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.49 s after speech end                                                                                                    
+     verdict       ✓ 3.49 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 22, "ready": true, "pid": 36493, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000022"}
+
+ 22/60  stage latency (course)  ·  phrase_v15_interruption_35
+     clip          2.8 s phrase · stage timing + WER                                                                                                  
+     user          "Could you tell me the rules of tennis?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.31 s after speech end                                                                                                    
+     verdict       ✓ 2.31 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 23, "ready": true, "pid": 36499, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000023"}
+
+ 23/60  stage latency (course)  ·  phrase_v1_interrupt_83
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I'm thinking about changing my career path"                                                                                       
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.12 s after speech end                                                                                                    
+     verdict       ✓ 2.12 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 24, "ready": true, "pid": 36506, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000024"}
+
+ 24/60  stage latency (course)  ·  phrase_v15_background_94
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Track my package from FedEx."                                                                                                     
+     expected      answer the phrase                                                                                                                  
+     actual        no reply                                                                                                                           
+     verdict       ✗ no reply                                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 25, "ready": true, "pid": 36513, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000025"}
+
+ 25/60  stage latency (course)  ·  phrase_v15_interruption_188
+     clip          2.4 s phrase · stage timing + WER                                                                                                  
+     user          "I want to learn to play the guitar"                                                                                               
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.56 s after speech end                                                                                                    
+     verdict       ✓ 2.56 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 26, "ready": true, "pid": 36522, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000026"}
+
+ 26/60  stage latency (course)  ·  phrase_v1_interrupt_192
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get to the park?"                                                                                                        
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.40 s after speech end                                                                                                    
+     verdict       ✓ 3.40 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 27, "ready": true, "pid": 36529, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000027"}
+
+ 27/60  stage latency (course)  ·  phrase_v15_background_91
+     clip          2.9 s phrase · stage timing + WER                                                                                                  
+     user          "What day of the week is July 4th, 2026?"                                                                                          
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.66 s after speech end                                                                                                    
+     verdict       ✓ 2.66 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 28, "ready": true, "pid": 36536, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000028"}
+
+ 28/60  stage latency (course)  ·  phrase_v15_backchannel_34
+     clip          1.9 s phrase · stage timing + WER                                                                                                  
+     user          "Outline sleep science clearly."                                                                                                   
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.81 s after speech end                                                                                                    
+     verdict       ✓ 3.81 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 29, "ready": true, "pid": 36543, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000029"}
+
+ 29/60  stage latency (course)  ·  phrase_v1_interrupt_129
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "How do I get started with painting?"                                                                                              
+     expected      answer the phrase                                                                                                                  
+     actual        replied 2.21 s after speech end                                                                                                    
+     verdict       ✓ 2.21 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 30, "ready": true, "pid": 36550, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000030"}
+
+ 30/60  stage latency (course)  ·  phrase_v15_talking_to_other_31
+     clip          2.0 s phrase · stage timing + WER                                                                                                  
+     user          "What's the score of the Mariners game?"                                                                                           
+     expected      answer the phrase                                                                                                                  
+     actual        replied 3.46 s after speech end                                                                                                    
+     verdict       ✓ 3.46 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 31, "ready": true, "pid": 36561, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000031"}
+
+ 31/60  v1.5 background speech  ·  v15_background_27
+     clip          1.8 s turn · background 1.7 s, played while she answers                                                                            
+     user          "Define the word 'ephemeral'."                                                                                                     
+     background    "Your coffee's getting cold."                                                                                                      
+     expected      keep talking (Resume)                                                                                                              
+     actual        stopped after 0.44 s, back 2.28 s after                                                                                            
+     verdict       ◐ paused, came back · content: judge                                                                                               
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 32, "ready": true, "pid": 36571, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000032"}
+
+ 31/60  v1.5 background speech (clean)  ·  v15_background_27
+     clip          1.8 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "Define the word 'ephemeral'."                                                                                                     
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 2.54 s, spoke 5.5 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 33, "ready": true, "pid": 36578, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000033"}
+
+ 32/60  false turn-taking  ·  false_tv_radio_000
+     clip          3.7 s · TV / radio · -15 dB                                                                                                        
+     sound         TV / radio, not addressed to her                                                                                                   
+     words         "Actually, can you tell me which apps are good for language learning?"                                                             
+     expected      stay silent                                                                                                                        
+     actual        spoke 2.8 s after +2.4 s                                                                                                           
+     verdict       ✗ took turn                                                                                                                        
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 34, "ready": true, "pid": 36586, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000034"}
+
+ 33/60  false turn-taking  ·  false_side_talk_004
+     clip          2.0 s · side talk · -8 dB                                                                                                          
+     sound         side talk, not addressed to her                                                                                                    
+     words         "Mateo, pick up the kids at three, yeah?"                                                                                          
+     expected      stay silent                                                                                                                        
+     actual        silent                                                                                                                             
+     verdict       ✓ silent                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 35, "ready": true, "pid": 36593, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000035"}
+
+ 34/60  v1 turn-taking (Candor)  ·  v1_turntaking_38
+     clip          6.2 s clip · user's turn ends at 5.9 s                                                                                             
+     user          (Candor turn-taking clips come without a transcript)                                                                               
+     expected      reply within 8 s                                                                                                                   
+     actual        no reply                                                                                                                           
+     verdict       ✗ missed                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 36, "ready": true, "pid": 36602, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000036"}
+
+ 35/60  v1.5 interruption  ·  v15_interruption_165
+     clip          2.6 s turn · cut-in 3.6 s, played while she answers                                                                                
+     user          "How can I train my dog to follow basic commands?"                                                                                 
+     cut-in        "Wait, can I switch my phone to silent mode through voice command?"                                                                
+     expected      stop, answer the new request (Respond)                                                                                             
+     actual        stopped after 0.25 s, back 3.59 s after                                                                                            
+     verdict       ◐ replied · content: judge                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 37, "ready": true, "pid": 36619, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000037"}
+
+ 35/60  v1.5 interruption (clean)  ·  v15_interruption_165
+     clip          2.6 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "How can I train my dog to follow basic commands?"                                                                                 
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 2.89 s, spoke 2.9 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 38, "ready": true, "pid": 36625, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000038"}
+
+ 36/60  v1.5 backchannel  ·  v15_backchannel_60
+     clip          1.8 s turn · backchannel 1.0 s, played while she answers                                                                           
+     user          "Explain astronomy in depth."                                                                                                      
+     backchannel   "yes sure"                                                                                                                         
+     expected      keep talking (Resume)                                                                                                              
+     actual        stopped after 0.35 s, back 1.74 s after                                                                                            
+     verdict       ◐ paused, came back · content: judge                                                                                               
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 39, "ready": true, "pid": 36634, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000039"}
+
+ 36/60  v1.5 backchannel (clean)  ·  v15_backchannel_60
+     clip          1.8 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "Explain astronomy in depth."                                                                                                      
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 2.35 s, spoke 5.7 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 40, "ready": true, "pid": 36644, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000040"}
+
+ 37/60  v1 pause (Candor)  ·  v1_pause_candor_189
+     clip          18.2 s clip · pause 0.7 s at 7.9 s                                                                                                 
+     user          "Yeah Like that way if the remote is not where you left it you don't have to blame everyone else You can just ask someone that was 
+                   always my thing Like when things get moved around that you know And like I don't know who moved it I can't find it always made me  
+                   crazy"                                                                                                                             
+     expected      stay silent through the pause                                                                                                      
+     actual        silent during clip                                                                                                                 
+     verdict       ✓ TOR 0                                                                                                                            
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 41, "ready": true, "pid": 36654, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000041"}
+
+ 38/60  v1.5 talking to others  ·  v15_talking_to_other_81
+     clip          2.4 s turn · side talk 2.2 s, played while she answers                                                                             
+     user          "Find me a nearby coffee shop that's open now."                                                                                    
+     side talk     "Chris, your laptop's still on the table, man."                                                                                    
+     expected      keep talking (Resume)                                                                                                              
+     actual        stopped after 0.35 s, did not come back                                                                                            
+     verdict       ✗ stopped, silent                                                                                                                  
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 42, "ready": true, "pid": 36664, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000042"}
+
+ 38/60  v1.5 talking to others (clean)  ·  v15_talking_to_other_81
+     clip          2.4 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "Find me a nearby coffee shop that's open now."                                                                                    
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 4.75 s, spoke 3.3 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 43, "ready": true, "pid": 36680, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000043"}
+
+ 39/60  v1 interruption  ·  v1_interrupt_39
+     clip          2.1 s question · cut-in played while she answers                                                                                   
+     user          "Is morning the best time to exercise?"                                                                                            
+     cut-in        "Actually, could we switch to diet tips instead?"                                                                                  
+     expected      stop, then answer the new request                                                                                                  
+     actual        was already silent, back 2.95 s after                                                                                              
+     verdict       ✓ yielded, 2.50 s                                                                                                                  
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 44, "ready": true, "pid": 36694, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000044"}
+
+ 40/60  v1 pause (synthetic)  ·  v1_pause_synth_30
+     clip          11.4 s clip · pause 2.1 s at 6.3 s                                                                                                 
+     user          "How do I make that soup? You mentioned first, you start with chopping all the vegetables. And while you're at it, make sure to    
+                   [UH] keep an eye on the heat. You don't want anything to burn."                                                                    
+     expected      stay silent through the pause                                                                                                      
+     actual        silent during clip                                                                                                                 
+     verdict       ✓ TOR 0                                                                                                                            
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 45, "ready": true, "pid": 36708, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000045"}
+
+ 41/60  v1.5 interruption  ·  v15_interruption_32
+     clip          3.5 s turn · cut-in 3.3 s, played while she answers                                                                                
+     user          "I heard there's a new phone model coming out soon"                                                                                
+     cut-in        "Hold that thought, what were the top songs this year?"                                                                            
+     expected      stop, answer the new request (Respond)                                                                                             
+     actual        was already silent, back 7.91 s after                                                                                              
+     verdict       ◐ replied · content: judge                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 46, "ready": true, "pid": 36722, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000046"}
+
+ 41/60  v1.5 interruption (clean)  ·  v15_interruption_32
+     clip          3.5 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "I heard there's a new phone model coming out soon"                                                                                
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 3.08 s, spoke 4.9 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 47, "ready": true, "pid": 36733, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000047"}
+
+ 42/60  false turn-taking  ·  false_noise_009
+     clip          3.6 s · noise: keyboard typing · -6 dB                                                                                             
+     sound         noise: keyboard typing, not addressed to her                                                                                       
+     expected      stay silent                                                                                                                        
+     actual        silent                                                                                                                             
+     verdict       ✓ silent                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 48, "ready": true, "pid": 36743, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000048"}
+
+ 43/60  v1.5 backchannel  ·  v15_backchannel_97
+     clip          2.2 s turn · backchannel 0.8 s, played while she answers                                                                           
+     user          "Present entrepreneurship thoroughly."                                                                                             
+     backchannel   "totally"                                                                                                                          
+     expected      keep talking (Resume)                                                                                                              
+     actual        stopped after 0.32 s, did not come back                                                                                            
+     verdict       ✗ stopped, silent                                                                                                                  
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 49, "ready": true, "pid": 36755, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000049"}
+
+ 43/60  v1.5 backchannel (clean)  ·  v15_backchannel_97
+     clip          2.2 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "Present entrepreneurship thoroughly."                                                                                             
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 6.09 s, spoke 1.9 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 50, "ready": true, "pid": 36765, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000050"}
+
+ 44/60  v1 interruption  ·  v1_interrupt_163
+     clip          2.9 s question · cut-in played while she answers                                                                                   
+     user          "What do you think makes a great cup of coffee?"                                                                                   
+     cut-in        "Actually, let's talk about tea instead. What kinds are there?"                                                                    
+     expected      stop, then answer the new request                                                                                                  
+     actual        stopped after 0.25 s, did not come back                                                                                            
+     verdict       ✗ no answer                                                                                                                        
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 51, "ready": true, "pid": 36775, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000051"}
+
+ 45/60  v1 pause (Candor)  ·  v1_pause_candor_12
+     clip          10.1 s clip · pause 0.7 s at 5.8 s                                                                                                 
+     user          "yeah Oregon is a funny state actually in a lot of ways I really miss it a lot I lived there for six years and it's I really love  
+                   it there but it's also a really funny state"                                                                                       
+     expected      stay silent through the pause                                                                                                      
+     actual        silent during clip                                                                                                                 
+     verdict       ✓ TOR 0                                                                                                                            
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 52, "ready": true, "pid": 36786, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000052"}
+
+ 46/60  v1.5 talking to others  ·  v15_talking_to_other_47
+     clip          3.1 s turn · side talk 2.1 s, played while she answers                                                                             
+     user          "Set an alarm for 6:30 AM on weekdays."                                                                                            
+     side talk     "Derek, traffic was insanity today."                                                                                               
+     expected      keep talking (Resume)                                                                                                              
+     actual        stopped after 0.35 s, back 3.07 s after                                                                                            
+     verdict       ◐ paused, came back · content: judge                                                                                               
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 53, "ready": true, "pid": 36796, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000053"}
+
+ 46/60  v1.5 talking to others (clean)  ·  v15_talking_to_other_47
+     clip          3.1 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "Set an alarm for 6:30 AM on weekdays."                                                                                            
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 3.15 s, spoke 4.0 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 54, "ready": true, "pid": 36803, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000054"}
+
+ 47/60  v1 turn-taking (Candor)  ·  v1_turntaking_95
+     clip          14.9 s clip · user's turn ends at 14.6 s                                                                                           
+     user          (Candor turn-taking clips come without a transcript)                                                                               
+     expected      reply within 8 s                                                                                                                   
+     actual        replied after 2.63 s, spoke 4.8 s                                                                                                  
+     verdict       ✓ 2.63 s                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 55, "ready": true, "pid": 36862, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000055"}
+
+ 48/60  false turn-taking  ·  false_background_009
+     clip          1.3 s · background speech · -15 dB                                                                                                 
+     sound         background speech, not addressed to her                                                                                            
+     words         "I'm going to take a nap."                                                                                                         
+     expected      stay silent                                                                                                                        
+     actual        silent                                                                                                                             
+     verdict       ✓ silent                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 56, "ready": true, "pid": 36868, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000056"}
+
+ 49/60  v1.5 background speech  ·  v15_background_8
+     clip          1.5 s turn · background 2.1 s, played while she answers                                                                            
+     user          "What's my current heart rate?"                                                                                                    
+     background    "I think we ran out of paper towels."                                                                                              
+     expected      keep talking (Resume)                                                                                                              
+     actual        stopped after 0.32 s, back 3.40 s after                                                                                            
+     verdict       ◐ paused, came back · content: judge                                                                                               
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 57, "ready": true, "pid": 36876, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000057"}
+
+ 49/60  v1.5 background speech (clean)  ·  v15_background_8
+     clip          1.5 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "What's my current heart rate?"                                                                                                    
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 3.82 s, spoke 4.2 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 58, "ready": true, "pid": 36885, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000058"}
+
+ 50/60  v1 pause (synthetic)  ·  v1_pause_synth_115
+     clip          7.6 s clip · pause 1.6 s at 5.0 s                                                                                                  
+     user          "Technology is changing so fast. It's unreal, especially in the area of artificial intelligence, which is pretty evolving every    
+                   day."                                                                                                                              
+     expected      stay silent through the pause                                                                                                      
+     actual        silent during clip                                                                                                                 
+     verdict       ✓ TOR 0                                                                                                                            
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 59, "ready": true, "pid": 36896, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000059"}
+
+ 51/60  v1.5 talking to others  ·  v15_talking_to_other_20
+     clip          2.3 s turn · side talk 2.0 s, played while she answers                                                                             
+     user          "Send a message to Alex saying I'll be late."                                                                                      
+     side talk     "Mateo, pick up the kids at three, yeah?"                                                                                          
+     expected      keep talking (Resume)                                                                                                              
+     actual        stopped after 0.28 s, did not come back                                                                                            
+     verdict       ✗ stopped, silent                                                                                                                  
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 60, "ready": true, "pid": 36907, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000060"}
+
+ 51/60  v1.5 talking to others (clean)  ·  v15_talking_to_other_20
+     clip          2.3 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "Send a message to Alex saying I'll be late."                                                                                      
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 2.86 s, spoke 4.4 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 61, "ready": true, "pid": 36914, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000061"}
+
+ 52/60  v1 pause (synthetic)  ·  v1_pause_synth_5
+     clip          8.6 s clip · pause 0.4 s at 5.4 s                                                                                                  
+     user          "I'm not sure what to do this upcoming weekend. Perhaps [UH] hike would be fun or maybe a visit to the local museum."              
+     expected      stay silent through the pause                                                                                                      
+     actual        silent during clip                                                                                                                 
+     verdict       ✓ TOR 0                                                                                                                            
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 62, "ready": true, "pid": 36923, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000062"}
+
+ 53/60  v1.5 background speech  ·  v15_background_3
+     clip          1.8 s turn · background 1.4 s, played while she answers                                                                            
+     user          "What's the time in Tokyo?"                                                                                                        
+     background    "Do we have any milk left?"                                                                                                        
+     expected      keep talking (Resume)                                                                                                              
+     actual        stopped after 0.38 s, did not come back                                                                                            
+     verdict       ✗ stopped, silent                                                                                                                  
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 63, "ready": true, "pid": 36934, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000063"}
+
+ 53/60  v1.5 background speech (clean)  ·  v15_background_3
+     clip          1.8 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "What's the time in Tokyo?"                                                                                                        
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 4.20 s, spoke 3.8 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 64, "ready": true, "pid": 36943, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000064"}
+
+ 54/60  v1.5 interruption  ·  v15_interruption_3
+     clip          2.6 s turn · cut-in 2.9 s, played while she answers                                                                                
+     user          "What's the latest in smart home devices?"                                                                                         
+     cut-in        "Hold on, what time is the meeting scheduled today?"                                                                               
+     expected      stop, answer the new request (Respond)                                                                                             
+     actual        stopped after 0.25 s, back 3.24 s after                                                                                            
+     verdict       ◐ replied · content: judge                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 65, "ready": true, "pid": 36959, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000065"}
+
+ 54/60  v1.5 interruption (clean)  ·  v15_interruption_3
+     clip          2.6 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "What's the latest in smart home devices?"                                                                                         
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        replied after 3.85 s, spoke 4.1 s                                                                                                  
+     verdict       ✓ answered                                                                                                                         
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 66, "ready": true, "pid": 36971, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000066"}
+
+ 55/60  false turn-taking  ·  false_tv_radio_004
+     clip          4.3 s · TV / radio · -15 dB                                                                                                        
+     sound         TV / radio, not addressed to her                                                                                                   
+     words         "Hold on, do you also have tips for staying hydrated while working out?"                                                           
+     expected      stay silent                                                                                                                        
+     actual        silent                                                                                                                             
+     verdict       ✓ silent                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 67, "ready": true, "pid": 36977, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000067"}
+
+ 56/60  false turn-taking  ·  false_side_talk_005
+     clip          2.4 s · side talk · -8 dB                                                                                                          
+     sound         side talk, not addressed to her                                                                                                    
+     words         "Dad, gimme a hand with this math real quick."                                                                                     
+     expected      stay silent                                                                                                                        
+     actual        spoke 3.3 s after +2.7 s                                                                                                           
+     verdict       ✗ took turn                                                                                                                        
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 68, "ready": true, "pid": 36984, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000068"}
+
+ 57/60  v1.5 backchannel  ·  v15_backchannel_48
+     clip          2.3 s turn · backchannel 0.7 s, played while she answers                                                                           
+     user          "Explain the periodic table completely."                                                                                           
+     backchannel   "yes yeah"                                                                                                                         
+     expected      keep talking (Resume)                                                                                                              
+     actual        was already silent, back 4.72 s after                                                                                              
+     verdict       ◐ paused, came back · content: judge                                                                                               
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 69, "ready": true, "pid": 36993, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000069"}
+
+ 57/60  v1.5 backchannel (clean)  ·  v15_backchannel_48
+     clip          2.3 s turn · clean twin, no overlap (reference for the judge)                                                                      
+     user          "Explain the periodic table completely."                                                                                           
+     expected      answer the turn (reference for the judge)                                                                                          
+     actual        no reply                                                                                                                           
+     verdict       ✗ no answer                                                                                                                        
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 70, "ready": true, "pid": 37001, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000070"}
+
+ 58/60  v1 turn-taking (Candor)  ·  v1_turntaking_91
+     clip          4.6 s clip · user's turn ends at 4.3 s                                                                                             
+     user          (Candor turn-taking clips come without a transcript)                                                                               
+     expected      reply within 8 s                                                                                                                   
+     actual        no reply                                                                                                                           
+     verdict       ✗ missed                                                                                                                           
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 71, "ready": true, "pid": 37009, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000071"}
+
+ 59/60  v1 pause (Candor)  ·  v1_pause_candor_161
+     clip          8.3 s clip · pause 1.3 s at 6.3 s                                                                                                  
+     user          "Well exactly And even if it's doing basic work doing some work sheet of multiplication I'm like how does that hurt You doesn't"   
+     expected      stay silent through the pause                                                                                                      
+     actual        silent during clip                                                                                                                 
+     verdict       ✓ TOR 0                                                                                                                            
+{"ok": true, "instance": "me3-conversation-20261107T021330-36198", "generation": 72, "ready": true, "pid": 37017, "log_dir": "/Users/jus/Documents/Grad/AI231/ME3/.local/verification/conversation-return/me3-conversation-20261107T021330-36198/sessions/session-000072"}
+
+ 60/60  v1 interruption  ·  v1_interrupt_174
+     clip          2.5 s question · cut-in played while she answers                                                                                   
+     user          "How can I protect my online accounts?"                                                                                            
+     cut-in        "Actually, can we talk about online shopping instead?"                                                                             
+     expected      stop, then answer the new request                                                                                                  
+     actual        she never answered the first turn; overlap not played                                                                              
+     verdict       ? no answer                                                                                                                        
+Round 3/3 · trial 60/60 · elapsed 22 min 24 s · est. remaining 0 s · me3-local

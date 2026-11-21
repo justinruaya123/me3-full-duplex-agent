@@ -1,0 +1,37 @@
+{"stage": "vad_start", "t": 26985.401477, "pid": 36803, "src": "ws", "recv": 26985.403483875, "lt": 26985.4016505, "tt": 0.3586}
+{"stage": "vad_start", "t": 26985.401511083, "pid": 36803, "src": "ws", "recv": 26985.403531166, "lt": 26985.401684583, "tt": 0.3587}
+{"stage": "vad_end", "t": 26986.584363041, "pid": 36803, "src": "ws", "recv": 26986.58579575, "lt": 26986.584536541002, "tt": 1.5415}
+{"stage": "vad_end", "t": 26986.5843905, "pid": 36803, "src": "ws", "recv": 26986.585904333, "lt": 26986.584564, "tt": 1.5415}
+{"stage": "asr_partial", "t": 26986.938939458, "pid": 36803, "text": "Oh no.", "src": "ws", "recv": 26986.939562416, "lt": 26986.939112958, "tt": 1.8961}
+{"stage": "vad_start", "t": 26987.606140625, "pid": 36803, "src": "ws", "recv": 26987.607835125, "lt": 26987.606314125, "tt": 2.5633}
+{"stage": "vad_start", "t": 26987.6061735, "pid": 36803, "src": "ws", "recv": 26987.607937, "lt": 26987.606347, "tt": 2.5633}
+{"stage": "vad_end", "t": 26988.053192416, "pid": 36803, "src": "ws", "recv": 26988.054425541, "lt": 26988.053365916, "tt": 3.0103}
+{"stage": "vad_end", "t": 26988.053215, "pid": 36803, "src": "ws", "recv": 26988.05451, "lt": 26988.0533885, "tt": 3.0104}
+{"stage": "vad_start", "t": 26988.565413916, "pid": 36803, "src": "ws", "recv": 26988.566843083, "lt": 26988.565587416, "tt": 3.5226}
+{"stage": "vad_start", "t": 26988.5654395, "pid": 36803, "src": "ws", "recv": 26988.566943083, "lt": 26988.565613, "tt": 3.5226}
+{"stage": "vad_end", "t": 26990.103722625, "pid": 36803, "src": "ws", "recv": 26990.105301458, "lt": 26990.103896125, "tt": 5.0609}
+{"stage": "vad_end", "t": 26990.103753583, "pid": 36803, "src": "ws", "recv": 26990.105406583, "lt": 26990.103927083, "tt": 5.0609}
+{"stage": "vad_start", "t": 26990.233541583, "pid": 36803, "src": "ws", "recv": 26990.235476958, "lt": 26990.233715083, "tt": 5.1907}
+{"stage": "vad_start", "t": 26990.233567166, "pid": 36803, "src": "ws", "recv": 26990.235510333, "lt": 26990.233740666, "tt": 5.1907}
+{"stage": "asr_partial", "t": 26991.958562625, "pid": 36803, "text": "Oh no, you mean like we stay here.", "src": "ws", "recv": 26991.958913458, "lt": 26991.958736125, "tt": 6.9157}
+{"stage": "asr_partial", "t": 26993.041341541, "pid": 36803, "text": "Oh no, you mean like we stay here like all my husband.", "src": "ws", "recv": 26993.041534458, "lt": 26993.041515041, "tt": 7.9985}
+{"stage": "asr_partial", "t": 26994.097047416, "pid": 36803, "text": "Oh no, you mean like we stay here like all my husband and kids here.", "src": "ws", "recv": 26994.097351666, "lt": 26994.097220916, "tt": 9.0542}
+{"stage": "asr_partial", "t": 26995.1573415, "pid": 36803, "text": "Oh no, you mean like we stay here like all my husband and kids here.", "src": "ws", "recv": 26995.157882041, "lt": 26995.157515, "tt": 10.1145}
+{"stage": "asr_partial", "t": 26996.296269583, "pid": 36803, "text": "Oh no, you mean like we stay here like all my husband and kids here. We are really like", "src": "ws", "recv": 26996.296683125, "lt": 26996.296443083, "tt": 11.2534}
+{"stage": "asr_partial", "t": 26997.402593291, "pid": 36803, "text": "No, you mean like we stay here like all my husband and kids here we are really like my mother's", "src": "ws", "recv": 26997.402781416, "lt": 26997.402766791, "tt": 12.3597}
+{"stage": "asr_partial", "t": 26998.529536125, "pid": 36803, "text": "No, you mean like we stay here like all my husband and kids here We are really like my mother sisters everywhere everyone", "src": "ws", "recv": 26998.529956125, "lt": 26998.529709625, "tt": 13.4867}
+{"stage": "asr_partial", "t": 26999.673601666, "pid": 36803, "text": "No, you mean like we stay here like all my husband and kids here We are really like my mother sisters everywhere everyone there outside", "src": "ws", "recv": 26999.673793041, "lt": 26999.673775166, "tt": 14.6307}
+{"stage": "vad_end", "t": 26999.704857333, "pid": 36803, "src": "ws", "recv": 26999.70546525, "lt": 26999.705030833, "tt": 14.662}
+{"stage": "vad_end", "t": 26999.704866666, "pid": 36803, "src": "ws", "recv": 26999.705532, "lt": 26999.705040166, "tt": 14.662}
+{"stage": "asr_partial", "t": 27000.880537458, "pid": 36803, "text": "No, you mean like we stay here like all my husband and kids here. We are really like my mother, sisters everywhere, everyone there outside US actually.", "src": "ws", "recv": 27000.880847791, "lt": 27000.880710958, "tt": 15.8377}
+{"stage": "asr_final", "t": 27000.939358, "pid": 36803, "text": "No, you mean like we stay here like all my husband and kids here. We are really like my mother, sisters everywhere, everyone there outside US actually.", "src": "ws", "recv": 27000.952658291, "lt": 27000.9395315, "tt": 15.8965}
+{"stage": "interrupted", "t": 27000.940315458, "pid": 36803, "src": "ws", "recv": 27000.952805333, "lt": 27000.940488958, "tt": 15.8975}
+{"stage": "interrupted", "t": 27000.940326666, "pid": 36803, "src": "ws", "recv": 27000.952815916, "lt": 27000.940500166, "tt": 15.8975}
+{"stage": "llm_request", "t": 27000.952246125, "pid": 36803, "chars": 284, "messages": 1, "est_tokens": 71, "src": "ws", "recv": 27000.952847708, "lt": 27000.952419625002, "tt": 15.9094}
+{"stage": "llm_first_token", "t": 27001.099161166, "pid": 36803, "src": "ws", "recv": 27001.099429833, "lt": 27001.099334666, "tt": 16.0563}
+{"stage": "tts_request", "t": 27001.42651675, "pid": 36803, "src": "ws", "recv": 27001.428009583, "lt": 27001.426690250002, "tt": 16.3837}
+{"stage": "tts_first_audio", "t": 27001.920255166, "pid": 36803, "src": "ws", "recv": 27001.920783375, "lt": 27001.920428666, "tt": 16.8774}
+{"stage": "audio_out", "t": 27001.941869791, "pid": 36803, "src": "ws", "recv": 27001.943077208, "lt": 27001.942043291, "tt": 16.899}
+{"stage": "audio_out", "t": 27001.941894958, "pid": 36803, "src": "ws", "recv": 27001.943095375, "lt": 27001.942068458, "tt": 16.899}
+{"stage": "bot_stopped", "t": 27007.426046958, "pid": 36803, "src": "ws", "recv": 27007.428403708, "lt": 27007.426220458, "tt": 22.3832}
+{"stage": "bot_stopped", "t": 27007.426092708, "pid": 36803, "src": "ws", "recv": 27007.4285065, "lt": 27007.426266208, "tt": 22.3832}

@@ -56,7 +56,7 @@ async function run() {
   const resourceLoader = new DefaultResourceLoader({
     cwd, agentDir, settingsManager, noExtensions:true, noSkills:true, noContextFiles:true,
     additionalExtensionPaths:research ? [fileURLToPath(new URL("./portfolio-search.ts",import.meta.url))] : [],
-    extensionFactories:process.env.ME3_LIVE_BENCHMARK === "1" ? [pi => routeNitro(pi, website ? 8192 : 4096, website)] : [],
+    extensionFactories:(process.env.ME3_LIVE_BENCHMARK === "1" || (provider === "openrouter" && modelId === "deepseek/deepseek-v4.1-flash")) ? [pi => routeNitro(pi, website ? 8192 : 4096, website)] : [],
     noThemes:true, noPromptTemplates:true, appendSystemPrompt:[], systemPrompt:research ?
       "You research public work for a portfolio. A human reviews the candidate facts." : await composeWorkerPrompt(undefined, {website}),
   });

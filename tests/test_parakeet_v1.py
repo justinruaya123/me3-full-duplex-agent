@@ -136,7 +136,7 @@ class LocalPolicyTests(unittest.IsolatedAsyncioTestCase):
                 wire = Wire()
                 vad = SimpleNamespace(analyze_audio=AsyncMock(side_effect=[
                     VADState.SPEAKING, *([VADState.QUIET] * 169)]))
-                playback = SimpleNamespace(device=None, task=Mock(done=lambda: False) if talking else None,
+                playback = SimpleNamespace(device=None, overlap=False, task=Mock(done=lambda: False) if talking else None,
                                            epoch=2, hold=Mock(), cut=AsyncMock(), observe_output=Mock(),
                                            awaiting_answer=awaiting_answer, allow_cue=not awaiting_answer,
                                            last_reply_end=time.monotonic())

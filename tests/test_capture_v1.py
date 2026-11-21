@@ -308,3 +308,44 @@ class CaptureTests(unittest.IsolatedAsyncioTestCase):
             if final:
                 await asyncio.gather(final, return_exceptions=True)
             await capture.close()
+
+class VADStopTests(unittest.IsolatedAsyncioTestCase):
+    async def test_duplicate_vad_stops_claim_only_one_final_per_onset(self):
+        from me3.capture import RollingCapture
+
+        release = asyncio.Event()
+        requests, commits = [], []
+
+        async def recognize(pcm):
+            requests.append(pcm)
+            await release.wait()
+            return 'Complete turn.'
+
+        async def analyze(pcm):
+            return True
+
+        async def emit(event, pcm):
+            commits.append(event.committed)
+
+        capture = RollingCapture("s", recognize, analyze, emit)
+        try:
+            self.assertIsNone(capture.end_vad_segment())
+            capture.begin()
+            capture.feed(bytes(640))
+            final = capture.end_vad_segment()
+            self.assertIsNotNone(final)
+            task = asyncio.create_task(final)
+            self.assertIsNone(capture.end_vad_segment())  # Before task starts.
+            await asyncio.sleep(0)
+            self.assertIsNone(capture.end_vad_segment())  # While ASR is pending.
+            release.set()
+            await task
+            self.assertIsNone(capture.end_vad_segment())
+            self.assertEqual((len(requests), commits), (1, [True]))
+            capture.begin()
+            capture.feed(bytes(640))
+            await capture.end_vad_segment()
+            self.assertEqual((len(requests), commits), (2, [True, True]))
+        finally:
+            release.set()
+            await capture.close()

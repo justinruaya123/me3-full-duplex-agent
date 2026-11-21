@@ -18,6 +18,10 @@ export function cuePicker() {
   };
 }
 
+export function listenerMode(playedQuestion, protectedPrompt) {
+  return {op:"listener", enabled:!protectedPrompt, awaiting_answer:playedQuestion || protectedPrompt};
+}
+
 // Owns only the pending foreground response. Tool execution and background jobs
 // have separate deadlines; private reasoning tokens are not user-visible progress.
 export class VoiceWait {

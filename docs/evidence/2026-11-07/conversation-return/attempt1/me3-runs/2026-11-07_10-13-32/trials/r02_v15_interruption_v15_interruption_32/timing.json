@@ -1,0 +1,88 @@
+{
+  "trial": "r02_v15_interruption_v15_interruption_32",
+  "group": "v15_interruption",
+  "clip": "v15_interruption_32",
+  "variant": "main",
+  "expected": "stop, answer the new request (Respond)",
+  "duration": 19.552,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 3.544
+    },
+    {
+      "name": "overlap",
+      "t": 7.516,
+      "len": 3.2750625
+    }
+  ],
+  "live_bot_starts": [
+    6.016,
+    18.432
+  ],
+  "live_bot_ends": [
+    6.784,
+    19.2
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 2
+  },
+  "clip_meta": {
+    "context_text": "I heard there's a new phone model coming out soon",
+    "current_turn_text": "Hold that thought, what were the top songs this year?",
+    "overlap_text": "Hold that thought, what were the top songs this year?",
+    "overlap_duration": 3.28,
+    "overlap_window": [
+      7.4239999999999995,
+      10.699
+    ],
+    "source_id": "32"
+  },
+  "mono": [
+    26791.884782833,
+    26811.41572325
+  ],
+  "bot_segments": [
+    [
+      5.986,
+      6.814
+    ],
+    [
+      18.402,
+      19.23
+    ]
+  ],
+  "play_first": [
+    0.0,
+    3.544
+  ],
+  "overlap_played": true,
+  "t_stop": null,
+  "t_resp": 7.908000000000001,
+  "bot_speaking_at_onset": false,
+  "spoke_through": false,
+  "overlap": [
+    7.65,
+    10.494
+  ],
+  "tor": 0,
+  "first_start": 18.402,
+  "spoke_s": 0.3890625000000014,
+  "latency": 7.6109375,
+  "actual": "was already silent, back 7.91 s after",
+  "overlap_class": "paused",
+  "label_provisional": null,
+  "verdict": "◐ replied · content: judge",
+  "ok": null,
+  "marks": 45,
+  "final": {
+    "t_stop": null,
+    "t_resp": 7.908000000000001,
+    "label": null,
+    "transcript": "Oh really? Oh really?"
+  },
+  "scored_at": "2026-11-07T10:36:50+08:00"
+}

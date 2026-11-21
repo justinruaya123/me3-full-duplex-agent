@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Worker console · ME3</title><link rel="stylesheet" href="/workers.css">
+</head>
+<body>
+<header><span>ME3 <i>/</i> Worker console</span><span id="connection">Connecting…</span></header>
+<main>
+  <aside>
+    <div class="rail-head"><h2>Delegated jobs</h2><button id="auto" type="button" aria-pressed="true">Follow active</button></div>
+    <nav id="jobs" aria-label="Delegated jobs"></nav>
+  </aside>
+  <article>
+    <div id="engine"></div>
+    <h1 id="brief">Waiting for a delegated job</h1>
+    <div class="meta"><span id="status"></span><span id="revision"></span><span id="identity"></span></div>
+    <section aria-label="Worker transcript">
+      <div class="output-bar"><strong id="source">Worker output</strong><button id="latest" hidden>Jump to latest ↓</button></div>
+      <pre id="output" tabindex="0" aria-label="Worker output"></pre>
+      <p id="notice" role="status"></p>
+    </section>
+  </article>
+</main>
+<script src="/workers.js"></script>
+</body></html>

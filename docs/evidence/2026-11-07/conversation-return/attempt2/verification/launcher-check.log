@@ -1,0 +1,11 @@
+2026-11-07 10:39:11.628 | INFO     | pipecat:<module>:54 - ᓚᘏᗢ Pipecat 1.15.1.dev12 (Python 3.13.6 (v3.13.6:4e665351082, Aug  6 2025, 11:22:35) [Clang 16.0.0 (clang-1600.0.26.6)]) ᓚᘏᗢ
+python:   /Users/jus/Documents/Grad/AI231/ME3/.venv313/bin/python (3.13.6)
+pipecat:  1.15.1.dev12 · websockets 17.4
+entry:    /Users/jus/Documents/Grad/AI231/ME3/integrations/fdbench_entry.py
+project:  /Users/jus/Documents/Grad/AI231/ME3
+audio:    in 16000 Hz, out 24000 Hz
+stats:    cpu, memory, processes (psutil)
+marks:    Pipecat observer attached to PipelineWorker, PipelineTask (stage latency, WER, context size)
+models:   harness pipecat 1.15.1.dev12, ASR mlx-community/whisper-large-v3-turbo, LLM Qwen/Qwen3.8-27B, TTS mlx-community/Kokoro-82M-bf16, voice af_heart, VAD Silero, turn SmartTurn v3.2
+fdbench:  ws://127.0.0.1:8791
+READY
