@@ -142,7 +142,8 @@ class OpenRouterPiTransportTests(unittest.IsolatedAsyncioTestCase):
         from aiohttp import web
         from aiohttp.test_utils import TestServer
 
-        executable = shutil.which("pi")
+        local_pi = Path(__file__).resolve().parents[1] / "integrations/voicechat/node_modules/.bin/pi"
+        executable = str(local_pi) if local_pi.is_file() else shutil.which("pi")
         if not executable:
             self.skipTest("installed Pi CLI required for local RPC transport")
         seen = []

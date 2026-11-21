@@ -68,9 +68,15 @@ class JsonProcessBackend:
 
     async def _exchange(self, process, prompt: str, foreground: bool) -> str:
         request = json.dumps({"prompt": prompt, "foreground": foreground})
-        process.stdin.write(request.encode("utf-8"))
-        await process.stdin.drain()
-        process.stdin.close()
+        input_closed = False
+        try:
+            process.stdin.write(request.encode("utf-8"))
+            await process.stdin.drain()
+        except (BrokenPipeError, ConnectionResetError):
+            # A fast-exiting child can leave buffered output after closing stdin.
+            input_closed = True
+        finally:
+            process.stdin.close()
         chunks, size = [], 0
         while chunk := await process.stdout.read(8192):
             size += len(chunk)
@@ -80,6 +86,8 @@ class JsonProcessBackend:
         await process.wait()
         if process.returncode:
             raise RuntimeError(f"Harness exit code: {process.returncode}")
+        if input_closed:
+            raise RuntimeError("Harness closed its input before accepting the request")
         return _text(json.loads(b"".join(chunks)))
 
     async def run(

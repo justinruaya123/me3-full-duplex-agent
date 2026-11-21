@@ -4,8 +4,11 @@
 
 A live three-prompt typed Pi smoke test submitted one draft, answered the
 unrelated arithmetic turn without tools and retrieved the same job.
-The digital spoken-routing run failed. The assistant disconnected during
-two trials and the status query found no delegated job. The control simulation
+Two digital runs disconnected during playback. The upstream rig suppressed
+a missing SciPy import during 24-to-16 kHz resampling. With the benchmark
+dependency installed, all three recordings completed. The floor controller
+discarded two unfinished turns, the remaining status query found no delegated
+job, and the run passed zero of four spoken-routing checks. The control simulation
 preserved a running job across speech interruption. Physical microphone timing
 and Raspberry Pi qualification remain open.
 

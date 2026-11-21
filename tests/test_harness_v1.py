@@ -44,6 +44,15 @@ class ProcessTests(unittest.IsolatedAsyncioTestCase):
                     "draft", self.root,
                 )
 
+    async def test_exited_worker_cannot_claim_a_request_it_never_received(self):
+        child = await asyncio.create_subprocess_exec(
+            *self.fixture("import json; print(json.dumps({'text':'premature result'}))"),
+            stdin=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE,
+        )
+        await child.wait()
+        with self.assertRaisesRegex(RuntimeError, "closed its input"):
+            await JsonProcessBackend(("unused",))._exchange(child, "draft", False)
+
     async def test_output_is_bounded(self):
         command = self.fixture('print("x" * 20000)')
         with self.assertRaises((ValueError, RuntimeError)):
