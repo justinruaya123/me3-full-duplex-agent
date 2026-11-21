@@ -3,6 +3,7 @@
 Run from the installed checkout with python -m integrations.voicechat.check_readable.
 """
 
+import argparse
 import asyncio
 import json
 import tempfile
@@ -11,15 +12,20 @@ from pathlib import Path
 from playwright.async_api import async_playwright, expect
 
 from integrations.voicechat import window
+from integrations.voicechat.face_assets import FRAMES
 
 
-async def main():
+async def main(original_faces=False):
     with tempfile.TemporaryDirectory() as tmp:
         directory = Path(tmp)
         shots = window.LOCAL / "theme-preview"
         shots.mkdir(parents=True, exist_ok=True)
         window.LOCAL = directory
-        window.face_manifest = lambda: {s: [] for s in window.STATES}
+        if original_faces:
+            inventory = window.face_manifest()
+            assert all(len(inventory[state]) == len(pins) for state, pins in FRAMES.items())
+        else:
+            window.face_manifest = lambda: {}
         ready = asyncio.get_running_loop().create_future()
         window.open_window = lambda url, profile: ready.set_result(url)
 
@@ -60,7 +66,18 @@ async def main():
                         await expect(page.locator("#" + id)).to_have_text(text)
 
                     async def shot(name):
-                        await page.screenshot(path=str(shots / (name + ".png")))
+                        await page.screenshot(path=str(shots / (name + ".png")),
+                                              mask=[page.locator("#face")] if original_faces else [])
+
+                    async def check_face(state):
+                        if original_faces:
+                            face = page.locator("#face")
+                            await expect(face).to_have_attribute("src", state + "-1.png")
+                            await expect(face).to_have_js_property("naturalWidth", 800)
+                            await expect(face).to_have_js_property("naturalHeight", 480)
+                            await expect(face).to_have_css("object-fit", "contain")
+                        else:
+                            await expect(page.locator("#face-stage > :visible")).to_have_count(0)
 
                     async def no_overflow():
                         assert await page.evaluate(
@@ -68,10 +85,13 @@ async def main():
                         )
 
                     await expect(page.locator("#duplex")).to_be_enabled()
+                    await check("activity", "Idle")
+                    await check_face("idle")
                     await page.locator("#appearance-home").click()
                     await page.locator("#theme-choice").select_option("bmo-readable")
                     await page.locator("#pref-done").click()
                     await check("activity", "Idle")
+                    await check_face("idle")
                     assert await page.locator("#face-stage").bounding_box() == {
                         "x": 0, "y": 0, "width": 800, "height": 600,
                     }
@@ -88,6 +108,12 @@ async def main():
                     }
                     panel("voice", v)
                     await check("activity", "Listening")
+                    await check_face("listening")
+                    if original_faces:
+                        await page.emulate_media(reduced_motion="no-preference")
+                        await expect(page.locator("#face")).to_have_attribute("src", "listening-2.png")
+                        await page.emulate_media(reduced_motion="reduce")
+                        await check_face("listening")
                     await shot("listening")
                     v.update(
                         listening=False,
@@ -96,6 +122,7 @@ async def main():
                     )
                     panel("voice", v)
                     await check("activity", "Speaking")
+                    await check_face("speaking")
                     await shot("speaking")
                     job = {
                         "id": "a",
@@ -118,6 +145,7 @@ async def main():
                     await shot("ready")
                     panel("voice", {**v, "mic": "error", "speaking": False})
                     await check("activity", "Error")
+                    await check_face("error")
                     await shot("error")
                     panel(
                         "canvas",
@@ -228,4 +256,6 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--original-faces", action="store_true", help="also check the installed original frame pack")
+    asyncio.run(main(parser.parse_args().original_faces))

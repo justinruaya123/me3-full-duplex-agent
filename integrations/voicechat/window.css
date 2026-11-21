@@ -10,7 +10,7 @@ button:focus-visible {outline:2px solid currentColor;outline-offset:-3px}
 #home > footer {grid-row:3}
 .activity {align-self:center;display:flex;align-items:center;gap:8px;padding:0 22px;font-size:12px;font-weight:600;color:#477354}
 .activity i {width:6px;height:6px;background:currentColor;border-radius:100%}
-#face {width:100%;height:100%;min-height:0;object-fit:cover;pointer-events:none}
+#face {width:100%;height:100%;min-height:0;object-fit:contain;background:#bdffcb;pointer-events:none}
 footer {display:flex;gap:16px;align-items:flex-end;justify-content:space-between;padding:0 16px 12px 20px}
 .captions {min-width:0;flex:1;align-self:center}
 .caption {display:flex;align-items:baseline;gap:10px;color:#365f42;min-width:0;font-size:14px;line-height:19px}

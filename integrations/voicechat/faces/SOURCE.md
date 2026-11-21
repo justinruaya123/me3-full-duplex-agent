@@ -1,12 +1,12 @@
 ## Local face pack
 
-Classic and Readable use the same operator-installed PNG pack. Its thirteen
+Classic and Readable use the same original PNG pack installed by project setup. Its thirteen
 800×480 frames cover idle (1), listening (2), thinking (4), speaking (3),
-warmup (1), error (1) and capturing (1). When a frame is unavailable, the
-window draws its instrument indicator with HTML and CSS. The reference pack
+warmup (1), error (1) and capturing (1). When a state has no verified frame, the window uses the original idle frame.
+The activity label and controls stay available when the pack is absent. The reference pack
 is excluded from normal Git adds.
 
-The earlier local pack came from [be-more-agent at 5fb7558](https://github.com/brenpoly/be-more-agent/tree/5fb755809583c8338b1205075b2d465baa9b49ef/faces).
+Setup verifies each frame against its pinned SHA-256 digest. The images come from [be-more-agent at 5fb7558](https://github.com/brenpoly/be-more-agent/tree/5fb755809583c8338b1205075b2d465baa9b49ef/faces).
 The adjacent MIT notice belongs to that upstream project. Its
 [README identifies it as a non-commercial fan project](https://github.com/brenpoly/be-more-agent/blob/5fb755809583c8338b1205075b2d465baa9b49ef/README.md).
 Permission from the relevant rights holders for redistributing franchise artwork

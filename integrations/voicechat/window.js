@@ -22,8 +22,6 @@ term.onData(input);
 let panel = "face", voice = {mic:"off"}, jobs = [], selectedJob;
 let warmUntil = performance.now() + 1000;
 let animationTimer, lastFace, frame = 0;
-const frames = {warmup:1,idle:1,listening:2,speaking:3,thinking:4,error:1,capturing:1};
-const periods = {listening:560,speaking:155,thinking:520};
 const reduced = matchMedia("(prefers-reduced-motion: reduce)");
 function paintFace(advance = false) {
   clearTimeout(animationTimer);
@@ -32,20 +30,22 @@ function paintFace(advance = false) {
   const mode = lost || voice.mic === "error" ? "error" : voice.mic === "starting" || warm > 0 ? "warmup" :
     readable() && voice.listening ? "listening" : expression(voice,!readable() && jobs.some(j => j.status === "running"));
   const changed = lastFace !== mode;
-  if (changed) frame = 0;
-  else if (advance) frame = (frame + 1) % frames[mode];
+  const frames = pack[mode]?.length ? pack[mode] : (pack.idle || []);
+  const moving = frames.length > 1 && !reduced.matches && !prefs.still;
+  if (changed || !moving) frame = 0;
+  else if (advance) frame = mode === "speaking"
+    ? 1 + Math.floor(Math.random() * (frames.length - 1))
+    : (frame + 1) % frames.length;
   if (changed || advance) {
     const stage = byId("face-stage"), img = byId("face");
     stage.dataset.mode = mode;
-    stage.dataset.frame = frame;
-    const src = pack[mode]?.[frame % pack[mode].length];
+    const src = frames[frame];
     img.hidden = !src;
-    byId("instrument").hidden = !!src;
     if (src && img.getAttribute("src") !== src) img.src = src;
     byId("activity").textContent = lost ? "Disconnected" : mode[0].toUpperCase() + mode.slice(1);
   }
   lastFace = mode;
-  const next = warm > 0 ? warm : (frames[mode] > 1 && !reduced.matches && !prefs.still ? periods[mode] : Infinity);
+  const next = warm > 0 ? warm : (moving ? (mode === "speaking" ? 50 : 500) : Infinity);
   const wake = voice.wakeUntil > Date.now() ? voice.wakeUntil - Date.now() : Infinity;
   if (Number.isFinite(Math.min(next,wake)))
     animationTimer = setTimeout(() => paintFace(true),Math.max(1,Math.min(next,wake)));
@@ -53,7 +53,7 @@ function paintFace(advance = false) {
 function refocus() {warmUntil = performance.now() + 1000; paintFace();}
 addEventListener("focus", () => {if (panel === "face") refocus();});
 document.addEventListener("visibilitychange", () => document.hidden ? clearTimeout(animationTimer) : refocus());
-reduced.addEventListener("change", () => paintFace());
+reduced.addEventListener("change", () => {lastFace = undefined; paintFace();});
 
 function resize() {
   if (panel === "console" && byId("terminal").clientWidth > 0) fit.fit();

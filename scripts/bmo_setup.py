@@ -171,6 +171,7 @@ def install(root, system_deps=False):
     run(python, "-m", "playwright", "install", "chromium")
     run("npm", "ci", "--prefix", "integrations/voicechat", "--no-audit", "--no-fund")
     run("bash", "scripts/setup-openintelligentui.sh")
+    run(python, "-m", "integrations.voicechat.face_assets")
     run(python, "-m", "me3.bmo", "--root", str(root / ".local/models/bmo-v1.0-voice"))
     subprocess.run(["node", "integrations/voicechat/project.mjs"], cwd=root, check=True,
                    env=dict(os.environ, ME3_CLIENT_HOME=str(root), PI_CODING_AGENT_DIR=str(root / ".local/pi")))

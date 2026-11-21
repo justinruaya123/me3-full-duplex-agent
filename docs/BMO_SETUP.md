@@ -19,7 +19,7 @@ and `ME3_ASR_TOKEN`. The older course launcher is available through `start.py`.
 
 Setup creates a project Python environment (3.11 through 3.13), installs the locked
 Pi CLI and Brave plugin, and prepares the bundled extensions, Superpowers skills,
-renderer, Chromium and BMO voice. It uses a compatible Node on PATH or downloads
+renderer, Chromium, the original BMO face frames and the BMO voice. To install or repair just the thirteen face PNGs, run `python3 -m integrations.voicechat.face_assets` from the checkout. It uses a compatible Node on PATH or downloads
 a checksum-verified Node under `.local/node`. The project Pi profile and trust
 store live under `.local/pi`. Trust is specific to the checkout. For a previously
 denied folder, use `bash integrations/voicechat/start.sh --trust-project` after

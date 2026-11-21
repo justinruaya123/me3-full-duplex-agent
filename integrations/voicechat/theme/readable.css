@@ -5,23 +5,6 @@
 .reading-control{font:600 16px system-ui;min-width:48px;min-height:48px;border-radius:8px}
 #face-stage{min-height:0;min-width:0;display:grid;place-items:center;position:absolute;inset:0;overflow:hidden;pointer-events:none}
 #face{position:absolute;inset:0}
-#instrument{color:var(--ink,#173b36);display:grid;place-items:center;gap:clamp(8px,2vh,24px);width:100%;height:100%;align-content:center}
-.dial{position:relative;display:grid;place-items:center;width:min(26vh,42vw);aspect-ratio:1;border:2px solid;border-radius:50%;background:repeating-conic-gradient(from -1deg,currentColor 0 1deg,transparent 1deg 15deg)}
-.dial::before{content:"";position:absolute;inset:6%;border:2px solid;border-radius:inherit;background:var(--paper,#fff8e7)}
-.lens{position:relative;display:grid;place-items:center;border-radius:50%;width:55%;height:55%;border:2px solid;background:var(--shell,#56b7a7)}
-.lens i{width:48%;height:48%;background:currentColor;border-radius:50%;position:relative}
-.lens i::before{content:"";position:absolute;top:14%;right:18%;width:26%;height:26%;border-radius:50%;background:var(--paper,#fff8e7)}
-.wave{display:flex;gap:5px;align-items:center;height:26px}
-.wave i{background:currentColor;width:5px;height:5px;border-radius:4px}
-[data-mode="listening"] .lens i{transform:translateX(-12%);width:65%;height:65%}
-[data-mode="thinking"] .lens i{transform:translate(35%,-26%)}
-[data-mode="error"] .dial{color:var(--danger,#a52c48)}
-[data-mode="warmup"] .lens i,[data-mode="idle"] .lens i{height:19%;border-radius:12px}
-[data-mode="speaking"] .wave i{height:80%}
-[data-mode="speaking"] .wave i:nth-child(even){height:35%}
-[data-mode="speaking"][data-frame="1"] .wave i:nth-child(odd){height:40%}
-[data-mode="speaking"][data-frame="2"] .wave i:nth-child(even){height:95%}
-[data-mode="listening"] .wave i:nth-child(4){height:65%}
 dialog{max-width:min(28rem,94vw);max-height:90dvh;overflow:auto;color:var(--ink,#173b36);background:var(--paper,#fff8e7);border:2px solid;border-radius:12px;padding:1.25rem;font:1.125rem/1.5 "Atkinson Hyperlegible Next",Verdana,sans-serif}
 dialog::backdrop{background:#10252188}
 dialog form{display:grid;gap:.5rem}dialog h2{margin:0 0 .5rem}
@@ -41,12 +24,7 @@ dialog select{margin-left:auto}dialog input{width:1.3em;height:1.3em}
 [data-theme="bmo-readable"] .presence-head,[data-theme="bmo-readable"] header{min-height:64px;gap:8px;flex-wrap:wrap}
 #home .captions:has(#asr:not(:empty),#output:not(:empty)){background:var(--paper,#fff8e7);border-radius:8px;padding:4px 8px}
 body[data-view="canvas"] #close{position:relative;overflow:hidden;width:76px;height:46px;flex:none;padding:0;background:var(--mint)}
-body[data-view="canvas"] #close .close-mark{display:none}
-#close .dial{width:24px}
-#close #instrument{gap:2px}
-#close .wave{height:5px;gap:2px}
-#close .wave i{width:2px;height:2px}
-@media(max-aspect-ratio:1/1){#home #face{object-fit:contain}}
+body[data-view="canvas"] #close:has(#face:not([hidden])) .close-mark{display:none}
 [data-theme="bmo-readable"] .activity{color:var(--ink);font:600 1em var(--ui);padding:0 8px}
 [data-theme="bmo-readable"] .presence-head .activity{height:auto}
 [data-theme="bmo-readable"] .activity i{width:10px;height:10px;background:var(--success)}

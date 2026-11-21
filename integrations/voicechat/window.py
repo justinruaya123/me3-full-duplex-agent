@@ -19,6 +19,7 @@ import webbrowser
 
 from aiohttp import WSMsgType, web
 
+from .face_assets import face_manifest
 from .theme.appearance import appearance, read_appearance, TOKENS
 
 HERE = Path(__file__).resolve().parent
@@ -30,8 +31,6 @@ FILES = {"": HERE / "window.html", "face.mjs": HERE / "face.mjs", "window.js": H
 THEME = HERE / "theme"
 FILES.update({name: THEME / name for name in ("readable.css", "display.mjs", "design.tokens.json")})
 FILES.update({p.name: p for p in (THEME / "fonts").glob("*.ttf")})
-STATES = {"idle": 1, "warmup": 1, "speaking": 3, "thinking": 4,
-          "listening": 2, "capturing": 1, "error": 1}
 
 
 def website_download(name, folder, chats):
@@ -54,24 +53,6 @@ def website_download(name, folder, chats):
                 and archive.resolve() == chats.resolve() / relative and archive.is_file()):
             return archive
     return None
-
-
-def face_manifest():
-    result = {}
-    for state, count in STATES.items():
-        frames = []
-        for i in range(1, count + 1):
-            path = HERE / "faces" / f"{state}-{i}.png"
-            if not path.is_file():
-                continue
-            with path.open("rb") as file:
-                header = file.read(24)
-            if (len(header) == 24 and header[:8] == b"\x89PNG\r\n\x1a\n" and header[12:16] == b"IHDR"
-                    and struct.unpack(">II", header[16:24]) == (800, 480)):
-                frames.append(path.name)
-        result[state] = frames
-    return result
-
 
 
 def open_window(url, profile):

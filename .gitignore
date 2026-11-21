@@ -233,7 +233,7 @@ __marimo__/
 
 /integrations/openintelligentui/node_modules/
 
-# Operator-installed reference artwork. The public display has its own instrument face.
+# Original BMO face frames are installed locally from the pinned upstream source.
 /integrations/voicechat/faces/*.png
 
 !.env.speech.example
