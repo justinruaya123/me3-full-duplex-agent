@@ -68,6 +68,21 @@ class VoiceJobs:
         job = self.jobs.revise(job_id, instruction, expected_revision=revision)
         return self._track(job, follow_up)
 
+    def cancel_current(self):
+        if self.draft_only:
+            raise ValueError("Spoken replay cannot cancel jobs")
+        # This supervisor has one worker. Resolve and cancel on the same loop
+        # turn, fenced to the job revision and this chat's owner.
+        current = self.supervisor.db.execute("""
+            SELECT j.id, j.revision FROM jobs j JOIN job_owners o ON o.job_id=j.id
+            WHERE o.owner=? AND o.session_id=? AND j.status IN ('running','cancelling','queued')
+            ORDER BY (j.status='queued'), o.rowid LIMIT 1
+        """, (self.jobs.owner, self.jobs.session_id)).fetchone()
+        if current is None:
+            return {"status": "empty"}
+        self.jobs.cancel(current["id"], expected_revision=current["revision"])
+        return self.status(current["id"])
+
     def _track(self, job, follow_up):
         job_id = job["id"]
         with self.supervisor.db as db:
@@ -188,6 +203,8 @@ async def run(session, replay_dir=None):
                                          follow_up=req.get("follow_up") is True)
                 elif req["op"] == "revise":
                     result = jobs.revise(req["job"], req["revision"], req["instruction"])
+                elif req["op"] == "cancel_current":
+                    result = jobs.cancel_current()
                 elif req["op"] == "claim_cue":
                     result = jobs.claim_cue(req["job"], req["revision"])
                 elif req["op"] == "notices":

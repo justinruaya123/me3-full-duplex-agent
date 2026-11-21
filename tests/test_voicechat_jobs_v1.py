@@ -18,6 +18,37 @@ class VoiceJobsTests(unittest.IsolatedAsyncioTestCase):
             finally:
                 await jobs.close()
 
+    async def test_cancel_current_stops_one_worker_and_preserves_the_queue(self):
+        started, release = asyncio.Event(), asyncio.Event()
+
+        class Worker:
+            async def run(self, prompt, workspace, *, foreground=False):
+                started.set()
+                await release.wait()
+                return prompt
+
+        with tempfile.TemporaryDirectory() as folder:
+            jobs = VoiceJobs(Path(folder), Worker(), lambda _: None)
+            try:
+                self.assertEqual(jobs.cancel_current(), {"status": "empty"})
+                first = jobs.submit("draft", "First task", "a")
+                second = jobs.submit("draft", "Second task", "b")
+                await asyncio.wait_for(started.wait(), 2)
+                result = jobs.cancel_current()
+                self.assertEqual((result["id"], result["status"]), (first["id"], "cancelling"))
+                self.assertEqual(jobs.cancel_current()["id"], first["id"])
+                self.assertEqual(jobs.status(second["id"])["status"], "queued")
+                release.set()
+                await jobs.supervisor.wait(first["id"])
+                await jobs.supervisor.wait(second["id"])
+                self.assertEqual(jobs.status(first["id"])["status"], "cancelled")
+                self.assertEqual(jobs.status(second["id"])["text"], "Second task")
+                self.assertEqual(jobs.cancel_current(), {"status": "empty"})
+                pending = jobs.submit("draft", "Queued task", "c")
+                self.assertEqual(jobs.cancel_current()["id"], pending["id"])
+            finally:
+                await jobs.close()
+
     async def test_steering_revises_only_the_named_job_and_preserves_follow_up(self):
         class Worker:
             async def run(self, prompt, workspace, *, foreground=False):
