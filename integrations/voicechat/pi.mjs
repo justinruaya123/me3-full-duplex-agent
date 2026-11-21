@@ -5,7 +5,7 @@ import { createInterface } from "node:readline";
 import { fileURLToPath } from "node:url";
 import { Type } from "typebox";
 import { Text } from "@earendil-works/pi-tui";
-import {openSearchStore, runSearch, searchReceipt, withSearchEvidence} from "./search-store.mjs";
+import {openSearchStore, runSearch, searchReceipt, recentSearchContext} from "./search-store.mjs";
 import { VoiceRecovery } from "./recovery.mjs";
 import { JobBridge, workerEnv } from "./jobs.mjs";
 import { WindowVoice } from "./face.mjs";
@@ -532,11 +532,11 @@ export default function voicechat(pi) {
       .slice(-10).map(e => [e.data.role, e.data.text.slice(-700)]);
     const i = messages.findLastIndex(m => m.role === "user");
     if (i < 0) return;
-    // Rehydrate only the current and preceding exchange for the model.
-    const previousUser = messages.slice(0,i).findLastIndex(m => m.role === "user");
-    const hasReceipts = messages.slice(Math.max(0,previousUser)).some(m => m.details?.search_refs?.length);
-    if (hasReceipts) messages = messages.map((m,j) => j > previousUser ? withSearchEvidence(m,searchStore) : m);
+    const recent = recentSearchContext(messages, searchStore);
+    const hasReceipts = recent.messages !== messages;
+    messages = recent.messages;
     if (active) {
+      active.searchRefs = recent.receipts;
       active.previousSearch = previousSearchReceipt(messages);
       active.requiresSearch = !process.env.ME3_FDBENCH_URL && !!active.previousSearch &&
         recheckRequest(active.prompt.replace(/^Microphone transcript: /,""));
@@ -816,21 +816,24 @@ export default function voicechat(pi) {
     name:"web_lookup", label:"Search Brave", renderResult:renderSearch,
     description:"Search Brave for public information requested in the current turn. Call immediately for news, changing facts, or a public fact you are unsure of. An ordinary question authorizes the lookup. For an open-ended news request select one_story and report the returned story. Summarize supplied notes or earlier results directly unless they ask to check them. The host derives the public query from the request. Personal questions use the private profile and chat memory. When explicitly asked to research the speaker online, call this tool with their request. When they answer a search-name question, use that name as the topic.",
     parameters:Type.Object({refresh:Type.Optional(Type.Boolean({description:"True for an explicit new search, an update, or a changing fact requiring live verification."})),
+      prior_search:Type.Optional(Type.String({maxLength:36,description:"For a follow-up needing new evidence, copy the ref of the relevant recent Brave result. Omit for a new subject."})),
       recent_mention:Type.Optional(Type.String({maxLength:120,description:"For a follow-up, quote the exact public entity name from either of the last two user messages, preserving word order. E.g. after discussing North Pier ferry, use North Pier ferry even when looking up its timetable. Omit when this turn names its subject."})),
       public_subject:Type.Optional(Type.String({maxLength:160,description:"For an ambiguous reference propose a neutral subject. Use the user's words for recently named subjects. For a standalone question omit this field. Exclude guessed dates and answers."})),
       one_story:Type.Optional(Type.Boolean({description:"Select one recent story for open-ended news. Leave off for roundups or a specific fact."})),
       topic:Type.Optional(Type.String({minLength:1,maxLength:400,description:"Optional public terms from the current request. Omit for standalone questions and fresh checks of the previous search."}))}),
-    async execute(_id,{topic,one_story,public_subject,recent_mention,refresh},signal) {
+    async execute(_id,{topic,one_story,public_subject,recent_mention,prior_search,refresh},signal) {
       const turn = active;
       if (!turn || currentTurn() !== turn.id || signal.aborted) throw Error("Search request expired.");
       if (!turn.lookup) {
         turn.lookup = (async () => {
+          const prior = prior_search ? turn.searchRefs?.get(prior_search) : turn.previousSearch;
           const plan = await lookupProcess({op:"resolve",source:turn.prompt.replace(/^Microphone transcript: /,""),
             topic,one_story,recent_mention,propose_scope:public_subject,confirmed_scope:turn.confirmedScope,
             scope_source:turn.scopeSource,awaiting_name:turn.awaitingName,pending_receipt:!!turn.previousSearch?.scope,
             recheck_query:turn.requiresSearch ? turn.previousSearch?.query : undefined,
             recent_turns:turn.recentTurns,previous_subject:turn.previousSearch?.subject,
-            previous_evidence:turn.previousSearch?.support?.slice(0,6000)}, signal);
+            continuation_query:prior?.query, continuation_selected:!!(prior_search && prior),
+            previous_evidence:prior?.support?.slice(0,6000)}, signal);
           if (!plan.query || signal.aborted || currentTurn() !== turn.id) return plan;
           return runSearch(searchStore, plan, resolved => {
             progressCue(turn.id, "searching");

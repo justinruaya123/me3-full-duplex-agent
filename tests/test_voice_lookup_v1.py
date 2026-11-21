@@ -37,6 +37,35 @@ class VoiceSearchTests(unittest.TestCase):
 
 
 class PlanRoutingTests(unittest.IsolatedAsyncioTestCase):
+    def test_follow_up_uses_the_selected_public_receipt_and_only_grounded_refinements(self):
+        from integrations.voicechat.lookup import resolve_request
+        for followup in ("Walk me through that part.", "Can you tell me more about that?"):
+            plan = resolve_request(followup, "heritage timetable private employer", {},
+                                   continuation_query="When is the North Pier ferry running?",
+                                   previous_evidence="The heritage timetable lists additional sailings.")
+            self.assertIn("North Pier ferry", plan["query"])
+            self.assertIn("heritage timetable", plan["query"])
+            self.assertNotIn("private employer", plan["query"])
+        plan = resolve_request("Compare the vessel designs.", "outriggers", {},
+                               continuation_query="North Pier ferry", continuation_selected=True,
+                               previous_evidence="Researchers documented the outriggers.")
+        self.assertEqual(plan["query"], "North Pier ferry outriggers")
+        with self.assertRaises(ValueError):
+            resolve_request("Don't search for more.", None, {}, continuation_query="North Pier ferry")
+
+    def test_go_ahead_with_proposed_scope_and_a_new_topic(self):
+        from integrations.voicechat.lookup import resolve_request
+        context = dict(confirmed_scope="the harbor ferry", pending_receipt=True,
+                       scope_source="Which timetable did you mean?")
+        self.assertIn("harbor ferry", resolve_request("Just search that in brief.", None, {}, **context)["query"])
+        with self.assertRaises(ValueError):
+            resolve_request("Skip that.", None, {}, **context)
+        plan = resolve_request("Who designed the Brooklyn Bridge?", None, {},
+                               continuation_query="the harbor ferry")
+        self.assertNotIn("ferry", plan["query"])
+        with self.assertRaises(ValueError):
+            resolve_request("Where is that private file?", None, {}, continuation_query="the harbor ferry")
+
     def test_guessed_event_details_do_not_block_a_named_public_question(self):
         from integrations.voicechat.lookup import resolve_request
         for source, scope, subject in [

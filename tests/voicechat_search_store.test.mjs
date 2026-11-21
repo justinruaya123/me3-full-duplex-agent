@@ -67,3 +67,20 @@ test("ordinary Pi history holds only a receipt; evidence expires on closing the 
     assert.match(withSearchEvidence(message,next).content[0].text,/expired/);
   } finally {first.close(); next.close();}
 });
+
+test("a follow-up can select source evidence across a conversational turn on its branch", async () => {
+  const {recentSearchContext, searchReceipt} = await import("../integrations/voicechat/search-store.mjs");
+  const store = openSearchStore(), other = openSearchStore();
+  try {
+    const entry = await runSearch(store, plan, async () => ({...sample, retrieved_at:new Date().toISOString()}));
+    const user = {role:"user"}, answer = {role:"assistant", stopReason:"stop"};
+    const receipt = {role:"toolResult", toolName:"web_lookup", ...searchReceipt([entry],"live")};
+    const chain = [user, receipt, answer, user, answer, user];
+    const ctx = recentSearchContext(chain,store);
+    assert.equal(ctx.receipts.get(entry.id).query, plan.query);
+    assert.equal(JSON.parse(ctx.messages[1].content[0].text).results[0].ref,entry.id);
+    assert.equal(recentSearchContext([...chain, answer, user],store).receipts.size,0);
+    assert.equal(recentSearchContext(chain,other).receipts.size,0);
+    assert.equal(recentSearchContext([user,answer,user],store).receipts.size,0);
+  } finally {store.close(); other.close();}
+});

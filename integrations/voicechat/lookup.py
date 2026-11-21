@@ -46,11 +46,38 @@ def mentions_subject(text, subject):
     return bool(terms) and any(source[i:i + len(terms)] == terms for i in range(len(source)))
 
 
+NO_SEARCH = re.compile(
+    r"\b(?:do not|don['’]t|never|without)\s+(?:search|research|look|browse|googl|us(?:e|ing) Brave)", re.I,
+)
+
+
+def refine_public_query(query, topic, evidence, *, source="", limit=400):
+    public = set(re.findall(r"\w+", evidence[:6000].casefold()))
+    used = set(re.findall(r"\w+", (query + " " + source).casefold()))
+    extras = []
+    for word in re.findall(r"\w+", (topic or "")[:400]):
+        key = word.casefold()
+        if key in public and key not in used:
+            extras.append(word)
+            used.add(key)
+    return " ".join([query, *extras])[:limit]
+
+
+def references_public_result(source, selected):
+    # Remove conversational framing before checking for private/local topics.
+    remaining = re.sub(r"\b(?:(?:can|could|would) you|(?:tell|show|give|walk) me)\b", "", source, flags=re.I)
+    remaining, count = re.subn(
+        r"\b(?:that|this|those|these|it|its|they|them|he|she|him|her|there|more|further|elaborate|expand)\b",
+        "", remaining, flags=re.I,
+    )
+    return (selected or count > 0) and not LOCAL_CONTEXT.search(remaining)
+
+
 def public_request(source, topic=None, *, one_story=None, previous_subject=None, previous_evidence=""):
     source = " ".join(source.split())
     # ASR can punctuate an abandoned question starter as a separate sentence.
     source = re.sub(r"^(?:so\s+)?(?:who|what|when|where|why|how)[.…]+\s+(?=\w)", "", source, flags=re.I)
-    if re.search(r"\b(?:do not|don['’]t|never|without)\s+(?:search|research|look|browse|googl|us(?:e|ing) Brave)", source, re.I):
+    if NO_SEARCH.search(source):
         raise ValueError("The current request excludes a web search.")
     # When the whole turn is public, the host can ignore the model's suggested wording.
     question = re.sub(
@@ -65,15 +92,8 @@ def public_request(source, topic=None, *, one_story=None, previous_subject=None,
         rest, references = re.subn(r"\b(?:that|this|it|they|them|those)\b", "the subject", question, flags=re.I)
         if references and lookup_intent(rest, model_selected=True):
             # Add only model-selected words already present in public evidence.
-            public = set(re.findall(r"\w+", previous_evidence[:6000].casefold()))
-            used = set(re.findall(r"\w+", (previous_subject + " " + source).casefold()))
-            extra = []
-            for word in re.findall(r"\w+", (topic or "")[:400]):
-                key = word.casefold()
-                if key in public and key not in used:
-                    extra.append(word)
-                    used.add(key)
-            subject = " ".join([previous_subject[:200], *extra]).strip()[:250]
+            subject = refine_public_query(previous_subject[:200], topic, previous_evidence,
+                                          source=source, limit=250)
             return f"{subject} — {question}", "answers", None
     if not intent and topic:
         topic = " ".join(topic.split()).strip()
@@ -96,9 +116,16 @@ def public_request(source, topic=None, *, one_story=None, previous_subject=None,
 
 
 def resolve_request(source, topic, env, *, one_story=None, previous_subject=None, recheck_query="",
-                 previous_evidence="", propose_scope=None, confirmed_scope=None, scope_source="", awaiting_name=False, pending_receipt=False, recent_turns=(), recent_mention=""):
-    affirmative = re.fullmatch(r"(?:yes|yeah|yep|right|correct|exactly|that's right)(?:[, ]+please)?[.!]?",
-                               source.strip(), re.I)
+                    previous_evidence="", continuation_query="", continuation_selected=False,
+                    propose_scope=None, confirmed_scope=None, scope_source="", awaiting_name=False,
+                    pending_receipt=False, recent_turns=(), recent_mention=""):
+    if NO_SEARCH.search(source):
+        raise ValueError("The current request excludes a web search.")
+    affirmative = re.fullmatch(
+        r"(?:(?:yes|yeah|yep|right|correct|exactly|that's right|go ahead)(?:[, ]+please)?|"
+        r"(?:(?:please|just) )?(?:search (?:for )?(?:it|that)|look (?:it|that) up)"
+        r"(?: (?:please|in brief|briefly|with Brave))?)[.!]?", source.strip(), re.I,
+    )
     scope = re.sub(r"^(?:do|did) you mean\s+", "", " ".join((propose_scope or "").split()),
                    flags=re.I).strip(" .?!")
     mentions = [clause for turn in recent_turns[-2:] if isinstance(turn, str) and len(turn) <= 400
@@ -137,6 +164,19 @@ def resolve_request(source, topic, env, *, one_story=None, previous_subject=None
         if not query:
             return {"clarification": "What name should I search for?"}
         mode, freshness = "web", None
+    elif (continuation_query and not lookup_intent(source, model_selected=True)
+          and not (topic and mentions_subject(source, topic) and lookup_intent("Look up " + topic))
+          and references_public_result(source, continuation_selected)):
+        # Carry the authorized query. Only public evidence may supply extra
+        # model-selected terms. Never send a raw conversational instruction.
+        query = refine_public_query(continuation_query, topic, previous_evidence)
+        mode, freshness = "answers", None
+        if re.match(r"^(?:what|which|when|where|why|how|who)\b", source, re.I):
+            try:
+                query, mode, freshness = public_request(source, previous_subject=query)
+                query = query[:400]
+            except ValueError:
+                pass  # The receipt alone is safe to send.
     elif scope:
         if re.search(r"\b(?:don't|don’t|do not|never|without)\b", source, re.I):
             raise ValueError("The current request excludes a web search.")
@@ -229,7 +269,8 @@ if __name__ == "__main__":
         evidence = asyncio.run(lookup(
             data["source"], data.get("topic"), os.environ, resolve_only=data.get("op") == "resolve", one_story=data.get("one_story"),
             previous_subject=data.get("previous_subject"), previous_evidence=data.get("previous_evidence", ""),
-            recheck_query=data.get("recheck_query") or "",
+            recheck_query=data.get("recheck_query") or "", continuation_query=data.get("continuation_query") or "",
+            continuation_selected=data.get("continuation_selected") is True,
             propose_scope=data.get("propose_scope"), confirmed_scope=data.get("confirmed_scope"),
             scope_source=data.get("scope_source") or "", awaiting_name=data.get("awaiting_name") is True,
             pending_receipt=data.get("pending_receipt") is True,

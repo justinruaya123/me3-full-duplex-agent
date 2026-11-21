@@ -80,5 +80,26 @@ export function withSearchEvidence(message, store) {
   if (!entries.length) return {...message, content:[{type:"text",text:"The search evidence expired with its session."}]};
   return {...message, details:{...entries[0], ...message.details},
     content:[{type:"text",text:JSON.stringify({origin:message.details.origin, results:entries.map(e => ({
-      query:e.query, excerpts:e.brief, sources:e.sources, source_dates:e.source_dates, retrieved_at:e.retrieved_at, retrieved_local_date:e.retrieved_local_date}))})}]};
+      ref:e.id, query:e.query, excerpts:e.brief, sources:e.sources, source_dates:e.source_dates, retrieved_at:e.retrieved_at, retrieved_local_date:e.retrieved_local_date}))})}]};
+}
+
+// The current exchange and the two preceding exchanges on this Pi branch.
+export function recentSearchContext(messages, store) {
+  let start = 0, users = 0;
+  for (let j = messages.length - 1; j >= 0; j--) {
+    if (messages[j].role === "user" && ++users === 3) {start = j; break;}
+  }
+  const receipts = new Map();
+  let hydrated = messages;
+  for (let j = start; j < messages.length; j++) {
+    const m = messages[j];
+    if (m.role !== "toolResult" || m.isError || !m.details?.search_refs?.length) continue;
+    if (hydrated === messages) hydrated = messages.slice();
+    hydrated[j] = withSearchEvidence(m,store);
+    for (const id of m.details.search_refs) {
+      const entry = store.byId(id);
+      if (entry) receipts.set(id,entry);
+    }
+  }
+  return {messages:hydrated, receipts};
 }
