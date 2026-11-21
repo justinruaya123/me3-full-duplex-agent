@@ -4,10 +4,12 @@ import {EventEmitter} from "node:events";
 import {registerHooks, syncBuiltinESMExports} from "node:module";
 import {PassThrough} from "node:stream";
 import test from "node:test";
-// The Pi extension loader supplies pi-tui from its own dependency tree.
+// Pi supplies its extension dependencies from its own package tree.
 const piPackage = new URL("../integrations/voicechat/node_modules/@earendil-works/pi-coding-agent/package.json", import.meta.url);
 const aliases = registerHooks({resolve(name, context, next) {
-  return next(name, name === "@earendil-works/pi-tui" ? {...context, parentURL:piPackage.href} : context);
+  if (name === "@earendil-works/pi-tui" || name === "typebox")
+    return next(name, {...context, parentURL:piPackage.href});
+  return next(name, context);
 }});
 const {default:voicechat} = await import("../integrations/voicechat/pi.mjs");
 aliases.deregister();
