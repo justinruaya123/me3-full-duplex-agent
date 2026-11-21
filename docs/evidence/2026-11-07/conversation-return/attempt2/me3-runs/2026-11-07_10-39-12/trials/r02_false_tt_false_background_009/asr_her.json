@@ -1,0 +1,55 @@
+{
+  "text": "Sounds like a good plan. Rest well.",
+  "chunks": [
+    {
+      "text": "Sounds",
+      "timestamp": [
+        3.5,
+        4.04
+      ]
+    },
+    {
+      "text": "like",
+      "timestamp": [
+        4.04,
+        4.26
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        4.26,
+        4.38
+      ]
+    },
+    {
+      "text": "good",
+      "timestamp": [
+        4.38,
+        4.52
+      ]
+    },
+    {
+      "text": "plan.",
+      "timestamp": [
+        4.52,
+        4.92
+      ]
+    },
+    {
+      "text": "Rest",
+      "timestamp": [
+        5.8,
+        6.4
+      ]
+    },
+    {
+      "text": "well.",
+      "timestamp": [
+        6.4,
+        6.68
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

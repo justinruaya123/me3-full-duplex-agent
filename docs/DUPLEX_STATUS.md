@@ -1,5 +1,95 @@
 # Implementation and qualification status
 
+## November 21 · Current chat, Brave results and edits to ongoing work
+
+The Pi extension previously inserted three old chat excerpts beside a new
+message even when none matched. During an active conversation, the ordinary
+follow-up now uses the current branch. Explicit cross-chat recall and the
+private owner profile are available. Recent Brave excerpts can support a related
+follow-up without another confirmation. The old requirement to quote a full
+source sentence verbatim on a recheck was removed.
+
+A seven-turn typed Mac session used the project Pi, live OpenRouter, live Brave
+and a real local worker. It delegated a packing checklist, answered a question
+about Mars, expanded the answer and displayed five linked results for the
+requested mission page. A spoken-style edit to the checklist advanced the same
+job from revision 1 to 2. A separate arithmetic question returned 13 without
+tools. The status tool then read the completed revision containing the headlamp
+edit. No turn asked the operator to restate the subject. An independent public
+sports question triggered Brave without an explicit request for a search.
+Brave Answers returned an entitlement refusal on the configured account. Brave
+Web supplied five sources and Pi produced the summary.
+
+The original three input WAVs passed all five digital routing checks again.
+On this Mac replay, local VAD end to the first task-specific speaker callback
+was 4.260 s for the accepted checklist, 2.207 s for “12” and 2.814 s for the
+status of the same completed job. The worker saved a three-step checklist under
+60 words. These are individual digital measurements. Target-device and physical
+microphone timing remain open.
+
+Chromium exercised an actual result anchor in the companion panel and both
+display themes. The 13 original frames passed their pinned hashes. Without
+the optional pack, captions and status still work. The active catalog contains
+12 BMO speech clips, including the single listening cue “I'm listening.”
+
+Installed Mac verification passed all 494 Python tests, including the 464
+versioned tests, and all 101 JavaScript tests. Both suites had zero skips.
+The five duplex simulation checks and Python compilation passed.
+
+## November 21 · Three-turn spoken routing on the Mac
+
+The same three input WAVs that previously scored 0/4 were replayed byte for
+byte through the class digital transport, live Deepgram, the project Pi
+foreground on OpenRouter, a real local Pi worker and local BMO Piper.
+The local controller committed each request once. The worker saved a three-step
+checklist under sixty words. The arithmetic reply was “12” with zero tool
+calls. The status tool returned the original job ID at revision one, completed.
+All five checks passed, including a reply playback receipt for each turn and
+the saved draft. This is a digital transport run on a Mac.
+
+| Turn | Time from local VAD end to the first task-specific speaker callback |
+| --- | --- |
+| Draft accepted, “On it.” | 3.427 s |
+| Arithmetic answer | 2.430 s |
+| Completed checklist status | 4.096 s |
+
+The earlier acoustic classifier could hold a finished request until timeout.
+Forcing Deepgram to finalize at the first quiet frame could also lose a
+sentence-ending marker. An intermediate repair submitted a second job from a
+trailing qualifier. The controller now preserves short sentence gaps, considers
+settled words and provider endpoint timing, and checks the final before dispatch.
+The installed Mac suite passed 489 Python tests and 98 JavaScript tests with
+zero skips. The versioned Python subset passed 459 tests. The duplex control
+simulation and compile checks passed. Physical microphone timing and Raspberry
+Pi performance require separate measurements.
+
+## Consolidated side-chat integration
+
+A live three-prompt typed Pi smoke test submitted one draft, answered the
+unrelated arithmetic turn without tools and retrieved the same job.
+Two digital runs disconnected during playback. The upstream rig suppressed
+a missing SciPy import during 24-to-16 kHz resampling. With the benchmark
+dependency installed, all three recordings completed. The floor controller
+discarded two unfinished turns, the remaining status query found no delegated
+job, and the run passed zero of four spoken-routing checks. The control simulation
+preserved a running job across speech interruption. Physical microphone timing
+and Raspberry Pi qualification remain open.
+
+
+## November 21 · Project-local Pi portfolio research and export
+
+A typed Mac Pi replay of “make me a portfolio website and look up my work” invoked the separate research worker. Its only tool was the pinned pi-web-search Brave search. The first personal query included several work-related keywords and returned no usable evidence. A fresh run using the approved public name returned three sourced candidates. The operator selected two. The local website job created a ZIP containing those two facts, their links, the stylesheet and a GitHub Pages marker. The archive passed CRC and file-hash checks. Isolated Chromium loaded the export under a repository subpath at 1280 × 800 and 390 × 844 with external requests blocked. Both sizes showed the selected facts without horizontal overflow or page errors. The run exercised live OpenRouter and Brave, the Pi extension, fact selection, the supervisor and static export. Microphone capture and GitHub deployment were outside this replay.
+
+The installed Mac Python suite passed 314 tests, including 284 versioned tests. All 71 JavaScript tests passed. Both suites had zero skips. The duplex control demo and Python compile check also passed.
+
+## November 21 · Fresh verification after a spoken correction
+
+The Sri Lanka microphone trace recorded six lookup tool attempts and zero Brave responses. The foreground inserted a year the speaker had not supplied. The local resolver repeatedly asked the speaker to confirm that guess. On the next turn BMO answered from memory.
+
+In a fresh, isolated Mac Pi session, replaying the two committed transcripts as text produced two live Brave Web receipts, five sources each. Neither turn explicitly asked for search. The second query used the public question from the first receipt and requested recent developments. The final reply was “I checked again, but I couldn’t confirm that from the sources I found.” An intermediate build had claimed that no newer event occurred. The final version accepts a complete source sentence for that kind of recheck or reports the uncertainty. This test covered the Pi foreground, OpenRouter and Brave Web. Microphone capture, physical playback and Brave Answers were outside this replay.
+
+Installed Mac verification passed 313 Python tests including 283 versioned tests, plus 65 JavaScript tests, with zero skips. The duplex control simulation and Python compile check passed.
+
 ## November 15: lightweight owner-scoped text memory
 
 Added opt-in runtime memory, separate from the coding assistant's Pi memory.

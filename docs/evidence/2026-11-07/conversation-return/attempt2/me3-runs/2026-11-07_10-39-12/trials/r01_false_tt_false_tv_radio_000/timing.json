@@ -1,0 +1,62 @@
+{
+  "trial": "r01_false_tt_false_tv_radio_000",
+  "group": "false_tt",
+  "clip": "false_tv_radio_000",
+  "variant": "main",
+  "expected": "stay silent",
+  "duration": 14.432,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 3.6586875
+    }
+  ],
+  "live_bot_starts": [
+    8.608
+  ],
+  "live_bot_ends": [
+    14.08
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "kind": "tv_radio",
+    "kind_label": "TV / radio",
+    "level_db": -15,
+    "text": "Actually, can you tell me which apps are good for language learning?",
+    "source": "v1_interrupt_140"
+  },
+  "mono": [
+    28109.753298583,
+    28124.175848541
+  ],
+  "bot_segments": [
+    [
+      8.578,
+      14.11
+    ]
+  ],
+  "play_first": [
+    0.0,
+    3.6586875
+  ],
+  "tor": 1,
+  "first_start": 8.578,
+  "spoke_s": 3.0806875,
+  "actual": "spoke 3.1 s after +4.9 s",
+  "verdict": "✗ took turn",
+  "ok": false,
+  "marks": 16,
+  "final": {
+    "tor": 1,
+    "words": 9,
+    "verdict": "✗ took turn",
+    "ok": false,
+    "transcript": "That really depends on your specific goals, but Duolingo is great for building daily habits."
+  },
+  "scored_at": "2026-11-07T11:02:05+08:00"
+}

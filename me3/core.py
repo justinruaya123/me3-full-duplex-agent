@@ -13,6 +13,10 @@ from pathlib import Path
 from typing import Awaitable, Callable, Protocol
 
 
+class VerifiedResult(str):
+    """A result accepted by the host artifact verifier."""
+
+
 class Backend(Protocol):
     async def run(
         self, prompt: str, workspace: Path, *, foreground: bool = False
@@ -59,6 +63,9 @@ class Supervisor:
                 notified INTEGER NOT NULL DEFAULT 0, created REAL NOT NULL
             )
         """)
+        self.db.execute("""CREATE TABLE IF NOT EXISTS job_progress (
+            job_id TEXT, revision INTEGER, event TEXT,
+            PRIMARY KEY(job_id, revision, event))""")
         self.db.execute(
             "UPDATE jobs SET status='interrupted' "
             "WHERE status IN ('queued', 'running', 'cancelling')"
@@ -96,7 +103,7 @@ class Supervisor:
             "SELECT * FROM jobs ORDER BY created",
         )]
 
-    def submit(self, prompt: str) -> dict:
+    def submit(self, prompt: str, *, bind=None) -> dict:
         prompt = checked_prompt(prompt)
         if self.closed:
             raise RuntimeError("Supervisor is closed.")
@@ -116,6 +123,8 @@ class Supervisor:
                 ),
                 (job_id, prompt, time.time()),
             )
+            if bind is not None:
+                bind(job_id)
         self._launch(job_id)
         self.trace("job_submitted", job_id=job_id, revision=1)
         return self.get(job_id)
@@ -167,31 +176,42 @@ class Supervisor:
                 )
                 workspace.mkdir(parents=True, exist_ok=True)
                 self.trace("job_started", job_id=job_id, revision=revision)
-                result = await asyncio.wait_for(
-                    self.backend.run(job["prompt"], workspace), self.timeout
-                )
-                if not self._is_current(job):
-                    self.trace(
-                        "stale_result_discarded",
-                        job_id=job_id,
-                        revision=revision,
-                    )
-                    return
-                if not isinstance(result, str) or not result.strip():
-                    raise ValueError(
-                        "Backend returned an empty or invalid result.",
-                    )
-                if self.prepare_result is not None:
-                    result = await self.prepare_result(
-                        result, workspace, lambda: self._is_current(job),
-                    )
+                async with asyncio.timeout(self.timeout) as deadline:
+                    result = await self.backend.run(job["prompt"], workspace)
+                    if asyncio.get_running_loop().time() >= deadline.when():
+                        raise TimeoutError("Worker exceeded job timeout")
                     if not self._is_current(job):
+                        self.trace(
+                            "stale_result_discarded", job_id=job_id,
+                            revision=revision,
+                        )
                         return
+                    if not isinstance(result, str) or not result.strip():
+                        raise ValueError("Backend returned an empty or invalid result.")
+                    if self.prepare_result is not None:
+                        try:
+                            result = await self.prepare_result(
+                                result, workspace, lambda: self._is_current(job)
+                            )
+                        except Exception:
+                            if self._is_current(job):
+                                self._progress(job, "verification failed")
+                            raise
+                        if not self._is_current(job):
+                            return
+                        if asyncio.get_running_loop().time() >= deadline.when():
+                            raise TimeoutError("Artifact verification exceeded job timeout")
+                        if isinstance(result, VerifiedResult):
+                            self._progress(job, "checks passed")
                 target = workspace / "result.md"
                 temporary = workspace / "result.tmp"
                 temporary.write_text(result, encoding="utf-8")
                 os.replace(temporary, target)
                 with self.db:
+                    self.db.execute(
+                        "INSERT INTO job_progress VALUES (?,?,?)",
+                        (job_id, revision, "artifact saved"),
+                    )
                     self.db.execute(
                         (
                             "UPDATE jobs SET status='completed',artif"
@@ -217,6 +237,31 @@ class Supervisor:
                     error_type=type(exc).__name__,
                 )
 
+    def _progress(self, job: dict, event: str) -> None:
+        with self.db:
+            self.db.execute(
+                "INSERT OR IGNORE INTO job_progress VALUES (?,?,?)",
+                (job["id"], job["revision"], event),
+            )
+
+    def invalidate_context(self, job_id: str, expected_revision: int) -> dict:
+        """Fence a dependent artifact and stop obsolete work without replay."""
+        with self.db:
+            changed = self.db.execute(
+                "UPDATE jobs SET revision=revision+1, status='interrupted',"
+                "artifact=NULL, notified=0, error='Saved context changed' "
+                "WHERE id=? AND revision=?",
+                (job_id, expected_revision),
+            )
+            if changed.rowcount != 1:
+                raise ValueError("Stale job revision")
+        task = self._tasks.get(job_id)
+        if task:
+            task.cancel()
+        self.trace("job_context_invalidated", job_id=job_id,
+                   revision=expected_revision + 1)
+        return self.get(job_id)
+
     def cancel(self, job_id: str) -> dict:
         job = self.get(job_id)
         if job["status"] in {"queued", "running"}:
@@ -234,14 +279,14 @@ class Supervisor:
     def update(self, job_id: str, prompt: str) -> dict:
         prompt = checked_prompt(prompt)
         job = self.get(job_id)
-        if job["status"] not in {"queued", "running", "completed"}:
+        if job["status"] not in {"queued", "running", "completed", "interrupted", "failed"}:
             raise ValueError(
                 (
-                    "Only queued/running/completed jobs can be revised; "
+                    "Only active, completed, failed or interrupted jobs can be revised; "
                     "submit a new job otherwise."
                 ),
             )
-        if job["status"] == "completed":
+        if job["status"] not in {"queued", "running"}:
             pending = sum(
                 item["status"] in {"queued", "running", "cancelling"}
                 for item in self.list()

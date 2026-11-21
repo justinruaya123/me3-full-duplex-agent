@@ -1,0 +1,10 @@
+{"stage": "vad_start", "t": 28774.895386958, "pid": 37806, "src": "ws", "recv": 28774.89723525, "lt": 28774.895529, "tt": 0.3871}
+{"stage": "vad_start", "t": 28774.895422875, "pid": 37806, "src": "ws", "recv": 28774.897294958, "lt": 28774.895564917002, "tt": 0.3871}
+{"stage": "asr_partial", "t": 28776.452533375, "pid": 37806, "text": "What's the latest?", "src": "ws", "recv": 28776.452910708, "lt": 28776.452675417, "tt": 1.9443}
+{"stage": "vad_end", "t": 28776.974066958, "pid": 37806, "src": "ws", "recv": 28776.975936916, "lt": 28776.974209, "tt": 2.4658}
+{"stage": "vad_end", "t": 28776.974102833, "pid": 37806, "src": "ws", "recv": 28776.976058583, "lt": 28776.974244875, "tt": 2.4658}
+{"stage": "asr_partial", "t": 28777.47859225, "pid": 37806, "text": "What's the latest in smart home devices?", "src": "ws", "recv": 28777.478792458, "lt": 28777.478734292003, "tt": 2.9703}
+{"stage": "asr_final", "t": 28778.496505583, "pid": 37806, "text": "What's the latest in smart home devices?", "src": "ws", "recv": 28778.514151958, "lt": 28778.496647625, "tt": 3.9882}
+{"stage": "interrupted", "t": 28778.497865833, "pid": 37806, "src": "ws", "recv": 28778.514395416, "lt": 28778.498007875, "tt": 3.9896}
+{"stage": "interrupted", "t": 28778.497889833, "pid": 37806, "src": "ws", "recv": 28778.5144045, "lt": 28778.498031875002, "tt": 3.9896}
+{"stage": "llm_request", "t": 28778.513710583, "pid": 37806, "chars": 173, "messages": 1, "est_tokens": 43, "src": "ws", "recv": 28778.514442375, "lt": 28778.513852625, "tt": 4.0054}

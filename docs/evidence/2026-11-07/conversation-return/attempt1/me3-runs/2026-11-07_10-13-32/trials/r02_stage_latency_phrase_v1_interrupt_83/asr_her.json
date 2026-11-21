@@ -1,0 +1,90 @@
+{
+  "text": "That's a big decision. What is drawing you toward a new path?",
+  "chunks": [
+    {
+      "text": "That's",
+      "timestamp": [
+        4.34,
+        4.98
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        4.98,
+        5.06
+      ]
+    },
+    {
+      "text": "big",
+      "timestamp": [
+        5.06,
+        5.26
+      ]
+    },
+    {
+      "text": "decision.",
+      "timestamp": [
+        5.26,
+        5.76
+      ]
+    },
+    {
+      "text": "What",
+      "timestamp": [
+        6.76,
+        7.14
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        7.14,
+        7.26
+      ]
+    },
+    {
+      "text": "drawing",
+      "timestamp": [
+        7.26,
+        7.56
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        7.56,
+        7.72
+      ]
+    },
+    {
+      "text": "toward",
+      "timestamp": [
+        7.72,
+        7.94
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        7.94,
+        8.1
+      ]
+    },
+    {
+      "text": "new",
+      "timestamp": [
+        8.1,
+        8.22
+      ]
+    },
+    {
+      "text": "path?",
+      "timestamp": [
+        8.22,
+        8.52
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

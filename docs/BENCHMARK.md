@@ -1,5 +1,71 @@
 # Benchmark methods and results
 
+## Conversation-return candidate: two complete canonical attempts
+
+Frozen source **`ed6efa0dd9edaa6dceebf342392b54604bb43cbc`** on
+`hermes/conversation-return-v1` adds durable result preferences, conservative
+hesitation holds and neutral listening cues. Two complete runs used the same
+unchanged canonical ME3 commit `57eaddbc188ce9a19b8fd002b575f703426956f4`, complete
+official dataset, seed 231, ten phrases x three runs and three duplex rounds.
+Fresh runtime hooks reset every recording, including clean twins. Both declared
+the global course ownership bypass and used the original CPU-int8 small scorer
+without judge or UTMOS. All 430 dataset references and nine scorer hashes match
+the prior pin; runtime source hashes stayed identical before/after both runs.
+
+Each completed **60/60 queue items and 72 recordings**, with zero transport or
+scoring errors. These completion counts are not successful-response counts.
+The original scorer's per-run means/p95s follow; no custom scorer or pooled
+acceptance statistic is substituted.
+
+| Metric, mean / p95 seconds | Prior baseline `06-10-46` | Attempt 1 `10-13-32` | Attempt 2 `10-39-12` | ME3 target |
+| --- | --- | --- | --- | --- |
+| E2E software output mark | 2.552 / 3.711 (n=29) | 2.725 / 4.241 (n=29) | 3.433 / 6.702 (n=19) | 4 |
+| ASR final | 1.470 / 2.036 (n=30) | 1.507 / 1.965 (n=30) | 1.476 / 1.924 (n=30) | 0.8 |
+| LLM first text | 0.402 / 0.745 (n=29) | 0.601 / 1.797 (n=29) | 1.296 / 5.435 (n=19) | 1.5 |
+| TTS first PCM | 0.424 / 0.696 (n=29) | 0.402 / 0.744 (n=29) | 0.405 / 0.783 (n=19) | 0.6 |
+| Interruption stop | 0.337 / 0.406 (n=3) | 0.252 / 0.252 (n=3) | 0.228 / 0.338 (n=4) | 0.8 |
+| WER, percent | 1.449 (n=30) | 1.449 (n=30) | 1.449 (n=30) | 15 |
+| Recorded phrase replies | 29/30 | 28/30 | 19/30 | Report all misses |
+
+The new attempts **fail benchmark non-regression**. Both exceed E2E/LLM p95
+targets, while ASR/TTS still exceed their existing gates. The second run is
+retained, not replaced with only the better first attempt. The models and
+foreground prompt/inference implementation were unchanged; these observations
+do not establish a causal effect of the new policy on provider latency.
+
+In attempt 1, the tennis phrase's first text arrived after a 6.721s stage wait;
+its output mark was only about 97ms before recording ended, with no detected
+recorded speech. Its 8.023s software E2E remains in the table's sample. The
+other missing phrase had no first token before close. All eleven missing
+phrase replies in attempt 2 likewise reached committed ASR and a foreground
+request without a first token before close. Neither a hesitation veto nor a
+listening cue explains those phrase failures. The request-to-first-text stage
+includes client/network/server time; its precise root cause remains unqualified.
+
+Digital heard-onset mean/p95 was **3.050/4.201s (n=28)** and **3.960/7.230s
+(n=19)**, separate from software output marks and from physical acoustics.
+No pre-answer cue/output credit was found in either attempt's stage traces;
+the new listening-cue path was not exercised by these benchmark recordings.
+Its separate Pipecat fixture and actual Kokoro HTTP checks are not benchmark
+or natural-placement acceptance evidence.
+
+Pause TOR remained 0/3 in both pause strata, and turn-taking TOR 1/3, in each
+attempt. False-turn rates were 2/6 and 4/6 under the original threshold.
+V1 interruption TOR was 1/2 played cases in attempt 1 (three scheduled) and
+1/3 in attempt 2. Backchannel cases returned in 2/3 each; the same second-round
+case did not return. No judge means response relevance/Resume labels remain
+unknown. Stop timing had only 3 and 4 valid observations out of six scheduled
+cases per run; missing/unplayed overlaps are not zero-latency successes.
+
+See [all original reports, failures, pins and traces](evidence/2026-11-07/conversation-return/README.md).
+Reproduce with the [existing fresh-session recipe](RASPBERRY_PI_TESTING.md#use-only-the-canonical-me3-benchmark),
+using `--rounds 3 --phrases 10 --runs 3 --seed 231` for this comparison. Main
+keeps the preceding baseline; the candidate remains available for explicit
+feature/target testing. **Next gate:** diagnose and resolve repeatable
+request-to-first-text delay and missing replies, then pass the same full ME3
+run. Independent ownership, physical acoustics/AEC, long turns, soak and actual
+RPi qualification remain separate and unpassed.
+
 ## Final canonical ME3 run: November 7
 
 Run `2026-11-07_06-10-46` measured the published source `6bbbfd5`, using only

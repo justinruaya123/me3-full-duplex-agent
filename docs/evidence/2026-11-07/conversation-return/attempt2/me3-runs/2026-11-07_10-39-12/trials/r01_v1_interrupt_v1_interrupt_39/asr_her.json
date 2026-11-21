@@ -1,0 +1,83 @@
+{
+  "text": "There's no one size fits all answer. Sure, let's switch gears.",
+  "chunks": [
+    {
+      "text": "There's",
+      "timestamp": [
+        4.46,
+        5.04
+      ]
+    },
+    {
+      "text": "no",
+      "timestamp": [
+        5.04,
+        5.2
+      ]
+    },
+    {
+      "text": "one",
+      "timestamp": [
+        5.2,
+        5.42
+      ]
+    },
+    {
+      "text": "size",
+      "timestamp": [
+        5.42,
+        5.68
+      ]
+    },
+    {
+      "text": "fits",
+      "timestamp": [
+        5.68,
+        5.9
+      ]
+    },
+    {
+      "text": "all",
+      "timestamp": [
+        5.9,
+        6.16
+      ]
+    },
+    {
+      "text": "answer.",
+      "timestamp": [
+        6.16,
+        6.5
+      ]
+    },
+    {
+      "text": "Sure,",
+      "timestamp": [
+        11.58,
+        11.96
+      ]
+    },
+    {
+      "text": "let's",
+      "timestamp": [
+        12.04,
+        12.26
+      ]
+    },
+    {
+      "text": "switch",
+      "timestamp": [
+        12.26,
+        12.4
+      ]
+    },
+    {
+      "text": "gears.",
+      "timestamp": [
+        12.4,
+        12.74
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

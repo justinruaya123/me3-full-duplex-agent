@@ -1,0 +1,69 @@
+{
+  "text": "I see, so your family is actually scattered globally.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        18.74,
+        19.16
+      ]
+    },
+    {
+      "text": "see,",
+      "timestamp": [
+        19.16,
+        19.4
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        19.66,
+        19.84
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        19.84,
+        19.98
+      ]
+    },
+    {
+      "text": "family",
+      "timestamp": [
+        19.98,
+        20.36
+      ]
+    },
+    {
+      "text": "is",
+      "timestamp": [
+        20.36,
+        20.66
+      ]
+    },
+    {
+      "text": "actually",
+      "timestamp": [
+        20.66,
+        21.08
+      ]
+    },
+    {
+      "text": "scattered",
+      "timestamp": [
+        21.08,
+        21.54
+      ]
+    },
+    {
+      "text": "globally.",
+      "timestamp": [
+        21.54,
+        21.94
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,83 @@
+{
+  "text": "Here's the quick gist. Sleep isn't just rest. It's active maintenance.",
+  "chunks": [
+    {
+      "text": "Here's",
+      "timestamp": [
+        4.98,
+        5.58
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        5.58,
+        5.7
+      ]
+    },
+    {
+      "text": "quick",
+      "timestamp": [
+        5.7,
+        5.88
+      ]
+    },
+    {
+      "text": "gist.",
+      "timestamp": [
+        5.88,
+        6.3
+      ]
+    },
+    {
+      "text": "Sleep",
+      "timestamp": [
+        6.66,
+        6.78
+      ]
+    },
+    {
+      "text": "isn't",
+      "timestamp": [
+        6.78,
+        7.18
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        7.18,
+        7.28
+      ]
+    },
+    {
+      "text": "rest.",
+      "timestamp": [
+        7.28,
+        7.72
+      ]
+    },
+    {
+      "text": "It's",
+      "timestamp": [
+        8.6,
+        9.02
+      ]
+    },
+    {
+      "text": "active",
+      "timestamp": [
+        9.02,
+        9.32
+      ]
+    },
+    {
+      "text": "maintenance.",
+      "timestamp": [
+        9.32,
+        9.78
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

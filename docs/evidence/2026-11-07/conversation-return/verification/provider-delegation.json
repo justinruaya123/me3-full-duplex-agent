@@ -1,0 +1,188 @@
+{
+  "kind": "actual configured Pi worker and Qwen foreground, trusted local text control, static host build and loopback HTTP preview",
+  "scope": "no microphone, audio, acoustic, browser, responsive visual, physical ownership or Raspberry Pi qualification",
+  "agent_commit": "4b363dffa3808f2b8dcdcc158e1b0ee4b3f0189f",
+  "runtime_source_sha256": {
+    "me3/whisper_inference.py": "ce92f0793c70ccab888233b2dd8d4bdd2ae9962521fa1720191bebb9cd861e8a",
+    "me3/ownership.py": "f34b7f1e90d899ddf9b41415d0adc9320346ceed98f748f92fe8341060a9ee9f",
+    "me3/preview.py": "beb3daf8c0657d398901392fa9cfc43b5286447b858a27fb125e3cab9e6249f4",
+    "me3/configuration.py": "e5df18353eb868d4edd991cadf56584a3cbd9c88d5e7b3affd325e107587f927",
+    "me3/onit_runner.py": "b4a33f1e6941f3eb86d382f0fc8aec040010c4194b37c309192e4f4abc38e5e1",
+    "me3/benchmark.py": "21fa592322002b796a069a70b06eae4e721eb81bfe728484fd8d4e4e2cf58d6f",
+    "me3/harnesses.py": "0aa44c522710dfcf60a178def10137f893204104a964be34fcde54e8fc66566a",
+    "me3/speech_check.py": "f8c266081cb0520bcab6aa26cf4d590129417e90a0a8ad27e0865180d21ea1eb",
+    "me3/duplex_demo.py": "ce58f8d7166fdadd4a54a10bd8e408e9c551a80338ff380cb9cdee36fc06c8bc",
+    "me3/conversation.py": "babf173a594e12d15ea57cfec3d4f74fc215dbb139863e5ad380f4a3d17585a4",
+    "me3/audio_pipeline.py": "55df5adb8ebf0d5857d2a3909a649ee19bd0720dfe0e75bc9c4fda32f91014ea",
+    "me3/hesitation.py": "ff205b3c020ea6be87c5b238303520029fb2dfed880413b5ef1a295b2e2cf522",
+    "me3/hermes_runner.py": "f58e86016dcbb6f0aacee4ea6b459cf8485442be1859e6b0491b3d0d86d4b564",
+    "me3/__init__.py": "9d7e49aaac1bdedc318b59a910b01d139bf298ece01e2c8a931b9f255bfb3d81",
+    "me3/core.py": "66a1b60dd66a65d61817c53dd1aa6f50debeed277b2933371d6f87d5ab913f42",
+    "me3/foreground.py": "8e2ad9436c16e9e18f20d02c1a35fbdfedf57410e4f82829b97b17a12dd11e4a",
+    "me3/runtime.py": "1eb99860a67beae07032f387a108174246b31bad24c199bc468d1a94d5062bab",
+    "me3/duplex_voice.py": "f628641d4e25140bab6d70186e40613dfc00faf1f576d76b00ef6f291b3c6dfc",
+    "me3/voice.py": "8f6a976e0527ddcdd465cb9e799fad0a526664f53d6fadee2e27e26188ecd655",
+    "me3/jobs.py": "37a89cdd1380a58c030b45c9f403d4807db406676c62dbb83a98003a6bbbb21c",
+    "me3/backends.py": "a7d421c6ae2b1118c96a6582282f1bc43b67e9d95d9745c5b412634243ed8c6a",
+    "me3/capture.py": "3c0b9d650ac013f2387544a0ebd4888b8f52bd9428bcd50c119e37a2e213b808",
+    "me3/cli.py": "cea2c86c4be76619d7eb140b529e3e5e1e62790ec2f0fa1f8c30f7e3e30f5c61",
+    "me3/duplex.py": "cb7b5016046d3e4a4b5021a559957f5c2591d79d93e990ed5e892a71c724667f",
+    "me3/speech_server.py": "45c7488a10eee6a30162ce3c6fc4a1c3e155b7288a07b56c495932b13b34bac8",
+    "me3/pi_worker.py": "0d8b4f873c71f5959218fdbb2921b93087a2205eb536f435260565bc3dc42c5b",
+    "me3/website.py": "73f6be75f9a39db67ccd1c4c47f7cc8df240561679e9eb5e2a025688fe7e4d6e",
+    "me3/speech.py": "85cad3e637922f54ed25054cc6d62b169f5e0a0456e24c2cfed85b9df6b06fd1",
+    "me3/echo.py": "2d62207d2a7a60519635109d763f81d128b2612ed82d4627be8303a8bc57213d",
+    "me3/doctor.py": "175fa5ea9a6467a7386c331cfa980cf84c9d2288af4b616863390e6b4443075d",
+    "me3/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+    "me3/mcp_server.py": "e051c00ac7ed478739f58ca13ec4cd6759a4fdc6631de0b4dbe5a00b5f7ac140",
+    "me3/incremental.py": "94fad7f60a35bb747354f14d447292af2daf59cd872e2c00b5e9a4389a5503f3"
+  },
+  "worker_provider": "openai-codex",
+  "worker_model": "gpt-6.1-sol",
+  "foreground_model": "Qwen/Qwen3.8-27B",
+  "deadline_seconds": 180,
+  "checks": {
+    "actual_pi_backend": true,
+    "website_delegated": true,
+    "one_website_job": true,
+    "ask_first_policy": true,
+    "policy_suffix_not_worker_prompt": true,
+    "job_running_before_conversation": true,
+    "foreground_turn_accepted": true,
+    "foreground_real_answer_42": true,
+    "job_still_running_before_session_end": true,
+    "ending_session_preserved_running_job": true,
+    "real_job_completed": true,
+    "revision_current": true,
+    "same_owner_reconnect_no_unsolicited_poll": true,
+    "reconnect_no_unsolicited_output": true,
+    "reconnect_no_focus_switch": true,
+    "unretrieved_result_not_acknowledged": true,
+    "natural_result_request": true,
+    "real_verified_result_retrieved": true,
+    "explicit_result_acknowledged": true,
+    "retrieval_preserved_focus": true,
+    "trusted_build_passed": true,
+    "saved_files_match_build_receipt": true,
+    "website_contains_requested_cafe": true,
+    "other_owner_list_empty": true,
+    "other_owner_cannot_retrieve_result": true,
+    "other_owner_command_denied": true,
+    "other_owner_output_has_no_result": true,
+    "other_owner_cannot_preview": true,
+    "preview_only_after_request": true,
+    "explicit_preview_request": true,
+    "preview_http_200": true,
+    "preview_body_matches_verified_index": true,
+    "preview_closed_on_session_end": true
+  },
+  "events": [
+    {
+      "event": "text_output_cancelled",
+      "seconds": 0.017639292000239948
+    },
+    {
+      "event": "trusted_text_delivery",
+      "seconds": 0.021407625001302222,
+      "text": "I have queued the website. Job c19f827127d64708869184b23a50ac05. We can keep talking. I will wait until you ask for the result."
+    },
+    {
+      "event": "job_running",
+      "seconds": 0.02943175000109477
+    },
+    {
+      "event": "text_output_cancelled",
+      "seconds": 0.029584791998786386
+    },
+    {
+      "event": "trusted_text_delivery",
+      "seconds": 1.2536174999986542,
+      "text": "42"
+    },
+    {
+      "event": "foreground_returned_while_job_status",
+      "seconds": 1.2551804579998134,
+      "status": "running"
+    },
+    {
+      "event": "text_output_cancelled",
+      "seconds": 1.2552182079998602
+    },
+    {
+      "event": "session_ended_while_job_running",
+      "seconds": 1.2556527499982622,
+      "status": "running"
+    },
+    {
+      "event": "job_settled",
+      "seconds": 45.955875042000116,
+      "status": "completed",
+      "revision": 1
+    },
+    {
+      "event": "text_output_cancelled",
+      "seconds": 45.956170417000976
+    },
+    {
+      "event": "trusted_text_delivery",
+      "seconds": 45.95655520799846,
+      "text": "# Verified static website\n\nFiles and JavaScript syntax checks passed. A responsive viewport is present; browser/acoustic tests are separate. Local preview requires an explicit launch request.\n\n- index.html"
+    },
+    {
+      "event": "text_output_cancelled",
+      "seconds": 45.96820637500059
+    },
+    {
+      "event": "text_output_cancelled",
+      "seconds": 45.97948395799904
+    },
+    {
+      "event": "trusted_text_delivery",
+      "seconds": 45.98265979200005,
+      "text": "The verified local preview is running at http://127.0.0.1:56399/"
+    },
+    {
+      "event": "text_output_cancelled",
+      "seconds": 45.994510207998246
+    },
+    {
+      "event": "smoke_completed",
+      "seconds": 45.99461733299904
+    },
+    {
+      "event": "text_output_cancelled",
+      "seconds": 45.99462466700061
+    }
+  ],
+  "passed": true,
+  "job_id": "c19f827127d64708869184b23a50ac05",
+  "revision": 1,
+  "foreground_seconds": 1.2253791250004724,
+  "foreground_answer": "42",
+  "job_final_status": "completed",
+  "job_error_type": null,
+  "build_verification": {
+    "passed": true,
+    "kind": "trusted-static-build",
+    "checks": [
+      "viewport",
+      "scoped paths",
+      "node --check"
+    ],
+    "responsive_browser_test": "not run",
+    "sha256": {
+      "index.html": "a34d979e825b10b870d6464342123cf92694386d55494a3461e1d6724abe9eef"
+    }
+  },
+  "preview_url": "http://127.0.0.1:56399/",
+  "preview_http_status": "HTTP/1.1 200 OK",
+  "preview_body_sha256": "a34d979e825b10b870d6464342123cf92694386d55494a3461e1d6724abe9eef",
+  "worker_pid_before_cleanup": 35087,
+  "cleanup": {
+    "runtime_closed": true,
+    "worker_process_cleared": true,
+    "worker_returncode": 143,
+    "previews_empty": true
+  },
+  "elapsed_seconds": 46.00348895799834
+}

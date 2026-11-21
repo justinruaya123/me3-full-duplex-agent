@@ -1,0 +1,34 @@
+{
+  "text": "It's a fair point.",
+  "chunks": [
+    {
+      "text": "It's",
+      "timestamp": [
+        10.86,
+        11.3
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        11.3,
+        11.36
+      ]
+    },
+    {
+      "text": "fair",
+      "timestamp": [
+        11.36,
+        11.58
+      ]
+    },
+    {
+      "text": "point.",
+      "timestamp": [
+        11.58,
+        11.86
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -184,6 +184,12 @@ def create_app(config: SpeechServerConfig, models):
 
     @web.middleware
     async def authenticate(request, handler):
+        if request.method in {"GET", "HEAD"}:
+            if request.path in {"/", "/v1", "/v1/"}:
+                return web.Response(text="ME3 speech server is online.\n")
+            if (request.path == "/v1/models" and "Authorization" not in request.headers
+                    and "text/html" in request.headers.get("Accept", "")):
+                raise web.HTTPFound("/")
         supplied = request.headers.get("Authorization", "")
         if not hmac.compare_digest(supplied, "Bearer " + config.token):
             raise web.HTTPUnauthorized()
@@ -277,7 +283,7 @@ def create_app(config: SpeechServerConfig, models):
 
     async def lifetime(app):
         try:
-            if hasattr(models, "warmup"):
+            if hasattr(models, "warmup") and os.environ.get("ME3_SPEECH_PREWARM", "1") != "0":
                 async with asyncio.timeout(90):
                     await models.warmup()
             yield
@@ -293,7 +299,7 @@ def main():
     from aiohttp import web
 
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--host", action="append", help="Listen address; repeat for multiple interfaces")
     parser.add_argument("--port", type=int, default=8002)
     parser.add_argument(
         "--check", action="store_true",
@@ -310,6 +316,7 @@ def main():
         "--serve-worker", action="store_true", help=argparse.SUPPRESS
     )
     args = parser.parse_args()
+    hosts = args.host or ["127.0.0.1"]
     if args.output and not (args.check or args.check_worker):
         parser.error("--output requires --check")
     try:
@@ -345,8 +352,10 @@ def main():
 
         command = [
             sys.executable, "-m", "me3.speech_server", "--serve-worker",
-            "--host", args.host, "--port", str(args.port),
+            "--port", str(args.port),
         ]
+        for host in hosts:
+            command.extend(("--host", host))
         raise SystemExit(run_guarded_service(command))
     ready_fd = int(os.environ.pop("ME3_SPEECH_READY_FD"))
 
@@ -360,7 +369,7 @@ def main():
 
     web.run_app(
         create_app(config, MLXSpeechModels(config)),
-        host=args.host,
+        host=hosts,
         port=args.port,
         access_log=None,
         print=announce,

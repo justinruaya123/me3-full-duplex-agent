@@ -1,0 +1,48 @@
+{
+  "text": "I can't set real -world alarms.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        5.81,
+        6.25
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        6.25,
+        6.57
+      ]
+    },
+    {
+      "text": "set",
+      "timestamp": [
+        6.57,
+        6.69
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        6.69,
+        6.97
+      ]
+    },
+    {
+      "text": "-world",
+      "timestamp": [
+        6.97,
+        7.23
+      ]
+    },
+    {
+      "text": "alarms.",
+      "timestamp": [
+        7.23,
+        7.65
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

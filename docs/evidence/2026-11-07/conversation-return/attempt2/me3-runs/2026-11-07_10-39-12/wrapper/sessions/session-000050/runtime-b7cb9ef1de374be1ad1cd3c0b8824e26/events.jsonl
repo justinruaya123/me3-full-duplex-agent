@@ -1,0 +1,16 @@
+{"event": "supervisor_started", "mono_ns": 28459265452708}
+{"event": "voice_profile", "mono_ns": 28459368030458, "profile": "course", "session_id": "5295ed96ceb84fb6bfd710216c8e9b14", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 28465711956708, "session_id": "5295ed96ceb84fb6bfd710216c8e9b14"}
+{"event": "transcript_revision", "mono_ns": 28467291226000, "session_id": "5295ed96ceb84fb6bfd710216c8e9b14", "revision": 1, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 28468241778291, "session_id": "5295ed96ceb84fb6bfd710216c8e9b14"}
+{"event": "transcript_revision", "mono_ns": 28468323803833, "session_id": "5295ed96ceb84fb6bfd710216c8e9b14", "revision": 2, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 28469336655166, "session_id": "5295ed96ceb84fb6bfd710216c8e9b14", "revision": 3, "committed": true, "turn_id": "1", "capture_ended": true}
+{"event": "floor_decision", "mono_ns": 28469336887791, "session_id": "5295ed96ceb84fb6bfd710216c8e9b14", "decision": "turn", "addressee_known": true}
+{"event": "speech_cancelled", "mono_ns": 28469337113541, "session_id": "5295ed96ceb84fb6bfd710216c8e9b14", "epoch": 1}
+{"event": "speech_submitted", "mono_ns": 28469674647041, "epoch": 1, "utterance": "5295ed96ceb84fb6bfd710216c8e9b14:1:1", "profile": "course"}
+{"event": "user_started", "mono_ns": 28472721410666, "session_id": "5295ed96ceb84fb6bfd710216c8e9b14"}
+{"event": "transcript_revision", "mono_ns": 28474276541208, "session_id": "5295ed96ceb84fb6bfd710216c8e9b14", "revision": 1, "committed": false, "turn_id": "2", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 28475306467166, "session_id": "5295ed96ceb84fb6bfd710216c8e9b14", "revision": 2, "committed": false, "turn_id": "2", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 28475887732916, "session_id": "5295ed96ceb84fb6bfd710216c8e9b14"}
+{"event": "transcript_revision", "mono_ns": 28476348419083, "session_id": "5295ed96ceb84fb6bfd710216c8e9b14", "revision": 3, "committed": false, "turn_id": "2", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 28477411439416, "session_id": "5295ed96ceb84fb6bfd710216c8e9b14", "revision": 4, "committed": false, "turn_id": "2", "capture_ended": true}

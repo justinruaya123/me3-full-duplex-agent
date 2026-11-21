@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "bmo.design/1",
+  "name": "bmo-readable",
+  "status": "proposed",
+  "description": "Shared application design tokens; not a Pi.dev theme schema.",
+  "color": {
+    "ink": "#173B36",
+    "muted": "#45615A",
+    "paper": "#FFF8E7",
+    "screen": "#CDE8CF",
+    "shell": "#56B7A7",
+    "primary": "#205B8F",
+    "yellow": "#F4CF61",
+    "danger": "#A52C48",
+    "success": "#23613F",
+    "warning": "#755000"
+  },
+  "font": {
+    "ui": [
+      "Atkinson Hyperlegible Next",
+      "Verdana",
+      "Arial",
+      "sans-serif"
+    ],
+    "mono": [
+      "Atkinson Hyperlegible Mono",
+      "DejaVu Sans Mono",
+      "monospace"
+    ],
+    "regularWeight": 400,
+    "emphasisWeight": 600,
+    "bodySizeRem": 1.25,
+    "largeBodySizeRem": 1.5,
+    "headingSizeRem": 1.75,
+    "captionSizeRem": 1.5,
+    "secondarySizeRem": 1.125,
+    "codeSizeRem": 1.125,
+    "bodyLineHeight": 1.5,
+    "bodyLetterSpacingEm": 0.02,
+    "codeLetterSpacingEm": 0
+  },
+  "spacePx": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32
+  ],
+  "radiusPx": {
+    "control": 8,
+    "panel": 12,
+    "bezel": 20
+  },
+  "borderPx": 2,
+  "focusRingPx": 3,
+  "touch": {
+    "minimumTargetPx": 48,
+    "minimumGapPx": 8
+  },
+  "referenceLayout": {
+    "viewportWidthPx": 800,
+    "viewportHeightPx": 600,
+    "outerPaddingPx": 16,
+    "rowGapPx": 12,
+    "headerMinHeightPx": 64,
+    "workReferenceHeightPx": 416,
+    "footerMinHeightPx": 64,
+    "flowLayoutBelowWidthPx": 640,
+    "desktopSecondaryColumnFromWidthPx": 1100,
+    "note": "Reference geometry at default text scale; reflow under zoom and spacing overrides."
+  },
+  "motion": {
+    "transitionMinMs": 120,
+    "transitionMaxMs": 180,
+    "speakingFaceMaxFps": 12,
+    "ordinaryTextUpdatesMaxHz": 10,
+    "respectReducedMotion": true,
+    "note": "Initial design budgets, not hardware benchmark results; control events bypass batching."
+  },
+  "terminalStartingProfile": {
+    "host": "existing-xterm.js-only",
+    "fontFamily": "Atkinson Hyperlegible Mono, DejaVu Sans Mono, monospace",
+    "fontSize": 18,
+    "lineHeight": 1.35,
+    "letterSpacing": 0,
+    "cursorBlink": false,
+    "foreground": "#173B36",
+    "background": "#FFF8E7",
+    "note": "Adapter input; colors belong in xterm's theme option. Refit after font load."
+  }
+}

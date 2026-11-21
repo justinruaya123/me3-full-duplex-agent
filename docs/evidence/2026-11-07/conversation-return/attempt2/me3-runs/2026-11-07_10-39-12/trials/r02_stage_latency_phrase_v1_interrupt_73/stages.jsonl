@@ -1,0 +1,10 @@
+{"stage": "vad_start", "t": 27768.179101875, "pid": 37272, "src": "ws", "recv": 27768.181406583, "lt": 27768.179316667, "tt": 0.775}
+{"stage": "vad_start", "t": 27768.17915475, "pid": 37272, "src": "ws", "recv": 27768.181467708, "lt": 27768.179369542, "tt": 0.7751}
+{"stage": "asr_partial", "t": 27769.720381, "pid": 37272, "text": "How should I start?", "src": "ws", "recv": 27769.720875291, "lt": 27769.720595791998, "tt": 2.3163}
+{"stage": "vad_end", "t": 27769.967356666, "pid": 37272, "src": "ws", "recv": 27769.968576708, "lt": 27769.967571457997, "tt": 2.5633}
+{"stage": "vad_end", "t": 27769.967379, "pid": 37272, "src": "ws", "recv": 27769.96867175, "lt": 27769.967593792, "tt": 2.5633}
+{"stage": "asr_partial", "t": 27770.732561041, "pid": 37272, "text": "How should I start saving for retirement?", "src": "ws", "recv": 27770.733145916, "lt": 27770.732775833, "tt": 3.3285}
+{"stage": "asr_final", "t": 27771.727734208, "pid": 37272, "text": "how should I start saving for retirement?", "src": "ws", "recv": 27771.755802708, "lt": 27771.727949, "tt": 4.3236}
+{"stage": "interrupted", "t": 27771.730459541, "pid": 37272, "src": "ws", "recv": 27771.756055458, "lt": 27771.730674332997, "tt": 4.3264}
+{"stage": "interrupted", "t": 27771.7304915, "pid": 37272, "src": "ws", "recv": 27771.756067625, "lt": 27771.730706291997, "tt": 4.3264}
+{"stage": "llm_request", "t": 27771.755384416, "pid": 37272, "chars": 174, "messages": 1, "est_tokens": 44, "src": "ws", "recv": 27771.756119375, "lt": 27771.755599207998, "tt": 4.3513}

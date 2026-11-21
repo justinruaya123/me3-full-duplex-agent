@@ -39,6 +39,42 @@ class WebsiteTests(unittest.IsolatedAsyncioTestCase):
             self.assertIn("index.html", receipt["sha256"])
             self.assertIn("verified", result.lower())
 
+    async def test_fenced_pi_output_exports_only_the_verified_site(self):
+        from zipfile import ZipFile
+        from me3.website import BUNDLE_PREFIX, prepare_website
+        raw = bundle().removeprefix(BUNDLE_PREFIX)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "worker-preview.txt").write_text("Private worker state")
+            await prepare_website(BUNDLE_PREFIX + "```json\n" + raw + "\n```", root, lambda: True)
+            with ZipFile(root / "website.zip") as archive:
+                self.assertEqual(set(archive.namelist()), {"index.html", "style.css", "app.js", ".nojekyll"})
+                self.assertEqual(archive.read("index.html").decode(), HTML)
+
+    def test_generated_pages_readme_and_empty_nojekyll_marker_are_accepted(self):
+        from me3.website import checked_files
+        files = {"index.html": HTML, "README.md": "Upload instructions", ".nojekyll": ""}
+        self.assertEqual(checked_files(json.dumps({"files": files})),
+                         {"index.html": HTML, "README.md": "Upload instructions"})
+
+    def test_only_one_complete_json_response_is_accepted(self):
+        from me3.website import checked_files
+        raw = bundle().split("\n", 1)[1]
+        for text in ("Here it is: " + raw, "```json\n" + raw, raw + "\n" + raw):
+            with self.subTest(text=text[:10]), self.assertRaisesRegex(ValueError, "complete JSON"):
+                checked_files(text)
+
+    async def test_worker_can_recover_once_from_an_incomplete_reply(self):
+        from unittest.mock import AsyncMock
+        from me3.website import WebsiteWorker, REQUEST_PREFIX
+
+        backend = AsyncMock()
+        backend.run.side_effect = ["Here is the page:", bundle().split("\n", 1)[1]]
+        with tempfile.TemporaryDirectory() as directory:
+            output = await WebsiteWorker(backend).run(REQUEST_PREFIX + "Build a small page", Path(directory))
+        self.assertEqual(output, bundle())
+        self.assertEqual(backend.run.await_count, 2)
+
     async def test_stale_result_cannot_write_files_or_run_build(self):
         from me3.website import prepare_website
 
@@ -108,7 +144,7 @@ class WebsiteTests(unittest.IsolatedAsyncioTestCase):
 
 
 class PiWorkerTests(unittest.IsolatedAsyncioTestCase):
-    async def test_persistent_rpc_reuses_job_process_and_checks_exact_model(
+    async def test_persistent_rpc_reuses_only_current_revision_process(
         self,
     ):
         import sys
@@ -126,6 +162,8 @@ for line in sys.stdin:
   data={'model':{'id':'exact','provider':'provider'}}
  elif r['type']=='prompt':
   count+=1
+  for _ in range(30):
+   print(json.dumps({'type':'message_update','assistantMessageEvent':{'type':'text_delta','delta':'a'}}),flush=True)
   print(json.dumps({'type':'response','id':r['id'],'success':True}),flush=True)
   print(json.dumps({'type':'message_end','message':{'role':'assistant','stopReason':'stop'}}),flush=True)
   print(json.dumps({'type':'agent_settled'}),flush=True)
@@ -138,12 +176,16 @@ for line in sys.stdin:
                 (sys.executable, str(child)),
                 model="exact",
                 provider="provider",
+                max_bytes=2048,
             )
             try:
                 a = await backend.run("first", root / "job/revision-1")
-                b = await backend.run("correction", root / "job/revision-2")
-                self.assertEqual(a.split(":")[0], b.split(":")[0])
-                self.assertTrue(b.endswith(":2"))
+                same = await backend.run("follow-up", root / "job/revision-1")
+                revised = await backend.run("correction", root / "job/revision-2")
+                self.assertEqual(a.split(":")[0], same.split(":")[0])
+                self.assertTrue(same.endswith(":2"))
+                self.assertNotEqual(a.split(":")[0], revised.split(":")[0])
+                self.assertTrue(revised.endswith(":1"))
             finally:
                 await backend.close()
 

@@ -1,0 +1,125 @@
+{
+  "text": "I can't send messages for you, but I can help you draft the text if you'd like.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.82,
+        5.28
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        5.28,
+        5.66
+      ]
+    },
+    {
+      "text": "send",
+      "timestamp": [
+        5.66,
+        5.78
+      ]
+    },
+    {
+      "text": "messages",
+      "timestamp": [
+        5.78,
+        6.16
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        6.16,
+        6.52
+      ]
+    },
+    {
+      "text": "you,",
+      "timestamp": [
+        6.52,
+        6.72
+      ]
+    },
+    {
+      "text": "but",
+      "timestamp": [
+        7.06,
+        7.3
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        7.3,
+        7.42
+      ]
+    },
+    {
+      "text": "can",
+      "timestamp": [
+        7.42,
+        7.56
+      ]
+    },
+    {
+      "text": "help",
+      "timestamp": [
+        7.56,
+        7.74
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        7.74,
+        7.94
+      ]
+    },
+    {
+      "text": "draft",
+      "timestamp": [
+        7.94,
+        8.22
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        8.22,
+        8.46
+      ]
+    },
+    {
+      "text": "text",
+      "timestamp": [
+        8.46,
+        8.78
+      ]
+    },
+    {
+      "text": "if",
+      "timestamp": [
+        8.78,
+        9.0
+      ]
+    },
+    {
+      "text": "you'd",
+      "timestamp": [
+        9.0,
+        9.18
+      ]
+    },
+    {
+      "text": "like.",
+      "timestamp": [
+        9.18,
+        9.38
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

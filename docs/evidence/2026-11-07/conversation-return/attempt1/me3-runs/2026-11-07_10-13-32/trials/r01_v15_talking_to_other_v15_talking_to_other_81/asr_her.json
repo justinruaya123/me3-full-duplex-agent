@@ -1,0 +1,62 @@
+{
+  "text": "I'm just text, so I don't have your...",
+  "chunks": [
+    {
+      "text": "I'm",
+      "timestamp": [
+        6.29,
+        6.65
+      ]
+    },
+    {
+      "text": "just",
+      "timestamp": [
+        6.65,
+        6.83
+      ]
+    },
+    {
+      "text": "text,",
+      "timestamp": [
+        6.83,
+        7.21
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        7.63,
+        7.79
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        7.79,
+        7.91
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        7.91,
+        8.13
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        8.13,
+        8.23
+      ]
+    },
+    {
+      "text": "your...",
+      "timestamp": [
+        8.23,
+        8.53
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

@@ -1,0 +1,77 @@
+{
+  "trial": "r02_v1_interrupt_v1_interrupt_163",
+  "group": "v1_interrupt",
+  "clip": "v1_interrupt_163",
+  "variant": "main",
+  "expected": "stop, then answer the new request",
+  "duration": 17.696,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.904
+    },
+    {
+      "name": "overlap",
+      "t": 6.396,
+      "len": 3.2746875
+    }
+  ],
+  "live_bot_starts": [
+    4.896
+  ],
+  "live_bot_ends": [
+    6.688
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "What do you think makes a great cup of coffee?",
+    "interrupt_text": "Actually, let's talk about tea instead. What kinds are there?",
+    "source_id": "163"
+  },
+  "mono": [
+    26896.18723975,
+    26913.879784791
+  ],
+  "bot_segments": [
+    [
+      4.866,
+      6.718
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.904
+  ],
+  "overlap_played": true,
+  "t_stop": 0.2519999999999998,
+  "t_resp": null,
+  "bot_speaking_at_onset": true,
+  "spoke_through": false,
+  "overlap": [
+    6.466,
+    9.6706875
+  ],
+  "tor": 0,
+  "first_start": null,
+  "spoke_s": 0.0,
+  "latency": null,
+  "actual": "stopped after 0.25 s, did not come back",
+  "verdict": "✗ no answer",
+  "ok": false,
+  "marks": 25,
+  "final": {
+    "tor": 0,
+    "words": 0,
+    "latency": null,
+    "t_stop": 0.2519999999999998,
+    "verdict": "✗ no answer",
+    "ok": false,
+    "transcript": "To me, it's all about balance."
+  },
+  "scored_at": "2026-11-07T10:36:56+08:00"
+}

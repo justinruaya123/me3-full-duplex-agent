@@ -18,6 +18,10 @@ installed distributions for this host. They are Mac receipts for runtime Python 
 an ARM64-Linux lock. For a matching fresh host, create the corresponding venv,
 install its lock with `python -m pip install -r LOCK`, then `pip install -e .`.
 
+## Brave search history in the Pi voice session
+
+The project Pi launcher enables `web_lookup` and `recall_web_search`. Say “What did we find about that on November 21?” for a dated receipt, or “Check it again with Brave” to refresh. Dates used for recall refer to the client’s local calendar day. Publication dates and page dates come from Brave when available. Each new session starts with an empty in-memory database and needs no additional configuration.
+
 ## Operator settings
 
 Edit the ignored `.env`, then use `scripts/me3.sh` to load it. No key values are
@@ -99,7 +103,7 @@ this profile does not bypass ownership or qualify physical audio/AEC.
 
 ## Local personalized memory
 
-Set `ME3_MEMORY_ENABLED=1` in the private `.env` and retain the same
+Memory defaults to on. Retain the same
 `ME3_STATE_DIR` and trusted owner label across launches. Conversations then
 survive ordinary session end/restart; explicit facts and project notes can
 personalize foreground answers and relevant worker requests. Memory commands
@@ -354,3 +358,35 @@ portable-runtime paths and the verified Pi CLI package; Mac locks and MLX are
 not Pi installation recipes. ARM installation, actual audio, idle/busy and LAN
 failure tests, echo/double-talk and the 30-minute resource/dropout soak remain
 target-hardware gates. The procedure has not been executed on a Pi here.
+
+### Moving the Pi.dev voice pilot to a Raspberry Pi
+
+Copy the source checkout including the hidden `.agents/skills` directory and any new source files in the worktree. The Pi launcher explicitly loads the project’s `conversational-ux` skill. In Pi, invoke `/skill:conversational-ux` for dialogue-design work. Its MIT license travels with the skill. [Pinned upstream source](https://github.com/Owl-Listener/designer-skills/tree/9a6930cf84a822eb458624bd11c61aac5bbdf224/interaction-design/skills/conversational-ux)
+
+Keep native dependencies device-specific. Install a Linux ARM64 Python environment with the audio stack and PortAudio on the board, install Node there, and let setup install platform-appropriate Pi and Piper packages and bake the voice clips. Mac virtual environments and `node_modules` contain host binaries. Provision `OPENROUTER_API_KEY`, `DEEPGRAM_API_KEY` and `BRAVE_SEARCH_API_KEY` privately on the board. The private profile, earlier chats and credentials require a separate intentional transfer. Run the following from the checkout after installing the ARM64 prerequisites.
+
+```sh
+ME3_CLIENT_HOME="$PWD" VOICECHAT_PYTHON="$PWD/.venv-pi/bin/python" \
+  bash integrations/voicechat/start.sh --live-benchmark --terminal
+```
+
+Enter `/me3 duplex` and ask for one news story or a local page. Validate microphone, speaker and interruption timing on the target board. The recorded pilot results are from the Mac.
+
+### BMO project trust and startup checks
+
+Run `bash integrations/voicechat/start.sh --live-benchmark --sanity` from the transferred checkout. It prints the canonical trusted folder, private Pi profile, local CLI version, subagent roles, workflow count, voice setup, and input/output device counts. It runs Smart Turn on synthetic silence. API key presence is checked without printing values.
+
+The launcher installs Pi 0.84.2 under `integrations/voicechat/node_modules`. It sets the profile to `.local/pi` in the ME3 installation and runs the worker with its separate `.local/voice-worker/agent` profile. Linked ME3 worktrees reuse the original ME3 project's login. An extracted standalone copy creates its own profile. The launcher records trust for the exact checkout in that profile on first boot. A saved rejection stops startup. To change it deliberately, run `bash integrations/voicechat/start.sh --trust-project`. On interactive setup failures BMO plays a bundled instruction using the native audio player when available. The terminal prints the specific repair even before a renderer or model is installed.
+
+Use `/skill:systematic-debugging` or another project workflow in Pi. For hands-free use, ask “Have a reviewer check this approach using systematic debugging,” followed by the material. The foreground can choose a planner, reviewer or writer via `subagent`. Each assignment has a separate local Pi session, uses the existing durable queue, and returns a checkable job result. One heavy job runs at a time. These roles work from the supplied brief and have no shell or filesystem tools. The 15 vendored Superpowers v7.0.2 workflows and their supporting files travel in the source archive. [Pinned upstream release](https://github.com/obra/superpowers/tree/22f0b463e7a5e579904dd6211a520321035526f7)
+
+The project Pi also exposes `/skill:bmo-frontend-design`. A normal website request automatically gives the website worker the [design skill](../integrations/voicechat/skills/bmo-frontend-design/SKILL.md) and the current readable theme tokens. “Build a reading list” uses those defaults. “Make the reading list black and white with serif headings” specifies its own look. The approved-facts portfolio uses its existing fixed template. When transferring the skill library, include the Superpowers `skills/` directory with its adjacent `LICENSE` and `UPSTREAM.md`. The BMO design skill is original project guidance.
+
+
+### Researching a personal portfolio in the project Pi launcher
+
+With the project worker model and `BRAVE_SEARCH_API_KEY` configured, say “Make me a portfolio website and look up my work.” The launcher installs its pinned copy of pi-web-search in `integrations/voicechat/node_modules`. Only the research worker gets its Brave search tool. Its query uses the approved name. The worker reads search results in a temporary Pi session and sends them to the configured worker model.
+
+Set **Public search name** in the project's private `USER.md` to allow immediate lookup for this request. With only **Full name, if useful** filled in, BMO asks once for permission to send that name to Brave and process the public results with the configured worker model. BMO reads up to three candidate facts and shows their source links in the Pi tool result. Say “use the first and third,” identify a fact by its distinctive words, or say “approve all.” A plain “yes” at the fact review repeats the choices. “Review my portfolio” returns to the choices in the active session. “Discard my portfolio” clears them.
+
+The host builds the selected copy into a static portfolio and puts its verified ZIP in **Agents**. Extract the ZIP into your GitHub Pages publishing folder. Publishing is a separate action.

@@ -1,0 +1,9 @@
+{
+  "name": "me3-voice-pi",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@arcanemachine/pi-web-search": "https://codeload.github.com/arcanemachine/pi-web-search/tar.gz/01c0c9671f0407ab0263c97af38d1def58a290ca",
+    "@earendil-works/pi-coding-agent": "0.84.2"
+  }
+}

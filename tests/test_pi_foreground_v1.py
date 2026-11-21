@@ -54,6 +54,28 @@ class PiForegroundTests(unittest.IsolatedAsyncioTestCase):
         self.addAsyncCleanup(backend.close)
         return backend
 
+    async def routed(self, *chunks, fail=False):
+        async def stream(prompt):
+            for chunk in chunks:
+                yield chunk
+            if fail:
+                raise RuntimeError("provider failed")
+
+        backend = self.backend()
+        backend.stream = stream
+        return [item async for item in backend.stream_turn("context", "owner request")]
+
+    async def test_voice_action_markers_are_never_spoken(self):
+        from me3.foreground import ActionProposal
+        self.assertEqual(await self.routed(" ", "Hello", "."), ["Hello", "."])
+        for kind in ("lookup", "submit", "website"):
+            self.assertEqual(await self.routed(" @", kind), [ActionProposal(kind, "owner request")])
+        for invalid in ("@unknown", "@submit\nextra", " "):
+            with self.assertRaises(ValueError):
+                await self.routed(invalid)
+        with self.assertRaises(RuntimeError):
+            await self.routed("@submit", fail=True)
+
     async def test_streams_and_reuses_process_without_reusing_context(self):
         backend = self.backend()
         try:

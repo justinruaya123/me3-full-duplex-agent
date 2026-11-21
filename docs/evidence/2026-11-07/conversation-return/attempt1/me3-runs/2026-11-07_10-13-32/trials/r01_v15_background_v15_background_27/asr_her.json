@@ -1,0 +1,62 @@
+{
+  "text": "Ephemeral means lasting for a very short time.",
+  "chunks": [
+    {
+      "text": "Ephemeral",
+      "timestamp": [
+        3.54,
+        4.2
+      ]
+    },
+    {
+      "text": "means",
+      "timestamp": [
+        4.2,
+        4.46
+      ]
+    },
+    {
+      "text": "lasting",
+      "timestamp": [
+        4.46,
+        5.16
+      ]
+    },
+    {
+      "text": "for",
+      "timestamp": [
+        5.16,
+        5.4
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        5.4,
+        5.5
+      ]
+    },
+    {
+      "text": "very",
+      "timestamp": [
+        5.5,
+        5.66
+      ]
+    },
+    {
+      "text": "short",
+      "timestamp": [
+        5.66,
+        5.88
+      ]
+    },
+    {
+      "text": "time.",
+      "timestamp": [
+        8.53,
+        11.27
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

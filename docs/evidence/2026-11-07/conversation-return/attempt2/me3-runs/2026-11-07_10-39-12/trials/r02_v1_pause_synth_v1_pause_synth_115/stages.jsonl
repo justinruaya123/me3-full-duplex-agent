@@ -1,0 +1,31 @@
+{"stage": "vad_start", "t": 28629.647088333, "pid": 37731, "src": "ws", "recv": 28629.649003, "lt": 28629.647230375, "tt": 0.3209}
+{"stage": "vad_start", "t": 28629.647135166, "pid": 37731, "src": "ws", "recv": 28629.64904625, "lt": 28629.647277208, "tt": 0.3209}
+{"stage": "asr_partial", "t": 28631.180785291, "pid": 37731, "text": "Technology is", "src": "ws", "recv": 28631.181013708, "lt": 28631.180927333, "tt": 1.8546}
+{"stage": "vad_end", "t": 28631.762098541, "pid": 37731, "src": "ws", "recv": 28631.763580041, "lt": 28631.762240583, "tt": 2.4359}
+{"stage": "vad_end", "t": 28631.762126875, "pid": 37731, "src": "ws", "recv": 28631.763618083, "lt": 28631.762268917002, "tt": 2.4359}
+{"stage": "vad_start", "t": 28631.982421625, "pid": 37731, "src": "ws", "recv": 28631.984616083, "lt": 28631.982563667003, "tt": 2.6562}
+{"stage": "vad_start", "t": 28631.982448833, "pid": 37731, "src": "ws", "recv": 28631.984797, "lt": 28631.982590875003, "tt": 2.6563}
+{"stage": "asr_partial", "t": 28633.216824375, "pid": 37731, "text": "Technology is changing so fast it's unreal.", "src": "ws", "recv": 28633.217116833, "lt": 28633.216966417, "tt": 3.8906}
+{"stage": "asr_partial", "t": 28634.288495375, "pid": 37731, "text": "Technology is changing so fast it's unreal, especially in the area of artificial intelligence.", "src": "ws", "recv": 28634.288762875, "lt": 28634.288637417, "tt": 4.9623}
+{"stage": "vad_end", "t": 28634.543412583, "pid": 37731, "src": "ws", "recv": 28634.54401375, "lt": 28634.543554625, "tt": 5.2172}
+{"stage": "vad_end", "t": 28634.543422708, "pid": 37731, "src": "ws", "recv": 28634.544025875, "lt": 28634.54356475, "tt": 5.2172}
+{"stage": "vad_start", "t": 28634.704380166, "pid": 37731, "src": "ws", "recv": 28634.705209083, "lt": 28634.704522208, "tt": 5.3782}
+{"stage": "vad_start", "t": 28634.704393625, "pid": 37731, "src": "ws", "recv": 28634.705221291, "lt": 28634.704535667002, "tt": 5.3782}
+{"stage": "vad_end", "t": 28635.311446375, "pid": 37731, "src": "ws", "recv": 28635.312254458, "lt": 28635.311588417, "tt": 5.9853}
+{"stage": "vad_end", "t": 28635.311459916, "pid": 37731, "src": "ws", "recv": 28635.312271125, "lt": 28635.311601958, "tt": 5.9853}
+{"stage": "vad_start", "t": 28636.208729458, "pid": 37731, "src": "ws", "recv": 28636.210542125, "lt": 28636.208871500003, "tt": 6.8825}
+{"stage": "vad_start", "t": 28636.208776708, "pid": 37731, "src": "ws", "recv": 28636.210658958, "lt": 28636.208918750002, "tt": 6.8826}
+{"stage": "vad_end", "t": 28637.068840125, "pid": 37731, "src": "ws", "recv": 28637.070212958, "lt": 28637.068982167002, "tt": 7.7426}
+{"stage": "vad_end", "t": 28637.068865791, "pid": 37731, "src": "ws", "recv": 28637.070243791, "lt": 28637.069007833, "tt": 7.7427}
+{"stage": "asr_partial", "t": 28637.593771375, "pid": 37731, "text": "Technology is changing so fast, it's unreal, especially in the area of artificial intelligence, which is pretty.", "src": "ws", "recv": 28637.594186208, "lt": 28637.593913417, "tt": 8.2676}
+{"stage": "asr_final", "t": 28638.709926166, "pid": 37731, "text": "Technology is changing so fast it's unreal, especially in the area of artificial intelligence, which is pretty evolving every day.", "src": "ws", "recv": 28638.72713575, "lt": 28638.710068208, "tt": 9.3837}
+{"stage": "interrupted", "t": 28638.711415166, "pid": 37731, "src": "ws", "recv": 28638.727356416, "lt": 28638.711557208, "tt": 9.3852}
+{"stage": "interrupted", "t": 28638.711445083, "pid": 37731, "src": "ws", "recv": 28638.727370125, "lt": 28638.711587125003, "tt": 9.3852}
+{"stage": "llm_request", "t": 28638.726749, "pid": 37731, "chars": 263, "messages": 1, "est_tokens": 66, "src": "ws", "recv": 28638.727412083, "lt": 28638.726891042003, "tt": 9.4006}
+{"stage": "llm_first_token", "t": 28638.898675458, "pid": 37731, "src": "ws", "recv": 28638.899389416, "lt": 28638.8988175, "tt": 9.5725}
+{"stage": "tts_request", "t": 28639.175581208, "pid": 37731, "src": "ws", "recv": 28639.177416875, "lt": 28639.175723250002, "tt": 9.8494}
+{"stage": "tts_first_audio", "t": 28639.622977291, "pid": 37731, "src": "ws", "recv": 28639.62451675, "lt": 28639.623119333002, "tt": 10.2968}
+{"stage": "audio_out", "t": 28639.64542675, "pid": 37731, "src": "ws", "recv": 28639.646177375, "lt": 28639.645568792002, "tt": 10.3192}
+{"stage": "audio_out", "t": 28639.645444, "pid": 37731, "src": "ws", "recv": 28639.646186416, "lt": 28639.645586042003, "tt": 10.3192}
+{"stage": "bot_stopped", "t": 28644.492964208, "pid": 37731, "src": "ws", "recv": 28644.49436325, "lt": 28644.49310625, "tt": 15.1668}
+{"stage": "bot_stopped", "t": 28644.492982291, "pid": 37731, "src": "ws", "recv": 28644.494372375, "lt": 28644.493124333003, "tt": 15.1668}

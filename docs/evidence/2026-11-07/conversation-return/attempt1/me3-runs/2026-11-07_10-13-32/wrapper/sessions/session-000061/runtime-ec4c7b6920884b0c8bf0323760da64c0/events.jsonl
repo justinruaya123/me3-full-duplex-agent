@@ -1,0 +1,14 @@
+{"event": "supervisor_started", "mono_ns": 27123907878416}
+{"event": "voice_profile", "mono_ns": 27123986452250, "profile": "course", "session_id": "e80f42e9951a48ec89acbf70d57a503e", "ownership_bypassed": true, "audio_mode": "headphones"}
+{"event": "user_started", "mono_ns": 27130975383125, "session_id": "e80f42e9951a48ec89acbf70d57a503e"}
+{"event": "transcript_revision", "mono_ns": 27132545378208, "session_id": "e80f42e9951a48ec89acbf70d57a503e", "revision": 1, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 27133595229750, "session_id": "e80f42e9951a48ec89acbf70d57a503e", "revision": 2, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 27134636941791, "session_id": "e80f42e9951a48ec89acbf70d57a503e", "revision": 3, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 27135710284625, "session_id": "e80f42e9951a48ec89acbf70d57a503e"}
+{"event": "transcript_revision", "mono_ns": 27135728945041, "session_id": "e80f42e9951a48ec89acbf70d57a503e", "revision": 4, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 27136813379625, "session_id": "e80f42e9951a48ec89acbf70d57a503e", "revision": 5, "committed": false, "turn_id": "1", "capture_ended": true}
+{"event": "user_started", "mono_ns": 27136919118625, "session_id": "e80f42e9951a48ec89acbf70d57a503e"}
+{"event": "transcript_revision", "mono_ns": 27138042759833, "session_id": "e80f42e9951a48ec89acbf70d57a503e", "revision": 6, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "user_stopped_asr_pending", "mono_ns": 27138813099291, "session_id": "e80f42e9951a48ec89acbf70d57a503e"}
+{"event": "transcript_revision", "mono_ns": 27139158502125, "session_id": "e80f42e9951a48ec89acbf70d57a503e", "revision": 7, "committed": false, "turn_id": "1", "capture_ended": false}
+{"event": "transcript_revision", "mono_ns": 27140286190583, "session_id": "e80f42e9951a48ec89acbf70d57a503e", "revision": 8, "committed": false, "turn_id": "1", "capture_ended": true}

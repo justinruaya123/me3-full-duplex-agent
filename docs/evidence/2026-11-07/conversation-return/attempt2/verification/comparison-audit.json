@@ -1,0 +1,1991 @@
+{
+  "kind": "Read-only extraction of original canonical results with separate provenance/cue/coverage audit; no revised scorer",
+  "baseline": {
+    "run_id": "2026-11-07_06-10-46",
+    "results_sha256": "d8a6ebd5522b3ef80642c26318cba288a2cd65c45bbc379695e4c15353d97f95",
+    "official_headline_table": [
+      {
+        "key": "e2e",
+        "metric": "E2E latency",
+        "definition": "end of speech \u2192 audio out",
+        "target": 4.0,
+        "mean": 2.5517379310344834,
+        "p95": 3.710559999999999,
+        "median": 2.2771,
+        "n": 29,
+        "unit": "s",
+        "status": "met",
+        "note": null
+      },
+      {
+        "key": "asr_final",
+        "metric": "ASR final",
+        "definition": "end of speech \u2192 transcript",
+        "target": 0.8,
+        "mean": 1.4704000000000002,
+        "p95": 2.0359599999999998,
+        "median": 1.2891,
+        "n": 30,
+        "unit": "s",
+        "status": "over",
+        "note": null
+      },
+      {
+        "key": "llm_ttft",
+        "metric": "LLM TTFT",
+        "definition": "transcript \u2192 first token",
+        "target": 1.5,
+        "mean": 0.4023103448275862,
+        "p95": 0.7449399999999997,
+        "median": 0.2153,
+        "n": 29,
+        "unit": "s",
+        "status": "met",
+        "note": null
+      },
+      {
+        "key": "tts_ttfb",
+        "metric": "TTS TTFB",
+        "definition": "text \u2192 first audio chunk",
+        "target": 0.6,
+        "mean": 0.4239827586206896,
+        "p95": 0.6960200000000001,
+        "median": 0.4023,
+        "n": 29,
+        "unit": "s",
+        "status": "p95_over",
+        "note": null
+      },
+      {
+        "key": "barge_in",
+        "metric": "Barge-in",
+        "definition": "speech \u2192 playback stopped",
+        "target": 0.8,
+        "mean": 0.3373333333333335,
+        "p95": 0.4056,
+        "median": 0.34800000000000075,
+        "n": 3,
+        "unit": "s",
+        "status": "met",
+        "note": null
+      },
+      {
+        "key": "wer",
+        "metric": "WER",
+        "definition": "ASR accuracy on test set",
+        "target": 0.15,
+        "mean": 0.014492753623188406,
+        "p95": null,
+        "median": null,
+        "n": 30,
+        "unit": "ratio",
+        "status": "met",
+        "note": null
+      }
+    ],
+    "official_queue_summary": {
+      "rounds": 3,
+      "seed": 231,
+      "total": 60,
+      "done": 60,
+      "skipped": 0,
+      "failed": 0
+    },
+    "official_session_outcome": {
+      "completed": 60,
+      "total": 60,
+      "stopped_early": false,
+      "seconds": 1357.0885956660004
+    },
+    "recordings_timing_count": 72,
+    "stage_files_count": 71,
+    "missing_stage_file_trials": [
+      "r02_false_tt_false_noise_009"
+    ],
+    "transport_errors": [],
+    "score_errors": [],
+    "phrase_trials": 30,
+    "phrase_with_recorded_reply_count": 29,
+    "phrase_missing_recorded_reply_trials": [
+      "r03_stage_latency_phrase_v15_background_91"
+    ],
+    "phrase_missing_stage_timing": {
+      "e2e": [
+        "r03_stage_latency_phrase_v15_background_91"
+      ],
+      "asr_final": [],
+      "llm_ttft": [
+        "r03_stage_latency_phrase_v15_background_91"
+      ],
+      "tts_ttfb": [
+        "r03_stage_latency_phrase_v15_background_91"
+      ]
+    },
+    "official_heard_onset_separate_clock": {
+      "n": 29,
+      "median": 2.884,
+      "p95": 4.157599999999999,
+      "mean": 3.0660689655172413,
+      "min": 2.148,
+      "max": 6.756,
+      "ci95_median": [
+        2.66,
+        3.332
+      ],
+      "p95_note": null
+    },
+    "official_software_e2e": {
+      "n": 29,
+      "median": 2.2771,
+      "p95": 3.710559999999999,
+      "mean": 2.5517379310344834,
+      "min": 1.5348,
+      "max": 6.304,
+      "ci95_median": [
+        2.1746,
+        2.7787
+      ],
+      "p95_note": null,
+      "source": "marks"
+    },
+    "official_wer": {
+      "n": 30,
+      "ref_words": 207,
+      "edits": 3,
+      "wer": 0.014492753623188406,
+      "mean_phrase_wer": 0.014285714285714285
+    },
+    "official_semantic_metrics": {
+      "v1_pause_synth.tor": {
+        "n": 3,
+        "k": 0,
+        "value": 0.0
+      },
+      "v1_pause_candor.tor": {
+        "n": 3,
+        "k": 0,
+        "value": 0.0
+      },
+      "v1_turntaking.tor": {
+        "n": 3,
+        "k": 1,
+        "value": 0.3333333333333333
+      },
+      "v1_turntaking.missed_rate": {
+        "n": 3,
+        "k": 2,
+        "value": 0.6666666666666666
+      },
+      "v1_turntaking.latency": {
+        "n": 1,
+        "median": 4.07000000000011,
+        "p95": 4.07000000000011,
+        "mean": 4.07000000000011,
+        "min": 4.07000000000011,
+        "max": 4.07000000000011,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "false_tt.rate": {
+        "n": 6,
+        "k": 2,
+        "value": 0.3333333333333333
+      },
+      "false_tt.rate.side_talk": {
+        "n": 2,
+        "k": 1,
+        "value": 0.5
+      },
+      "false_tt.rate.tv_radio": {
+        "n": 2,
+        "k": 1,
+        "value": 0.5
+      },
+      "false_tt.rate.background": {
+        "n": 1,
+        "k": 0,
+        "value": 0.0
+      },
+      "false_tt.rate.noise": {
+        "n": 1,
+        "k": 0,
+        "value": 0.0
+      },
+      "v1_interrupt.tor": {
+        "n": 3,
+        "k": 2,
+        "value": 0.6666666666666666
+      },
+      "v1_interrupt.latency": {
+        "n": 2,
+        "median": 3.5303125,
+        "p95": 3.5359937500000007,
+        "mean": 3.5303125,
+        "min": 3.523999999999999,
+        "max": 3.536625000000001,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v1_interrupt.rating": {
+        "n": 0,
+        "mean": null
+      },
+      "v1_interrupt.t_stop": {
+        "n": 2,
+        "median": 0.38000000000000034,
+        "p95": 0.40879999999999994,
+        "mean": 0.38000000000000034,
+        "min": 0.34800000000000075,
+        "max": 0.4119999999999999,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v1_interrupt.not_played": 0,
+      "v15_interruption.respond": {
+        "value": null,
+        "n": 0
+      },
+      "v15_interruption.resume": {
+        "value": null,
+        "n": 0
+      },
+      "v15_interruption.uncertain": {
+        "value": null,
+        "n": 0
+      },
+      "v15_interruption.unknown": {
+        "value": null,
+        "n": 0
+      },
+      "v15_interruption.class.through": {
+        "n": 3,
+        "k": 0,
+        "value": 0.0
+      },
+      "v15_interruption.class.paused": {
+        "n": 3,
+        "k": 3,
+        "value": 1.0
+      },
+      "v15_interruption.class.stopped": {
+        "n": 3,
+        "k": 0,
+        "value": 0.0
+      },
+      "v15_interruption.t_stop": {
+        "n": 1,
+        "median": 0.2519999999999998,
+        "p95": 0.2519999999999998,
+        "mean": 0.2519999999999998,
+        "min": 0.2519999999999998,
+        "max": 0.2519999999999998,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_interruption.t_resp": {
+        "n": 3,
+        "median": 3.5580000000000016,
+        "p95": 5.658600000000001,
+        "mean": 4.143333333333334,
+        "min": 2.9800000000000004,
+        "max": 5.892000000000001,
+        "ci95_median": [
+          2.9800000000000004,
+          5.892000000000001
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_interruption.judged": 0,
+      "v15_interruption.n": 3,
+      "v15_backchannel.respond": {
+        "value": null,
+        "n": 0
+      },
+      "v15_backchannel.resume": {
+        "value": null,
+        "n": 0
+      },
+      "v15_backchannel.uncertain": {
+        "value": null,
+        "n": 0
+      },
+      "v15_backchannel.unknown": {
+        "value": null,
+        "n": 0
+      },
+      "v15_backchannel.class.through": {
+        "n": 3,
+        "k": 0,
+        "value": 0.0
+      },
+      "v15_backchannel.class.paused": {
+        "n": 3,
+        "k": 2,
+        "value": 0.6666666666666666
+      },
+      "v15_backchannel.class.stopped": {
+        "n": 3,
+        "k": 1,
+        "value": 0.3333333333333333
+      },
+      "v15_backchannel.t_stop": {
+        "n": 3,
+        "median": 0.258,
+        "p95": 0.31019999999999986,
+        "mean": 0.2646666666666668,
+        "min": 0.22000000000000064,
+        "max": 0.31599999999999984,
+        "ci95_median": [
+          0.22000000000000064,
+          0.31599999999999984
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_backchannel.t_resp": {
+        "n": 2,
+        "median": 3.0665000000000004,
+        "p95": 4.17755,
+        "mean": 3.0665000000000004,
+        "min": 1.8320000000000007,
+        "max": 4.301,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_backchannel.judged": 0,
+      "v15_backchannel.n": 3,
+      "v15_talking_to_other.respond": {
+        "value": null,
+        "n": 0
+      },
+      "v15_talking_to_other.resume": {
+        "value": null,
+        "n": 0
+      },
+      "v15_talking_to_other.uncertain": {
+        "value": null,
+        "n": 0
+      },
+      "v15_talking_to_other.unknown": {
+        "value": null,
+        "n": 0
+      },
+      "v15_talking_to_other.class.through": {
+        "n": 3,
+        "k": 0,
+        "value": 0.0
+      },
+      "v15_talking_to_other.class.paused": {
+        "n": 3,
+        "k": 2,
+        "value": 0.6666666666666666
+      },
+      "v15_talking_to_other.class.stopped": {
+        "n": 3,
+        "k": 1,
+        "value": 0.3333333333333333
+      },
+      "v15_talking_to_other.t_stop": {
+        "n": 3,
+        "median": 0.31599999999999984,
+        "p95": 0.34480000000000066,
+        "mean": 0.3160000000000001,
+        "min": 0.2839999999999998,
+        "max": 0.34800000000000075,
+        "ci95_median": [
+          0.2839999999999998,
+          0.34800000000000075
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_talking_to_other.t_resp": {
+        "n": 2,
+        "median": 3.3920000000000003,
+        "p95": 3.856400000000001,
+        "mean": 3.3920000000000003,
+        "min": 2.8759999999999994,
+        "max": 3.9080000000000013,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_talking_to_other.judged": 0,
+      "v15_talking_to_other.n": 3,
+      "v15_background.respond": {
+        "value": null,
+        "n": 0
+      },
+      "v15_background.resume": {
+        "value": null,
+        "n": 0
+      },
+      "v15_background.uncertain": {
+        "value": null,
+        "n": 0
+      },
+      "v15_background.unknown": {
+        "value": null,
+        "n": 0
+      },
+      "v15_background.class.through": {
+        "n": 3,
+        "k": 0,
+        "value": 0.0
+      },
+      "v15_background.class.paused": {
+        "n": 3,
+        "k": 2,
+        "value": 0.6666666666666666
+      },
+      "v15_background.class.stopped": {
+        "n": 3,
+        "k": 1,
+        "value": 0.3333333333333333
+      },
+      "v15_background.t_stop": {
+        "n": 3,
+        "median": 0.3800000000000008,
+        "p95": 0.40880000000000083,
+        "mean": 0.39066666666666716,
+        "min": 0.3799999999999999,
+        "max": 0.4120000000000008,
+        "ci95_median": [
+          0.3799999999999999,
+          0.4120000000000008
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_background.t_resp": {
+        "n": 2,
+        "median": 3.2199999999999993,
+        "p95": 3.349599999999999,
+        "mean": 3.2199999999999993,
+        "min": 3.0759999999999996,
+        "max": 3.363999999999999,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_background.judged": 0,
+      "v15_background.n": 3
+    },
+    "official_unjudged_notes": [
+      "no judge: interruption relevance and v1.5 behaviour labels not scored"
+    ],
+    "false_turn_counted_vs_any_speech": {
+      "scheduled": 6,
+      "original_tor_count": 2,
+      "any_detected_bot_segment_count": 4
+    },
+    "interruption_stop_denominators": {
+      "scheduled": 6,
+      "overlap_played": 6,
+      "valid_official_samples": 3,
+      "official_metric": {
+        "n": 3,
+        "median": 0.34800000000000075,
+        "p95": 0.4056,
+        "mean": 0.3373333333333335,
+        "min": 0.2519999999999998,
+        "max": 0.4119999999999999,
+        "ci95_median": [
+          0.2519999999999998,
+          0.4119999999999999
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial",
+        "kept_talking": 0
+      }
+    },
+    "backchannel_returns": {
+      "scheduled": 3,
+      "returned_by_t_resp": 2,
+      "not_returned_trials": [
+        "r02_v15_backchannel_v15_backchannel_97"
+      ]
+    },
+    "overlap_not_played_trials": [],
+    "pre_answer_output_audit": {
+      "count": 0,
+      "original_scorer_qualifying_early_count": 0,
+      "trials": [],
+      "interpretation": "Audio before first ASR commit or model text is a provisional cue, not a substantive-response latency pass. Original scorer remains unchanged. ASR transcript is evaluation-model output, not a content judge."
+    },
+    "queue_selection": [
+      {
+        "index": 0,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_background_91",
+        "kind": null
+      },
+      {
+        "index": 1,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_background_94",
+        "kind": null
+      },
+      {
+        "index": 2,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_129",
+        "kind": null
+      },
+      {
+        "index": 3,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_backchannel_34",
+        "kind": null
+      },
+      {
+        "index": 4,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_interruption_188",
+        "kind": null
+      },
+      {
+        "index": 5,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_interruption_35",
+        "kind": null
+      },
+      {
+        "index": 6,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_192",
+        "kind": null
+      },
+      {
+        "index": 7,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_73",
+        "kind": null
+      },
+      {
+        "index": 8,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_talking_to_other_31",
+        "kind": null
+      },
+      {
+        "index": 9,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_83",
+        "kind": null
+      },
+      {
+        "index": 10,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_talking_to_other_31",
+        "kind": null
+      },
+      {
+        "index": 11,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_background_91",
+        "kind": null
+      },
+      {
+        "index": 12,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_73",
+        "kind": null
+      },
+      {
+        "index": 13,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_background_94",
+        "kind": null
+      },
+      {
+        "index": 14,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_backchannel_34",
+        "kind": null
+      },
+      {
+        "index": 15,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_83",
+        "kind": null
+      },
+      {
+        "index": 16,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_interruption_188",
+        "kind": null
+      },
+      {
+        "index": 17,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_interruption_35",
+        "kind": null
+      },
+      {
+        "index": 18,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_192",
+        "kind": null
+      },
+      {
+        "index": 19,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_129",
+        "kind": null
+      },
+      {
+        "index": 20,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_73",
+        "kind": null
+      },
+      {
+        "index": 21,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_interruption_35",
+        "kind": null
+      },
+      {
+        "index": 22,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_83",
+        "kind": null
+      },
+      {
+        "index": 23,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_background_94",
+        "kind": null
+      },
+      {
+        "index": 24,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_interruption_188",
+        "kind": null
+      },
+      {
+        "index": 25,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_192",
+        "kind": null
+      },
+      {
+        "index": 26,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_background_91",
+        "kind": null
+      },
+      {
+        "index": 27,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_backchannel_34",
+        "kind": null
+      },
+      {
+        "index": 28,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_129",
+        "kind": null
+      },
+      {
+        "index": 29,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_talking_to_other_31",
+        "kind": null
+      },
+      {
+        "index": 30,
+        "round": 1,
+        "group": "v15_background",
+        "clip_id": "v15_background_27",
+        "kind": null
+      },
+      {
+        "index": 31,
+        "round": 1,
+        "group": "false_tt",
+        "clip_id": "false_tv_radio_000",
+        "kind": "tv_radio"
+      },
+      {
+        "index": 32,
+        "round": 1,
+        "group": "false_tt",
+        "clip_id": "false_side_talk_004",
+        "kind": "side_talk"
+      },
+      {
+        "index": 33,
+        "round": 1,
+        "group": "v1_turntaking",
+        "clip_id": "v1_turntaking_38",
+        "kind": null
+      },
+      {
+        "index": 34,
+        "round": 1,
+        "group": "v15_interruption",
+        "clip_id": "v15_interruption_165",
+        "kind": null
+      },
+      {
+        "index": 35,
+        "round": 1,
+        "group": "v15_backchannel",
+        "clip_id": "v15_backchannel_60",
+        "kind": null
+      },
+      {
+        "index": 36,
+        "round": 1,
+        "group": "v1_pause_candor",
+        "clip_id": "v1_pause_candor_189",
+        "kind": null
+      },
+      {
+        "index": 37,
+        "round": 1,
+        "group": "v15_talking_to_other",
+        "clip_id": "v15_talking_to_other_81",
+        "kind": null
+      },
+      {
+        "index": 38,
+        "round": 1,
+        "group": "v1_interrupt",
+        "clip_id": "v1_interrupt_39",
+        "kind": null
+      },
+      {
+        "index": 39,
+        "round": 1,
+        "group": "v1_pause_synth",
+        "clip_id": "v1_pause_synth_30",
+        "kind": null
+      },
+      {
+        "index": 40,
+        "round": 2,
+        "group": "v15_interruption",
+        "clip_id": "v15_interruption_32",
+        "kind": null
+      },
+      {
+        "index": 41,
+        "round": 2,
+        "group": "false_tt",
+        "clip_id": "false_noise_009",
+        "kind": "noise"
+      },
+      {
+        "index": 42,
+        "round": 2,
+        "group": "v15_backchannel",
+        "clip_id": "v15_backchannel_97",
+        "kind": null
+      },
+      {
+        "index": 43,
+        "round": 2,
+        "group": "v1_interrupt",
+        "clip_id": "v1_interrupt_163",
+        "kind": null
+      },
+      {
+        "index": 44,
+        "round": 2,
+        "group": "v1_pause_candor",
+        "clip_id": "v1_pause_candor_12",
+        "kind": null
+      },
+      {
+        "index": 45,
+        "round": 2,
+        "group": "v15_talking_to_other",
+        "clip_id": "v15_talking_to_other_47",
+        "kind": null
+      },
+      {
+        "index": 46,
+        "round": 2,
+        "group": "v1_turntaking",
+        "clip_id": "v1_turntaking_95",
+        "kind": null
+      },
+      {
+        "index": 47,
+        "round": 2,
+        "group": "false_tt",
+        "clip_id": "false_background_009",
+        "kind": "background"
+      },
+      {
+        "index": 48,
+        "round": 2,
+        "group": "v15_background",
+        "clip_id": "v15_background_8",
+        "kind": null
+      },
+      {
+        "index": 49,
+        "round": 2,
+        "group": "v1_pause_synth",
+        "clip_id": "v1_pause_synth_115",
+        "kind": null
+      },
+      {
+        "index": 50,
+        "round": 3,
+        "group": "v15_talking_to_other",
+        "clip_id": "v15_talking_to_other_20",
+        "kind": null
+      },
+      {
+        "index": 51,
+        "round": 3,
+        "group": "v1_pause_synth",
+        "clip_id": "v1_pause_synth_5",
+        "kind": null
+      },
+      {
+        "index": 52,
+        "round": 3,
+        "group": "v15_background",
+        "clip_id": "v15_background_3",
+        "kind": null
+      },
+      {
+        "index": 53,
+        "round": 3,
+        "group": "v15_interruption",
+        "clip_id": "v15_interruption_3",
+        "kind": null
+      },
+      {
+        "index": 54,
+        "round": 3,
+        "group": "false_tt",
+        "clip_id": "false_tv_radio_004",
+        "kind": "tv_radio"
+      },
+      {
+        "index": 55,
+        "round": 3,
+        "group": "false_tt",
+        "clip_id": "false_side_talk_005",
+        "kind": "side_talk"
+      },
+      {
+        "index": 56,
+        "round": 3,
+        "group": "v15_backchannel",
+        "clip_id": "v15_backchannel_48",
+        "kind": null
+      },
+      {
+        "index": 57,
+        "round": 3,
+        "group": "v1_turntaking",
+        "clip_id": "v1_turntaking_91",
+        "kind": null
+      },
+      {
+        "index": 58,
+        "round": 3,
+        "group": "v1_pause_candor",
+        "clip_id": "v1_pause_candor_161",
+        "kind": null
+      },
+      {
+        "index": 59,
+        "round": 3,
+        "group": "v1_interrupt",
+        "clip_id": "v1_interrupt_174",
+        "kind": null
+      }
+    ]
+  },
+  "current": {
+    "run_id": "2026-11-07_10-39-12",
+    "results_sha256": "3a989c85daa9c1dba82528109772f7750b8f33171654ea433b3815122fe5ecdf",
+    "official_headline_table": [
+      {
+        "key": "e2e",
+        "metric": "E2E latency",
+        "definition": "end of speech \u2192 audio out",
+        "target": 4.0,
+        "mean": 3.432536842105263,
+        "p95": 6.70238,
+        "median": 2.9141,
+        "n": 19,
+        "unit": "s",
+        "status": "p95_over",
+        "note": null
+      },
+      {
+        "key": "asr_final",
+        "metric": "ASR final",
+        "definition": "end of speech \u2192 transcript",
+        "target": 0.8,
+        "mean": 1.47646,
+        "p95": 1.92381,
+        "median": 1.60635,
+        "n": 30,
+        "unit": "s",
+        "status": "over",
+        "note": null
+      },
+      {
+        "key": "llm_ttft",
+        "metric": "LLM TTFT",
+        "definition": "transcript \u2192 first token",
+        "target": 1.5,
+        "mean": 1.2963315789473686,
+        "p95": 5.4350499999999995,
+        "median": 0.4909,
+        "n": 19,
+        "unit": "s",
+        "status": "p95_over",
+        "note": null
+      },
+      {
+        "key": "tts_ttfb",
+        "metric": "TTS TTFB",
+        "definition": "text \u2192 first audio chunk",
+        "target": 0.6,
+        "mean": 0.40478947368421053,
+        "p95": 0.783429999999999,
+        "median": 0.3824,
+        "n": 19,
+        "unit": "s",
+        "status": "p95_over",
+        "note": null
+      },
+      {
+        "key": "barge_in",
+        "metric": "Barge-in",
+        "definition": "speech \u2192 playback stopped",
+        "target": 0.8,
+        "mean": 0.22799999999999976,
+        "p95": 0.3383999999999997,
+        "median": 0.2519999999999998,
+        "n": 4,
+        "unit": "s",
+        "status": "met",
+        "note": null
+      },
+      {
+        "key": "wer",
+        "metric": "WER",
+        "definition": "ASR accuracy on test set",
+        "target": 0.15,
+        "mean": 0.014492753623188406,
+        "p95": null,
+        "median": null,
+        "n": 30,
+        "unit": "ratio",
+        "status": "met",
+        "note": null
+      }
+    ],
+    "official_queue_summary": {
+      "rounds": 3,
+      "seed": 231,
+      "total": 60,
+      "done": 60,
+      "skipped": 0,
+      "failed": 0
+    },
+    "official_session_outcome": {
+      "completed": 60,
+      "total": 60,
+      "stopped_early": false,
+      "seconds": 1364.3746028749993
+    },
+    "recordings_timing_count": 72,
+    "stage_files_count": 71,
+    "missing_stage_file_trials": [
+      "r02_false_tt_false_noise_009"
+    ],
+    "transport_errors": [],
+    "score_errors": [],
+    "phrase_trials": 30,
+    "phrase_with_recorded_reply_count": 19,
+    "phrase_missing_recorded_reply_trials": [
+      "r01_stage_latency_phrase_v15_backchannel_34",
+      "r01_stage_latency_phrase_v15_interruption_188",
+      "r01_stage_latency_phrase_v15_talking_to_other_31",
+      "r01_stage_latency_phrase_v1_interrupt_129",
+      "r01_stage_latency_phrase_v1_interrupt_83",
+      "r02_stage_latency_phrase_v15_backchannel_34",
+      "r02_stage_latency_phrase_v15_talking_to_other_31",
+      "r02_stage_latency_phrase_v1_interrupt_129",
+      "r02_stage_latency_phrase_v1_interrupt_192",
+      "r02_stage_latency_phrase_v1_interrupt_73",
+      "r03_stage_latency_phrase_v1_interrupt_83"
+    ],
+    "phrase_missing_stage_timing": {
+      "e2e": [
+        "r01_stage_latency_phrase_v15_backchannel_34",
+        "r01_stage_latency_phrase_v15_interruption_188",
+        "r01_stage_latency_phrase_v15_talking_to_other_31",
+        "r01_stage_latency_phrase_v1_interrupt_129",
+        "r01_stage_latency_phrase_v1_interrupt_83",
+        "r02_stage_latency_phrase_v15_backchannel_34",
+        "r02_stage_latency_phrase_v15_talking_to_other_31",
+        "r02_stage_latency_phrase_v1_interrupt_129",
+        "r02_stage_latency_phrase_v1_interrupt_192",
+        "r02_stage_latency_phrase_v1_interrupt_73",
+        "r03_stage_latency_phrase_v1_interrupt_83"
+      ],
+      "asr_final": [],
+      "llm_ttft": [
+        "r01_stage_latency_phrase_v15_backchannel_34",
+        "r01_stage_latency_phrase_v15_interruption_188",
+        "r01_stage_latency_phrase_v15_talking_to_other_31",
+        "r01_stage_latency_phrase_v1_interrupt_129",
+        "r01_stage_latency_phrase_v1_interrupt_83",
+        "r02_stage_latency_phrase_v15_backchannel_34",
+        "r02_stage_latency_phrase_v15_talking_to_other_31",
+        "r02_stage_latency_phrase_v1_interrupt_129",
+        "r02_stage_latency_phrase_v1_interrupt_192",
+        "r02_stage_latency_phrase_v1_interrupt_73",
+        "r03_stage_latency_phrase_v1_interrupt_83"
+      ],
+      "tts_ttfb": [
+        "r01_stage_latency_phrase_v15_backchannel_34",
+        "r01_stage_latency_phrase_v15_interruption_188",
+        "r01_stage_latency_phrase_v15_talking_to_other_31",
+        "r01_stage_latency_phrase_v1_interrupt_129",
+        "r01_stage_latency_phrase_v1_interrupt_83",
+        "r02_stage_latency_phrase_v15_backchannel_34",
+        "r02_stage_latency_phrase_v15_talking_to_other_31",
+        "r02_stage_latency_phrase_v1_interrupt_129",
+        "r02_stage_latency_phrase_v1_interrupt_192",
+        "r02_stage_latency_phrase_v1_interrupt_73",
+        "r03_stage_latency_phrase_v1_interrupt_83"
+      ]
+    },
+    "official_heard_onset_separate_clock": {
+      "n": 19,
+      "median": 3.396,
+      "p95": 7.2296,
+      "mean": 3.9602105263157887,
+      "min": 1.988,
+      "max": 7.46,
+      "ci95_median": [
+        3.012,
+        4.356
+      ],
+      "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+    },
+    "official_software_e2e": {
+      "n": 19,
+      "median": 2.9141,
+      "p95": 6.70238,
+      "mean": 3.432536842105263,
+      "min": 1.4753,
+      "max": 6.9749,
+      "ci95_median": [
+        2.4091,
+        3.8704
+      ],
+      "p95_note": "with fewer than 20 trials p95 is close to the slowest trial",
+      "source": "marks"
+    },
+    "official_wer": {
+      "n": 30,
+      "ref_words": 207,
+      "edits": 3,
+      "wer": 0.014492753623188406,
+      "mean_phrase_wer": 0.014285714285714285
+    },
+    "official_semantic_metrics": {
+      "v1_pause_synth.tor": {
+        "n": 3,
+        "k": 0,
+        "value": 0.0
+      },
+      "v1_pause_candor.tor": {
+        "n": 3,
+        "k": 0,
+        "value": 0.0
+      },
+      "v1_turntaking.tor": {
+        "n": 3,
+        "k": 1,
+        "value": 0.3333333333333333
+      },
+      "v1_turntaking.missed_rate": {
+        "n": 3,
+        "k": 2,
+        "value": 0.6666666666666666
+      },
+      "v1_turntaking.latency": {
+        "n": 1,
+        "median": 4.422000000000111,
+        "p95": 4.422000000000111,
+        "mean": 4.422000000000111,
+        "min": 4.422000000000111,
+        "max": 4.422000000000111,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "false_tt.rate": {
+        "n": 6,
+        "k": 4,
+        "value": 0.6666666666666666
+      },
+      "false_tt.rate.side_talk": {
+        "n": 2,
+        "k": 1,
+        "value": 0.5
+      },
+      "false_tt.rate.tv_radio": {
+        "n": 2,
+        "k": 2,
+        "value": 1.0
+      },
+      "false_tt.rate.background": {
+        "n": 1,
+        "k": 1,
+        "value": 1.0
+      },
+      "false_tt.rate.noise": {
+        "n": 1,
+        "k": 0,
+        "value": 0.0
+      },
+      "v1_interrupt.tor": {
+        "n": 3,
+        "k": 1,
+        "value": 0.3333333333333333
+      },
+      "v1_interrupt.latency": {
+        "n": 1,
+        "median": 3.2040000000000006,
+        "p95": 3.2040000000000006,
+        "mean": 3.2040000000000006,
+        "min": 3.2040000000000006,
+        "max": 3.2040000000000006,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v1_interrupt.rating": {
+        "n": 0,
+        "mean": null
+      },
+      "v1_interrupt.t_stop": {
+        "n": 3,
+        "median": 0.2839999999999989,
+        "p95": 0.3415999999999998,
+        "mean": 0.23066666666666613,
+        "min": 0.05999999999999961,
+        "max": 0.34799999999999986,
+        "ci95_median": [
+          0.05999999999999961,
+          0.34799999999999986
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v1_interrupt.not_played": 0,
+      "v15_interruption.respond": {
+        "value": null,
+        "n": 0
+      },
+      "v15_interruption.resume": {
+        "value": null,
+        "n": 0
+      },
+      "v15_interruption.uncertain": {
+        "value": null,
+        "n": 0
+      },
+      "v15_interruption.unknown": {
+        "value": null,
+        "n": 0
+      },
+      "v15_interruption.class.through": {
+        "n": 3,
+        "k": 0,
+        "value": 0.0
+      },
+      "v15_interruption.class.paused": {
+        "n": 3,
+        "k": 2,
+        "value": 0.6666666666666666
+      },
+      "v15_interruption.class.stopped": {
+        "n": 3,
+        "k": 1,
+        "value": 0.3333333333333333
+      },
+      "v15_interruption.t_stop": {
+        "n": 1,
+        "median": 0.22000000000000064,
+        "p95": 0.22000000000000064,
+        "mean": 0.22000000000000064,
+        "min": 0.22000000000000064,
+        "max": 0.22000000000000064,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_interruption.t_resp": {
+        "n": 2,
+        "median": 2.981,
+        "p95": 3.4427,
+        "mean": 2.981,
+        "min": 2.468,
+        "max": 3.4939999999999998,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_interruption.judged": 0,
+      "v15_interruption.n": 3,
+      "v15_backchannel.respond": {
+        "value": null,
+        "n": 0
+      },
+      "v15_backchannel.resume": {
+        "value": null,
+        "n": 0
+      },
+      "v15_backchannel.uncertain": {
+        "value": null,
+        "n": 0
+      },
+      "v15_backchannel.unknown": {
+        "value": null,
+        "n": 0
+      },
+      "v15_backchannel.class.through": {
+        "n": 3,
+        "k": 0,
+        "value": 0.0
+      },
+      "v15_backchannel.class.paused": {
+        "n": 3,
+        "k": 2,
+        "value": 0.6666666666666666
+      },
+      "v15_backchannel.class.stopped": {
+        "n": 3,
+        "k": 1,
+        "value": 0.3333333333333333
+      },
+      "v15_backchannel.t_stop": {
+        "n": 3,
+        "median": 0.3160000000000007,
+        "p95": 0.3502000000000002,
+        "mean": 0.2860000000000002,
+        "min": 0.18799999999999972,
+        "max": 0.3540000000000001,
+        "ci95_median": [
+          0.18799999999999972,
+          0.3540000000000001
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_backchannel.t_resp": {
+        "n": 2,
+        "median": 2.8104999999999993,
+        "p95": 3.7775499999999997,
+        "mean": 2.8104999999999993,
+        "min": 1.7359999999999989,
+        "max": 3.885,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_backchannel.judged": 0,
+      "v15_backchannel.n": 3,
+      "v15_talking_to_other.respond": {
+        "value": null,
+        "n": 0
+      },
+      "v15_talking_to_other.resume": {
+        "value": null,
+        "n": 0
+      },
+      "v15_talking_to_other.uncertain": {
+        "value": null,
+        "n": 0
+      },
+      "v15_talking_to_other.unknown": {
+        "value": null,
+        "n": 0
+      },
+      "v15_talking_to_other.class.through": {
+        "n": 2,
+        "k": 0,
+        "value": 0.0
+      },
+      "v15_talking_to_other.class.paused": {
+        "n": 2,
+        "k": 1,
+        "value": 0.5
+      },
+      "v15_talking_to_other.class.stopped": {
+        "n": 2,
+        "k": 1,
+        "value": 0.5
+      },
+      "v15_talking_to_other.t_stop": {
+        "n": 2,
+        "median": 0.2999999999999998,
+        "p95": 0.34319999999999984,
+        "mean": 0.2999999999999998,
+        "min": 0.2519999999999998,
+        "max": 0.34799999999999986,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_talking_to_other.t_resp": {
+        "n": 1,
+        "median": 3.139999999999999,
+        "p95": 3.139999999999999,
+        "mean": 3.139999999999999,
+        "min": 3.139999999999999,
+        "max": 3.139999999999999,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_talking_to_other.judged": 0,
+      "v15_talking_to_other.n": 3,
+      "v15_background.respond": {
+        "value": null,
+        "n": 0
+      },
+      "v15_background.resume": {
+        "value": null,
+        "n": 0
+      },
+      "v15_background.uncertain": {
+        "value": null,
+        "n": 0
+      },
+      "v15_background.unknown": {
+        "value": null,
+        "n": 0
+      },
+      "v15_background.class.through": {
+        "n": 2,
+        "k": 0,
+        "value": 0.0
+      },
+      "v15_background.class.paused": {
+        "n": 2,
+        "k": 2,
+        "value": 1.0
+      },
+      "v15_background.class.stopped": {
+        "n": 2,
+        "k": 0,
+        "value": 0.0
+      },
+      "v15_background.t_stop": {
+        "n": 2,
+        "median": 0.38000000000000034,
+        "p95": 0.3800000000000007,
+        "mean": 0.38000000000000034,
+        "min": 0.3799999999999999,
+        "max": 0.3800000000000008,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_background.t_resp": {
+        "n": 2,
+        "median": 2.788,
+        "p95": 3.133599999999999,
+        "mean": 2.788,
+        "min": 2.404000000000001,
+        "max": 3.171999999999999,
+        "ci95_median": [
+          null,
+          null
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial"
+      },
+      "v15_background.judged": 0,
+      "v15_background.n": 3
+    },
+    "official_unjudged_notes": [
+      "no judge: interruption relevance and v1.5 behaviour labels not scored"
+    ],
+    "false_turn_counted_vs_any_speech": {
+      "scheduled": 6,
+      "original_tor_count": 4,
+      "any_detected_bot_segment_count": 4
+    },
+    "interruption_stop_denominators": {
+      "scheduled": 6,
+      "overlap_played": 6,
+      "valid_official_samples": 4,
+      "official_metric": {
+        "n": 4,
+        "median": 0.2519999999999998,
+        "p95": 0.3383999999999997,
+        "mean": 0.22799999999999976,
+        "min": 0.05999999999999961,
+        "max": 0.34799999999999986,
+        "ci95_median": [
+          0.05999999999999961,
+          0.34799999999999986
+        ],
+        "p95_note": "with fewer than 20 trials p95 is close to the slowest trial",
+        "kept_talking": 0
+      }
+    },
+    "backchannel_returns": {
+      "scheduled": 3,
+      "returned_by_t_resp": 2,
+      "not_returned_trials": [
+        "r02_v15_backchannel_v15_backchannel_97"
+      ]
+    },
+    "overlap_not_played_trials": [
+      "r02_v15_talking_to_other_v15_talking_to_other_47",
+      "r03_v15_background_v15_background_3"
+    ],
+    "pre_answer_output_audit": {
+      "count": 0,
+      "original_scorer_qualifying_early_count": 0,
+      "trials": [],
+      "interpretation": "Audio before first ASR commit or model text is a provisional cue, not a substantive-response latency pass. Original scorer remains unchanged. ASR transcript is evaluation-model output, not a content judge."
+    },
+    "queue_selection": [
+      {
+        "index": 0,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_background_91",
+        "kind": null
+      },
+      {
+        "index": 1,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_background_94",
+        "kind": null
+      },
+      {
+        "index": 2,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_129",
+        "kind": null
+      },
+      {
+        "index": 3,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_backchannel_34",
+        "kind": null
+      },
+      {
+        "index": 4,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_interruption_188",
+        "kind": null
+      },
+      {
+        "index": 5,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_interruption_35",
+        "kind": null
+      },
+      {
+        "index": 6,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_192",
+        "kind": null
+      },
+      {
+        "index": 7,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_73",
+        "kind": null
+      },
+      {
+        "index": 8,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_talking_to_other_31",
+        "kind": null
+      },
+      {
+        "index": 9,
+        "round": 1,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_83",
+        "kind": null
+      },
+      {
+        "index": 10,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_talking_to_other_31",
+        "kind": null
+      },
+      {
+        "index": 11,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_background_91",
+        "kind": null
+      },
+      {
+        "index": 12,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_73",
+        "kind": null
+      },
+      {
+        "index": 13,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_background_94",
+        "kind": null
+      },
+      {
+        "index": 14,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_backchannel_34",
+        "kind": null
+      },
+      {
+        "index": 15,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_83",
+        "kind": null
+      },
+      {
+        "index": 16,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_interruption_188",
+        "kind": null
+      },
+      {
+        "index": 17,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_interruption_35",
+        "kind": null
+      },
+      {
+        "index": 18,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_192",
+        "kind": null
+      },
+      {
+        "index": 19,
+        "round": 2,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_129",
+        "kind": null
+      },
+      {
+        "index": 20,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_73",
+        "kind": null
+      },
+      {
+        "index": 21,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_interruption_35",
+        "kind": null
+      },
+      {
+        "index": 22,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_83",
+        "kind": null
+      },
+      {
+        "index": 23,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_background_94",
+        "kind": null
+      },
+      {
+        "index": 24,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_interruption_188",
+        "kind": null
+      },
+      {
+        "index": 25,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_192",
+        "kind": null
+      },
+      {
+        "index": 26,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_background_91",
+        "kind": null
+      },
+      {
+        "index": 27,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_backchannel_34",
+        "kind": null
+      },
+      {
+        "index": 28,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v1_interrupt_129",
+        "kind": null
+      },
+      {
+        "index": 29,
+        "round": 3,
+        "group": "stage_latency",
+        "clip_id": "phrase_v15_talking_to_other_31",
+        "kind": null
+      },
+      {
+        "index": 30,
+        "round": 1,
+        "group": "v15_background",
+        "clip_id": "v15_background_27",
+        "kind": null
+      },
+      {
+        "index": 31,
+        "round": 1,
+        "group": "false_tt",
+        "clip_id": "false_tv_radio_000",
+        "kind": "tv_radio"
+      },
+      {
+        "index": 32,
+        "round": 1,
+        "group": "false_tt",
+        "clip_id": "false_side_talk_004",
+        "kind": "side_talk"
+      },
+      {
+        "index": 33,
+        "round": 1,
+        "group": "v1_turntaking",
+        "clip_id": "v1_turntaking_38",
+        "kind": null
+      },
+      {
+        "index": 34,
+        "round": 1,
+        "group": "v15_interruption",
+        "clip_id": "v15_interruption_165",
+        "kind": null
+      },
+      {
+        "index": 35,
+        "round": 1,
+        "group": "v15_backchannel",
+        "clip_id": "v15_backchannel_60",
+        "kind": null
+      },
+      {
+        "index": 36,
+        "round": 1,
+        "group": "v1_pause_candor",
+        "clip_id": "v1_pause_candor_189",
+        "kind": null
+      },
+      {
+        "index": 37,
+        "round": 1,
+        "group": "v15_talking_to_other",
+        "clip_id": "v15_talking_to_other_81",
+        "kind": null
+      },
+      {
+        "index": 38,
+        "round": 1,
+        "group": "v1_interrupt",
+        "clip_id": "v1_interrupt_39",
+        "kind": null
+      },
+      {
+        "index": 39,
+        "round": 1,
+        "group": "v1_pause_synth",
+        "clip_id": "v1_pause_synth_30",
+        "kind": null
+      },
+      {
+        "index": 40,
+        "round": 2,
+        "group": "v15_interruption",
+        "clip_id": "v15_interruption_32",
+        "kind": null
+      },
+      {
+        "index": 41,
+        "round": 2,
+        "group": "false_tt",
+        "clip_id": "false_noise_009",
+        "kind": "noise"
+      },
+      {
+        "index": 42,
+        "round": 2,
+        "group": "v15_backchannel",
+        "clip_id": "v15_backchannel_97",
+        "kind": null
+      },
+      {
+        "index": 43,
+        "round": 2,
+        "group": "v1_interrupt",
+        "clip_id": "v1_interrupt_163",
+        "kind": null
+      },
+      {
+        "index": 44,
+        "round": 2,
+        "group": "v1_pause_candor",
+        "clip_id": "v1_pause_candor_12",
+        "kind": null
+      },
+      {
+        "index": 45,
+        "round": 2,
+        "group": "v15_talking_to_other",
+        "clip_id": "v15_talking_to_other_47",
+        "kind": null
+      },
+      {
+        "index": 46,
+        "round": 2,
+        "group": "v1_turntaking",
+        "clip_id": "v1_turntaking_95",
+        "kind": null
+      },
+      {
+        "index": 47,
+        "round": 2,
+        "group": "false_tt",
+        "clip_id": "false_background_009",
+        "kind": "background"
+      },
+      {
+        "index": 48,
+        "round": 2,
+        "group": "v15_background",
+        "clip_id": "v15_background_8",
+        "kind": null
+      },
+      {
+        "index": 49,
+        "round": 2,
+        "group": "v1_pause_synth",
+        "clip_id": "v1_pause_synth_115",
+        "kind": null
+      },
+      {
+        "index": 50,
+        "round": 3,
+        "group": "v15_talking_to_other",
+        "clip_id": "v15_talking_to_other_20",
+        "kind": null
+      },
+      {
+        "index": 51,
+        "round": 3,
+        "group": "v1_pause_synth",
+        "clip_id": "v1_pause_synth_5",
+        "kind": null
+      },
+      {
+        "index": 52,
+        "round": 3,
+        "group": "v15_background",
+        "clip_id": "v15_background_3",
+        "kind": null
+      },
+      {
+        "index": 53,
+        "round": 3,
+        "group": "v15_interruption",
+        "clip_id": "v15_interruption_3",
+        "kind": null
+      },
+      {
+        "index": 54,
+        "round": 3,
+        "group": "false_tt",
+        "clip_id": "false_tv_radio_004",
+        "kind": "tv_radio"
+      },
+      {
+        "index": 55,
+        "round": 3,
+        "group": "false_tt",
+        "clip_id": "false_side_talk_005",
+        "kind": "side_talk"
+      },
+      {
+        "index": 56,
+        "round": 3,
+        "group": "v15_backchannel",
+        "clip_id": "v15_backchannel_48",
+        "kind": null
+      },
+      {
+        "index": 57,
+        "round": 3,
+        "group": "v1_turntaking",
+        "clip_id": "v1_turntaking_91",
+        "kind": null
+      },
+      {
+        "index": 58,
+        "round": 3,
+        "group": "v1_pause_candor",
+        "clip_id": "v1_pause_candor_161",
+        "kind": null
+      },
+      {
+        "index": 59,
+        "round": 3,
+        "group": "v1_interrupt",
+        "clip_id": "v1_interrupt_174",
+        "kind": null
+      }
+    ]
+  },
+  "queue_selection_matches_prior": true,
+  "provenance": {
+    "preflight_passed": true,
+    "postflight_passed": true,
+    "benchmark_commit": "57eaddbc188ce9a19b8fd002b575f703426956f4",
+    "benchmark_status_before": "",
+    "benchmark_status_after": "",
+    "runtime_source_hashes_equal_before_after": true,
+    "agent_commit": "ed6efa0dd9edaa6dceebf342392b54604bb43cbc",
+    "dataset_manifest_sha256": "de429e12b486b752849ab029cf9c303cc3565bb8ce64e2fcf624844d3010e1a8",
+    "dataset_refs_verified_before": 430,
+    "dataset_refs_verified_after": 430,
+    "dataset_problems_before": [],
+    "dataset_problems_after": [],
+    "scorer_hashes_equal_before_after": true,
+    "scorer_matches_prior": true,
+    "scorer_sha256": {
+      "fdbench/score/metrics.py": "80d2edd59eeb6f0fa7b55fbfef2ddc7f1b2cdcc1a357b1de41fb6cf746c66984",
+      "fdbench/score/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fdbench/score/asr.py": "d234d662eb5fc5d68904f09a6debd93e843325abdd76d8b7d23013e48cbce37e",
+      "fdbench/score/stages.py": "1c994d7f78b340eee2adff7e9e2cec031899808a1964b302b26ac7fefac0e6cf",
+      "fdbench/score/wer.py": "5901dfec2f7259790f2bc4822d1605144d0be6ad2e4cea3bb218f160eda4e7d1",
+      "fdbench/score/voice.py": "d230a671d1d15129b3d19230bf5f08b419a6f182f103fc87427a64b3555f176f",
+      "fdbench/score/judge.py": "ffe1e11714f72b9995725b8d79d72727f13f3997816c9b5d1db5ab86eb45d803",
+      "fdbench/score/resources.py": "407c0a9e0523386d1a316f6f049d9d3fa28b2fce3ba4bc53717b94abcda131c1",
+      "fdbench/score/scorer.py": "f7d238c0f91e2b170a9d29dd4454cf74dadf22b0438440936f0e09f898d4c149"
+    },
+    "models": {
+      "ME3_ASR_MODEL": "mlx-community/whisper-large-v3-turbo",
+      "ME3_TTS_MODEL": "mlx-community/Kokoro-82M-bf16",
+      "ME3_TTS_VOICE": "af_heart",
+      "ME3_FOREGROUND_MODEL": "Qwen/Qwen3.8-27B",
+      "ME3_WORKER_PROVIDER": "openai-codex",
+      "ME3_WORKER_MODEL": "gpt-6.1-sol"
+    },
+    "evaluation_model_revision": "536b0662742c02347bc0e980a01041f333bce120"
+  },
+  "limitations": [
+    "Mac direct-feed software measurements, no physical acoustics or Pi hardware.",
+    "No judge, UTMOS, busy-worker benchmark or semantic content qualification.",
+    "Missing measurements excluded by original scorer are not passes.",
+    "Provisional listening cues must not be described as substantive response latency."
+  ]
+}

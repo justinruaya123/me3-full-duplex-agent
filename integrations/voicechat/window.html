@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ME3 · Pi</title>
+  <link rel="stylesheet" href="xterm.css">
+  <link rel="stylesheet" href="window.css"><link rel="stylesheet" href="readable.css">
+</head>
+<body>
+  <main id="home" aria-label="Voice assistant">
+    <div class="presence-head"><div class="activity" role="status"><i></i><span id="activity">Warmup</span></div>
+      <span id="playback-state" hidden>Audio playing</span>
+      <button id="ready-count" hidden></button>
+      <button id="appearance-home" class="reading-control" aria-label="Display settings" title="Display settings">Aa</button></div>
+    <span id="face-stage" data-mode="warmup">
+      <img id="face" hidden alt="" draggable="false">
+    </span>
+    <footer>
+      <div class="captions">
+        <div class="caption"><button id="duplex" disabled title="Toggle microphone">Mic off</button><span id="asr"></span></div>
+        <div class="caption" id="answer" hidden><span class="source">Pi</span><span id="output"></span></div>
+      </div>
+      <button id="inspect" class="icon" title="Pi state and streams" aria-label="Open Pi state and streams">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="4"/><path d="m7 9 3 3-3 3m6 0h4"/></svg>
+      </button>
+    </footer>
+  </main>
+  <section id="workspace" hidden aria-label="Pi workspace">
+    <header>
+      <nav aria-label="Views">
+        <button id="canvas">IntelligentUI</button><button id="console">Pi stream</button><button id="agents">Agents</button>
+      </nav>
+      <button id="appearance-work" class="reading-control" aria-label="Display settings">Aa</button>
+      <button id="fullscreen" class="icon" aria-label="Full screen" title="Full screen">⛶</button>
+      <button id="close" class="icon" aria-label="Return to face" title="Return to face"><span class="close-mark">×</span></button>
+    </header>
+    <div id="work-status" aria-label="Device status"></div>
+    <section id="visual" hidden><p id="hint">Your dashboard will appear here.</p><iframe hidden sandbox title="IntelligentUI visual"></iframe><div id="board"></div></section>
+    <section id="terminal" aria-label="Live Pi terminal"></section>
+    <section id="jobs" hidden><nav id="job-tabs" aria-label="Worker streams"></nav><p id="job-status">No delegated agents yet.</p><a id="job-download" hidden download="website.zip">Download GitHub Pages ZIP</a><pre id="job-output"></pre></section>
+  </section>
+  <dialog id="preferences" aria-labelledby="pref-title">
+    <form method="dialog"><h2 id="pref-title">Display settings</h2>
+    <label>Appearance<select id="theme-choice"><option value="classic">Classic</option><option value="bmo-readable">Readable</option></select></label>
+    <label>Reading font<select id="pref-font"><option value="default">Atkinson Hyperlegible</option><option value="system">System font</option></select></label>
+    <label><input id="large-text" type="checkbox"> Large text</label>
+    <label>Text spacing<select id="pref-spacing"><option value="default">Standard</option><option value="wide">Wide</option></select></label>
+    <label>Reading surface<select id="pref-background"><option value="default">Paper</option><option value="mint">Mint</option></select></label>
+    <label><input id="still-face" type="checkbox"> Reduce motion</label>
+    <p id="pref-status" role="status"></p><button id="pref-reset" type="button">Reset to defaults</button>
+    <button id="pref-done" type="button">Done</button></form>
+  </dialog>
+  <script src="xterm.js"></script><script src="fit.js"></script><script type="module" src="window.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{"stage": "vad_start", "t": 28465.711889666, "pid": 37649, "src": "ws", "recv": 28465.712633541, "lt": 28465.712051333, "tt": 0.2611}
+{"stage": "vad_start", "t": 28465.711903, "pid": 37649, "src": "ws", "recv": 28465.712666208, "lt": 28465.712064667, "tt": 0.2612}
+{"stage": "asr_partial", "t": 28467.291756791, "pid": 37649, "text": "What do you think?", "src": "ws", "recv": 28467.291974708, "lt": 28467.291918458002, "tt": 1.841}
+{"stage": "vad_end", "t": 28468.241671, "pid": 37649, "src": "ws", "recv": 28468.242902708, "lt": 28468.241832667, "tt": 2.7909}
+{"stage": "vad_end", "t": 28468.241696375, "pid": 37649, "src": "ws", "recv": 28468.243030375, "lt": 28468.241858042, "tt": 2.7909}
+{"stage": "asr_partial", "t": 28468.323990875, "pid": 37649, "text": "What do you think makes a great cup of", "src": "ws", "recv": 28468.324206375, "lt": 28468.324152542, "tt": 2.8732}
+{"stage": "asr_final", "t": 28469.336871666, "pid": 37649, "text": "What do you think makes a great cup of coffee?", "src": "ws", "recv": 28469.349611666, "lt": 28469.337033333002, "tt": 3.8861}
+{"stage": "interrupted", "t": 28469.337695041, "pid": 37649, "src": "ws", "recv": 28469.349775375, "lt": 28469.337856708, "tt": 3.8869}
+{"stage": "interrupted", "t": 28469.337706458, "pid": 37649, "src": "ws", "recv": 28469.349786791, "lt": 28469.337868125003, "tt": 3.887}
+{"stage": "llm_request", "t": 28469.349252666, "pid": 37649, "chars": 179, "messages": 1, "est_tokens": 45, "src": "ws", "recv": 28469.349818666, "lt": 28469.349414333003, "tt": 3.8985}
+{"stage": "llm_first_token", "t": 28469.503568666, "pid": 37649, "src": "ws", "recv": 28469.504247791, "lt": 28469.503730333003, "tt": 4.0528}
+{"stage": "tts_request", "t": 28469.676771125, "pid": 37649, "src": "ws", "recv": 28469.679890833, "lt": 28469.676932792, "tt": 4.226}
+{"stage": "tts_first_audio", "t": 28470.559698791, "pid": 37649, "src": "ws", "recv": 28470.560024333, "lt": 28470.559860458, "tt": 5.1089}
+{"stage": "audio_out", "t": 28470.581420083, "pid": 37649, "src": "ws", "recv": 28470.583612708, "lt": 28470.58158175, "tt": 5.1307}
+{"stage": "audio_out", "t": 28470.581435916, "pid": 37649, "src": "ws", "recv": 28470.583680083, "lt": 28470.581597583, "tt": 5.1307}
+{"stage": "vad_start", "t": 28472.721056083, "pid": 37649, "src": "ws", "recv": 28472.723660166, "lt": 28472.72121775, "tt": 7.2703}
+{"stage": "vad_start", "t": 28472.721086875, "pid": 37649, "src": "ws", "recv": 28472.723693583, "lt": 28472.721248542002, "tt": 7.2703}
+{"stage": "asr_partial", "t": 28474.27689225, "pid": 37649, "text": "Actually, let's talk.", "src": "ws", "recv": 28474.277136666, "lt": 28474.277053917, "tt": 8.8261}
+{"stage": "asr_partial", "t": 28475.306677791, "pid": 37649, "text": "Actually, let's talk about tea and stuff.", "src": "ws", "recv": 28475.306871875, "lt": 28475.306839458, "tt": 9.8559}
+{"stage": "bot_stopped", "t": 28475.716096416, "pid": 37649, "src": "ws", "recv": 28475.716460041, "lt": 28475.716258083, "tt": 10.2653}
+{"stage": "bot_stopped", "t": 28475.716106916, "pid": 37649, "src": "ws", "recv": 28475.716472583, "lt": 28475.716268583, "tt": 10.2654}
+{"stage": "vad_end", "t": 28475.887706208, "pid": 37649, "src": "ws", "recv": 28475.88819125, "lt": 28475.887867875, "tt": 10.437}
+{"stage": "vad_end", "t": 28475.887712916, "pid": 37649, "src": "ws", "recv": 28475.888200875, "lt": 28475.887874583, "tt": 10.437}
+{"stage": "asr_partial", "t": 28476.348644, "pid": 37649, "text": "Actually, let's talk about tea instead. What kind of tea?", "src": "ws", "recv": 28476.348828458, "lt": 28476.348805667003, "tt": 10.8979}
+{"stage": "asr_partial", "t": 28477.411823708, "pid": 37649, "text": "Actually, let's talk about tea instead. What kinds are there?", "src": "ws", "recv": 28477.411995416, "lt": 28477.411985375, "tt": 11.9611}

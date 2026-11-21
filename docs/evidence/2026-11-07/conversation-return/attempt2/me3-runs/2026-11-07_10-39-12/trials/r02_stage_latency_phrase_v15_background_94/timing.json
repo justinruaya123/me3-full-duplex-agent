@@ -1,0 +1,84 @@
+{
+  "trial": "r02_stage_latency_phrase_v15_background_94",
+  "group": "stage_latency",
+  "clip": "phrase_v15_background_94",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 14.176,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.944
+    }
+  ],
+  "live_bot_starts": [
+    5.92
+  ],
+  "live_bot_ends": [
+    13.824
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "Track my package from FedEx.",
+    "source": "v15_background_94"
+  },
+  "mono": [
+    27784.388142791,
+    27798.544778833
+  ],
+  "bot_segments": [
+    [
+      5.89,
+      13.854
+    ]
+  ],
+  "play_first": [
+    0.0,
+    1.944
+  ],
+  "tor": 1,
+  "first_start": 5.89,
+  "spoke_s": 4.053999999999999,
+  "user_end": 1.694,
+  "latency": 4.196,
+  "actual": "replied 4.20 s after speech end",
+  "verdict": "✓ 4.20 s",
+  "ok": true,
+  "marks": 17,
+  "final": {
+    "stages": {
+      "e2e_heard": 4.196,
+      "e2e": 3.7345,
+      "e2e_source": "marks",
+      "asr_final": 1.8758,
+      "llm_ttft": 0.2023,
+      "tts_ttfb": 1.1914,
+      "endpointing": 0.132,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request",
+        "llm_first_token",
+        "tts_request",
+        "tts_first_audio",
+        "audio_out"
+      ],
+      "transcript": "Track my package from FedEx.",
+      "wer": {
+        "ref_words": 5,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 40,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": "I can't check real -time package locations, but you can track it instantly using the tracking number on the FedEx website or app."
+  },
+  "scored_at": "2026-11-07T11:02:31+08:00"
+}

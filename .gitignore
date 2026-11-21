@@ -228,3 +228,16 @@ __marimo__/
 .speech-venv/
 
 .speech-venv312/
+
+/integrations/voicechat/node_modules/
+
+/integrations/openintelligentui/node_modules/
+
+# Original BMO face frames are installed locally from the pinned upstream source.
+/integrations/voicechat/faces/*.png
+
+!.env.speech.example
+!.env.bmo.example
+.venv-pi/
+bmo-config.json
+.DS_Store

@@ -29,11 +29,15 @@ async def build(transport, log_dir: Path):
 
 
 def describe() -> dict:
+    from me3.local_tts import BUNDLE, VOICE
+
+    backend = os.environ.get("ME3_TTS_BACKEND", "local")
     return {
+        "TTS_backend": backend,
         "ASR": os.environ.get("ME3_ASR_MODEL"),
         "LLM": os.environ.get("ME3_FOREGROUND_MODEL"),
-        "TTS": os.environ.get("ME3_TTS_MODEL"),
-        "voice": os.environ.get("ME3_TTS_VOICE"),
+        "TTS": BUNDLE if backend == "local" else os.environ.get("ME3_TTS_MODEL"),
+        "voice": VOICE if backend == "local" else os.environ.get("ME3_TTS_VOICE"),
         "VAD": "Silero",
         "turn": "SmartTurn v3.2",
     }

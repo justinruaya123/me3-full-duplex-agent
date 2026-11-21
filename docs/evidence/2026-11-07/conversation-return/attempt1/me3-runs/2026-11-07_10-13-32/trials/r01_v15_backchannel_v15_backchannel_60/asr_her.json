@@ -1,0 +1,104 @@
+{
+  "text": "Honestly, that's a massive topic to cover in depth in a quick -spoken answer.",
+  "chunks": [
+    {
+      "text": "Honestly,",
+      "timestamp": [
+        5.52,
+        6.3
+      ]
+    },
+    {
+      "text": "that's",
+      "timestamp": [
+        6.68,
+        6.94
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        6.94,
+        6.98
+      ]
+    },
+    {
+      "text": "massive",
+      "timestamp": [
+        6.98,
+        7.32
+      ]
+    },
+    {
+      "text": "topic",
+      "timestamp": [
+        7.32,
+        7.82
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        9.58,
+        10.5
+      ]
+    },
+    {
+      "text": "cover",
+      "timestamp": [
+        10.5,
+        10.8
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        10.8,
+        11.12
+      ]
+    },
+    {
+      "text": "depth",
+      "timestamp": [
+        11.12,
+        11.46
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        11.46,
+        11.98
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        11.98,
+        12.1
+      ]
+    },
+    {
+      "text": "quick",
+      "timestamp": [
+        12.1,
+        12.24
+      ]
+    },
+    {
+      "text": "-spoken",
+      "timestamp": [
+        12.24,
+        12.68
+      ]
+    },
+    {
+      "text": "answer.",
+      "timestamp": [
+        12.68,
+        13.06
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

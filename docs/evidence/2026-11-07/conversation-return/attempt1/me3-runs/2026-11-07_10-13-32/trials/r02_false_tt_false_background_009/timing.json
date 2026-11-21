@@ -1,0 +1,53 @@
+{
+  "trial": "r02_false_tt_false_background_009",
+  "group": "false_tt",
+  "clip": "false_background_009",
+  "variant": "main",
+  "expected": "stay silent",
+  "duration": 9.376,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 1.3469375
+    }
+  ],
+  "live_bot_starts": [],
+  "live_bot_ends": [],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "kind": "background",
+    "kind_label": "background speech",
+    "level_db": -15,
+    "text": "I'm going to take a nap.",
+    "source": "v15_background_17"
+  },
+  "mono": [
+    27014.2721545,
+    27023.636915166
+  ],
+  "bot_segments": [],
+  "play_first": [
+    0.0,
+    1.3469375
+  ],
+  "tor": 0,
+  "first_start": null,
+  "spoke_s": 0.0,
+  "actual": "silent",
+  "verdict": "✓ silent",
+  "ok": true,
+  "marks": 9,
+  "final": {
+    "tor": 0,
+    "words": 0,
+    "verdict": "✓ silent",
+    "ok": true,
+    "transcript": ""
+  },
+  "scored_at": "2026-11-07T10:36:31+08:00"
+}

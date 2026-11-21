@@ -6,7 +6,9 @@ import asyncio
 import io
 import re
 import wave
+from collections.abc import Coroutine
 
+from me3.hesitation import holds_turn
 from me3.incremental import (
     RollingTranscript,
     TranscriptRevision,
@@ -42,6 +44,7 @@ class RollingCapture:
         max_seconds: float = 16,
         interval: float = 0.8,
         on_empty=None,
+        preroll_seconds: float = 0.3,
     ) -> None:
         if not 0 < interval <= max_seconds <= 16:
             raise ValueError(
@@ -54,6 +57,9 @@ class RollingCapture:
             int(max_seconds * 32000),
             int(interval * 32000),
         )
+        if not 0 < preroll_seconds <= max_seconds:
+            raise ValueError("Invalid capture preroll")
+        self.preroll_bytes = 2 * int(16000 * preroll_seconds)
         self.audio = bytearray()
         self.preroll = b""
         self.active = self.committed = self.invalid = False
@@ -87,7 +93,7 @@ class RollingCapture:
         if len(pcm) % 2:
             raise ValueError("Capture requires PCM16 mono at 16kHz")
         self.total += len(pcm) // 2
-        self.preroll = (self.preroll + pcm)[-9600:]
+        self.preroll = (self.preroll + pcm)[-self.preroll_bytes:]
         if not self.active or self.invalid:
             return
         if len(self.audio) + len(pcm) > self.limit:
@@ -175,7 +181,9 @@ class RollingCapture:
             gap = re.search(
                 r"\[(?:inaudible|unknown|unclear)\]|<unk>", text, re.I
             )
-            committed = final and complete is True and not gap
+            committed = (
+                final and complete is True and not gap and not holds_turn(text)
+            )
             event = rolling.update(
                 text,
                 self.start_sample / 16000,
@@ -209,6 +217,13 @@ class RollingCapture:
         if self.on_empty is not None:
             self.on_empty(self.generation)
 
+    def end_vad_segment(self) -> Coroutine[None, None, None] | None:
+        """Claim this onset's final before scheduling inference on the event loop."""
+        if self.closed or not self.active:
+            return None
+        self.active = False
+        return self.finish(generation=self.generation)
+
     async def finish(self, *, generation: int | None = None) -> None:
         if generation is not None and generation != self.generation:
             return
@@ -241,6 +256,14 @@ class RollingCapture:
         self.rolling = None
         self.audio.clear()
         return True
+
+    def discard_incomplete(self) -> None:
+        """Retire an ended hypothesis whose continuation window has elapsed."""
+        if not self.active and not self.committed:
+            self.generation += 1
+            self.rolling = None
+            self._recognized = None
+            self.audio.clear()
 
     async def close(self) -> None:
         self.closed = True

@@ -334,3 +334,11 @@ class ClauseTests(unittest.IsolatedAsyncioTestCase):
             finally:
                 release.set()
                 await controller.close()
+
+class WhisperAcknowledgmentTests(unittest.TestCase):
+    def test_whisper_mm_hum_only_qualifies_as_a_whole_utterance(self):
+        from me3.incremental import is_acknowledgment
+
+        self.assertTrue(is_acknowledgment("MM HUM"))
+        self.assertFalse(is_acknowledgment("mm hum actually explain snow"))
+        self.assertFalse(is_acknowledgment("I can hum"))

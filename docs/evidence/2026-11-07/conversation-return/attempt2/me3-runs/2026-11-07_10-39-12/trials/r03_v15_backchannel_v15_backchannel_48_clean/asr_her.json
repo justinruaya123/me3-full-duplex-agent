@@ -1,0 +1,34 @@
+{
+  "text": "I can't do that.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        4.5,
+        4.94
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        4.94,
+        5.22
+      ]
+    },
+    {
+      "text": "do",
+      "timestamp": [
+        5.22,
+        5.34
+      ]
+    },
+    {
+      "text": "that.",
+      "timestamp": [
+        5.34,
+        5.56
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

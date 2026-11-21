@@ -1,0 +1,132 @@
+{
+  "text": "I don't have access to real -time data, so I can't tell you the current time in Tokyo.",
+  "chunks": [
+    {
+      "text": "I",
+      "timestamp": [
+        5.65,
+        6.07
+      ]
+    },
+    {
+      "text": "don't",
+      "timestamp": [
+        6.07,
+        6.27
+      ]
+    },
+    {
+      "text": "have",
+      "timestamp": [
+        6.27,
+        6.41
+      ]
+    },
+    {
+      "text": "access",
+      "timestamp": [
+        6.41,
+        6.85
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.85,
+        7.13
+      ]
+    },
+    {
+      "text": "real",
+      "timestamp": [
+        7.13,
+        7.35
+      ]
+    },
+    {
+      "text": "-time",
+      "timestamp": [
+        7.35,
+        7.61
+      ]
+    },
+    {
+      "text": "data,",
+      "timestamp": [
+        7.61,
+        7.93
+      ]
+    },
+    {
+      "text": "so",
+      "timestamp": [
+        8.31,
+        8.61
+      ]
+    },
+    {
+      "text": "I",
+      "timestamp": [
+        8.61,
+        8.79
+      ]
+    },
+    {
+      "text": "can't",
+      "timestamp": [
+        8.79,
+        9.17
+      ]
+    },
+    {
+      "text": "tell",
+      "timestamp": [
+        9.17,
+        9.33
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        9.33,
+        9.51
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        9.51,
+        9.63
+      ]
+    },
+    {
+      "text": "current",
+      "timestamp": [
+        9.63,
+        9.93
+      ]
+    },
+    {
+      "text": "time",
+      "timestamp": [
+        9.93,
+        10.25
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        10.25,
+        10.45
+      ]
+    },
+    {
+      "text": "Tokyo.",
+      "timestamp": [
+        10.45,
+        10.75
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

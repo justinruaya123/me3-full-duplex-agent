@@ -1,0 +1,69 @@
+{
+  "text": "Honestly, it depends on what you're trying to achieve.",
+  "chunks": [
+    {
+      "text": "Honestly,",
+      "timestamp": [
+        5.68,
+        6.46
+      ]
+    },
+    {
+      "text": "it",
+      "timestamp": [
+        6.82,
+        6.94
+      ]
+    },
+    {
+      "text": "depends",
+      "timestamp": [
+        6.94,
+        7.22
+      ]
+    },
+    {
+      "text": "on",
+      "timestamp": [
+        7.22,
+        7.44
+      ]
+    },
+    {
+      "text": "what",
+      "timestamp": [
+        7.44,
+        7.6
+      ]
+    },
+    {
+      "text": "you're",
+      "timestamp": [
+        7.6,
+        7.72
+      ]
+    },
+    {
+      "text": "trying",
+      "timestamp": [
+        7.72,
+        7.98
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        7.98,
+        8.16
+      ]
+    },
+    {
+      "text": "achieve.",
+      "timestamp": [
+        8.16,
+        8.6
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

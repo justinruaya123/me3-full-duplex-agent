@@ -1,0 +1,24 @@
+*{box-sizing:border-box}
+body{margin:0;background:#f1f3ee;color:#192f28;font:15px/1.5 "DM Sans",system-ui,sans-serif}
+header{display:flex;align-items:center;justify-content:space-between;background:#162e28;color:#f1f5ee;padding:14px clamp(16px,4vw,60px);font-weight:650}
+header i{color:#87ae9b;margin:0 6px;font-style:normal}
+#connection,#engine,.meta,.output-bar{font:12px/1.5 "IBM Plex Mono",ui-monospace,monospace}
+#connection{color:#c5d6cb}
+main{display:grid;grid-template-columns:minmax(210px,29%) minmax(0,1fr);max-width:1400px;margin:24px auto;padding:0 clamp(12px,3vw,40px);gap:20px}
+aside,article{background:#fff;border:1px solid #cfdad2;border-radius:12px;min-width:0;padding:20px}
+aside{align-self:start}article{padding:clamp(16px,3vw,36px)}
+h1,h2,p{margin:0}h2{font-size:17px}h1{font-size:clamp(20px,2.4vw,30px);line-height:1.23;overflow-wrap:anywhere;margin:8px 0 12px}
+button{font:inherit;cursor:pointer;color:inherit}button:focus-visible,pre:focus-visible{outline:3px solid #57b896;outline-offset:2px}
+.rail-head,.output-bar,.meta{display:flex;align-items:center;gap:10px}.rail-head,.output-bar{justify-content:space-between}
+.rail-head button,.output-bar button{padding:4px 8px;border-radius:5px;font-size:12px;border:1px solid #b1c7b9;background:transparent}
+.rail-head button[aria-pressed=true]{background:#dbebe1}
+nav{display:grid;gap:4px;margin-top:15px;max-height:68vh;overflow:auto}
+.job{display:grid;gap:4px;text-align:left;background:transparent;border:0;border-left:3px solid transparent;padding:10px;border-radius:4px}
+.job[aria-current=true]{background:#e3eee6;border-color:#2c7660}
+.job span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.job small,#engine,.meta{color:#51675b}
+.meta{flex-wrap:wrap}.meta #status:not(:empty){border-radius:5px;background:#e3eee6;padding:2px 7px}
+section{margin-top:20px;padding:16px clamp(14px,2vw,28px);background:#172c26;color:#e5f0e7;border-radius:9px}
+.output-bar{color:#b5d5c1;border-bottom:1px solid #385348;padding-bottom:10px}
+#output{height:clamp(220px,48vh,620px);overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;margin:14px 0 0;tab-size:4;font:15px/1.65 "IBM Plex Mono",ui-monospace,monospace}
+#notice{color:#d4dfb8;font-size:13px}#notice:not(:empty){padding-top:10px}
+@media(max-width:720px){main{display:flex;flex-direction:column;gap:12px;margin:12px auto}aside{width:100%;padding:12px}nav{max-height:128px}.job{padding:5px 8px}article{padding:14px}#output{height:46vh}}

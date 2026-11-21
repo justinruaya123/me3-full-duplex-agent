@@ -1,0 +1,71 @@
+{
+  "trial": "r01_stage_latency_phrase_v15_talking_to_other_31",
+  "group": "stage_latency",
+  "clip": "phrase_v15_talking_to_other_31",
+  "variant": "main",
+  "expected": "answer the phrase",
+  "duration": 10.016,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.008
+    }
+  ],
+  "live_bot_starts": [],
+  "live_bot_ends": [],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "text": "What's the score of the Mariners game?",
+    "source": "v15_talking_to_other_31"
+  },
+  "mono": [
+    27699.195495375,
+    27709.199625416
+  ],
+  "bot_segments": [],
+  "play_first": [
+    0.0,
+    2.008
+  ],
+  "tor": 0,
+  "first_start": null,
+  "spoke_s": 0.0,
+  "user_end": 1.758,
+  "latency": null,
+  "actual": "no reply",
+  "verdict": "✗ no reply",
+  "ok": false,
+  "marks": 10,
+  "final": {
+    "stages": {
+      "e2e_heard": null,
+      "e2e": null,
+      "e2e_source": null,
+      "asr_final": 2.0047,
+      "llm_ttft": null,
+      "tts_ttfb": null,
+      "endpointing": 0.1014,
+      "found": [
+        "vad_end",
+        "asr_final",
+        "llm_request"
+      ],
+      "transcript": "What's the score of the Mariners game?",
+      "wer": {
+        "ref_words": 7,
+        "edits": 0,
+        "wer": 0.0
+      },
+      "context_tokens": 43,
+      "context_source": "estimate",
+      "context_messages": 1
+    },
+    "transcript": ""
+  },
+  "scored_at": "2026-11-07T11:02:09+08:00"
+}

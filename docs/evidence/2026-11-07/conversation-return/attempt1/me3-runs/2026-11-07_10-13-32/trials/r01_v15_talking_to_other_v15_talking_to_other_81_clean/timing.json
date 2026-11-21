@@ -1,0 +1,62 @@
+{
+  "trial": "r01_v15_talking_to_other_v15_talking_to_other_81_clean",
+  "group": "v15_talking_to_other",
+  "clip": "v15_talking_to_other_81",
+  "variant": "clean",
+  "expected": "answer the turn (reference for the judge)",
+  "duration": 11.52,
+  "events": [
+    {
+      "name": "first",
+      "t": 0.0,
+      "len": 2.36
+    }
+  ],
+  "live_bot_starts": [
+    7.136
+  ],
+  "live_bot_ends": [
+    11.168
+  ],
+  "rig": {
+    "rig": "direct",
+    "her_out_sr": 24000,
+    "clears": 1
+  },
+  "clip_meta": {
+    "context_text": "Find me a nearby coffee shop that's open now.",
+    "current_turn_text": "Chris, your laptop's still on the table, man.",
+    "overlap_text": "Chris, your laptop's still on the table, man.",
+    "overlap_duration": 2.18,
+    "overlap_window": [
+      6.276,
+      8.459
+    ],
+    "source_id": "81"
+  },
+  "mono": [
+    26729.487040333,
+    26740.986864083
+  ],
+  "bot_segments": [
+    [
+      7.106,
+      11.198
+    ]
+  ],
+  "play_first": [
+    0.0,
+    2.36
+  ],
+  "tor": 1,
+  "first_start": 7.106,
+  "spoke_s": 3.2539999999999996,
+  "actual": "replied after 4.75 s, spoke 3.3 s",
+  "verdict": "✓ answered",
+  "ok": true,
+  "marks": 15,
+  "final": {
+    "transcript": "I don't have access to your current location or real -time business data."
+  },
+  "scored_at": "2026-11-07T10:36:29+08:00"
+}

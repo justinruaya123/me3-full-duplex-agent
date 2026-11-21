@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import asyncio
+import hashlib
+import json
 import os
 import uuid
 from pathlib import Path
@@ -22,7 +24,7 @@ class AgentRuntime:
         from me3.memory import MemoryStore
 
         if memory_enabled is None:
-            value = os.environ.get("ME3_MEMORY_ENABLED", "0")
+            value = os.environ.get("ME3_MEMORY_ENABLED", "1")
             if value not in {"0", "1"}:
                 raise ValueError("ME3_MEMORY_ENABLED must be 0 or 1")
             memory_enabled = value == "1"
@@ -34,11 +36,18 @@ class AgentRuntime:
         self.supervisor = Supervisor(
             root,
             self.worker,
+            workers=1,
+            max_pending=5,  # One active job plus four waiting.
             timeout=600,
             prepare_result=prepare_website,
         )
         if memory_enabled:
             try:
+                # Only fingerprints cross into the durable job store. Saved
+                # requests already belong to the jobs that authorized them.
+                self.supervisor.db.execute("""CREATE TABLE IF NOT EXISTS job_context_use (
+                    job_id TEXT PRIMARY KEY, owner TEXT NOT NULL, revision INTEGER NOT NULL,
+                    personal INTEGER NOT NULL, digest TEXT NOT NULL)""")
                 self.memory = MemoryStore(
                     self.supervisor.root / "memory.sqlite3"
                 )
@@ -72,6 +81,7 @@ class AgentRuntime:
             **options,
         )
         session.jobs.authorized = lambda: not session._closed
+        session.jobs.on_deferred = self._notice_deferred
         if self.memory is not None and remember:
             from me3.memory import SessionMemory
 
@@ -83,6 +93,7 @@ class AgentRuntime:
                 ),
                 self._memory_changed,
             )
+            session.jobs.site_context = session.memory.worker_context
             session.jobs.submitted = lambda job_id: self._remember_job(
                 session, job_id
             )
@@ -102,15 +113,67 @@ class AgentRuntime:
         owner = self._memory_jobs.pop(workspace.parent.name, None)
         if self.memory is None or owner is None:
             return ""
-        return self.memory.context(owner, prompt, worker=True)
+        from me3.memory import personal_site
+
+        job_id = workspace.parent.name
+        revision = self.supervisor.get(job_id)["revision"]
+        previous = self.supervisor.db.execute(
+            "SELECT personal FROM job_context_use WHERE job_id=? AND owner=?",
+            (job_id, owner),
+        ).fetchone()
+        personal = personal_site(prompt) or bool(previous and previous["personal"])
+        lookup = prompt + " about me" if personal else prompt
+        snapshot = self.memory.context(owner, lookup, worker=True)
+        data = json.loads(snapshot) if snapshot else {}
+        if personal and not data.get("public_approved"):
+            raise ValueError("Personal website needs a public-approved profile field")
+        with self.supervisor.db:
+            if any(data.values()):
+                self.supervisor.db.execute(
+                    "INSERT OR REPLACE INTO job_context_use VALUES (?,?,?,?,?)",
+                    (job_id, owner, revision, int(personal), self._digest(snapshot)),
+                )
+            else:
+                self.supervisor.db.execute(
+                    "DELETE FROM job_context_use WHERE job_id=?", (job_id,)
+                )
+        return snapshot
+
+    @staticmethod
+    def _digest(snapshot: str) -> str:
+        return hashlib.sha256(snapshot.encode("utf-8")).hexdigest()
 
     def _memory_changed(self, owner: str) -> None:
+        from me3.memory import ScopeAmbiguity
+
+        uses = self.supervisor.db.execute(
+            "SELECT * FROM job_context_use WHERE owner=?", (owner,)
+        ).fetchall()
+        for use in uses:
+            job = self.supervisor.get(use["job_id"])
+            if (job["revision"] != use["revision"]
+                    or job["status"] not in {"running", "queued", "completed"}):
+                continue
+            lookup = job["prompt"] + " about me" if use["personal"] else job["prompt"]
+            try:
+                snapshot = self.memory.context(owner, lookup, worker=True)
+            except ScopeAmbiguity:
+                snapshot = ""
+            if self._digest(snapshot) != use["digest"]:
+                self.supervisor.invalidate_context(job["id"], job["revision"])
+                self.previews.stop(job["id"])
+                self._job_changed(job["id"])
         for session in self.sessions:
             if (
                 session.memory is not None and session.jobs.owner == owner
                 and not session._closed
             ):
                 session.invalidate_memory()
+
+    def _notice_deferred(self, job_id: str) -> None:
+        for session in self.sessions:
+            if job_id in session.notice_sources:
+                session.invalidate_job(job_id)
 
     def _job_changed(self, job_id: str) -> None:
         self._memory_jobs.pop(job_id, None)
@@ -139,6 +202,41 @@ class AgentRuntime:
         self._memory_jobs.clear()
 
 
+async def start_local_voice(runtime, *, on_stage=None, on_voice=None,
+                            terminal_demo_owner=None, local_mcp=False):
+    from pipecat.transports.local.audio import (
+        LocalAudioTransport,
+        LocalAudioTransportParams,
+    )
+
+    from me3.duplex_voice import build
+
+    transport = LocalAudioTransport(
+        LocalAudioTransportParams(
+            audio_in_enabled=True,
+            audio_out_enabled=True,
+            audio_in_sample_rate=16000,
+            audio_out_sample_rate=24000,
+            audio_out_10ms_chunks=2,
+        )
+    )
+    # The pinned Pipecat transport closes its streams but leaves its PyAudio
+    # instance initialized. Balance that allocation on every mode change.
+    try:
+        run, voice_control = await build(
+            transport, runtime.supervisor.root, runtime=runtime, on_stage=on_stage,
+            on_voice=on_voice,
+            profile="terminal-demo" if terminal_demo_owner else "ownership",
+            terminal_demo_owner=terminal_demo_owner, local_mcp=local_mcp,
+        )
+        task = asyncio.create_task(run)
+    except BaseException:
+        transport._pyaudio.terminate()
+        raise
+    task.add_done_callback(lambda _: transport._pyaudio.terminate())
+    return task, voice_control
+
+
 async def _console(args) -> None:
     import sys
 
@@ -161,33 +259,13 @@ async def _console(args) -> None:
 
     session = runtime.open_session(speak, stop, owner=args.owner)
 
-    async def start_voice():
-        from pipecat.transports.local.audio import (
-            LocalAudioTransport,
-            LocalAudioTransportParams,
-        )
-
-        from me3.duplex_voice import build
-
-        transport = LocalAudioTransport(
-            LocalAudioTransportParams(
-                audio_in_enabled=True,
-                audio_out_enabled=True,
-                audio_in_sample_rate=16000,
-                audio_out_sample_rate=24000,
-                audio_out_10ms_chunks=2,
-            )
-        )
-        run, voice_control = await build(
-            transport, runtime.supervisor.root, runtime=runtime
-        )
-        return asyncio.create_task(run), voice_control
+    session.companion = lambda text: print(text, flush=True)
 
     try:
         if args.voice:
-            voice_task, control = await start_voice()
+            voice_task, control = await start_local_voice(runtime)
         print(
-            "ME3 runtime: Pi jobs persist across /end. /quit shuts down runtime.\n"
+            "ME3 runtime: jobs persist across /end. /quit shuts down runtime.\n"
             "/site REQUEST | /jobs | /status ID | /result ID | /revise ID REQUEST\n"
             "/cancel ID | /preview ID | /focus ID | go back | /voice | /end\n"
             "/enroll OWNER (after wake) | /mute | /start OWNER\n"
@@ -201,13 +279,19 @@ async def _console(args) -> None:
             lambda: protocol,
             sys.stdin,
         )
+        line_task = None
         try:
             while True:
-                line_task = asyncio.create_task(reader.readline())
+                if line_task is None:
+                    line_task = asyncio.create_task(reader.readline())
                 watching = [line_task] + ([voice_task] if voice_task else [])
                 done, _ = await asyncio.wait(
-                    watching, return_when=asyncio.FIRST_COMPLETED
+                    watching, return_when=asyncio.FIRST_COMPLETED,
+                    timeout=0.1 if voice_task is None and not session._closed else None,
                 )
+                if not done:
+                    session.poll()
+                    continue
                 if voice_task and voice_task in done:
                     try:
                         voice_task.result()
@@ -219,13 +303,10 @@ async def _console(args) -> None:
                             flush=True,
                         )
                     voice_task = control = None
-                    if not line_task.done():
-                        # Keep exactly one pending read; never lose terminal input.
-                        line = await line_task
-                    else:
-                        line = line_task.result()
-                else:
-                    line = line_task.result()
+                if line_task not in done:
+                    continue
+                line = line_task.result()
+                line_task = None
                 if not line:
                     # EOF detaches console; drain submitted work before shutdown.
                     for job in runtime.supervisor.list():
@@ -252,9 +333,10 @@ async def _console(args) -> None:
                         session = runtime.open_session(
                             speak, stop, owner=text[7:].strip()
                         )
+                        session.companion = lambda value: print(value, flush=True)
                     elif text == "/voice":
                         if voice_task is None:
-                            voice_task, control = await start_voice()
+                            voice_task, control = await start_local_voice(runtime)
                     elif text == "/mute":
                         if control:
                             await control.mute()
@@ -283,6 +365,9 @@ async def _console(args) -> None:
                 ) as exc:
                     print("Unavailable: " + str(exc), flush=True)
         finally:
+            if line_task:
+                line_task.cancel()
+                await asyncio.gather(line_task, return_exceptions=True)
             transport.close()
     finally:
         if control:
@@ -296,7 +381,7 @@ def main() -> None:
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Persistent ME3 runtime; explicit Pi/foreground roles"
+        description="Persistent ME3 runtime; independent foreground and worker roles"
     )
     parser.add_argument(
         "--state", default=os.environ.get("ME3_STATE_DIR", ".local/runtime")

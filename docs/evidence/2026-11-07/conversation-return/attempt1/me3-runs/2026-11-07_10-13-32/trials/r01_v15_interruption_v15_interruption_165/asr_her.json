@@ -1,0 +1,139 @@
+{
+  "text": "Start with short, positive sessions. For dog training, start with positive reinforcement using treats and clear, consistent verbal cues.",
+  "chunks": [
+    {
+      "text": "Start",
+      "timestamp": [
+        4.91,
+        5.37
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        5.37,
+        5.61
+      ]
+    },
+    {
+      "text": "short,",
+      "timestamp": [
+        5.61,
+        5.95
+      ]
+    },
+    {
+      "text": "positive",
+      "timestamp": [
+        6.19,
+        6.51
+      ]
+    },
+    {
+      "text": "sessions.",
+      "timestamp": [
+        6.51,
+        7.03
+      ]
+    },
+    {
+      "text": "For",
+      "timestamp": [
+        13.85,
+        14.11
+      ]
+    },
+    {
+      "text": "dog",
+      "timestamp": [
+        14.11,
+        14.37
+      ]
+    },
+    {
+      "text": "training,",
+      "timestamp": [
+        14.37,
+        14.79
+      ]
+    },
+    {
+      "text": "start",
+      "timestamp": [
+        15.27,
+        15.57
+      ]
+    },
+    {
+      "text": "with",
+      "timestamp": [
+        15.57,
+        15.81
+      ]
+    },
+    {
+      "text": "positive",
+      "timestamp": [
+        15.81,
+        16.23
+      ]
+    },
+    {
+      "text": "reinforcement",
+      "timestamp": [
+        16.23,
+        16.95
+      ]
+    },
+    {
+      "text": "using",
+      "timestamp": [
+        16.95,
+        17.43
+      ]
+    },
+    {
+      "text": "treats",
+      "timestamp": [
+        17.43,
+        17.85
+      ]
+    },
+    {
+      "text": "and",
+      "timestamp": [
+        17.85,
+        18.25
+      ]
+    },
+    {
+      "text": "clear,",
+      "timestamp": [
+        18.25,
+        18.61
+      ]
+    },
+    {
+      "text": "consistent",
+      "timestamp": [
+        18.87,
+        19.35
+      ]
+    },
+    {
+      "text": "verbal",
+      "timestamp": [
+        19.35,
+        19.67
+      ]
+    },
+    {
+      "text": "cues.",
+      "timestamp": [
+        19.67,
+        20.07
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

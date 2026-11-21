@@ -54,6 +54,22 @@ commits. Do not replace that failure with `reset --hard`.
 
 ## Prepare a Pi environment
 
+For explicit testing of the newer conversation-return candidate, after the
+baseline pull above use:
+
+```sh
+git fetch origin
+git switch hermes/conversation-return-v1
+git pull --ff-only origin hermes/conversation-return-v1
+git rev-parse HEAD
+```
+
+Git can create its tracking branch from `origin` when the local branch does not
+yet exist. This candidate adds persistent ask-first results, hesitation holds
+and listening cues, but its two complete ME3 reruns failed latency/coverage
+qualification. Main deliberately retains the preceding baseline. Read the
+[two-attempt results](BENCHMARK.md) before selecting it for target testing.
+
 Use 64-bit Linux on the target Pi. [pyproject.toml](../pyproject.toml) declares
 Python **>=3.11**; the installed Pi CLI package declares Node **>=22.19.0**.
 Check the actual system before installing:

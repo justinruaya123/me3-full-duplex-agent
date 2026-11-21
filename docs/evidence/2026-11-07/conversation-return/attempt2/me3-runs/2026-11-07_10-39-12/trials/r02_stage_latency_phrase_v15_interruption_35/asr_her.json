@@ -1,0 +1,132 @@
+{
+  "text": "To win, you need to score four points before your opponent in a game, usually by six points.",
+  "chunks": [
+    {
+      "text": "To",
+      "timestamp": [
+        4.75,
+        5.23
+      ]
+    },
+    {
+      "text": "win,",
+      "timestamp": [
+        5.23,
+        5.49
+      ]
+    },
+    {
+      "text": "you",
+      "timestamp": [
+        5.83,
+        5.89
+      ]
+    },
+    {
+      "text": "need",
+      "timestamp": [
+        5.89,
+        6.03
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        6.03,
+        6.17
+      ]
+    },
+    {
+      "text": "score",
+      "timestamp": [
+        6.17,
+        6.39
+      ]
+    },
+    {
+      "text": "four",
+      "timestamp": [
+        6.39,
+        6.71
+      ]
+    },
+    {
+      "text": "points",
+      "timestamp": [
+        6.71,
+        7.07
+      ]
+    },
+    {
+      "text": "before",
+      "timestamp": [
+        7.07,
+        7.35
+      ]
+    },
+    {
+      "text": "your",
+      "timestamp": [
+        7.35,
+        7.57
+      ]
+    },
+    {
+      "text": "opponent",
+      "timestamp": [
+        7.57,
+        7.95
+      ]
+    },
+    {
+      "text": "in",
+      "timestamp": [
+        7.95,
+        8.15
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        8.15,
+        8.23
+      ]
+    },
+    {
+      "text": "game,",
+      "timestamp": [
+        8.23,
+        8.55
+      ]
+    },
+    {
+      "text": "usually",
+      "timestamp": [
+        8.91,
+        9.35
+      ]
+    },
+    {
+      "text": "by",
+      "timestamp": [
+        9.35,
+        9.65
+      ]
+    },
+    {
+      "text": "six",
+      "timestamp": [
+        9.65,
+        9.91
+      ]
+    },
+    {
+      "text": "points.",
+      "timestamp": [
+        9.91,
+        10.37
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

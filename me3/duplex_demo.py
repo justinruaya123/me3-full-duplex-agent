@@ -71,9 +71,11 @@ async def demo() -> dict:
             deferred = not controller.poll()
             controller.user_stopped()
             await controller.accept("stop talking")
-            controller.poll()
-            for _ in range(10):
-                await asyncio.sleep(0)
+            # Production polls repeatedly while a stopped clause finishes cleanup.
+            async with asyncio.timeout(1):
+                while not jobs.get(job["id"])["notified"]:
+                    controller.poll()
+                    await asyncio.sleep(0)
             result = {
                 "mode": "SIMULATOR, in-memory; not acoustic qualification",
                 "backchannel_preserved_speech": (

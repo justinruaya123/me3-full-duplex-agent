@@ -1,0 +1,32 @@
+{"stage": "vad_start", "t": 27335.674987333, "pid": 37009, "src": "ws", "recv": 27335.677236791, "lt": 27335.675160833, "tt": 0.4197}
+{"stage": "vad_start", "t": 27335.675025333, "pid": 37009, "src": "ws", "recv": 27335.677306541, "lt": 27335.675198833, "tt": 0.4197}
+{"stage": "vad_end", "t": 27336.7634095, "pid": 37009, "src": "ws", "recv": 27336.765648916, "lt": 27336.763583, "tt": 1.5081}
+{"stage": "vad_end", "t": 27336.763440458, "pid": 37009, "src": "ws", "recv": 27336.765686375, "lt": 27336.763613958, "tt": 1.5081}
+{"stage": "vad_start", "t": 27336.858459291, "pid": 37009, "src": "ws", "recv": 27336.859971833, "lt": 27336.858632791, "tt": 1.6031}
+{"stage": "vad_start", "t": 27336.858486416, "pid": 37009, "src": "ws", "recv": 27336.860064583, "lt": 27336.858659916, "tt": 1.6032}
+{"stage": "asr_partial", "t": 27338.231415541, "pid": 37009, "text": "Well, exactly. And even if it's.", "src": "ws", "recv": 27338.2317485, "lt": 27338.231589041, "tt": 2.9761}
+{"stage": "asr_partial", "t": 27339.262785666, "pid": 37009, "text": "Well, exactly. And even if it's doing basic work.", "src": "ws", "recv": 27339.26312075, "lt": 27339.262959166, "tt": 4.0075}
+{"stage": "vad_end", "t": 27339.579440833, "pid": 37009, "src": "ws", "recv": 27339.580789708, "lt": 27339.579614333, "tt": 4.3241}
+{"stage": "vad_end", "t": 27339.579466916, "pid": 37009, "src": "ws", "recv": 27339.580919125, "lt": 27339.579640416, "tt": 4.3241}
+{"stage": "vad_start", "t": 27339.673981583, "pid": 37009, "src": "ws", "recv": 27339.67524075, "lt": 27339.674155083, "tt": 4.4187}
+{"stage": "vad_start", "t": 27339.6740065, "pid": 37009, "src": "ws", "recv": 27339.67533675, "lt": 27339.67418, "tt": 4.4187}
+{"stage": "asr_partial", "t": 27341.44409575, "pid": 37009, "text": "Well, exactly. And even if it's doing basic work, doing a worksheet of multiplication.", "src": "ws", "recv": 27341.444408625, "lt": 27341.44426925, "tt": 6.1888}
+{"stage": "vad_end", "t": 27341.753366791, "pid": 37009, "src": "ws", "recv": 27341.754611208, "lt": 27341.753540291, "tt": 6.498}
+{"stage": "vad_end", "t": 27341.753389458, "pid": 37009, "src": "ws", "recv": 27341.754711333, "lt": 27341.753562958, "tt": 6.4981}
+{"stage": "asr_partial", "t": 27342.586404125, "pid": 37009, "text": "Well, exactly. And even if it's doing basic work, doing a worksheet of multiplication, I'm like, how does that hurt you?", "src": "ws", "recv": 27342.58686075, "lt": 27342.586577625, "tt": 7.3311}
+{"stage": "vad_start", "t": 27343.130652083, "pid": 37009, "src": "ws", "recv": 27343.13220825, "lt": 27343.130825583, "tt": 7.8753}
+{"stage": "vad_start", "t": 27343.130677, "pid": 37009, "src": "ws", "recv": 27343.132313541, "lt": 27343.1308505, "tt": 7.8753}
+{"stage": "vad_end", "t": 27343.576924333, "pid": 37009, "src": "ws", "recv": 27343.578172166, "lt": 27343.577097833, "tt": 8.3216}
+{"stage": "vad_end", "t": 27343.576946875, "pid": 37009, "src": "ws", "recv": 27343.578252416, "lt": 27343.577120375, "tt": 8.3216}
+{"stage": "asr_final", "t": 27344.853944, "pid": 37009, "text": "Well, exactly. And even if it's doing basic work, doing a worksheet of multiplication, I'm like, how does that hurt you?", "src": "ws", "recv": 27344.876348083, "lt": 27344.8541175, "tt": 9.5986}
+{"stage": "interrupted", "t": 27344.855766875, "pid": 37009, "src": "ws", "recv": 27344.876582916, "lt": 27344.855940375, "tt": 9.6004}
+{"stage": "interrupted", "t": 27344.855790833, "pid": 37009, "src": "ws", "recv": 27344.876595041, "lt": 27344.855964333, "tt": 9.6005}
+{"stage": "llm_request", "t": 27344.875867166, "pid": 37009, "chars": 253, "messages": 1, "est_tokens": 63, "src": "ws", "recv": 27344.87664475, "lt": 27344.876040666, "tt": 9.6205}
+{"stage": "llm_first_token", "t": 27345.6462635, "pid": 37009, "src": "ws", "recv": 27345.646821291, "lt": 27345.646437, "tt": 10.3909}
+{"stage": "tts_request", "t": 27345.753769, "pid": 37009, "src": "ws", "recv": 27345.755769208, "lt": 27345.7539425, "tt": 10.4984}
+{"stage": "tts_first_audio", "t": 27345.960270375, "pid": 37009, "src": "ws", "recv": 27345.96057625, "lt": 27345.960443875, "tt": 10.7049}
+{"stage": "audio_out", "t": 27345.981315125, "pid": 37009, "src": "ws", "recv": 27345.981998208, "lt": 27345.981488625, "tt": 10.726}
+{"stage": "audio_out", "t": 27345.981331375, "pid": 37009, "src": "ws", "recv": 27345.9820105, "lt": 27345.981504875, "tt": 10.726}
+{"stage": "bot_stopped", "t": 27347.798137291, "pid": 37009, "src": "ws", "recv": 27347.798758083, "lt": 27347.798310791, "tt": 12.5428}
+{"stage": "bot_stopped", "t": 27347.798150083, "pid": 37009, "src": "ws", "recv": 27347.798767791, "lt": 27347.798323583, "tt": 12.5428}
+{"stage": "tts_request", "t": 27347.800095166, "pid": 37009, "src": "ws", "recv": 27347.800528791, "lt": 27347.800268666, "tt": 12.5448}

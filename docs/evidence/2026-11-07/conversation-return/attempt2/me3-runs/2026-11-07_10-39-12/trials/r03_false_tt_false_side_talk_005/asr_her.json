@@ -1,0 +1,48 @@
+{
+  "text": "Sure, I'm here. What's the problem?",
+  "chunks": [
+    {
+      "text": "Sure,",
+      "timestamp": [
+        4.37,
+        4.89
+      ]
+    },
+    {
+      "text": "I'm",
+      "timestamp": [
+        5.03,
+        5.11
+      ]
+    },
+    {
+      "text": "here.",
+      "timestamp": [
+        5.11,
+        5.33
+      ]
+    },
+    {
+      "text": "What's",
+      "timestamp": [
+        6.17,
+        6.79
+      ]
+    },
+    {
+      "text": "the",
+      "timestamp": [
+        6.79,
+        6.89
+      ]
+    },
+    {
+      "text": "problem?",
+      "timestamp": [
+        6.89,
+        7.25
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}

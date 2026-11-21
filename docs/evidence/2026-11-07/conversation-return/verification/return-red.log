@@ -1,0 +1,133 @@
+test_after_topic_needs_wrapup_not_ordinary_quiet_gap (test_return_policy_v1.ReturnPolicyTests.test_after_topic_needs_wrapup_not_ordinary_quiet_gap) ... FAIL
+test_default_completion_waits_for_explicit_retrieval (test_return_policy_v1.ReturnPolicyTests.test_default_completion_waits_for_explicit_retrieval) ... FAIL
+test_defer_survives_runtime_restart_and_preserves_result (test_return_policy_v1.ReturnPolicyTests.test_defer_survives_runtime_restart_and_preserves_result) ... FAIL
+test_new_topic_clears_old_wrapup_permission (test_return_policy_v1.ReturnPolicyTests.test_new_topic_clears_old_wrapup_permission) ... FAIL
+test_preference_change_rejects_stale_revision_or_owner (test_return_policy_v1.ReturnPolicyTests.test_preference_change_rejects_stale_revision_or_owner) ... ERROR
+test_preference_suffix_is_not_sent_to_website_worker (test_return_policy_v1.ReturnPolicyTests.test_preference_suffix_is_not_sent_to_website_worker) ... ERROR
+test_provisional_policy_command_cannot_change_preferences (test_return_policy_v1.ReturnPolicyTests.test_provisional_policy_command_cannot_change_preferences) ... ERROR
+test_unanswered_question_vetoes_even_allowed_topic_offer (test_return_policy_v1.ReturnPolicyTests.test_unanswered_question_vetoes_even_allowed_topic_offer) ... FAIL
+
+======================================================================
+ERROR: test_preference_change_rejects_stale_revision_or_owner (test_return_policy_v1.ReturnPolicyTests.test_preference_change_rejects_stale_revision_or_owner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_return_policy_v1.py", line 104, in test_preference_change_rejects_stale_revision_or_owner
+    self.session.jobs.set_return_policy(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OwnedJobs' object has no attribute 'set_return_policy'
+
+======================================================================
+ERROR: test_preference_suffix_is_not_sent_to_website_worker (test_return_policy_v1.ReturnPolicyTests.test_preference_suffix_is_not_sent_to_website_worker)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_return_policy_v1.py", line 84, in test_preference_suffix_is_not_sent_to_website_worker
+    self.assertEqual(job["return_policy"], "after_topic")
+                     ~~~^^^^^^^^^^^^^^^^^
+KeyError: 'return_policy'
+
+======================================================================
+ERROR: test_provisional_policy_command_cannot_change_preferences (test_return_policy_v1.ReturnPolicyTests.test_provisional_policy_command_cannot_change_preferences)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_return_policy_v1.py", line 96, in test_provisional_policy_command_cannot_change_preferences
+    self.session.jobs.get(job["id"])["return_policy"], "after_topic"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'return_policy'
+
+======================================================================
+FAIL: test_after_topic_needs_wrapup_not_ordinary_quiet_gap (test_return_policy_v1.ReturnPolicyTests.test_after_topic_needs_wrapup_not_ordinary_quiet_gap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_return_policy_v1.py", line 36, in test_after_topic_needs_wrapup_not_ordinary_quiet_gap
+    self.assertFalse(self.session.poll())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_default_completion_waits_for_explicit_retrieval (test_return_policy_v1.ReturnPolicyTests.test_default_completion_waits_for_explicit_retrieval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_return_policy_v1.py", line 23, in test_default_completion_waits_for_explicit_retrieval
+    self.assertFalse(self.session.poll())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_defer_survives_runtime_restart_and_preserves_result (test_return_policy_v1.ReturnPolicyTests.test_defer_survives_runtime_restart_and_preserves_result)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_return_policy_v1.py", line 73, in test_defer_survives_runtime_restart_and_preserves_result
+    self.assertFalse(self.session.poll())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_new_topic_clears_old_wrapup_permission (test_return_policy_v1.ReturnPolicyTests.test_new_topic_clears_old_wrapup_permission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_return_policy_v1.py", line 121, in test_new_topic_clears_old_wrapup_permission
+    self.assertFalse(self.session.poll())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_unanswered_question_vetoes_even_allowed_topic_offer (test_return_policy_v1.ReturnPolicyTests.test_unanswered_question_vetoes_even_allowed_topic_offer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/jus/Documents/Grad/AI231/ME3/tests/test_return_policy_v1.py", line 51, in test_unanswered_question_vetoes_even_allowed_topic_offer
+    self.assertFalse(self.session.poll())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.062s
+
+FAILED (failures=5, errors=3)

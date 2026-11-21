@@ -1,0 +1,90 @@
+{
+  "text": "Let me think. July 4, 2026. That's going to be a Saturday.",
+  "chunks": [
+    {
+      "text": "Let",
+      "timestamp": [
+        4.27,
+        4.79
+      ]
+    },
+    {
+      "text": "me",
+      "timestamp": [
+        4.79,
+        4.93
+      ]
+    },
+    {
+      "text": "think.",
+      "timestamp": [
+        4.93,
+        5.29
+      ]
+    },
+    {
+      "text": "July",
+      "timestamp": [
+        6.45,
+        6.61
+      ]
+    },
+    {
+      "text": "4,",
+      "timestamp": [
+        6.61,
+        7.03
+      ]
+    },
+    {
+      "text": "2026.",
+      "timestamp": [
+        7.29,
+        8.05
+      ]
+    },
+    {
+      "text": "That's",
+      "timestamp": [
+        9.01,
+        9.69
+      ]
+    },
+    {
+      "text": "going",
+      "timestamp": [
+        9.69,
+        9.83
+      ]
+    },
+    {
+      "text": "to",
+      "timestamp": [
+        9.83,
+        9.97
+      ]
+    },
+    {
+      "text": "be",
+      "timestamp": [
+        9.97,
+        10.09
+      ]
+    },
+    {
+      "text": "a",
+      "timestamp": [
+        10.09,
+        10.21
+      ]
+    },
+    {
+      "text": "Saturday.",
+      "timestamp": [
+        10.21,
+        10.57
+      ]
+    }
+  ],
+  "model": "faster-whisper/small"
+}
