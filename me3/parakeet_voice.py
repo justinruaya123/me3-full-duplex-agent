@@ -85,6 +85,19 @@ DICTATION = re.compile(
     r"|quot(?:e|ed|ing)|(?:the|my|your) name is|word for word|take (?:this|it) down|exactly as)\b", re.I,
 )
 
+# Match a spoken imperative, so a quotation or a negation never controls a job.
+STOP_COMMAND = re.compile(
+    r"(?:bmo[,\s]+)?(?:please[,\s]+)?stop(?:\s+(current\s+task))?(?:[,\s]+please)?[.!]*",
+    re.I,
+)
+
+
+def stop_control(text):
+    match = STOP_COMMAND.fullmatch(text.strip())
+    if match:
+        return "stop_current_task" if match.group(1) else "stop_speech"
+    return None
+
 
 def unfinished_clause(text):
     words = text.split()
@@ -473,15 +486,20 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
                 settled = getattr(u, "settled_text", "")
                 provider_end = getattr(u, "endpoint_frames", 0) >= max(1, speech_end - 1)
                 sentence_end = (settled.endswith((".", "?", "!")) and not settled.endswith("..."))
+                settled_stop = stop_control(settled)
                 settled_request = (bool(settled) and partial == settled and not words_pending
                                    and not (thinking or open_clause)
-                                   and (sentence_end or (provider_end and settled[-1].isalnum())))
+                                   and (settled_stop == "stop_speech" or sentence_end
+                                        or (provider_end and settled[-1].isalnum())))
                 natural_endpoint = (near.clear and settled_request and provider_end
                                     and u.endpoint_frames >= last_voiced_frame - 1
                                     and u.endpoint_frames == u.finalized_frames)
                 wake_endpoint = (quiet >= 12 and natural_endpoint
                                  and bmo.wake_greeting(settled, wake_phrase, bare=not playback.awaiting_answer))
-                corroborated = quiet >= 50 and near.clear and settled_request
+                # A short "stop" can end inside the echo guard. Silence is safe
+                # there, while dispatch and job control still need near-end speech.
+                corroborated = (quiet >= 50 and settled_request
+                                and (near.clear or settled_stop is not None))
                 hold = open_clause or (not speaking_before and (
                     (words_pending and u.frames >= 80 and quiet < 55)
                     # Allow a speaker to add a qualifier after a sentence break.
@@ -490,7 +508,11 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
                     or (thinking and quiet < 100)
                 ))
                 if wake_endpoint or (complete and not hold) or corroborated:
-                    use_endpoint = natural_endpoint and (wake_endpoint or complete) and isinstance(stream, DeepgramStream)
+                    # Stop candidates need the explicit final: a late correction
+                    # can change a speech stop into ordinary conversation.
+                    use_endpoint = (not settled_stop and natural_endpoint
+                                    and (wake_endpoint or complete)
+                                    and isinstance(stream, DeepgramStream))
                     if use_endpoint:
                         final = stream.finish_endpoint()
                     else:
@@ -505,9 +527,13 @@ async def local_turns(stream, source, vad, smart, playback, *, after_gap=False):
                         or (not playback.awaiting_answer and (speaking_before or recent_reply)
                             and is_acknowledgment(final))
                     )
-                    if final and near.clear and not listener_only:
+                    control = stop_control(final) if final else None
+                    if (control == "stop_current_task"
+                            and (not near.clear or not isinstance(stream, DeepgramStream))):
+                        control = "stop_speech"
+                    if control or (final and near.clear and not listener_only):
                         await playback.cut()
-                        emit("commit", id=u.id, text=final, epoch=playback.epoch,
+                        emit("commit", id=u.id, text=final, control=control, epoch=playback.epoch,
                              wake=bmo.wake_greeting(final, wake_phrase, bare=not playback.awaiting_answer),
                              endpoint=("wake_endpoint" if wake_endpoint else "smart_turn_endpoint" if use_endpoint
                                        else "smart_turn" if complete else "settled_sentence"),
@@ -578,6 +604,8 @@ async def commands(playback):
                     # An available foreground answer supersedes an incidental cue.
                     playback.task.cancel()
                     await asyncio.gather(playback.task, return_exceptions=True)
+                    if c["epoch"] != playback.epoch:
+                        continue  # A stop cut the output while the cue was cancelling.
                     playback.device.clear()
                     emit("deferred", receipt=playback.receipt)
                 playback.idle_output = c.get("idle_only") is True

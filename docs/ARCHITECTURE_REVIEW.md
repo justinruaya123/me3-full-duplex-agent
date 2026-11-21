@@ -8,6 +8,8 @@ flowchart LR
   asr -->|Revisions, settled words and endpoint time| turn[Local turn controller]
   mic --> local[Silero VAD and SmartTurn]
   local --> turn
+  local -->|Speech onset pauses playback| tts
+  turn -->|Finalized stop clears buffered audio| tts
   turn -->|Committed standalone wake| greeting[Cached local greeting]
   turn -->|Committed request| pi[Project Pi session]
   turn -->|Reply still pending after 160 ms| cue[Brief acknowledgment tone]
@@ -65,7 +67,9 @@ behavior at their dated revisions.
 
 ```mermaid
 flowchart LR
-  turn[Committed turn] --> thread[Current Pi conversation]
+  turn[Committed turn] -->|Conversation| thread[Current Pi conversation]
+  turn -->|Live Deepgram stop current task| cancel[Local host checks mic and active utterance]
+  cancel -->|Current job ID and revision| job[Local supervisor]
   memory[Private cross-chat memory] -->|Fresh chat or explicit recall| thread
   profile[Private USER.md] --> thread
   thread -->|Website brief and user-supplied copy| site[Pi website worker]
@@ -74,7 +78,7 @@ flowchart LR
   site --> verify[Offline desktop and mobile verification]
   verify --> zip[Local GitHub Pages ZIP]
   thread -->|Question about active work| status[Local job status]
-  thread -->|Requested edit and job revision| job[Local supervisor]
+  thread -->|Requested edit and job revision| job
   thread -->|Known stable fact or context answers it| speech[Short spoken answer]
   thread -->|Request to do work, including 'Can you ...'| task[Pi handles or delegates the request]
   task -->|Delegated software troubleshooting or code review| debug[Local reviewer: systematic-debugging by default]
@@ -130,3 +134,14 @@ flowchart LR
   site -->|Verified site bundle| embed
   site -->|Same approved revision| pages[R10 GitHub Pages publication]
 ```
+
+**R1 · Spoken stop controls (November 21, based on `main@be89121`).** D1 pauses
+audio at speech onset. A finalized standalone “stop” clears buffered audio and
+invalidates old speech requests, even when the word is too short to confirm
+speech over the speaker.
+Both stop commands end silently. D3 accepts “stop current task” for cancellation
+only from the live Deepgram microphone path after near-end speech, a matching
+final and a local commit. The supervisor selects this chat’s running job, or
+its first queued job if none has started, and checks its revision. A completed
+job keeps its result. Interim words, model output and replay audio have no
+cancellation authority. [Verification](DUPLEX_STATUS.md)

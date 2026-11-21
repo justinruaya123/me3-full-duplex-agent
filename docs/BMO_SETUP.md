@@ -17,6 +17,16 @@ OpenRouter for conversation and jobs, and local Piper for speech. The optional
 Parakeet profile requires `ME3_ASR_BACKEND=parakeet`, `ME3_PARAKEET_URL`
 and `ME3_ASR_TOKEN`. The older course launcher is available through `start.py`.
 
+Say **“stop”** to silence BMO. Playback pauses as soon as local voice activity
+is detected. Once the stop is confirmed, BMO clears the interrupted reply and
+stays quiet. Delegated work keeps running.
+
+Say **“stop current task”** as a standalone command to cancel the running job
+in this chat. If the worker has yet to start, this selects the first queued
+job. The remaining queue continues. The live microphone must capture the
+command through Deepgram and the local controller must confirm the turn.
+The terminal reports the cancellation request or that there is no active task.
+
 With the microphone on, say “Hey BMO” and pause for a short local greeting.
 Say “Hey BMO, what is seven plus five?” in one breath to go straight to the
 answer. When a completed request needs more time, a soft tone acknowledges

@@ -169,6 +169,27 @@ asked a follow-up and earlier builds failed verification. A keyboard-focus
 regression covered the generated skip link. The queued acknowledgments
 described planned copy that the verified name-only pages omitted. These
 replays did not measure acoustic turnaround.
+## November 21 · Speech stop and delegated-task cancellation
+
+Local audio and supervisor regressions exercise a buffered reply, a late answer
+replacing a cue, and a blocked worker with a second job queued. The speaker
+pauses at voice onset. A finalized “stop” clears the buffered reply. The Pi
+extension consumes the command silently. A committed “stop current task” on
+the live microphone path requests cancellation for one job. Interim revisions,
+stale commits, recorded input and unconfirmed overlap cannot cancel jobs.
+
+Four generated audio clips went through live Deepgram Nova-3 and the Mac voice
+entry point with local Silero and SmartTurn. Both BMO Piper and macOS Samantha
+produced “Stop.” and selected the speech-only control. For “stop current task,”
+Samantha produced the exact final and selected the task control. Deepgram heard
+the BMO clip as “Subcurrent task.” and selected no control. These were fixture
+inputs with the supervisor disconnected. The worker-cancellation result comes
+from the separate local regression. Physical microphone timing and Raspberry Pi
+performance remain unmeasured for these commands.
+
+The installed Mac checkout passed all 498 Python tests, including 468 versioned
+tests, and all 102 JavaScript tests, with zero skips. The five duplex simulation
+checks and Python compilation also passed.
 
 ## November 21 · Current chat, Brave results and edits to ongoing work
 
