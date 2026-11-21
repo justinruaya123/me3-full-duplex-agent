@@ -266,6 +266,15 @@ def main():
                 bench = a.fdbench.resolve()
                 sys.path.insert(0, str(bench))
                 from fdbench.rig.direct import DirectRig
+                # The upstream socket handler suppresses playback-resampler errors.
+                # Exercise it before starting a paid session or accepting any audio.
+                import numpy as np
+                from fdbench.util import resample
+                try:
+                    resample(np.zeros(480, dtype=np.float32), 24000, 16000)
+                except ImportError as exc:
+                    raise ValueError("Install the benchmark audio dependencies with "
+                                     "python -m pip install -e '.[benchmark-audio]'") from exc
                 rig = DirectRig(port=a.port)
                 rig.open()
                 try:

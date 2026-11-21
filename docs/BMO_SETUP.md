@@ -66,3 +66,9 @@ For the historical class benchmark, the launcher applies its own pinned profile.
 Mac installation and simulation results are recorded in
 [DUPLEX_STATUS.md](DUPLEX_STATUS.md). Raspberry Pi 5 native dependencies,
 microphone access, real-time synthesis and duplex latency need a board run.
+
+For the digital spoken-routing benchmark, install its audio dependencies into
+the same Python environment that runs `benchmark.py`. On macOS use
+`.venv313/bin/python -m pip install -e '.[benchmark-audio]'`. On Linux use
+`.venv-pi/bin/python`. The class rig uses SciPy to convert 24 kHz speaker
+output to its 16 kHz measurement clock.
