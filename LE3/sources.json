@@ -1,0 +1,89 @@
+{
+  "repository": "https://github.com/roatienza/Deep-Learning-Experiments",
+  "commit": "e9521c333a69c9ee9d0ab275124f4e824981bb21",
+  "readme_lines": [
+    23,
+    26
+  ],
+  "decks": {
+    "AE": {
+      "file": "AE.pdf",
+      "pages": 32,
+      "bytes": 989957,
+      "sha256": "0e59b4014acd757a3001339fc8b2467260ca6c6145d7ebeba55e0e1ce6e415d8",
+      "url": "https://drive.google.com/file/d/1KLCEY8VTBMvbjcxn-bEdK6Ai1XjpcInJ/view"
+    },
+    "VAE": {
+      "file": "VAE.pdf",
+      "pages": 43,
+      "bytes": 1993685,
+      "sha256": "71a0ec2345bdee6d906d16cd991c695f89b8f2112b1419c6c23b0f72a283ce44",
+      "url": "https://drive.google.com/file/d/1h6Drro3lZ6nUpxSKZbCwShWAuue-F-gp/view"
+    },
+    "GAN": {
+      "file": "GAN.pdf",
+      "pages": 33,
+      "bytes": 1303750,
+      "sha256": "d80447d2f5882b65d954952fad7b7717c2301989e2a412974704e22aa0847b70",
+      "url": "https://drive.google.com/file/d/1Kx2BgTBd2oXVJAlhjPPs97JySbhAE5uM/view"
+    },
+    "Flow": {
+      "file": "Flow.pdf",
+      "pages": 30,
+      "bytes": 839781,
+      "sha256": "6701cc91276e39c1a82b077b1760fcabd706ce476cd970ac02c2bf19b975dca1",
+      "url": "https://drive.google.com/file/d/1oxRNdTCjhk-V0noGhx3Wh4b48Z0veVlJ/view"
+    }
+  },
+  "notebooks": {
+    "autoencoder.ipynb": {
+      "file": "autoencoder.ipynb",
+      "bytes": 1210351,
+      "sha256": "94e9a8927a703978184e253c812cca3342cf2b6d886bacefae87a8f45edc8943",
+      "git_blob": "4c486d6f154f862289af33b365ec93e1b186a361",
+      "url": "https://github.com/roatienza/Deep-Learning-Experiments/blob/e9521c333a69c9ee9d0ab275124f4e824981bb21/versions/2023/autoencoder/demo/autoencoder.ipynb"
+    },
+    "colorization_ae.ipynb": {
+      "file": "colorization_ae.ipynb",
+      "bytes": 746720,
+      "sha256": "073e71109fc17a8899d67cd2e4bc235b21ca818443b4ef7cb4927b4e5efd6563",
+      "git_blob": "088b4d88254aa67f39e81f2d266ade94a3fc72f2",
+      "url": "https://github.com/roatienza/Deep-Learning-Experiments/blob/e9521c333a69c9ee9d0ab275124f4e824981bb21/versions/2023/autoencoder/demo/colorization_ae.ipynb"
+    },
+    "vae_mnist.ipynb": {
+      "file": "vae_mnist.ipynb",
+      "bytes": 555995,
+      "sha256": "b291d88bda36de2299bed37994fa4e3cf871c759a98c65550e4fff349d0887a7",
+      "git_blob": "d468bca90d03f2d882b5f7a8b17db2a7aabd3e9f",
+      "url": "https://github.com/roatienza/Deep-Learning-Experiments/blob/e9521c333a69c9ee9d0ab275124f4e824981bb21/versions/2023/vae/demo/vae_mnist.ipynb"
+    },
+    "cvae_mnist.ipynb": {
+      "file": "cvae_mnist.ipynb",
+      "bytes": 95213,
+      "sha256": "c704cfac89e8e46c48a359647943ba42f45750ed0990ef85f1c08913759fab95",
+      "git_blob": "67f9304c393a85b81daeae86d3339f3587e6da9b",
+      "url": "https://github.com/roatienza/Deep-Learning-Experiments/blob/e9521c333a69c9ee9d0ab275124f4e824981bb21/versions/2023/vae/demo/cvae_mnist.ipynb"
+    },
+    "dcgan_mnist.ipynb": {
+      "file": "dcgan_mnist.ipynb",
+      "bytes": 375142,
+      "sha256": "b662a085a374b328ef028eba1cdf695356d2aa4286a744836b96c8ebd9b3f7ac",
+      "git_blob": "3a30df1b5dac7a87268d8671c3b86d493e3a9456",
+      "url": "https://github.com/roatienza/Deep-Learning-Experiments/blob/e9521c333a69c9ee9d0ab275124f4e824981bb21/versions/2023/gan/demo/dcgan_mnist.ipynb"
+    },
+    "cgan_mnist.ipynb": {
+      "file": "cgan_mnist.ipynb",
+      "bytes": 372713,
+      "sha256": "75a1a3065105e3d56e699d464fb1a6195cfa6a4ea9f251acec5408b767b1a5a5",
+      "git_blob": "96c82a7b09dffaa3cda23b039bc2ba728a2df0de",
+      "url": "https://github.com/roatienza/Deep-Learning-Experiments/blob/e9521c333a69c9ee9d0ab275124f4e824981bb21/versions/2023/gan/demo/cgan_mnist.ipynb"
+    },
+    "normalizing_flow_mnist.ipynb": {
+      "file": "normalizing_flow_mnist.ipynb",
+      "bytes": 50202,
+      "sha256": "aee037b98e59d8621b4cc2b8f745aa053a9fbbe4b2458fd1bac56c3238a3f115",
+      "git_blob": "f663028c0d81c1c6a439f3cc50ffa6677f2b2f3e",
+      "url": "https://github.com/roatienza/Deep-Learning-Experiments/blob/e9521c333a69c9ee9d0ab275124f4e824981bb21/versions/2025/flow/python/normalizing_flow_mnist.ipynb"
+    }
+  }
+}

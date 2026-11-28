@@ -74,7 +74,8 @@ class ActionProposal:
     argument: str
 
 
-def configured_foreground(*, on_stage=None, env: Mapping[str, str] | None = None):
+def configured_foreground(*, on_stage=None, env: Mapping[str, str] | None = None,
+                          system_prompt: str | None = None, image_request=False):
     """Explicit operator profile; never substitute the worker implicitly."""
     import os
     import shutil
@@ -82,7 +83,7 @@ def configured_foreground(*, on_stage=None, env: Mapping[str, str] | None = None
     values = os.environ if env is None else env
     config = ForegroundConfig.from_env(values)
     if config.profile not in {"pi-fast", "pi-chat"}:
-        return ForegroundBackend(config, on_stage=on_stage)
+        return ForegroundBackend(config, on_stage=on_stage, system_prompt=system_prompt)
     from me3.pi_foreground import PiForegroundBackend
 
     binary = values.get("ME3_PI_BIN") or shutil.which("pi")
@@ -101,7 +102,7 @@ def configured_foreground(*, on_stage=None, env: Mapping[str, str] | None = None
         "--no-extensions", *extensions, "--no-skills", "--no-prompt-templates",
         "--no-context-files", "--provider", config.provider,
         "--model", config.model,
-        "--system-prompt", PI_VOICE_PROMPT,
+        "--system-prompt", system_prompt or PI_VOICE_PROMPT,
     )
     extra = {}
     key_name = values.get("ME3_FOREGROUND_API_KEY_ENV")
@@ -112,6 +113,7 @@ def configured_foreground(*, on_stage=None, env: Mapping[str, str] | None = None
     return PiForegroundBackend(
         command, model=config.model, provider=config.provider,
         env=extra, timeout=60, on_stage=on_stage,
+        **({"max_bytes": 16 * 1024 * 1024} if image_request else {}),
         allow_reasoning=config.profile == "pi-chat",
     )
 
@@ -119,9 +121,10 @@ def configured_foreground(*, on_stage=None, env: Mapping[str, str] | None = None
 class ForegroundBackend:
     def __init__(
         self, config: ForegroundConfig, *, client=None,
-        on_stage: Callable[..., None] | None = None,
+        on_stage: Callable[..., None] | None = None, system_prompt: str | None = None,
     ) -> None:
         self.config, self.client = config, client
+        self.system_prompt = system_prompt
         self.on_stage = on_stage
         self.verified_provider = None
         self.task_actions = config.profile == "openrouter" or config.task_actions
@@ -223,17 +226,17 @@ class ForegroundBackend:
             raise ValueError("Invalid or ungrounded action proposal")
         return ActionProposal(kind, argument)
 
-    async def stream(self, prompt: str) -> AsyncIterator[str]:
+    async def stream(self, prompt: str, *, images=()) -> AsyncIterator[str]:
         import httpx
 
         if not prompt.strip() or len(prompt) > 100_000:
             raise ValueError("Invalid foreground prompt")
         if self.client is None:
             async with httpx.AsyncClient(timeout=60) as client:
-                async for text in self._stream(client, prompt):
+                async for text in self._stream(client, prompt, images=images):
                     yield text
         else:
-            async for text in self._stream(self.client, prompt):
+            async for text in self._stream(self.client, prompt, images=images):
                 yield text
 
     async def stream_turn(self, prompt: str, utterance: str) -> AsyncIterator[str | ActionProposal]:
@@ -247,8 +250,16 @@ class ForegroundBackend:
                 async for item in self._stream(client, prompt, utterance):
                     yield item
 
-    async def _stream(self, client, prompt: str, utterance: str | None = None):
+    async def _stream(self, client, prompt: str, utterance: str | None = None, *, images=()):
         messages = [{"role": "user", "content": prompt}]
+        if images:
+            parts = [{"type": "text", "text": prompt}]
+            for image in images:
+                url = f"data:{image['mimeType']};base64,{image['data']}"
+                parts.append({"type": "image_url", "image_url": {"url": url}})
+            messages[0]["content"] = parts
+        if self.system_prompt and utterance is None:
+            messages.insert(0, {"role": "system", "content": self.system_prompt})
         if utterance is not None:
             messages = [{"role": "system", "content":
                 "Answer conversations in short spoken clauses. For a requested deliverable or a "

@@ -1,5 +1,48 @@
 # Reproducible setup and qualification
 
+## Local document retrieval
+
+From the checkout, install the optional Python readers in the environment used by
+ME3. Install Tesseract with English language data on the indexing machine.
+
+```sh
+python -m pip install -e '.[context,web]'
+# macOS
+brew install tesseract
+# Debian, Ubuntu or Raspberry Pi OS
+# sudo apt-get install tesseract-ocr tesseract-ocr-eng
+```
+
+Place documents in `context/`, then use the same Python environment to run:
+
+```sh
+python -m me3.context index
+python -m me3.context status
+python -m me3.context search "your question"
+python -m me3.context ask "your question"
+```
+
+The launcher equivalents are `./scripts/me3.sh context …` for the project folder
+and `./scripts/me3.sh files index /path/to/collection` for a selected file,
+directory or ZIP. In the native Pi agent terminal (`./scripts/me3.sh agent`),
+type `/me3 context QUESTION` to use the project index. Search runs locally.
+An explicit `ask` or typed context question sends the selected excerpts and
+original page images to the configured foreground. Visual answers require an
+image-capable foreground.
+
+PDF indexing recognizes English text on every page, including tables, diagrams
+and scans. `status` reports the number of pages processed as `ocr_pages`.
+`index --no-ocr` explicitly selects the faster native-text path. Existing indexes
+remain readable. Rebuild once to enable OCR on an older collection. A failed
+OCR refresh preserves the last successful index. A successful refresh assigns
+new citation IDs. The index and operator documents stay on the local machine.
+On a new computer, copy your own documents into `context/` and index them there.
+
+Use `ask --file notes.pdf --page 3 "Explain the table"` to select a page directly.
+`--literal` searches exact substrings in original text. OCR terms help locate a
+page. Substantive visual claims cite the original file, page and bounding box.
+Ordinary text claims cite original quotations and lines.
+
 ## Environment
 
 Validated development setup: macOS arm64, Python 3.13.6, Node 24.13.0,

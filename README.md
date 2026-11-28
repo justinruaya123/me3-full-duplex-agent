@@ -23,6 +23,15 @@ Nemotron endpoint, with reasoning disabled and exact response model checks.
 
 The project-local Pi voice launcher can look up public work with Brave, present source-backed facts for approval, and export a static portfolio ZIP. [Portfolio setup and voice flow](docs/SETUP.md#researching-a-personal-portfolio-in-the-project-pi-launcher)
 
+## Search local documents
+
+Place your documents in `context/`, then run `./scripts/me3.sh context index`.
+The client runs Tesseract locally to make words in PDF diagrams, tables and
+scans searchable. Run `./scripts/me3.sh context search "your question"` to see
+the matching pages or `./scripts/me3.sh context ask "your question"` for a
+cited answer. Use `index --no-ocr` for native PDF text only.
+[Installation and transfer to another computer](docs/SETUP.md#local-document-retrieval)
+
 ## Set up and configure
 
 Python 3.13 and Node are required for the Mac setup. Pi `0.84.2` is already

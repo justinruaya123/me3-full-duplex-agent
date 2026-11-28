@@ -10,7 +10,7 @@ import { voiceMode } from "./pi_voice_mode.mjs";
 import { voiceWidget } from "./pi_voice_view.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
-const help = "/me3 duplex · toggle full-duplex voice (F6)\n/me3 folder · files · read FILENAME · save FILENAME = TEXT\n/me3 task BRIEF · jobs · result ID · voice [demo] · mute · end · enroll OWNER\n/me3 /status ID · /revise ID CHANGE · /cancel ID · /memory · look up QUERY";
+const help = "/me3 duplex · toggle full-duplex voice (F6)\n/me3 context QUESTION · search the project context folder\n/me3 folder · files · read FILENAME · save FILENAME = TEXT\n/me3 task BRIEF · jobs · result ID · voice [demo] · mute · end · enroll OWNER\n/me3 /status ID · /revise ID CHANGE · /cancel ID · /memory · look up QUERY";
 const visible = value => String(value).replace(/[\x00-\x08\x0b-\x1f\x7f-\x9f]/g, "");
 
 // Pi reloads extensions on /new and /reload. The local worker belongs to this
@@ -284,7 +284,7 @@ export default function me3(pi) {
         } else if (command === "mute" || command === "end") {
           const reply = await mode.leave(command);
           if (reply) message(reply);
-        } else if (["jobs","result","enroll","folder","files","read","save"].includes(command)) {
+        } else if (["jobs","result","enroll","folder","files","read","save","context"].includes(command)) {
           message(await ask(command, text));
         } else {
           await ask("turn", value);

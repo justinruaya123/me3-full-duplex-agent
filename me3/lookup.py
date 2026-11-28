@@ -50,9 +50,10 @@ LOCAL_CONTEXT = re.compile(
     r"they|them|their|he|she|him|her|his|here|earlier|above|previous|again|private|personal|"
     r"passwords?|credentials?|secrets?|api keys?|tokens?|profile|memory|"
     r"files?|folders?|workspace|repo(?:sitory)?|prototypes?|branch(?:es)?|"
-    r"commits?|merge|patch|the build|the result|"
+    r"commits?|merge|patch|the build|the result|attached|uploaded|"
+    r"(?:slide|page|figure|fig\.|equation|eq\.)\s*#?\(?\d+|the (?:slide|diagram|deck|screenshot)|"
     r"jobs?|tasks?|projects?|meetings?|chats?|conversation|draft|notes?)\b|"
-    r"[/\\`@]|\b\w+(?:\.| dot )(?:txt|md|py|js|json|html|pdf|csv|docx|xlsx)\b|"
+    r"[/\\`@]|\b\w+(?:\.| dot )(?:txt|md|py|js|json|html|pdf|csv|docx|xlsx|png|jpg|jpeg|tex|pptx)\b|"
     r"\b(?:do not|don['’]t|without) (?:search|look|browse|use)\b|"
     r"^(?:what(?:['’]s| is) (?:up|new|happening|going on)|how (?:was|is) "
     r"(?:lunch|dinner|work|everything|life))\s*[.?!]*$",
@@ -265,17 +266,22 @@ class BraveLookup:
             raise ValueError("Set BRAVE_SEARCH_API_KEY to enable lookup")
         self.token, self.client = token, client
 
-    async def web_lookup(self, query: str, mode: str, freshness: str | None):
+    async def web_lookup(self, query: str, mode: str, freshness: str | None, *, site=None):
         import httpx
 
         if not query.strip() or len(query) > 400:
             raise ValueError("Search requires a query of 1 to 400 characters")
+        if site is not None:
+            site = site.lower()
+            domain = r"(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}"
+            if mode != "web" or len(site) > 253 or not re.fullmatch(domain, site):
+                raise ValueError("Use a public DNS domain with Web Search")
         if self.client is None:
             async with httpx.AsyncClient(timeout=20) as client:
-                return await self._request(client, query, mode, freshness)
-        return await self._request(self.client, query, mode, freshness)
+                return await self._request(client, query, mode, freshness, site)
+        return await self._request(self.client, query, mode, freshness, site)
 
-    async def _request(self, client, query, mode, freshness):
+    async def _request(self, client, query, mode, freshness, site):
         if mode == "answers" and freshness is None:
             async with client.stream(
                 "POST",
@@ -356,7 +362,7 @@ class BraveLookup:
                 or date.fromisoformat(match[1]) > date.fromisoformat(match[2])
             ):
                 raise ValueError("Invalid search date window")
-        params = {"q": query, "count": 5, "extra_snippets": "true"}
+        params = {"q": f"site:{site} {query}" if site else query, "count": 5, "extra_snippets": "true"}
         if freshness is not None:
             params["freshness"] = freshness
         async with client.stream(
@@ -367,6 +373,14 @@ class BraveLookup:
         ) as response:
             response.raise_for_status()
             records = json.loads(await bounded_body(response))["web"]["results"]
+            if site:
+                unique = {}
+                for item in records:
+                    _, _, snippet, url, _ = source(item)
+                    parsed = urlsplit(url)
+                    if snippet and (parsed.hostname == site or parsed.hostname.endswith("." + site)):
+                        unique.setdefault(parsed._replace(fragment="").geturl(), item)
+                records = list(unique.values())
             return result(records, "", response.headers.get("Age", "0") != "0")
 
 

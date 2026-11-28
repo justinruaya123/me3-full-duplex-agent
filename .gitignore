@@ -241,3 +241,7 @@ __marimo__/
 .venv-pi/
 bmo-config.json
 .DS_Store
+
+# Operator-selected RAG sources
+/context/*
+!/context/.gitkeep

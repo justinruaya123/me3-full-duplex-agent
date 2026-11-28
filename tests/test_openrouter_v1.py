@@ -35,6 +35,27 @@ class OpenRouterTests(unittest.IsolatedAsyncioTestCase):
         self.addAsyncCleanup(client.aclose)
         return ForegroundBackend(ForegroundConfig.from_env(CONFIG), client=client)
 
+    async def test_visual_prompt_sends_pixels_with_the_selected_route(self):
+        def handle(request):
+            body = json.loads(request.content)
+            self.assertEqual(body["provider"], ROUTE)
+            self.assertNotIn("tools", body)
+            self.assertEqual(body["messages"], [
+                {"role": "system", "content": "Use supplied evidence."},
+                {"role": "user", "content": [
+                    {"type": "text", "text": "Read the label"},
+                    {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64,YWJj"}},
+                ]},
+            ])
+            record = {"model": MODEL, "provider": "Google AI Studio",
+                      "choices": [{"delta": {"content": "Label"}}]}
+            return httpx.Response(200, text="data: " + json.dumps(record) + "\n\ndata: [DONE]\n")
+
+        backend = self.backend(handle)
+        backend.system_prompt = "Use supplied evidence."
+        images = [{"mimeType": "image/jpeg", "data": "YWJj"}]
+        self.assertEqual([s async for s in backend.stream("Read the label", images=images)], ["Label"])
+
     async def test_spoken_stream_pins_route_and_disables_computation(self):
         def handle(request):
             body = json.loads(request.content)

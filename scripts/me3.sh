@@ -29,6 +29,8 @@ if [[ -z "${ME3_PI_BIN:-}" && -x .local/pi-cli/node_modules/.bin/pi ]]; then
 fi
 if [[ $# -gt 0 ]]; then shift; fi
 case "$mode" in
+  files) exec "$runtime_python" -m me3.files "$@" ;;
+  context) exec "$runtime_python" -m me3.context "$@" ;;
   tts-probe) exec "$runtime_python" -m me3.tts_probe "$@" ;;
   doctor) exec "$runtime_python" -m me3.doctor "$@" ;;
   pi) exec bash integrations/voicechat/start.sh "$@" ;;
@@ -51,5 +53,5 @@ case "$mode" in
   console) exec "$runtime_python" -m me3.runtime "$@" ;;
   voice) exec "$runtime_python" -m me3.runtime --voice "$@" ;;
   speech) exec .speech-venv312/bin/python -m me3.speech_server "$@" ;;
-  *) printf '%s\n' 'Usage: scripts/me3.sh {agent|pi|course|doctor|console|voice|speech|tts-probe} [args]' >&2; exit 2 ;;
+  *) printf '%s\n' 'Usage: scripts/me3.sh {agent|pi|course|files|context|doctor|console|voice|speech|tts-probe} [args]' >&2; exit 2 ;;
 esac

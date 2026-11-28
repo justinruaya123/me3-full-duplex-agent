@@ -10,13 +10,14 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.optional-dependencies]
+context = ["pypdfium2>=5.13,<6", "Pillow>=11,<14"]
 benchmark-audio = ["scipy>=1.11,<2", "soundfile>=0.12", "websockets>=12"]
 web = ["aiohttp>=3.14.4,<4", "httpx>=0.28,<1"]
 local-tts = ["sherpa-onnx==1.13.8", "numpy>=1.26,<3"]
 website = ["playwright==1.58.0"]
 speech = ["httpx>=0.28,<1", "sounddevice>=0.5,<0.6", "mcp>=1.28,<2"]
 mcp = ["mcp>=1.28,<2", "httpx>=0.28,<1"]
-test = ["playwright==1.58.0", "httpx>=0.28,<1", "aiohttp>=3.14.4,<4"]
+test = ["pypdfium2>=5.13,<6", "Pillow>=11,<14", "playwright==1.58.0", "httpx>=0.28,<1", "aiohttp>=3.14.4,<4"]
 speech-server = [
     "aiohttp>=3.14.4,<4",
     "numpy>=1.26,<3; sys_platform == 'darwin'",

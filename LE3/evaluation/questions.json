@@ -1,0 +1,103 @@
+[
+  {
+    "id": "H1",
+    "question": "A slide puts four arrows under one equality involving the evidence for an observation. Use this single slide to identify what both sides equal. Transcribe the expected decoder term and both KL terms with their arguments and signs. Which KL is the gap to the evidence, under what condition does it vanish exactly, and why can the other KL still be nonzero then? Support both halves from different regions of the same slide.",
+    "evidence_roles": [
+      "evidence_gap",
+      "decoder_and_prior"
+    ]
+  },
+  {
+    "id": "A1",
+    "question": "Find the communication-channel drawing with matching handwritten digits. Read the digit, the dimensionality at each end and in the channel, and state which object actually crosses the channel.",
+    "evidence_roles": [
+      "channel"
+    ]
+  },
+  {
+    "id": "A2",
+    "question": "Two four-node graphs use nearly identical layouts for recovering an image. How does the corruption step differ between the noise-removal and color-recovery tasks? Identify the encoder input and the reconstruction target in each graph.",
+    "evidence_roles": [
+      "noise_graph",
+      "color_graph"
+    ]
+  },
+  {
+    "id": "V1",
+    "question": "Find the paired training diagrams that move sampling outside the encoder path. Compare how z is obtained in the two panels. Trace the independent noise through the operators on the right and say what remains trainable through that path.",
+    "evidence_roles": [
+      "before",
+      "after"
+    ]
+  },
+  {
+    "id": "V2",
+    "question": "Find both the unweighted latent-variable loss and the slide changing its tradeoff to encourage disentanglement. Write the two losses, state which term changes, and give the coefficient range specified for stronger regularization.",
+    "evidence_roles": [
+      "base_loss",
+      "weighted_loss"
+    ]
+  },
+  {
+    "id": "G1",
+    "question": "The two unconditional convolutional training diagrams assign different target labels to the same fake image. Give each label, identify which network updates on each step, and say where gradients stop or pass through.",
+    "evidence_roles": [
+      "discriminator_step",
+      "generator_step"
+    ]
+  },
+  {
+    "id": "G2",
+    "question": "Locate the conditional discriminator training picture with two distinct label inputs. Where does each label enter? What do the real/fake targets mean, and how do they differ from the class condition?",
+    "evidence_roles": [
+      "generator_condition",
+      "discriminator_condition"
+    ]
+  },
+  {
+    "id": "G3",
+    "question": "Find the sample-output slide whose heading mentions conditioning on all ten digits. Describe the arrangement of the displayed tiles and count them. Does this slide establish a numerical classification accuracy? Cite the actual display.",
+    "evidence_roles": [
+      "output_grid"
+    ]
+  },
+  {
+    "id": "F1",
+    "question": "Find the overview showing a single handwritten digit opposite a Gaussian cloud and two arrows between them. Identify the digit and state the direction, formula and task for each arrow.",
+    "evidence_roles": [
+      "directions",
+      "example_digit"
+    ]
+  },
+  {
+    "id": "F2",
+    "question": "Find the inverse coupling layer\u2019s block Jacobian and its log determinant on one slide. Identify the zero block, state the lower-right diagonal and explain the sign. For a two-component scale output (ln 2, ln 3), derive the log absolute determinant for that direction.",
+    "evidence_roles": [
+      "block_matrix",
+      "log_det"
+    ]
+  },
+  {
+    "id": "F3",
+    "question": "In the comparison table with bits per dimension, what MNIST score is reported for Flow++? Use the metric, the matched row and column, and one neighboring populated cell to explain what can actually be reported.",
+    "evidence_roles": [
+      "table"
+    ]
+  },
+  {
+    "id": "X1",
+    "question": "One lecture sends a handwritten digit through a narrow communications channel. Another puts a single digit opposite a Gaussian cloud. Can you infer that the first encoder has an exact inverse merely because the second transformation does? Cite both figures, use the dimensions in the first, and distinguish reconstruction from a bijective change of variables.",
+    "evidence_roles": [
+      "bottleneck",
+      "bijection"
+    ]
+  },
+  {
+    "id": "V3",
+    "question": "Two adjacent comparison slides have almost the same title and both compare two-dimensional representations. Which shows colored point clouds, and which shows grids of decoded images? Identify the left and right model in both, and state whether those slides quantify reconstruction error.",
+    "evidence_roles": [
+      "point_clouds",
+      "decoded_grids"
+    ]
+  }
+]

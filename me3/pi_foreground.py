@@ -90,6 +90,7 @@ class PiForegroundBackend(PersistentPiBackend):
             self.model, self.provider
         ):
             raise ValueError("Pi foreground model/provider changed")
+        self.input_types = model.get("input", [])
         if state.get("thinkingLevel") != level:
             raise ValueError("Pi foreground reasoning level differs from the request")
         if state.get("isStreaming") or state.get("isCompacting"):
@@ -121,7 +122,7 @@ class PiForegroundBackend(PersistentPiBackend):
                 raise ValueError("Invalid or empty Pi voice action")
             yield ActionProposal(action[1:], utterance)
 
-    async def stream(self, prompt):
+    async def stream(self, prompt, *, images=()):
         if (
             not isinstance(prompt, str)
             or not prompt.strip()
@@ -133,13 +134,17 @@ class PiForegroundBackend(PersistentPiBackend):
             try:
                 async with asyncio.timeout(self.timeout):
                     await self._prepare()
+                    if images and "image" not in self.input_types:
+                        raise ValueError("Configured foreground does not accept images")
                     if self.on_stage:
                         self.on_stage(
                             "llm_request", chars=len(prompt), messages=1
                         )
                     turn_id = uuid.uuid4().hex
-                    await self._send({"type": "prompt", "id": turn_id,
-                                      "message": prompt})
+                    frame = {"type": "prompt", "id": turn_id, "message": prompt}
+                    if images:
+                        frame["images"] = images
+                    await self._send(frame)
                     accepted = ended = False
                     text = ""
                     while True:

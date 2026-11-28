@@ -1,0 +1,432 @@
+{
+  "H1": {
+    "tags": [
+      "hard",
+      "single-slide synthesis",
+      "equation",
+      "spatial callouts"
+    ],
+    "status": "answered",
+    "evidence": {
+      "evidence_gap": {
+        "deck": "VAE",
+        "page": 14,
+        "bbox": [
+          24,
+          390,
+          456,
+          774
+        ]
+      },
+      "decoder_and_prior": {
+        "deck": "VAE",
+        "page": 14,
+        "bbox": [
+          482,
+          390,
+          980,
+          774
+        ]
+      }
+    },
+    "criteria": [
+      "Both sides are the ELBO. Left is log Pθ(x) minus KL(Qφ(z|x) || Pθ(z|x)).",
+      "Right is E_{z~Qφ(z|x)}[log Pθ(x|z)] minus KL(Qφ(z|x) || Pθ(z)). Identify the expected log likelihood as the decoder/reconstruction term.",
+      "The posterior KL is the nonnegative gap. It is zero exactly when approximate and true posteriors coincide almost everywhere; this is the tight-bound condition.",
+      "The other KL compares to the prior, not the posterior. An observation can update the latent distribution away from the prior even under exact inference. This last conclusion is a derivation."
+    ],
+    "disqualifier": "Wrong direction or conditioning of either KL, claiming both vanish, or treating the slide’s approximate-zero callout as an unconditional identity."
+  },
+  "A1": {
+    "tags": [
+      "image",
+      "dimension"
+    ],
+    "status": "answered",
+    "evidence": {
+      "channel": {
+        "deck": "AE",
+        "page": 17,
+        "bbox": [
+          157,
+          531,
+          821,
+          933
+        ]
+      }
+    },
+    "criteria": [
+      "Both images show a handwritten 7.",
+      "Input and reconstruction are 784-dimensional; the channel carries a two-dimensional code z.",
+      "The encoder f sends the code and the receiver’s decoder g reconstructs from it."
+    ],
+    "disqualifier": "Transmits the full image or calls the channel 784-dimensional."
+  },
+  "A2": {
+    "tags": [
+      "near-duplicate",
+      "two-slide diagram"
+    ],
+    "status": "answered",
+    "evidence": {
+      "noise_graph": {
+        "deck": "AE",
+        "page": 26,
+        "bbox": [
+          230,
+          197,
+          858,
+          966
+        ]
+      },
+      "color_graph": {
+        "deck": "AE",
+        "page": 30,
+        "bbox": [
+          226,
+          199,
+          856,
+          971
+        ]
+      }
+    },
+    "criteria": [
+      "Denoising corrupts x by adding noise to obtain x-tilde; the encoder consumes that corrupted input.",
+      "Colorization removes color; the encoder consumes the grayscale observation.",
+      "In both graphs the latent h drives decoding and the original x supplies the target: clean image for denoising, color image for colorization."
+    ],
+    "disqualifier": "Uses the corrupted observation as reconstruction target or swaps the slide assignments."
+  },
+  "V1": {
+    "tags": [
+      "paired diagram",
+      "reparameterization"
+    ],
+    "status": "answered",
+    "evidence": {
+      "before": {
+        "deck": "VAE",
+        "page": 22,
+        "bbox": [
+          200,
+          220,
+          422,
+          935
+        ]
+      },
+      "after": {
+        "deck": "VAE",
+        "page": 22,
+        "bbox": [
+          477,
+          220,
+          824,
+          935
+        ]
+      }
+    },
+    "criteria": [
+      "On the left the encoder yields μ and σ and a sampling node supplies the decoder input.",
+      "On the right ε is sampled from N(0,I), separately from the encoder. Multiply it by σ then add μ to form z.",
+      "The deterministic path from μ and σ lets the reconstruction gradient reach the encoder; the independent noise draw does not acquire trainable parameters."
+    ],
+    "disqualifier": "Multiplication/addition reversed, or says the encoder samples ε."
+  },
+  "V2": {
+    "tags": [
+      "two-slide equation"
+    ],
+    "status": "answered",
+    "evidence": {
+      "base_loss": {
+        "deck": "VAE",
+        "page": 18,
+        "bbox": [
+          190,
+          414,
+          800,
+          618
+        ]
+      },
+      "weighted_loss": {
+        "deck": "VAE",
+        "page": 36,
+        "bbox": [
+          96,
+          390,
+          895,
+          892
+        ]
+      }
+    },
+    "criteria": [
+      "Base loss is L_R + L_KL.",
+      "Weighted loss is L_R + β L_KL, so β weights the divergence term only.",
+      "The stronger-regularization regime on the slide is β > 1."
+    ],
+    "disqualifier": "Weights reconstruction or claims β must always equal a fixed value."
+  },
+  "G1": {
+    "tags": [
+      "two-slide diagram",
+      "optimization"
+    ],
+    "status": "answered",
+    "evidence": {
+      "discriminator_step": {
+        "deck": "GAN",
+        "page": 22,
+        "bbox": [
+          327,
+          207,
+          933,
+          867
+        ]
+      },
+      "generator_step": {
+        "deck": "GAN",
+        "page": 23,
+        "bbox": [
+          336,
+          202,
+          931,
+          805
+        ]
+      }
+    },
+    "criteria": [
+      "Discriminator step: fake target 0 (real 1); update D and stop gradients to G.",
+      "Generator step: fake target 1 to make D treat it as real.",
+      "D parameters are frozen during the generator update, but gradients pass through D to update G."
+    ],
+    "disqualifier": "Says frozen D blocks the generator gradient or swaps fake targets."
+  },
+  "G2": {
+    "tags": [
+      "class vs authenticity",
+      "diagram"
+    ],
+    "status": "answered",
+    "evidence": {
+      "generator_condition": {
+        "deck": "GAN",
+        "page": 28,
+        "bbox": [
+          216,
+          211,
+          515,
+          927
+        ]
+      },
+      "discriminator_condition": {
+        "deck": "GAN",
+        "page": 28,
+        "bbox": [
+          435,
+          202,
+          914,
+          901
+        ]
+      }
+    },
+    "criteria": [
+      "The generator receives z and one-hot y-prime to produce the synthetic x-prime.",
+      "D receives fake paired with its condition y-prime or real x paired with the one-hot y.",
+      "Class labels specify which class; the separate binary labels encode fake 0 vs real 1."
+    ],
+    "disqualifier": "Treats the class labels as the binary real/fake targets."
+  },
+  "G3": {
+    "tags": [
+      "image only",
+      "insufficient secondary claim"
+    ],
+    "status": "answered",
+    "evidence": {
+      "output_grid": {
+        "deck": "GAN",
+        "page": 31,
+        "bbox": [
+          329,
+          302,
+          634,
+          844
+        ]
+      }
+    },
+    "criteria": [
+      "The displayed panel has four rows and four columns, 16 tiles.",
+      "Tiles show light handwritten-looking marks on dark squares; condition range 0–9 does not imply ten displayed tiles.",
+      "No numerical classification accuracy can be read from these sample images."
+    ],
+    "disqualifier": "Invents per-class accuracy or uses the number of classes as the sample count."
+  },
+  "F1": {
+    "tags": [
+      "image",
+      "direction",
+      "inverse"
+    ],
+    "status": "answered",
+    "evidence": {
+      "directions": {
+        "deck": "Flow",
+        "page": 3,
+        "bbox": [
+          405,
+          321,
+          613,
+          854
+        ]
+      },
+      "example_digit": {
+        "deck": "Flow",
+        "page": 3,
+        "bbox": [
+          629,
+          480,
+          801,
+          792
+        ]
+      }
+    },
+    "criteria": [
+      "The example is the digit 7.",
+      "Generation/prediction goes from Gaussian X to data Y, Y=U(X), rightward.",
+      "Normalization/learning goes from data Y to Gaussian X, X=U⁻¹(Y), leftward."
+    ],
+    "disqualifier": "Swaps U with its inverse or asserts a different digit."
+  },
+  "F2": {
+    "tags": [
+      "equation",
+      "derived calculation"
+    ],
+    "status": "answered",
+    "evidence": {
+      "block_matrix": {
+        "deck": "Flow",
+        "page": 23,
+        "bbox": [
+          289,
+          270,
+          698,
+          508
+        ]
+      },
+      "log_det": {
+        "deck": "Flow",
+        "page": 23,
+        "bbox": [
+          239,
+          550,
+          754,
+          891
+        ]
+      }
+    },
+    "criteria": [
+      "Inverse block Jacobian is triangular with upper-right zero and upper-left identity.",
+      "Lower-right diagonal has entries exp(−s_i(x_1:d)); inverting the forward scale produces the minus sign.",
+      "log|det J|=−Σ_i s_i; under the supplied two scales the result is −ln 6 (determinant 1/6)."
+    ],
+    "disqualifier": "Uses the positive forward sign or confuses the log determinant with 1/6."
+  },
+  "F3": {
+    "tags": [
+      "table",
+      "abstention"
+    ],
+    "status": "insufficient",
+    "evidence": {
+      "table": {
+        "deck": "Flow",
+        "page": 28,
+        "bbox": [
+          179,
+          231,
+          822,
+          930
+        ]
+      }
+    },
+    "criteria": [
+      "The table reports average test negative log-likelihood in bits per dimension, lower is better.",
+      "Flow++ × MNIST is blank; explicitly say it is unreported.",
+      "Give a correct adjacent value labeled with its row/column, e.g. Flow++ on CIFAR-10 is 3.08 or Residual Flow on MNIST is 0.97."
+    ],
+    "disqualifier": "Reports a numerical score for the blank cell, including zero."
+  },
+  "X1": {
+    "tags": [
+      "hard",
+      "cross-deck synthesis",
+      "image"
+    ],
+    "status": "answered",
+    "evidence": {
+      "bottleneck": {
+        "deck": "AE",
+        "page": 17,
+        "bbox": [
+          157,
+          531,
+          821,
+          933
+        ]
+      },
+      "bijection": {
+        "deck": "Flow",
+        "page": 3,
+        "bbox": [
+          89,
+          310,
+          809,
+          895
+        ]
+      }
+    },
+    "criteria": [
+      "In the AE diagram the 784-dimensional image is encoded to a 2-D z then reconstructed to 784 dimensions.",
+      "The flow diagram explicitly labels a reversible bijection; Gaussian-to-digit uses U and the reverse uses U⁻¹.",
+      "Approximate reconstruction through a bottleneck does not establish exact inversion on the full input space; an output visually resembling its input is insufficient."
+    ],
+    "disqualifier": "Transfers the flow’s exact-inverse guarantee to the autoencoder."
+  },
+  "V3": {
+    "tags": [
+      "visual discrimination",
+      "near-duplicate",
+      "unreported metric"
+    ],
+    "status": "answered",
+    "evidence": {
+      "point_clouds": {
+        "deck": "VAE",
+        "page": 26,
+        "bbox": [
+          45,
+          236,
+          914,
+          952
+        ]
+      },
+      "decoded_grids": {
+        "deck": "VAE",
+        "page": 27,
+        "bbox": [
+          40,
+          241,
+          929,
+          960
+        ]
+      }
+    },
+    "criteria": [
+      "Page 26 shows colored scatter plots of latent coordinates.",
+      "Page 27 shows grids of decoded digit images. Both slides put the autoencoder on the left and the VAE on the right.",
+      "Neither comparison supplies a numerical reconstruction error."
+    ],
+    "disqualifier": "Reverses the two visual types/models or invents a reconstruction metric."
+  }
+}

@@ -145,3 +145,25 @@ final and a local commit. The supervisor selects this chat’s running job, or
 its first queued job if none has started, and checks its revision. A completed
 job keeps its result. Interim words, model output and replay audio have no
 cancellation authority. [Verification](DUPLEX_STATUS.md)
+
+### D4 / R10c · Local OCR for document retrieval
+
+**Implemented.** The indexer recognizes English text locally during PDF ingestion.
+SQLite FTS5 ranks the native passage, filename and additional OCR terms together.
+OCR terms attach once to the first passage on each page. The client reopens the
+original source and checks its digest and index generation before returning
+a citation. Text embeddings remain an evaluated alternative.
+
+```mermaid
+flowchart LR
+  pdf["Operator-selected PDF"] --> native["Native text and page number"]
+  pdf --> ocr["Local Tesseract at index time"]
+  native --> index["Private SQLite FTS5 index"]
+  ocr -->|"Additional search terms per page"| index
+  index --> select["Up to four candidate passages"]
+  select --> verify["Reopen original and check digest"]
+  verify -->|"Explicit question"| model["Tool-free foreground with original page images"]
+  model --> cite["Recheck source and resolve citation"]
+```
+
+[Setup and transfer](SETUP.md#local-document-retrieval) · [Measured retrieval](evidence/2026-11-28-rag/README.md)

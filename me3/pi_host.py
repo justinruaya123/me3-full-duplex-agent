@@ -59,6 +59,28 @@ async def serve(output):
                      else f"Brave search unavailable ({type(exc).__name__}).")
             emit("response", id=ident, error=error)
 
+    async def context_question(ident, question, bound_chat):
+        from me3.file_collection import open_collection
+        from me3.files import answer as answer_files
+
+        try:
+            with open_collection(Path("context"), Path(".local/file-index")) as collection:
+                result = await answer_files(collection, question)
+            if chat != bound_chat:
+                emit("response", id=ident, error="Pi chat changed.")
+                return
+            lines = []
+            for claim in result["claims"]:
+                location = (f"page {claim['page']} · box {claim['bbox']}" if "page" in claim
+                            else f"lines {claim['line_start']}–{claim['line_end']}")
+                lines.append(f"{claim['text']}\n{claim['path']} · {location} · {claim['id']}")
+            emit("response", id=ident, text="\n\n".join(lines) or "Insufficient evidence in the project context.")
+        except asyncio.CancelledError:
+            emit("response", id=ident, error="Context request cancelled.")
+            raise
+        except Exception as exc:
+            emit("response", id=ident, error=str(exc) or type(exc).__name__)
+
     async def display(text):
         emit("message", text=text)
         return True
@@ -150,6 +172,15 @@ async def serve(output):
                     else:
                         job = jobs.submit(text, request_id=request.get("request_id") or ident)
                         answer = f"Queued job {job['id']} · revision {job['revision']}"
+                elif op == "context":
+                    if not chat or not text or len(text.encode()) > 1024:
+                        raise ValueError("Use /me3 context QUESTION in an attached local chat")
+                    if len(lookups) >= 2:
+                        raise ValueError("Search is busy. Try again shortly.")
+                    task = asyncio.create_task(context_question(ident, text, chat))
+                    lookups.add(task)
+                    task.add_done_callback(lookups.discard)
+                    continue
                 elif op in {"lookup", "auto_lookup"}:
                     from me3.lookup import lookup_intent
 

@@ -1,5 +1,25 @@
 # Implementation and qualification status
 
+## November 28 · Production PDF retrieval (D4 / R10c)
+
+The handoff branch adds local English OCR to PDF ingestion. The normal file CLI
+indexed all four frozen lecture PDFs (138 pages, 142 passages). With native
+text, the top four results contained every required page for 4/13 questions
+and covered 8/23 evidence requirements. With OCR enabled the same queries
+reached 7/13 questions and 13/23 requirements. Indexing on this Mac took 0.16 s
+and 48.13 s respectively. These are retrieval scores. Answer quality and
+Raspberry Pi timings require separate runs.
+
+In a separate project-folder launcher check, a previously unseen three-page
+scan returned the unique requested page and reopened its original citation.
+Regressions cover an OCR-only phrase, changed source bytes, a missing engine,
+atomic refresh failure, native-only indexing and an index built with the older
+schema. The installed handoff checkout passed 508 v1 and 538 full Python tests,
+114 Node tests and five duplex simulator checks. Both Python suites and the
+Node suite had zero skips. Compilation passed.
+
+[Production ranks](evidence/2026-11-28-rag/production.json) · [Reproduction](evidence/2026-11-28-rag/README.md) · [Setup on another computer](SETUP.md#local-document-retrieval)
+
 ## November 21 · Account-owned Git push (R10, current)
 
 An explicit `/me3 push REPO` or `/me3 publish REPO` uses the active `gh`
